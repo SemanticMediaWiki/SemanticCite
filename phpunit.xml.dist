@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit backupGlobals="false"
+         backupStaticAttributes="false"
+         bootstrap="tests/bootstrap.php"
+         cacheTokens="false"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         stopOnError="false"
+         stopOnFailure="false"
+         stopOnIncomplete="false"
+         stopOnSkipped="false"
+         verbose="true">
+    <testsuites>
+        <testsuite name="semantic-cite-unit">
+            <directory>tests/phpunit/Unit</directory>
+        </testsuite>
+        <testsuite name="semantic-cite-integration">
+            <directory>tests/phpunit/Integration</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist addUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">src</directory>
+        </whitelist>
+    </filter>
+    <php>
+       <var name="scigReferenceListCacheType" value="hash"/>
+    </php>
+</phpunit>

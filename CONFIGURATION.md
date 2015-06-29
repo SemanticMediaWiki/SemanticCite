@@ -1,0 +1,191 @@
+## Settings
+
+- `$GLOBALS['scigCitationReferenceCaptionFormat']` specifies the display format for an citation
+  reference to be displayed either as a number (`SCI_CITEREF_NUM`) or by its key (`SCI_CITEREF_KEY`)
+- `$GLOBALS['scigShowTooltipForCitationReference']` whether to show a reference tooltip
+  for when `SCI_CITEREF_NUM` is set or not
+- `$GLOBALS['scigTooltipRequestCacheTTLInSeconds']` to allow to store tooltip query results from
+   the backend to the local browser cache in order to avoid repeated requests for already queried
+   references. Setting this parameter to false will disable the cache.Items cached are displayed
+   with a `[+]`indicator.
+- `$GLOBALS['scigReferenceListCacheType']` to disable caching for the reference list, use setting
+  [`CACHE_NONE`][mw-cachetype] otherwise the cache is being renewed an each new revision or when
+  the page is purged
+- `$GLOBALS['scigStrictParserValidationEnabled']` whether a strict validation of input data for
+  the `{{#scite:}}` parser should be carried out or not
+
+### Reference list
+
+- `$GLOBALS['scigNumberOfReferenceListColumns']` specifies the number of columns to be shown
+  on the reference list
+- `$GLOBALS['scigReferenceListType']` either formatted using `ul` or `ol`
+- `$GLOBALS['scigBrowseLinkToCitationResource']` whether to show a browse link to the citation
+  resource or not
+
+## Configuration
+
+### Property mapping
+
+Not all resource identifiers in `{{#scite:}}` (e.g `|pages=...` etc. ) are relevant for semantic recognition
+therefore `MediaWiki:Sci-property-definition` describes the mapping between identifiers
+and properties specific to a wiki (no mapping, means no annotations).
+
+<pre>
+type|Has reference type
+author|Has author
+publisher|Has publisher
+</pre>
+
+```
+{{#scite:Foo
+ ...
+ |type=Faz
+ |author=Bar
+ |publisher=Foobar
+ |pages=123
+ |volume=10
+ ...
+}}
+```
+For example, with the mapping above the following annotations `[[Has reference type::Faz]]`, `[[Has author::Bar]]`, and
+`[[Has publisher::Foobar]]` will be made available. The `pages` and `volume` identifier are not mapped to a
+property therefore are not available as semantic annotation.
+
+### Template mapping
+
+The generation of a citation text is handled by different rules resolved through
+the following process.
+
+Templates assigned to a specific citation resource type (assigned by the
+`MediaWiki:Sci-template-definition` page) will determine the general rules how
+indentifiers are positioned or formatted within a citation text.
+
+<pre>
+ online|SciteOnlineResourceFormatter
+ journal|SciteAPAJournalResourceFormatter
+ book|SciteMPABookResourceFormatter
+ someothertype|SciteFormatterForAnotherType
+</pre>
+
+A citation resource can override the template type assignment by invoking
+the `|template=...` parameter.
+
+```
+{{#scite:Segon & Booth 2011
+ |type=online
+ |author=Segon, M;Booth, C|+sep=;
+ |year=2011
+ |title=Bribery: what do Australian managers know and what do they do?
+ |journal=Journal of Business Systems, Governance and Ethics
+ |volumn=vol. 6, no. 3
+ |pages=15-29
+ |url=http://www.jbsge.vu.edu.au/issues/vol06no3/Segon_&_Booth.pdf
+ |available=20 October 2014
+ |template=SciteUseDifferentOnlineResourceFormatter
+}}
+```
+
+Using the `|citation text=...` parameter allows to circumvent
+any template rendering by storing the input text directly.
+
+```
+{{#scite:
+ |type=book
+ |reference=Barone and Gianfranco, 1982
+ |citation text=Barone, Antonio, and Gianfranco Paterno. Physics and applications of the Josephson effect. Vol. 1. New York: Wiley, 1982.
+}}
+```
+
+The mapping is made flexible enough to support citation styles or types that
+do not fit the standard guidelines or use citations for more than just
+literature references.
+
+### #scite usage
+
+`{{#scite:}}` parser can only be used on [namespaces][smw-ns] that are enabled
+for Semantic MediaWiki. Parameters (or identifiers) are free from any restrictions
+besides those listed below:
+
+- `type` is a reserved parameter and is required for when `$GLOBALS['scigStrictParserValidationEnabled']` is set `true`
+- `doi` is a reserved parameter and is linked to the `DOI` property
+- `pmcid` is a reserved parameter and is linked to the `PMCID` property
+- `reference` is a reserved parameter and is linked to the `Citation key` property
+- `citation text` is a reserved parameter and is linked to the `Citation text` property
+- `@sortkey` is a reserved parameter and is linked to the `_SKEY` property
+
+For example, below represents the same `Segon & Booth 2011` entity reference using the
+short and the explicit form.
+
+```
+{{#scite:Segon & Booth 2011
+  ...
+}}
+
+{{#scite:
+  |reference=Segon & Booth 2011
+}}
+```
+
+### #referencelist usage
+
+`{{#referencelist:}}` can be used to mark the position of the reference list to appear
+otherwise the list is added to the bottom.
+
+### References and citation keys
+
+Citation keys are available wiki-wide therefore selecting an
+appropriate key is paramount to safeguard against unnecessary changes.
+
+- If it becomes necessary to rename a citation key (because a resource with key
+`Foo 2007` no longer represents a unique resource due to adding another resource
+with the same key) then the existing usage of that resource needs to be queried and
+changed before applying the new citation key (e.g. `Foo 2007a`).
+- Citation resources that use the same key are displayed on the reference list
+and are linked to each other (in case `$GLOBALS['scigBrowseLinkToCitationResource']` is set
+true). For example, ` ↑ | ↑` is indicating that two resources use the same citation
+key with each `↑` to link to its resource.
+- The parentheses style of a citation reference can be modified using the `scite.styles.css`
+style sheet.
+- If a page number reference is required then one can use the following syntax
+  `[[CiteRef::Foo and Bar, 1970|Foo and Bar, 1970:42]]` to highlight the page 42 (in case
+  `$GLOBALS['scigCitationReferenceCaptionFormat']` is set to `SCI_CITEREF_KEY` )
+- To avoid cluttering a source text with citation resources it is suggested to divide
+text and resource definitions by storing `{{#scite:}}` resources on a related a subpage
+and use the `[[CiteRef:: ...]]` annotation on the source page for inclusion.
+
+## Questions
+
+### How to handle different authors
+
+There are various ways of making different authors available to the semantic search
+and as ordered output.
+
+For example using a parameter `author` that is matched to a property `Has author`
+(to contain all authors in clear form) while an `authors` parameter (not matched to any
+property) is used as identifier so that the template formatter can generate the expected
+ordered output from `{{{authors|}}}`  without having to apply a complex parsing process.
+
+```
+{{#scite:Watson and Crick, 1953
+ ...
+ |author=James D. Watson;Francis HC Crick|+sep=;
+ |authors=Watson, James D., and Francis HC Crick
+ ...
+}}
+```
+
+### How to create a simple citation resource
+
+Sometimes a simple resource is all that is required and a very convenient way is
+to use the `|citation text=...` parameter and assign the text without further processing.
+
+```
+{{#scite:
+ |type=book
+ |reference=Barone and Gianfranco, 1982
+ |citation text=Barone, Antonio, and Gianfranco Paterno. Physics and applications of the Josephson effect. Vol. 1. New York: Wiley, 1982.
+}}
+```
+
+[mw-cachetype]: http://www.mediawiki.org/wiki/Manual:$wgMainCacheType
+[smw-ns]: https://semantic-mediawiki.org/wiki/Help:$smwgNamespacesWithSemanticLinks

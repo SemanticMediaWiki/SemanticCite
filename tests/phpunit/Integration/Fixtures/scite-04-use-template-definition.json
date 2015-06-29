@@ -1,0 +1,89 @@
+{
+	"description": "Test user-defined template generated citation text",
+	"properties": [],
+	"subjects": [
+		{
+			"name": "Sci-template-definition",
+			"namespace": "NS_MEDIAWIKI",
+			"contents": "Some type-template assignments\n journal|SciteJournalAFormatter \n"
+		},
+		{
+			"name": "SciteJournalAFormatter",
+			"namespace": "NS_TEMPLATE",
+			"contents": "<includeonly>{{{author}}}, {{{title}}}. ({{{year}}})</includeonly>"
+		},
+		{
+			"name": "SciteJournalBFormatter",
+			"namespace": "NS_TEMPLATE",
+			"contents": "<includeonly>({{{year}}}), {{{title}}}, {{{author}}}</includeonly>"
+		},
+		{
+			"name": "Citation/Resource/1",
+			"contents": "{{#scite:Foo:123|type=journal|author=AuthorA,AuthorB|+sep=,|title=Some title|year=1970}}"
+		},
+		{
+			"name": "Citation/Resource/2",
+			"contents": "{{#scite:Foo:456|type=journal|author=AuthorA,AuthorB|+sep=,|title=Some title|year=1970|template=SciteJournalBFormatter}}"
+		}
+	],
+	"parser-testcases": [
+		{
+			"about": "#0",
+			"subject": "Citation/Resource/1",
+			"store": {
+				"semantic-data": {
+					"strict-mode-valuematch": false,
+					"propertyCount": 3,
+					"propertyKeys": [ "__sci_cite", "_MDAT", "_SKEY" ],
+					"propertyValues": [ "Citation/Resource/1#_SCITE-86f84b9b2cf2ae4405199e26f121b4e9" ]
+				}
+			}
+		},
+		{
+			"about": "#1 citation text determined by type-template mapping",
+			"subject": "Citation/Resource/1#_SCITE-86f84b9b2cf2ae4405199e26f121b4e9",
+			"store": {
+				"semantic-data": {
+					"strict-mode-valuematch": false,
+					"propertyCount": 3,
+					"propertyKeys": [ "__sci_cite_key", "__sci_cite_text", "_SKEY" ],
+					"propertyValues": [ "Foo:123", "AuthorA, AuthorB, Some title. (1970)" ]
+				}
+			}
+		},
+		{
+			"about": "#2",
+			"subject": "Citation/Resource/2",
+			"store": {
+				"semantic-data": {
+					"strict-mode-valuematch": false,
+					"propertyCount": 3,
+					"propertyKeys": [ "__sci_cite", "_MDAT", "_SKEY" ],
+					"propertyValues": [ "Citation/Resource/2#_SCITE-0c2129948fae0ce94908235dd949ea00" ]
+				}
+			}
+		},
+		{
+			"about": "#3 citation text determined by direct template assignment",
+			"subject": "Citation/Resource/2#_SCITE-0c2129948fae0ce94908235dd949ea00",
+			"store": {
+				"semantic-data": {
+					"strict-mode-valuematch": false,
+					"propertyCount": 3,
+					"propertyKeys": [ "__sci_cite_key", "__sci_cite_text", "_SKEY" ],
+					"propertyValues": [ "Foo:456", "(1970), Some title, AuthorA, AuthorB" ]
+				}
+			}
+		}
+	],
+	"settings": {
+		"wgContLang": "en",
+		"scigReferenceListType": "ol",
+		"scigCitationReferenceCaptionFormat" : 1
+	},
+	"meta": {
+		"version": "0.1",
+		"is-incomplete": false,
+		"debug": false
+	}
+}

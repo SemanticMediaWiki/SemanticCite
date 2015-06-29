@@ -1,0 +1,41 @@
+# http://docs.travis-ci.com/user/workers/container-based-infrastructure/
+sudo: false
+
+language: php
+
+env:
+  - THENEEDFORTHIS=FAIL
+
+matrix:
+  fast_finish: true
+  include:
+    - env: DB=mysql; MW=1.25.1; TYPE=coverage
+      php: 5.6
+    - env: DB=sqlite; MW=1.24.2;
+      php: 5.4
+    - env: DB=mysql; MW=1.25.1
+      php: hhvm
+  exclude:
+    - env: THENEEDFORTHIS=FAIL
+  allow_failures:
+    - env: THENEEDFORTHIS=FAIL
+
+install:
+  - bash ./tests/travis/install-mediawiki.sh
+  - bash ./tests/travis/install-semantic-cite.sh
+
+script:
+  - bash ./tests/travis/run-tests.sh
+
+after_success:
+  - bash ./tests/travis/upload-coverage-report.sh
+
+notifications:
+  email:
+    on_success: change
+    on_failure: always
+  irc:
+    channels:
+      - "chat.freenode.net#semantic-mediawiki"
+    on_success: change
+    on_failure: always

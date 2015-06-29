@@ -1,0 +1,78 @@
+{
+	"description": "Test multiple in-text annotations",
+	"properties": [],
+	"subjects": [
+		{
+			"name": "Citation/Resource/1",
+			"contents": "{{#scite:Foo:123|type=text|citation text=A citation text}}"
+		},
+		{
+			"name": "Citation/Resource/2",
+			"contents": "{{#scite:Bar abc|type=text|citation text=Another citation text}}"
+		},
+		{
+			"name": "Citation/Reference",
+			"contents": "[[CiteRef::Foo:123]][[Citation reference::Bar abc]][[CiteRef::Foo:123]]"
+		}
+	],
+	"parser-testcases": [
+		{
+			"about": "#0",
+			"subject": "Citation/Resource/1#_SCITE-86f84b9b2cf2ae4405199e26f121b4e9",
+			"store": {
+				"semantic-data": {
+					"strict-mode-valuematch": false,
+					"propertyCount": 3,
+					"propertyKeys": [ "__sci_cite_key", "__sci_cite_text", "_SKEY" ],
+					"propertyValues": [ "Foo:123", "A citation text" ]
+				}
+			}
+		},
+		{
+			"about": "#1",
+			"subject": "Citation/Resource/2#_SCITE-93a83f3f4f27770cf5084f131206bb3b",
+			"store": {
+				"semantic-data": {
+					"strict-mode-valuematch": false,
+					"propertyCount": 3,
+					"propertyKeys": [ "__sci_cite_key", "__sci_cite_text", "_SKEY" ],
+					"propertyValues": [ "Bar abc", "Another citation text" ]
+				}
+			}
+		},
+		{
+			"about": "#2 verify reference",
+			"subject": "Citation/Reference",
+			"store": {
+				"semantic-data": {
+					"strict-mode-valuematch": false,
+					"propertyCount": 3,
+					"propertyKeys": [ "__sci_cite_reference", "_MDAT", "_SKEY" ],
+					"propertyValues": [ "Foo:123", "Bar abc" ]
+				}
+			},
+			"expected-output": {
+				"to-contain": [
+					"scite-ref-86f84b9b2cf2ae4405199e26f121b4e9-1-a",
+					"scite-ref-86f84b9b2cf2ae4405199e26f121b4e9-1-b",
+					"scite-ref-93a83f3f4f27770cf5084f131206bb3b-2-a",
+					"scite-citeref-number",
+					"data-reference=\"Foo:123\"",
+					"data-reference=\"Bar abc\"",
+					"#scite-86f84b9b2cf2ae4405199e26f121b4e9",
+					"#scite-93a83f3f4f27770cf5084f131206bb3b"
+				]
+			}
+		}
+	],
+	"settings": {
+		"wgContLang": "en",
+		"scigReferenceListType": "ol",
+		"scigCitationReferenceCaptionFormat" : 1
+	},
+	"meta": {
+		"version": "0.1",
+		"is-incomplete": false,
+		"debug": false
+	}
+}

@@ -1,0 +1,64 @@
+{
+	"description": "Test user-defined property annotation",
+	"properties": [
+		{
+			"name": "Has reference type",
+			"contents": "[[Has type::Text]]"
+		},
+		{
+			"name": "Has author",
+			"contents": "[[Has type::Page]]"
+		},
+		{
+			"name": "Has abstract",
+			"contents": "[[Has type::Text]]"
+		}
+	],
+	"subjects": [
+		{
+			"name": "Sci-property-definition",
+			"namespace": "NS_MEDIAWIKI",
+			"contents": "Some assignments\n type|Has reference type \n author|Has author \n abstract|Has abstract\n"
+		},
+		{
+			"name": "Citation/Resource/3",
+			"contents": "{{#scite:Foo:123|type=journal|author=AuthorA,AuthorB|+sep=,|abstract=Foobar|citation text=123}}"
+		}
+	],
+	"parser-testcases": [
+		{
+			"about": "#0 verify citation resource definition",
+			"subject": "Citation/Resource/3",
+			"store": {
+				"semantic-data": {
+					"strict-mode-valuematch": false,
+					"propertyCount": 3,
+					"propertyKeys": [ "__sci_cite", "_MDAT", "_SKEY" ],
+					"propertyValues": [ "Citation/Resource/3#_SCITE-86f84b9b2cf2ae4405199e26f121b4e9" ]
+				}
+			}
+		},
+		{
+			"about": "#1 verify citation resource container",
+			"subject": "Citation/Resource/3#_SCITE-86f84b9b2cf2ae4405199e26f121b4e9",
+			"store": {
+				"semantic-data": {
+					"strict-mode-valuematch": false,
+					"propertyCount": 6,
+					"propertyKeys": [ "__sci_cite_key", "__sci_cite_text", "Has_reference_type", "Has_author", "Has_abstract", "_SKEY" ],
+					"propertyValues": [ "Foo:123", "123", "journal", "AuthorA", "AuthorB" ]
+				}
+			}
+		}
+	],
+	"settings": {
+		"wgContLang": "en",
+		"scigReferenceListType": "ol",
+		"scigCitationReferenceCaptionFormat" : 1
+	},
+	"meta": {
+		"version": "0.1",
+		"is-incomplete": false,
+		"debug": false
+	}
+}

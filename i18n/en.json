@@ -1,0 +1,29 @@
+{
+	"@metadata": {
+		"authors": [
+			"mwjames"
+		]
+	},
+	"sci-desc": "Mange citation resources with the help of [https://semantic-mediawiki.org Semantic MediaWiki].",
+	"sci-referencelist-header": "References",
+	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code> can not be used on a namespace that is not enabled for Semantic MediaWiki",
+	"sci-scite-parser-no-reference": "<code>#scite</code> did not declare a reference.",
+	"sci-scite-parser-no-type": "<code>#scite</code> was unable to determine a reference type for «$1».",
+	"sci-scite-parser-no-citation-text": "<code>#scite</code> was unable to render a citation text for reference «$1» with type «$2».",
+	"sci-datavalue-empty-reference": "The citation reference is expected not be empty.",
+	"sci-datavalue-no-valid-doi-format": "\"$1\" as DOI value doesn't match the expected format.",
+	"sci-datavalue-no-valid-pmcid-format": "\"$1\" as PMCID value doesn't match the expected format.",
+	"sci-property-alias-cite-key": "Citation key",
+	"sci-property-alias-cite-reference": "Citation reference",
+	"sci-property-alias-cite-text": "Citation text",
+	"sci-property-alias-cite-resource": "Citation resource",
+	"sci-tooltip-citation-lookup-failure" : "Failed to retrieve an appropriate citation from the back-end.",
+	"sci-property-definition": "A list of <code>#scite</code> identifiers that are mapped to user-defined properties. Please be aware that changes to existing entries require a rebuild of property assignments. \n foo-id|bar-property",
+	"sci-template-definition": "A list of citation types that are mapped to predefined templates containing citation formatting rules. \n foo-type|bar-template",
+	"smw-pa-property-predefined__sci_cite_key": "\"$1\" is a predefined property that identifies a citation resource and is provided by the [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite] extension.",
+	"smw-pa-property-predefined__sci_cite_reference": "\"$1\" is a predefined property that identifies a citation resource when used as reference (e.g. in-text reference) and is provided by the [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite] extension.",
+	"smw-pa-property-predefined__sci_cite_text": "\"$1\" is a predefined property that contains a preformatted text and is provided by the [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite] extension.",
+	"smw-pa-property-predefined__sci_cite": "\"$1\" is a predefined property provided by the [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite] extension that describes all elements of a citation and is stored as subobject.",
+	"smw-pa-property-predefined__sci_doi": "\"$1\" is a predefined property provided by the [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite] extension that represents a Digital Object Identifier.",
+	"smw-pa-property-predefined__sci_pmcid": "\"$1\" is a predefined property provided by the [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite] extension that represents a PubMed Central reference number (PMCID)."
+}

@@ -1,0 +1,70 @@
+{
+	"description": "Test paser/in-text annotation",
+	"properties": [],
+	"subjects": [
+		{
+			"name": "Citation/Resource",
+			"contents": "{{#scite:Foo:123|type=text|citation text=Citation for bar}}"
+		},
+		{
+			"name": "Citation/Reference",
+			"contents": "[[CiteRef::Foo:123]]"
+		}
+	],
+	"parser-testcases": [
+		{
+			"about": "#0 verify citation resource definition",
+			"subject": "Citation/Resource",
+			"store": {
+				"semantic-data": {
+					"strict-mode-valuematch": false,
+					"propertyCount": 3,
+					"propertyKeys": [ "__sci_cite", "_MDAT", "_SKEY" ],
+					"propertyValues": [ "Citation/Resource#_SCITE-86f84b9b2cf2ae4405199e26f121b4e9" ]
+				}
+			}
+		},
+		{
+			"about": "#1 verify citation resource container",
+			"subject": "Citation/Resource#_SCITE-86f84b9b2cf2ae4405199e26f121b4e9",
+			"store": {
+				"semantic-data": {
+					"strict-mode-valuematch": false,
+					"propertyCount": 3,
+					"propertyKeys": [ "__sci_cite_key", "__sci_cite_text", "_SKEY" ],
+					"propertyValues": [ "Foo:123", "Citation for bar" ]
+				}
+			}
+		},
+		{
+			"about": "#2 verify reference",
+			"subject": "Citation/Reference",
+			"store": {
+				"semantic-data": {
+					"strict-mode-valuematch": false,
+					"propertyCount": 3,
+					"propertyKeys": [ "__sci_cite_reference", "_MDAT", "_SKEY" ],
+					"propertyValues": [ "Foo:123" ]
+				}
+			},
+			"expected-output": {
+				"to-contain": [
+					"scite-ref-86f84b9b2cf2ae4405199e26f121b4e9-1-a",
+					"scite-citeref-number",
+					"Foo:123",
+					"#scite-86f84b9b2cf2ae4405199e26f121b4e9"
+				]
+			}
+		}
+	],
+	"settings": {
+		"wgContLang": "en",
+		"scigReferenceListType": "ol",
+		"scigCitationReferenceCaptionFormat" : 1
+	},
+	"meta": {
+		"version": "0.1",
+		"is-incomplete": false,
+		"debug": false
+	}
+}

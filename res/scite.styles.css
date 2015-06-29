@@ -1,0 +1,84 @@
+/*!
+ * @since 1.0
+ * @licence GNU GPL v2+
+ *
+ * @author mwjames
+ */
+.scite-reference {
+	vertical-align: super;
+	font-size: 100%;
+	font-weight: bold;
+	line-height: 1;
+}
+
+.scite-referencelist ol .scite-backlinks {
+	vertical-align: super;
+	font-size: 80%;
+	font-style: italic;
+	font-weight: bold;
+	line-height: 1;
+}
+
+.scite-referencelist ol .scite-backlink {
+	font-weight: bold;
+	line-height: 1;
+}
+
+.scite-referencelist ul .scite-backlinks, .scite-referencelist ul .scite-backlink  {
+	vertical-align: super;
+	font-size: 80%;
+	line-height: 1;
+}
+
+.scite-referencelist .scite-citation {
+	font-size: 90%;
+}
+
+.scite-referencelist .scite-citation-text {
+	font-size: 100%;
+	font-family: 'Times New Roman',stixgeneral,serif;
+	font: 1.2307em/1.375 'Times New Roman', serif;
+	word-wrap: break-word;
+}
+
+.scite-citation-resourcelink {
+	font-size: 130%;
+}
+
+.scite-citeref-number {
+	vertical-align: super;
+	font-size: smaller;
+}
+
+.scite-tooltip-loading {
+	padding-left: 40%;
+}
+
+.scite-citeref-number:target, .scite-citeref-key:target {
+	  background-color: rgba( 0,127,255,0.133 );
+}
+
+.scite-citeref-number a::after, .scite-citeref-key a::after {
+	content:"]";
+}
+
+.scite-citeref-number a::before, .scite-citeref-key a::before {
+	content:"[";
+}
+
+.scite-citeref-number a.external::after, .scite-citeref-key a.external::after {
+	content:"";
+}
+
+.scite-citeref-number a.external::before, .scite-citeref-key a.external::before {
+	content:"";
+}
+
+/* Whether is is really needed or not, I don't know but the Cite extension used
+ * this to fix references in case of RTL words at the end of a reference
+ */
+.scite-citeref-number, .scite-citeref-key {
+	unicode-bidi: -moz-isolate;
+	unicode-bidi: -webkit-isolate;
+	unicode-bidi: isolate;
+}
