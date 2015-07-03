@@ -1,0 +1,46 @@
+{
+	"description": "Test different citation reference caption format/display",
+	"properties": [],
+	"subjects": [
+		{
+			"name": "Citation/Resource",
+			"contents": "{{#scite:Foo:123|type=text|citation text=Citation for bar}}"
+		},
+		{
+			"name": "Citation/Reference",
+			"contents": "[[CiteRef::Foo:123|abc, 1970]]"
+		}
+	],
+	"parser-testcases": [
+		{
+			"about": "#0 verify caption display",
+			"subject": "Citation/Reference",
+			"store": {
+				"semantic-data": {
+					"strict-mode-valuematch": false,
+					"propertyCount": 3,
+					"propertyKeys": [ "__sci_cite_reference", "_MDAT", "_SKEY" ],
+					"propertyValues": [ "Foo:123" ]
+				}
+			},
+			"expected-output": {
+				"to-contain": [
+					"scite-ref-86f84b9b2cf2ae4405199e26f121b4e9-1-a",
+					"class=\"scite-citeref-key\" data-reference=\"Foo:123\"",
+					"abc, 1970",
+					"#scite-86f84b9b2cf2ae4405199e26f121b4e9"
+				]
+			}
+		}
+	],
+	"settings": {
+		"wgContLang": "en",
+		"scigReferenceListType": "ol",
+		"scigCitationReferenceCaptionFormat" : 2
+	},
+	"meta": {
+		"version": "0.1",
+		"is-incomplete": false,
+		"debug": false
+	}
+}

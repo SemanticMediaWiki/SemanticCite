@@ -71,7 +71,7 @@ class CitationReferenceValue extends StringValue {
 		}
 
 		$this->reference = $value;
-		$this->m_caption = $this->reference;
+		$this->m_caption = !$this->m_caption ? $this->reference : $this->m_caption;
 
 		// This is where the magic happens, compute the position of
 		// a reference relative to previous CiteRef annotations
