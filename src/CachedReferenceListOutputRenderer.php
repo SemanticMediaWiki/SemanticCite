@@ -90,20 +90,56 @@ class CachedReferenceListOutputRenderer {
 			return '';
 		}
 
-		$this->addReferenceListToCorrectTextPosition(
-			$text,
-			$this->getRenderedHtmlReferenceList( $this->contextInteractor->getOldId() )
-		);
+		$this->addReferenceListToCorrectTextPosition( $text );
 	}
 
-	private function addReferenceListToCorrectTextPosition( &$text, $list ) {
+	private function addReferenceListToCorrectTextPosition( &$text ) {
 
 		// Find out whether to place the list into a custom position or not
 		if ( strpos( $text, 'scite-custom-referencelist' ) !== false ) {
-			return $text = preg_replace("/<div id=\"scite-custom-referencelist\">.*<\/div>/m", $list, $text );
+			return $text = preg_replace_callback(
+				"/" . "<div id=\"scite-custom-referencelist(.*)\"><\/div>" . "/m",
+				'self::getCustomizedRenderedHtmlReferenceList',
+				$text
+			);
 		}
 
-		$text .= $list;
+		$text .= $this->getRenderedHtmlReferenceList( $this->contextInteractor->getOldId() );
+	}
+
+	private function getCustomizedRenderedHtmlReferenceList( $customOptions ) {
+
+		$customOptions = explode( 'data-', $customOptions[1] );
+
+		foreach ( $customOptions as $options ) {
+
+			if ( strpos( $options, '=' ) === false ) {
+				continue;
+			}
+
+			$options = explode( '=', trim( str_replace( '"', '', $options ) ) );
+
+			switch ( $options[0] ) {
+				case 'browselinks':
+					$this->referenceListOutputRenderer->setBrowseLinkToCitationResourceState(
+						filter_var( $options[1], FILTER_VALIDATE_BOOLEAN )
+					);
+					break;
+				case 'listtype':
+					$this->referenceListOutputRenderer->setReferenceListType( $options[1] );
+					break;
+				case 'columns':
+					$this->referenceListOutputRenderer->setNumberOfReferenceListColumns(
+						$options[1] < 1 ? 1 : $options[1]
+					);
+					break;
+				case 'header':
+					$this->referenceListOutputRenderer->setReferenceListHeader( $options[1] );
+					break;
+			}
+		}
+
+		return $this->getRenderedHtmlReferenceList( $this->contextInteractor->getOldId() );
 	}
 
 	private function getRenderedHtmlReferenceList( $oldId ) {

@@ -134,6 +134,18 @@ an citation reference was annotated but in case the list should positioned
 differently , `{{#referencelist:}}` can be used to mark the position on where the
 list is expected to appear
 
+`{{#referencelist:}}` does accept options that can modify the output of an individual
+reference list.
+
+```
+{{#referencelist:
+ |listtype=ul
+ |browseLinks=false // Allows "1", "true", "on" and "yes"
+ |columns=3
+ |header=Notes
+}}
+```
+
 ### References and citation keys
 
 Citation keys are available wiki-wide therefore selecting an

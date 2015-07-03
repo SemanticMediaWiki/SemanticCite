@@ -52,6 +52,11 @@ class ReferenceListOutputRenderer {
 	private $referenceListType = 'ol';
 
 	/**
+	 * @var string
+	 */
+	private $referenceListHeader = '';
+
+	/**
 	 * @since  1.0
 	 *
 	 * @param CitationResourceMatchFinder $citationResourceMatchFinder
@@ -91,6 +96,15 @@ class ReferenceListOutputRenderer {
 	 */
 	public function setBrowseLinkToCitationResourceState( $browseLinkToCitationResourceState ) {
 		$this->browseLinkToCitationResourceState = (bool)$browseLinkToCitationResourceState;
+	}
+
+	/**
+	 * @since 1.0
+	 *
+	 * @param string $referenceListHeader
+	 */
+	public function setReferenceListHeader( $referenceListHeader ) {
+		$this->referenceListHeader = (string)$referenceListHeader;
 	}
 
 	/**
@@ -169,6 +183,10 @@ class ReferenceListOutputRenderer {
 		$this->htmlColumnListRenderer->setListType( $this->referenceListType );
 		$this->htmlColumnListRenderer->addContentsByNoIndex( $listOfFormattedReferences );
 
+		if ( $this->referenceListHeader === '' ) {
+			$this->referenceListHeader = wfMessage( 'sci-referencelist-header' )->inContentLanguage()->text();
+		}
+
 		return Html::rawElement(
 				'div',
 				array(
@@ -177,7 +195,7 @@ class ReferenceListOutputRenderer {
 				Html::element(
 				'h2',
 				array(),
-				wfMessage( 'sci-referencelist-header' )->inContentLanguage()->text()
+				$this->referenceListHeader
 			) . "\n" . $this->htmlColumnListRenderer->getHtml() . "\n"
 		);
 	}
@@ -259,7 +277,13 @@ class ReferenceListOutputRenderer {
 	private function createBrowseLinkFor( array $subjects, $reference ) {
 
 		if ( $subjects === array() || !$this->browseLinkToCitationResourceState ) {
-			return $reference;
+			return Html::rawElement(
+				'span',
+				array(
+					'class' => 'scite-citation-key'
+				),
+				$reference
+			);
 		}
 
 		$references = array();

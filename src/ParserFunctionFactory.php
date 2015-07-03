@@ -75,12 +75,10 @@ class ParserFunctionFactory {
 
 		$referenceListParserFunctionDefinition = function( $parser ) {
 
-			// Only mark the position where the list is expected to appear
-			return \Html::rawElement(
-				'div',
-				array(
-					'id' => 'scite-custom-referencelist'
-				)
+			$referenceListParserFunction = new ReferenceListParserFunction();
+
+			return $referenceListParserFunction->doProcess(
+				ParameterProcessorFactory::newFromArray( func_get_args() )
 			);
 		};
 
