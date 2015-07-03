@@ -124,24 +124,28 @@ class ReferenceListOutputRenderer {
 
 		$listOfFormattedReferences = array();
 
-		foreach ( $referenceList['reference-pos'] as $referenceHash => $linkList ) {
+		foreach ( $referenceList['reference-pos'] as $referenceAsHash => $linkList ) {
 
 			// Get the "human" readable citation key/reference from the hashmap
 			// intead of trying to access the DB/Store
-			$reference = $referenceList['reference-list'][$referenceHash];
+			$reference = $referenceList['reference-list'][$referenceAsHash];
 
 			list( $subjects, $citationText ) = $this->findCitationTextFor(
 				$reference
 			);
 
-			$flatHtmlReferenceLinks = $this->createFlatHtmlListForReferenceLinks( $linkList, $referenceHash );
+			$flatHtmlReferenceLinks = $this->createFlatHtmlListForReferenceLinks(
+				$linkList,
+				$referenceAsHash
+			);
+
 			$browseLinks = $this->createBrowseLinkFor( $subjects, $reference );
 
 			$listOfFormattedReferences[] =
 				Html::rawElement(
 					'span',
 					array(
-						'id'    => 'scite-'. $referenceHash,
+						'id'    => 'scite-'. $referenceAsHash,
 						'class' => 'scite-referencelinks'
 					),
 					$flatHtmlReferenceLinks
@@ -149,7 +153,7 @@ class ReferenceListOutputRenderer {
 				Html::rawElement(
 					'span',
 					array(
-						'id'    => 'scite-'. $referenceHash,
+						'id'    => 'scite-'. $referenceAsHash,
 						'class' => 'scite-citation'
 					),
 					$browseLinks . '&nbsp;' . Html::rawElement(
@@ -161,7 +165,6 @@ class ReferenceListOutputRenderer {
 		}
 
 		$this->htmlColumnListRenderer->setColumnListClass( 'scite-referencelist' );
-	//	$this->htmlColumnListRenderer->setRTLDirectionalityState( $this->outputPage->getTitle()->getPageLanguage()->isRTL() );
 		$this->htmlColumnListRenderer->setNumberOfColumns( $this->numberOfReferenceListColumns );
 		$this->htmlColumnListRenderer->setListType( $this->referenceListType );
 		$this->htmlColumnListRenderer->addContentsByNoIndex( $listOfFormattedReferences );
@@ -195,11 +198,10 @@ class ReferenceListOutputRenderer {
 		while ( $resultArray = $queryResult->getNext() ) {
 			foreach ( $resultArray as $result ) {
 
-				// We collected at all matches for the same reference because
-				// it can be that the same reference key is used to store citation
-				// resources on different subjects but we only return one (the last)
-				// valid citation text nevertheless we collect all subjects to make
-				// finding the resources easier
+				// Collect all matches for the same reference because it can happen
+				// that the same reference key is used for different citation
+				// resources therefore we only return one (the last) valid citation
+				// text but nevertheless return all subjects to make easier to find them
 				$subjects[] = $result->getResultSubject();
 
 				while ( ( $dataValue = $result->getNextDataValue() ) !== false ) {
@@ -213,7 +215,7 @@ class ReferenceListOutputRenderer {
 
 	/**
 	 * Check for ParserOptions to avoid a "Call to a member function getMaxIncludeSize()
-	 * Parser.php on line 3266" encountered on 1.24 diff view
+	 * Parser.php on line 3266" encountered on the 1.24 diff view
 	 */
 	private function getFormattedText( $dataValue ) {
 
@@ -278,6 +280,9 @@ class ReferenceListOutputRenderer {
 			$references[] = $browselink->getHTML();
 		}
 
+		// Normally we should have only one subject to host a citation resource
+		// for the reference in question but it might be that double assingments
+		// did occur and therefore show them all
 		return implode( ' | ', $references );
 	}
 

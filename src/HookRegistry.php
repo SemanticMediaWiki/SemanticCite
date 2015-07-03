@@ -4,9 +4,6 @@ namespace SCI;
 
 use SMW\Store;
 use Onoi\Cache\Cache;
-use SMW\DataTypeRegistry;
-use SMW\DataValueFactory;
-use SMW\CitationMatchFinder;
 use SMW\ApplicationFactory;
 use SMW\DIWikiPage;
 use SMWDataItem as DataItem;

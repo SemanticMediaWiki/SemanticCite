@@ -1,13 +1,13 @@
 ## Settings
 
-- `$GLOBALS['scigCitationReferenceCaptionFormat']` specifies the display format for an citation
+- `$GLOBALS['scigCitationReferenceCaptionFormat']` specifies the display format for a citation
   reference to be displayed either as a number (`SCI_CITEREF_NUM`) or by its key (`SCI_CITEREF_KEY`)
 - `$GLOBALS['scigShowTooltipForCitationReference']` whether to show a reference tooltip
   for when `SCI_CITEREF_NUM` is set or not
 - `$GLOBALS['scigTooltipRequestCacheTTLInSeconds']` to allow to store tooltip query results from
    the backend to the local browser cache in order to avoid repeated requests for already queried
-   references. Setting this parameter to false will disable the cache.Items cached are displayed
-   with a `[+]`indicator.
+   references. Setting this parameter to false will disable the cache. Items that are cached are being
+   displayed with a `[+]`indicator.
 - `$GLOBALS['scigReferenceListCacheType']` to disable caching for the reference list, use setting
   [`CACHE_NONE`][mw-cachetype] otherwise the cache is being renewed an each new revision or when
   the page is purged
@@ -56,9 +56,9 @@ property therefore are not available as semantic annotation.
 The generation of a citation text is handled by different rules resolved through
 the following process.
 
-Templates assigned to a specific citation resource type (assigned by the
-`MediaWiki:Sci-template-definition` page) will determine the general rules how
-indentifiers are positioned or formatted within a citation text.
+`MediaWiki:Sci-template-definition` describes and maps citation resource types to specific
+templates. A template will then describe the rules of how indentifiers are expected to be formatted
+in order to generate a citation text.
 
 <pre>
  online|SciteOnlineResourceFormatter
@@ -114,22 +114,25 @@ besides those listed below:
 - `@sortkey` is a reserved parameter and is linked to the `_SKEY` property
 
 For example, below represents the same `Segon & Booth 2011` entity reference using the
-short and the explicit form.
+short and the explicit form to create a property/value assignment of
+`Citation key::Segon & Booth 2011`.
 
 ```
 {{#scite:Segon & Booth 2011
   ...
 }}
-
 {{#scite:
   |reference=Segon & Booth 2011
+  ...
 }}
 ```
 
 ### #referencelist usage
 
-`{{#referencelist:}}` can be used to mark the position of the reference list to appear
-otherwise the list is added to the bottom.
+Normally a reference list is self-maintained and added to the bottom a page if
+an citation reference was annotated but in case the list should positioned
+differently , `{{#referencelist:}}` can be used to mark the position on where the
+list is expected to appear
 
 ### References and citation keys
 

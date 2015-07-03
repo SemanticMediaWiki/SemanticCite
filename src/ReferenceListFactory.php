@@ -55,6 +55,7 @@ class ReferenceListFactory {
 
 		$mwCollaboratorFactory = ApplicationFactory::getInstance()->newMwCollaboratorFactory();
 		$htmlColumnListRenderer = $mwCollaboratorFactory->newHtmlColumnListRenderer();
+	//	$htmlColumnListRenderer->setColumnRTLDirectionalityState( $language->isRTL() );
 
 		$referenceListOutputRenderer = new ReferenceListOutputRenderer(
 			new CitationResourceMatchFinder( $this->store ),
@@ -81,6 +82,7 @@ class ReferenceListFactory {
 
 		$referenceListOutputRenderer = $this->newReferenceListOutputRenderer(
 			$parser
+	//		$contextInteractor->getTitle()->getPageLanguage()
 		);
 
 		$referenceListOutputRenderer->setNumberOfReferenceListColumns(

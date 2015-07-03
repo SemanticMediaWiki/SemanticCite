@@ -63,7 +63,7 @@ The easiest way to create a citation resource is by using the `#scite` parser in
 }}
 ```
 
-Citation resources (an entity created by `#scite`) can be added to a single page
+Citation resources (entities created by `#scite`) can be added to a single page
 or spread throughout the wiki each being identifiable by a unique citation key
 (in order to distinguish it from any other citation resource declared in a wiki).
 
