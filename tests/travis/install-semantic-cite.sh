@@ -27,14 +27,14 @@ function installToMediaWikiRoot {
 		cd extensions
 		cd SemanticCite
 
-	#	if [ "$TRAVIS_PULL_REQUEST" != "false" ]
-	#	then
-	#		git fetch origin +refs/pull/"$TRAVIS_PULL_REQUEST"/merge:
-	#		git checkout -qf FETCH_HEAD
-	#	else
-	#		git fetch origin "$TRAVIS_BRANCH"
-	#		git checkout -qf FETCH_HEAD
-	#	fi
+		if [ "$TRAVIS_PULL_REQUEST" != "false" ]
+		then
+			git fetch origin +refs/pull/"$TRAVIS_PULL_REQUEST"/merge:
+			git checkout -qf FETCH_HEAD
+		else
+			git fetch origin "$TRAVIS_BRANCH"
+			git checkout -qf FETCH_HEAD
+		fi
 
 		cd ../..
 	fi
