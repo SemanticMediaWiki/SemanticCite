@@ -6,8 +6,8 @@
   for when `SCI_CITEREF_NUM` is set or not
 - `$GLOBALS['scigTooltipRequestCacheTTLInSeconds']` to allow to store tooltip query results from
    the backend to the local browser cache in order to avoid repeated requests for already queried
-   references. Setting this parameter to false will disable the cache. Items that are cached are being
-   displayed with a `[+]`indicator.
+   references. Setting this parameter to false will disable the cache. Items that are cached will show
+   a `[+]` as indicator.
 - `$GLOBALS['scigReferenceListCacheType']` to disable caching for the reference list, use setting
   [`CACHE_NONE`][mw-cachetype] otherwise the cache is being renewed an each new revision or when
   the page is purged
@@ -111,16 +111,21 @@ besides those listed below:
 - `pmcid` is a reserved parameter and is linked to the `PMCID` property
 - `reference` is a reserved parameter and is linked to the `Citation key` property
 - `citation text` is a reserved parameter and is linked to the `Citation text` property
-- `@sortkey` is a reserved parameter and is linked to the `_SKEY` property
+- `@sortkey` is a reserved parameter and is linked to the `_SKEY` property and can be
+   set to find a resource more easily during querying as the resource is by default set
+   to the internal resource id.
 
 For example, below represents the same `Segon & Booth 2011` entity reference using the
-short and the explicit form to create a property/value assignment of
-`Citation key::Segon & Booth 2011`.
+short and the explicit form to create a property/value assignment equal to
+`[[Citation key::Segon & Booth 2011]]`.
 
 ```
 {{#scite:Segon & Booth 2011
   ...
 }}
+
+is the same as
+
 {{#scite:
   |reference=Segon & Booth 2011
   ...
@@ -130,17 +135,17 @@ short and the explicit form to create a property/value assignment of
 ### #referencelist usage
 
 Normally a reference list is self-maintained and added to the bottom a page if
-an citation reference was annotated but in case the list should positioned
-differently , `{{#referencelist:}}` can be used to mark the position on where the
-list is expected to appear
+a citation reference is present but in case the list should positioned
+differently, `{{#referencelist:}}` can be used to mark the position on where the
+list is expected to appear.
 
-`{{#referencelist:}}` does accept options that can modify the output of an individual
+`{{#referencelist:}}` parser does accept options that can modify the output of an individual
 reference list.
 
 ```
 {{#referencelist:
  |listtype=ul
- |browseLinks=false // Allows "1", "true", "on" and "yes"
+ |browselinks=false // ("true", "1", "on" and "yes") or ( "false", "0", "off", and "no")
  |columns=3
  |header=Notes
 }}

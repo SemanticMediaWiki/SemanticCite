@@ -3,22 +3,22 @@
 	"properties": [],
 	"subjects": [
 		{
-			"name": "Citation/Resource/05",
+			"name": "Citation/Resource/08",
 			"contents": "{{#scite:Foo:abc|type=text|citation text=Citation for bar}}"
 		},
 		{
-			"name": "Citation/Reference/05/1",
-			"contents": "[[CiteRef::Foo:abc]] <div id=\"scite-custom-referencelist\"></div>"
+			"name": "Citation/Reference/08/1",
+			"contents": "[[CiteRef::Foo:abc]] {{#referencelist:listtype=ul}}"
 		},
 		{
-			"name": "Citation/Reference/05/2",
-			"contents": "[[CiteRef::Foo:abc]][[CiteRef::Foo:abc]] {{#referencelist:}}"
+			"name": "Citation/Reference/08/2",
+			"contents": "[[CiteRef::Foo:abc]][[CiteRef::Foo:abc]] {{#referencelist:listtype=ul}}"
 		}
 	],
 	"parser-testcases": [
 		{
 			"about": "#0 single citeref",
-			"subject": "Citation/Reference/05/1",
+			"subject": "Citation/Reference/08/1",
 			"store": {
 				"semantic-data": {
 					"strict-mode-valuematch": false,
@@ -29,16 +29,16 @@
 			},
 			"expected-output": {
 				"to-contain": [
-					"<span id=\"scite-ref-4a4b33932ef3b5972e9c4bccfff6e2fc-1-a\" class=\"scite-citeref-number\" data-reference=\"Foo:abc\"><a href=\"#scite-4a4b33932ef3b5972e9c4bccfff6e2fc\">1</a></span>",
+					"<span id=\"scite-ref-4a4b33932ef3b5972e9c4bccfff6e2fc-1-a\" class=\"scite-citeref-key\" data-reference=\"Foo:abc\"><a href=\"#scite-4a4b33932ef3b5972e9c4bccfff6e2fc\">Foo:abc</a></span>",
 					"<div class=\"scite-content\">",
-					"<span id=\"scite-4a4b33932ef3b5972e9c4bccfff6e2fc\" class=\"scite-referencelinks captionformat-number\"><a href=\"#scite-ref-4a4b33932ef3b5972e9c4bccfff6e2fc-1-a\" class=\"scite-backlink\">^</a>",
+					"<ul start=1><li><span id=\"scite-4a4b33932ef3b5972e9c4bccfff6e2fc\" class=\"scite-referencelinks captionformat-key\"><a href=\"#scite-ref-4a4b33932ef3b5972e9c4bccfff6e2fc-1-a\" class=\"scite-backlink\">^</a></span>",
 					"<span class=\"scite-citation-text\">Citation for bar</span>"
 				]
 			}
 		},
 		{
 			"about": "#1 two citeref's to same citation",
-			"subject": "Citation/Reference/05/2",
+			"subject": "Citation/Reference/08/2",
 			"store": {
 				"semantic-data": {
 					"strict-mode-valuematch": false,
@@ -49,9 +49,10 @@
 			},
 			"expected-output": {
 				"to-contain": [
-					"<span id=\"scite-ref-4a4b33932ef3b5972e9c4bccfff6e2fc-1-a\" class=\"scite-citeref-number\" data-reference=\"Foo:abc\"><a href=\"#scite-4a4b33932ef3b5972e9c4bccfff6e2fc\">1</a></span>",
-					"<span id=\"scite-ref-4a4b33932ef3b5972e9c4bccfff6e2fc-1-b\" class=\"scite-citeref-number\" data-reference=\"Foo:abc\"><a href=\"#scite-4a4b33932ef3b5972e9c4bccfff6e2fc\">1</a></span>",
+					"<span id=\"scite-ref-4a4b33932ef3b5972e9c4bccfff6e2fc-1-a\" class=\"scite-citeref-key\" data-reference=\"Foo:abc\"><a href=\"#scite-4a4b33932ef3b5972e9c4bccfff6e2fc\">Foo:abc</a></span>",
+					"<span id=\"scite-ref-4a4b33932ef3b5972e9c4bccfff6e2fc-1-b\" class=\"scite-citeref-key\" data-reference=\"Foo:abc\"><a href=\"#scite-4a4b33932ef3b5972e9c4bccfff6e2fc\">Foo:abc</a></span>",
 					"<div class=\"scite-content\">",
+					"<ul start=1><li>",
 					"<a href=\"#scite-ref-4a4b33932ef3b5972e9c4bccfff6e2fc-1-a\" class=\"scite-backlinks\">a</a>",
 					"<a href=\"#scite-ref-4a4b33932ef3b5972e9c4bccfff6e2fc-1-b\" class=\"scite-backlinks\">b</a>",
 					"<span class=\"scite-citation-text\">Citation for bar</span>"
@@ -61,8 +62,8 @@
 	],
 	"settings": {
 		"wgContLang": "en",
-		"scigReferenceListType": "ol",
-		"scigCitationReferenceCaptionFormat" : 1
+		"scigReferenceListType": "ul",
+		"scigCitationReferenceCaptionFormat" : 2
 	},
 	"meta": {
 		"version": "0.1",

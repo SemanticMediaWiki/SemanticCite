@@ -4,6 +4,7 @@ namespace SCI\Tests\Integration\Parser;
 
 use SCI\MediaWikiNsContentMapper;
 use SCI\HookRegistry;
+use SCI\Options;
 use Onoi\Cache\CacheFactory;
 use SMW\Tests\ByJsonTestCaseProvider;
 use SMW\Tests\JsonTestCaseFileHandler;
@@ -23,6 +24,7 @@ class ByJsonParserTestCaseRunnerTest extends ByJsonTestCaseProvider {
 
 	private $semanticDataValidator;
 	private $stringValidator;
+	private $hookRegistry;
 
 	protected function setUp() {
 		parent::setUp();
@@ -43,14 +45,14 @@ class ByJsonParserTestCaseRunnerTest extends ByJsonTestCaseProvider {
 
 		$cacheFactory = new CacheFactory();
 
-		$hookRegistry = new HookRegistry(
+		$this->hookRegistry = new HookRegistry(
 			$this->getStore(),
 			$cacheFactory->newFixedInMemoryLruCache(),
-			$configuration
+			new Options( $configuration )
 		);
 
-		$hookRegistry->clear();
-		$hookRegistry->register();
+		$this->hookRegistry->clear();
+		$this->hookRegistry->register();
 	}
 
 	/**
@@ -82,8 +84,7 @@ class ByJsonParserTestCaseRunnerTest extends ByJsonTestCaseProvider {
 			'wgLanguageCode',
 			'wgContLang',
 			'wgLang',
-			'scigCitationReferenceCaptionFormat',
-			'scigReferenceListType'
+			'scigCitationReferenceCaptionFormat'
 		);
 
 		foreach ( $permittedSettings as $key ) {
@@ -92,6 +93,16 @@ class ByJsonParserTestCaseRunnerTest extends ByJsonTestCaseProvider {
 				$jsonTestCaseFileHandler->getSettingsFor( $key )
 			);
 		}
+
+		$this->hookRegistry->setOption(
+			'citationReferenceCaptionFormat',
+			$jsonTestCaseFileHandler->getSettingsFor( 'scigCitationReferenceCaptionFormat' )
+		);
+
+		$this->hookRegistry->setOption(
+			'referenceListType',
+			$jsonTestCaseFileHandler->getSettingsFor( 'scigReferenceListType' )
+		);
 
 		$this->createPagesFor(
 			$jsonTestCaseFileHandler->getListOfProperties(),
@@ -164,7 +175,6 @@ class ByJsonParserTestCaseRunnerTest extends ByJsonTestCaseProvider {
 		// hook is run
 		$context = new \RequestContext();
 		$context->setTitle( $subject->getTitle() );
-	//	$context->getOutput()->addParserOutputMetadata( $parserOutput );
 		$context->getOutput()->addParserOutputContent( $parserOutput );
 
 		$this->stringValidator->assertThatStringContains(

@@ -1,6 +1,7 @@
 <?php
 
 use SCI\HookRegistry;
+use SCI\Options;
 use SMW\ApplicationFactory;
 use Onoi\Cache\CacheFactory;
 
@@ -157,7 +158,7 @@ call_user_func( function () {
 		$hookRegistry = new HookRegistry(
 			ApplicationFactory::getInstance()->getStore(),
 			$compositeCache,
-			$configuration
+			new Options( $configuration )
 		);
 
 		$hookRegistry->register();

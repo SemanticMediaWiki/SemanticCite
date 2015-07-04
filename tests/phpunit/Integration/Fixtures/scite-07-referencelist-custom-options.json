@@ -57,7 +57,7 @@
 					"<a href=\"#scite-ref-4a4b33932ef3b5972e9c4bccfff6e2fc-1-a\" class=\"scite-backlinks\">1.a</a>",
 					"<a href=\"#scite-ref-4a4b33932ef3b5972e9c4bccfff6e2fc-1-b\" class=\"scite-backlinks\">1.b</a>",
 					"<span class=\"scite-citation-text\">Citation for bar</span>",
-					"<h2>SomeHeader</h2>"
+					"<h2 id=\"SomeHeader\">SomeHeader</h2>"
 				]
 			}
 		}

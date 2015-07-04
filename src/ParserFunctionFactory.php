@@ -21,13 +21,13 @@ class ParserFunctionFactory {
 	 * @since  1.0
 	 *
 	 * @param NamespaceExaminer $namespaceExaminer
-	 * @param array $configuration
+	 * @param Options $options
 	 *
 	 * @return array
 	 */
-	public function newSciteParserFunctionDefinition( NamespaceExaminer $namespaceExaminer, array $configuration ) {
+	public function newSciteParserFunctionDefinition( NamespaceExaminer $namespaceExaminer, Options $options ) {
 
-		$sciteParserFunctionDefinition = function( $parser ) use( $namespaceExaminer, $configuration ) {
+		$sciteParserFunctionDefinition = function( $parser ) use( $namespaceExaminer, $options ) {
 
 			$parserData = ApplicationFactory::getInstance()->newParserData(
 				$parser->getTitle(),
@@ -53,7 +53,7 @@ class ParserFunctionFactory {
 			);
 
 			$sciteParserFunction->setStrictParserValidationState(
-				$configuration['strictParserValidationEnabled']
+				$options->get( 'strictParserValidationEnabled' )
 			);
 
 			return $sciteParserFunction->doProcess(

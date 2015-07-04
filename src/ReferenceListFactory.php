@@ -78,7 +78,7 @@ class ReferenceListFactory {
 	 *
 	 * @return CachedReferenceListOutputRenderer
 	 */
-	public function newCachedReferenceListOutputRenderer( MediaWikiContextInteractor $contextInteractor, Cache $cache, CacheKeyGenerator $cacheKeyGenerator, $parser, array $configuration ) {
+	public function newCachedReferenceListOutputRenderer( MediaWikiContextInteractor $contextInteractor, Cache $cache, CacheKeyGenerator $cacheKeyGenerator, $parser, Options $options ) {
 
 		$referenceListOutputRenderer = $this->newReferenceListOutputRenderer(
 			$parser
@@ -86,15 +86,19 @@ class ReferenceListFactory {
 		);
 
 		$referenceListOutputRenderer->setNumberOfReferenceListColumns(
-			$configuration['numberOfReferenceListColumns']
+			$options->get( 'numberOfReferenceListColumns' )
 		);
 
 		$referenceListOutputRenderer->setReferenceListType(
-			$configuration['referenceListType']
+			$options->get( 'referenceListType' )
 		);
 
 		$referenceListOutputRenderer->setBrowseLinkToCitationResourceState(
-			$configuration['browseLinkToCitationResource']
+			$options->get( 'browseLinkToCitationResource' )
+		);
+
+		$referenceListOutputRenderer->setCitationReferenceCaptionFormat(
+			$options->get( 'citationReferenceCaptionFormat' )
 		);
 
 		$cachedReferenceListOutputRenderer = new CachedReferenceListOutputRenderer(

@@ -57,6 +57,11 @@ class ReferenceListOutputRenderer {
 	private $referenceListHeader = '';
 
 	/**
+	 * @var integer
+	 */
+	private $citationReferenceCaptionFormat = SCI_CITEREF_NUM;
+
+	/**
 	 * @since  1.0
 	 *
 	 * @param CitationResourceMatchFinder $citationResourceMatchFinder
@@ -69,6 +74,15 @@ class ReferenceListOutputRenderer {
 		$this->citationReferencePositionJournal = $citationReferencePositionJournal;
 		$this->htmlColumnListRenderer = $htmlColumnListRenderer;
 		$this->parser = $parser;
+	}
+
+	/**
+	 * @since 1.0
+	 *
+	 * @param integer $citationReferenceCaptionFormat
+	 */
+	public function setCitationReferenceCaptionFormat( $citationReferenceCaptionFormat ) {
+		$this->citationReferenceCaptionFormat = (int)$citationReferenceCaptionFormat;
 	}
 
 	/**
@@ -137,6 +151,7 @@ class ReferenceListOutputRenderer {
 	private function createHtmlFromList( array $referenceList ) {
 
 		$listOfFormattedReferences = array();
+		$captionFormatClass = 'captionformat-' . ( $this->citationReferenceCaptionFormat === SCI_CITEREF_NUM ? 'number' : 'key' );
 
 		foreach ( $referenceList['reference-pos'] as $referenceAsHash => $linkList ) {
 
@@ -153,14 +168,14 @@ class ReferenceListOutputRenderer {
 				$referenceAsHash
 			);
 
-			$browseLinks = $this->createBrowseLinkFor( $subjects, $reference );
+			$browseLinks = $this->createBrowseLinkFor( $subjects, $reference, $citationText );
 
 			$listOfFormattedReferences[] =
 				Html::rawElement(
 					'span',
 					array(
 						'id'    => 'scite-'. $referenceAsHash,
-						'class' => 'scite-referencelinks'
+						'class' => 'scite-referencelinks ' . $captionFormatClass
 					),
 					$flatHtmlReferenceLinks
 					) . '&nbsp;'  .
@@ -194,7 +209,9 @@ class ReferenceListOutputRenderer {
 				),
 				Html::element(
 				'h2',
-				array(),
+				array(
+					'id' => $this->referenceListHeader
+				),
 				$this->referenceListHeader
 			) . "\n" . $this->htmlColumnListRenderer->getHtml() . "\n"
 		);
@@ -251,14 +268,21 @@ class ReferenceListOutputRenderer {
 
 		foreach ( $linkList as $value ) {
 
+			$isOneLinkElement = count( $linkList ) == 1;
+
 			// Split a value of 1-a, 1-b, 2-a into its parts
 			list( $major, $minor ) = explode( '-', $value );
 
-			// We only have one link therefore just show a simple link
-			// similar to what is done on en.wp
-			if ( count( $linkList ) == 1 ) {
+			// Show a simple link similar to what is done on en.wp
+			// for a one-link-reference
+			if ( $isOneLinkElement ) {
 				$minor = '^';
 				$class = 'scite-backlink';
+			}
+
+			// Only display the "full" number for the combination of UL/SCI_CITEREF_NUM
+			if ( $this->referenceListType === 'ul' && $this->citationReferenceCaptionFormat === SCI_CITEREF_NUM ) {
+				$minor = $isOneLinkElement ? $major : str_replace( '-', '.', $value );
 			}
 
 			$referenceLinks[] = Html::rawElement(
@@ -267,16 +291,17 @@ class ReferenceListOutputRenderer {
 					'href'  => "#scite-ref-{$referenceHash}-" . $value,
 					'class' => $class
 				),
-				$this->referenceListType === 'ul' ? str_replace( '-', '.', $value ) : $minor
+				$minor
 			);
 		}
 
 		return implode( ' ', $referenceLinks );
 	}
 
-	private function createBrowseLinkFor( array $subjects, $reference ) {
+	private function createBrowseLinkFor( array $subjects, $reference, $citationText ) {
 
-		if ( $subjects === array() || !$this->browseLinkToCitationResourceState ) {
+		// If no text is available at least show the reference
+		if ( $citationText === '' ) {
 			return Html::rawElement(
 				'span',
 				array(
@@ -284,6 +309,11 @@ class ReferenceListOutputRenderer {
 				),
 				$reference
 			);
+		}
+
+		// No browse links means nothing will be displayed
+		if ( !$this->browseLinkToCitationResourceState ) {
+			return '';
 		}
 
 		$references = array();

@@ -55,7 +55,7 @@ class CitationReferenceValue extends StringValue {
 	 */
 	protected function parseUserValue( $value ) {
 
-		$this->citationReferencePositionJournal = $this->getExtraneousFunctionFor( 'CitationReferencePositionJournal' );
+		$this->citationReferencePositionJournal = $this->getExtraneousFunctionFor( '\SCI\CitationReferencePositionJournal' );
 
 		$value = trim( $value );
 

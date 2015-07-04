@@ -19,14 +19,16 @@
 	line-height: 1;
 }
 
-.scite-referencelist ol .scite-backlink {
-	font-weight: bold;
-	line-height: 1;
-}
-
 .scite-referencelist ul .scite-backlinks, .scite-referencelist ul .scite-backlink  {
 	vertical-align: super;
 	font-size: 80%;
+	line-height: 1;
+}
+
+.scite-referencelist ol .scite-backlink, .scite-referencelist ul .captionformat-key .scite-backlink {
+	vertical-align: middle;
+	font-size: 100%;
+	font-weight: bold;
 	line-height: 1;
 }
 
@@ -43,6 +45,11 @@
 
 .scite-citation-resourcelink {
 	font-size: 130%;
+}
+
+.scite-citation-key {
+	font-style: italic;
+	font-weight: bold;
 }
 
 .scite-citeref-number {

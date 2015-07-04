@@ -46,13 +46,13 @@ class ParserFunctionFactoryTest extends \PHPUnit_Framework_TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$configuration = array(
-			'strictParserValidationEnabled'    => true,
-		);
+		$options = $this->getMockBuilder( '\SCI\Options' )
+			->disableOriginalConstructor()
+			->getMock();
 
 		list( $name, $definition, $flag ) = $instance->newSciteParserFunctionDefinition(
 			$namespaceExaminer,
-			$configuration
+			$options
 		);
 
 		$this->assertEquals(

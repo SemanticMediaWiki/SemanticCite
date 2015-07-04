@@ -23,18 +23,37 @@ class HookRegistry {
 	private $handlers = array();
 
 	/**
+	 * @var array
+	 */
+	private $options;
+
+	/**
 	 * @since 1.0
 	 *
 	 * @param Store $store
 	 * @param Cache $cache
-	 * @param array $configuration
+	 * @param Options $options
 	 */
-	public function __construct( Store $store, Cache $cache, $configuration ) {
+	public function __construct( Store $store, Cache $cache, Options $options ) {
+		$this->options = $options;
+
 		$this->addCallbackHandlers(
 			$store,
 			$cache,
-			$configuration
+			$this->options
 		);
+	}
+
+	/**
+	 * @note This is normally only used during unit/integration testing
+	 *
+	 * @since  1.0
+	 *
+	 * @param string $key
+	 * @param mixed $value
+	 */
+	public function setOption( $key, $value ) {
+		$this->options->set( $key, $value );
 	}
 
 	/**
@@ -77,13 +96,13 @@ class HookRegistry {
 		}
 	}
 
-	private function addCallbackHandlers( $store, $cache, $configuration ) {
+	private function addCallbackHandlers( $store, $cache, $options ) {
 
 		$propertyRegistry = new PropertyRegistry();
 		$namespaceExaminer = ApplicationFactory::getInstance()->getNamespaceExaminer();
 
 		$cacheKeyGenerator = new CacheKeyGenerator();
-		$cacheKeyGenerator->setCachePrefix( $configuration['cachePrefix'] );
+		$cacheKeyGenerator->setCachePrefix( $options->get( 'cachePrefix' ) );
 
 		$citationReferencePositionJournal = new CitationReferencePositionJournal(
 			$cache,
@@ -100,7 +119,7 @@ class HookRegistry {
 		/**
 		 * @see https://www.semantic-mediawiki.org/wiki/Hooks/SMW::DataType::initTypes
 		 */
-		$this->handlers['SMW::DataType::initTypes'] = function ( $dataTypeRegistry ) use( $configuration, $citationReferencePositionJournal ) {
+		$this->handlers['SMW::DataType::initTypes'] = function ( $dataTypeRegistry ) use( $citationReferencePositionJournal ) {
 
 			$dataTypeRegistry->registerDatatype(
 				'_sci_ref',
@@ -121,7 +140,7 @@ class HookRegistry {
 			);
 
 			$dataTypeRegistry->registerExtraneousFunction(
-				'CitationReferencePositionJournal',
+				'\SCI\CitationReferencePositionJournal',
 				function() use( $citationReferencePositionJournal ) { return $citationReferencePositionJournal; }
 			);
 
@@ -191,7 +210,7 @@ class HookRegistry {
 		/**
 		 * @see https://www.mediawiki.org/wiki/Manual:Hooks/OutputPageBeforeHTML
 		 */
-		$this->handlers['OutputPageBeforeHTML'] = function( &$outputPage, &$text ) use ( $store, $namespaceExaminer, $citationReferencePositionJournal, $cache, $cacheKeyGenerator, $configuration ) {
+		$this->handlers['OutputPageBeforeHTML'] = function( &$outputPage, &$text ) use ( $store, $namespaceExaminer, $citationReferencePositionJournal, $cache, $cacheKeyGenerator, $options ) {
 
 			$referenceListFactory = new ReferenceListFactory(
 				$store,
@@ -204,7 +223,7 @@ class HookRegistry {
 				$cache,
 				$cacheKeyGenerator,
 				$GLOBALS['wgParser'],
-				$configuration
+				$options
 			);
 
 			$cachedReferenceListOutputRenderer->addReferenceListToText( $text );
@@ -233,11 +252,11 @@ class HookRegistry {
 		/**
 		 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ResourceLoaderGetConfigVars
 		 */
-		$this->handlers['ResourceLoaderGetConfigVars'] = function ( &$vars ) use ( $configuration ) {
+		$this->handlers['ResourceLoaderGetConfigVars'] = function ( &$vars ) use ( $options ) {
 
 			$vars['scite-config'] = array(
-				'showTooltipForCitationReference' => $configuration['showTooltipForCitationReference'],
-				'tooltipRequestCacheTTL' => $configuration['tooltipRequestCacheTTL']
+				'showTooltipForCitationReference' => $options->get( 'showTooltipForCitationReference' ),
+				'tooltipRequestCacheTTL' => $options->get( 'tooltipRequestCacheTTL' )
 			);
 
 			return true;
@@ -246,13 +265,13 @@ class HookRegistry {
 		/**
 		 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ParserFirstCallInit
 		 */
-		$this->handlers['ParserFirstCallInit'] = function ( &$parser ) use ( $namespaceExaminer, $configuration ) {
+		$this->handlers['ParserFirstCallInit'] = function ( &$parser ) use ( $namespaceExaminer, $options ) {
 
 			$parserFunctionFactory = new ParserFunctionFactory();
 
 			list( $name, $definition, $flag ) = $parserFunctionFactory->newSciteParserFunctionDefinition(
 				$namespaceExaminer,
-				$configuration
+				$options
 			);
 
 			$parser->setFunctionHook( $name, $definition, $flag );

@@ -3,6 +3,7 @@
 namespace SCI\Tests;
 
 use SCI\HookRegistry;
+use SCI\Options;
 use SMW\DataTypeRegistry;
 use SMW\DIWikiPage;
 
@@ -27,11 +28,13 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 			->disableOriginalConstructor()
 			->getMockForAbstractClass();
 
-		$configuration = array( 'cachePrefix' => 'Foo' );
+		$options = $this->getMockBuilder( '\SCI\Options' )
+			->disableOriginalConstructor()
+			->getMock();
 
 		$this->assertInstanceOf(
 			'\SCI\HookRegistry',
-			new HookRegistry( $store, $cache, $configuration )
+			new HookRegistry( $store, $cache, $options )
 		);
 	}
 
@@ -59,7 +62,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 		$instance = new HookRegistry(
 			$store,
 			$cache,
-			$configuration
+			new Options( $configuration )
 		);
 
 		$this->doTestRegistereddInitPropertiesHandler( $instance );
