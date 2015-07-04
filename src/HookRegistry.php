@@ -198,11 +198,12 @@ class HookRegistry {
 		};
 
 		/**
+		 * @note This is bit of a hack but there is no other way to get access to
+		 * the ParserOutput so that it can be used in OutputPageBeforeHTML
+		 *
 		 * @see https://www.mediawiki.org/wiki/Manual:Hooks/OutputPageParserOutput
 		 */
 		$this->handlers['OutputPageParserOutput'] = function( &$outputPage, $parserOutput ) {
-			// This is bit of a crux but there is no other way to get access to
-			// the ParserOutput so that it can be used in OutputPageBeforeHTML
 			$outputPage->smwmagicwords = $parserOutput->getExtensionData( 'smwmagicwords' );
 			return true;
 		};

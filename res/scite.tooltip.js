@@ -147,9 +147,21 @@
 			} );
 		};
 
-		if ( configuration.showTooltipForCitationReference ) {
-			$( '.scite-citeref-number' ).each( tooltip );
-		}
+		/**
+		 * @since 1.0
+		 */
+		$.map( configuration.showTooltipForCitationReference, function( val, i ) {
+
+			if ( val == 1 ) {
+				var selector = '.scite-citeref-number';
+			};
+
+			if ( val == 2 ) {
+				var selector = '.scite-citeref-key';
+			};
+
+			$( selector ).each( tooltip );
+		} );
 
 	} );
 }( jQuery, mediaWiki ) );

@@ -2,8 +2,8 @@
 
 - `$GLOBALS['scigCitationReferenceCaptionFormat']` specifies the display format for a citation
   reference to be displayed either as a number (`SCI_CITEREF_NUM`) or by its key (`SCI_CITEREF_KEY`)
-- `$GLOBALS['scigShowTooltipForCitationReference']` whether to show a reference tooltip
-  for when `SCI_CITEREF_NUM` is set or not
+- `$GLOBALS['scigShowTooltipForCitationReference']` maintains an array for which format the tooltip
+   can be shown (`false` or an empty array will disable the tooltip)
 - `$GLOBALS['scigTooltipRequestCacheTTLInSeconds']` to allow to store tooltip query results from
    the backend to the local browser cache in order to avoid repeated requests for already queried
    references. Setting this parameter to false will disable the cache. Items that are cached will show
@@ -157,21 +157,21 @@ Citation keys are available wiki-wide therefore selecting an
 appropriate key is paramount to safeguard against unnecessary changes.
 
 - If it becomes necessary to rename a citation key (because a resource with key
-`Foo 2007` no longer represents a unique resource due to adding another resource
-with the same key) then the existing usage of that resource needs to be queried and
-changed before applying the new citation key (e.g. `Foo 2007a`).
+  `Foo 2007` no longer represents a unique resource due to adding another resource
+  with the same key) then the existing usage of that resource needs to be queried and
+  changed before applying the new citation key (e.g. `Foo 2007a`).
 - Citation resources that use the same key are displayed on the reference list
-and are linked to each other (in case `$GLOBALS['scigBrowseLinkToCitationResource']` is set
-true). For example, ` ↑ | ↑` is indicating that two resources use the same citation
-key with each `↑` to link to its resource.
+  and linked to each other in case `$GLOBALS['scigBrowseLinkToCitationResource']` is set
+  true. For example, ` ↑ | ↑` is indicating that two resources use the same citation
+  key with `↑` each to link to its resource.
 - The parentheses style of a citation reference can be modified using the `scite.styles.css`
-style sheet.
+  style sheet.
 - If a page number reference is required then one can use the following syntax
   `[[CiteRef::Foo and Bar, 1970|Foo and Bar, 1970:42]]` to highlight the page 42 (in case
   `$GLOBALS['scigCitationReferenceCaptionFormat']` is set to `SCI_CITEREF_KEY` )
 - To avoid cluttering a source text with citation resources it is suggested to divide
-text and resource definitions by storing `{{#scite:}}` resources on a related a subpage
-and use the `[[CiteRef:: ...]]` annotation on the source page for inclusion.
+  text and resource definitions by storing `{{#scite:}}` resources on a related a subpage
+  and use the `[[CiteRef:: ...]]` annotation on the source page for inclusion.
 
 ## Questions
 

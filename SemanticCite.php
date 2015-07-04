@@ -93,8 +93,7 @@ call_user_func( function () {
 	$GLOBALS['scigCitationReferenceCaptionFormat'] = SCI_CITEREF_NUM;
 
 	/**
-	 * Whether to show the reference tooltip for when SCI_CITEREF_NUM is set
-	 * or not.
+	 * Enables a tooltip for a specific citation reference format
 	 *
 	 * The requestCacheTTL specifies the expiry for a citation text that is locally
 	 * cached in a browser before a new ajax-request is made.
@@ -102,7 +101,11 @@ call_user_func( function () {
 	 * To force a browser to renew the display before the cache is expired, delete
 	 * the "scite.cache" localStorage from the browser
 	 */
-	$GLOBALS['scigShowTooltipForCitationReference'] = true;
+	$GLOBALS['scigShowTooltipForCitationReference'] = array(
+		SCI_CITEREF_NUM,
+		SCI_CITEREF_KEY
+	);
+
 	$GLOBALS['scigTooltipRequestCacheTTLInSeconds'] = 60 * 60 * 24; // false to disable the Cache
 
 	/**
