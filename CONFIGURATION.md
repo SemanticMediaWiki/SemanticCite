@@ -111,7 +111,7 @@ besides those listed below:
 - `pmcid` is a reserved parameter and is linked to the `PMCID` property
 - `reference` is a reserved parameter and is linked to the `Citation key` property
 - `citation text` is a reserved parameter and is linked to the `Citation text` property
-- `@sortkey` is a reserved parameter and is linked to the `_SKEY` property and can be
+- `sortkey` is a reserved parameter and is linked to the `_SKEY` property and can be
    set to find a resource more easily during querying as the resource is by default set
    to the internal resource id.
 
@@ -152,7 +152,7 @@ reference list.
 ```
 
 A nonbound reference list (for notes or additional literature references) that does
-not link to any of the `Citation reference` annotations directly in a page can be generated
+not link to any of the `Citation reference` annotations in a page can generate a list
 using the `|reference=` parameter.
 
 ```
@@ -162,6 +162,18 @@ using the `|reference=` parameter.
  |columns=1
  |header=Notes
  |references=PMC2483364;Einstein et al. 1935|+sep=;
+}}
+```
+
+To display a table of contents section for the reference list (by default the auto-added
+list is hidden) the parameter `|toc=yes` should be added to:
+
+```
+{{#referencelist:
+ |listtype=ol
+ |browselinks=no
+ |columns=1
+ |toc=yes
 }}
 ```
 
