@@ -151,6 +151,20 @@ reference list.
 }}
 ```
 
+A nonbound reference list (for notes or additional literature references) that does
+not link to any of the `Citation reference` annotations directly in a page can be generated
+using the `|reference=` parameter.
+
+```
+{{#referencelist:
+ |listtype=ul
+ |browselinks=yes
+ |columns=1
+ |header=Notes
+ |references=PMC2483364;Einstein et al. 1935|+sep=;
+}}
+```
+
 ### References and citation keys
 
 Citation keys are available wiki-wide therefore selecting an

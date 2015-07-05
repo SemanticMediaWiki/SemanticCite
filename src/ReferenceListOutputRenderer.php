@@ -124,14 +124,21 @@ class ReferenceListOutputRenderer {
 	 * @since 1.0
 	 *
 	 * @param DIWikiPage $subject
+	 * @param array|null $referenceList
 	 *
 	 * @return string
 	 */
-	public function renderReferenceListFor( DIWikiPage $subject ) {
+	public function renderReferenceListFor( DIWikiPage $subject, array $referenceList = null ) {
 
-		$journal = $this->citationReferencePositionJournal->getJournalBySubject(
-			$subject
-		);
+		if ( $referenceList !== null ) {
+			$journal = $this->citationReferencePositionJournal->buildJournalForNonboundReferenceList(
+				$referenceList
+			);
+		} else {
+			$journal = $this->citationReferencePositionJournal->getJournalBySubject(
+				$subject
+			);
+		}
 
 		if ( $journal !== null ) {
 			return $this->createHtmlFromList( $journal );
@@ -143,7 +150,7 @@ class ReferenceListOutputRenderer {
 	/**
 	 * The journal is expected to contain:
 	 *
-	 * 'total'      => a number
+	 * 'total' => a number
 	 * 'reference-list' => array of hashes for references used
 	 * 'reference-pos'  => individual reference links (1-a, 1-b) assigned to a hash
 	 */
@@ -153,6 +160,7 @@ class ReferenceListOutputRenderer {
 
 		foreach ( $referenceList['reference-pos'] as $referenceAsHash => $linkList ) {
 
+			$citationText = '';
 			// Get the "human" readable citation key/reference from the hashmap
 			// intead of trying to access the DB/Store
 			$reference = $referenceList['reference-list'][$referenceAsHash];
@@ -166,7 +174,11 @@ class ReferenceListOutputRenderer {
 				$referenceAsHash
 			);
 
-			$browseLinks = $this->createBrowseLinkFor( $subjects, $reference, $citationText );
+			$browseLinks = $this->createBrowseLinkFor(
+				$subjects,
+				$reference,
+				$citationText
+			);
 
 			$listOfFormattedReferences[] =
 				Html::rawElement(
@@ -176,14 +188,14 @@ class ReferenceListOutputRenderer {
 						'class' => 'scite-referencelinks'
 					),
 					$flatHtmlReferenceLinks
-					) . '&nbsp;'  .
+					) . ( $flatHtmlReferenceLinks !== '' ? '&nbsp;' : '' )  .
 				Html::rawElement(
 					'span',
 					array(
 						'id'    => 'scite-'. $referenceAsHash,
 						'class' => 'scite-citation'
 					),
-					$browseLinks . '&nbsp;' . Html::rawElement(
+					( $browseLinks !== '' ? $browseLinks . '&nbsp;' : '' ) . Html::rawElement(
 						'span',
 						array( 'class' => 'scite-citation-text' ),
 						$citationText

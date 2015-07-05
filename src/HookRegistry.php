@@ -45,7 +45,7 @@ class HookRegistry {
 	}
 
 	/**
-	 * @note This is normally only used during unit/integration testing
+	 * @note Usually only used during unit/integration testing
 	 *
 	 * @since  1.0
 	 *
