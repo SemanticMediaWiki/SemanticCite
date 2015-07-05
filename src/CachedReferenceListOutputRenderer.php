@@ -98,7 +98,7 @@ class CachedReferenceListOutputRenderer {
 		// Find out whether to place the list into a custom position or not
 		if ( strpos( $text, 'scite-custom-referencelist' ) !== false ) {
 			return $text = preg_replace_callback(
-				"/" . "<div id=\"scite-custom-referencelist\"(.*)?><h2>(.*)?<\/div>" . "/m",
+				"/" . "<div id=\"scite-custom-referencelist\"(.*)?>(<h2>|<span>)(.*)?<\/div>" . "/m",
 				'self::getCustomizedRenderedHtmlReferenceList',
 				$text
 			);
@@ -152,13 +152,30 @@ class CachedReferenceListOutputRenderer {
 
 	private function getRenderedHtmlReferenceList( $references = '', $header = '' ) {
 
-		list( $renderedReferenceList, $container, $key, $oldId, $lang, $hash ) = $this->tryToFetchReferenceListFromCache(
-			$references,
-			$header
+		$container = array();
+		$oldId = $this->contextInteractor->getOldId();
+		$lang  = $this->contextInteractor->getLanguageCode();
+
+		// Keep the root cache entry based on the subject to ensure
+		// that it can be entirely flushed
+		$key = $this->cacheKeyGenerator->getCacheKeyForReferenceList(
+			$this->getSubject()->getHash()
 		);
 
-		if ( $renderedReferenceList ) {
-			return $renderedReferenceList;
+		$revId = $oldId != 0 ? $oldId : $this->contextInteractor->getTitle()->getLatestRevID();
+
+		// Create an individual hash for when loose references are used
+		$renderedReferenceListHash = md5( $this->getSubject()->getHash() . $references . $header );
+
+		if ( $this->cache->contains( $key ) ) {
+			$container = $this->cache->fetch( $key );
+
+			// Match against revision, languageCode, and hash
+			if ( isset( $container['revId'] ) &&
+				$container['revId'] == $revId &&
+				isset( $container['text'][$lang][$renderedReferenceListHash] ) ) {
+				return $container['text'][$lang][$renderedReferenceListHash];
+			}
 		}
 
 		$renderedReferenceList = $this->referenceListOutputRenderer->doRenderReferenceListFor(
@@ -171,7 +188,8 @@ class CachedReferenceListOutputRenderer {
 			return $renderedReferenceList;
 		}
 
-		$container['text'][$lang][$hash] = $renderedReferenceList;
+		$container['revId'] = $revId;
+		$container['text'][$lang][$renderedReferenceListHash] = $renderedReferenceList;
 
 		$this->cache->save(
 			$key,
@@ -179,40 +197,6 @@ class CachedReferenceListOutputRenderer {
 		);
 
 		return $renderedReferenceList;
-	}
-
-	private function tryToFetchReferenceListFromCache( $references = '', $header = '' ) {
-
-		$container = array();
-
-		$oldId = $this->contextInteractor->getOldId();
-		$lang  = $this->contextInteractor->getLanguageCode();
-
-		// Keep the root cache entry based on the subject to ensure
-		// that it can be entirely flushed
-		$key = $this->cacheKeyGenerator->getCacheKeyForReferenceList(
-			$this->getSubject()->getHash()
-		);
-
-		$revId = $oldId != 0 ? $oldId : $this->contextInteractor->getTitle()->getLatestRevID();
-
-		// Create an individual hash for when nonbound references are used
-		$renderedReferenceListHash = md5( $this->getSubject()->getHash() . $references . $header );
-
-		if ( $this->cache->contains( $key ) ) {
-			$container = $this->cache->fetch( $key );
-
-			// Match against revision, languageCode, and hash
-			if ( isset( $container['revId'] ) &&
-				$container['revId'] == $revId &&
-				isset( $container['text'][$lang][$renderedReferenceListHash] ) ) {
-				return array( $container['text'][$lang][$renderedReferenceListHash] );
-			}
-		}
-
-		$container['revId'] = $revId;
-
-		return array( false, $container, $key, $oldId, $lang, $renderedReferenceListHash );
 	}
 
 }

@@ -73,7 +73,7 @@ class MediaWikiNsContentMapper {
 				'pmcid'         => SCI_PROP_PMCID,
 				'reference'     => SCI_PROP_CITE_KEY,
 				'citation text' => SCI_PROP_CITE_TEXT,
-				'@sortkey'      => '_SKEY' // same as SubobjectParserFunction::PARAM_SORTKEY
+				'sortkey'       => '_SKEY'
 			);
 		}
 

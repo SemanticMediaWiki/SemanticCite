@@ -1,0 +1,34 @@
+{
+	"description": "Verify sorkey annotation",
+	"properties": [],
+	"subjects": [
+		{
+			"name": "Citation/Resource",
+			"contents": "{{#scite:Foo:123|type=text|citation text=Citation for bar|sortkey=ABC}}"
+		}
+	],
+	"parser-testcases": [
+		{
+			"about": "#0",
+			"subject": "Citation/Resource#_SCITE-86f84b9b2cf2ae4405199e26f121b4e9",
+			"store": {
+				"semantic-data": {
+					"strict-mode-valuematch": false,
+					"propertyCount": 3,
+					"propertyKeys": [ "__sci_cite_key", "__sci_cite_text", "_SKEY" ],
+					"propertyValues": [ "Foo:123", "Citation for bar", "ABC" ]
+				}
+			}
+		}
+	],
+	"settings": {
+		"wgContLang": "en",
+		"scigReferenceListType": "ol",
+		"scigCitationReferenceCaptionFormat" : 1
+	},
+	"meta": {
+		"version": "0.1",
+		"is-incomplete": false,
+		"debug": false
+	}
+}
