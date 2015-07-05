@@ -128,7 +128,7 @@ class ReferenceListOutputRenderer {
 	 *
 	 * @return string
 	 */
-	public function renderReferenceListFor( DIWikiPage $subject, array $referenceList = null ) {
+	public function doRenderReferenceListFor( DIWikiPage $subject, array $referenceList = null ) {
 
 		if ( $referenceList !== null ) {
 			$journal = $this->citationReferencePositionJournal->buildJournalForNonboundReferenceList(

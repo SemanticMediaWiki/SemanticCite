@@ -152,7 +152,39 @@ class CachedReferenceListOutputRenderer {
 
 	private function getRenderedHtmlReferenceList( $references = '', $header = '' ) {
 
+		list( $renderedReferenceList, $container, $key, $oldId, $lang, $hash ) = $this->tryToFetchReferenceListFromCache(
+			$references,
+			$header
+		);
+
+		if ( $renderedReferenceList ) {
+			return $renderedReferenceList;
+		}
+
+		$renderedReferenceList = $this->referenceListOutputRenderer->doRenderReferenceListFor(
+			$this->getSubject(),
+			json_decode( html_entity_decode( $references ) )
+		);
+
+		// Don't cache a history/diff view
+		if ( $oldId != 0 ) {
+			return $renderedReferenceList;
+		}
+
+		$container['text'][$lang][$hash] = $renderedReferenceList;
+
+		$this->cache->save(
+			$key,
+			$container
+		);
+
+		return $renderedReferenceList;
+	}
+
+	private function tryToFetchReferenceListFromCache( $references = '', $header = '' ) {
+
 		$container = array();
+
 		$oldId = $this->contextInteractor->getOldId();
 		$lang  = $this->contextInteractor->getLanguageCode();
 
@@ -164,7 +196,7 @@ class CachedReferenceListOutputRenderer {
 
 		$revId = $oldId != 0 ? $oldId : $this->contextInteractor->getTitle()->getLatestRevID();
 
-		// Create an individual hash for when loose references are used
+		// Create an individual hash for when nonbound references are used
 		$renderedReferenceListHash = md5( $this->getSubject()->getHash() . $references . $header );
 
 		if ( $this->cache->contains( $key ) ) {
@@ -174,29 +206,13 @@ class CachedReferenceListOutputRenderer {
 			if ( isset( $container['revId'] ) &&
 				$container['revId'] == $revId &&
 				isset( $container['text'][$lang][$renderedReferenceListHash] ) ) {
-				return $container['text'][$lang][$renderedReferenceListHash];
+				return array( $container['text'][$lang][$renderedReferenceListHash] );
 			}
 		}
 
-		$renderedReferenceList = $this->referenceListOutputRenderer->renderReferenceListFor(
-			$this->getSubject(),
-			json_decode( html_entity_decode( $references ) )
-		);
-
-		// Don't cache a history/diff view
-		if ( $oldId != 0 ) {
-			return $renderedReferenceList;
-		}
-
 		$container['revId'] = $revId;
-		$container['text'][$lang][$renderedReferenceListHash] = $renderedReferenceList;
 
-		$this->cache->save(
-			$key,
-			$container
-		);
-
-		return $renderedReferenceList;
+		return array( false, $container, $key, $oldId, $lang, $renderedReferenceListHash );
 	}
 
 }

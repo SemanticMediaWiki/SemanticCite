@@ -3,7 +3,6 @@
 namespace SCI;
 
 use Onoi\Cache\Cache;
-use SMW\ApplicationFactory;
 use SMW\DIWikiPage;
 
 /**

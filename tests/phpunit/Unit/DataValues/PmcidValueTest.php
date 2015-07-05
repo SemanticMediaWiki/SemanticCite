@@ -3,7 +3,6 @@
 namespace SCI\Tests\DataValues;
 
 use SCI\DataValues\PmcidValue;
-use SMW\DataTypeRegistry;
 
 /**
  * @covers \SCI\DataValues\PmcidValue

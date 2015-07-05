@@ -9,8 +9,6 @@ use SMW\DIProperty;
 use SMW\ParserData;
 use SMW\Subobject;
 use Html;
-use Title;
-use Parser;
 
 /**
  * #scite: is used the create a citation resource with a reference to be

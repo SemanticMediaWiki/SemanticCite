@@ -3,7 +3,6 @@
 namespace SCI\DataValues;
 
 use SCI\CitationReferencePositionJournal;
-use SMW\DataTypeRegistry;
 use SMWStringValue as StringValue;
 use SMWDIBlob as DIBlob;
 use Html;

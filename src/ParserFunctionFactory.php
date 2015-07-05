@@ -5,7 +5,6 @@ namespace SCI;
 use SMW\ApplicationFactory;
 use SMW\NamespaceExaminer;
 use SMW\ParameterProcessorFactory;
-use Parser;
 
 /**
  * @license GNU GPL v2+

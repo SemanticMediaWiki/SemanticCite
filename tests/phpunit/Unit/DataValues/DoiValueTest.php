@@ -3,7 +3,6 @@
 namespace SCI\Tests\DataValues;
 
 use SCI\DataValues\DoiValue;
-use SMW\DataTypeRegistry;
 
 /**
  * @covers \SCI\DataValues\DoiValue

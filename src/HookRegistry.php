@@ -5,7 +5,6 @@ namespace SCI;
 use SMW\Store;
 use Onoi\Cache\Cache;
 use SMW\ApplicationFactory;
-use SMW\DIWikiPage;
 use SMWDataItem as DataItem;
 use Hooks;
 
@@ -23,7 +22,7 @@ class HookRegistry {
 	private $handlers = array();
 
 	/**
-	 * @var array
+	 * @var Options
 	 */
 	private $options;
 

@@ -3,12 +3,10 @@
 namespace SCI;
 
 use SMW\Store;
-use SMW\DIWikiPage;
 use SMW\NamespaceExaminer;
 use SMW\ApplicationFactory;
 use Onoi\Cache\Cache;
 use Parser;
-use Title;
 
 /**
  * @license GNU GPL v2+
