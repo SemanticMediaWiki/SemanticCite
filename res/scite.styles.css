@@ -25,7 +25,7 @@
 	line-height: 1;
 }
 
-.scite-referencelist ol .scite-backlink, .scite-referencelist ul .captionformat-key .scite-backlink {
+.scite-referencelist ol .scite-backlink, .scite-referencelist ul .scite-backlink[data-citeref-format='key'] {
 	vertical-align: middle;
 	font-size: 100%;
 	font-weight: bold;

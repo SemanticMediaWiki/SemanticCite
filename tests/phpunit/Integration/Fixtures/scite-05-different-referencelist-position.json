@@ -31,7 +31,7 @@
 				"to-contain": [
 					"<span id=\"scite-ref-4a4b33932ef3b5972e9c4bccfff6e2fc-1-a\" class=\"scite-citeref-number\" data-reference=\"Foo:abc\"><a href=\"#scite-4a4b33932ef3b5972e9c4bccfff6e2fc\">1</a></span>",
 					"<div class=\"scite-content\">",
-					"<span id=\"scite-4a4b33932ef3b5972e9c4bccfff6e2fc\" class=\"scite-referencelinks captionformat-number\"><a href=\"#scite-ref-4a4b33932ef3b5972e9c4bccfff6e2fc-1-a\" class=\"scite-backlink\">^</a>",
+					"<span id=\"scite-4a4b33932ef3b5972e9c4bccfff6e2fc\" class=\"scite-referencelinks\"><a href=\"#scite-ref-4a4b33932ef3b5972e9c4bccfff6e2fc-1-a\" class=\"scite-backlink\" data-citeref-format=\"number\">^</a>",
 					"<span class=\"scite-citation-text\">Citation for bar</span>"
 				]
 			}
@@ -52,8 +52,8 @@
 					"<span id=\"scite-ref-4a4b33932ef3b5972e9c4bccfff6e2fc-1-a\" class=\"scite-citeref-number\" data-reference=\"Foo:abc\"><a href=\"#scite-4a4b33932ef3b5972e9c4bccfff6e2fc\">1</a></span>",
 					"<span id=\"scite-ref-4a4b33932ef3b5972e9c4bccfff6e2fc-1-b\" class=\"scite-citeref-number\" data-reference=\"Foo:abc\"><a href=\"#scite-4a4b33932ef3b5972e9c4bccfff6e2fc\">1</a></span>",
 					"<div class=\"scite-content\">",
-					"<a href=\"#scite-ref-4a4b33932ef3b5972e9c4bccfff6e2fc-1-a\" class=\"scite-backlinks\">a</a>",
-					"<a href=\"#scite-ref-4a4b33932ef3b5972e9c4bccfff6e2fc-1-b\" class=\"scite-backlinks\">b</a>",
+					"<a href=\"#scite-ref-4a4b33932ef3b5972e9c4bccfff6e2fc-1-a\" class=\"scite-backlinks\" data-citeref-format=\"number\">a</a>",
+					"<a href=\"#scite-ref-4a4b33932ef3b5972e9c4bccfff6e2fc-1-b\" class=\"scite-backlinks\" data-citeref-format=\"number\">b</a>",
 					"<span class=\"scite-citation-text\">Citation for bar</span>"
 				]
 			}

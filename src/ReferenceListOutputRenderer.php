@@ -5,7 +5,6 @@ namespace SCI;
 use Parser;
 use Html;
 use SMW\MediaWiki\Renderer\HtmlColumnListRenderer;
-use SMW\DataValueFactory;
 use SMW\DIWikiPage;
 
 /**
@@ -151,7 +150,6 @@ class ReferenceListOutputRenderer {
 	private function createHtmlFromList( array $referenceList ) {
 
 		$listOfFormattedReferences = array();
-		$captionFormatClass = 'captionformat-' . ( $this->citationReferenceCaptionFormat === SCI_CITEREF_NUM ? 'number' : 'key' );
 
 		foreach ( $referenceList['reference-pos'] as $referenceAsHash => $linkList ) {
 
@@ -175,7 +173,7 @@ class ReferenceListOutputRenderer {
 					'span',
 					array(
 						'id'    => 'scite-'. $referenceAsHash,
-						'class' => 'scite-referencelinks ' . $captionFormatClass
+						'class' => 'scite-referencelinks'
 					),
 					$flatHtmlReferenceLinks
 					) . '&nbsp;'  .
@@ -219,46 +217,24 @@ class ReferenceListOutputRenderer {
 
 	private function findCitationTextFor( $reference ) {
 
-		$text = '';
-		$subjects = array();
-
-		$queryResult = $this->citationResourceMatchFinder->findMatchForCitationReference(
+		list( $subjects, $text ) = $this->citationResourceMatchFinder->findCitationTextFor(
 			$reference
 		);
 
-		if ( !$queryResult instanceof \SMWQueryResult ) {
-			return array( $subjects, $text );
-		}
-
-		while ( $resultArray = $queryResult->getNext() ) {
-			foreach ( $resultArray as $result ) {
-
-				// Collect all matches for the same reference because it can happen
-				// that the same reference key is used for different citation
-				// resources therefore we only return one (the last) valid citation
-				// text but nevertheless return all subjects to make easier to find them
-				$subjects[] = $result->getResultSubject();
-
-				while ( ( $dataValue = $result->getNextDataValue() ) !== false ) {
-					$text = $this->getFormattedText( $dataValue );
-				}
-			}
-		}
-
-		return array( $subjects, $text );
+		return array( $subjects, $this->getFormattedText( $text ) );
 	}
 
 	/**
 	 * Check for ParserOptions to avoid a "Call to a member function getMaxIncludeSize()
 	 * Parser.php on line 3266" encountered on the 1.24 diff view
 	 */
-	private function getFormattedText( $dataValue ) {
+	private function getFormattedText( $value ) {
 
 		if ( $this->parser->getOptions() !== null ) {
-			return $this->parser->recursiveTagParse( $dataValue->getShortWikiText() );
+			return $this->parser->recursiveTagParse( $value );
 		}
 
-		return $dataValue->getShortWikiText();
+		return $value;
 	}
 
 	private function createFlatHtmlListForReferenceLinks( array $linkList, $referenceHash ) {
@@ -289,7 +265,8 @@ class ReferenceListOutputRenderer {
 				'a',
 				array(
 					'href'  => "#scite-ref-{$referenceHash}-" . $value,
-					'class' => $class
+					'class' => $class,
+					'data-citeref-format' => $this->citationReferenceCaptionFormat === SCI_CITEREF_NUM ? 'number' : 'key'
 				),
 				$minor
 			);
@@ -316,28 +293,15 @@ class ReferenceListOutputRenderer {
 			return '';
 		}
 
-		$references = array();
-
-		foreach ( $subjects as $subject ) {
-
-			$dataValue = DataValueFactory::getInstance()->newDataItemValue(
-				$subject,
-				null
-			);
-
-			$browselink = \SMWInfolink::newBrowsingLink(
-				'&#8593;', //$reference,
-				$dataValue->getWikiValue(),
-				'scite-citation-resourcelink'
-			);
-
-			$references[] = $browselink->getHTML();
-		}
+		$citationResourceLinks = $this->citationResourceMatchFinder->findCitationResourceLinks(
+			$subjects,
+			'scite-citation-resourcelink'
+		);
 
 		// Normally we should have only one subject to host a citation resource
 		// for the reference in question but it might be that double assingments
 		// did occur and therefore show them all
-		return implode( ' | ', $references );
+		return implode( ' | ', $citationResourceLinks );
 	}
 
 }
