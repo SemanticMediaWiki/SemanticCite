@@ -16,8 +16,8 @@ class ReferenceListParserFunction {
 	/**
 	 * {{#referencelist:
 	 * |columns=2
-	 * |listType="ol"
-	 * |browseLinks=true
+	 * |listtype="ol"
+	 * |browselinks=true
 	 * }}
 	 *
 	 * @since 1.0
@@ -26,22 +26,42 @@ class ReferenceListParserFunction {
 	 */
 	public function doProcess( ParserParameterProcessor $parserParameterProcessor ) {
 
+		$header = '';
+
 		$attributes = array(
 			'id' => 'scite-custom-referencelist'
 		);
 
 		foreach ( $parserParameterProcessor->toArray() as $key => $values ) {
+
+			if ( $key === 'references' ) {
+				$attributes['data-references'] = json_encode( $values );
+				continue;
+			}
+
 			foreach ( $values as $value ) {
+
+				if ( $key === 'header' ) {
+					$header = $value;
+				}
+
 				$attributes['data-'. $key] = $value;
 			}
 		}
 
-		$html = Html::rawElement(
-			'div',
-			$attributes
+		$header = Html::element(
+			'h2',
+			array(),
+			$header
 		);
 
-		return $html;
+		$html = Html::rawElement(
+			'div',
+			$attributes,
+			$header
+		);
+
+		return $html . "<!-- end marker -->\n";
 	}
 
 }

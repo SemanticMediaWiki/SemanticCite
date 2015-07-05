@@ -61,6 +61,39 @@ class CitationReferencePositionJournal {
 	}
 
 	/**
+	 * @note Build a journal from nonbound references (loose from the subject invoked
+	 * citation references), the position isn't important because those will not
+	 * be linked to any CiteRef anchors.
+	 *
+	 * @since 1.0
+	 *
+	 * @param  array $referenceList
+	 *
+	 * @return array|null
+	 */
+	public function buildJournalForNonboundReferenceList( array $referenceList ) {
+
+		if ( $referenceList === array() ) {
+			return null;
+		}
+
+		$journal = array(
+			'total' => 0,
+			'reference-list' => array(),
+			'reference-pos'  => array()
+		);
+
+		$journal['total'] = count( $referenceList );
+
+		foreach ( $referenceList as $reference ) {
+			$journal['reference-pos'][$reference] = array();
+			$journal['reference-list'][$reference] = $reference;
+		}
+
+		return $journal;
+	}
+
+	/**
 	 * @since 1.0
 	 *
 	 * @param DIWikiPage|null $subject

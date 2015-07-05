@@ -1,0 +1,94 @@
+{
+	"description": "Testing {{#referencelist:}} to generate a loose reference list",
+	"properties": [],
+	"subjects": [
+		{
+			"name": "Citation/Resource/09",
+			"contents": "{{#scite:Foo:abc|type=text|citation text=Citation for bar}} {{#scite:Bar:abc|type=text|citation text=Citation for a loose reference}}"
+		},
+		{
+			"name": "Citation/Reference/09/1",
+			"contents": "[[CiteRef::Foo:abc]] {{#referencelist:listtype=ul}} \n {{#referencelist:listtype=ul|references=Bar:abc|header=Notes}}"
+		},
+		{
+			"name": "Citation/Reference/09/2",
+			"contents": "[[CiteRef::Foo:abc]] {{#referencelist:listtype=ul}} {{#referencelist:listtype=ul|references=Bar:abc|header=Notes}}"
+		},
+		{
+			"name": "Citation/Reference/09/3",
+			"contents": "{{#referencelist:listtype=ul|references=Bar:abc,Foo:abc|+sep=,|header=Notes}}"
+		}
+	],
+	"parser-testcases": [
+		{
+			"about": "#0 with new line",
+			"subject": "Citation/Reference/09/1",
+			"store": {
+				"semantic-data": {
+					"strict-mode-valuematch": false,
+					"propertyCount": 3,
+					"propertyKeys": [ "__sci_cite_reference", "_MDAT", "_SKEY" ],
+					"propertyValues": [ "Foo:abc" ]
+				}
+			},
+			"expected-output": {
+				"to-contain": [
+					"<div class=\"scite-content\"><h2 id=\"References\">References</h2>",
+					"<a href=\"#scite-ref-4a4b33932ef3b5972e9c4bccfff6e2fc-1-a\" class=\"scite-backlink\" data-citeref-format=\"key\">^</a>",
+					"<span class=\"scite-citation-text\">Citation for bar</span>",
+					"<div class=\"scite-content\"><h2 id=\"Notes\">Notes</h2>",
+					"<span id=\"scite-Bar:abc\" class=\"scite-citation\"><span class=\"scite-citation-text\">Citation for a loose reference</span>"
+				]
+			}
+		},
+		{
+			"about": "#1 without new line",
+			"subject": "Citation/Reference/09/2",
+			"store": {
+				"semantic-data": {
+					"strict-mode-valuematch": false,
+					"propertyCount": 3,
+					"propertyKeys": [ "__sci_cite_reference", "_MDAT", "_SKEY" ],
+					"propertyValues": [ "Foo:abc" ]
+				}
+			},
+			"expected-output": {
+				"to-contain": [
+					"<div class=\"scite-content\"><h2 id=\"References\">References</h2>",
+					"<a href=\"#scite-ref-4a4b33932ef3b5972e9c4bccfff6e2fc-1-a\" class=\"scite-backlink\" data-citeref-format=\"key\">^</a>",
+					"<span class=\"scite-citation-text\">Citation for bar</span>",
+					"<div class=\"scite-content\"><h2 id=\"Notes\">Notes</h2>",
+					"<span id=\"scite-Bar:abc\" class=\"scite-citation\"><span class=\"scite-citation-text\">Citation for a loose reference</span>"
+				]
+			}
+		},
+		{
+			"about": "#2 multiple",
+			"subject": "Citation/Reference/09/3",
+			"store": {
+				"semantic-data": {
+					"strict-mode-valuematch": false,
+					"propertyCount": 2,
+					"propertyKeys": [ "_MDAT", "_SKEY" ]
+				}
+			},
+			"expected-output": {
+				"to-contain": [
+					"<div class=\"scite-content\"><h2 id=\"Notes\">Notes</h2>",
+					"<span id=\"scite-Bar:abc\" class=\"scite-citation\"><span class=\"scite-citation-text\">Citation for a loose reference</span>",
+					"<span id=\"scite-Foo:abc\" class=\"scite-citation\"><span class=\"scite-citation-text\">Citation for bar</span>"
+				]
+			}
+		}
+	],
+	"settings": {
+		"wgContLang": "en",
+		"scigReferenceListType": "ul",
+		"scigCitationReferenceCaptionFormat" : 2
+	},
+	"meta": {
+		"version": "0.1",
+		"is-incomplete": false,
+		"debug": false
+	}
+}

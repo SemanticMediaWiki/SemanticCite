@@ -105,4 +105,13 @@ class MediaWikiContextInteractor {
 		return $this->context->getTitle();
 	}
 
+	/**
+	 * @since 1.0
+	 *
+	 * @return string
+	 */
+	public function getLanguageCode() {
+		return $this->context->getLanguage()->getCode();
+	}
+
 }

@@ -176,6 +176,10 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
+		$language = $this->getMockBuilder( '\Language' )
+			->disableOriginalConstructor()
+			->getMock();
+
 		$requestContext = $this->getMockBuilder( '\RequestContext' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -183,6 +187,10 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 		$requestContext->expects( $this->any() )
 			->method( 'getRequest' )
 			->will( $this->returnValue( $webRequest ) );
+
+		$requestContext->expects( $this->any() )
+			->method( 'getLanguage' )
+			->will( $this->returnValue( $language ) );
 
 		$requestContext->expects( $this->any() )
 			->method( 'getTitle' )

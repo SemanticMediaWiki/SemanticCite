@@ -14,7 +14,7 @@ class CacheKeyGenerator {
 	 * Update the version to force a recache for all items due to
 	 * required changes
 	 */
-	const VERSION = '1.0';
+	const VERSION = '1.1';
 
 	/**
 	 * @var string

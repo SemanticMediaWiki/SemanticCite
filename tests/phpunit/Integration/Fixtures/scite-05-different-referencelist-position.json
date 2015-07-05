@@ -8,7 +8,7 @@
 		},
 		{
 			"name": "Citation/Reference/05/1",
-			"contents": "[[CiteRef::Foo:abc]] <div id=\"scite-custom-referencelist\"></div>"
+			"contents": "[[CiteRef::Foo:abc]] <div id=\"scite-custom-referencelist\"><h2></h2></div>"
 		},
 		{
 			"name": "Citation/Reference/05/2",
