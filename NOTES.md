@@ -14,13 +14,19 @@
 
 ## Citation reference
 
-The `CitationReferenceValue` object together with the `CitationReferencePositionJournal` are building the crucial part in counting
-and identifying the position of each `[[CiteRef::]]` annotation within a text source.
+The `CitationReferenceValue` object together with the `CitationReferencePositionJournal` are building
+the basis in counting and identifying the position of each `[[CiteRef::]]` annotation in a text source.
 
 ## Reference list rendering
 
-The `CachedReferenceListOutputRenderer` is responsible to cache the generated list retrieved from `ReferenceListOutputRenderer` and add
-it the appropriate text position (which if the `{{referencelist:}}` parser is used can be different from the default bottom position).
+The `CachedReferenceListOutputRenderer` is responsible for caching the generated list that
+is retrieved from `ReferenceListOutputRenderer` together with an appropriate text position (which
+if the `{{referencelist:}}` parser is used can be different from the default bottom position).
 
-`ReferenceListOutputRenderer` uses the collected position information from `CitationReferencePositionJournal` to generate a list of
-references together with information from the `CitationResourceMatchFinder`.
+`ReferenceListOutputRenderer` uses the position information from `CitationReferencePositionJournal`
+that was collected from each `Citation reference` annotation within a page and enables to generate
+a list of references matched with information from the `CitationResourceMatchFinder`.
+
+`{{referencelist:}}` adds a placeholder (since all parser function run before the `OutputPage` hooks)
+ti the position the list is expected to appear. This placeholder is later replaced
+by the outcome of `preg_replace_callback` in `CachedReferenceListOutputRenderer`.

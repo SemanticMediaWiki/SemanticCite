@@ -109,8 +109,10 @@ class CachedReferenceListOutputRenderer {
 
 	private function getCustomizedRenderedHtmlReferenceList( $customOptions ) {
 
-		$customOptions = explode( 'data-', $customOptions[1] );
+		$this->searchForReferenceListHeaderTocId( $customOptions );
 		$this->referenceListOutputRenderer->setReferenceListHeader( '' );
+
+		$customOptions = explode( 'data-', $customOptions[1] );
 
 		$references = '';
 		$header = '';
@@ -122,32 +124,51 @@ class CachedReferenceListOutputRenderer {
 			}
 
 			$options = explode( '=', trim( str_replace( '"', '', $options ) ) );
-
-			switch ( $options[0] ) {
-				case 'browselinks':
-					$this->referenceListOutputRenderer->setBrowseLinkToCitationResourceState(
-						filter_var( $options[1], FILTER_VALIDATE_BOOLEAN )
-					);
-					break;
-				case 'listtype':
-					$this->referenceListOutputRenderer->setReferenceListType( $options[1] );
-					break;
-				case 'columns':
-					$this->referenceListOutputRenderer->setNumberOfReferenceListColumns(
-						$options[1] < 1 ? 1 : $options[1]
-					);
-					break;
-				case 'header':
-					$header = $options[1];
-					$this->referenceListOutputRenderer->setReferenceListHeader( $options[1] );
-					break;
-				case 'references':
-					$references = $options[1];
-					break;
-			}
+			$this->doFilterValidOption( $options, $references, $header );
 		}
 
 		return $this->getRenderedHtmlReferenceList( $references, $header );
+	}
+
+	private function searchForReferenceListHeaderTocId( array $options ) {
+
+		$headerId = array();
+		$this->referenceListOutputRenderer->setReferenceListHeaderTocId( '' );
+
+		// We know where to expect the index from preg_*
+		if ( isset( $options[3] ) ) {
+			preg_match("/id=\"(.*)\"/", $options[3], $headerId );
+		}
+
+		if ( $headerId !== array() ) {
+			$this->referenceListOutputRenderer->setReferenceListHeaderTocId( $headerId[1] );
+		}
+	}
+
+	private function doFilterValidOption( $options, &$references, &$header ) {
+
+		switch ( $options[0] ) {
+			case 'browselinks':
+				$this->referenceListOutputRenderer->setBrowseLinkToCitationResourceState(
+					filter_var( $options[1], FILTER_VALIDATE_BOOLEAN )
+				);
+				break;
+			case 'listtype':
+				$this->referenceListOutputRenderer->setReferenceListType( $options[1] );
+				break;
+			case 'columns':
+				$this->referenceListOutputRenderer->setNumberOfReferenceListColumns(
+					$options[1] < 1 ? 1 : $options[1]
+				);
+				break;
+			case 'header':
+				$header = $options[1];
+				$this->referenceListOutputRenderer->setReferenceListHeader( $header );
+				break;
+			case 'references':
+				$references = $options[1];
+				break;
+		}
 	}
 
 	private function getRenderedHtmlReferenceList( $references = '', $header = '' ) {
@@ -157,7 +178,7 @@ class CachedReferenceListOutputRenderer {
 		$lang  = $this->contextInteractor->getLanguageCode();
 
 		// Keep the root cache entry based on the subject to ensure
-		// that it can be entirely flushed
+		// that it can be flushed at once
 		$key = $this->cacheKeyGenerator->getCacheKeyForReferenceList(
 			$this->getSubject()->getHash()
 		);

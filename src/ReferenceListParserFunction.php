@@ -30,10 +30,14 @@ class ReferenceListParserFunction {
 			$parserParameterProcessor->toArray()
 		);
 
-		// While this is a bit of a hack nevertheless it will ensure that the Parser
-		// does record the section (if it is a H element) for the TOC and in case
-		// the reference list make use of the same id, the TOC will link to the
-		// href anchor
+		// Only the Parser can add a section/toc entry therefore the default reference
+		// list is "too" late for the parser to process/add a toc section therefore only
+		// the #referencelist can create a placeholder so that by the time the reference
+		// list is generated the header is recognized.
+
+		// The parser will set the headerTocId and is fetched by the
+		// CachedReferenceListOutputRenderer when replacing the placeholder. This
+		// also takes care of any encoded title with non-Latin characters
 		$header = Html::element(
 			$headerElement,
 			array(),
@@ -51,11 +55,7 @@ class ReferenceListParserFunction {
 
 	private function getElementsForHtml( $parameters ) {
 
-		// Only the Parser can add a section/toc entry therefore the default reference
-		// list is "too" late for the parser to process/add a toc section therefore only
-		// the #referencelist can create a placeholder so that by the time the reference
-		// list is generated the header is recognized
-		$header = wfMessage( 'sci-referencelist-header' )->inContentLanguage()->text();
+		$header = wfMessage( 'sci-referencelist-header' )->text();
 
 		// The span placeholder will hide the header from the TOC by default
 		$headerElement = 'span';

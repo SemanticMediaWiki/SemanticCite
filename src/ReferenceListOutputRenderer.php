@@ -56,6 +56,11 @@ class ReferenceListOutputRenderer {
 	private $referenceListHeader = '';
 
 	/**
+	 * @var string
+	 */
+	private $referenceListHeaderTocId = '';
+
+	/**
 	 * @var integer
 	 */
 	private $citationReferenceCaptionFormat = SCI_CITEREF_NUM;
@@ -118,6 +123,15 @@ class ReferenceListOutputRenderer {
 	 */
 	public function setReferenceListHeader( $referenceListHeader ) {
 		$this->referenceListHeader = (string)$referenceListHeader;
+	}
+
+	/**
+	 * @since 1.0
+	 *
+	 * @param string $referenceListHeaderTocId
+	 */
+	public function setReferenceListHeaderTocId( $referenceListHeaderTocId ) {
+		$this->referenceListHeaderTocId = (string)$referenceListHeaderTocId;
 	}
 
 	/**
@@ -209,7 +223,11 @@ class ReferenceListOutputRenderer {
 		$this->htmlColumnListRenderer->addContentsByNoIndex( $listOfFormattedReferences );
 
 		if ( $this->referenceListHeader === '' ) {
-			$this->referenceListHeader = wfMessage( 'sci-referencelist-header' )->inContentLanguage()->text();
+			$this->referenceListHeader = wfMessage( 'sci-referencelist-header' )->text();
+		}
+
+		if ( $this->referenceListHeaderTocId === '' ) {
+			$this->referenceListHeaderTocId = $this->referenceListHeader;
 		}
 
 		return Html::rawElement(
@@ -220,7 +238,7 @@ class ReferenceListOutputRenderer {
 				Html::element(
 				'h2',
 				array(
-					'id' => $this->referenceListHeader
+					'id' => $this->referenceListHeaderTocId
 				),
 				$this->referenceListHeader
 			) . "\n" . $this->htmlColumnListRenderer->getHtml() . "\n"
