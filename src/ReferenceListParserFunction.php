@@ -35,7 +35,7 @@ class ReferenceListParserFunction {
 		// the #referencelist can create a placeholder so that by the time the reference
 		// list is generated the header is recognized.
 
-		// The parser will set the headerTocId and is fetched by the
+		// The parser will set the headerTocId and is later fetched by the
 		// CachedReferenceListOutputRenderer when replacing the placeholder. This
 		// also takes care of any encoded title with non-Latin characters
 		$header = Html::element(

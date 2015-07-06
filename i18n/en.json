@@ -6,6 +6,7 @@
 	},
 	"sci-desc": "Mange citation resources with the help of [https://semantic-mediawiki.org Semantic MediaWiki].",
 	"sci-referencelist-header": "References",
+	"sci-referencelist-text": "$1",
 	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code> can not be used on a namespace that is not enabled for Semantic MediaWiki",
 	"sci-scite-parser-no-reference": "<code>#scite</code> did not declare a reference.",
 	"sci-scite-parser-no-type": "<code>#scite</code> was unable to determine a reference type for «$1».",

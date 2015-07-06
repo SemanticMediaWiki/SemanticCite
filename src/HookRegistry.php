@@ -222,7 +222,6 @@ class HookRegistry {
 				new MediaWikiContextInteractor( $outputPage->getContext() ),
 				$cache,
 				$cacheKeyGenerator,
-				$GLOBALS['wgParser'],
 				$options
 			);
 

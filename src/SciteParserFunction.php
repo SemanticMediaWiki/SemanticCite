@@ -149,7 +149,7 @@ class SciteParserFunction {
 			$type = end( $type );
 		}
 
-		$errorText = $this->tryToMatchFindCitationText(
+		$errorText = $this->tryToMatchCitationTextByPrecept(
 			$parserParameterProcessor,
 			$reference,
 			$type
@@ -163,7 +163,7 @@ class SciteParserFunction {
 		return $errorText; //array( '', 'noparse' => true, 'isHTML' => true );
 	}
 
-	private function tryToMatchFindCitationText( ParserParameterProcessor $parserParameterProcessor, $reference, $type = '' ) {
+	private function tryToMatchCitationTextByPrecept( ParserParameterProcessor $parserParameterProcessor, $reference, $type = '' ) {
 
 		$template = '';
 
@@ -177,7 +177,7 @@ class SciteParserFunction {
 			return $this->createErrorMessageFor( 'sci-scite-parser-no-type', $reference );
 		}
 
-		// Text trumps a template
+		// An injected text trumps a template
 		if ( $parserParameterProcessor->hasParameter( 'citation text' ) ) {
 			return '';
 		}

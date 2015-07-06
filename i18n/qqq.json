@@ -5,6 +5,7 @@
 		]
 	},
 	"sci-desc": "{{desc|name=Semantic Cite|url=https://semantic-mediawiki.org/wiki/Extension:SemanticCite}}",
+	"sci-referencelist-text": "This doesn't require any translation.",
 	"sci-property-definition": "This message doesn't require any translation as modifications are expected to occur on a local wiki.",
 	"sci-template-definition": "This message doesn't require any translation as modifications are expected to occur on a local wiki."
 }

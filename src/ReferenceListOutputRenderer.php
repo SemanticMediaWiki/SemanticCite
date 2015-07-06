@@ -31,11 +31,6 @@ class ReferenceListOutputRenderer {
 	private $htmlColumnListRenderer;
 
 	/**
-	 * @var Parser
-	 */
-	private $parser;
-
-	/**
 	 * @var integer
 	 */
 	private $numberOfReferenceListColumns = 1;
@@ -71,13 +66,11 @@ class ReferenceListOutputRenderer {
 	 * @param CitationResourceMatchFinder $citationResourceMatchFinder
 	 * @param CitationReferencePositionJournal $citationReferencePositionJournal
 	 * @param HtmlColumnListRenderer $htmlColumnListRenderer
-	 * @param Parser $parser
 	 */
-	public function __construct( CitationResourceMatchFinder $citationResourceMatchFinder, CitationReferencePositionJournal $citationReferencePositionJournal, HtmlColumnListRenderer $htmlColumnListRenderer, $parser ) {
+	public function __construct( CitationResourceMatchFinder $citationResourceMatchFinder, CitationReferencePositionJournal $citationReferencePositionJournal, HtmlColumnListRenderer $htmlColumnListRenderer ) {
 		$this->citationResourceMatchFinder = $citationResourceMatchFinder;
 		$this->citationReferencePositionJournal = $citationReferencePositionJournal;
 		$this->htmlColumnListRenderer = $htmlColumnListRenderer;
-		$this->parser = $parser;
 	}
 
 	/**
@@ -251,20 +244,12 @@ class ReferenceListOutputRenderer {
 			$reference
 		);
 
-		return array( $subjects, $this->getFormattedText( $text ) );
-	}
-
-	/**
-	 * Check for ParserOptions to avoid a "Call to a member function getMaxIncludeSize()
-	 * Parser.php on line 3266" encountered on the 1.24 diff view
-	 */
-	private function getFormattedText( $value ) {
-
-		if ( $this->parser->getOptions() !== null ) {
-			return $this->parser->recursiveTagParse( $value );
-		}
-
-		return $value;
+		// Using the Message:parse as shortcut to ensure the text is appropriately
+		// parsed and escaped and save the trouble to deal with Parser stubobject
+		return array(
+			$subjects,
+			wfMessage( 'sci-referencelist-text', $text )->parse()
+		);
 	}
 
 	private function createFlatHtmlListForReferenceLinks( array $linkList, $referenceHash ) {

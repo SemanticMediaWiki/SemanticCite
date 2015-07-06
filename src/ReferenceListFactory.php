@@ -49,7 +49,7 @@ class ReferenceListFactory {
 	 *
 	 * @return ReferenceListOutputRenderer
 	 */
-	public function newReferenceListOutputRenderer( $parser ) {
+	public function newReferenceListOutputRenderer() {
 
 		$mwCollaboratorFactory = ApplicationFactory::getInstance()->newMwCollaboratorFactory();
 		$htmlColumnListRenderer = $mwCollaboratorFactory->newHtmlColumnListRenderer();
@@ -57,8 +57,7 @@ class ReferenceListFactory {
 		$referenceListOutputRenderer = new ReferenceListOutputRenderer(
 			new CitationResourceMatchFinder( $this->store ),
 			$this->citationReferencePositionJournal,
-			$htmlColumnListRenderer,
-			$parser
+			$htmlColumnListRenderer
 		);
 
 		return $referenceListOutputRenderer;
@@ -70,16 +69,13 @@ class ReferenceListFactory {
 	 * @param MediaWikiContextInteractor $contextInteractor
 	 * @param Cache $cache
 	 * @param CacheKeyGenerator $cacheKeyGenerator
-	 * @param Parser $parser
-	 * @param array $configuration
+	 * @param Options $options
 	 *
 	 * @return CachedReferenceListOutputRenderer
 	 */
-	public function newCachedReferenceListOutputRenderer( MediaWikiContextInteractor $contextInteractor, Cache $cache, CacheKeyGenerator $cacheKeyGenerator, $parser, Options $options ) {
+	public function newCachedReferenceListOutputRenderer( MediaWikiContextInteractor $contextInteractor, Cache $cache, CacheKeyGenerator $cacheKeyGenerator, Options $options ) {
 
-		$referenceListOutputRenderer = $this->newReferenceListOutputRenderer(
-			$parser
-		);
+		$referenceListOutputRenderer = $this->newReferenceListOutputRenderer();
 
 		$referenceListOutputRenderer->setNumberOfReferenceListColumns(
 			$options->get( 'numberOfReferenceListColumns' )
