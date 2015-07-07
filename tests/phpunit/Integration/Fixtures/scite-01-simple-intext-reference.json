@@ -7,8 +7,12 @@
 			"contents": "{{#scite:Foo:123|type=text|citation text=Citation for bar}}"
 		},
 		{
-			"name": "Citation/Reference",
+			"name": "Example/01/1",
 			"contents": "[[CiteRef::Foo:123]]"
+		},
+		{
+			"name": "Example/01/2",
+			"contents": "[[CiteRef::Foo:123|:50-52]]"
 		}
 	],
 	"parser-testcases": [
@@ -38,7 +42,7 @@
 		},
 		{
 			"about": "#2 verify reference",
-			"subject": "Citation/Reference",
+			"subject": "Example/01/1",
 			"store": {
 				"semantic-data": {
 					"strict-mode-valuematch": false,
@@ -49,10 +53,26 @@
 			},
 			"expected-output": {
 				"to-contain": [
-					"scite-ref-86f84b9b2cf2ae4405199e26f121b4e9-1-a",
-					"scite-citeref-number",
-					"Foo:123",
-					"#scite-86f84b9b2cf2ae4405199e26f121b4e9"
+					"<span id=\"scite-ref-86f84b9b2cf2ae4405199e26f121b4e9-1-a\" class=\"scite-citeref-number\" data-reference=\"Foo:123\"><a href=\"#scite-86f84b9b2cf2ae4405199e26f121b4e9\">1</a></span>",
+					"<span id=\"scite-86f84b9b2cf2ae4405199e26f121b4e9\" class=\"scite-referencelinks\"><a href=\"#scite-ref-86f84b9b2cf2ae4405199e26f121b4e9-1-a\" class=\"scite-backlink\" data-citeref-format=\"number\">^</a></span>"
+				]
+			}
+		},
+		{
+			"about": "#3 verify short form",
+			"subject": "Example/01/2",
+			"store": {
+				"semantic-data": {
+					"strict-mode-valuematch": false,
+					"propertyCount": 3,
+					"propertyKeys": [ "__sci_cite_reference", "_MDAT", "_SKEY" ],
+					"propertyValues": [ "Foo:123" ]
+				}
+			},
+			"expected-output": {
+				"to-contain": [
+					"<span id=\"scite-ref-86f84b9b2cf2ae4405199e26f121b4e9-1-a\" class=\"scite-citeref-number\" data-reference=\"Foo:123\"><a href=\"#scite-86f84b9b2cf2ae4405199e26f121b4e9\">1</a>:50-52</span>",
+					"<span id=\"scite-86f84b9b2cf2ae4405199e26f121b4e9\" class=\"scite-referencelinks\"><a href=\"#scite-ref-86f84b9b2cf2ae4405199e26f121b4e9-1-a\" class=\"scite-backlink\" data-citeref-format=\"number\">^</a></span>"
 				]
 			}
 		}

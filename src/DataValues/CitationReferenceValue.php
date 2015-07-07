@@ -31,6 +31,14 @@ class CitationReferenceValue extends StringValue {
 	private $reference;
 
 	/**
+	 * To display something like [[CiteRef::Foo, 1970|:50-52]] as [1]:50-52 for
+	 * SCI_CITEREF_NUM
+	 *
+	 * @var boolean
+	 */
+	private $usesShortFormCaption = false;
+
+	/**
 	 * @param string $typeid
 	 */
 	public function __construct( $typeid = '' ) {
@@ -70,7 +78,14 @@ class CitationReferenceValue extends StringValue {
 		}
 
 		$this->reference = $value;
-		$this->m_caption = !$this->m_caption ? $this->reference : $this->m_caption;
+
+		if ( $this->m_caption && $this->captionFormat === SCI_CITEREF_NUM ) {
+			$this->usesShortFormCaption = true;
+		}
+
+		if ( !$this->m_caption ) {
+			$this->m_caption = $this->reference;
+		}
 
 		// This is where the magic happens, compute the position of
 		// a reference relative to previous CiteRef annotations
@@ -89,35 +104,39 @@ class CitationReferenceValue extends StringValue {
 
 		// We want the last entry here to get the major/minor
 		// number that was internally recorded
-		$lastReferenceEntry = $this->citationReferencePositionJournal->findLastReferencePositionEntryFor(
+		$referencePosition = $this->citationReferencePositionJournal->findLastReferencePositionEntryFor(
 			$this->m_contextPage,
 			$this->reference
 		);
 
-		if ( $lastReferenceEntry === null || $this->m_caption === false ) {
+		if ( $referencePosition === null || $this->m_caption === false ) {
 			return '';
 		}
 
 		$referenceHash = md5( $this->reference );
 
 		if ( $this->captionFormat === SCI_CITEREF_NUM ) {
-			list( $major, $minor ) = explode( '-', $lastReferenceEntry );
+			list( $major, $minor ) = explode( '-', $referencePosition );
 			$caption = $major;
 			$captionClass = 'number';
+
+			// [[CiteRef::Foo, 1970|:50-52]] will add the caption to the outside
+			$shortFormCaption = $this->usesShortFormCaption ? $this->m_caption : '';
 		} else {
 			$captionClass = 'key';
 			$caption = $this->m_caption;
+			$shortFormCaption = ''; // Never has a short form
 		}
 
 		// Build element with back and forth link anchor
 		return Html::rawElement(
 			'span',
 			array(
-				'id'    => 'scite-ref-'. $referenceHash . '-' . $lastReferenceEntry,
+				'id'    => 'scite-ref-'. $referenceHash . '-' . $referencePosition,
 				'class' => 'scite-citeref-' . $captionClass,
 				'data-reference' => $this->reference
 			),
-			'[[' .'#scite-' . $referenceHash . '|' . $caption . ']]'
+			'[[' .'#scite-' . $referenceHash . '|' . $caption . ']]' . $shortFormCaption
 		);
 	}
 
