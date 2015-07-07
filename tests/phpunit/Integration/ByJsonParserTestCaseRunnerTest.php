@@ -160,8 +160,16 @@ class ByJsonParserTestCaseRunnerTest extends ByJsonTestCaseProvider {
 
 	private function assertParserOutputForCase( $case ) {
 
-		if ( !isset( $case['expected-output'] ) || !isset( $case['expected-output']['to-contain'] ) ) {
+		if ( !isset( $case['expected-output'] ) ) {
 			return;
+		}
+
+		if ( !isset( $case['expected-output']['to-contain'] ) ) {
+			$case['expected-output']['to-contain'] = array();
+		}
+
+		if ( !isset( $case['expected-output']['to-not-contain'] ) ) {
+			$case['expected-output']['to-not-contain'] = array();
 		}
 
 		$subject = DIWikiPage::newFromText(
@@ -175,10 +183,16 @@ class ByJsonParserTestCaseRunnerTest extends ByJsonTestCaseProvider {
 		// hook is run
 		$context = new \RequestContext();
 		$context->setTitle( $subject->getTitle() );
-		$context->getOutput()->addParserOutputContent( $parserOutput );
+		$context->getOutput()->addParserOutput( $parserOutput );
 
 		$this->stringValidator->assertThatStringContains(
 			$case['expected-output']['to-contain'],
+			$context->getOutput()->getHtml(),
+			$case['about']
+		);
+
+		$this->stringValidator->assertThatStringNotContains(
+			$case['expected-output']['to-not-contain'],
 			$context->getOutput()->getHtml(),
 			$case['about']
 		);
