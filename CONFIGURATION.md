@@ -151,20 +151,6 @@ reference list.
 }}
 ```
 
-A nonbound reference list (for notes or additional literature references) that does
-not link to any of the `Citation reference` annotations in a page can generate a list
-using the `|reference=` parameter.
-
-```
-{{#referencelist:
- |listtype=ul
- |browselinks=yes
- |columns=1
- |header=Notes
- |references=PMC2483364;Einstein et al. 1935|+sep=;
-}}
-```
-
 To display a table of contents section for the reference list (by default the auto-added
 list is hidden) the parameter `|toc=yes` should be added to:
 
@@ -174,6 +160,21 @@ list is hidden) the parameter `|toc=yes` should be added to:
  |browselinks=no
  |columns=1
  |toc=yes
+}}
+```
+
+To generate a nonbound reference list (for notes or additional literature references) 
+using the `|reference=` parameter is required because such list uses the information
+provided by `|reference=` and is not bound to any of the `Citation reference`
+annotations made to a particular page or subject.
+
+```
+{{#referencelist:
+ |listtype=ul
+ |browselinks=yes
+ |columns=1
+ |header=Notes
+ |references=PMC2483364;Einstein et al. 1935|+sep=;
 }}
 ```
 
@@ -192,9 +193,10 @@ appropriate key is paramount to safeguard against unnecessary changes.
   key with `↑` each to link to its resource.
 - The parentheses style of a citation reference can be modified using the `scite.styles.css`
   style sheet.
-- If a page number reference is required then one can use the following syntax
-  `[[CiteRef::Foo and Bar, 1970|Foo and Bar, 1970:42]]` to highlight the page 42 (in case
-  `$GLOBALS['scigCitationReferenceCaptionFormat']` is set to `SCI_CITEREF_KEY` )
+- If a page number reference is required then one can use the longform syntax
+  `[[CiteRef::Foo and Bar, 1970|Foo and Bar, 1970:42]]` for `SCI_CITEREF_KEY` to highlight
+  the page 42 while the shortform `[[CiteRef::Foo and Bar, 1970|:42]]` is suggested for
+  `SCI_CITEREF_NUM` in order to appear as `...`<sup>`[1]:42`</sup>
 - To avoid cluttering a source text with citation resources it is suggested to divide
   text and resource definitions by storing `{{#scite:}}` resources on a related a subpage
   and use the `[[CiteRef:: ...]]` annotation on the source page for inclusion.
