@@ -2,6 +2,7 @@
 
 namespace SCI;
 
+use SCI\Bibtex\BibtexProcessor;
 use SMW\NamespaceExaminer;
 use SMW\ParserParameterProcessor;
 use SMW\DataValueFactory;
@@ -45,6 +46,11 @@ class SciteParserFunction {
 	private $mediaWikiNsContentMapper;
 
 	/**
+	 * @var BibtexProcessor
+	 */
+	private $bibtexProcessor;
+
+	/**
 	 * @var DataValueFactory
 	 */
 	private $dataValueFactory;
@@ -66,12 +72,14 @@ class SciteParserFunction {
 	 * @param NamespaceExaminer $namespaceExaminer
 	 * @param CitationTextTemplateRenderer $citationTextTemplateRenderer
 	 * @param MediaWikiNsContentMapper $mediaWikiNsContentMapper
+	 * @param BibtexProcessor $bibtexProcessor
 	 */
-	public function __construct( ParserData $parserData, NamespaceExaminer $namespaceExaminer, CitationTextTemplateRenderer $citationTextTemplateRenderer, MediaWikiNsContentMapper $mediaWikiNsContentMapper ) {
+	public function __construct( ParserData $parserData, NamespaceExaminer $namespaceExaminer, CitationTextTemplateRenderer $citationTextTemplateRenderer, MediaWikiNsContentMapper $mediaWikiNsContentMapper, BibtexProcessor $bibtexProcessor ) {
 		$this->parserData = $parserData;
 		$this->namespaceExaminer = $namespaceExaminer;
 		$this->citationTextTemplateRenderer = $citationTextTemplateRenderer;
 		$this->mediaWikiNsContentMapper = $mediaWikiNsContentMapper;
+		$this->bibtexProcessor = $bibtexProcessor;
 		$this->dataValueFactory = DataValueFactory::getInstance();
 	}
 
@@ -108,6 +116,22 @@ class SciteParserFunction {
 	 * |template=scite-formatter-online
 	 * }}
 	 *
+	 * OR
+	 *
+	 * {{#scite:Einstein, Podolsky, and Nathan 1935
+	 * |bibtex=@article{einstein1935can,
+	 *  title={Can quantum-mechanical description of physical reality be considered complete?},
+	 *  author={Einstein, Albert and Podolsky, Boris and Rosen, Nathan},
+	 *  journal={Physical review},
+	 *  volume={47},
+	 *  number={10},
+	 *  pages={777},
+	 *  year={1935},
+	 *  publisher={APS}
+	 * }
+	 * |authors=Albert Einstein, Boris Podolsky, Nathan Rosen|+sep=,
+	 * }}
+	 *
 	 * The citation style is determined by the template assigned and stored in
 	 * its own semantic property. To apply for individual formatting rules, use
 	 * |template=
@@ -123,6 +147,11 @@ class SciteParserFunction {
 
 		if ( !$this->namespaceExaminer->isSemanticEnabled( $this->parserData->getTitle()->getNamespace() ) ) {
 			return $this->createErrorMessageFor( 'sci-scite-parser-not-enabled-namespace' );
+		}
+
+		// Hopefully the bibtex processor will add all required parameters and values
+		if ( $parserParameterProcessor->hasParameter( 'bibtex' ) ) {
+			$this->bibtexProcessor->doProcess( $parserParameterProcessor );
 		}
 
 		$reference = str_replace( '_', ' ', $parserParameterProcessor->getFirstParameter() );

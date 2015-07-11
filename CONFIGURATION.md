@@ -131,6 +131,40 @@ is the same as
   ...
 }}
 ```
+### bibtex import
+
+To easy the reuse of existing bibtex records, `#scite` provides the `|bibtex=` parameter to
+import a bibtex by simply adding its text and have `#scite` transform it into a structured form
+defined by the property and template rules.
+
+```
+{{#scite:
+ |bibtex=@ARTICLE{Meyer2000,
+AUTHOR="Bernd Meyer",
+TITLE="A constraint-based framework for diagrammatic reasoning",
+JOURNAL="Applied Artificial Intelligence",
+VOLUME= "14",
+ISSUE = "4",
+PAGES= "327--344",
+YEAR=2000
+}
+}}
+
+{{#scite:Einstein, Podolsky, and Nathan 1935
+ |bibtex=@article{einstein1935can,
+  title={Can quantum-mechanical description of physical reality be considered complete?},
+  author={Einstein, Albert and Podolsky, Boris and Rosen, Nathan},
+  journal={Physical review},
+  volume={47},
+  number={10},
+  pages={777},
+  year={1935},
+  publisher={APS}
+}
+ |authors=Albert Einstein, Boris Podolsky, Nathan Rosen|+sep=,
+}}
+```
+
 
 ### #referencelist usage
 
@@ -163,7 +197,7 @@ list is hidden) the parameter `|toc=yes` should be added to:
 }}
 ```
 
-To generate a nonbound reference list (for notes or additional literature references) 
+To generate a nonbound reference list (for notes or additional literature references)
 using the `|reference=` parameter is required because such list uses the information
 provided by `|reference=` and is not bound to any of the `Citation reference`
 annotations made to a particular page or subject.
@@ -208,10 +242,10 @@ appropriate key is paramount to safeguard against unnecessary changes.
 There are various ways of making different authors available to the semantic search
 and as ordered output.
 
-For example using a parameter `author` that is matched to a property `Has author`
-(to contain all authors in clear form) while an `authors` parameter (not matched to any
+For example using a parameter `authors` that is matched to a property `Has author`
+(to contain all authors in clear form) while an `author` parameter (not matched to any
 property) is used as identifier so that the template formatter can generate the expected
-ordered output from `{{{authors|}}}`  without having to apply a complex parsing process.
+ordered output from `{{{author|}}}`  without having to apply a complex parsing process.
 
 ```
 {{#scite:Watson and Crick, 1953
