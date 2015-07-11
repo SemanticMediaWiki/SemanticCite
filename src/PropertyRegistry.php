@@ -57,7 +57,7 @@ class PropertyRegistry {
 			self::SCI_CITE_KEY => array(
 				'label' => SCI_PROP_CITE_KEY,
 				'type'  => '_txt',
-				'alias' => array( wfMessage( 'sci-property-alias-cite-key' )->text() ),
+				'alias' => array( wfMessage( 'sci-property-alias-citation-key' )->text() ),
 				'visbility' => true,
 				'annotable' => true
 			),
@@ -67,7 +67,7 @@ class PropertyRegistry {
 			self::SCI_CITE_REFERENCE => array(
 				'label' => SCI_PROP_CITE_REFERENCE,
 				'type'  => '_sci_ref',
-				'alias' => array( wfMessage( 'sci-property-alias-cite-reference' )->text(), 'CiteRef' ),
+				'alias' => array( wfMessage( 'sci-property-alias-citation-reference' )->text(), 'CiteRef' ),
 				'visbility' => true,
 				'annotable' => true
 			),
@@ -75,7 +75,7 @@ class PropertyRegistry {
 			self::SCI_CITE_TEXT => array(
 				'label' => SCI_PROP_CITE_TEXT,
 				'type'  => '_txt',
-				'alias' => array( wfMessage( 'sci-property-alias-cite-text' )->text() ),
+				'alias' => array( wfMessage( 'sci-property-alias-citation-text' )->text() ),
 				'visbility' => true,
 				'annotable' => true
 			),
@@ -83,7 +83,7 @@ class PropertyRegistry {
 			self::SCI_CITE => array(
 				'label' => SCI_PROP_CITE,
 				'type'  => '__sob',
-				'alias' => array( wfMessage( 'sci-property-alias-cite-resource' )->text() ),
+				'alias' => array( wfMessage( 'sci-property-alias-citation-resource' )->text() ),
 				'visbility' => true,
 				'annotable' => false
 			)

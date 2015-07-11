@@ -4,5 +4,11 @@
 			"mwjames"
 		]
 	},
-	"sci-referencelist-header": "出典"
+	"sci-referencelist-header": "出典",
+	"sci-property-alias-doi": "DOI",
+	"sci-property-alias-pmcid": "PMCID",
+	"sci-property-alias-citation-key": "引用キー",
+	"sci-property-alias-citation-reference": "引用",
+	"sci-property-alias-citation-text": "引用書目",
+	"sci-property-alias-citation-resource": "引用リソース"
 }
