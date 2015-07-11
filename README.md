@@ -62,6 +62,21 @@ The easiest way to create a citation resource is by using the `#scite` parser in
  |number=4
  |pages=365-376
 }}
+
+OR
+
+{{#scite:Einstein, Podolsky, and Nathan 1935
+ |bibtex=@article{einstein1935can,
+  title={Can quantum-mechanical description of physical reality be considered complete?},
+  author={Einstein, Albert and Podolsky, Boris and Rosen, Nathan},
+  journal={Physical review},
+  volume={47},
+  number={10},
+  pages={777},
+  year={1935},
+  publisher={APS}
+}
+}}
 ```
 
 Citation resources (entities created by `#scite`) can be added to a single page
