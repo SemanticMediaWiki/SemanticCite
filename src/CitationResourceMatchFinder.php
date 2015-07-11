@@ -95,10 +95,10 @@ class CitationResourceMatchFinder {
 		while ( $resultArray = $queryResult->getNext() ) {
 			foreach ( $resultArray as $result ) {
 
-				// Collect all matches for the same reference because it can happen
+				// Collect all subjects for the same reference because it can happen
 				// that the same reference key is used for different citation
-				// resources therefore we only return one (the last) valid citation
-				// text but nevertheless return all subjects to make easier to find them
+				// resources therefore only return one (the last) valid citation
+				// text but return all subjects to make it easier to find them later
 				$subjects[] = $result->getResultSubject();
 
 				while ( ( $dataValue = $result->getNextDataValue() ) !== false ) {
@@ -111,6 +111,8 @@ class CitationResourceMatchFinder {
 	}
 
 	/**
+	 * Find match for [[Citation key::SomeKey]]|?Citation text
+	 *
 	 * @since 1.0
 	 *
 	 * @param string $citationReference

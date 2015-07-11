@@ -43,6 +43,11 @@ class ByJsonParserTestCaseRunnerTest extends ByJsonTestCaseProvider {
 			'cachePrefix'                      => 'foo'
 		);
 
+		// This is to ensure we read from the DB when a test case
+		// specifies a NS_MEDIAWIKI page
+		MediaWikiNsContentMapper::clear();
+		MediaWikiNsContentMapper::$skipMessageCache = true;
+
 		$cacheFactory = new CacheFactory();
 
 		$this->hookRegistry = new HookRegistry(
@@ -113,9 +118,6 @@ class ByJsonParserTestCaseRunnerTest extends ByJsonTestCaseProvider {
 			$jsonTestCaseFileHandler->getListOfSubjects(),
 			NS_MAIN
 		);
-
-		MediaWikiNsContentMapper::clear();
-		MediaWikiNsContentMapper::$skipMessageCache = true;
 
 		foreach ( $jsonTestCaseFileHandler->findTestCasesFor( 'parser-testcases' ) as $case ) {
 

@@ -5,6 +5,8 @@ namespace SCI;
 use SMW\ApplicationFactory;
 use SMW\NamespaceExaminer;
 use SMW\ParameterProcessorFactory;
+use SCI\Bibtex\BibtexProcessor;
+use SCI\Bibtex\BibtexParser;
 
 /**
  * @license GNU GPL v2+
@@ -48,7 +50,8 @@ class ParserFunctionFactory {
 				$parserData,
 				$namespaceExaminer,
 				$citationTextTemplateRenderer,
-				$mediaWikiNsContentMapper
+				$mediaWikiNsContentMapper,
+				new BibtexProcessor( new BibtexParser() )
 			);
 
 			$sciteParserFunction->setStrictParserValidationState(

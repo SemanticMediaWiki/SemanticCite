@@ -1,0 +1,98 @@
+{
+	"description": "Test bibtex property mapping",
+	"properties": [
+		{
+			"name": "Has reference type",
+			"contents": "[[Has type::Text]]"
+		},
+		{
+			"name": "Has author",
+			"contents": "[[Has type::Page]]"
+		},
+		{
+			"name": "Has title",
+			"contents": "[[Has type::Page]]"
+		},
+		{
+			"name": "Has abstract",
+			"contents": "[[Has type::Text]]"
+		},
+		{
+			"name": "Has publisher",
+			"contents": "[[Has type::Text]]"
+		}
+	],
+	"subjects": [
+		{
+			"name": "Sci-property-definition",
+			"namespace": "NS_MEDIAWIKI",
+			"contents": "Some assignments\n type|Has reference type \n author|Has author \n authors|Has author \n title|Has title \n journal|Has publisher \n abstract|Has abstract\n"
+		},
+		{
+			"name": "Sci-template-definition",
+			"namespace": "NS_MEDIAWIKI",
+			"contents": "Some type-template assignments\n article|SciteArticleFormatter \n"
+		},
+		{
+			"name": "SciteArticleFormatter",
+			"namespace": "NS_TEMPLATE",
+			"contents": "<includeonly>{{{title}}}</includeonly>"
+		},
+		{
+			"name": "Example/12/1",
+			"contents": "{{#scite:\n |bibtex=@ARTICLE{Meyer2000,\nAUTHOR=\"Bernd Meyer\",\nTITLE=\"A constraint-based framework for diagrammatic reasoning\",\nJOURNAL=\"Applied Artificial Intelligence\",\nVOLUME= \"14\",\nISSUE = \"4\",\nPAGES= \"327--344\",\nYEAR=2000\n}\n |citation text=2000}}"
+		},
+		{
+			"name": "Example/12/2",
+			"contents": "{{#scite:Einstein, Podolsky, and Nathan 1935\n |bibtex=@article{einstein1935can,\n  title={Can quantum-mechanical description of physical reality be considered complete?},\n  author={Einstein, Albert and Podolsky, Boris and Rosen, Nathan},\n  journal={Physical review},\n  volume={47},\n  number={10},\n  pages={777},\n  year={1935},\n  publisher={APS}\n}\n |authors=Albert Einstein, Boris Podolsky, Nathan Rosen|+sep=,\n}}"
+		}
+	],
+	"parser-testcases": [
+		{
+			"about": "#0",
+			"subject": "Example/12/1",
+			"store": {
+				"semantic-data": {
+					"strict-mode-valuematch": false,
+					"propertyCount": 3,
+					"propertyKeys": [ "__sci_cite", "_MDAT", "_SKEY" ],
+					"propertyValues": [ "Example/12/1#_SCITE-7a0c0a939e8181da78d3ebe6cf09eeca" ]
+				}
+			}
+		},
+		{
+			"about": "#1",
+			"subject": "Example/12/1#_SCITE-7a0c0a939e8181da78d3ebe6cf09eeca",
+			"store": {
+				"semantic-data": {
+					"strict-mode-valuematch": false,
+					"propertyCount": 7,
+					"propertyKeys": [ "__sci_cite_key", "__sci_cite_text", "Has_author", "Has_title", "Has_publisher", "Has_reference_type", "_SKEY" ],
+					"propertyValues": [ "article", "Meyer2000", "Bernd Meyer", "A constraint-based framework for diagrammatic reasoning", "Applied Artificial Intelligence" ]
+				}
+			}
+		},
+		{
+			"about": "#2 with separated authors",
+			"subject": "Example/12/2#_SCITE-b9a7caa631427c26f4c8e70219b2cda9",
+			"store": {
+				"semantic-data": {
+					"strict-mode-valuematch": false,
+					"propertyCount": 7,
+					"propertyKeys": [ "__sci_cite_key", "__sci_cite_text", "Has_author", "Has_title", "Has_publisher", "Has_reference_type", "_SKEY" ],
+					"propertyValues": [ "article", "Einstein, Podolsky, and Nathan 1935", "Albert Einstein", "Boris Podolsky", "Nathan Rosen", "Can quantum-mechanical description of physical reality be considered complete?", "Physical review" ]
+				}
+			}
+		}
+	],
+	"settings": {
+		"wgContLang": "en",
+		"scigReferenceListType": "ol",
+		"scigCitationReferenceCaptionFormat" : 1
+	},
+	"meta": {
+		"version": "0.1",
+		"is-incomplete": false,
+		"debug": false
+	}
+}

@@ -16,6 +16,7 @@ reuse of references stored within a wiki with support for:
 - Self-added and a customizable reference list
 - Individual property and text formatting rules
 - In-text reference tooltip
+- Bibtex record import support
 
 Semantic Cite does not require nor uses any part of [`Cite`][mw-cite] (or `<ref>`)
 as a means to declare a citation resource.
