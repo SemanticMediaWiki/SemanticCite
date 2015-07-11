@@ -4,6 +4,8 @@ namespace SCI;
 
 use Onoi\Cache\Cache;
 use SMW\DIWikiPage;
+use SMW\DIProperty;
+use SMW\SemanticData;
 
 /**
  * @license GNU GPL v2+
@@ -34,7 +36,7 @@ class CitationReferencePositionJournal {
 	 * @param Cache $cache
 	 * @param CacheKeyGenerator $cacheKeyGenerator
 	 */
-	public function __construct( Cache $cache, cacheKeyGenerator $cacheKeyGenerator ) {
+	public function __construct( Cache $cache, CacheKeyGenerator $cacheKeyGenerator ) {
 		$this->cache = $cache;
 		$this->cacheKeyGenerator = $cacheKeyGenerator;
 	}
@@ -46,6 +48,17 @@ class CitationReferencePositionJournal {
 	 */
 	public function setCache( Cache $cache ) {
 		$this->cache = $cache;
+	}
+
+	/**
+	 * @since 1.0
+	 *
+	 * @param DIWikiPage $subject
+	 *
+	 * @return boolean
+	 */
+	public function hasCitationReference( SemanticData $semanticData ) {
+		return $semanticData->getPropertyValues( new DIProperty( PropertyRegistry::SCI_CITE_REFERENCE ) ) !== array();
 	}
 
 	/**

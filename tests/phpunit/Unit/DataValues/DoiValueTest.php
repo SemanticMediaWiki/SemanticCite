@@ -142,6 +142,16 @@ class DoiValueTest extends \PHPUnit_Framework_TestCase {
 			true
 		);
 
+		$provider[] = array(
+			'http://dx.doi.org/10.1074/jbc.M114.559054',
+			true
+		);
+
+		$provider[] = array(
+			'https://doi.org/10.1074/jbc.M114.559054',
+			true
+		);
+
 		return $provider;
 	}
 
@@ -159,6 +169,12 @@ class DoiValueTest extends \PHPUnit_Framework_TestCase {
 			'10.1000/123456'
 		);
 
+		$provider[] = array(
+			'http://dx.doi.org/10.1000/123456',
+			'10.1000/123456',
+			'10.1000/123456'
+		);
+
 		return $provider;
 	}
 
@@ -172,6 +188,12 @@ class DoiValueTest extends \PHPUnit_Framework_TestCase {
 
 		$provider[] = array(
 			'10.1000/123456',
+			'<span>[https://doi.org/10.1000%2F123456 10.1000/123456]</span>',
+			'<a href="https://doi.org/10.1000/123456" target="_blank">10.1000/123456</a>'
+		);
+
+		$provider[] = array(
+			'http://dx.doi.org/10.1000/123456',
 			'<span>[https://doi.org/10.1000%2F123456 10.1000/123456]</span>',
 			'<a href="https://doi.org/10.1000/123456" target="_blank">10.1000/123456</a>'
 		);

@@ -233,13 +233,19 @@ class HookRegistry {
 		/**
 		 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ArticlePurge
 		 */
-		$this->handlers['SMWStore::updateDataBefore'] = function ( $store, $semanticData ) use ( $cache, $cacheKeyGenerator ) {
+		$this->handlers['SMWStore::updateDataBefore'] = function ( $store, $semanticData ) use ( $cache, $cacheKeyGenerator, $citationReferencePositionJournal ) {
 
 			$hash = $semanticData->getSubject()->getHash();
 
-			$cache->delete(
-				$cacheKeyGenerator->getCacheKeyForCitationReference( $hash )
-			);
+			// No remaining reference means it is time to purge the cache once
+			// more because as long as a CiteRef exists, CitationReferencePositionJournal
+			// is able recompute and update the entries but with no CiteRef left
+			// the last entry will remain and needs to be purged at this point
+			if ( !$citationReferencePositionJournal->hasCitationReference( $semanticData ) ) {
+				$cache->delete(
+					$cacheKeyGenerator->getCacheKeyForCitationReference( $hash )
+				);
+			}
 
 			$cache->delete(
 				$cacheKeyGenerator->getCacheKeyForReferenceList( $hash )

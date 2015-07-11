@@ -64,17 +64,16 @@ class MediaWikiNsContentMapper {
 		$id = strtolower( trim( $id ) );
 
 		if ( self::$identifierToPropertyMap === array() ) {
-			self::$identifierToPropertyMap = $this->parseContentFor( "sci-property-definition" );
 
 			// Fixed by definition due to usage of
 			// pre-defined properties
-			self::$identifierToPropertyMap += array(
+			self::$identifierToPropertyMap = array(
 				'doi'           => SCI_PROP_DOI,
 				'pmcid'         => SCI_PROP_PMCID,
 				'reference'     => SCI_PROP_CITE_KEY,
 				'citation text' => SCI_PROP_CITE_TEXT,
 				'sortkey'       => '_SKEY'
-			);
+			) + $this->parseContentFor( "sci-property-definition" );
 		}
 
 		return isset( self::$identifierToPropertyMap[$id] ) ? self::$identifierToPropertyMap[$id] : null;

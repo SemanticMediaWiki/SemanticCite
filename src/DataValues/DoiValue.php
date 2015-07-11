@@ -31,6 +31,9 @@ class DoiValue extends StringValue {
 	 */
 	protected function parseUserValue( $value ) {
 
+		// Remove anything before 10 as in http://dx.doi.org/10.1000
+		$value = substr( $value, strcspn( $value, '10' ) );
+
 		if ( !$this->canMatchDoiPattern( $value ) ) {
 			$this->addError( wfMessage( 'sci-datavalue-no-valid-doi-format', $value )->inContentLanguage()->text() );
 			$this->m_dataitem = new DIBlob( 'ERROR' );

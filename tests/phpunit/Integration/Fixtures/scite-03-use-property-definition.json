@@ -18,7 +18,7 @@
 		{
 			"name": "Sci-property-definition",
 			"namespace": "NS_MEDIAWIKI",
-			"contents": "Some assignments\n type|Has reference type \n author|Has author \n abstract|Has abstract\n"
+			"contents": "Some assignments\n type|Has reference type \n reference|Has reference \n author|Has author \n abstract|Has abstract\n"
 		},
 		{
 			"name": "Citation/Resource/3",
