@@ -259,9 +259,10 @@ class HookRegistry {
 		 */
 		$this->handlers['ResourceLoaderGetConfigVars'] = function ( &$vars ) use ( $options ) {
 
-			$vars['scite-config'] = array(
+			$vars['ext.scite.config'] = array(
 				'showTooltipForCitationReference' => $options->get( 'showTooltipForCitationReference' ),
-				'tooltipRequestCacheTTL' => $options->get( 'tooltipRequestCacheTTL' )
+				'tooltipRequestCacheTTL' => $options->get( 'tooltipRequestCacheTTL' ),
+				'cachePrefix' => $options->get( 'cachePrefix' )
 			);
 
 			return true;

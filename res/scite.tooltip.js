@@ -11,10 +11,11 @@
 
 	$( function ( $ ) {
 
-		var configuration = mw.config.get( 'scite-config' );
-		var cache = mw.libs.Scite.cache;
+		var configuration = mw.config.get( 'ext.scite.config' );
+		var cache = mw.libs.scite.cache;
 
 		cache.canUse = $.isNumeric( configuration.tooltipRequestCacheTTL );
+		cache.cachePrefix = configuration.cachePrefix;
 
 		var loadingImage = '<img class="scite-tooltip-loading" src="data:image/gif;base64,R0lGODlhEAAQAPQAA' +
 			'P///wAAAPDw8IqKiuDg4EZGRnp6egAAAFhYWCQkJKysrL6+vhQUFJycnAQEBDY2NmhoaAAAAAAAAAAAAAAAAAAAAAAAAAAAAA' +
@@ -79,7 +80,7 @@
 					return null;
 				};
 
-				// Parse the raw text in order for links to be correctly
+				// Parse the raw text to ensure that links are correctly
 				// displayed
 				api.parse( citationText )
 				.done( function ( html ) {
@@ -116,10 +117,10 @@
 				content: {
 					title : reference,
 					text  : function( event, QTip ) {
-						// Try to find the reference text from localStorage
+
 						var item = cache.get( reference );
 
-						// Add [+] to the title to indicate it as cached result
+						// Add [+] to the title to indicate it has been cached
 						if ( item !== null ) {
 							QTip.set( 'content.title', reference + ' [+]' );
 							return item;
@@ -150,15 +151,16 @@
 		/**
 		 * @since 1.0
 		 */
-		$.map( configuration.showTooltipForCitationReference, function( val, i ) {
+		$.map( configuration.showTooltipForCitationReference, function( selector, i ) {
 
-			if ( val == 1 ) {
-				var selector = '.scite-citeref-number';
-			};
-
-			if ( val == 2 ) {
-				var selector = '.scite-citeref-key';
-			};
+			switch( selector ) {
+			case 2:
+				selector = '.scite-citeref-key';
+				break;
+			case 1:
+			default:
+				selector = '.scite-citeref-number';
+			}
 
 			$( selector ).each( tooltip );
 		} );

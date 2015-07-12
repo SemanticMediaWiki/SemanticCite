@@ -19,16 +19,20 @@
 		 * @class
 		 * @abstract
 		 */
-		mw.libs.Scite = mw.libs.Scite || {};
+		mw.libs.scite = mw.libs.Scite || {};
+		mw.libs.scite.cache = {};
 
-		var db = {
+		var cache = {
 			canUse: true,
-			isEnabled: typeof( localStorage ) !== "undefined",
+			cachePrefix: '',
+			hasLocalStorage: typeof( localStorage ) !== "undefined",
 			get  : function( key ) {
 
-				if( !this.isEnabled || !this.canUse ) {
+				if( !this.hasLocalStorage || !this.canUse ) {
 					return null;
 				}
+
+				key = this.cachePrefix + ':' + key;
 
 				var items = JSON.parse( localStorage.getItem( 'scite.cache' ) || "0" ),
 					now = new Date;
@@ -48,9 +52,11 @@
 
 			set : function( key, value, ttl ) {
 
-				if( !this.isEnabled || !this.canUse ) {
+				if( !this.hasLocalStorage || !this.canUse ) {
 					return false;
 				}
+
+				key = this.cachePrefix + ':' + key;
 
 				var items = JSON.parse( localStorage.getItem( 'scite.cache' ) || "0" ),
 					now = new Date;
@@ -69,8 +75,7 @@
 			}
 		};
 
-		mw.libs.Scite.cache = {};
-		mw.libs.Scite.cache = db;
+		mw.libs.scite.cache = cache;
 
 	} );
 }( jQuery, mediaWiki ) );
