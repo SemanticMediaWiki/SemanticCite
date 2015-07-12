@@ -37,8 +37,12 @@ class BibtexProcessor {
 
 		foreach ( $parameters as $key => $value ) {
 
-			// The explicit reference precedes the one found in bibtex
-			if ( $key === 'reference' && $parserParameterProcessor->getFirstParameter() !== '' ) {
+			// The explicit parameters precedes the one found in bibtex
+			if ( $key === 'reference' && ( $parserParameterProcessor->hasParameter( 'reference' ) || $parserParameterProcessor->getFirstParameter() !== '' ) ) {
+				continue;
+			}
+
+			if ( $key === 'type' && $parserParameterProcessor->hasParameter( 'type' ) ) {
 				continue;
 			}
 

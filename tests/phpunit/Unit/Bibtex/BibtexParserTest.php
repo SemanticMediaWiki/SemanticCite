@@ -6,7 +6,7 @@ use SCI\Bibtex\BibtexParser;
 
 /**
  * @covers \SCI\Bibtex\BibtexParser
- * @group semantic-citation
+ * @group semantic-cite
  *
  * @license GNU GPL v2+
  * @since 1.0
