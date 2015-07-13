@@ -19,7 +19,7 @@
 		 * @class
 		 * @abstract
 		 */
-		mw.libs.scite = mw.libs.Scite || {};
+		mw.libs.scite = mw.libs.scite || {};
 		mw.libs.scite.cache = {};
 
 		var cache = {
