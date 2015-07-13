@@ -1,5 +1,5 @@
 {
-	"description": "Test bibtex property mapping",
+	"description": "Test bibtex record mapping",
 	"properties": [
 		{
 			"name": "Has reference type",
@@ -31,10 +31,10 @@
 		{
 			"name": "Sci-template-definition",
 			"namespace": "NS_MEDIAWIKI",
-			"contents": "Some type-template assignments\n article|SciteArticleFormatter \n"
+			"contents": "Some type-template assignments\n article|SciteSimpleFormatter \n book|SciteSimpleFormatter \n"
 		},
 		{
-			"name": "SciteArticleFormatter",
+			"name": "SciteSimpleFormatter",
 			"namespace": "NS_TEMPLATE",
 			"contents": "<includeonly>{{{title}}}</includeonly>"
 		},
@@ -45,6 +45,10 @@
 		{
 			"name": "Example/12/2",
 			"contents": "{{#scite:Einstein, Podolsky, and Nathan 1935\n |bibtex=@article{einstein1935can,\n  title={Can quantum-mechanical description of physical reality be considered complete?},\n  author={Einstein, Albert and Podolsky, Boris and Rosen, Nathan},\n  journal={Physical review},\n  volume={47},\n  number={10},\n  pages={777},\n  year={1935},\n  publisher={APS}\n}\n |authors=Albert Einstein, Boris Podolsky, Nathan Rosen|+sep=,\n}}"
+		},
+		{
+			"name": "Example/12/3",
+			"contents": "{{#scite:|reference=Wallach and Kogan 1965b \n |type=book \n |bibtex=@article{wallach1965modes,\n  title={Modes of thinking in young children},\n  author={Wallach, Michael A and Kogan, Nathan},\n  year={1965},\n  publisher={New York}\n} \n}}"
 		}
 	],
 	"parser-testcases": [
@@ -81,6 +85,18 @@
 					"propertyCount": 7,
 					"propertyKeys": [ "__sci_cite_key", "__sci_cite_text", "Has_author", "Has_title", "Has_publisher", "Has_reference_type", "_SKEY" ],
 					"propertyValues": [ "article", "Einstein, Podolsky, and Nathan 1935", "Albert Einstein", "Boris Podolsky", "Nathan Rosen", "Can quantum-mechanical description of physical reality be considered complete?", "Physical review" ]
+				}
+			}
+		},
+		{
+			"about": "#3 explicit reference/type precedes",
+			"subject": "Example/12/3#_SCITE-99250259e6747c8f1c3876637a69d68c",
+			"store": {
+				"semantic-data": {
+					"strict-mode-valuematch": false,
+					"propertyCount": 6,
+					"propertyKeys": [ "__sci_cite_key", "__sci_cite_text", "Has_author", "Has_title", "Has_reference_type", "_SKEY" ],
+					"propertyValues": [ "book", "Wallach and Kogan 1965b", "Modes of thinking in young children" ]
 				}
 			}
 		}
