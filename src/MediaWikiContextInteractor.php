@@ -23,7 +23,7 @@ class MediaWikiContextInteractor {
 	/**
 	 * @since 1.0
 	 *
-	 * @return IContextSource $requestContext
+	 * @param IContextSource $requestContext
 	 */
 	public function __construct( IContextSource $context ) {
 		$this->context = $context;

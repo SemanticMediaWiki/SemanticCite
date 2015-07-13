@@ -61,8 +61,9 @@ class BibtexParser {
 
 	private function parseFields( $content ) {
 		$elements = array();
+		$values = array();
 
-		$length = strlen( $content);
+		$length = strlen( $content );
 
 		if( $content[$length - 1] == "}" ||  $content[$length - 1] == ")" ||  $content[$length - 1] == ",") {
 			$content = substr( $content,  0, $length - 1 );
