@@ -126,17 +126,22 @@ class HookRegistry {
 				DataItem::TYPE_BLOB
 			);
 
-			$dataTypeRegistry->registerDatatype(
+			$types = array(
 				'_sci_doi',
-				'\SCI\DataValues\DoiValue',
-				DataItem::TYPE_BLOB
+				'_sci_pmcid',
+				'_sci_pmid',
+				'_sci_oclc',
+				'_sci_viaf',
+				'_sci_olid'
 			);
 
-			$dataTypeRegistry->registerDatatype(
-				'_sci_pmcid',
-				'\SCI\DataValues\PmcidValue',
-				DataItem::TYPE_BLOB
-			);
+			foreach ( $types as $type ) {
+				$dataTypeRegistry->registerDatatype(
+					$type,
+					'\SCI\DataValues\UidValue',
+					DataItem::TYPE_BLOB
+				);
+			}
 
 			$dataTypeRegistry->registerExtraneousFunction(
 				'\SCI\CitationReferencePositionJournal',
@@ -167,7 +172,11 @@ class HookRegistry {
 				$propertyRegistry::SCI_CITE_TEXT,
 				$propertyRegistry::SCI_CITE,
 				$propertyRegistry::SCI_DOI,
-				$propertyRegistry::SCI_PMCID
+				$propertyRegistry::SCI_PMCID,
+				$propertyRegistry::SCI_PMID,
+				$propertyRegistry::SCI_OCLC,
+				$propertyRegistry::SCI_VIAF,
+				$propertyRegistry::SCI_OLID
 			);
 
 			foreach ( $properties as $property ) {

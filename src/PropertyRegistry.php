@@ -11,6 +11,10 @@ define( 'SCI_PROP_CITE_TEXT', 'Citation text' );
 define( 'SCI_PROP_CITE', 'Citation resource' );
 define( 'SCI_PROP_DOI', 'DOI' );
 define( 'SCI_PROP_PMCID', 'PMCID' );
+define( 'SCI_PROP_PMID', 'PMID' );
+define( 'SCI_PROP_OCLC', 'OCLC' );
+define( 'SCI_PROP_VIAF', 'VIAF' );
+define( 'SCI_PROP_OLID', 'OLID' );
 
 /**
  * @license GNU GPL v2+
@@ -26,6 +30,10 @@ class PropertyRegistry {
 	const SCI_CITE = '__sci_cite';
 	const SCI_DOI = '__sci_doi';
 	const SCI_PMCID = '__sci_pmcid';
+	const SCI_PMID = '__sci_pmid';
+	const SCI_OCLC = '__sci_oclc';
+	const SCI_VIAF = '__sci_viaf';
+	const SCI_OLID = '__sci_olid';
 
 	/**
 	 * @since 1.0
@@ -37,6 +45,30 @@ class PropertyRegistry {
 	public function registerTo( CorePropertyRegistry $corePropertyRegistry ) {
 
 		$propertyDefinitions = array(
+
+			self::SCI_OLID => array(
+				'label' => SCI_PROP_OLID,
+				'type'  => '_sci_olid',
+				'alias' => array( wfMessage( 'sci-property-alias-olid' )->text(), 'olid', 'Olid' ),
+				'visbility' => true,
+				'annotable' => true
+			),
+
+			self::SCI_VIAF => array(
+				'label' => SCI_PROP_VIAF,
+				'type'  => '_sci_viaf',
+				'alias' => array( wfMessage( 'sci-property-alias-viaf' )->text(), 'viaf', 'Viaf' ),
+				'visbility' => true,
+				'annotable' => true
+			),
+
+			self::SCI_OCLC => array(
+				'label' => SCI_PROP_OCLC,
+				'type'  => '_sci_oclc',
+				'alias' => array( wfMessage( 'sci-property-alias-oclc' )->text(), 'oclc', 'Oclc' ),
+				'visbility' => true,
+				'annotable' => true
+			),
 
 			self::SCI_DOI => array(
 				'label' => SCI_PROP_DOI,
@@ -50,6 +82,14 @@ class PropertyRegistry {
 				'label' => SCI_PROP_PMCID,
 				'type'  => '_sci_pmcid',
 				'alias' => array( wfMessage( 'sci-property-alias-pmcid' )->text(), 'Pmcid', 'pmcid' ),
+				'visbility' => true,
+				'annotable' => true
+			),
+
+			self::SCI_PMID => array(
+				'label' => SCI_PROP_PMID,
+				'type'  => '_sci_pmid',
+				'alias' => array( wfMessage( 'sci-property-alias-pmid' )->text(), 'Pmid', 'pmid' ),
 				'visbility' => true,
 				'annotable' => true
 			),

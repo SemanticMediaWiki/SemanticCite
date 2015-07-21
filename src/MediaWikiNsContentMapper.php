@@ -68,8 +68,12 @@ class MediaWikiNsContentMapper {
 			// Fixed by definition due to usage of
 			// pre-defined properties
 			self::$identifierToPropertyMap = array(
+				'viaf'          => SCI_PROP_VIAF,
 				'doi'           => SCI_PROP_DOI,
+				'oclc'          => SCI_PROP_OCLC,
+				'olid'          => SCI_PROP_OLID,
 				'pmcid'         => SCI_PROP_PMCID,
+				'pmid'          => SCI_PROP_PMID,
 				'reference'     => SCI_PROP_CITE_KEY,
 				'citation text' => SCI_PROP_CITE_TEXT,
 				'sortkey'       => '_SKEY'

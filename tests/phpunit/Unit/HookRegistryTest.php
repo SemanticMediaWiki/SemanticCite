@@ -116,13 +116,33 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 		);
 
 		$this->assertEquals(
-			'\SCI\DataValues\DoiValue',
+			'\SCI\DataValues\UidValue',
 			$dataTypeRegistry->getDataTypeClassById( '_sci_doi' )
 		);
 
 		$this->assertEquals(
-			'\SCI\DataValues\PmcidValue',
+			'\SCI\DataValues\UidValue',
 			$dataTypeRegistry->getDataTypeClassById( '_sci_pmcid' )
+		);
+
+		$this->assertEquals(
+			'\SCI\DataValues\UidValue',
+			$dataTypeRegistry->getDataTypeClassById( '_sci_pmid' )
+		);
+
+		$this->assertEquals(
+			'\SCI\DataValues\UidValue',
+			$dataTypeRegistry->getDataTypeClassById( '_sci_viaf' )
+		);
+
+		$this->assertEquals(
+			'\SCI\DataValues\UidValue',
+			$dataTypeRegistry->getDataTypeClassById( '_sci_oclc' )
+		);
+
+		$this->assertEquals(
+			'\SCI\DataValues\UidValue',
+			$dataTypeRegistry->getDataTypeClassById( '_sci_olid' )
 		);
 	}
 

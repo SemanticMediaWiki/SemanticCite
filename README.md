@@ -83,8 +83,14 @@ Citation resources (entities created by `#scite`) can be added to a single page
 or spread throughout the wiki each being identifiable by a unique citation key
 (in order to distinguish it from any other citation resource declared in a wiki).
 
-Semantic Cite provides six predefined properties `PMCID`, `DOI`, `Citation resource`, `Citation reference`,
-`Citation key`, and `Citation text`.
+Semantic Cite provides several predefined properties including:
+
+- `OLID` to identify OpenLibrary records
+- `VIAF` to describe a Virtual International Authority File
+- `OCLC` as an identifier of a WoldCat catalog entity
+- `PMID` and `PMCID` to represent PubMed identifier
+- `DOI` as Digital Object Identifier
+- `Citation resource`, `Citation reference`, `Citation key`, and `Citation text`
 
 ![scite-sneak](https://cloud.githubusercontent.com/assets/1245473/8370671/7d8bfeac-1bcb-11e5-9007-79a3d39f70ce.png)
 

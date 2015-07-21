@@ -1,0 +1,98 @@
+{
+	"description": "Test fixed property annotation",
+	"properties": [],
+	"subjects": [
+		{
+			"name": "Example/12/1",
+			"contents": "{{#scite:Foo:123|type=text|doi=http://dx.doi.org/10.1074/jbc.M114.559054|citation text=DOI test}}"
+		},
+		{
+			"name": "Example/12/2",
+			"contents": "{{#scite:Foo:123|type=text|doi=10.1074/jbc.M114.559054|citation text=DOI test}}"
+		},
+		{
+			"name": "Example/12/3",
+			"contents": "{{#scite:Foo:123|type=text|oclc=42|viaf=VIAF123|citation text=OCLC/VIAF test}}"
+		},
+		{
+			"name": "Example/12/4",
+			"contents": "{{#scite:Foo:123|type=text|pmid=102|pmcid=PMC123|citation text=PMID/PMCID test}}"
+		},
+		{
+			"name": "Example/12/5",
+			"contents": "{{#scite:Foo:123|type=text|olid=OL102M|citation text=OLID test}}"
+		}
+	],
+	"parser-testcases": [
+		{
+			"about": "#0 DOI url annotation",
+			"subject": "Example/12/1#_SCITE-86f84b9b2cf2ae4405199e26f121b4e9",
+			"store": {
+				"semantic-data": {
+					"strict-mode-valuematch": false,
+					"propertyCount": 4,
+					"propertyKeys": [ "__sci_cite_key", "__sci_cite_text", "__sci_doi", "_SKEY" ],
+					"propertyValues": [ "Foo:123", "DOI test", "10.1074/jbc.m114.559054" ]
+				}
+			}
+		},
+		{
+			"about": "#1 DOI short annotation",
+			"subject": "Example/12/1#_SCITE-86f84b9b2cf2ae4405199e26f121b4e9",
+			"store": {
+				"semantic-data": {
+					"strict-mode-valuematch": false,
+					"propertyCount": 4,
+					"propertyKeys": [ "__sci_cite_key", "__sci_cite_text", "__sci_doi", "_SKEY" ],
+					"propertyValues": [ "Foo:123", "DOI test", "10.1074/jbc.m114.559054" ]
+				}
+			}
+		},
+		{
+			"about": "#2 OCLC/VIAF annotation",
+			"subject": "Example/12/3#_SCITE-86f84b9b2cf2ae4405199e26f121b4e9",
+			"store": {
+				"semantic-data": {
+					"strict-mode-valuematch": false,
+					"propertyCount": 5,
+					"propertyKeys": [ "__sci_cite_key", "__sci_oclc", "__sci_viaf", "__sci_cite_text", "_SKEY" ],
+					"propertyValues": [ "Foo:123", "42", "123", "OCLC/VIAF test" ]
+				}
+			}
+		},
+		{
+			"about": "#3 PMID/PMCID annotation",
+			"subject": "Example/12/4#_SCITE-86f84b9b2cf2ae4405199e26f121b4e9",
+			"store": {
+				"semantic-data": {
+					"strict-mode-valuematch": false,
+					"propertyCount": 5,
+					"propertyKeys": [ "__sci_cite_key", "__sci_pmid", "__sci_pmcid", "__sci_cite_text", "_SKEY" ],
+					"propertyValues": [ "Foo:123", "102", "PMC123", "PMID/PMCID test" ]
+				}
+			}
+		},
+		{
+			"about": "#4 OLID annotation",
+			"subject": "Example/12/5#_SCITE-86f84b9b2cf2ae4405199e26f121b4e9",
+			"store": {
+				"semantic-data": {
+					"strict-mode-valuematch": false,
+					"propertyCount": 4,
+					"propertyKeys": [ "__sci_cite_key", "__sci_olid", "__sci_cite_text", "_SKEY" ],
+					"propertyValues": [ "Foo:123", "OL102M", "OLID test" ]
+				}
+			}
+		}
+	],
+	"settings": {
+		"wgContLang": "en",
+		"scigReferenceListType": "ol",
+		"scigCitationReferenceCaptionFormat" : 1
+	},
+	"meta": {
+		"version": "0.1",
+		"is-incomplete": false,
+		"debug": false
+	}
+}
