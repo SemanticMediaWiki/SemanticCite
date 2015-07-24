@@ -1,0 +1,38 @@
+{
+    "header": {
+        "type": "esummary",
+        "version": "0.3"
+    },
+    "result": {
+        "uids": [
+            "2286209"
+        ],
+        "2286209": {
+            "uid": "2286209",
+            "pubdate": "1944/09/09 00:00",
+            "epubdate": "",
+            "printpubdate": "1944/09/09 00:00",
+            "epubdate": "1/01/01 00:00",
+            "source": "Br Med J",
+            "authors": [
+            ],
+            "title": "Notes on Books",
+            "volume": "2",
+            "issue": "4366",
+            "pages": "342",
+            "articleids": [
+                {
+                    "idtype": "pmid",
+                    "value": "0"
+                },
+                {
+                    "idtype": "pmcid",
+                    "value": "PMC2286209"
+                }
+            ],
+            "fulljournalname": "British Medical Journal",
+            "sortdate": "1944/09/09 00:00",
+            "pmclivedate": "2008/04/04 00:00"
+        }
+    }
+}

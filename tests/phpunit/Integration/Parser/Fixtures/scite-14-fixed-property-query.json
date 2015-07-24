@@ -1,0 +1,48 @@
+{
+	"description": "Test queries in connection with predefined properties",
+	"properties": [],
+	"subjects": [
+		{
+			"name": "Example/14/1",
+			"contents": "{{#scite:Foo:123|type=text|doi=http://dx.doi.org/10.1074/jbc.M114.559054|citation text=DOI test}}"
+		},
+		{
+			"name": "Example/Query/1",
+			"contents": "{{#ask:[[DOI::~*M114.559054]]|?DOI|format=table}}"
+		},
+		{
+			"name": "Example/Query/2",
+			"contents": "{{#ask:[[DOI::~*M114.559054]]|?DOI#-|format=table}}"
+		}
+	],
+	"parser-testcases": [
+		{
+			"about": "#0 non display formatted query output",
+			"subject": "Example/Query/1",
+			"expected-output": {
+				"to-contain": [
+					"<td class=\"DOI smwtype_sci_doi\"><span><a rel=\"nofollow\" class=\"external text\" href=\"https://doi.org/10.1074%2Fjbc.m114.559054\">10.1074/jbc.m114.559054</a></span></td>"
+				]
+			}
+		},
+		{
+			"about": "#1 display formatted query output",
+			"subject": "Example/Query/2",
+			"expected-output": {
+				"to-contain": [
+					"<td class=\"DOI smwtype_sci_doi\">10.1074/jbc.m114.559054</td>"
+				]
+			}
+		}
+	],
+	"settings": {
+		"wgContLang": "en",
+		"scigReferenceListType": "ul",
+		"scigCitationReferenceCaptionFormat" : 2
+	},
+	"meta": {
+		"version": "0.1",
+		"is-incomplete": false,
+		"debug": false
+	}
+}

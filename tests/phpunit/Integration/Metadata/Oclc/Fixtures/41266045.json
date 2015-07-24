@@ -1,0 +1,312 @@
+{
+  "@graph" : [ {
+    "@id" : "http://dbpedia.org/resource/New_York_City",
+    "@type" : "schema:Place",
+    "name" : "New York"
+  }, {
+    "@id" : "http://experiment.worldcat.org/entity/work/data/34339#Agent/arthur_a_levine_books",
+    "@type" : "bgn:Agent",
+    "name" : "Arthur A. Levine Books"
+  }, {
+    "@id" : "http://experiment.worldcat.org/entity/work/data/34339#Person/grandpre_mary",
+    "@type" : "schema:Person",
+    "familyName" : "GrandPré",
+    "givenName" : "Mary",
+    "name" : "Mary GrandPré"
+  }, {
+    "@id" : "http://experiment.worldcat.org/entity/work/data/34339#Person/rowling_j_k",
+    "@type" : "schema:Person",
+    "familyName" : "Rowling",
+    "givenName" : "J. K.",
+    "name" : "J. K. Rowling"
+  }, {
+    "@id" : "http://experiment.worldcat.org/entity/work/data/34339#Place/england",
+    "@type" : "schema:Place",
+    "name" : "England"
+  }, {
+    "@id" : "http://experiment.worldcat.org/entity/work/data/34339#Series/harry_potter",
+    "@type" : "bgn:PublicationSeries",
+    "hasPart" : "http://www.worldcat.org/oclc/41266045",
+    "name" : "Harry Potter ;"
+  }, {
+    "@id" : "http://experiment.worldcat.org/entity/work/data/34339#Series/harry_potter_series",
+    "@type" : "bgn:PublicationSeries",
+    "creator" : "http://experiment.worldcat.org/entity/work/data/34339#Person/rowling_j_k",
+    "hasPart" : "http://www.worldcat.org/oclc/41266045",
+    "name" : "Harry Potter series ;"
+  }, {
+    "@id" : "http://experiment.worldcat.org/entity/work/data/34339#Series/year_at_hogwarts",
+    "@type" : "bgn:PublicationSeries",
+    "creator" : "http://experiment.worldcat.org/entity/work/data/34339#Person/rowling_j_k",
+    "hasPart" : "http://www.worldcat.org/oclc/41266045",
+    "name" : "Year ... at Hogwarts ;"
+  }, {
+    "@id" : "http://experiment.worldcat.org/entity/work/data/34339#Topic/fantasy_fiction",
+    "@type" : "schema:Intangible",
+    "name" : {
+      "@language" : "en",
+      "@value" : "Fantasy fiction"
+    }
+  }, {
+    "@id" : "http://experiment.worldcat.org/entity/work/data/34339#Topic/harry_potter_fictitious_character",
+    "@type" : "schema:Intangible",
+    "name" : {
+      "@language" : "en",
+      "@value" : "Harry Potter (Fictitious character.)"
+    }
+  }, {
+    "@id" : "http://experiment.worldcat.org/entity/work/data/34339#Topic/magic",
+    "@type" : "schema:Intangible",
+    "name" : {
+      "@language" : "en",
+      "@value" : "Magic"
+    },
+    "seeAlso" : "http://id.loc.gov/authorities/subjects/sh2008107181"
+  }, {
+    "@id" : "http://experiment.worldcat.org/entity/work/data/34339#Topic/schools",
+    "@type" : "schema:Intangible",
+    "name" : {
+      "@language" : "en",
+      "@value" : "Schools"
+    },
+    "seeAlso" : [ "http://id.loc.gov/authorities/subjects/sh2008111273", "http://id.loc.gov/authorities/subjects/sj96006090" ]
+  }, {
+    "@id" : "http://experiment.worldcat.org/entity/work/data/34339#Topic/wizards",
+    "@type" : "schema:Intangible",
+    "name" : {
+      "@language" : "en",
+      "@value" : "Wizards"
+    },
+    "seeAlso" : [ "http://id.loc.gov/authorities/subjects/sh2008113556", "http://id.loc.gov/authorities/subjects/sh2008113550" ]
+  }, {
+    "@id" : "http://id.loc.gov/authorities/subjects/sj96005922",
+    "@type" : "schema:Intangible",
+    "name" : {
+      "@language" : "en",
+      "@value" : "Magic"
+    }
+  }, {
+    "@id" : "http://id.loc.gov/vocabulary/countries/nyu",
+    "@type" : "schema:Place",
+    "identifier" : "nyu"
+  }, {
+    "@id" : "http://id.worldcat.org/fast/1005468",
+    "@type" : "schema:Intangible",
+    "name" : {
+      "@language" : "en",
+      "@value" : "Magic"
+    }
+  }, {
+    "@id" : "http://id.worldcat.org/fast/1107958",
+    "@type" : "schema:Intangible",
+    "name" : {
+      "@language" : "en",
+      "@value" : "Schools"
+    }
+  }, {
+    "@id" : "http://id.worldcat.org/fast/1176452",
+    "@type" : "schema:Intangible",
+    "name" : {
+      "@language" : "en",
+      "@value" : "Wizards"
+    }
+  }, {
+    "@id" : "http://id.worldcat.org/fast/1219920",
+    "@type" : "schema:Place",
+    "name" : "England."
+  }, {
+    "@id" : "http://id.worldcat.org/fast/1729962",
+    "@type" : "schema:Intangible",
+    "name" : {
+      "@language" : "en",
+      "@value" : "Hogwarts School of Witchcraft and Wizardry (Imaginary organization)"
+    }
+  }, {
+    "@id" : "http://id.worldcat.org/fast/1764402",
+    "@type" : "schema:Intangible",
+    "name" : {
+      "@language" : "en",
+      "@value" : "Granger, Hermione (Fictitious character)"
+    }
+  }, {
+    "@id" : "http://id.worldcat.org/fast/1764403",
+    "@type" : "schema:Intangible",
+    "name" : {
+      "@language" : "en",
+      "@value" : "Weasley, Ron (Fictitious character)"
+    }
+  }, {
+    "@id" : "http://viaf.org/viaf/116796842",
+    "@type" : "schema:Person",
+    "familyName" : "Rowling",
+    "givenName" : "J. K.",
+    "name" : "J. K. Rowling"
+  }, {
+    "@id" : "http://viaf.org/viaf/308752753",
+    "@type" : "schema:Person",
+    "familyName" : "Potter",
+    "givenName" : "Harry",
+    "name" : "(Fictitious character) Harry Potter"
+  }, {
+    "@id" : "http://worldcat.org/isbn/9780439136358",
+    "@type" : "schema:ProductModel",
+    "isbn" : [ "9780439136358", "0439136350" ]
+  }, {
+    "@id" : "http://worldcat.org/isbn/9780439136365",
+    "@type" : "schema:ProductModel",
+    "isbn" : [ "9780439136365", "0439136369" ]
+  }, {
+    "@id" : "http://worldcat.org/isbn/9781480614994",
+    "@type" : "schema:ProductModel",
+    "isbn" : [ "9781480614994", "1480614998" ]
+  }, {
+    "@id" : "http://www.worldcat.org/oclc/41266045",
+    "@type" : [ "schema:Book", "schema:CreativeWork" ],
+    "oclcnum" : "41266045",
+    "placeOfPublication" : [ "http://dbpedia.org/resource/New_York_City", "http://id.loc.gov/vocabulary/countries/nyu" ],
+    "about" : [ "http://id.worldcat.org/fast/1219920", "http://id.worldcat.org/fast/1764403", "http://experiment.worldcat.org/entity/work/data/34339#Topic/harry_potter_fictitious_character", "http://experiment.worldcat.org/entity/work/data/34339#Topic/fantasy_fiction", "http://viaf.org/viaf/308752753", "http://experiment.worldcat.org/entity/work/data/34339#Place/england", "http://experiment.worldcat.org/entity/work/data/34339#Topic/wizards", "http://experiment.worldcat.org/entity/work/data/34339#Topic/magic", "http://id.worldcat.org/fast/1729962", "http://id.worldcat.org/fast/1176452", "http://experiment.worldcat.org/entity/work/data/34339#Topic/schools", "http://id.worldcat.org/fast/1005468", "http://id.worldcat.org/fast/1107958", "http://id.worldcat.org/fast/1764402", "http://id.loc.gov/authorities/subjects/sj96005922" ],
+    "awards" : [ "ALA Notable Children's Book, 2000.", "Whitbread Children's Book of the Year, 1999." ],
+    "bookEdition" : "1st American ed.",
+    "bookFormat" : "bgn:PrintBook",
+    "contentRating" : "Middle School.",
+    "creator" : "http://viaf.org/viaf/116796842",
+    "datePublished" : "1999",
+    "description" : [ {
+      "@language" : "en",
+      "@value" : "During his third year at Hogwarts School for Witchcraft and Wizardry, Harry Potter must confront the devious and dangerous wizard responsible for his parents' deaths."
+    }, {
+      "@language" : "en",
+      "@value" : "Owl Post -- Aunt Marge's Big Mistake -- The Knight Bus -- The Leaky Cauldron -- The Dementor -- Talons and Tea Leaves -- The Boggart in the Wardrobe -- Flight of the Fat Lady -- Grim Defeat -- The Marauder's Map -- The Firebolt -- The Patronus -- Gryffindor Versus Ravenclaw -- Snape's Grudge -- The Quidditch Final -- Professor Trelawney's Prediction -- Cat, Rat, and Dog -- Moony, Wormtail, Padfoot, and Prongs -- The Servant of Lord Voldemort -- The Dementor's Kiss -- Hermione's Secret -- Owl Post Again."
+    } ],
+    "exampleOfWork" : "http://worldcat.org/entity/work/id/34339",
+    "genre" : [ {
+      "@language" : "en",
+      "@value" : "Juvenile works"
+    }, {
+      "@language" : "en",
+      "@value" : "Fantasy fiction"
+    }, {
+      "@language" : "en",
+      "@value" : "Fiction"
+    } ],
+    "illustrator" : "http://experiment.worldcat.org/entity/work/data/34339#Person/grandpre_mary",
+    "inLanguage" : "en",
+    "isPartOf" : [ "http://experiment.worldcat.org/entity/work/data/34339#Series/harry_potter_series", "http://experiment.worldcat.org/entity/work/data/34339#Series/harry_potter", "http://experiment.worldcat.org/entity/work/data/34339#Series/year_at_hogwarts" ],
+    "name" : {
+      "@language" : "en",
+      "@value" : "Harry Potter and the prisoner of Azkaban"
+    },
+    "productID" : "41266045",
+    "publication" : "http://www.worldcat.org/title/-/oclc/41266045#PublicationEvent/new_york_arthur_a_levine_books_1999",
+    "publisher" : "http://experiment.worldcat.org/entity/work/data/34339#Agent/arthur_a_levine_books",
+    "workExample" : [ "http://worldcat.org/isbn/9780439136365", "http://worldcat.org/isbn/9780439136358", "http://worldcat.org/isbn/9781480614994" ],
+    "comment" : "Unknown 'gen' value: ejh",
+    "describedby" : "http://www.worldcat.org/title/-/oclc/41266045"
+  }, {
+    "@id" : "http://www.worldcat.org/title/-/oclc/41266045",
+    "@type" : [ "genont:ContentTypeGenericResource", "genont:InformationResource" ],
+    "inDataset" : "http://purl.oclc.org/dataset/WorldCat",
+    "about" : "http://www.worldcat.org/oclc/41266045",
+    "dateModified" : "2015-06-12"
+  }, {
+    "@id" : "http://www.worldcat.org/title/-/oclc/41266045#PublicationEvent/new_york_arthur_a_levine_books_1999",
+    "@type" : "schema:PublicationEvent",
+    "location" : "http://dbpedia.org/resource/New_York_City",
+    "organizer" : "http://experiment.worldcat.org/entity/work/data/34339#Agent/arthur_a_levine_books",
+    "startDate" : "1999"
+  } ],
+  "@context" : {
+    "name" : "http://schema.org/name",
+    "familyName" : "http://schema.org/familyName",
+    "givenName" : "http://schema.org/givenName",
+    "seeAlso" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+      "@type" : "@id"
+    },
+    "identifier" : "http://purl.org/dc/terms/identifier",
+    "isbn" : "http://schema.org/isbn",
+    "hasPart" : {
+      "@id" : "http://schema.org/hasPart",
+      "@type" : "@id"
+    },
+    "creator" : {
+      "@id" : "http://schema.org/creator",
+      "@type" : "@id"
+    },
+    "location" : {
+      "@id" : "http://schema.org/location",
+      "@type" : "@id"
+    },
+    "organizer" : {
+      "@id" : "http://schema.org/organizer",
+      "@type" : "@id"
+    },
+    "startDate" : "http://schema.org/startDate",
+    "placeOfPublication" : {
+      "@id" : "http://purl.org/library/placeOfPublication",
+      "@type" : "@id"
+    },
+    "genre" : "http://schema.org/genre",
+    "description" : "http://schema.org/description",
+    "about" : {
+      "@id" : "http://schema.org/about",
+      "@type" : "@id"
+    },
+    "bookEdition" : "http://schema.org/bookEdition",
+    "productID" : "http://schema.org/productID",
+    "workExample" : {
+      "@id" : "http://schema.org/workExample",
+      "@type" : "@id"
+    },
+    "isPartOf" : {
+      "@id" : "http://schema.org/isPartOf",
+      "@type" : "@id"
+    },
+    "awards" : "http://schema.org/awards",
+    "oclcnum" : "http://purl.org/library/oclcnum",
+    "datePublished" : "http://schema.org/datePublished",
+    "inLanguage" : "http://schema.org/inLanguage",
+    "comment" : "http://www.w3.org/2000/01/rdf-schema#comment",
+    "bookFormat" : {
+      "@id" : "http://schema.org/bookFormat",
+      "@type" : "@id"
+    },
+    "contentRating" : "http://schema.org/contentRating",
+    "publication" : {
+      "@id" : "http://schema.org/publication",
+      "@type" : "@id"
+    },
+    "illustrator" : {
+      "@id" : "http://schema.org/illustrator",
+      "@type" : "@id"
+    },
+    "describedby" : {
+      "@id" : "http://www.w3.org/2007/05/powder-s#describedby",
+      "@type" : "@id"
+    },
+    "publisher" : {
+      "@id" : "http://schema.org/publisher",
+      "@type" : "@id"
+    },
+    "exampleOfWork" : {
+      "@id" : "http://schema.org/exampleOfWork",
+      "@type" : "@id"
+    },
+    "dateModified" : "http://schema.org/dateModified",
+    "inDataset" : {
+      "@id" : "http://rdfs.org/ns/void#inDataset",
+      "@type" : "@id"
+    },
+    "schema" : "http://schema.org/",
+    "rdfs" : "http://www.w3.org/2000/01/rdf-schema#",
+    "genont" : "http://www.w3.org/2006/gen/ont#",
+    "wdrs" : "http://www.w3.org/2007/05/powder-s#",
+    "xsd" : "http://www.w3.org/2001/XMLSchema#",
+    "library" : "http://purl.org/library/",
+    "void" : "http://rdfs.org/ns/void#",
+    "rdf" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "bgn" : "http://bibliograph.net/",
+    "pto" : "http://www.productontology.org/id/",
+    "dcterms" : "http://purl.org/dc/terms/"
+  }
+}

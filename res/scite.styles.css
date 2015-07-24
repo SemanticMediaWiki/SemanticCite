@@ -39,7 +39,7 @@
 .scite-referencelist .scite-citation-text {
 	font-size: 100%;
 	font-family: 'Times New Roman',stixgeneral,serif;
-	font: 1.2307em/1.375 'Times New Roman', serif;
+	font: 1.1307em/1.375 'Times New Roman', serif;
 	word-wrap: break-word;
 }
 
@@ -88,4 +88,53 @@
 	unicode-bidi: -moz-isolate;
 	unicode-bidi: -webkit-isolate;
 	unicode-bidi: isolate;
+}
+
+.scite-pre {
+	font-family: monospace;
+	padding: 1em;
+	border: 1px dashed #2f6fab;
+	border-top-color: rgb(47, 111, 171);
+	border-top-style: dashed;
+	border-top-width: 1px;
+	border-right-color: rgb(47, 111, 171);
+	border-right-style: dashed;
+	border-right-width: 1px;
+	border-bottom-color: rgb(47, 111, 171);
+	border-bottom-style: dashed;
+	border-bottom-width: 1px;
+	border-left-color: rgb(47, 111, 171);
+	border-left-style: dashed;
+	border-left-width: 1px;
+	color: black;
+	background-color: #f9f9f9;
+	line-height: 1.1em;
+	margin-bottom: 0.5em;
+	margin-top: 0.5em;
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap;
+	white-space: -pre-wrap;
+	white-space: -o-pre-wrap;
+	word-wrap: break-word;
+	word-break: break-word;
+	font-size: 12px;
+}
+
+.scite-textarea {
+	word-wrap: break-word;
+	padding: 1em;
+
+}
+
+.scite-metadata-search-action {
+	float: right;
+	font-size: 80%;
+}
+
+.scite-metadata-search-types {
+	font-size: 85%;
+}
+
+.scite-metadata-search-types ul {
+	line-height: 1.8em;
 }

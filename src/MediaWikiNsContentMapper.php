@@ -102,7 +102,7 @@ class MediaWikiNsContentMapper {
 	}
 
 	/**
-	 * @param string $type
+	 * @param string $name
 	 */
 	private function parseContentFor( $name ) {
 
