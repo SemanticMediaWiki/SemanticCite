@@ -23,7 +23,6 @@ function installToMediaWikiRoot {
 	else
 		composer init --stability dev
 		composer require mediawiki/semantic-cite "dev-master" --prefer-source --dev
-		composer require onoi/http-request "~1.0" --prefer-source --dev
 
 		cd extensions
 		cd SemanticCite
