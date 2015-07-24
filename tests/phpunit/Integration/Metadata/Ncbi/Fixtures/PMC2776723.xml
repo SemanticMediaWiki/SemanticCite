@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "http://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article" xml:lang="EN">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">0404511</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">7473</journal-id>
+      <journal-id journal-id-type="nlm-ta">Science</journal-id>
+      <journal-title>Science (New York, N.Y.)</journal-title>
+      <issn pub-type="ppub">0036-8075</issn>
+      <issn pub-type="epub">1095-9203</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">18487186</article-id>
+      <article-id pub-id-type="pmc">2776723</article-id>
+      <article-id pub-id-type="doi">10.1126/science.1152662</article-id>
+      <article-id pub-id-type="manuscript">NIHMS142954</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Design Logic of a Cannabinoid Receptor Signaling Network That Triggers Neurite Outgrowth</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Bromberg</surname>
+            <given-names>Kenneth D.</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Ma'ayan</surname>
+            <given-names>Avi</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Neves</surname>
+            <given-names>Susana R.</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Iyengar</surname>
+            <given-names>Ravi</given-names>
+          </name>
+          <xref rid="FN1" ref-type="author-notes">*</xref>
+        </contrib>
+        <aff id="A1">Department of Pharmacology and Systems Therapeutics, Mount Sinai School of Medicine, New York, NY 10029, USA</aff>
+      </contrib-group>
+      <author-notes>
+        <corresp id="FN1">
+<label>*</label>To whom correspondence should be addressed. <email>ravi.iyengar@mssm.edu</email></corresp>
+      </author-notes>
+      <pub-date pub-type="nihms-submitted">
+        <day>22</day>
+        <month>10</month>
+        <year>2009</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <day>16</day>
+        <month>5</month>
+        <year>2008</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>12</day>
+        <month>11</month>
+        <year>2009</year>
+      </pub-date>
+      <volume>320</volume>
+      <issue>5878</issue>
+      <fpage>903</fpage>
+      <lpage>909</lpage>
+      <abstract>
+        <p id="P1">Cannabinoid receptor ...</p>
+      </abstract>
+      <contract-num rid="GM1">R01 GM072853-04
+				||GM</contract-num>
+      <contract-num rid="GM1">R01 GM054508-21
+				||GM</contract-num>
+      <contract-num rid="GM1">P50 GM071558-030007
+				||GM</contract-num>
+      <contract-num rid="GM1">P50 GM071558-020007
+				||GM</contract-num>
+      <contract-num rid="GM1">P50 GM071558-02
+				||GM</contract-num>
+      <contract-num rid="GM1">P50 GM071558-01A20007
+				||GM</contract-num>
+      <contract-num rid="GM1">P50 GM071558-01A2
+				||GM</contract-num>
+      <contract-sponsor id="GM1">National Institute of General Medical Sciences : NIGMS</contract-sponsor>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>

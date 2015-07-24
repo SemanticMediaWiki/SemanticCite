@@ -57,6 +57,10 @@ class UidValue extends StringValue {
 			$this->m_caption = $this->m_dataitem->getString();
 		}
 
+		if ( $preferredCaption = $this->getPreferredCaption() ) {
+			return $preferredCaption;
+		}
+
 		if ( $linker === null ) {
 			return $this->m_caption;
 		}
@@ -76,6 +80,10 @@ class UidValue extends StringValue {
 
 		if ( !$this->m_caption ) {
 			$this->m_caption = $this->m_dataitem->getString();
+		}
+
+		if ( $preferredCaption = $this->getPreferredCaption() ) {
+			return $preferredCaption;
 		}
 
 		if ( $linker === null ) {
@@ -131,6 +139,15 @@ class UidValue extends StringValue {
 		}
 
 		return $uri . $target;
+	}
+
+	private function getPreferredCaption() {
+
+		if ( $this->m_outformat == '-' ) {
+			return $this->m_caption;
+		}
+
+		return false;
 	}
 
 }

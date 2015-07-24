@@ -175,6 +175,7 @@ class SciteParserFunction {
 
 		if ( $parserParameterProcessor->hasParameter( 'type' ) ) {
 			$type = $parserParameterProcessor->getParameterValuesFor( 'type' );
+			sort( $type );
 			$type = end( $type );
 		}
 

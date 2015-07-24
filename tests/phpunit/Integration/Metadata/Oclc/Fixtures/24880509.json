@@ -1,0 +1,170 @@
+{
+  "@graph" : [ {
+    "@id" : "http://experiment.worldcat.org/entity/work/data/48081259#Agent/arkadia",
+    "@type" : "bgn:Agent",
+    "name" : "Árkádia"
+  }, {
+    "@id" : "http://experiment.worldcat.org/entity/work/data/48081259#Person/gyorgy_horvth_laszlo",
+    "@type" : "schema:Person",
+    "familyName" : "György Horv́th",
+    "givenName" : "László",
+    "name" : "László György Horv́th"
+  }, {
+    "@id" : "http://experiment.worldcat.org/entity/work/data/48081259#Place/budapest",
+    "@type" : "schema:Place",
+    "name" : "Budapest"
+  }, {
+    "@id" : "http://experiment.worldcat.org/entity/work/data/48081259#Place/lyme_regis_england",
+    "@type" : "schema:Place",
+    "name" : "Lyme Regis (England)"
+  }, {
+    "@id" : "http://id.loc.gov/vocabulary/countries/hu",
+    "@type" : "schema:Place",
+    "identifier" : "hu"
+  }, {
+    "@id" : "http://id.worldcat.org/fast/1156439",
+    "@type" : "schema:Intangible",
+    "name" : "Triangles (Interpersonal relations)"
+  }, {
+    "@id" : "http://id.worldcat.org/fast/1225151",
+    "@type" : "schema:Place",
+    "name" : "England--Lyme Regis."
+  }, {
+    "@id" : "http://viaf.org/viaf/4929997",
+    "@type" : "schema:Person",
+    "birthDate" : "1926",
+    "deathDate" : "2005",
+    "familyName" : "Fowles",
+    "givenName" : "John",
+    "name" : "John Fowles"
+  }, {
+    "@id" : "http://worldcat.org/entity/work/id/48081259",
+    "name" : "French lieutenant's woman."
+  }, {
+    "@id" : "http://worldcat.org/isbn/9789633070222",
+    "@type" : "schema:ProductModel",
+    "isbn" : [ "9789633070222", "9633070228" ]
+  }, {
+    "@id" : "http://www.worldcat.org/oclc/24880509",
+    "@type" : [ "schema:CreativeWork", "schema:Book" ],
+    "translationOfWork" : "http://www.worldcat.org/title/-/oclc/24880509#CreativeWork/unidentifiedOriginalWork",
+    "oclcnum" : "24880509",
+    "placeOfPublication" : [ "http://id.loc.gov/vocabulary/countries/hu", "http://experiment.worldcat.org/entity/work/data/48081259#Place/budapest" ],
+    "about" : [ "http://id.worldcat.org/fast/1156439", "http://experiment.worldcat.org/entity/work/data/48081259#Place/lyme_regis_england", "http://id.worldcat.org/fast/1225151" ],
+    "bookFormat" : "bgn:PrintBook",
+    "contributor" : "http://experiment.worldcat.org/entity/work/data/48081259#Person/gyorgy_horvth_laszlo",
+    "creator" : "http://viaf.org/viaf/4929997",
+    "datePublished" : "1983",
+    "exampleOfWork" : "http://worldcat.org/entity/work/id/48081259",
+    "genre" : [ "Fiction", {
+      "@language" : "en",
+      "@value" : "Fiction"
+    } ],
+    "inLanguage" : "hu",
+    "name" : "A francia hadnagy szeretője : regény",
+    "productID" : "24880509",
+    "publication" : "http://www.worldcat.org/title/-/oclc/24880509#PublicationEvent/budapest_arkadia_1983",
+    "publisher" : "http://experiment.worldcat.org/entity/work/data/48081259#Agent/arkadia",
+    "workExample" : "http://worldcat.org/isbn/9789633070222",
+    "describedby" : "http://www.worldcat.org/title/-/oclc/24880509"
+  }, {
+    "@id" : "http://www.worldcat.org/title/-/oclc/24880509",
+    "@type" : [ "genont:ContentTypeGenericResource", "genont:InformationResource" ],
+    "inDataset" : "http://purl.oclc.org/dataset/WorldCat",
+    "about" : "http://www.worldcat.org/oclc/24880509",
+    "dateModified" : "2015-05-07"
+  }, {
+    "@id" : "http://www.worldcat.org/title/-/oclc/24880509#CreativeWork/unidentifiedOriginalWork",
+    "@type" : "schema:CreativeWork",
+    "inLanguage" : "en",
+    "name" : "French lieutenant's woman."
+  }, {
+    "@id" : "http://www.worldcat.org/title/-/oclc/24880509#PublicationEvent/budapest_arkadia_1983",
+    "@type" : "schema:PublicationEvent",
+    "location" : "http://experiment.worldcat.org/entity/work/data/48081259#Place/budapest",
+    "organizer" : "http://experiment.worldcat.org/entity/work/data/48081259#Agent/arkadia",
+    "startDate" : "1983"
+  } ],
+  "@context" : {
+    "genre" : "http://schema.org/genre",
+    "placeOfPublication" : {
+      "@id" : "http://purl.org/library/placeOfPublication",
+      "@type" : "@id"
+    },
+    "exampleOfWork" : {
+      "@id" : "http://schema.org/exampleOfWork",
+      "@type" : "@id"
+    },
+    "publisher" : {
+      "@id" : "http://schema.org/publisher",
+      "@type" : "@id"
+    },
+    "publication" : {
+      "@id" : "http://schema.org/publication",
+      "@type" : "@id"
+    },
+    "oclcnum" : "http://purl.org/library/oclcnum",
+    "productID" : "http://schema.org/productID",
+    "about" : {
+      "@id" : "http://schema.org/about",
+      "@type" : "@id"
+    },
+    "name" : "http://schema.org/name",
+    "bookFormat" : {
+      "@id" : "http://schema.org/bookFormat",
+      "@type" : "@id"
+    },
+    "datePublished" : "http://schema.org/datePublished",
+    "workExample" : {
+      "@id" : "http://schema.org/workExample",
+      "@type" : "@id"
+    },
+    "describedby" : {
+      "@id" : "http://www.w3.org/2007/05/powder-s#describedby",
+      "@type" : "@id"
+    },
+    "inLanguage" : "http://schema.org/inLanguage",
+    "contributor" : {
+      "@id" : "http://schema.org/contributor",
+      "@type" : "@id"
+    },
+    "translationOfWork" : {
+      "@id" : "http://bibliograph.net/translationOfWork",
+      "@type" : "@id"
+    },
+    "creator" : {
+      "@id" : "http://schema.org/creator",
+      "@type" : "@id"
+    },
+    "dateModified" : "http://schema.org/dateModified",
+    "inDataset" : {
+      "@id" : "http://rdfs.org/ns/void#inDataset",
+      "@type" : "@id"
+    },
+    "familyName" : "http://schema.org/familyName",
+    "givenName" : "http://schema.org/givenName",
+    "birthDate" : "http://schema.org/birthDate",
+    "deathDate" : "http://schema.org/deathDate",
+    "isbn" : "http://schema.org/isbn",
+    "identifier" : "http://purl.org/dc/terms/identifier",
+    "location" : {
+      "@id" : "http://schema.org/location",
+      "@type" : "@id"
+    },
+    "organizer" : {
+      "@id" : "http://schema.org/organizer",
+      "@type" : "@id"
+    },
+    "startDate" : "http://schema.org/startDate",
+    "schema" : "http://schema.org/",
+    "genont" : "http://www.w3.org/2006/gen/ont#",
+    "wdrs" : "http://www.w3.org/2007/05/powder-s#",
+    "xsd" : "http://www.w3.org/2001/XMLSchema#",
+    "library" : "http://purl.org/library/",
+    "void" : "http://rdfs.org/ns/void#",
+    "rdf" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "bgn" : "http://bibliograph.net/",
+    "pto" : "http://www.productontology.org/id/",
+    "dcterms" : "http://purl.org/dc/terms/"
+  }
+}

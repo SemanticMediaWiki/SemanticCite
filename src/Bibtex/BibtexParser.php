@@ -39,9 +39,7 @@ class BibtexParser {
 	/**
 	 * @since  1.0
 	 *
-	 * Things like:
-	 * - "title = {{Stable theories}}" are not supported in MW since the parser
-	 *   replaces it with [[:Template:Stable theories]]
+	 * @return array
 	 */
 	public function parse( $bibtex ) {
 

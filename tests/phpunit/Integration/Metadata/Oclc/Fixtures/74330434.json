@@ -1,0 +1,300 @@
+{
+  "@graph" : [ {
+    "@id" : "http://dewey.info/class/570/e22/",
+    "@type" : "schema:Intangible"
+  }, {
+    "@id" : "http://experiment.worldcat.org/entity/work/data/60663362#Agent/distributed_by_quester",
+    "@type" : "bgn:Agent",
+    "name" : "Distributed by Quester"
+  }, {
+    "@id" : "http://experiment.worldcat.org/entity/work/data/60663362#Agent/new_dimension_media",
+    "@type" : "bgn:Agent",
+    "name" : "New Dimension Media"
+  }, {
+    "@id" : "http://experiment.worldcat.org/entity/work/data/60663362#Place/chicago_ill",
+    "@type" : "schema:Place",
+    "name" : "Chicago, Ill."
+  }, {
+    "@id" : "http://experiment.worldcat.org/entity/work/data/60663362#Series/getting_ahead",
+    "@type" : "bgn:PublicationSeries",
+    "hasPart" : "http://www.worldcat.org/oclc/74330434",
+    "name" : [ "Getting ahead", "Getting ahead." ]
+  }, {
+    "@id" : "http://experiment.worldcat.org/entity/work/data/60663362#Topic/arthropoda_study_and_teaching_middle_school",
+    "@type" : "schema:Intangible",
+    "name" : {
+      "@language" : "en",
+      "@value" : "Arthropoda--Study and teaching (Middle school)"
+    }
+  }, {
+    "@id" : "http://experiment.worldcat.org/entity/work/data/60663362#Topic/biotic_communities_study_and_teaching_middle_school",
+    "@type" : "schema:Intangible",
+    "name" : {
+      "@language" : "en",
+      "@value" : "Biotic communities--Study and teaching (Middle school)"
+    }
+  }, {
+    "@id" : "http://experiment.worldcat.org/entity/work/data/60663362#Topic/habitat_ecology_study_and_teaching_middle_school",
+    "@type" : "schema:Intangible",
+    "name" : {
+      "@language" : "en",
+      "@value" : "Habitat (Ecology)--Study and teaching (Middle school)"
+    }
+  }, {
+    "@id" : "http://experiment.worldcat.org/entity/work/data/60663362#Topic/life_sciences_study_and_teaching_middle_school",
+    "@type" : "schema:Intangible",
+    "name" : {
+      "@language" : "en",
+      "@value" : "Life sciences--Study and teaching (Middle school)"
+    }
+  }, {
+    "@id" : "http://experiment.worldcat.org/entity/work/data/60663362#Topic/plant_life_cycles_study_and_teaching_middle_school",
+    "@type" : "schema:Intangible",
+    "name" : {
+      "@language" : "en",
+      "@value" : "Plant life cycles--Study and teaching (Middle school)"
+    }
+  }, {
+    "@id" : "http://experiment.worldcat.org/entity/work/data/60663362#Topic/plant_propagation_study_and_teaching_middle_school",
+    "@type" : "schema:Intangible",
+    "name" : {
+      "@language" : "en",
+      "@value" : "Plant propagation--Study and teaching (Middle school)"
+    }
+  }, {
+    "@id" : "http://experiment.worldcat.org/entity/work/data/60663362#Topic/protozoa_study_and_teaching_middle_school",
+    "@type" : "schema:Intangible",
+    "name" : {
+      "@language" : "en",
+      "@value" : "Protozoa--Study and teaching (Middle school)"
+    }
+  }, {
+    "@id" : "http://experiment.worldcat.org/entity/work/data/60663362#Topic/science_study_and_teaching_middle_school",
+    "@type" : "schema:Intangible",
+    "name" : {
+      "@language" : "en",
+      "@value" : "Science--Study and teaching (Middle school)"
+    }
+  }, {
+    "@id" : "http://experiment.worldcat.org/entity/work/data/60663362#Topic/vertebrates_study_and_teaching_middle_school",
+    "@type" : "schema:Intangible",
+    "name" : {
+      "@language" : "en",
+      "@value" : "Vertebrates--Study and teaching (Middle school)"
+    }
+  }, {
+    "@id" : "http://id.loc.gov/vocabulary/countries/ilu",
+    "@type" : "schema:Place",
+    "identifier" : "ilu"
+  }, {
+    "@id" : "http://id.worldcat.org/fast/1065515",
+    "@type" : "schema:Intangible",
+    "name" : {
+      "@language" : "en",
+      "@value" : "Plant life cycles"
+    }
+  }, {
+    "@id" : "http://id.worldcat.org/fast/1065654",
+    "@type" : "schema:Intangible",
+    "name" : {
+      "@language" : "en",
+      "@value" : "Plant propagation"
+    }
+  }, {
+    "@id" : "http://id.worldcat.org/fast/1080123",
+    "@type" : "schema:Intangible",
+    "name" : {
+      "@language" : "en",
+      "@value" : "Protozoa"
+    }
+  }, {
+    "@id" : "http://id.worldcat.org/fast/1165545",
+    "@type" : "schema:Intangible",
+    "name" : {
+      "@language" : "en",
+      "@value" : "Vertebrates"
+    }
+  }, {
+    "@id" : "http://id.worldcat.org/fast/817139",
+    "@type" : "schema:Intangible",
+    "name" : {
+      "@language" : "en",
+      "@value" : "Arthropoda"
+    }
+  }, {
+    "@id" : "http://id.worldcat.org/fast/832828",
+    "@type" : "schema:Intangible",
+    "name" : {
+      "@language" : "en",
+      "@value" : "Biotic communities"
+    }
+  }, {
+    "@id" : "http://id.worldcat.org/fast/950038",
+    "@type" : "schema:Intangible",
+    "name" : {
+      "@language" : "en",
+      "@value" : "Habitat (Ecology)"
+    }
+  }, {
+    "@id" : "http://id.worldcat.org/fast/998323",
+    "@type" : "schema:Intangible",
+    "name" : {
+      "@language" : "en",
+      "@value" : "Life sciences"
+    }
+  }, {
+    "@id" : "http://viaf.org/viaf/128168234",
+    "@type" : "schema:Organization",
+    "name" : "Questar, Inc."
+  }, {
+    "@id" : "http://viaf.org/viaf/158556455",
+    "@type" : "schema:Organization",
+    "name" : "New Dimension Media, Inc."
+  }, {
+    "@id" : "http://worldcat.org/isbn/9781594642555",
+    "@type" : "schema:ProductModel",
+    "isbn" : [ "9781594642555", "1594642559" ]
+  }, {
+    "@id" : "http://www.worldcat.org/oclc/74330434",
+    "@type" : [ "schema:CreativeWork", "schema:Movie", "bgn:DVD" ],
+    "oclcnum" : "74330434",
+    "placeOfPublication" : [ "http://experiment.worldcat.org/entity/work/data/60663362#Place/chicago_ill", "http://id.loc.gov/vocabulary/countries/ilu" ],
+    "about" : [ "http://experiment.worldcat.org/entity/work/data/60663362#Topic/plant_propagation_study_and_teaching_middle_school", "http://id.worldcat.org/fast/1065515", "http://experiment.worldcat.org/entity/work/data/60663362#Topic/life_sciences_study_and_teaching_middle_school", "http://experiment.worldcat.org/entity/work/data/60663362#Topic/science_study_and_teaching_middle_school", "http://dewey.info/class/570/e22/", "http://id.worldcat.org/fast/950038", "http://experiment.worldcat.org/entity/work/data/60663362#Topic/biotic_communities_study_and_teaching_middle_school", "http://experiment.worldcat.org/entity/work/data/60663362#Topic/arthropoda_study_and_teaching_middle_school", "http://experiment.worldcat.org/entity/work/data/60663362#Topic/protozoa_study_and_teaching_middle_school", "http://id.worldcat.org/fast/817139", "http://id.worldcat.org/fast/1165545", "http://experiment.worldcat.org/entity/work/data/60663362#Topic/habitat_ecology_study_and_teaching_middle_school", "http://id.worldcat.org/fast/832828", "http://id.worldcat.org/fast/1065654", "http://experiment.worldcat.org/entity/work/data/60663362#Topic/vertebrates_study_and_teaching_middle_school", "http://experiment.worldcat.org/entity/work/data/60663362#Topic/plant_life_cycles_study_and_teaching_middle_school", "http://id.worldcat.org/fast/998323", "http://id.worldcat.org/fast/1080123" ],
+    "alternateName" : "Life science",
+    "bookEdition" : "[Full screen].",
+    "contentRating" : [ "9-14.", "4-8." ],
+    "contributor" : [ "http://viaf.org/viaf/128168234", "http://viaf.org/viaf/158556455" ],
+    "datePublished" : "2006",
+    "description" : [ {
+      "@language" : "en",
+      "@value" : "Ecosystems & biomes -- Habitats -- Seeds & plants -- Vertebrates -- Bacteria -- Arthopods -- Protozoa -- Plants & life on Earth."
+    }, {
+      "@language" : "en",
+      "@value" : "Compelling, close-up photography conveys key concepts about biological communities and basic classification systems of plants, animals, and other members of the living world. -- publishers website."
+    } ],
+    "exampleOfWork" : "http://worldcat.org/entity/work/id/60663362",
+    "genre" : [ {
+      "@language" : "en",
+      "@value" : "Films"
+    }, {
+      "@language" : "en",
+      "@value" : "Science films"
+    }, {
+      "@language" : "en",
+      "@value" : "Juvenile works"
+    }, {
+      "@language" : "en",
+      "@value" : "Educational films"
+    }, {
+      "@language" : "en",
+      "@value" : "Children's films"
+    }, {
+      "@language" : "en",
+      "@value" : "Nonfiction films"
+    } ],
+    "inLanguage" : "en",
+    "isPartOf" : "http://experiment.worldcat.org/entity/work/data/60663362#Series/getting_ahead",
+    "name" : {
+      "@language" : "en",
+      "@value" : "Science. Disc 2, Life science"
+    },
+    "productID" : "74330434",
+    "publication" : "http://www.worldcat.org/title/-/oclc/74330434#PublicationEvent/chicago_ill_new_dimension_media_distributed_by_quester_2006",
+    "publisher" : [ "http://experiment.worldcat.org/entity/work/data/60663362#Agent/distributed_by_quester", "http://experiment.worldcat.org/entity/work/data/60663362#Agent/new_dimension_media" ],
+    "workExample" : "http://worldcat.org/isbn/9781594642555",
+    "comment" : "Unknown 'gen' value: ejh",
+    "describedby" : "http://www.worldcat.org/title/-/oclc/74330434"
+  }, {
+    "@id" : "http://www.worldcat.org/title/-/oclc/74330434",
+    "@type" : [ "genont:ContentTypeGenericResource", "genont:InformationResource" ],
+    "inDataset" : "http://purl.oclc.org/dataset/WorldCat",
+    "about" : "http://www.worldcat.org/oclc/74330434",
+    "dateModified" : "2015-04-23"
+  }, {
+    "@id" : "http://www.worldcat.org/title/-/oclc/74330434#PublicationEvent/chicago_ill_new_dimension_media_distributed_by_quester_2006",
+    "@type" : "schema:PublicationEvent",
+    "location" : "http://experiment.worldcat.org/entity/work/data/60663362#Place/chicago_ill",
+    "organizer" : [ "http://experiment.worldcat.org/entity/work/data/60663362#Agent/new_dimension_media", "http://experiment.worldcat.org/entity/work/data/60663362#Agent/distributed_by_quester" ],
+    "startDate" : "2006"
+  } ],
+  "@context" : {
+    "name" : "http://schema.org/name",
+    "describedby" : {
+      "@id" : "http://www.w3.org/2007/05/powder-s#describedby",
+      "@type" : "@id"
+    },
+    "isPartOf" : {
+      "@id" : "http://schema.org/isPartOf",
+      "@type" : "@id"
+    },
+    "about" : {
+      "@id" : "http://schema.org/about",
+      "@type" : "@id"
+    },
+    "genre" : "http://schema.org/genre",
+    "datePublished" : "http://schema.org/datePublished",
+    "workExample" : {
+      "@id" : "http://schema.org/workExample",
+      "@type" : "@id"
+    },
+    "contentRating" : "http://schema.org/contentRating",
+    "productID" : "http://schema.org/productID",
+    "bookEdition" : "http://schema.org/bookEdition",
+    "inLanguage" : "http://schema.org/inLanguage",
+    "placeOfPublication" : {
+      "@id" : "http://purl.org/library/placeOfPublication",
+      "@type" : "@id"
+    },
+    "contributor" : {
+      "@id" : "http://schema.org/contributor",
+      "@type" : "@id"
+    },
+    "comment" : "http://www.w3.org/2000/01/rdf-schema#comment",
+    "publisher" : {
+      "@id" : "http://schema.org/publisher",
+      "@type" : "@id"
+    },
+    "oclcnum" : "http://purl.org/library/oclcnum",
+    "description" : "http://schema.org/description",
+    "exampleOfWork" : {
+      "@id" : "http://schema.org/exampleOfWork",
+      "@type" : "@id"
+    },
+    "alternateName" : "http://schema.org/alternateName",
+    "publication" : {
+      "@id" : "http://schema.org/publication",
+      "@type" : "@id"
+    },
+    "identifier" : "http://purl.org/dc/terms/identifier",
+    "isbn" : "http://schema.org/isbn",
+    "hasPart" : {
+      "@id" : "http://schema.org/hasPart",
+      "@type" : "@id"
+    },
+    "location" : {
+      "@id" : "http://schema.org/location",
+      "@type" : "@id"
+    },
+    "organizer" : {
+      "@id" : "http://schema.org/organizer",
+      "@type" : "@id"
+    },
+    "startDate" : "http://schema.org/startDate",
+    "dateModified" : "http://schema.org/dateModified",
+    "inDataset" : {
+      "@id" : "http://rdfs.org/ns/void#inDataset",
+      "@type" : "@id"
+    },
+    "schema" : "http://schema.org/",
+    "rdfs" : "http://www.w3.org/2000/01/rdf-schema#",
+    "genont" : "http://www.w3.org/2006/gen/ont#",
+    "wdrs" : "http://www.w3.org/2007/05/powder-s#",
+    "xsd" : "http://www.w3.org/2001/XMLSchema#",
+    "library" : "http://purl.org/library/",
+    "void" : "http://rdfs.org/ns/void#",
+    "rdf" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "bgn" : "http://bibliograph.net/",
+    "pto" : "http://www.productontology.org/id/",
+    "dcterms" : "http://purl.org/dc/terms/"
+  }
+}

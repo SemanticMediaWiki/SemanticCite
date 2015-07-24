@@ -17,6 +17,7 @@ reuse of references stored within a wiki with support for:
 - Individual property and text formatting rules
 - In-text reference tooltip
 - Bibtex record import support
+- Metadata search for selected providers
 
 Semantic Cite does not require nor uses any part of [`Cite`][mw-cite] (or `<ref>`)
 as a means to declare a citation resource.
@@ -49,7 +50,13 @@ The recommended way to install Semantic Cite is by using [Composer][composer] wi
 
 ## Usage
 
-The easiest way to create a citation resource is by using the `#scite` parser in form of:
+![scite-sneak](https://cloud.githubusercontent.com/assets/1245473/8370671/7d8bfeac-1bcb-11e5-9007-79a3d39f70ce.png)
+
+A citation resource collects all structured data of a citation under one unique key that
+can be accessed through out the wiki and is created and managed by the `#scite` parser.
+
+Citation resources (those created by `#scite`) can be added to a source page
+or any other wiki page each being identifiable by a citation key.
 
 ```
 {{#scite:Byrne 2008
@@ -62,72 +69,38 @@ The easiest way to create a citation resource is by using the `#scite` parser in
  |number=4
  |pages=365-376
 }}
-
-OR
-
-{{#scite:Einstein, Podolsky, and Nathan 1935
- |bibtex=@article{einstein1935can,
-  title={Can quantum-mechanical description of physical reality be considered complete?},
-  author={Einstein, Albert and Podolsky, Boris and Rosen, Nathan},
-  journal={Physical review},
-  volume={47},
-  number={10},
-  pages={777},
-  year={1935},
-  publisher={APS}
-}
-}}
 ```
 
-Citation resources (entities created by `#scite`) can be added to a single page
-or spread throughout the wiki each being identifiable by a unique citation key
-(in order to distinguish it from any other citation resource declared in a wiki).
+Above shows an an example for a citation resource to be created by the `#scite` parser, more
+information about `#scite` can be found [here][docs-scite].
 
-Semantic Cite provides several predefined properties including:
+### In-text citation
 
-- `OLID` to identify OpenLibrary records
-- `VIAF` to describe a Virtual International Authority File
-- `OCLC` as an identifier of a WoldCat catalog entity
-- `PMID` and `PMCID` to represent PubMed identifier
-- `DOI` as Digital Object Identifier
-- `Citation resource`, `Citation reference`, `Citation key`, and `Citation text`
-
-![scite-sneak](https://cloud.githubusercontent.com/assets/1245473/8370671/7d8bfeac-1bcb-11e5-9007-79a3d39f70ce.png)
-
-### In-text reference
-
-A resource can easily be cited using the `Citation reference` (or its alias `CiteRef`)
-property for an in-text annotation such as `Lorem ipsum [[CiteRef::Byrne 2008]] ...` to appear as
+A resource can be cited using the `Citation reference` (or its alias `CiteRef`)
+property for an in-text annotation in form of `Lorem ipsum [[CiteRef::Byrne 2008]] ...` to appear as
 `Lorem ipsum`<sup>`[1]`</sup>` ...`.
 
 A reference list is automatically added to the content as soon as a `Citation reference`
 annotation is added to a page. The magic word `__NOREFERENCELIST__` can be used to suppress
-a reference list from showing on an individual page.
+a reference list from showing on an individual page while `#referencelist` can be used to position
+the list differently.
 
-> Can I store a `Citation resource` on a page different from where the actual reference is made?
+More information about in-text citations is described [here][docs-intext] together
+with a description about the usage of [`#referencelist`][docs-referencelist].
 
-Yes. A `Citation resource` can be stored on any page and is accessible from any page
-through the `Citation key` declared by the resource.
+For questions about Semantic Cite and [`Cite`][mw-cite], see the comments [section][docs-faq].
 
-> Can I add the same reference multiple times to a (or different) text source?
+### Metadata search
 
-Yes. Using the same `[[CiteRef:: ...]]` reference at the position that needs citing
-is all that is required.
+`Special:FindMetadataById` is provided as user interface to search, find, and map metadata with the
+`#scite` parser and allows conveniently to integrate authority data from sources like PubMed or CrossRef.
 
-> Is it possible to use a resource defined by `<ref>` (Cite) with #scite?
-
-No. Due to a different technical approach resources declared by `<ref>` can not be used
-by (or in) Semantic Cite.
-
-### Getting started
-
-- Define property and text formatting rules
-- Create a resource with `#scite`
-- Create an in-text citation using `[[Citation reference:...]]` (= `[[CiteRef:...]]`)
+For more information, see the search [documentation][docs-search].
 
 ## Configuration
 
-For settings, property mapping, and text formatting rules have a look at the [configuration](https://github.com/SemanticMediaWiki/SemanticCite/blob/master/CONFIGURATION.md) document.
+To change default settings, or add property mapping add text formatting rules, please read the
+[configuration][config] document.
 
 ## Contribution and support
 
@@ -155,3 +128,9 @@ but can also be executed using `composer phpunit` from the extension base direct
 [composer]: https://getcomposer.org/
 [mw-cite]: https://github.com/wikimedia/mediawiki-extensions-Cite
 [mw-update]: https://www.mediawiki.org/wiki/Manual:Update.php
+[config]: https://github.com/SemanticMediaWiki/SemanticCite/blob/master/CONFIGURATION.md
+[docs-faq]: https://github.com/SemanticMediaWiki/SemanticCite/blob/master/docs/08-faq.md
+[docs-search]: https://github.com/SemanticMediaWiki/SemanticCite/blob/master/docs/07-search.md
+[docs-scite]: https://github.com/SemanticMediaWiki/SemanticCite/blob/master/docs/04-scite.md
+[docs-intext]: https://github.com/SemanticMediaWiki/SemanticCite/blob/master/docs/06-intext-citation.md
+[docs-referencelist]: https://github.com/SemanticMediaWiki/SemanticCite/blob/master/docs/05-referencelist.md

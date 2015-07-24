@@ -1,0 +1,62 @@
+{
+    "header": {
+        "type": "esummary",
+        "version": "0.3"
+    },
+    "result": {
+        "uids": [
+            "2776723"
+        ],
+        "2776723": {
+            "uid": "2776723",
+            "pubdate": "2008/05/16 00:00",
+            "epubdate": "",
+            "printpubdate": "2008/05/16 00:00",
+            "epubdate": "1/01/01 00:00",
+            "source": "Science",
+            "authors": [
+                {
+                    "name": "Bromberg KD",
+                    "authtype": "Author"
+                },
+                {
+                    "name": "Ma'ayan A",
+                    "authtype": "Author"
+                },
+                {
+                    "name": "Neves SR",
+                    "authtype": "Author"
+                },
+                {
+                    "name": "Iyengar R",
+                    "authtype": "Author"
+                }
+            ],
+            "title": "Design Logic of a Cannabinoid Receptor Signaling Network That Triggers Neurite Outgrowth",
+            "volume": "320",
+            "issue": "5878",
+            "pages": "903-909",
+            "articleids": [
+                {
+                    "idtype": "pmid",
+                    "value": "18487186"
+                },
+                {
+                    "idtype": "doi",
+                    "value": "10.1126/science.1152662"
+                },
+                {
+                    "idtype": "pmcid",
+                    "value": "PMC2776723"
+                },
+                {
+                    "idtype": "MID",
+                    "value": "NIHMS142954"
+                }
+            ],
+            "fulljournalname": "Science (New York, N.Y.)",
+            "sortdate": "2008/05/16 00:00",
+            "pmclivedate": "2009/11/12 00:00"
+        }
+    }
+}

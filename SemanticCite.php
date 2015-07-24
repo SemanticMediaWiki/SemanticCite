@@ -44,6 +44,13 @@ call_user_func( function () {
 	// Register message files
 	$GLOBALS['wgMessagesDirs']['semantic-cite'] = __DIR__ . '/i18n';
 	$GLOBALS['wgExtensionMessagesFiles']['semantic-cite-magic'] = __DIR__ . '/i18n/SemanticCite.magic.php';
+	$GLOBALS['wgExtensionMessagesFiles']['semantic-cite-alias'] = __DIR__ . '/i18n/SemanticCite.alias.php';
+
+	$GLOBALS['wgSpecialPages']['FindMetadataById'] = '\SCI\Metadata\Search\SpecialFindMetadataById';
+
+	// Restrict access to the meta search for regstered users only
+	$GLOBALS['wgAvailableRights'][] = 'sci-metasearch';
+	$GLOBALS['wgGroupPermissions']['user']['sci-metasearch'] = true;
 
 	// Register resource files
 	$extensionPathParts = explode( DIRECTORY_SEPARATOR . 'extensions' . DIRECTORY_SEPARATOR , __DIR__, 2 );
@@ -54,6 +61,25 @@ call_user_func( function () {
 		'remoteExtPath' => end( $extensionPathParts ),
 		'position' => 'top',
 		'group'    => 'ext.smw',
+		'targets' => array(
+			'mobile',
+			'desktop'
+		)
+	);
+
+	$GLOBALS['wgResourceModules']['ext.scite.metadata'] = array(
+		'scripts' => array(
+			'res/scite.text.selector.js',
+			'res/scite.page.creator.js'
+		),
+		'localBasePath' => __DIR__ ,
+		'remoteExtPath' => end( $extensionPathParts ),
+		'position' => 'top',
+		'group'    => 'ext.smw',
+		'dependencies'  => array(
+			'ext.scite.styles',
+			'mediawiki.api'
+		),
 		'targets' => array(
 			'mobile',
 			'desktop'
@@ -107,6 +133,7 @@ call_user_func( function () {
 	);
 
 	$GLOBALS['scigTooltipRequestCacheTTLInSeconds'] = 60 * 60 * 24; // false to disable the Cache
+	$GLOBALS['scigMetadataRequestCacheTTLInSeconds'] = 60 * 60 * 24;
 
 	/**
 	 * Number of columns displayed for the reference list
@@ -138,7 +165,9 @@ call_user_func( function () {
 	// Finalize registration process
 	$GLOBALS['wgExtensionFunctions'][] = function() {
 
-		$cachePrefix = $GLOBALS['wgCachePrefix'] === false ? wfWikiID() : $GLOBALS['wgCachePrefix'];
+		// Require a global because MW's Special page is missing an interface
+		// to inject dependencies
+		$GLOBALS['scigCachePrefix'] = $GLOBALS['wgCachePrefix'] === false ? wfWikiID() : $GLOBALS['wgCachePrefix'];
 
 		$configuration = array(
 			'numberOfReferenceListColumns'     => $GLOBALS['scigNumberOfReferenceListColumns'],
@@ -148,7 +177,7 @@ call_user_func( function () {
 			'citationReferenceCaptionFormat'   => $GLOBALS['scigCitationReferenceCaptionFormat'],
 			'referenceListType'                => $GLOBALS['scigReferenceListType'],
 			'strictParserValidationEnabled'    => $GLOBALS['scigStrictParserValidationEnabled'],
-			'cachePrefix'                      => $cachePrefix
+			'cachePrefix'                      => $GLOBALS['scigCachePrefix']
 		);
 
 		$cacheFactory = new CacheFactory();

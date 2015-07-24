@@ -11,7 +11,7 @@ use SMWPropertyValue as PropertyValue;
 use SMWQuery as Query;
 use SMWDIBlob as DIBlob;
 use SMW\DataValueFactory;
-use SCI\DataValues\UidValue;
+use SCI\DataValues\UidValueFactory;
 
 /**
  * @license GNU GPL v2+
@@ -121,49 +121,18 @@ class CitationResourceMatchFinder {
 	 */
 	public function findMatchForUidTypeOf( $type, $id = null ) {
 
-		if ( $id === null ) {
+		if ( $id === null || $id === '' ) {
 			return array();
 		}
 
-		$property = null;
+		$uidValueFactory = new UidValueFactory();
 
-		switch ( $type ) {
-			case 'oclc':
-				$typeId = '_sci_oclc';
-				$property = new DIProperty( PropertyRegistry::SCI_OCLC );
-				break;
-			case 'viaf':
-				$typeId = '_sci_viaf';
-				$property = new DIProperty( PropertyRegistry::SCI_VIAF );
-				break;
-			case 'doi':
-				$typeId = '_sci_doi';
-				$property = new DIProperty( PropertyRegistry::SCI_DOI );
-				break;
-			case 'pmid':
-				$typeId = '_sci_pmid';
-				$property = new DIProperty( PropertyRegistry::SCI_PMID );
-				break;
-			case 'pmcid':
-				$typeId = '_sci_pmcid';
-				$property = new DIProperty( PropertyRegistry::SCI_PMCID );
-				break;
-			case 'olid':
-				$typeId = '_sci_olid';
-				$property = new DIProperty( PropertyRegistry::SCI_OLID );
-				break;
-		}
-
-		if ( $property === null ) {
-			return array();
-		}
-
-		$uidValue = new UidValue( $typeId );
+		$uidValue = $uidValueFactory->newUidValueForType( $type );
 		$uidValue->setUserValue( $id );
 		$id = $uidValue->getWikiValue();
 
 		$description = new SomeProperty(
-			$property,
+			$uidValue->getProperty(),
 			new ValueDescription( new DIBlob( $id ) )
 		);
 

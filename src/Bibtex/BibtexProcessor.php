@@ -31,9 +31,11 @@ class BibtexProcessor {
 	 */
 	public function doProcess( ParserParameterProcessor $parserParameterProcessor ) {
 
-		$bibtex = $parserParameterProcessor->getParameterValuesFor( 'bibtex' );
+		$bibtex = $this->doPreprocess(
+			$parserParameterProcessor->getParameterValuesFor( 'bibtex' )
+		);
 
-		$parameters = $this->bibtexParser->parse( end( $bibtex ) );
+		$parameters = $this->bibtexParser->parse( $bibtex );
 
 		foreach ( $parameters as $key => $value ) {
 
@@ -51,6 +53,25 @@ class BibtexProcessor {
 				$value
 			);
 		}
+	}
+
+	private function doPreprocess( array $bibtex ) {
+
+		$bibtex = end( $bibtex );
+
+		// Avoid things like {{Stable theories}}" which are not supported in MW
+		// since the parser replaces it with [[:Template:Stable theories]]
+		$this->replace( '{{', "{", $bibtex );
+		$this->replace( '}}', "}", $bibtex );
+
+		$this->replace( '{\textquotesingle}', "'", $bibtex );
+		$this->replace( '$\upgamma$', "γ", $bibtex );
+
+		return $bibtex;
+	}
+
+	private function replace( $search, $with, &$on ) {
+		$on = strpos( $on, $search ) !== false ? str_replace( $search, $with, $on ) : $on;
 	}
 
 }

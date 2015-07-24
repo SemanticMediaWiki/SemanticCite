@@ -84,6 +84,36 @@ class UidValueTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
+	/**
+	 * @dataProvider outputFormattedTextProvider
+	 */
+	public function testOutputFormattedText( $type, $value, $format, $expectedWikiText, $expectedHtmlText ) {
+
+		$instance = new UidValue( $type );
+		$instance->setUserValue( $value );
+		$instance->setOutputFormat( $value );
+
+		$this->assertEquals(
+			$expectedWikiText,
+			$instance->getShortWikiText()
+		);
+
+		$this->assertEquals(
+			$expectedWikiText,
+			$instance->getLongWikiText()
+		);
+
+		$this->assertEquals(
+			$expectedHtmlText,
+			$instance->getShortHTMLText()
+		);
+
+		$this->assertEquals(
+			$expectedHtmlText,
+			$instance->getLongHTMLText()
+		);
+	}
+
 	public function typeProvider() {
 
 		$provider[] = array(
@@ -334,6 +364,29 @@ class UidValueTest extends \PHPUnit_Framework_TestCase {
 		);
 
 		return $provider;
+	}
+
+	public function outputFormattedTextProvider() {
+
+		// DOI
+
+		$provider[] = array(
+			'_sci_doi',
+			'10.1000/123456',
+			'-',
+			'10.1000/123456',
+			'10.1000/123456'
+		);
+
+		$provider[] = array(
+			'_sci_doi',
+			'http://dx.doi.org/10.1000/123456',
+			'-',
+			'10.1000/123456',
+			'10.1000/123456'
+		);
+
+		return$provider;
 	}
 
 }

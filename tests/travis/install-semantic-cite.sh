@@ -14,7 +14,7 @@ function installToMediaWikiRoot {
 	then
 		composer require 'phpunit/phpunit='$PHPUNIT --prefer-source --update-with-dependencies
 	else
-		composer require 'phpunit/phpunit=4.6.*' --prefer-source --update-with-dependencies
+		composer require 'phpunit/phpunit=4.7.*' --prefer-source --update-with-dependencies
 	fi
 
 	if [ "$SCI" != "" ]
@@ -23,6 +23,7 @@ function installToMediaWikiRoot {
 	else
 		composer init --stability dev
 		composer require mediawiki/semantic-cite "dev-master" --prefer-source --dev
+		composer require onoi/http-request "~1.0" --prefer-source --dev
 
 		cd extensions
 		cd SemanticCite
