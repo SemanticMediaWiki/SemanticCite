@@ -1,12 +1,14 @@
 ## #referencelist parser
 
-Normally a reference list is self-maintained and added to the bottom a page if
-a citation reference is present but in case the list should positioned
-differently, `{{#referencelist:}}` can be used to mark the position on where the
-list is expected to appear.
+In general a reference list is self-maintained and added to the bottom of a page if
+a citation reference is being detected but in case a list is to be placed differently,
+`#referencelist` can be used to mark the position on where the list is expected
+to appear.
 
-`{{#referencelist:}}` parser does accept options that can modify the output of an individual
-reference list.
+### Options
+
+The `#referencelist` parser does accept several options that allows to modify the output
+of an individual list.
 
 ```
 {{#referencelist:
@@ -16,9 +18,10 @@ reference list.
  |header=Notes
 }}
 ```
+### Table of contents
 
-To display a table of contents section for the reference list (by default the auto-added
-list is hidden) the parameter `|toc=yes` should be added to:
+To display an entry in the table of contents section (which by default it is hidden)
+the parameter `|toc=yes` is required be added to a `#referencelist` call.
 
 ```
 {{#referencelist:
@@ -28,11 +31,12 @@ list is hidden) the parameter `|toc=yes` should be added to:
  |toc=yes
 }}
 ```
+### Unbound list
 
-To generate a nonbound reference list (for notes or additional literature references)
-using the `|reference=` parameter is required because such list uses the information
-provided by `|reference=` and is not bound to any of the `Citation reference`
-annotations made to a particular page or subject.
+To generate a unbound reference list (for notes or additional literature references)
+using the `|references=` parameter is required because such list uses the information
+provided by this parameter and is not bound to any of the `Citation reference` annotations
+made on the source page.
 
 ```
 {{#referencelist:
@@ -43,3 +47,11 @@ annotations made to a particular page or subject.
  |references=PMC2483364;Einstein et al. 1935|+sep=;
 }}
 ```
+
+If an unbound list is added an additional `#referencelist` is required to position the
+standard list in context of the unbound list.
+
+## Suppress the referencelist
+
+The magic word `__NOREFERENCELIST__` can be used to suppress a reference list from showing
+on an individual page.

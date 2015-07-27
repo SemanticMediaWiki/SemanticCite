@@ -101,6 +101,7 @@ call_user_func( function () {
 		),
 		'messages' => array(
 			'sci-tooltip-citation-lookup-failure',
+			'sci-tooltip-citation-lookup-failure-multiple'
 		),
 		'targets' => array(
 			'mobile',

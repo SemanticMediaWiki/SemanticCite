@@ -94,6 +94,15 @@ class ReferenceListOutputRenderer {
 	/**
 	 * @since 1.0
 	 *
+	 * @param integer
+	 */
+	public function getNumberOfReferenceListColumns() {
+		return $this->numberOfReferenceListColumns;
+	}
+
+	/**
+	 * @since 1.0
+	 *
 	 * @param string $referenceListType
 	 */
 	public function setReferenceListType( $referenceListType ) {
@@ -103,10 +112,28 @@ class ReferenceListOutputRenderer {
 	/**
 	 * @since 1.0
 	 *
+	 * @param string
+	 */
+	public function getReferenceListType() {
+		return $this->referenceListType;
+	}
+
+	/**
+	 * @since 1.0
+	 *
 	 * @param boolean $browseLinkToCitationResourceState
 	 */
 	public function setBrowseLinkToCitationResourceState( $browseLinkToCitationResourceState ) {
 		$this->browseLinkToCitationResourceState = (bool)$browseLinkToCitationResourceState;
+	}
+
+	/**
+	 * @since 1.0
+	 *
+	 * @param boolean
+	 */
+	public function getBrowseLinkToCitationResourceState() {
+		return $this->browseLinkToCitationResourceState;
 	}
 
 	/**
@@ -138,7 +165,7 @@ class ReferenceListOutputRenderer {
 	public function doRenderReferenceListFor( DIWikiPage $subject, array $referenceList = null ) {
 
 		if ( $referenceList !== null ) {
-			$journal = $this->citationReferencePositionJournal->buildJournalForNonboundReferenceList(
+			$journal = $this->citationReferencePositionJournal->buildJournalForUnboundReferenceList(
 				$referenceList
 			);
 		} else {

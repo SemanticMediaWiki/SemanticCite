@@ -15,83 +15,95 @@ use SCI\CachedReferenceListOutputRenderer;
  */
 class CachedReferenceListOutputRendererTest extends \PHPUnit_Framework_TestCase {
 
+	private $referenceListOutputRenderer;
+	private $contextInteractor;
+	private $namespaceExaminer;
+	private $cache;
+	private $cacheKeyGenerator;
+
+	protected function setUp() {
+
+		$this->referenceListOutputRenderer = $this->getMockBuilder( '\SCI\ReferenceListOutputRenderer' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$this->contextInteractor = $this->getMockBuilder( '\SCI\MediaWikiContextInteractor' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$this->namespaceExaminer = $this->getMockBuilder( '\SMW\NamespaceExaminer' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$this->cache = $this->getMockBuilder( '\Onoi\Cache\Cache' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$this->cacheKeyGenerator = $this->getMockBuilder( '\SCI\CacheKeyGenerator' )
+			->disableOriginalConstructor()
+			->getMock();
+	}
+
 	public function testCanConstruct() {
-
-		$referenceListOutputRenderer = $this->getMockBuilder( '\SCI\ReferenceListOutputRenderer' )
-			->disableOriginalConstructor()
-			->getMock();
-
-		$contextInteractor = $this->getMockBuilder( '\SCI\MediaWikiContextInteractor' )
-			->disableOriginalConstructor()
-			->getMock();
-
-		$namespaceExaminer = $this->getMockBuilder( '\SMW\NamespaceExaminer' )
-			->disableOriginalConstructor()
-			->getMock();
-
-		$cache = $this->getMockBuilder( '\Onoi\Cache\Cache' )
-			->disableOriginalConstructor()
-			->getMock();
-
-		$cacheKeyGenerator = $this->getMockBuilder( '\SCI\CacheKeyGenerator' )
-			->disableOriginalConstructor()
-			->getMock();
 
 		$this->assertInstanceOf(
 			'\SCI\CachedReferenceListOutputRenderer',
 			new CachedReferenceListOutputRenderer(
-				$referenceListOutputRenderer,
-				$contextInteractor,
-				$namespaceExaminer,
-				$cache,
-				$cacheKeyGenerator
+				$this->referenceListOutputRenderer,
+				$this->contextInteractor,
+				$this->namespaceExaminer,
+				$this->cache,
+				$this->cacheKeyGenerator
 			)
 		);
 	}
 
 	public function testUnmodifiedTextForNotEnabledSemanticNamespace() {
 
-		$referenceListOutputRenderer = $this->getMockBuilder( '\SCI\ReferenceListOutputRenderer' )
-			->disableOriginalConstructor()
-			->getMock();
-
-		$contextInteractor = $this->getMockBuilder( '\SCI\MediaWikiContextInteractor' )
-			->disableOriginalConstructor()
-			->getMock();
-
-		$contextInteractor->expects( $this->once() )
+		$this->contextInteractor->expects( $this->once() )
 			->method( 'getTitle' )
 			->will( $this->returnValue( \Title::newFromText( __METHOD__ ) ) );
 
-		$contextInteractor->expects( $this->once() )
+		$this->contextInteractor->expects( $this->once() )
 			->method( 'hasAction' )
 			->will( $this->returnValue( true ) );
 
-		$namespaceExaminer = $this->getMockBuilder( '\SMW\NamespaceExaminer' )
-			->disableOriginalConstructor()
-			->getMock();
-
-		$namespaceExaminer->expects( $this->once() )
+		$this->namespaceExaminer->expects( $this->once() )
 			->method( 'isSemanticEnabled' )
 			->will( $this->returnValue( false ) );
 
-		$cache = $this->getMockBuilder( '\Onoi\Cache\Cache' )
-			->disableOriginalConstructor()
-			->getMock();
-
-		$cacheKeyGenerator = $this->getMockBuilder( '\SCI\CacheKeyGenerator' )
-			->disableOriginalConstructor()
-			->getMock();
-
 		$instance =	new CachedReferenceListOutputRenderer(
-			$referenceListOutputRenderer,
-			$contextInteractor,
-			$namespaceExaminer,
-			$cache,
-			$cacheKeyGenerator
+			$this->referenceListOutputRenderer,
+			$this->contextInteractor,
+			$this->namespaceExaminer,
+			$this->cache,
+			$this->cacheKeyGenerator
 		);
 
 		$text = '';
+		$instance->addReferenceListToText( $text );
+
+		$this->assertEmpty(
+			$text
+		);
+	}
+
+	public function testRemovalOfPlaceholderForDisabledReferencelist() {
+
+		$this->contextInteractor->expects( $this->once() )
+			->method( 'hasMagicWord' )
+			->with( $this->equalTo( 'SCI_NOREFERENCELIST' ) )
+			->will( $this->returnValue( true ) );
+
+		$instance =	new CachedReferenceListOutputRenderer(
+			$this->referenceListOutputRenderer,
+			$this->contextInteractor,
+			$this->namespaceExaminer,
+			$this->cache,
+			$this->cacheKeyGenerator
+		);
+
+		$text = '<div id="scite-custom-referencelist"><span></span></div>';
 		$instance->addReferenceListToText( $text );
 
 		$this->assertEmpty(

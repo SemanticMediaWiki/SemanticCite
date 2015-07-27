@@ -73,7 +73,7 @@ class CitationReferencePositionJournal {
 	}
 
 	/**
-	 * @note Build a journal from nonbound references (loose from the subject invoked
+	 * @note Build a journal from unbound references (loose from the subject invoked
 	 * citation references), the position isn't important because those will not
 	 * be linked to any CiteRef anchors.
 	 *
@@ -83,7 +83,7 @@ class CitationReferencePositionJournal {
 	 *
 	 * @return array|null
 	 */
-	public function buildJournalForNonboundReferenceList( array $referenceList ) {
+	public function buildJournalForUnboundReferenceList( array $referenceList ) {
 
 		if ( $referenceList === array() ) {
 			return null;

@@ -9,6 +9,9 @@ external data to the internal `#scite` format. Supported providers are:
 - OCLC (WorldCat)
 - VIAF
 
+This [video](https://www.youtube.com/watch?v=d2dNFTUUUjs) shows the usage variety
+of the metadata search.
+
 ## Direct search
 
 A link `Special:FindMetadataById` + `/doi/10.1126/science.1152662` or `/pubmed/18487186`
