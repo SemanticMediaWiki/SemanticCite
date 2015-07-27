@@ -52,12 +52,16 @@ class ResponseContentOutputRendererTest extends \PHPUnit_Framework_TestCase {
 
 		$responseContentParser = $this->getMockBuilder( '\SCI\Metadata\ResponseContentParser' )
 			->disableOriginalConstructor()
-			->setMethods( array( 'getFilteredMetadataRecord' ) )
+			->setMethods( array( 'getFilteredMetadataRecord', 'getMessages' ) )
 			->getMockForAbstractClass();
 
 		$responseContentParser->expects( $this->once() )
 			->method( 'doParseFor' )
 			->with( $this->identicalTo( 42 ) );
+
+		$responseContentParser->expects( $this->atLeastOnce() )
+			->method( 'getMessages' )
+			->will( $this->returnValue( array( 'foo' ) ) );
 
 		$responseContentParser->expects( $this->atLeastOnce() )
 			->method( 'getFilteredMetadataRecord' )

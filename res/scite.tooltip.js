@@ -73,9 +73,11 @@
 				} );
 
 				if ( citationText === '' ) {
+					var msgKey = content.hasOwnProperty( 'query-continue-offset' ) ?  'sci-tooltip-citation-lookup-failure-multiple' : 'sci-tooltip-citation-lookup-failure';
+
 					QTip.set(
 						'content.text',
-						mw.msg( 'sci-tooltip-citation-lookup-failure' )
+						mw.msg( msgKey, reference )
 					);
 					return null;
 				};

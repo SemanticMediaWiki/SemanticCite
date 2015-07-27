@@ -45,6 +45,11 @@ class CachedReferenceListOutputRenderer {
 	private $subject;
 
 	/**
+	 * @var array
+	 */
+	private $defaultOptions = array();
+
+	/**
 	 * @since 1.0
 	 *
 	 * @param ReferenceListOutputRenderer $referenceListOutputRenderer
@@ -83,7 +88,7 @@ class CachedReferenceListOutputRenderer {
 	public function addReferenceListToText( &$text ) {
 
 		if ( $this->contextInteractor->hasMagicWord( 'SCI_NOREFERENCELIST' ) || !$this->contextInteractor->hasAction( 'view' ) ) {
-			return '';
+			return $this->removeReferenceListPlaceholder( $text );
 		}
 
 		if ( !$this->namespaceExaminer->isSemanticEnabled( $this->getSubject()->getNamespace() ) ) {
@@ -93,7 +98,29 @@ class CachedReferenceListOutputRenderer {
 		$this->addReferenceListToCorrectTextPosition( $text );
 	}
 
+	private function removeReferenceListPlaceholder( &$text ) {
+
+		if ( strpos( $text, 'scite-custom-referencelist' ) === false ) {
+			return null;
+		}
+
+		return $text = preg_replace(
+			"/" . "<div id=\"scite-custom-referencelist\"(.*)?>(<h2>|<span>)(.*)?<\/div>" . "/m",
+			'',
+			$text
+		);
+	}
+
 	private function addReferenceListToCorrectTextPosition( &$text ) {
+
+		// Remember the default options before trying to replace all list
+		// placeholders to ensure to reset options to the default option
+		// for when a list doesn't specify an option
+		$this->defaultOptions = array(
+			'listtype' => $this->referenceListOutputRenderer->getReferenceListType(),
+			'columns'  => $this->referenceListOutputRenderer->getNumberOfReferenceListColumns(),
+			'browse'   => $this->referenceListOutputRenderer->getBrowseLinkToCitationResourceState()
+		);
 
 		// Find out whether to place the list into a custom position or not
 		if ( strpos( $text, 'scite-custom-referencelist' ) !== false ) {
@@ -110,7 +137,12 @@ class CachedReferenceListOutputRenderer {
 	private function getCustomizedRenderedHtmlReferenceList( $customOptions ) {
 
 		$this->searchForReferenceListHeaderTocId( $customOptions );
+
+		// Reset options
 		$this->referenceListOutputRenderer->setReferenceListHeader( '' );
+		$this->referenceListOutputRenderer->setReferenceListType( $this->defaultOptions['listtype'] );
+		$this->referenceListOutputRenderer->setNumberOfReferenceListColumns( $this->defaultOptions['columns'] );
+		$this->referenceListOutputRenderer->setBrowseLinkToCitationResourceState( $this->defaultOptions['browse'] );
 
 		$customOptions = explode( 'data-', $customOptions[1] );
 
