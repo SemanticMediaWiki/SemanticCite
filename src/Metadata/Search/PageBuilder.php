@@ -137,17 +137,17 @@ class PageBuilder {
 			->addParagraph( $messageBuilder->getMessage( 'sci-metadata-search-intro' )->parse() )
 			->addParagraph( $this->getTypeIdIntroText( $messageBuilder ) )
 			->addHorizontalRule()
+			->addOptionSelectList(
+				'Type:',
+				'type',
+				$type,
+				$types )
 			->addInputField(
-				'ID:',
+				'',
 				'id',
 				$id,
 				'id',
 				40 )
-			->addOptionSelectList(
-				'',
-				'type',
-				$type,
-				$types )
 			->addNonBreakingSpace()
 			->addSubmitButton( $messageBuilder->getMessage( 'sci-metadata-search-form-submit' )->text() )
 			->addNonBreakingSpace()
@@ -157,13 +157,13 @@ class PageBuilder {
 			if ( $log !== '' ) {
 				$htmlFormRenderer
 					->setName( 'metadata-match' )
-					->addHeader( 'h2', 'Log' )
+					->addHeader( 'h2', $messageBuilder->getMessage( 'sci-metadata-search-header-log' )->text() )
 					->addParagraph( $log );
 			}
 
 			if ( $text !== '' && $success ) {
 				$htmlFormRenderer
-					->addHeader( 'h2', 'Result' )
+					->addHeader( 'h2', $messageBuilder->getMessage( 'sci-metadata-search-header-result' )->text() )
 					->addParagraph( $text );
 			}
 
@@ -180,12 +180,12 @@ class PageBuilder {
 			$log += $messages;
 		}
 
-		if ( $usedCache ) {
-			$log[] = $messageBuilder->getMessage( 'sci-metadata-search-cached' )->text();
-		}
-
 		if ( $matches !== '' ) {
 			$log[] = $messageBuilder->getMessage( 'sci-metadata-search-has-match', $matches )->text();
+		}
+
+		if ( $usedCache ) {
+			$log[] = $messageBuilder->getMessage( 'sci-metadata-search-cached' )->text();
 		}
 
 		if ( $log === array() ) {

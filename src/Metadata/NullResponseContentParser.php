@@ -58,10 +58,10 @@ class NullResponseContentParser extends ResponseContentParser {
 	/**
 	 * @since 1.0
 	 *
-	 * @return null
+	 * @return FilteredMetadataRecord
 	 */
 	public function getFilteredMetadataRecord() {
-		return null;
+		return new FilteredMetadataRecord();
 	}
 
 }

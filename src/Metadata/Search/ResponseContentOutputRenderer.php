@@ -52,6 +52,14 @@ class ResponseContentOutputRenderer {
 
 		$this->responseContentParser->doParseFor( $id );
 
+		$html .= Html::rawElement(
+			'div',
+			array(
+				'id' => 'scite-status',
+			),
+			''
+		);
+
 		if ( $this->responseContentParser->getMessages() !== array() ) {
 
 			$messages = '';
@@ -65,28 +73,11 @@ class ResponseContentOutputRenderer {
 				array(),
 				$messages
 			);
-
-			$html .= Html::rawElement(
-				'div',
-				array(
-					'id' => 'scite-status',
-				),
-				''
-			);
 		}
 
 		if ( !$this->responseContentParser->isSuccess() ) {
 			return $html;
 		}
-
-		$html .= Html::rawElement(
-			'div',
-			array(
-				'id' => 'scite-record-content',
-				'class' => 'scite-pre'
-			),
-			$this->responseContentParser->getFilteredMetadataRecord()->asSciteTransclusion()
-		);
 
 		$html .= Html::rawElement(
 			'div',
@@ -97,21 +88,30 @@ class ResponseContentOutputRenderer {
 				'a',
 				array(
 					'href' => '#',
-					'class' => 'scite-highlight',
+					'class' => 'scite-highlight scite-action-button',
 					'data-content-selector' => '#scite-record-content'
 				),
-				'Select text'
-			) . ' | ' .
+				wfMessage( 'sci-metadata-search-action-highlight' )->text()
+			) . '&nbsp;' .
 			Html::element(
 				'a',
 				array(
 					'href' => '#',
-					'class' => 'scite-create',
+					'class' => 'scite-create scite-action-button',
 					'data-content-selector' => '#scite-record-content',
 					'data-title' =>  $this->responseContentParser->getFilteredMetadataRecord()->getCitationResourceTitle()
 				),
-				'Create'
+				wfMessage( 'sci-metadata-search-action-create' )->text()
 			)
+		);
+
+		$html .= Html::rawElement(
+			'div',
+			array(
+				'id' => 'scite-record-content',
+				'class' => 'scite-pre'
+			),
+			$this->responseContentParser->getFilteredMetadataRecord()->asSciteTransclusion()
 		);
 
 		$html .= Html::rawElement(

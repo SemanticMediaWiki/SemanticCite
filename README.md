@@ -43,7 +43,7 @@ The recommended way to install Semantic Cite is by using [Composer][composer] wi
 ```
 1. From your MediaWiki installation directory, execute
    `composer require mediawiki/semantic-cite:~1.0`
-2. Run the maintenance [`update.php`][mw-update] script to ensure that property tables
+2. Run the **maintenance [`update.php`][mw-update] script** to ensure that property tables
    are properly initialized
 3. Navigate to _Special:Version_ on your wiki and verify that the package
    have been successfully installed.
@@ -85,7 +85,7 @@ annotation is added to a page. The magic word `__NOREFERENCELIST__` can be used 
 a reference list from showing on an individual page while `#referencelist` can be used to position
 the list differently.
 
-More information about in-text citations is described [here][docs-intext] together
+More information about in-text citations is listed [here][docs-intext] together
 with a description about the usage of [`#referencelist`][docs-referencelist].
 
 For questions about Semantic Cite and [`Cite`][mw-cite], see the comments [section][docs-faq].
@@ -93,9 +93,9 @@ For questions about Semantic Cite and [`Cite`][mw-cite], see the comments [secti
 ### Metadata search
 
 `Special:FindMetadataById` is provided as user interface to search, find, and map metadata with the
-`#scite` parser and allows conveniently to integrate authority data from sources like PubMed or CrossRef.
+`#scite` parser to conveniently integrate authority data from sources like PubMed or CrossRef.
 
-For more information, see the search [documentation][docs-search].
+For more information, please read the search [section][docs-search].
 
 ## Configuration
 

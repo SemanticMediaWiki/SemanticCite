@@ -1,7 +1,7 @@
 # Metadata search
 
-`Special:FindMetadataById` provides access to selected metadata provider that can
-map the etxernal format to the internal `#scite` format. Supported providers are:
+`Special:FindMetadataById` provides access to selected metadata provider to map
+external data to the internal `#scite` format. Supported providers are:
 
 - PubMed (PMID, PMCID)
 - CrossRef (DOI)
@@ -9,8 +9,17 @@ map the etxernal format to the internal `#scite` format. Supported providers are
 - OCLC (WorldCat)
 - VIAF
 
-After a successful search, the generated `#scite` form can either be copied manually to a page
-or the auto creation feature is used to create an individual article to host the data.
+## Direct search
+
+A link `Special:FindMetadataById` + `/doi/10.1126/science.1152662` or `/pubmed/18487186`
+with a type and ID parameter allows to execute a search immediately.
+
+## Search
+
+After a successful search, a generated `#scite` form is provided which can either
+be copied manually (see the `Search text` button) or with the help of the auto creation
+feature (use the `Create` button) can add an individual article directly from the
+special page.
 
 The data received from a service provider are compacted to fit the `#scite` format but the
 parameter `&format=raw` can be used to display the unprocessed data retrieved from a provider.
@@ -18,22 +27,23 @@ parameter `&format=raw` can be used to display the unprocessed data retrieved fr
 If a citation resource already exists for one of the selected identifiers then a link
 to this resource is provided.
 
-## Citation resource auto creation
+### Citation resource auto creation
 
-`Special:FindMetadataById` allows to create a dedicated article contaning the mapped
-`#scite` with content being copied to a page where the title is generated from:
+`Special:FindMetadataById` allows to create a dedicated article containing the mapped
+`#scite` with content from the search and a page the title that is generated from:
 
 - `CR:` (as fixed identifier indicating a citation resource article)
 - UID prefix ( `PMC`, `PMID`, `OCLC` etc.) and
 - UID itself
 
-For example, a search for `18487186` on the PubMed database will allow to create article
-`CR:PMID:18487186` containing the filtered `#scite` content that was matched during the search.
+For example, a search for `18487186` on the PubMed database is expected to create article
+`CR:PMID:18487186` containing the filtered `#scite` content that was matched during the
+search if the user was to engage in a `Create` action.
 
 ### CR: namespace
 
-It is possible to customize the prefix `CR:` and be recognized as [separate namespace][mw-cns] to
-select resources on a namespace bases or be distinguishable from other content.
+It is possible to customize `CR:` and be recognized as [separate namespace][mw-cns] so
+that it can distinguishable from other content.
 
 ```php
 // Define custom CR namespace
@@ -46,15 +56,18 @@ $GLOBALS['wgExtraNamespaces'][NS_CR_TALK] = "CR_talk";
 $GLOBALS['smwgNamespacesWithSemanticLinks'][NS_CR] = true;
 ```
 
+If this step is done after resources have already been created `rebuildData.php` needs to be
+executed to ensure that annotations are reconnected to the newly assigned namespace.
+
 ## Related settings
 
-To avoid repeated downloads from a service provider for the same search request, positive responses
-are cached using the specified `$GLOBALS['scigMetadataRequestCacheTTLInSeconds']` lifetime.
+To avoid repeated data downloads from a service provider, requests are cached that contain the
+same signature with an expiry specified by `$GLOBALS['scigMetadataRequestCacheTTLInSeconds']`.
 
 By default, the access to the search is restricted to users with the `sci-metasearch` right.
 
 ## Example
 
-![image](https://cloud.githubusercontent.com/assets/1245473/8856154/490ac43e-3169-11e5-8b79-52ff1adf05ad.png)
+![image](https://cloud.githubusercontent.com/assets/1245473/8892109/28bfe0d6-3346-11e5-8002-dbb642e62fc4.png)
 
 [mw-cns]: https://www.mediawiki.org/wiki/Manual:Using_custom_namespaces

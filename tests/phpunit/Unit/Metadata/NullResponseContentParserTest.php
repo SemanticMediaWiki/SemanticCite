@@ -35,7 +35,8 @@ class NullResponseContentParserTest extends \PHPUnit_Framework_TestCase {
 			$instance->doParseFor( 42 )
 		);
 
-		$this->assertNull(
+		$this->assertInstanceOf(
+			'\SCI\Metadata\FilteredMetadataRecord',
 			$instance->getFilteredMetadataRecord()
 		);
 
