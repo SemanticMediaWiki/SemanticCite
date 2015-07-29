@@ -52,9 +52,13 @@
 	font-weight: bold;
 }
 
-.scite-citeref-number {
+.scite-citeref-number, .scite-citeref-shortcaption {
 	vertical-align: super;
 	font-size: smaller;
+}
+
+.scite-citeref-shortcaption {
+	margin-left: 2px;
 }
 
 .scite-tooltip-loading {
@@ -62,15 +66,23 @@
 }
 
 .scite-citeref-number:target, .scite-citeref-key:target {
-	  background-color: rgba( 0,127,255,0.133 );
+	background-color: rgba( 0,127,255,0.133 );
 }
 
-.scite-citeref-number a::after, .scite-citeref-key a::after {
+.scite-citeref-number a::after {
 	content:"]";
 }
 
-.scite-citeref-number a::before, .scite-citeref-key a::before {
+.scite-citeref-number a::before {
 	content:"[";
+}
+
+.scite-citeref-key a::after {
+	content:")";
+}
+
+.scite-citeref-key a::before {
+	content:"(";
 }
 
 .scite-citeref-number a.external::after, .scite-citeref-key a.external::after {
@@ -81,7 +93,7 @@
 	content:"";
 }
 
-/* Whether is is really needed or not, I don't know but the Cite extension used
+/* Whether it is really needed or not, I don't know but the Cite extension used
  * this to fix references in case of RTL words at the end of a reference
  */
 .scite-citeref-number, .scite-citeref-key {

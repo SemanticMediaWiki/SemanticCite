@@ -17,12 +17,13 @@ reuse of references stored within a wiki with support for:
 - Individual property and text formatting rules
 - In-text reference tooltip
 - Bibtex record import support
-- Metadata search for selected providers
+- Metadata retrieval from selected providers
 
 Semantic Cite does not require nor uses any part of [`Cite`][mw-cite] (or `<ref>`)
 as a means to declare a citation resource.
 
-A short [video](https://vimeo.com/126189455) will demonstrate "How Semantic Cite can be used".
+Several short [videos](https://www.youtube.com/playlist?list=PLIJ9eX-UsA5eI_YFdn6HeO2Dcta4CrPzX) are demonstrating
+"How Semantic Cite is expected to work".
 
 ## Requirements
 
@@ -71,7 +72,7 @@ or any other wiki page each being identifiable by a citation key.
 }}
 ```
 
-Above shows an an example for a citation resource to be created by the `#scite` parser, more
+Above shows an example for a citation resource to be created by the `#scite` parser, more
 information about `#scite` can be found [here][docs-scite].
 
 ### In-text citation

@@ -16,7 +16,7 @@ appropriate key is paramount to safeguard against unnecessary changes.
 - Citation resources that use the same key are displayed on the reference list
   and linked to each other in case `$GLOBALS['scigBrowseLinkToCitationResource']` is set
   true. For example, ` ↑ | ↑` is indicating that two resources use the same citation
-  key with `↑` each to link to its resource.
+  key with `↑` linking to each resource.
 - The parentheses style of a citation reference can be modified using the `scite.styles.css`
   style sheet.
 - If a page number reference is required then one can use the longform syntax

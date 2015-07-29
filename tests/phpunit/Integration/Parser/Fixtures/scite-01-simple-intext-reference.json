@@ -71,7 +71,7 @@
 			},
 			"expected-output": {
 				"to-contain": [
-					"<span id=\"scite-ref-86f84b9b2cf2ae4405199e26f121b4e9-1-a\" class=\"scite-citeref-number\" data-reference=\"Foo:123\"><a href=\"#scite-86f84b9b2cf2ae4405199e26f121b4e9\">1</a>:50-52</span>",
+					"<span id=\"scite-ref-86f84b9b2cf2ae4405199e26f121b4e9-1-a\" class=\"scite-citeref-number\" data-reference=\"Foo:123\"><a href=\"#scite-86f84b9b2cf2ae4405199e26f121b4e9\">1</a></span><span class=\"scite-citeref-shortcaption\">:50-52</span>",
 					"<span id=\"scite-86f84b9b2cf2ae4405199e26f121b4e9\" class=\"scite-referencelinks\"><a href=\"#scite-ref-86f84b9b2cf2ae4405199e26f121b4e9-1-a\" class=\"scite-backlink\" data-citeref-format=\"number\">^</a></span>"
 				]
 			}

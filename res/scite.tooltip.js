@@ -115,7 +115,8 @@
 
 			var reference = $( this ).data( 'reference' );
 
-			$( this ).qtip( {
+			// Only act on a href link
+			$( this ).find( 'a' ).qtip( {
 				content: {
 					title : reference,
 					text  : function( event, QTip ) {

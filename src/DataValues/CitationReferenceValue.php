@@ -128,16 +128,26 @@ class CitationReferenceValue extends StringValue {
 			$shortFormCaption = ''; // Never has a short form
 		}
 
+		if ( $shortFormCaption !== '' ) {
+			$shortFormCaption = Html::rawElement(
+				'span',
+				array( 'class' => 'scite-citeref-shortcaption' ),
+				$shortFormCaption
+			);
+		}
+
 		// Build element with back and forth link anchor
-		return Html::rawElement(
+		$html = Html::rawElement(
 			'span',
 			array(
 				'id'    => 'scite-ref-'. $referenceHash . '-' . $referencePosition,
 				'class' => 'scite-citeref-' . $captionClass,
 				'data-reference' => $this->reference
 			),
-			'[[' .'#scite-' . $referenceHash . '|' . $caption . ']]' . $shortFormCaption
-		);
+			'[[' .'#scite-' . $referenceHash . '|' . $caption . ']]'
+		) . $shortFormCaption;
+
+		return $html;
 	}
 
 }

@@ -15,7 +15,7 @@ besides those listed below:
    set to find a resource more easily during querying as the resource is by default set
    to the internal resource id.
 - `bibtex` is a reserved parameter and used for the bibtex record import
-
+-`template` is reserved to define a preferred template for output processing
 - Other reserved parameters include:
  - `doi` is linked to the `DOI` property
  - `pmcid` is linked to the `PMCID` property
@@ -27,10 +27,8 @@ besides those listed below:
 ### Unique identifier
 
 A citation resource is expected to be identifiable by a unique key. The reference
-parameter is the descriptor for that key.
-
-For example, to describe a `Segon & Booth 2011` entity the short or the explicit
-reference parameter form can be used.
+parameter is the descriptor for that key. For example, to describe a `Segon & Booth 2011`
+entity the short or the explicit reference parameter form can be used.
 
 ```
 {{#scite:Segon & Booth 2011
@@ -46,17 +44,17 @@ reference parameter form can be used.
 
 ### Type assignment
 
-A type is expected for each citation resource unless `$GLOBALS['scigStrictParserValidationEnabled']`
+A type assignment is expected for each citation resource unless `$GLOBALS['scigStrictParserValidationEnabled']`
 is set `false`.
 
 If something like `|type=bgn:Thesis;schema:Book|+sep=;` has been generated or specified then
-the last entry `schema:Book` will be selected as valid descriptor.
+the last entry (e.g. `schema:Book`) will be selected as valid descriptor.
 
 ### Bibtex import
 
 To ease the reuse of bibtex records, `#scite` provides the `|bibtex=` parameter to
-import a record with adding its text to `#scite` which transforms it into a structured form
-with help of the [property](02-property-mapping.md) and [template](03-template-mapping.md) mapping.
+import a record as text which `#scite` will transform into a structured form
+according to the [property](02-property-mapping.md) and [template](03-template-mapping.md) mapping.
 
 ```
 {{#scite:
@@ -89,8 +87,9 @@ YEAR=2000
 
 ### Citation text
 
-Content that is added through parameter `|citation text=` is stored as text value to property
-`Citation text` with the value and is normally displayed by the [referencelist](05-referencelist.md).
+Content directly added to parameter `|citation text=` is stored as text value to property
+`Citation text` without further processing. Property `Citation text` is used as output for
+the [referencelist](05-referencelist.md) display.
 
 ```
 {{#scite:Einstein 1956
