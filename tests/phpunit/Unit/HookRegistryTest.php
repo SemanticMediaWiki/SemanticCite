@@ -65,19 +65,20 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 			new Options( $configuration )
 		);
 
-		$this->doTestRegistereddInitPropertiesHandler( $instance );
-		$this->doTestRegistereddInitDataTypesHandler( $instance );
-		$this->doTestRegistereddBeforeMagicWordsFinderHandler( $instance );
-		$this->doTestRegistereddOutputPageParserOutput( $instance );
-		$this->doTestRegistereddOutputPageBeforeHTML( $instance );
-		$this->doTestRegistereddUpdateDataBefore( $instance );
-		$this->doTestRegistereddAddCustomFixedPropertyTables( $instance );
+		$this->doTestRegisteredInitPropertiesHandler( $instance );
+		$this->doTestRegisteredInitDataTypesHandler( $instance );
+		$this->doTestRegisteredBeforeMagicWordsFinderHandler( $instance );
+		$this->doTestRegisteredOutputPageParserOutput( $instance );
+		$this->doTestRegisteredOutputPageBeforeHTML( $instance );
+		$this->doTestRegisteredUpdateDataBefore( $instance );
+		$this->doTestRegisteredAddCustomFixedPropertyTables( $instance );
 		$this->doTestRegisteredResourceLoaderGetConfigVars( $instance );
 		$this->doTestRegisteredParserFirstCallInit( $instance );
 		$this->doTestRegisteredBeforePageDisplay( $instance );
+		$this->doTestRegisteredBrowseAfterInPropertiesLookupComplete( $instance );
 	}
 
-	public function doTestRegistereddInitPropertiesHandler( $instance ) {
+	public function doTestRegisteredInitPropertiesHandler( $instance ) {
 
 		$hook = 'SMW::Property::initProperties';
 
@@ -95,7 +96,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	public function doTestRegistereddInitDataTypesHandler( $instance ) {
+	public function doTestRegisteredInitDataTypesHandler( $instance ) {
 
 		$hook = 'SMW::DataType::initTypes';
 
@@ -146,7 +147,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	public function doTestRegistereddBeforeMagicWordsFinderHandler( $instance ) {
+	public function doTestRegisteredBeforeMagicWordsFinderHandler( $instance ) {
 
 		$hook = 'SMW::Parser::BeforeMagicWordsFinder';
 
@@ -162,7 +163,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	public function doTestRegistereddOutputPageParserOutput( $instance ) {
+	public function doTestRegisteredOutputPageParserOutput( $instance ) {
 
 		$hook = 'OutputPageParserOutput';
 
@@ -184,7 +185,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	public function doTestRegistereddOutputPageBeforeHTML( $instance ) {
+	public function doTestRegisteredOutputPageBeforeHTML( $instance ) {
 
 		$hook = 'OutputPageBeforeHTML';
 
@@ -232,7 +233,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	public function doTestRegistereddUpdateDataBefore( $instance ) {
+	public function doTestRegisteredUpdateDataBefore( $instance ) {
 
 		$hook = 'SMWStore::updateDataBefore';
 
@@ -258,7 +259,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	public function doTestRegistereddAddCustomFixedPropertyTables( $instance ) {
+	public function doTestRegisteredAddCustomFixedPropertyTables( $instance ) {
 
 		$hook = 'SMW::SQLStore::AddCustomFixedPropertyTables';
 
@@ -331,6 +332,36 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 		$this->assertThatHookIsExcutable(
 			$instance->getHandlerFor( $hook ),
 			array( &$outputPage, &$skin )
+		);
+	}
+
+	public function doTestRegisteredBrowseAfterInPropertiesLookupComplete( $instance ) {
+
+		$hook = 'SMW::Browse::AfterInPropertiesLookupComplete';
+
+		$this->assertTrue(
+			$instance->isRegistered( $hook )
+		);
+
+		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$semanticData->expects( $this->once() )
+			->method( 'getSubject' )
+			->will( $this->returnValue( \SMW\DIWikiPage::newFromText( __METHOD__ ) ) );
+
+		$store = $this->getMockBuilder( '\SMW\Store' )
+			->disableOriginalConstructor()
+			->getMockForAbstractClass();
+
+		$store->expects( $this->once() )
+			->method( 'getSemanticData' )
+			->will( $this->returnValue( $semanticData ) );
+
+		$this->assertThatHookIsExcutable(
+			$instance->getHandlerFor( $hook ),
+			array( $store, $semanticData, null )
 		);
 	}
 
