@@ -152,6 +152,21 @@ class HookRegistry {
 		};
 
 		/**
+		 * @see https://www.semantic-mediawiki.org/wiki/Hooks/SMW::Browse::AfterInPropertiesLookupComplete
+		 */
+		$this->handlers['SMW::Browse::AfterInPropertiesLookupComplete'] = function ( $store, $semanticData, $requestOptions ) {
+
+			$browsePropertyLookup = new BrowsePropertyLookup( $store );
+
+			$browsePropertyLookup->addReferenceBacklinks(
+				$semanticData,
+				$requestOptions
+			);
+
+			return true;
+		};
+
+		/**
 		 * @see https://www.semantic-mediawiki.org/wiki/Hooks/SMW::Parser::BeforeMagicWordsFinder
 		 */
 		$this->handlers['SMW::Parser::BeforeMagicWordsFinder'] = function( array &$magicWords ) {
