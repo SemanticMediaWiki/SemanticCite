@@ -19,11 +19,11 @@ reuse of references stored within a wiki with support for:
 - Bibtex record import support
 - Metadata retrieval from selected providers
 
-Semantic Cite does not require nor uses any part of [`Cite`][mw-cite] (or `<ref>`)
-as a means to declare a citation resource.
+Several short [videos](https://www.youtube.com/playlist?list=PLIJ9eX-UsA5eI_YFdn6HeO2Dcta4CrPzX) do demonstrate
+"How Semantic Cite can be used or is expected to work".
 
-Several short [videos](https://www.youtube.com/playlist?list=PLIJ9eX-UsA5eI_YFdn6HeO2Dcta4CrPzX) are demonstrating
-"How Semantic Cite is expected to work".
+Semantic Cite **does not require** nor uses any part of [`Cite`][mw-cite] (or `<ref>`)
+as a means to declare a citation resource.
 
 ## Requirements
 

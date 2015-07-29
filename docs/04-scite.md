@@ -12,23 +12,21 @@ besides those listed below:
 - `reference` is a reserved parameter and is linked to the `Citation key` property
 - `citation text` is a reserved parameter and is linked to the `Citation text` property
 - `sortkey` is a reserved parameter and is linked to the `_SKEY` property and can be
-   set to find a resource more easily during querying as the resource is by default set
-   to the internal resource id.
+  set to find a resource more easily during querying as the resource is by default set
+  to the internal resource id.
 - `bibtex` is a reserved parameter and used for the bibtex record import
--`template` is reserved to define a preferred template for output processing
-- Other reserved parameters include:
- - `doi` is linked to the `DOI` property
- - `pmcid` is linked to the `PMCID` property
- - `pmid` is linked to the `PMID` property
- - `olid` is linked to the `OLID` property
- - `oclc` is linked to the `OCLC` property
- - `viaf` is linked to the `VIAF` property
+- `template` is reserved to define a preferred template for output processing
+- Other reserved parameters include `doi`, `pmcid`, `pmid`, `olid`, `oclc`, and `viaf` linking
+  to its representing property
 
-### Unique identifier
+### Citation key (unique indentifiers)
 
-A citation resource is expected to be identifiable by a unique key. The reference
-parameter is the descriptor for that key. For example, to describe a `Segon & Booth 2011`
-entity the short or the explicit reference parameter form can be used.
+A citation resource is expected to be identifiable by a unique key and to be available
+wiki-wide therefore selecting an appropriate key is paramount to safeguard against
+unnecessary changes.
+
+The reference parameter is the descriptor for that key. For example, to describe
+a `Segon & Booth 2011` entity the short or the explicit reference parameter form can be used.
 
 ```
 {{#scite:Segon & Booth 2011
@@ -41,6 +39,11 @@ entity the short or the explicit reference parameter form can be used.
   ...
 }}
 ```
+
+If it becomes necessary to rename a citation key (because a resource with key `Foo 2007`
+no longer represents a unique resource due to adding another resource with the same key)
+then the existing usage of that resource needs to be queried and changed before applying
+the new citation key (e.g. `Foo 2007a`).
 
 ### Type assignment
 

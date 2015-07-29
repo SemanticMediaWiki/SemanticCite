@@ -5,6 +5,11 @@ a citation reference is being detected but in case a list is to be placed differ
 `#referencelist` can be used to mark the position on where the list is expected
 to appear.
 
+Citation resources that use the same key are displayed on the reference list and
+linked to each other in case `$GLOBALS['scigBrowseLinkToCitationResource']` is set
+`true`. For example, ` ↑ | ↑` is indicating that two resources use the same citation
+key with `↑` linking to each resource.
+
 ### Options
 
 The `#referencelist` parser does accept several options that allows to modify the output

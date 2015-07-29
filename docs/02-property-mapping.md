@@ -31,7 +31,23 @@ Semantic Cite provides several predefined properties including:
 
 - `OLID` to identify OpenLibrary records
 - `VIAF` to describe a Virtual International Authority File
-- `OCLC` as an identifier of a WoldCat catalog entity
-- `PMID` and `PMCID` to represent PubMed identifier
+- `OCLC` as an identifier for a WoldCat catalog entity
+- `PMID` and `PMCID` to represent a PubMed identifier
 - `DOI` as Digital Object Identifier
 - `Citation resource`, `Citation reference`, `Citation key`, and `Citation text`
+
+### External vocabulary assignment
+
+If for some of the predefined properties an external RDF [vocabulary assignment][smw-import] is required then
+simple statements (e.g. `[[Imported from::bibo:doi]]`) can be added to a selected property.
+
+`MediaWiki:Smw_import_bibo` to specify:
+
+```
+http://purl.org/ontology/bibo/|[http://bibliontology.com/ Bibliographic Ontology]
+ title|Type:Text
+ doi|Type:Text
+ pmid|Type:Text
+```
+
+[smw-import]: https://semantic-mediawiki.org/wiki/Help:Import_vocabulary
