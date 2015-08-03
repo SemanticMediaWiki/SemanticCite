@@ -6,8 +6,8 @@ use SMW\ApplicationFactory;
 use SCI\CitationResourceMatchFinder;
 use SMW\MediaWiki\Renderer\HtmlFormRenderer;
 use SMW\MediaWiki\Renderer\HtmlColumnListRenderer;
-use SCI\Metadata\HttpRequestProviderFactory;
-use SCI\Metadata\FilteredMetadataRecord;
+use SCI\Metadata\ResponseParserFactory;
+use Onoi\Remi\FilteredRecord;
 
 /**
  * @license GNU GPL v2+
@@ -33,9 +33,9 @@ class PageBuilder {
 	private $citationResourceMatchFinder;
 
 	/**
-	 * @var HttpRequestProviderFactory
+	 * @var ResponseParserFactory
 	 */
-	private $httpRequestProviderFactory;
+	private $responseParserFactory;
 
 	/**
 	 * @since 1.0
@@ -43,13 +43,13 @@ class PageBuilder {
 	 * @param HtmlFormRenderer $htmlFormRenderer
 	 * @param HtmlColumnListRenderer $htmlColumnListRenderer
 	 * @param CitationResourceMatchFinder $citationResourceMatchFinder
-	 * @param HttpRequestProviderFactory $httpRequestProviderFactory
+	 * @param ResponseParserFactory $responseParserFactory
 	 */
-	public function __construct( HtmlFormRenderer $htmlFormRenderer, HtmlColumnListRenderer $htmlColumnListRenderer, CitationResourceMatchFinder $citationResourceMatchFinder, HttpRequestProviderFactory $httpRequestProviderFactory ) {
+	public function __construct( HtmlFormRenderer $htmlFormRenderer, HtmlColumnListRenderer $htmlColumnListRenderer, CitationResourceMatchFinder $citationResourceMatchFinder, ResponseParserFactory $responseParserFactory ) {
 		$this->htmlFormRenderer = $htmlFormRenderer;
 		$this->htmlColumnListRenderer = $htmlColumnListRenderer;
 		$this->citationResourceMatchFinder = $citationResourceMatchFinder;
-		$this->httpRequestProviderFactory = $httpRequestProviderFactory;
+		$this->responseParserFactory = $responseParserFactory;
 	}
 
 	/**
@@ -62,12 +62,12 @@ class PageBuilder {
 	 */
 	public function getRawResponseFor( $type, $id ) {
 
-		$httpResponseContentParser = $this->httpRequestProviderFactory->newResponseContentParserForType(
+		$responseParser = $this->responseParserFactory->newResponseParserForType(
 			$type
 		);
 
-		$responseContentOutputRenderer = new ResponseContentOutputRenderer(
-			$httpResponseContentParser
+		$responseContentOutputRenderer = new ResponseParserOutputRenderer(
+			$responseParser
 		);
 
 		return $responseContentOutputRenderer->getRawResponse( $id );
@@ -89,27 +89,26 @@ class PageBuilder {
 
 		if ( $type !== '' && $id !== '' ) {
 
-			$httpResponseContentParser = $this->httpRequestProviderFactory->newResponseContentParserForType(
+			$responseParser = $this->responseParserFactory->newResponseParserForType(
 				$type
 			);
 
-			$responseContentOutputRenderer = new ResponseContentOutputRenderer(
-				$httpResponseContentParser
+			$responseContentOutputRenderer = new ResponseParserOutputRenderer(
+				$responseParser
 			);
 
 			$text = $responseContentOutputRenderer->renderTextFor( $id );
 
 			$matches = $this->tryToFindCitationResourceMatches(
-				$httpResponseContentParser->getFilteredMetadataRecord()
+				$responseParser->getRecord()
 			);
 
-			$success = $httpResponseContentParser->isSuccess();
+			$success = $responseParser->getMessages() === array();
 
 			$log = $this->prepareLog(
-				$success,
+				$responseParser->getMessages(),
 				$matches,
-				$httpResponseContentParser->getMessages(),
-				$httpResponseContentParser->usedCache()
+				$responseParser->usedCache()
 			);
 		}
 
@@ -123,12 +122,11 @@ class PageBuilder {
 
 		$types = array(
 			'pubmed' => 'PMID',
-			'pmc' => 'PMCID',
-			'doi' => 'DOI',
+			'pmc'  => 'PMCID',
+			'doi'  => 'DOI',
 			'oclc' => 'OCLC',
 			'viaf' => 'VIAF',
-			'ol' => 'OL',
-			'isbn' => 'ISBN'
+			'ol'   => 'OLID',
 		);
 
 		$html = $htmlFormRenderer->setName( 'sci-metadata-search-form' )
@@ -170,14 +168,21 @@ class PageBuilder {
 			return $html . $htmlFormRenderer->getForm();
 	}
 
-	private function prepareLog( $success, $matches, $messages, $usedCache ) {
+	private function prepareLog( $messages, $matches, $usedCache ) {
 
 		$messageBuilder = $this->htmlFormRenderer->getMessageBuilder();
 
 		$log = array();
 
-		if ( $messages !== array() && !$success ) {
-			$log += $messages;
+		foreach ( $messages as $m ) {
+
+			if ( call_user_func_array( 'wfMessage', $m )->exists() ) {
+				$m = call_user_func_array( 'wfMessage', $m )->parse();
+			} else {
+				$m = current( $m );
+			}
+
+			$log[]  = $m;
 		}
 
 		if ( $matches !== '' ) {
@@ -213,22 +218,22 @@ class PageBuilder {
 		return $this->htmlColumnListRenderer->getHtml();
 	}
 
-	private function tryToFindCitationResourceMatches( FilteredMetadataRecord $filteredMetadataRecord ) {
+	private function tryToFindCitationResourceMatches( FilteredRecord $filteredRecord ) {
 
-		$subjects = array();
+		$html = '';
 
 		foreach ( array( 'doi', 'oclc', 'viaf', 'olid', 'pubmed', 'pmc' ) as $type ) {
-			$subjects += $this->citationResourceMatchFinder->findMatchForUidTypeOf(
+			$subjects = $this->citationResourceMatchFinder->findMatchForUidTypeOf(
 				$type,
-				$filteredMetadataRecord->getSearchMatchSetValueFor( $type )
+				$filteredRecord->getSearchMatchSetValueFor( $type )
 			);
+
+			if ( $subjects !== array() ) {
+				$html .= $type . ':' . implode( '|', $this->citationResourceMatchFinder->findCitationResourceLinks( $subjects ) );
+			}
 		}
 
-		if ( $subjects === array() ) {
-			return '';
-		}
-
-		return implode( ' | ', $this->citationResourceMatchFinder->findCitationResourceLinks( $subjects ) );
+		return $html;
 	}
 
 }

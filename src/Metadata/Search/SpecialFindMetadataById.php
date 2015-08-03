@@ -5,7 +5,7 @@ namespace SCI\Metadata\Search;
 use SpecialPage;
 use SMW\ApplicationFactory;
 use Onoi\HttpRequest\HttpRequestFactory;
-use SCI\Metadata\HttpRequestProviderFactory;
+use SCI\Metadata\ResponseParserFactory;
 use SCI\CitationResourceMatchFinder;
 
 /**
@@ -118,7 +118,7 @@ class SpecialFindMetadataById extends SpecialPage {
 			$htmlFormRenderer,
 			$mwCollaboratorFactory->newHtmlColumnListRenderer(),
 			new CitationResourceMatchFinder( $applicationFactory->getStore() ),
-			new HttpRequestProviderFactory( $httpRequest )
+			new ResponseParserFactory( $httpRequest )
 		);
 
 		return $pageBuilder;

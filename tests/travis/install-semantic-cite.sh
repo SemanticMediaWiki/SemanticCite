@@ -22,6 +22,7 @@ function installToMediaWikiRoot {
 		composer require 'mediawiki/semantic-scite='$SCI --prefer-source --update-with-dependencies
 	else
 		composer init --stability dev
+		composer require onoi/remi "~0.1" --prefer-source --dev
 		composer require mediawiki/semantic-cite "dev-master" --prefer-source --dev
 
 		cd extensions

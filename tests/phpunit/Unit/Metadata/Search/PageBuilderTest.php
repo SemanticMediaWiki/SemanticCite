@@ -18,7 +18,7 @@ class PageBuilderTest extends \PHPUnit_Framework_TestCase {
 	private $htmlFormRenderer;
 	private $hmlColumnListRenderer;
 	private $citationResourceMatchFinder;
-	private $httpRequestProviderFactory;
+	private $responseParserFactory;
 
 	protected function setUp() {
 
@@ -34,7 +34,7 @@ class PageBuilderTest extends \PHPUnit_Framework_TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$this->httpRequestProviderFactory = $this->getMockBuilder( '\SCI\Metadata\HttpRequestProviderFactory' )
+		$this->responseParserFactory = $this->getMockBuilder( '\SCI\Metadata\ResponseParserFactory' )
 			->disableOriginalConstructor()
 			->getMock();
 	}
@@ -45,7 +45,7 @@ class PageBuilderTest extends \PHPUnit_Framework_TestCase {
 			$this->htmlFormRenderer,
 			$this->hmlColumnListRenderer,
 			$this->citationResourceMatchFinder,
-			$this->httpRequestProviderFactory
+			$this->responseParserFactory
 		);
 
 		$this->assertInstanceOf(
@@ -56,24 +56,24 @@ class PageBuilderTest extends \PHPUnit_Framework_TestCase {
 
 	public function testGetRawResponse() {
 
-		$responseContentParser = $this->getMockBuilder( '\SCI\Metadata\ResponseContentParser' )
+		$responseParser = $this->getMockBuilder( '\Onoi\Remi\ResponseParser' )
 			->disableOriginalConstructor()
 			->getMockForAbstractClass();
 
-		$responseContentParser->expects( $this->once() )
+		$responseParser->expects( $this->once() )
 			->method( 'getRawResponse' )
 			->with( $this->identicalTo( 42 ) );
 
-		$this->httpRequestProviderFactory->expects( $this->once() )
-			->method( 'newResponseContentParserForType' )
+		$this->responseParserFactory->expects( $this->once() )
+			->method( 'newResponseParserForType' )
 			->with( $this->stringContains( 'foo') )
-			->will( $this->returnValue( $responseContentParser ) );
+			->will( $this->returnValue( $responseParser ) );
 
 		$instance = new PageBuilder(
 			$this->htmlFormRenderer,
 			$this->hmlColumnListRenderer,
 			$this->citationResourceMatchFinder,
-			$this->httpRequestProviderFactory
+			$this->responseParserFactory
 		);
 
 		$instance->getRawResponseFor( 'foo', 42 );
@@ -81,22 +81,25 @@ class PageBuilderTest extends \PHPUnit_Framework_TestCase {
 
 	public function testGetHtml() {
 
-		$filteredMetadataRecord = $this->getMockBuilder( '\SCI\Metadata\FilteredMetadataRecord' )
+		$bibliographicFilteredRecord = $this->getMockBuilder( '\SCI\Metadata\BibliographicFilteredRecord' )
 			->disableOriginalConstructor()
 			->getMock();
 
-		$responseContentParser = $this->getMockBuilder( '\SCI\Metadata\ResponseContentParser' )
+		$responseParser = $this->getMockBuilder( '\Onoi\Remi\ResponseParser' )
 			->disableOriginalConstructor()
-			->setMethods( array( 'getFilteredMetadataRecord' ) )
 			->getMockForAbstractClass();
 
-		$responseContentParser->expects( $this->once() )
+		$responseParser->expects( $this->once() )
 			->method( 'doParseFor' )
 			->with( $this->identicalTo( 42 ) );
 
-		$responseContentParser->expects( $this->atLeastOnce() )
-			->method( 'getFilteredMetadataRecord' )
-			->will( $this->returnValue( $filteredMetadataRecord ) );
+		$responseParser->expects( $this->any() )
+			->method( 'getMessages' )
+			->will( $this->returnValue( array() ) );
+
+		$responseParser->expects( $this->atLeastOnce() )
+			->method( 'getRecord' )
+			->will( $this->returnValue( $bibliographicFilteredRecord ) );
 
 		$message = $this->getMockBuilder( '\Message' )
 			->disableOriginalConstructor()
@@ -123,16 +126,16 @@ class PageBuilderTest extends \PHPUnit_Framework_TestCase {
 			->method( 'findMatchForUidTypeOf' )
 			->will( $this->returnValue( array() ) );
 
-		$this->httpRequestProviderFactory->expects( $this->once() )
-			->method( 'newResponseContentParserForType' )
+		$this->responseParserFactory->expects( $this->once() )
+			->method( 'newResponseParserForType' )
 			->with( $this->stringContains( 'foo') )
-			->will( $this->returnValue( $responseContentParser ) );
+			->will( $this->returnValue( $responseParser ) );
 
 		$instance =	new PageBuilder(
 			$htmlFormRenderer,
 			$this->hmlColumnListRenderer,
 			$this->citationResourceMatchFinder,
-			$this->httpRequestProviderFactory
+			$this->responseParserFactory
 		);
 
 		$instance->getHtmlFor( 'foo', 42 );
