@@ -56,7 +56,7 @@ the last entry (e.g. `schema:Book`) will be selected as valid descriptor.
 ### Bibtex import
 
 To ease the reuse of bibtex records, `#scite` provides the `|bibtex=` parameter to
-import a record as text which `#scite` will transform into a structured form
+import a bibtex record as text which `#scite` will transform into a structured form
 according to the [property](02-property-mapping.md) and [template](03-template-mapping.md) mapping.
 
 ```
@@ -87,24 +87,6 @@ YEAR=2000
  |authors=Albert Einstein, Boris Podolsky, Nathan Rosen|+sep=,
 }}
 ```
-
-### Citation text
-
-Content directly added to parameter `|citation text=` is stored as text value to property
-`Citation text` without further processing. Property `Citation text` is used as output for
-the [referencelist](05-referencelist.md) display.
-
-```
-{{#scite:Einstein 1956
- |type=book
- |citation text=Einstein, Albert. Investigations on the Theory of the Brownian Movement. Courier Corporation, 1956.
-}}
-```
-
-If parameter `|citation text=` is not used then a [template](03-template-mapping.md)
-assigned to a type is expected to parse the input and return a text value to be assigned to
-to property `Citation text`.
-
 ```
 {{#scite:
  |bibtex=@article{Marshakov:2010si,
@@ -126,8 +108,26 @@ to property `Citation text`.
 }}
 ```
 
-In the example above, `@article` is parsed as type `article` which is assigned to a template
-that contains the rules of how text elements are to be positioned but please be aware that
-for the given example no automatic clean-up are done for `{...}` or new lines as in `in \n SUSY`.
+In the example above, `@article` is parsed as type `article` which can be assigned to a
+[template](03-template-mapping.md) that contains the rules of how text elements are to be
+positioned but please be aware that for the given example no automatic clean-up are done
+for `{...}` or new lines as in `in \n SUSY`.
+
+### Citation text
+
+Content that is directly added to parameter `|citation text=` is stored **as-is** text value with property
+`Citation text` and circumventing any additional processing. The property `Citation text` contains the
+formatted output of a citation resource used for the [referencelist](05-referencelist.md).
+
+```
+{{#scite:Einstein 1956
+ |type=book
+ |citation text=Einstein, Albert. Investigations on the Theory of the Brownian Movement. Courier Corporation, 1956.
+}}
+```
+
+If parameter `|citation text=` is not used then `#scite` is trying to determine an output processor
+by first looking at the `|template=` parameter and if not declared using the [template](03-template-mapping.md)
+assigned to the type in order to process the input and return a formatted text value.
 
 [smw-ns]: https://semantic-mediawiki.org/wiki/Help:$smwgNamespacesWithSemanticLinks

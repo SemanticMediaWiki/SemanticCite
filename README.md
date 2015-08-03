@@ -19,17 +19,17 @@ reuse of references stored within a wiki with support for:
 - Bibtex record import support
 - Metadata retrieval from selected providers
 
-Several short [videos](https://www.youtube.com/playlist?list=PLIJ9eX-UsA5eI_YFdn6HeO2Dcta4CrPzX) do demonstrate
+Several short [videos](https://www.youtube.com/playlist?list=PLIJ9eX-UsA5eI_YFdn6HeO2Dcta4CrPzX) demonstrate
 "How Semantic Cite can be used or is expected to work".
-
-Semantic Cite **does not require** nor uses any part of [`Cite`][mw-cite] (or `<ref>`)
-as a means to declare a citation resource.
 
 ## Requirements
 
 - PHP 5.3.2 or later
 - MediaWiki 1.24 or later
 - [Semantic MediaWiki][smw] 2.3 or later
+
+Semantic Cite **does not require** nor uses any part of [`Cite`][mw-cite] (or `<ref>`)
+as a means to declare a citation resource.
 
 ## Installation
 
@@ -86,8 +86,8 @@ annotation is added to a page. The magic word `__NOREFERENCELIST__` can be used 
 a reference list from showing on an individual page while `#referencelist` can be used to position
 the list differently.
 
-More information about in-text citations is listed [here][docs-intext] together
-with a description about the usage of [`#referencelist`][docs-referencelist].
+More information about in-text citations and references can be found [here][docs-intext] together
+with a description about the usage of the [`#referencelist`][docs-referencelist].
 
 For questions about Semantic Cite and [`Cite`][mw-cite], see the comments [section][docs-faq].
 
@@ -133,5 +133,6 @@ but can also be executed using `composer phpunit` from the extension base direct
 [docs-faq]: https://github.com/SemanticMediaWiki/SemanticCite/blob/master/docs/08-faq.md
 [docs-search]: https://github.com/SemanticMediaWiki/SemanticCite/blob/master/docs/07-search.md
 [docs-scite]: https://github.com/SemanticMediaWiki/SemanticCite/blob/master/docs/04-scite.md
-[docs-intext]: https://github.com/SemanticMediaWiki/SemanticCite/blob/master/docs/06-intext-citation.md
+[docs-intext]: https://github.com/SemanticMediaWiki/SemanticCite/blob/master/docs/06-references.md
 [docs-referencelist]: https://github.com/SemanticMediaWiki/SemanticCite/blob/master/docs/05-referencelist.md
+[remi]: https://github.com/onoi/remi

@@ -30,7 +30,7 @@
 		"composer/installers": "^1.0.12",
 		"mediawiki/semantic-media-wiki": "@dev",
 		"onoi/cache": "~1.2",
-		"onoi/http-request":"~1.0"
+		"onoi/remi":"~0.1"
 	},
 	"require-dev": {
 		"mediawiki/semantic-media-wiki": "@dev"

@@ -38,10 +38,4 @@ placeholder is later replaced by `CachedReferenceListOutputRenderer::addReferenc
 
 ## Metadata search / provider
 
-To register a new metadata provider (e.g. NCBI gene or protein DB), `HttpRequestLookupFactory`
-is expected to provide the object invocation by having:
-
-- Access to a `HttpRequestContentFetcher` (that actual makes the REST request) and
-- A `HttpResponseContentParser` which depending on the format (json, xml, text etc.)
-  parses the response and returns a `FilteredMetadataRecord` with an ordered/reduced
-  set of values from the source database.
+Metadata selection and REST response parsing are provided by the `onoi/remi` library.
