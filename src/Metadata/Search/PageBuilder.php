@@ -7,7 +7,7 @@ use SCI\CitationResourceMatchFinder;
 use SMW\MediaWiki\Renderer\HtmlFormRenderer;
 use SMW\MediaWiki\Renderer\HtmlColumnListRenderer;
 use SCI\Metadata\ResponseParserFactory;
-use Onoi\Remi\FilteredRecord;
+use SCI\Metadata\BibliographicFilteredRecord;
 
 /**
  * @license GNU GPL v2+
@@ -218,14 +218,14 @@ class PageBuilder {
 		return $this->htmlColumnListRenderer->getHtml();
 	}
 
-	private function tryToFindCitationResourceMatches( FilteredRecord $filteredRecord ) {
+	private function tryToFindCitationResourceMatches( BibliographicFilteredRecord $bibliographicFilteredRecord ) {
 
 		$html = '';
 
 		foreach ( array( 'doi', 'oclc', 'viaf', 'olid', 'pubmed', 'pmc' ) as $type ) {
 			$subjects = $this->citationResourceMatchFinder->findMatchForUidTypeOf(
 				$type,
-				$filteredRecord->getSearchMatchSetValueFor( $type )
+				$bibliographicFilteredRecord->getSearchMatchSetValueFor( $type )
 			);
 
 			if ( $subjects !== array() ) {

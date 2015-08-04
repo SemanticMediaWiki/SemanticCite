@@ -1,5 +1,7 @@
 # Metadata search
 
+![image](https://cloud.githubusercontent.com/assets/1245473/8892109/28bfe0d6-3346-11e5-8002-dbb642e62fc4.png)
+
 `Special:FindMetadataById` provides access to selected metadata provider to map
 external data to the internal `#scite` format. Supported providers are:
 
@@ -33,20 +35,20 @@ to this resource is provided.
 ### Citation resource auto creation
 
 `Special:FindMetadataById` allows to create a dedicated article containing the mapped
-`#scite` with content from the search and a page the title that is generated from:
+`#scite` with content from the search and a page title that is generated from:
 
-- `CR:` (as fixed identifier indicating a citation resource article)
+- `CR:` (is the fixed identifier indicating a citation resource article)
 - UID prefix ( `PMC`, `PMID`, `OCLC` etc.) and
 - UID itself
 
-For example, a search for `18487186` on the PubMed database is expected to create article
-`CR:PMID:18487186` containing the filtered `#scite` content that was matched during the
+For example, a search for `18487186` on the PubMed database is expected to create the article
+`CR:PMID:18487186` containing the filtered `#scite` content matched during the
 search if the user was to engage in a `Create` action.
 
 ### CR: namespace
 
 It is possible to customize `CR:` and be recognized as [separate namespace][mw-cns] so
-that it can distinguishable from other content.
+that it is distinguishable from other content.
 
 ```php
 // Define custom CR namespace
@@ -60,7 +62,7 @@ $GLOBALS['smwgNamespacesWithSemanticLinks'][NS_CR] = true;
 ```
 
 If this step is done after resources have already been created `rebuildData.php` needs to be
-executed to ensure that annotations are reconnected to the newly assigned namespace.
+executed to ensure that annotations are reconnected to the newly assigned namespace number.
 
 ## Related settings
 
@@ -68,9 +70,5 @@ To avoid repeated data downloads from a service provider, requests are cached th
 same signature with an expiry specified by `$GLOBALS['scigMetadataRequestCacheTTLInSeconds']`.
 
 By default, the access to the search is restricted to users with the `sci-metasearch` right.
-
-## Example
-
-![image](https://cloud.githubusercontent.com/assets/1245473/8892109/28bfe0d6-3346-11e5-8002-dbb642e62fc4.png)
 
 [mw-cns]: https://www.mediawiki.org/wiki/Manual:Using_custom_namespaces
