@@ -14,3 +14,8 @@ $specialPageAliases = array();
 $specialPageAliases['en'] = array(
 	'FindMetadataById' => array( 'FindMetadataById' )
 );
+
+/** German (Deutsch) */
+$specialPageAliases['de'] = array(
+	'FindMetadataById' => array( 'Metadatensuche nach Identifizierungskennung' )
+);
