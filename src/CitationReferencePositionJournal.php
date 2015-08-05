@@ -44,15 +44,6 @@ class CitationReferencePositionJournal {
 	/**
 	 * @since 1.0
 	 *
-	 * @param Cache $cache
-	 */
-	public function setCache( Cache $cache ) {
-		$this->cache = $cache;
-	}
-
-	/**
-	 * @since 1.0
-	 *
 	 * @param DIWikiPage $subject
 	 *
 	 * @return boolean

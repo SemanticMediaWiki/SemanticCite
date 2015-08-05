@@ -46,5 +46,3 @@ any template rendering by storing the input text directly.
 The mapping is made flexible enough to support citation styles or types that
 do not fit the standard guidelines or use citations for more than just
 literature references.
-
-

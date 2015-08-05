@@ -15,33 +15,34 @@ use SCI\CitationReferencePositionJournal;
  */
 class CitationReferencePositionJournalTest extends \PHPUnit_Framework_TestCase {
 
+	private $cache;
+	private $cacheKeyGenerator;
+
+	protected function setUp() {
+
+		$this->cache = $this->getMockBuilder( '\Onoi\Cache\Cache' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$this->cacheKeyGenerator = $this->getMockBuilder( '\SCI\CacheKeyGenerator' )
+			->disableOriginalConstructor()
+			->getMock();
+	}
+
 	public function testCanConstruct() {
-
-		$cache = $this->getMockBuilder( '\Onoi\Cache\Cache' )
-			->disableOriginalConstructor()
-			->getMock();
-
-		$cacheKeyGenerator = $this->getMockBuilder( '\SCI\CacheKeyGenerator' )
-			->disableOriginalConstructor()
-			->getMock();
 
 		$this->assertInstanceOf(
 			'\SCI\CitationReferencePositionJournal',
-			new CitationReferencePositionJournal( $cache, $cacheKeyGenerator )
+			new CitationReferencePositionJournal( $this->cache, $this->cacheKeyGenerator )
 		);
 	}
 
 	public function testUnboundReferenceList() {
 
-		$cache = $this->getMockBuilder( '\Onoi\Cache\Cache' )
-			->disableOriginalConstructor()
-			->getMock();
-
-		$cacheKeyGenerator = $this->getMockBuilder( '\SCI\CacheKeyGenerator' )
-			->disableOriginalConstructor()
-			->getMock();
-
-		$instance = new CitationReferencePositionJournal( $cache, $cacheKeyGenerator );
+		$instance = new CitationReferencePositionJournal(
+			$this->cache,
+			$this->cacheKeyGenerator
+		);
 
 		$this->assertNull(
 			$instance->buildJournalForUnboundReferenceList( array() )
@@ -51,6 +52,34 @@ class CitationReferencePositionJournalTest extends \PHPUnit_Framework_TestCase {
 			'array',
 			$instance->buildJournalForUnboundReferenceList( array( 'foo' ) )
 		);
+	}
+
+	public function testTryToAddJournalEntryForNullSubject() {
+
+		$instance = new CitationReferencePositionJournal(
+			$this->cache,
+			$this->cacheKeyGenerator
+		);
+
+		$this->assertNull(
+			$instance->addJournalEntryFor( null, 'foo' )
+		);
+	}
+
+	public function testTryToGetJournalBySubject() {
+
+		$subject = \SMW\DIWikiPage::newFromText( __METHOD__ );
+
+		$this->cacheKeyGenerator->expects( $this->once() )
+			->method( 'getCacheKeyForCitationReference' )
+			->with( $this->equalTo( $subject->getHash() ) );
+
+		$instance = new CitationReferencePositionJournal(
+			$this->cache,
+			$this->cacheKeyGenerator
+		);
+
+		$instance->getJournalBySubject( $subject );
 	}
 
 }

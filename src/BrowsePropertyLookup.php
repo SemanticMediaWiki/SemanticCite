@@ -45,7 +45,7 @@ class BrowsePropertyLookup {
 	public function addReferenceBacklinks( SemanticData $semanticData, $requestOptions = null ) {
 
 		$keys = $this->store->getSemanticData( $semanticData->getSubject() )->getPropertyValues(
-			new DIProperty( '__sci_cite_key' )
+			new DIProperty( PropertyRegistry::SCI_CITE_KEY )
 		);
 
 		// Not a resource that contains a citation key
@@ -57,7 +57,7 @@ class BrowsePropertyLookup {
 			$this->limit = $requestOptions->limit;
 		}
 
-		$property = new DIProperty( '__sci_cite_reference' );
+		$property = new DIProperty( PropertyRegistry::SCI_CITE_REFERENCE );
 
 		foreach ( $this->findReferenceBacklinksFor( end( $keys ) ) as $subject ) {
 			$semanticData->addPropertyObjectValue( $property, $subject );
@@ -66,7 +66,7 @@ class BrowsePropertyLookup {
 
 	private function findReferenceBacklinksFor( $key ) {
 
-		$property = new DIProperty( '__sci_cite_reference' );
+		$property = new DIProperty( PropertyRegistry::SCI_CITE_REFERENCE );
 
 		$description = new ValueDescription(
 			$key,

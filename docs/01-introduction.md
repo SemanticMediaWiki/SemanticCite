@@ -25,4 +25,11 @@ includes the `Citation reference` annotation.
 
 ## What about structured data?
 
-To fully utilize `#scite` in terms of property annotations or individual template output formatting, see the [property mapping](02-property-mapping.md) and [template mapping](03-template-mapping.md) section.
+To fully utilize `#scite` in terms of property annotations or individual template output
+ formatting, see the [property mapping](02-property-mapping.md) and [template mapping](03-template-mapping.md) section.
+
+## Citation styles
+
+`#scite` allows to support different citation styles (harvard, mla etc.) with a
+style being determined by a type and/or [templates](03-template-mapping.md)
+assigned.

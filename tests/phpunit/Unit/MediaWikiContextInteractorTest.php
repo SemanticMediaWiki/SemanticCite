@@ -52,7 +52,10 @@ class MediaWikiContextInteractorTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	public function testGetOldId() {
+	/**
+	 * @dataProvider oldidDirectionProvider
+	 */
+	public function testGetOldId( $direction ) {
 
 		$context = $this->getMockBuilder( '\IContextSource' )
 			->disableOriginalConstructor()
@@ -61,6 +64,10 @@ class MediaWikiContextInteractorTest extends \PHPUnit_Framework_TestCase {
 		$webRequest = $this->getMockBuilder( '\WebRequest' )
 			->disableOriginalConstructor()
 			->getMock();
+
+		$webRequest->expects( $this->any() )
+			->method( 'getText' )
+			->will( $this->returnValue( $direction ) );
 
 		$context->expects( $this->any() )
 			->method( 'getRequest' )
@@ -76,6 +83,25 @@ class MediaWikiContextInteractorTest extends \PHPUnit_Framework_TestCase {
 			'integer',
 			$instance->getOldId()
 		);
+	}
+
+	public function oldidDirectionProvider() {
+
+		$provider = array();
+
+		$provider[] = array(
+			'next'
+		);
+
+		$provider[] = array(
+			'prev'
+		);
+
+		$provider[] = array(
+			'cur'
+		);
+
+		return $provider;
 	}
 
 }

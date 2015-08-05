@@ -32,4 +32,27 @@ class CitationReferenceValueTest extends \PHPUnit_Framework_TestCase {
 		$instance->getExtraneousFunctionFor( 'bar' );
 	}
 
+	public function testNoValueCreatesError() {
+
+		$citationReferencePositionJournal = $this->getMockBuilder( '\SCI\CitationReferencePositionJournal' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$instance = new CitationReferenceValue();
+
+		$instance->setExtraneousFunctions(
+			array(
+				'\SCI\CitationReferencePositionJournal' => function() use ( $citationReferencePositionJournal ) {
+					return $citationReferencePositionJournal;
+				}
+			)
+		);
+
+		$instance->setUserValue( '' );
+
+		$this->assertNotEmpty(
+			$instance->getErrors()
+		);
+	}
+
 }
