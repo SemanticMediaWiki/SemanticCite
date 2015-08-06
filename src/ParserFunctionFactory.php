@@ -7,6 +7,7 @@ use SMW\NamespaceExaminer;
 use SMW\ParameterProcessorFactory;
 use SCI\Bibtex\BibtexProcessor;
 use SCI\Bibtex\BibtexParser;
+use SCI\Bibtex\BibtexAuthorListParser;
 
 /**
  * @license GNU GPL v2+
@@ -51,7 +52,7 @@ class ParserFunctionFactory {
 				$namespaceExaminer,
 				$citationTextTemplateRenderer,
 				$mediaWikiNsContentMapper,
-				new BibtexProcessor( new BibtexParser() )
+				new BibtexProcessor( new BibtexParser(), new BibtexAuthorListParser() )
 			);
 
 			$sciteParserFunction->setStrictParserValidationState(
