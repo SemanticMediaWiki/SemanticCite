@@ -19,7 +19,7 @@ besides those listed below:
 - Other reserved parameters include `doi`, `pmcid`, `pmid`, `olid`, `oclc`, and `viaf` linking
   to its representing property
 
-### Citation key (unique indentifiers)
+### Citation key
 
 A citation resource is expected to be identifiable by a unique key and to be available
 wiki-wide therefore selecting an appropriate key is paramount to safeguard against
@@ -53,7 +53,7 @@ is set `false`.
 If something like `|type=bgn:Thesis;schema:Book|+sep=;` has been generated or specified then
 the last entry (e.g. `schema:Book`) will be selected as valid descriptor.
 
-### Bibtex import
+### Bibtex record import
 
 To ease the reuse of bibtex records, `#scite` provides the `|bibtex=` parameter to
 import a bibtex record as text which `#scite` will transform into a structured form
@@ -72,8 +72,15 @@ YEAR=2000
 }
 }}
 ```
+
+#### Authors
+
+Authors (e.g. `Einstein, Albert and Podolsky, Boris and Rosen, Nathan`) will be split
+into an author list of natural representations (`Albert Einstein` etc.) while the original
+annotation text is still available using the hidden `bibtex-author` parameter.
+
 ```
-{{#scite:Einstein, Podolsky, and Nathan 1935
+{{#scite:
  |bibtex=@article{einstein1935can,
   title={Can quantum-mechanical description of physical reality be considered complete?},
   author={Einstein, Albert and Podolsky, Boris and Rosen, Nathan},
@@ -84,9 +91,11 @@ YEAR=2000
   year={1935},
   publisher={APS}
 }
- |authors=Albert Einstein, Boris Podolsky, Nathan Rosen|+sep=,
 }}
 ```
+
+#### Formatting
+
 ```
 {{#scite:
  |bibtex=@article{Marshakov:2010si,

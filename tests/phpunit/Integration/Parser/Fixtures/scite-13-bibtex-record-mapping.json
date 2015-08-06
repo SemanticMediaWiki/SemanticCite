@@ -26,7 +26,7 @@
 		{
 			"name": "Sci-property-definition",
 			"namespace": "NS_MEDIAWIKI",
-			"contents": "Some assignments\n type|Has reference type \n author|Has author \n authors|Has author \n title|Has title \n journal|Has publisher \n abstract|Has abstract\n"
+			"contents": "Some assignments\n type|Has reference type \n author|Has author \n title|Has title \n journal|Has publisher \n abstract|Has abstract\n"
 		},
 		{
 			"name": "Sci-template-definition",
@@ -39,16 +39,25 @@
 			"contents": "<includeonly>{{{title}}}</includeonly>"
 		},
 		{
+			"name": "SciteAuthorFormatter",
+			"namespace": "NS_TEMPLATE",
+			"contents": "<includeonly>{{{bibtex-author}}}</includeonly>"
+		},
+		{
 			"name": "Example/12/1",
 			"contents": "{{#scite:\n |bibtex=@ARTICLE{Meyer2000,\nAUTHOR=\"Bernd Meyer\",\nTITLE=\"A constraint-based framework for diagrammatic reasoning\",\nJOURNAL=\"Applied Artificial Intelligence\",\nVOLUME= \"14\",\nISSUE = \"4\",\nPAGES= \"327--344\",\nYEAR=2000\n}\n |citation text=2000}}"
 		},
 		{
 			"name": "Example/12/2",
-			"contents": "{{#scite:Einstein, Podolsky, and Nathan 1935\n |bibtex=@article{einstein1935can,\n  title={Can quantum-mechanical description of physical reality be considered complete?},\n  author={Einstein, Albert and Podolsky, Boris and Rosen, Nathan},\n  journal={Physical review},\n  volume={47},\n  number={10},\n  pages={777},\n  year={1935},\n  publisher={APS}\n}\n |authors=Albert Einstein, Boris Podolsky, Nathan Rosen|+sep=,\n}}"
+			"contents": "{{#scite:Einstein, Podolsky, and Nathan 1935\n |bibtex=@article{einstein1935can,\n  title={Can quantum-mechanical description of physical reality be considered complete?},\n  author={Einstein, Albert and Podolsky, Boris and Rosen, Nathan},\n  journal={Physical review},\n  volume={47},\n  number={10},\n  pages={777},\n  year={1935},\n  publisher={APS}\n}\n}}"
 		},
 		{
 			"name": "Example/12/3",
 			"contents": "{{#scite:|reference=Wallach and Kogan 1965b \n |type=book \n |bibtex=@article{wallach1965modes,\n  title={Modes of thinking in young children},\n  author={Wallach, Michael A and Kogan, Nathan},\n  year={1965},\n  publisher={New York}\n} \n}}"
+		},
+		{
+			"name": "Example/12/4",
+			"contents": "{{#scite:\n |bibtex=@article{leung1989vascular,\n  title={Vascular endothelial growth factor is a secreted angiogenic mitogen},\n  author={Leung, David W and Cachianes, George and Kuang, Wun-Jing and Goeddel, David V and Ferrara, Napoleone},\n  journal={Science},\n  volume={246},\n  number={4935},\n  pages={1306--1309},\n  year={1989},\n  publisher={American Association for the Advancement of Science}\n}\n |template=SciteAuthorFormatter}}"
 		}
 	],
 	"parser-testcases": [
@@ -97,6 +106,18 @@
 					"propertyCount": 6,
 					"propertyKeys": [ "__sci_cite_key", "__sci_cite_text", "Has_author", "Has_title", "Has_reference_type", "_SKEY" ],
 					"propertyValues": [ "book", "Wallach and Kogan 1965b", "Modes of thinking in young children" ]
+				}
+			}
+		},
+		{
+			"about": "#4 access hidden bibtex-author, see #12",
+			"subject": "Example/12/4#_SCITE-b375bde01f73d04037215f4614f81cc1",
+			"store": {
+				"semantic-data": {
+					"strict-mode-valuematch": false,
+					"propertyCount": 7,
+					"propertyKeys": [ "__sci_cite_key", "__sci_cite_text", "Has_author", "Has_title", "Has_reference_type", "_SKEY", "Has_publisher" ],
+					"propertyValues": [ "Leung, David W and Cachianes, George and Kuang, Wun-Jing and Goeddel, David V and Ferrara, Napoleone", "David W Leung", "George Cachianes", "Wun-Jing Kuang", "David V Goeddel", "Napoleone Ferrara" ]
 				}
 			}
 		}

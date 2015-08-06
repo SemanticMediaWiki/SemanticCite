@@ -16,12 +16,19 @@ class BibtexProcessor {
 	private $bibtexParser;
 
 	/**
+	 * @var BibtexAuthorListParser
+	 */
+	private $bibtexAuthorListParser;
+
+	/**
 	 * @since 1.0
 	 *
 	 * @param BibtexParser $bibtexParser
+	 * @param BibtexAuthorListParser $bibtexAuthorListParser
 	 */
-	public function __construct( BibtexParser $bibtexParser ) {
+	public function __construct( BibtexParser $bibtexParser, BibtexAuthorListParser $bibtexAuthorListParser ) {
 		$this->bibtexParser = $bibtexParser;
+		$this->bibtexAuthorListParser = $bibtexAuthorListParser;
 	}
 
 	/**
@@ -46,6 +53,18 @@ class BibtexProcessor {
 
 			if ( $key === 'type' && $parserParameterProcessor->hasParameter( 'type' ) ) {
 				continue;
+			}
+
+			if ( $key === 'author' ) {
+
+				$parserParameterProcessor->setParameter(
+					$key,
+					$this->bibtexAuthorListParser->parse( $value )
+				);
+
+				// Add the original value for easier post-processing in a template
+				// as hidden parameter
+				$key = 'bibtex-author';
 			}
 
 			$parserParameterProcessor->addParameter(
