@@ -132,6 +132,17 @@ class BibtexParserTest extends \PHPUnit_Framework_TestCase {
 			)
 		);
 
+		#4 invalid/unprocessable content format
+		$provider[] = array(
+			"foo",
+			array()
+		);
+
+		$provider[] = array(
+			"@article{}",
+			array()
+		);
+
 		return $provider;
 	}
 

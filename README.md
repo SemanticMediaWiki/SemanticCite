@@ -87,7 +87,7 @@ a reference list from showing on an individual page while `#referencelist` can b
 the list differently.
 
 More information about in-text citations and references can be found [here][docs-intext] together
-with a description about the usage of the [`#referencelist`][docs-referencelist].
+with a description about the usage of the [`#referencelist`][docs-referencelist] parser.
 
 For questions about Semantic Cite and [`Cite`][mw-cite], see the comments [section][docs-faq].
 

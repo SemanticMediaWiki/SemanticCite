@@ -7,8 +7,8 @@ namespace SCI\Bibtex;
  * thanks goes to the authors of http://bibliophile.sourceforge.net
  *
  * Comments to the source code can be found at
- * http://sourceforge.net/projects/bibliophile/files/bibtexParse/ and be under
- * under the GPL license.
+ * http://sourceforge.net/projects/bibliophile/files/bibtexParse/ and is
+ * released under the GPL license.
  *
  * @note There might be a better parser out there but I didn't want to spend to
  * much time reviewing code therefore PARSEENTRIES does the job well.
@@ -43,10 +43,8 @@ class BibtexParser {
 	 */
 	public function parse( $bibtex ) {
 
-		$matches = preg_split("/@(.*)[{(](.*),/U", $bibtex, 2, PREG_SPLIT_DELIM_CAPTURE );
-
-		if( preg_match("/=/", $matches[2] ) ) {
-			$matches = preg_split("/@(.*)\s*[{(](.*)/U", $bibtex, 2, PREG_SPLIT_DELIM_CAPTURE );
+		if ( ( $matches = $this->findBibtexFormatMatches( $bibtex ) ) === array() ) {
+			return array();
 		}
 
 		$head = array(
@@ -55,6 +53,22 @@ class BibtexParser {
 		);
 
 		return $head + $this->parseFields( $matches[3] );
+	}
+
+	private function findBibtexFormatMatches( $bibtex ) {
+
+		$matches = preg_split("/@(.*)[{(](.*),/U", $bibtex, 2, PREG_SPLIT_DELIM_CAPTURE );
+
+		// Silently retreat from processing
+		if ( !isset( $matches[2] ) ) {
+			return array();
+		}
+
+		if( preg_match("/=/", $matches[2] ) ) {
+			$matches = preg_split("/@(.*)\s*[{(](.*)/U", $bibtex, 2, PREG_SPLIT_DELIM_CAPTURE );
+		}
+
+		return $matches;
 	}
 
 	private function parseFields( $content ) {

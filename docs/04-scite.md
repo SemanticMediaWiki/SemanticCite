@@ -1,14 +1,14 @@
-## #scite parser
+# #scite parser
 
 `{{#scite:}}` parser can only be used in [namespaces][smw-ns] that are enabled
 for Semantic MediaWiki.
 
-### Reserved parameters
+## Reserved parameters
 
 Parameters (or identifiers) are free from any restrictions
 besides those listed below:
 
-- `type` is a reserved parameter and is required for when `$GLOBALS['scigStrictParserValidationEnabled']` is set `true`
+- `type` is a reserved parameter
 - `reference` is a reserved parameter and is linked to the `Citation key` property
 - `citation text` is a reserved parameter and is linked to the `Citation text` property
 - `sortkey` is a reserved parameter and is linked to the `_SKEY` property and can be
@@ -19,7 +19,7 @@ besides those listed below:
 - Other reserved parameters include `doi`, `pmcid`, `pmid`, `olid`, `oclc`, and `viaf` linking
   to its representing property
 
-### Citation key
+## Citation key
 
 A citation resource is expected to be identifiable by a unique key and to be available
 wiki-wide therefore selecting an appropriate key is paramount to safeguard against
@@ -45,19 +45,20 @@ no longer represents a unique resource due to adding another resource with the s
 then the existing usage of that resource needs to be queried and changed before applying
 the new citation key (e.g. `Foo 2007a`).
 
-### Type assignment
+## Type assignment
 
 A type assignment is expected for each citation resource unless `$GLOBALS['scigStrictParserValidationEnabled']`
 is set `false`.
 
-If something like `|type=bgn:Thesis;schema:Book|+sep=;` has been generated or specified then
-the last entry (e.g. `schema:Book`) will be selected as valid descriptor.
+If multiple types are assigned (e.g.`|type=bgn:Thesis;schema:Book|+sep=;`) then
+the last entry (e.g. `schema:Book`) will be selected as valid type descriptor.
 
-### Bibtex record import
+## Bibtex record import
 
 To ease the reuse of bibtex records, `#scite` provides the `|bibtex=` parameter to
-import a bibtex record as text which `#scite` will transform into a structured form
-according to the [property](02-property-mapping.md) and [template](03-template-mapping.md) mapping.
+import a bibtex formatted text to enable the creation of a annotatable record following
+the [property](02-property-mapping.md) and [template](03-template-mapping.md)
+mapping.
 
 ```
 {{#scite:
@@ -73,7 +74,7 @@ YEAR=2000
 }}
 ```
 
-#### Authors
+### Author list
 
 Authors (e.g. `Einstein, Albert and Podolsky, Boris and Rosen, Nathan`) will be split
 into an author list of natural representations (`Albert Einstein` etc.) while the original
@@ -94,7 +95,12 @@ annotation text is still available using the hidden `bibtex-author` parameter.
 }}
 ```
 
-#### Formatting
+### Content formatting
+
+`@article` is parsed as type `article` that can be assigned to a specific [template](03-template-mapping.md)
+containing the rules of how text elements are to be positioned. Please be aware
+that no automatic clean-up is done on elements like `{...}` or new lines as in
+`in \n SUSY`.
 
 ```
 {{#scite:
@@ -117,16 +123,18 @@ annotation text is still available using the hidden `bibtex-author` parameter.
 }}
 ```
 
-In the example above, `@article` is parsed as type `article` which can be assigned to a
-[template](03-template-mapping.md) that contains the rules of how text elements are to be
-positioned but please be aware that for the given example no automatic clean-up are done
-for `{...}` or new lines as in `in \n SUSY`.
+## Citation text
 
-### Citation text
+The property `Citation text` contains the formatted output of a citation resource
+used for the [referencelist](05-referencelist.md) display and is normally generated
+by a template output but content can also be added directly using the
+`|citation text=` parameter which adds the text value **as-is** without
+additional processing.
 
-Content that is directly added to parameter `|citation text=` is stored **as-is** text value with property
-`Citation text` and circumventing any additional processing. The property `Citation text` contains the
-formatted output of a citation resource used for the [referencelist](05-referencelist.md).
+If parameter `|citation text=` is not used then `#scite` is going to try to determine
+an output processor by first looking at the `|template=` parameter and if such
+parameter is no declared then the [template](03-template-mapping.md) assigned to
+the type is used for processing in order to return a formatted text value.
 
 ```
 {{#scite:Einstein 1956
@@ -134,9 +142,5 @@ formatted output of a citation resource used for the [referencelist](05-referenc
  |citation text=Einstein, Albert. Investigations on the Theory of the Brownian Movement. Courier Corporation, 1956.
 }}
 ```
-
-If parameter `|citation text=` is not used then `#scite` is trying to determine an output processor
-by first looking at the `|template=` parameter and if not declared using the [template](03-template-mapping.md)
-assigned to the type in order to process the input and return a formatted text value.
 
 [smw-ns]: https://semantic-mediawiki.org/wiki/Help:$smwgNamespacesWithSemanticLinks
