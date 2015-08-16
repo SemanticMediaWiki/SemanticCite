@@ -73,6 +73,45 @@ class CitationResourceMatchFinder {
 	}
 
 	/**
+	 * Find match for [[OCLC::SomeOclcKey]]
+	 *
+	 * @since 1.0
+	 *
+	 * @param string $type
+	 * @param string|null $id
+	 *
+	 * @return array
+	 */
+	public function findMatchForUidTypeOf( $type, $id = null ) {
+
+		if ( $id === null || $id === '' ) {
+			return array();
+		}
+
+		$uidValueFactory = new UidValueFactory();
+
+		$uidValue = $uidValueFactory->newUidValueForType( $type );
+		$uidValue->setUserValue( $id );
+		$id = $uidValue->getWikiValue();
+
+		$description = new SomeProperty(
+			$uidValue->getProperty(),
+			new ValueDescription( new DIBlob( $id ) )
+		);
+
+		$query = new Query(
+			$description,
+			false,
+			false
+		);
+
+		$query->querymode = Query::MODE_INSTANCES;
+		$query->setLimit( 10 );
+
+		return $this->store->getQueryResult( $query )->getResults();
+	}
+
+	/**
 	 * @since 1.0
 	 *
 	 * @param string $citationReference
@@ -108,44 +147,6 @@ class CitationResourceMatchFinder {
 		}
 
 		return array( $subjects, $text );
-	}
-
-	/**
-	 * Find match for [[OCLC::SomeOclcKey]]
-	 *
-	 * @since 1.0
-	 *
-	 * @param string $oclc
-	 *
-	 * @return array
-	 */
-	public function findMatchForUidTypeOf( $type, $id = null ) {
-
-		if ( $id === null || $id === '' ) {
-			return array();
-		}
-
-		$uidValueFactory = new UidValueFactory();
-
-		$uidValue = $uidValueFactory->newUidValueForType( $type );
-		$uidValue->setUserValue( $id );
-		$id = $uidValue->getWikiValue();
-
-		$description = new SomeProperty(
-			$uidValue->getProperty(),
-			new ValueDescription( new DIBlob( $id ) )
-		);
-
-		$query = new Query(
-			$description,
-			false,
-			false
-		);
-
-		$query->querymode = Query::MODE_INSTANCES;
-		$query->setLimit( 10 );
-
-		return $this->store->getQueryResult( $query )->getResults();
 	}
 
 	/**

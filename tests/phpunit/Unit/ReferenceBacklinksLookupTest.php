@@ -2,13 +2,13 @@
 
 namespace SCI\Tests;
 
-use SCI\BrowsePropertyLookup;
+use SCI\ReferenceBacklinksLookup;
 use SCI\PropertyRegistry;
 use SMW\DIWikiPage;
 use SMW\DIProperty;
 
 /**
- * @covers \SCI\BrowsePropertyLookup
+ * @covers \SCI\ReferenceBacklinksLookup
  * @group semantic-cite
  *
  * @license GNU GPL v2+
@@ -16,7 +16,7 @@ use SMW\DIProperty;
  *
  * @author mwjames
  */
-class BrowsePropertyLookupTest extends \PHPUnit_Framework_TestCase {
+class ReferenceBacklinksLookupTest extends \PHPUnit_Framework_TestCase {
 
 	public function testCanConstruct() {
 
@@ -25,8 +25,35 @@ class BrowsePropertyLookupTest extends \PHPUnit_Framework_TestCase {
 			->getMockForAbstractClass();
 
 		$this->assertInstanceOf(
-			'\SCI\BrowsePropertyLookup',
-			new BrowsePropertyLookup( $store )
+			'\SCI\ReferenceBacklinksLookup',
+			new ReferenceBacklinksLookup( $store )
+		);
+	}
+
+	public function testFindCitationKeyFor() {
+
+		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$semanticData->expects( $this->once() )
+			->method( 'getPropertyValues' )
+			->with( $this->equalTo( new DIProperty( PropertyRegistry::SCI_CITE_KEY ) ) )
+			->will( $this->returnValue( array( 'Foo', 'Bar' ) ) );
+
+		$store = $this->getMockBuilder( '\SMW\Store' )
+			->disableOriginalConstructor()
+			->getMockForAbstractClass();
+
+		$store->expects( $this->once() )
+			->method( 'getSemanticData' )
+			->will( $this->returnValue( $semanticData ) );
+
+		$instance = new ReferenceBacklinksLookup( $store );
+
+		$this->assertEquals(
+			'Bar',
+			$instance->findCitationKeyFor( DIWikiPage::newFromText( __METHOD__ ) )
 		);
 	}
 
@@ -56,9 +83,10 @@ class BrowsePropertyLookupTest extends \PHPUnit_Framework_TestCase {
 			->method( 'getSemanticData' )
 			->will( $this->returnValue( $semanticData ) );
 
-		$instance = new BrowsePropertyLookup( $store );
+		$instance = new ReferenceBacklinksLookup( $store );
+		$instance->setLimit( 5 );
 
-		$instance->addReferenceBacklinks(
+		$instance->addReferenceBacklinksTo(
 			$semanticData
 		);
 	}
@@ -103,9 +131,9 @@ class BrowsePropertyLookupTest extends \PHPUnit_Framework_TestCase {
 			->method( 'getSemanticData' )
 			->will( $this->returnValue( $semanticData ) );
 
-		$instance = new BrowsePropertyLookup( $store );
+		$instance = new ReferenceBacklinksLookup( $store );
 
-		$instance->addReferenceBacklinks(
+		$instance->addReferenceBacklinksTo(
 			$semanticData
 		);
 	}

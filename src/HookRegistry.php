@@ -156,11 +156,10 @@ class HookRegistry {
 		 */
 		$this->handlers['SMW::Browse::AfterInPropertiesLookupComplete'] = function ( $store, $semanticData, $requestOptions ) {
 
-			$browsePropertyLookup = new BrowsePropertyLookup( $store );
+			$referenceBacklinksLookup = new ReferenceBacklinksLookup( $store );
 
-			$browsePropertyLookup->addReferenceBacklinks(
-				$semanticData,
-				$requestOptions
+			$referenceBacklinksLookup->addReferenceBacklinksTo(
+				$semanticData
 			);
 
 			return true;

@@ -131,7 +131,7 @@ but can also be executed using `composer phpunit` from the extension base direct
 [mw-update]: https://www.mediawiki.org/wiki/Manual:Update.php
 [config]: https://github.com/SemanticMediaWiki/SemanticCite/blob/master/CONFIGURATION.md
 [docs-faq]: https://github.com/SemanticMediaWiki/SemanticCite/blob/master/docs/08-faq.md
-[docs-search]: https://github.com/SemanticMediaWiki/SemanticCite/blob/master/docs/07-search.md
+[docs-search]: https://github.com/SemanticMediaWiki/SemanticCite/blob/master/docs/07-metadata-search.md
 [docs-scite]: https://github.com/SemanticMediaWiki/SemanticCite/blob/master/docs/04-scite.md
 [docs-intext]: https://github.com/SemanticMediaWiki/SemanticCite/blob/master/docs/06-references.md
 [docs-referencelist]: https://github.com/SemanticMediaWiki/SemanticCite/blob/master/docs/05-referencelist.md

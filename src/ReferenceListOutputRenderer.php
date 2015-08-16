@@ -271,8 +271,8 @@ class ReferenceListOutputRenderer {
 			$reference
 		);
 
-		// Using the Message:parse as shortcut to ensure the text is appropriately
-		// parsed and escaped and save the trouble to deal with Parser stubobject
+		// Using Message:parse as shortcut to ensure the text is appropriately
+		// parsed and escaped which saves the trouble to deal with Parser stubobject
 		return array(
 			$subjects,
 			wfMessage( 'sci-referencelist-text', $text )->parse()
