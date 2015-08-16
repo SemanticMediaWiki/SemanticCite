@@ -3,6 +3,19 @@
 `{{#scite:}}` parser can only be used in [namespaces][smw-ns] that are enabled
 for Semantic MediaWiki.
 
+```
+{{#scite:Byrne 2008
+ |type=journal
+ |author=Byrne, A
+ |year=2008
+ |title=Web 2.0 strategies in libraries and information services
+ |journal=The Australian Library Journal
+ |volume=57
+ |number=4
+ |pages=365-376
+}}
+```
+
 ## Reserved parameters
 
 Parameters (or identifiers) are free from any restrictions
@@ -26,16 +39,16 @@ wiki-wide therefore selecting an appropriate key is paramount to safeguard again
 unnecessary changes.
 
 The reference parameter is the descriptor for that key. For example, to describe
-a `Segon & Booth 2011` entity the short or the explicit reference parameter form can be used.
+a `Byrne 2008` resource the short or the explicit reference parameter form can be used.
 
 ```
-{{#scite:Segon & Booth 2011
+{{#scite:Byrne 2008
   ...
 }}
 ```
 ```
 {{#scite:
-  |reference=Segon & Booth 2011
+  |reference=Byrne 2008
   ...
 }}
 ```
@@ -44,6 +57,37 @@ If it becomes necessary to rename a citation key (because a resource with key `F
 no longer represents a unique resource due to adding another resource with the same key)
 then the existing usage of that resource needs to be queried and changed before applying
 the new citation key (e.g. `Foo 2007a`).
+
+## Citation text
+
+The property `Citation text` contains the formatted output of a citation resource
+used for the [referencelist](05-referencelist.md) display and is normally generated
+by a template output but content can also be added directly using the
+`|citation text=` parameter which adds the text value **as-is** without
+additional processing.
+
+```
+{{#scite:Einstein 1956
+ |type=book
+ |citation text=Einstein, Albert. Investigations on the Theory of the Brownian Movement. Courier Corporation, 1956.
+}}
+```
+
+In case the parameter `|citation text=` is not declared then `#scite` is going to try to determine
+an output processor (a template) by first looking at the `|template=` parameter and if such
+parameter is not found then the [template](03-template-mapping.md) assigned to
+the type is used for processing in order to return a formatted text value.
+
+```
+{{#scite:Einstein 1956
+ |type=book
+ |authoru=Albert Einstein
+ |title=Investigations on the Theory of the Brownian Movement
+ |publisher=Courier Corporation
+ |year=1956
+ |template=FormatThisEntityAccordingToHarvardStyle
+}}
+```
 
 ## Type assignment
 
@@ -56,8 +100,8 @@ the last entry (e.g. `schema:Book`) will be selected as valid type descriptor.
 ## Bibtex record import
 
 To ease the reuse of bibtex records, `#scite` provides the `|bibtex=` parameter to
-import a bibtex formatted text to enable the creation of a annotatable record following
-the [property](02-property-mapping.md) and [template](03-template-mapping.md)
+import a bibtex formatted text to enable the creation of an annotatable record following
+the available [property](02-property-mapping.md) and [template](03-template-mapping.md)
 mapping.
 
 ```
@@ -78,7 +122,7 @@ YEAR=2000
 
 Authors (e.g. `Einstein, Albert and Podolsky, Boris and Rosen, Nathan`) will be split
 into an author list of natural representations (`Albert Einstein` etc.) while the original
-annotation text is still available using the hidden `bibtex-author` parameter.
+annotation string is still available using the hidden `bibtex-author` parameter.
 
 ```
 {{#scite:
@@ -100,7 +144,8 @@ annotation text is still available using the hidden `bibtex-author` parameter.
 `@article` is parsed as type `article` that can be assigned to a specific [template](03-template-mapping.md)
 containing the rules of how text elements are to be positioned. Please be aware
 that no automatic clean-up is done on elements like `{...}` or new lines as in
-`in \n SUSY`.
+`in \n SUSY`. Furthermore, complex expressions (those involve macros etc.) are
+not parsed or resolved.
 
 ```
 {{#scite:
@@ -120,26 +165,6 @@ that no automatic clean-up is done on elements like `{...}` or new lines as in
       reportNumber   = "FIAN-TD-02-10, ITEP-TH-05-10",
       SLACcitation   = "%%CITATION = ARXIV:1003.2089;%%"
 }
-}}
-```
-
-## Citation text
-
-The property `Citation text` contains the formatted output of a citation resource
-used for the [referencelist](05-referencelist.md) display and is normally generated
-by a template output but content can also be added directly using the
-`|citation text=` parameter which adds the text value **as-is** without
-additional processing.
-
-If parameter `|citation text=` is not used then `#scite` is going to try to determine
-an output processor by first looking at the `|template=` parameter and if such
-parameter is no declared then the [template](03-template-mapping.md) assigned to
-the type is used for processing in order to return a formatted text value.
-
-```
-{{#scite:Einstein 1956
- |type=book
- |citation text=Einstein, Albert. Investigations on the Theory of the Brownian Movement. Courier Corporation, 1956.
 }}
 ```
 

@@ -5,6 +5,7 @@ namespace SCI;
 use SMW\Store;
 use SMW\SemanticData;
 use SMW\DIProperty;
+use SMW\DIWikiPage;
 use SMW\Query\Language\SomeProperty;
 use SMW\Query\Language\ThingDescription;
 use SMW\Query\Language\ValueDescription;
@@ -16,7 +17,7 @@ use SMWQuery as Query;
  *
  * @author mwjames
  */
-class BrowsePropertyLookup {
+class ReferenceBacklinksLookup {
 
 	/**
 	 * @var Store
@@ -40,11 +41,43 @@ class BrowsePropertyLookup {
 	/**
 	 * @since 1.0
 	 *
+	 * @param integer $limit
+	 */
+	public function setLimit( $limit ) {
+		$this->limit = $limit;
+	}
+
+	/**
+	 * Adds backlinks information to the SemanticData which is targeted towards
+	 * the Special:Browse inproperties
+	 *
+	 * @since 1.0
+	 *
 	 * @param SemanticData $semanticData
 	 */
-	public function addReferenceBacklinks( SemanticData $semanticData, $requestOptions = null ) {
+	public function addReferenceBacklinksTo( SemanticData $semanticData ) {
 
-		$keys = $this->store->getSemanticData( $semanticData->getSubject() )->getPropertyValues(
+		$key = $this->findCitationKeyFor( $semanticData->getSubject() );
+
+		$property = new DIProperty(
+			PropertyRegistry::SCI_CITE_REFERENCE
+		);
+
+		foreach ( $this->findReferenceBacklinksFor( $key ) as $subject ) {
+			$semanticData->addPropertyObjectValue( $property, $subject );
+		}
+	}
+
+	/**
+	 * @since 1.0
+	 *
+	 * @param DIWikiPage $subject
+	 *
+	 * @return DIBlob|null
+	 */
+	public function findCitationKeyFor( DIWikiPage $subject ) {
+
+		$keys = $this->store->getSemanticData( $subject )->getPropertyValues(
 			new DIProperty( PropertyRegistry::SCI_CITE_KEY )
 		);
 
@@ -53,18 +86,21 @@ class BrowsePropertyLookup {
 			return null;
 		}
 
-		if ( isset( $requestOptions->limit ) && $requestOptions->limit > 0 ) {
-			$this->limit = $requestOptions->limit;
-		}
-
-		$property = new DIProperty( PropertyRegistry::SCI_CITE_REFERENCE );
-
-		foreach ( $this->findReferenceBacklinksFor( end( $keys ) ) as $subject ) {
-			$semanticData->addPropertyObjectValue( $property, $subject );
-		}
+		return end( $keys );
 	}
 
-	private function findReferenceBacklinksFor( $key ) {
+	/**
+	 * @since 1.0
+	 *
+	 * @param DIBlob|null
+	 *
+	 * @return DIWikiPage[]
+	 */
+	public function findReferenceBacklinksFor( $key = null ) {
+
+		if ( $key === null ) {
+			return array();
+		}
 
 		$property = new DIProperty( PropertyRegistry::SCI_CITE_REFERENCE );
 
