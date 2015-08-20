@@ -38,8 +38,6 @@
 	"onoi-remi-parser-no-id-match": "Der Parser konnte zu „$1“ keinen Treffer ermitteln.",
 	"sci-tooltip-citation-lookup-failure" : "Zu „$1“ konnte keine zutreffende Referenzierung abgerufen werden.",
 	"sci-tooltip-citation-lookup-failure-multiple": "Zu „$1“ konnte aufgrund vieler möglicher Ergebnisse keine zutreffende Referenzierung abgerufen werden.",
-	"sci-property-definition": "Eine Liste von Identifizierungsmerkmalen zur Parserfunktion <code>#scite</code> die benutzerdefinierten Attributen zugeordnet werden können. Die Änderung eines bestehenden Eintrags erfordert die Neugenerierung der Wertzuordnung zum entsprechenden Attribut. \n „Beispielkennung|Beispielattribut“",
-	"sci-template-definition": "Eine Liste von Referenzierungsarten die Referenzierungsvorlagen zugeordnet werden können. \n „Beispielreferenzierungsart|Beispielvorlage“",
 	"smw-pa-property-predefined__sci_cite_key": "„$1“ ist ein Spezialattribut das Referenzierungsschlüssel speichert. Es wird von der Erweiterung [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite] bereitgestellt.",
 	"smw-pa-property-predefined__sci_cite_reference": "„$1“ ist ein Spezialattribut das Referenzierungen speichert. Es wird von der Erweiterung [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite] bereitgestellt.",
 	"smw-pa-property-predefined__sci_cite_text": "„$1“ ist ein Spezialattribut das Referenzierungstexte speichert. Es wird von der Erweiterung [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite] bereitgestellt.",
