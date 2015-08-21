@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"mwjames"
+			"mwjames",
+			"Kghbln"
 		]
 	},
 	"sci-desc": "Mange citation resources with the help of [https://semantic-mediawiki.org Semantic MediaWiki]",
@@ -9,8 +10,8 @@
 	"sci-referencelist-text": "$1",
 	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code> can not be used on a namespace that is not enabled for Semantic MediaWiki",
 	"sci-scite-parser-no-reference": "<code>#scite</code> did not declare a reference.",
-	"sci-scite-parser-no-type": "<code>#scite</code> was unable to determine a reference type for «$1».",
-	"sci-scite-parser-no-citation-text": "<code>#scite</code> was unable to render a citation text for reference «$1» with type «$2».",
+	"sci-scite-parser-no-type": "<code>#scite</code> was unable to determine a reference type for \"$1\".",
+	"sci-scite-parser-no-citation-text": "<code>#scite</code> was unable to render a citation text for reference \"$1\" with type \"$2\".",
 	"sci-datavalue-empty-reference": "The citation reference is expected not to be empty.",
 	"sci-datavalue-invalid-id-value": "\"$1\" is an invalid value for the $2 type.",
 	"sci-property-alias-doi": "DOI",
