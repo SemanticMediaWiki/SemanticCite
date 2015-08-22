@@ -11,7 +11,7 @@ use Onoi\Remi\FilteredHttpResponseParserFactory;
  *
  * @author mwjames
  */
-class ResponseParserFactory {
+class HttpResponseParserFactory {
 
 	/**
 	 * @var HttpRequest

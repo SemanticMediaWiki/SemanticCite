@@ -6,7 +6,7 @@ use SMW\ApplicationFactory;
 use SCI\CitationResourceMatchFinder;
 use SMW\MediaWiki\Renderer\HtmlFormRenderer;
 use SMW\MediaWiki\Renderer\HtmlColumnListRenderer;
-use SCI\Metadata\ResponseParserFactory;
+use SCI\Metadata\HttpResponseParserFactory;
 use SCI\Metadata\BibliographicFilteredRecord;
 
 /**
@@ -33,9 +33,9 @@ class PageBuilder {
 	private $citationResourceMatchFinder;
 
 	/**
-	 * @var ResponseParserFactory
+	 * @var HttpResponseParserFactory
 	 */
-	private $responseParserFactory;
+	private $httpResponseParserFactory;
 
 	/**
 	 * @since 1.0
@@ -43,13 +43,13 @@ class PageBuilder {
 	 * @param HtmlFormRenderer $htmlFormRenderer
 	 * @param HtmlColumnListRenderer $htmlColumnListRenderer
 	 * @param CitationResourceMatchFinder $citationResourceMatchFinder
-	 * @param ResponseParserFactory $responseParserFactory
+	 * @param HttpResponseParserFactory $httpResponseParserFactory
 	 */
-	public function __construct( HtmlFormRenderer $htmlFormRenderer, HtmlColumnListRenderer $htmlColumnListRenderer, CitationResourceMatchFinder $citationResourceMatchFinder, ResponseParserFactory $responseParserFactory ) {
+	public function __construct( HtmlFormRenderer $htmlFormRenderer, HtmlColumnListRenderer $htmlColumnListRenderer, CitationResourceMatchFinder $citationResourceMatchFinder, HttpResponseParserFactory $httpResponseParserFactory ) {
 		$this->htmlFormRenderer = $htmlFormRenderer;
 		$this->htmlColumnListRenderer = $htmlColumnListRenderer;
 		$this->citationResourceMatchFinder = $citationResourceMatchFinder;
-		$this->responseParserFactory = $responseParserFactory;
+		$this->httpResponseParserFactory = $httpResponseParserFactory;
 	}
 
 	/**
@@ -62,7 +62,7 @@ class PageBuilder {
 	 */
 	public function getRawResponseFor( $type, $id ) {
 
-		$responseParser = $this->responseParserFactory->newResponseParserForType(
+		$responseParser = $this->httpResponseParserFactory->newResponseParserForType(
 			$type
 		);
 
@@ -89,7 +89,7 @@ class PageBuilder {
 
 		if ( $type !== '' && $id !== '' ) {
 
-			$responseParser = $this->responseParserFactory->newResponseParserForType(
+			$responseParser = $this->httpResponseParserFactory->newResponseParserForType(
 				$type
 			);
 

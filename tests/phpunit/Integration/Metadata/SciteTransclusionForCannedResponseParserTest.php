@@ -2,7 +2,7 @@
 
 namespace SCI\Tests\Integration\Metadata;
 
-use SCI\Metadata\ResponseParserFactory;
+use SCI\Metadata\HttpResponseParserFactory;
 use SCI\Metadata\BibliographicFilteredRecord;
 
 /**
@@ -26,11 +26,11 @@ class SciteTransclusionForCannedResponseParserTest extends \PHPUnit_Framework_Te
 			$expectedResultFile
 		);
 
-		$responseParserFactory = new ResponseParserFactory(
+		$httpResponseParserFactory = new HttpResponseParserFactory(
 			$httpRequest
 		);
 
-		$instance = $responseParserFactory->newResponseParserForType( 'doi' );
+		$instance = $httpResponseParserFactory->newResponseParserForType( 'doi' );
 		$instance->doParseFor( $id );
 
 		$this->assertEquals(
@@ -50,11 +50,11 @@ class SciteTransclusionForCannedResponseParserTest extends \PHPUnit_Framework_Te
 			$expectedResultFile
 		);
 
-		$responseParserFactory = new ResponseParserFactory(
+		$httpResponseParserFactory = new HttpResponseParserFactory(
 			$httpRequest
 		);
 
-		$instance = $responseParserFactory->newResponseParserForType( 'ol' );
+		$instance = $httpResponseParserFactory->newResponseParserForType( 'ol' );
 		$instance->doParseFor( $id );
 
 		$this->assertEquals(
@@ -74,11 +74,11 @@ class SciteTransclusionForCannedResponseParserTest extends \PHPUnit_Framework_Te
 			$expectedResultFile
 		);
 
-		$responseParserFactory = new ResponseParserFactory(
+		$httpResponseParserFactory = new HttpResponseParserFactory(
 			$httpRequest
 		);
 
-		$instance = $responseParserFactory->newResponseParserForType( 'viaf' );
+		$instance = $httpResponseParserFactory->newResponseParserForType( 'viaf' );
 		$instance->doParseFor( $id );
 
 		$this->assertEquals(
@@ -98,11 +98,11 @@ class SciteTransclusionForCannedResponseParserTest extends \PHPUnit_Framework_Te
 			$expectedResultFile
 		);
 
-		$responseParserFactory = new ResponseParserFactory(
+		$httpResponseParserFactory = new HttpResponseParserFactory(
 			$httpRequest
 		);
 
-		$instance = $responseParserFactory->newResponseParserForType( 'oclc' );
+		$instance = $httpResponseParserFactory->newResponseParserForType( 'oclc' );
 		$instance->doParseFor( $id );
 
 		$this->assertEquals(
@@ -123,11 +123,11 @@ class SciteTransclusionForCannedResponseParserTest extends \PHPUnit_Framework_Te
 			$xmlInputFile
 		);
 
-		$responseParserFactory = new ResponseParserFactory(
+		$httpResponseParserFactory = new HttpResponseParserFactory(
 			$httpRequest
 		);
 
-		$instance = $responseParserFactory->newResponseParserForType( $type );
+		$instance = $httpResponseParserFactory->newResponseParserForType( $type );
 		$instance->doParseFor( $id );
 
 		$this->assertEquals(

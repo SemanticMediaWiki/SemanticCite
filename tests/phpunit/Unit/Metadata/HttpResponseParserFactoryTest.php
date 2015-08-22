@@ -2,10 +2,10 @@
 
 namespace SCI\Tests\Metadata;
 
-use SCI\Metadata\ResponseParserFactory;
+use SCI\Metadata\HttpResponseParserFactory;
 
 /**
- * @covers \SCI\Metadata\ResponseParserFactory
+ * @covers \SCI\Metadata\HttpResponseParserFactory
  * @group semantic-cite
  *
  * @license GNU GPL v2+
@@ -13,7 +13,7 @@ use SCI\Metadata\ResponseParserFactory;
  *
  * @author mwjames
  */
-class ResponseParserFactoryTest extends \PHPUnit_Framework_TestCase {
+class HttpResponseParserFactoryTest extends \PHPUnit_Framework_TestCase {
 
 	public function testCanConstruct() {
 
@@ -22,8 +22,8 @@ class ResponseParserFactoryTest extends \PHPUnit_Framework_TestCase {
 			->getMock();
 
 		$this->assertInstanceOf(
-			'\SCI\Metadata\ResponseParserFactory',
-			new ResponseParserFactory( $httpRequest )
+			'\SCI\Metadata\HttpResponseParserFactory',
+			new HttpResponseParserFactory( $httpRequest )
 		);
 	}
 
@@ -36,7 +36,7 @@ class ResponseParserFactoryTest extends \PHPUnit_Framework_TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$instance = new ResponseParserFactory( $httpRequest );
+		$instance = new HttpResponseParserFactory( $httpRequest );
 
 		$this->assertInstanceOf(
 			'\Onoi\Remi\ResponseParser',

@@ -18,7 +18,7 @@ class PageBuilderTest extends \PHPUnit_Framework_TestCase {
 	private $htmlFormRenderer;
 	private $hmlColumnListRenderer;
 	private $citationResourceMatchFinder;
-	private $responseParserFactory;
+	private $httpResponseParserFactory;
 
 	protected function setUp() {
 
@@ -34,7 +34,7 @@ class PageBuilderTest extends \PHPUnit_Framework_TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$this->responseParserFactory = $this->getMockBuilder( '\SCI\Metadata\ResponseParserFactory' )
+		$this->httpResponseParserFactory = $this->getMockBuilder( '\SCI\Metadata\HttpResponseParserFactory' )
 			->disableOriginalConstructor()
 			->getMock();
 	}
@@ -45,7 +45,7 @@ class PageBuilderTest extends \PHPUnit_Framework_TestCase {
 			$this->htmlFormRenderer,
 			$this->hmlColumnListRenderer,
 			$this->citationResourceMatchFinder,
-			$this->responseParserFactory
+			$this->httpResponseParserFactory
 		);
 
 		$this->assertInstanceOf(
@@ -64,7 +64,7 @@ class PageBuilderTest extends \PHPUnit_Framework_TestCase {
 			->method( 'getRawResponse' )
 			->with( $this->identicalTo( 42 ) );
 
-		$this->responseParserFactory->expects( $this->once() )
+		$this->httpResponseParserFactory->expects( $this->once() )
 			->method( 'newResponseParserForType' )
 			->with( $this->stringContains( 'foo') )
 			->will( $this->returnValue( $responseParser ) );
@@ -73,7 +73,7 @@ class PageBuilderTest extends \PHPUnit_Framework_TestCase {
 			$this->htmlFormRenderer,
 			$this->hmlColumnListRenderer,
 			$this->citationResourceMatchFinder,
-			$this->responseParserFactory
+			$this->httpResponseParserFactory
 		);
 
 		$instance->getRawResponseFor( 'foo', 42 );
@@ -126,7 +126,7 @@ class PageBuilderTest extends \PHPUnit_Framework_TestCase {
 			->method( 'findMatchForUidTypeOf' )
 			->will( $this->returnValue( array() ) );
 
-		$this->responseParserFactory->expects( $this->once() )
+		$this->httpResponseParserFactory->expects( $this->once() )
 			->method( 'newResponseParserForType' )
 			->with( $this->stringContains( 'foo') )
 			->will( $this->returnValue( $responseParser ) );
@@ -135,7 +135,7 @@ class PageBuilderTest extends \PHPUnit_Framework_TestCase {
 			$htmlFormRenderer,
 			$this->hmlColumnListRenderer,
 			$this->citationResourceMatchFinder,
-			$this->responseParserFactory
+			$this->httpResponseParserFactory
 		);
 
 		$instance->getHtmlFor( 'foo', 42 );
