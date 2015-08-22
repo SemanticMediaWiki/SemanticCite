@@ -66,6 +66,7 @@ class SpecialFindMetadataById extends SpecialPage {
 		if ( $format === 'raw' ) {
 			$this->getOutput()->disable();
 			header( "Content-type: text/plain; charset=utf-8" );
+			header( 'Cache-Control: private, no-cache, must-revalidate' );
 
 			$html = $pageBuilder->getRawResponseFor(
 				$type, $id
