@@ -44,6 +44,8 @@ class SpecialFindMetadataById extends SpecialPage {
 		$output->setPageTitle( $this->msg( 'findmetadatabyid' )->text() );
 		$this->setHeaders();
 
+		$output->addModuleStyles( 'ext.scite.styles' );
+
 		$output->addModules(
 			array(
 				'ext.scite.metadata'
