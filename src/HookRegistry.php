@@ -209,6 +209,8 @@ class HookRegistry {
 				return true;
 			}
 
+			$outputPage->addModuleStyles( 'ext.scite.styles' );
+
 			$outputPage->addModules(
 				array(
 					'ext.scite.styles',
