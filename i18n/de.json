@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kghbln"
+			"Kghbln",
+			"Metalhead64"
 		]
 	},
 	"sci-desc": "Ermöglicht das semantische Verwalten von Referenzierungen",
@@ -20,7 +21,7 @@
 	"right-sci-metasearch": "Die Metadatensuche nutzen",
 	"action-sci-metasearch": "die Metadatensuche zu nutzen",
 	"sci-metadata-search-form": "Nach Kennung",
-	"sci-metadata-search-action-highlight":"Text auswählen",
+	"sci-metadata-search-action-highlight": "Text auswählen",
 	"sci-metadata-search-action-create": "Erstellen",
 	"sci-metadata-search-header-log": "Verlauf",
 	"sci-metadata-search-header-result": "Ergebnis",
@@ -28,16 +29,18 @@
 	"sci-metadata-search-has-match": "Die Kennung entspricht den folgenden [$1] Referenzierungsquellen.",
 	"sci-metadata-search-cached": "Das Ergebnis der Suche stammt aus dem Cache.",
 	"sci-metadata-search-intro": "Bitte ein Identifizierungsmerkmal sowie einen externen Dienst angeben, eine aktive Internetverbindung ist hierzu notwendig, um die Metadaten an die Parserfunktion <code>#scite</code> übergeben zu können:",
-	"sci-metadata-search-intro-doi": "[[Attribut:DOI|DOI]] zur Suche im CrossRef-Repositorium",
-	"sci-metadata-search-intro-pubmed": "[[Attribut:PMCID|PMCID]] zur Suche bei PubMed Central sowie [[Attribut:PMID|PMID]] zur Suche im PubMed-Archiv",
-	"sci-metadata-search-intro-oclc": "[[Attribut:OCLC|OCLC]]-Nummer zur Suche im WorlCat-Katalog",
-	"sci-metadata-search-intro-ol": "[[Attribut:OLID|OLID]] oder ISBN-Nummer zur Suche nach einem OpenLibrary-Eintrag",
-	"sci-metadata-search-intro-viaf": "[[Attribut:VIAF|VIAF]]-Nummer zur Suche nach einer Virtual-International-Authority-Datei",
+	"sci-metadata-search-intro-doi": "[[Property:DOI|DOI]] zur Suche im CrossRef-Repositorium",
+	"sci-metadata-search-intro-pubmed": "[[Property:PMCID|PMCID]] zur Suche bei PubMed Central sowie [[Property:PMID|PMID]] zur Suche im PubMed-Archiv",
+	"sci-metadata-search-intro-oclc": "[[Property:OCLC|OCLC]]-Nummer zur Suche im WorlCat-Katalog",
+	"sci-metadata-search-intro-ol": "[[Property:OLID|OLID]] oder ISBN-Nummer zur Suche nach einem OpenLibrary-Eintrag",
+	"sci-metadata-search-intro-viaf": "[[Property:VIAF|VIAF]]-Nummer zur Suche nach einer Virtual-International-Authority-Datei",
 	"onoi-remi-request-error": "Die Anfrage gab „$1“ zu „$2“ zurück.",
 	"onoi-remi-response-empty": "Die Antwort zu „$1“ war leer.",
 	"onoi-remi-parser-no-id-match": "Der Parser konnte zu „$1“ keinen Treffer ermitteln.",
-	"sci-tooltip-citation-lookup-failure" : "Zu „$1“ konnte keine zutreffende Referenzierung abgerufen werden.",
+	"sci-tooltip-citation-lookup-failure": "Zu „$1“ konnte keine zutreffende Referenzierung abgerufen werden.",
 	"sci-tooltip-citation-lookup-failure-multiple": "Zu „$1“ konnte aufgrund vieler möglicher Ergebnisse keine zutreffende Referenzierung abgerufen werden.",
+	"sci-property-definition": "Eine Liste von <code>#scite</code>-Identifizierungsmerkmalen, die zu benutzerdefinierten Attributen abgebildet sind. Beachte bitte, dass Änderungen an vorhandenen Einträgen einen Umbau der Attributaufträge erfordern.\n foo-id|bar-property",
+	"sci-template-definition": "Eine Liste mit Zitierungstypen, die zu vordefinierten Vorlagen abgebildet sind, die Zitatformatierungsregeln beinhalten.\n foo-type|bar-template",
 	"smw-pa-property-predefined__sci_cite_key": "„$1“ ist ein Spezialattribut das Referenzierungsschlüssel speichert. Es wird von der Erweiterung [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite] bereitgestellt.",
 	"smw-pa-property-predefined__sci_cite_reference": "„$1“ ist ein Spezialattribut das Referenzierungen speichert. Es wird von der Erweiterung [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite] bereitgestellt.",
 	"smw-pa-property-predefined__sci_cite_text": "„$1“ ist ein Spezialattribut das Referenzierungstexte speichert. Es wird von der Erweiterung [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite] bereitgestellt.",

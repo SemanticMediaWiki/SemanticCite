@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"Macofe"
+		]
+	},
+	"sci-desc": "Gestionar los recursos de citas con la ayuda de [https://semantic-mediawiki.org Semantic MediaWiki]",
+	"sci-referencelist-header": "Referencias",
+	"sci-datavalue-invalid-id-value": "\"$1\" no es un valor válido para el tipo $2.",
+	"sci-property-alias-citation-key": "Clave de cita",
+	"sci-property-alias-citation-reference": "Referencia de cita",
+	"sci-property-alias-citation-text": "Texto de cita",
+	"sci-property-alias-citation-resource": "Recurso de cita",
+	"findmetadatabyid": "Buscar metadatos",
+	"sci-metadata-search-form": "Por identificador",
+	"sci-metadata-search-action-highlight": "Seleccionar texto",
+	"sci-metadata-search-action-create": "Crear",
+	"sci-metadata-search-header-log": "Registro",
+	"sci-metadata-search-header-result": "Resultado",
+	"sci-metadata-search-form-submit": "Buscar"
+}

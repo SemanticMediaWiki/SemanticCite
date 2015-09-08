@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Cocu"
+		]
+	},
+	"sci-referencelist-header": "Referanser",
+	"sci-scite-parser-no-type": "<code>#scite</code> kunne ikke fastslå referansetype for «$1».",
+	"findmetadatabyid": "Finn metadata",
+	"sci-metadata-search-action-create": "Skap",
+	"sci-metadata-search-header-log": "Logg",
+	"sci-metadata-search-header-result": "Resultat",
+	"sci-metadata-search-form-submit": "Søk",
+	"sci-metadata-search-intro-pubmed": "[[Property:PMCID|PMCID]] for PubMed Central og [[Property:PMID|PMID]] for PubMed-arkivet"
+}
