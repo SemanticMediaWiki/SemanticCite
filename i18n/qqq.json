@@ -2,11 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"mwjames",
-			"Kghbln"
+			"Kghbln",
+			"Liuxinyu970226",
+			"Robby"
 		]
 	},
 	"sci-desc": "{{desc|name=Semantic Cite|url=https://semantic-mediawiki.org/wiki/Extension:SemanticCite}}",
-	"sci-referencelist-header": "This is the text of a secion header.",
+	"sci-referencelist-header": "This is the text of a secion header.\n{{Identical|Reference}}",
 	"sci-referencelist-text": "{{notranslate}}\n\nThis message is used for internal parsing.",
 	"sci-scite-parser-not-enabled-namespace": "This is the text of an error message.",
 	"sci-scite-parser-no-reference": "This is the text of an error message.",
@@ -28,11 +30,11 @@
 	"right-sci-metasearch": "{{doc-right|sci-metasearch}}",
 	"action-sci-metasearch": "{{doc-action|sci-metasearch}}",
 	"sci-metadata-search-form": "This is the text of an interface message.",
-	"sci-metadata-search-action-highlight": "This is the text of an interface message.",
-	"sci-metadata-search-action-create": "This is the text of an interface message.",
-	"sci-metadata-search-header-log": "This is the text of a section header.",
-	"sci-metadata-search-header-result": "This is the text of a section header.",
-	"sci-metadata-search-form-submit": "This is the text of an interface message.",
+	"sci-metadata-search-action-highlight": "This is the text of an interface message.\n{{Identical|Select text}}",
+	"sci-metadata-search-action-create": "This is the text of an interface message.\n{{Identical|Create}}",
+	"sci-metadata-search-header-log": "This is the text of a section header.\n{{Identical|Log}}",
+	"sci-metadata-search-header-result": "This is the text of a section header.\n{{Identical|Result}}",
+	"sci-metadata-search-form-submit": "This is the text of an interface message.\n{{Identical|Search}}",
 	"sci-metadata-search-has-match": "This is the text of an interface message.\n\n* \"$1\" is the number of results.",
 	"sci-metadata-search-cached": "This is the text of an interface message.",
 	"sci-metadata-search-intro": "This is the text of an interface message.",
