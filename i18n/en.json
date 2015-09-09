@@ -38,7 +38,7 @@
 	"sci-metadata-search-intro": "Please enter an identifier and select an external service (requires an active internet connection) to enable metadata to be mapped to the <code>#scite</code> format with identifiers to match:",
 	"sci-metadata-search-intro-doi": "[[Property:DOI|DOI]] to search the CrossRef repository",
 	"sci-metadata-search-intro-pubmed": "[[Property:PMCID|PMCID]] for PubMed Central and [[Property:PMID|PMID]] for the PubMed archive",
-	"sci-metadata-search-intro-oclc": "[[Property:OCLC|OCLC]] number for the WorlCat catalog",
+	"sci-metadata-search-intro-oclc": "[[Property:OCLC|OCLC]] number for the WorldCat catalog",
 	"sci-metadata-search-intro-ol": "[[Property:OLID|OLID]] or ISBN number to match a OpenLibrary record",
 	"sci-metadata-search-intro-viaf": "[[Property:VIAF|VIAF]] number to search for a Virtual International Authority File",
 	"onoi-remi-request-error": "The REST/HTTP request returned with \"$1\" for \"$2\".",
