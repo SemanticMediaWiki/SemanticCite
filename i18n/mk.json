@@ -1,0 +1,29 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bjankuloski06"
+		]
+	},
+	"sci-desc": "Раководење со ресурси за наведување со помош на [https://semantic-mediawiki.org Семантички МедијаВики]",
+	"sci-referencelist-header": "Наводи",
+	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code> не може да се користи на именски простор каде не е овозможен Семантички Медијавики",
+	"sci-scite-parser-no-reference": "<code>#scite</code> не зададе разлика.",
+	"sci-datavalue-empty-reference": "Наведеното не може да стои празно.",
+	"sci-datavalue-invalid-id-value": "„$1“ не претставува важечка вредност за типот $2.",
+	"sci-property-alias-citation-key": "Клуч на наводот",
+	"sci-property-alias-citation-reference": "Наведено",
+	"sci-property-alias-citation-text": "Текст на наводот",
+	"sci-property-alias-citation-resource": "Ресурс на наводот",
+	"findmetadatabyid": "Најди метаподатоци",
+	"right-sci-metasearch": "Метапребарувачки пристап",
+	"action-sci-metasearch": "метапребарувањето",
+	"sci-metadata-search-form": "По назнака",
+	"sci-metadata-search-action-highlight": "Изберете текст",
+	"sci-metadata-search-action-create": "Создај",
+	"sci-metadata-search-header-log": "Дневник",
+	"sci-metadata-search-header-result": "Исход",
+	"sci-metadata-search-form-submit": "Пребарување",
+	"sci-metadata-search-has-match": "Назнаката се совпаѓа со следниве [$1] ресурси.",
+	"sci-metadata-search-cached": "Одѕивот на барањето беше преземен од меѓускладот.",
+	"smw-pa-property-predefined__sci_cite_key": "„$1“ е предодредено својство што определува ресурс за наведување, а го доставува додатокот „[https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Семантичко наведување]“."
+}
