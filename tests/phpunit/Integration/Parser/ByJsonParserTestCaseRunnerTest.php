@@ -99,6 +99,12 @@ class ByJsonParserTestCaseRunnerTest extends ByJsonTestCaseProvider {
 			);
 		}
 
+		// On SQLite we don't want DB dead locks due to parallel write access
+		$this->changeGlobalSettingTo(
+			'smwgEnabledAsyncJobDispatcher',
+			false
+		);
+
 		$this->hookRegistry->setOption(
 			'citationReferenceCaptionFormat',
 			$jsonTestCaseFileHandler->getSettingsFor( 'scigCitationReferenceCaptionFormat' )

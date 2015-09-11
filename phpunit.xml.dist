@@ -27,5 +27,6 @@
     </filter>
     <php>
        <var name="scigReferenceListCacheType" value="hash"/>
+       <var name="smwgEnabledAsyncJobDispatcher" value="false"/>
     </php>
 </phpunit>
