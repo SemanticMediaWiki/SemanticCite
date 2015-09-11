@@ -147,7 +147,7 @@ class CachedReferenceListOutputRenderer {
 		$customOptions = explode( 'data-', $customOptions[1] );
 
 		$references = '';
-		$header = '';
+		$fingerprint = '';
 
 		foreach ( $customOptions as $options ) {
 
@@ -156,10 +156,10 @@ class CachedReferenceListOutputRenderer {
 			}
 
 			$options = explode( '=', trim( str_replace( '"', '', $options ) ) );
-			$this->doFilterValidOption( $options, $references, $header );
+			$this->doFilterValidOption( $options, $references, $fingerprint );
 		}
 
-		return $this->getRenderedHtmlReferenceList( $references, $header );
+		return $this->getRenderedHtmlReferenceList( $references, $fingerprint );
 	}
 
 	private function searchForReferenceListHeaderTocId( array $options ) {
@@ -177,7 +177,10 @@ class CachedReferenceListOutputRenderer {
 		}
 	}
 
-	private function doFilterValidOption( $options, &$references, &$header ) {
+	private function doFilterValidOption( $options, &$references, &$fingerprint ) {
+
+		$columns = '';
+		$header = '';
 
 		switch ( $options[0] ) {
 			case 'browselinks':
@@ -189,8 +192,9 @@ class CachedReferenceListOutputRenderer {
 				$this->referenceListOutputRenderer->setReferenceListType( $options[1] );
 				break;
 			case 'columns':
+				$columns = $options[1] < 0 ? 0 : $options[1];
 				$this->referenceListOutputRenderer->setNumberOfReferenceListColumns(
-					$options[1] < 1 ? 1 : $options[1]
+					$columns
 				);
 				break;
 			case 'header':
@@ -201,9 +205,11 @@ class CachedReferenceListOutputRenderer {
 				$references = $options[1];
 				break;
 		}
+
+		$fingerprint = $header . $columns;
 	}
 
-	private function getRenderedHtmlReferenceList( $references = '', $header = '' ) {
+	private function getRenderedHtmlReferenceList( $references = '', $fingerprint = ''  ) {
 
 		$container = array();
 		$oldId = $this->contextInteractor->getOldId();
@@ -218,7 +224,7 @@ class CachedReferenceListOutputRenderer {
 		$revId = $oldId != 0 ? $oldId : $this->contextInteractor->getTitle()->getLatestRevID();
 
 		// Create an individual hash for when loose references are used
-		$renderedReferenceListHash = md5( $this->getSubject()->getHash() . $references . $header );
+		$renderedReferenceListHash = md5( $this->getSubject()->getHash() . $references . $fingerprint );
 
 		if ( $this->cache->contains( $key ) ) {
 			$container = $this->cache->fetch( $key );

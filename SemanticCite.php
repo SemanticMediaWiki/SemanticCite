@@ -139,7 +139,7 @@ call_user_func( function () {
 	/**
 	 * Number of columns displayed for the reference list
 	 */
-	$GLOBALS['scigNumberOfReferenceListColumns'] = 2;
+	$GLOBALS['scigNumberOfReferenceListColumns'] = 0; // 0 = responsive columns
 
 	/**
 	 * Specifies the reference list type of which can be either 'ol' or 'ul'

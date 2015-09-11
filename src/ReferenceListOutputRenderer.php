@@ -33,7 +33,7 @@ class ReferenceListOutputRenderer {
 	/**
 	 * @var integer
 	 */
-	private $numberOfReferenceListColumns = 1;
+	private $numberOfReferenceListColumns = 0;
 
 	/**
 	 * @var boolean
@@ -175,7 +175,7 @@ class ReferenceListOutputRenderer {
 		}
 
 		if ( $journal !== null ) {
-			return $this->createHtmlFromList( $journal );
+			return $this->createHtmlFromJournal( $journal );
 		}
 
 		return '';
@@ -188,16 +188,16 @@ class ReferenceListOutputRenderer {
 	 * 'reference-list' => array of hashes for references used
 	 * 'reference-pos'  => individual reference links (1-a, 1-b) assigned to a hash
 	 */
-	private function createHtmlFromList( array $referenceList ) {
+	private function createHtmlFromJournal( array $journal ) {
 
 		$listOfFormattedReferences = array();
 
-		foreach ( $referenceList['reference-pos'] as $referenceAsHash => $linkList ) {
+		foreach ( $journal['reference-pos'] as $referenceAsHash => $linkList ) {
 
 			$citationText = '';
 			// Get the "human" readable citation key/reference from the hashmap
 			// intead of trying to access the DB/Store
-			$reference = $referenceList['reference-list'][$referenceAsHash];
+			$reference = $journal['reference-list'][$referenceAsHash];
 
 			list( $subjects, $citationText ) = $this->findCitationTextFor(
 				$reference
@@ -237,10 +237,21 @@ class ReferenceListOutputRenderer {
 				);
 		}
 
+		return $this->doFinalizeHtmlForListOfReferences( $listOfFormattedReferences );
+	}
+
+	private function doFinalizeHtmlForListOfReferences( $listOfFormattedReferences ) {
+
 		$this->htmlColumnListRenderer->setColumnListClass( 'scite-referencelist' );
-		$this->htmlColumnListRenderer->setNumberOfColumns( $this->numberOfReferenceListColumns );
 		$this->htmlColumnListRenderer->setListType( $this->referenceListType );
 		$this->htmlColumnListRenderer->addContentsByNoIndex( $listOfFormattedReferences );
+
+		if ( $this->numberOfReferenceListColumns == 0 ) {
+			$this->htmlColumnListRenderer->setColumnClass( 'scite-referencelist-columns-responsive' );
+		} else {
+			$this->htmlColumnListRenderer->setNumberOfColumns( $this->numberOfReferenceListColumns );
+			$this->htmlColumnListRenderer->setColumnClass( 'smw-column' );
+		}
 
 		if ( $this->referenceListHeader === '' ) {
 			$this->referenceListHeader = wfMessage( 'sci-referencelist-header' )->text();

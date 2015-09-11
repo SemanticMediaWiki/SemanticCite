@@ -36,6 +36,16 @@
 	font-size: 90%;
 }
 
+.scite-referencelist-columns-responsive {
+  -webkit-columns: 3 25em;
+     -moz-columns: 3 25em;
+          columns: 3 25em;
+  -webkit-column-gap: 1em;
+     -moz-column-gap: 1em;
+          column-gap: 1em;
+          margin-bottom: -2em;
+}
+
 .scite-referencelist .scite-citation-text {
 	font-size: 100%;
 	font-family: 'Times New Roman',stixgeneral,serif;
