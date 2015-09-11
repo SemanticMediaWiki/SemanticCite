@@ -4,5 +4,28 @@
 			"Elisardojm"
 		]
 	},
-	"sci-referencelist-header": "Referencias"
+	"sci-referencelist-header": "Referencias",
+	"sci-property-alias-citation-reference": "Referencia de cita",
+	"sci-property-alias-citation-text": "Texto de cita",
+	"sci-property-alias-citation-resource": "Recurso de cita",
+	"findmetadatabyid": "Buscar metadatos",
+	"right-sci-metasearch": "Acceso a Metabusca",
+	"action-sci-metasearch": "a Metabusca",
+	"sci-metadata-search-form": "Por identificador",
+	"sci-metadata-search-action-highlight": "Seleccionar texto",
+	"sci-metadata-search-action-create": "Crear",
+	"sci-metadata-search-header-log": "Rexistro",
+	"sci-metadata-search-header-result": "Resultado",
+	"sci-metadata-search-form-submit": "Procurar",
+	"sci-metadata-search-cached": "A resposta da procura obtívose da caché.",
+	"sci-metadata-search-intro-doi": "[[Property:DOI|DOI]] a procurar no repositorio de CrossRef",
+	"sci-metadata-search-intro-pubmed": "[[Property:PMCID|PMCID]] para PubMed Central e [[Property:PMID|PMID]] para o arquivo de PubMed",
+	"sci-metadata-search-intro-oclc": "Número de [[Property:OCLC|OCLC]] para o catálogo de WorlCat",
+	"sci-metadata-search-intro-ol": "[[Property:OLID|OLID]] ou número ISBN para casar cun rexistro de OpenLibrary",
+	"sci-metadata-search-intro-viaf": "Número [[Property:VIAF|VIAF]] que buscar para un Arquivo de Autoridades Virtual Internacional",
+	"onoi-remi-request-error": "A consulta REST/HTTP devolveu \"$1\" para \"$2\".",
+	"onoi-remi-response-empty": "A respuesta devolveu un resultado baleiro para \"$1\".",
+	"onoi-remi-parser-no-id-match": "O analizador foi incapaz de atopar \"$1\".",
+	"sci-tooltip-citation-lookup-failure": "Non se puido recuperar unha cita axeitada para \"$1\" desde o servidor.",
+	"sci-tooltip-citation-lookup-failure-multiple": "Non se puido recuperar un texto de cita para \"$1\", que ten varias coincidencias."
 }

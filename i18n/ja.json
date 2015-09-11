@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"mwjames"
+			"mwjames",
+			"Sujiniku"
 		]
 	},
 	"sci-referencelist-header": "出典",
@@ -10,5 +11,8 @@
 	"sci-property-alias-citation-key": "引用キー",
 	"sci-property-alias-citation-reference": "引用",
 	"sci-property-alias-citation-text": "引用書目",
-	"sci-property-alias-citation-resource": "引用リソース"
+	"sci-property-alias-citation-resource": "引用リソース",
+	"sci-metadata-search-action-create": "作成",
+	"sci-metadata-search-header-log": "ログ",
+	"sci-metadata-search-header-result": "結果"
 }
