@@ -114,7 +114,7 @@ class CitationReferencePositionJournal {
 		$hash = $subject->getHash();
 
 		// Tracks the current parser run invoked by the InTextAnnotationParser
-		$uniqid = isset( $subject->uniqid ) ? $subject->uniqid : null;
+		$uniqid = $subject->getContextReference();
 
 		if ( $this->hasJournalForHash( $hash ) &&
 			self::$citationReferenceJournal[$hash]['uniqid'] === $uniqid &&
@@ -141,7 +141,7 @@ class CitationReferencePositionJournal {
 		$hash = $subject->getHash();
 
 		// Tracks the current parser run invoked by the InTextAnnotationParser
-		$uniqid = isset( $subject->uniqid ) ? $subject->uniqid : null;
+		$uniqid = $subject->getContextReference();
 
 		if ( !$this->hasJournalForHash( $hash ) || self::$citationReferenceJournal[$hash]['uniqid'] !== $uniqid ) {
 			$journal = array(
