@@ -8,6 +8,8 @@
 	"sci-referencelist-header": "Наводи",
 	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code> не може да се користи на именски простор каде не е овозможен Семантички Медијавики",
 	"sci-scite-parser-no-reference": "<code>#scite</code> не зададе разлика.",
+	"sci-scite-parser-no-type": "<code>#scite</code> не можеше да го утврди видот на навод за „$1“.",
+	"sci-scite-parser-no-citation-text": "<code>#scite</code> не можеше да го испише текстот на наводот „$1“ од видот „$2“.",
 	"sci-datavalue-empty-reference": "Наведеното не може да стои празно.",
 	"sci-datavalue-invalid-id-value": "„$1“ не претставува важечка вредност за типот $2.",
 	"sci-property-alias-citation-key": "Клуч на наводот",
