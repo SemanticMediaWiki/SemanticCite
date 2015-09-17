@@ -27,5 +27,18 @@
 	"sci-metadata-search-form-submit": "Пребарување",
 	"sci-metadata-search-has-match": "Назнаката се совпаѓа со следниве [$1] ресурси.",
 	"sci-metadata-search-cached": "Одѕивот на барањето беше преземен од меѓускладот.",
-	"smw-pa-property-predefined__sci_cite_key": "„$1“ е предодредено својство што определува ресурс за наведување, а го доставува додатокот „[https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Семантичко наведување]“."
+	"sci-metadata-search-intro-doi": "[[Property:DOI|DOI]] за пребарување на складиштето CrossRef",
+	"sci-metadata-search-intro-pubmed": "[[Property:PMCID|PMCID]] за PubMed Central и [[Property:PMID|PMID]] за архивот на PubMed",
+	"sci-metadata-search-intro-oclc": "[[Property:OCLC|OCLC]] за број во каталогот на WorldCat",
+	"sci-metadata-search-intro-ol": "[[Property:OLID|OLID]] за ISBN што одговара на запис во OpenLibrary",
+	"sci-metadata-search-intro-viaf": "[[Property:VIAF|VIAF]] за пребарување на Виртуелната нормативна податотека",
+	"onoi-remi-request-error": "REST/HTTP се одѕва на барањето со „$1“ за „$2“.",
+	"onoi-remi-response-empty": "Дадениот одговор со празен исход за „$1“.",
+	"onoi-remi-parser-no-id-match": "Расчленувачот не можеше да го совпадне „$1“.",
+	"sci-tooltip-citation-lookup-failure": "Не успеав да добијам соодветен навод за заднинскиот дел на „$1“.",
+	"sci-tooltip-citation-lookup-failure-multiple": "Не успеав да го добијам текстот на наводот за „$1“, кој има повеќе совпаѓања.",
+	"smw-pa-property-predefined__sci_cite_key": "„$1“ е предодредено својство што определува ресурс за наведување, а го доставува додатокот „[https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Семантичко наведување]“.",
+	"smw-pa-property-predefined__sci_cite": "„$1“ е предодредено својство добиено од додатокот [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Семантичко наведување] кое ги опишува сите елементи на еден навод и се складира како подобјект.",
+	"smw-pa-property-predefined__sci_doi": "„$1“ е предодредено својство добиено од додатокот [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Семантичко наведување] кое го претставува дигиталниот идентификатор на објекти (DOI).",
+	"smw-pa-property-predefined__sci_pmcid": "„$1“ е предодредено својство добиено од додатокот [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Семантичко наведување] кое претставува број на PubMed Central (PMCID) и води до целосни списи на PubMed Central."
 }
