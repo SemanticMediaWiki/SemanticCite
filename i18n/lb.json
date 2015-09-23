@@ -5,6 +5,8 @@
 		]
 	},
 	"sci-referencelist-header": "Referenzen",
+	"sci-property-alias-citation-reference": "Referenzéierung",
+	"sci-property-alias-citation-text": "Text vum Zitat",
 	"findmetadatabyid": "Metadate fannen",
 	"sci-metadata-search-action-highlight": "Text eraussichen",
 	"sci-metadata-search-action-create": "Uleeën",

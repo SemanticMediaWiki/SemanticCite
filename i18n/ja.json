@@ -12,7 +12,10 @@
 	"sci-property-alias-citation-reference": "引用",
 	"sci-property-alias-citation-text": "引用書目",
 	"sci-property-alias-citation-resource": "引用リソース",
+	"sci-metadata-search-form": "IDで",
+	"sci-metadata-search-action-highlight": "テキストを選択",
 	"sci-metadata-search-action-create": "作成",
 	"sci-metadata-search-header-log": "ログ",
-	"sci-metadata-search-header-result": "結果"
+	"sci-metadata-search-header-result": "結果",
+	"sci-metadata-search-form-submit": "検索"
 }
