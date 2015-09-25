@@ -33,8 +33,8 @@ class NcbiPubMedResponseParser implements ResponseParser {
 	 *
 	 * {@inheritDoc}
 	 */
-	public function usedCache() {
-		return $this->ncbiPubMedFilteredHttpResponseParser->usedCache();
+	public function usesCache() {
+		return $this->ncbiPubMedFilteredHttpResponseParser->usesCache();
 	}
 
 	/**
@@ -51,8 +51,8 @@ class NcbiPubMedResponseParser implements ResponseParser {
 	 *
 	 * {@inheritDoc}
 	 */
-	public function getRecord() {
-		return $this->ncbiPubMedFilteredHttpResponseParser->getRecord();
+	public function getFilteredRecord() {
+		return $this->ncbiPubMedFilteredHttpResponseParser->getFilteredRecord();
 	}
 
 	/**
@@ -69,9 +69,9 @@ class NcbiPubMedResponseParser implements ResponseParser {
 	 *
 	 * {@inheritDoc}
 	 */
-	public function doParseFor( $id ) {
+	public function doFilterResponseFor( $id ) {
 
-		$type = $this->ncbiPubMedFilteredHttpResponseParser->getRecord()->get(
+		$type = $this->ncbiPubMedFilteredHttpResponseParser->getFilteredRecord()->get(
 			'ncbi-dbtype'
 		);
 
@@ -91,24 +91,24 @@ class NcbiPubMedResponseParser implements ResponseParser {
 		// invoked by NcbiResponseContentParser
 		$prefix = $type === 'pmc' ? 'PMC' : 'PMID';
 
-		$this->ncbiPubMedFilteredHttpResponseParser->doParseFor( $id );
+		$this->ncbiPubMedFilteredHttpResponseParser->doFilterResponseFor( $id );
 
-		$this->ncbiPubMedFilteredHttpResponseParser->getRecord()->setTitleForPageCreation( $prefix . ':' . $id );
-		$this->ncbiPubMedFilteredHttpResponseParser->getRecord()->setSciteTransclusionHead(
+		$this->ncbiPubMedFilteredHttpResponseParser->getFilteredRecord()->setTitleForPageCreation( $prefix . ':' . $id );
+		$this->ncbiPubMedFilteredHttpResponseParser->getFilteredRecord()->setSciteTransclusionHead(
 			$prefix . $id
 		);
 
-		$this->ncbiPubMedFilteredHttpResponseParser->getRecord()->addSearchMatchSet(
+		$this->ncbiPubMedFilteredHttpResponseParser->getFilteredRecord()->addSearchMatchSet(
 			'doi',
-			$this->ncbiPubMedFilteredHttpResponseParser->getRecord()->get( 'doi' )
+			$this->ncbiPubMedFilteredHttpResponseParser->getFilteredRecord()->get( 'doi' )
 		);
 
-		$this->ncbiPubMedFilteredHttpResponseParser->getRecord()->addSearchMatchSet(
+		$this->ncbiPubMedFilteredHttpResponseParser->getFilteredRecord()->addSearchMatchSet(
 			$type,
 			$prefix . $id
 		);
 
-		$this->ncbiPubMedFilteredHttpResponseParser->getRecord()->delete( 'ncbi-dbtype' );
+		$this->ncbiPubMedFilteredHttpResponseParser->getFilteredRecord()->delete( 'ncbi-dbtype' );
 	}
 
 }

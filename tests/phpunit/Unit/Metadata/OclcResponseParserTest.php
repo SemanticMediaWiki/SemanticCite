@@ -36,7 +36,7 @@ class OclcResponseParserTest extends \PHPUnit_Framework_TestCase {
 		$instance = new OclcResponseParser( $oclcFilteredHttpResponseParser );
 
 		$this->assertNull(
-			$instance->usedCache()
+			$instance->usesCache()
 		);
 
 		$this->assertNull(
@@ -44,7 +44,7 @@ class OclcResponseParserTest extends \PHPUnit_Framework_TestCase {
 		);
 
 		$this->assertNull(
-			$instance->getRecord()
+			$instance->getFilteredRecord()
 		);
 
 		$this->assertNull(
@@ -66,14 +66,14 @@ class OclcResponseParserTest extends \PHPUnit_Framework_TestCase {
 			->getMock();
 
 		$oclcFilteredHttpResponseParser->expects( $this->any() )
-			->method( 'getRecord' )
+			->method( 'getFilteredRecord' )
 			->will( $this->returnValue( $record ) );
 
 		$oclcFilteredHttpResponseParser->expects( $expects )
-			->method( 'doParseFor' );
+			->method( 'doFilterResponseFor' );
 
 		$instance = new OclcResponseParser( $oclcFilteredHttpResponseParser );
-		$instance->doParseFor( $id );
+		$instance->doFilterResponseFor( $id );
 	}
 
 	public function idProvider() {

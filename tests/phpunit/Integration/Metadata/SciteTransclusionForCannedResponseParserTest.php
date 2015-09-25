@@ -31,11 +31,11 @@ class SciteTransclusionForCannedResponseParserTest extends \PHPUnit_Framework_Te
 		);
 
 		$instance = $httpResponseParserFactory->newResponseParserForType( 'doi' );
-		$instance->doParseFor( $id );
+		$instance->doFilterResponseFor( $id );
 
 		$this->assertEquals(
 			$expected,
-			$instance->getRecord()->asSciteTransclusion()
+			$instance->getFilteredRecord()->asSciteTransclusion()
 		);
 	}
 
@@ -55,11 +55,11 @@ class SciteTransclusionForCannedResponseParserTest extends \PHPUnit_Framework_Te
 		);
 
 		$instance = $httpResponseParserFactory->newResponseParserForType( 'ol' );
-		$instance->doParseFor( $id );
+		$instance->doFilterResponseFor( $id );
 
 		$this->assertEquals(
 			$expected,
-			$instance->getRecord()->asSciteTransclusion()
+			$instance->getFilteredRecord()->asSciteTransclusion()
 		);
 	}
 
@@ -79,11 +79,11 @@ class SciteTransclusionForCannedResponseParserTest extends \PHPUnit_Framework_Te
 		);
 
 		$instance = $httpResponseParserFactory->newResponseParserForType( 'viaf' );
-		$instance->doParseFor( $id );
+		$instance->doFilterResponseFor( $id );
 
 		$this->assertEquals(
 			$expected,
-			$instance->getRecord()->asSciteTransclusion()
+			$instance->getFilteredRecord()->asSciteTransclusion()
 		);
 	}
 
@@ -103,11 +103,11 @@ class SciteTransclusionForCannedResponseParserTest extends \PHPUnit_Framework_Te
 		);
 
 		$instance = $httpResponseParserFactory->newResponseParserForType( 'oclc' );
-		$instance->doParseFor( $id );
+		$instance->doFilterResponseFor( $id );
 
 		$this->assertEquals(
 			$expected,
-			$instance->getRecord()->asSciteTransclusion()
+			$instance->getFilteredRecord()->asSciteTransclusion()
 		);
 	}
 
@@ -128,11 +128,11 @@ class SciteTransclusionForCannedResponseParserTest extends \PHPUnit_Framework_Te
 		);
 
 		$instance = $httpResponseParserFactory->newResponseParserForType( $type );
-		$instance->doParseFor( $id );
+		$instance->doFilterResponseFor( $id );
 
 		$this->assertEquals(
 			$expected,
-			$instance->getRecord()->asSciteTransclusion()
+			$instance->getFilteredRecord()->asSciteTransclusion()
 		);
 	}
 

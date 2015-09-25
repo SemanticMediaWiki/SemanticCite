@@ -50,7 +50,7 @@ class ResponseParserOutputRenderer {
 
 		$html = '';
 
-		$this->responseParser->doParseFor( $id );
+		$this->responseParser->doFilterResponseFor( $id );
 
 		$html .= Html::rawElement(
 			'div',
@@ -84,7 +84,7 @@ class ResponseParserOutputRenderer {
 					'href' => '#',
 					'class' => 'scite-create scite-action-button',
 					'data-content-selector' => '#scite-record-content',
-					'data-title' =>  $this->responseParser->getRecord()->getTitleForPageCreation()
+					'data-title' =>  $this->responseParser->getFilteredRecord()->getTitleForPageCreation()
 				),
 				wfMessage( 'sci-metadata-search-action-create' )->text()
 			)
@@ -96,7 +96,7 @@ class ResponseParserOutputRenderer {
 				'id' => 'scite-record-content',
 				'class' => 'scite-pre'
 			),
-			$this->responseParser->getRecord()->asSciteTransclusion()
+			$this->responseParser->getFilteredRecord()->asSciteTransclusion()
 		);
 
 		$html .= Html::rawElement(

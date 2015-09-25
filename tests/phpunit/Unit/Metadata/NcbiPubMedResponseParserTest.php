@@ -36,7 +36,7 @@ class NcbiPubMedResponseParserTest extends \PHPUnit_Framework_TestCase {
 		$instance = new NcbiPubMedResponseParser( $ncbiPubMedFilteredHttpResponseParser );
 
 		$this->assertNull(
-			$instance->usedCache()
+			$instance->usesCache()
 		);
 
 		$this->assertNull(
@@ -44,7 +44,7 @@ class NcbiPubMedResponseParserTest extends \PHPUnit_Framework_TestCase {
 		);
 
 		$this->assertNull(
-			$instance->getRecord()
+			$instance->getFilteredRecord()
 		);
 
 		$this->assertNull(
@@ -71,14 +71,14 @@ class NcbiPubMedResponseParserTest extends \PHPUnit_Framework_TestCase {
 			->getMock();
 
 		$ncbiPubMedFilteredHttpResponseParser->expects( $this->any() )
-			->method( 'getRecord' )
+			->method( 'getFilteredRecord' )
 			->will( $this->returnValue( $record ) );
 
 		$ncbiPubMedFilteredHttpResponseParser->expects( $expects )
-			->method( 'doParseFor' );
+			->method( 'doFilterResponseFor' );
 
 		$instance = new NcbiPubMedResponseParser( $ncbiPubMedFilteredHttpResponseParser );
-		$instance->doParseFor( $id );
+		$instance->doFilterResponseFor( $id );
 	}
 
 	public function idProvider() {

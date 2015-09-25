@@ -36,7 +36,7 @@ class CrossRefResponseParserTest extends \PHPUnit_Framework_TestCase {
 		$instance = new CrossRefResponseParser( $crossRefFilteredHttpResponseParser );
 
 		$this->assertNull(
-			$instance->usedCache()
+			$instance->usesCache()
 		);
 
 		$this->assertNull(
@@ -44,7 +44,7 @@ class CrossRefResponseParserTest extends \PHPUnit_Framework_TestCase {
 		);
 
 		$this->assertNull(
-			$instance->getRecord()
+			$instance->getFilteredRecord()
 		);
 
 		$this->assertNull(
@@ -66,14 +66,14 @@ class CrossRefResponseParserTest extends \PHPUnit_Framework_TestCase {
 			->getMock();
 
 		$crossRefFilteredHttpResponseParser->expects( $this->any() )
-			->method( 'getRecord' )
+			->method( 'getFilteredRecord' )
 			->will( $this->returnValue( $record ) );
 
 		$crossRefFilteredHttpResponseParser->expects( $expects )
-			->method( 'doParseFor' );
+			->method( 'doFilterResponseFor' );
 
 		$instance = new CrossRefResponseParser( $crossRefFilteredHttpResponseParser );
-		$instance->doParseFor( $id );
+		$instance->doFilterResponseFor( $id );
 	}
 
 	public function idProvider() {

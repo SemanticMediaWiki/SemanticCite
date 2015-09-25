@@ -33,8 +33,8 @@ class ViafResponseParser implements ResponseParser {
 	 *
 	 * {@inheritDoc}
 	 */
-	public function usedCache() {
-		return $this->viafFilteredHttpResponseParser->usedCache();
+	public function usesCache() {
+		return $this->viafFilteredHttpResponseParser->usesCache();
 	}
 
 	/**
@@ -51,8 +51,8 @@ class ViafResponseParser implements ResponseParser {
 	 *
 	 * {@inheritDoc}
 	 */
-	public function getRecord() {
-		return $this->viafFilteredHttpResponseParser->getRecord();
+	public function getFilteredRecord() {
+		return $this->viafFilteredHttpResponseParser->getFilteredRecord();
 	}
 
 	/**
@@ -69,7 +69,7 @@ class ViafResponseParser implements ResponseParser {
 	 *
 	 * {@inheritDoc}
 	 */
-	public function doParseFor( $viafID ) {
+	public function doFilterResponseFor( $viafID ) {
 
 		$uidValueFactory = new UidValueFactory();
 
@@ -82,14 +82,14 @@ class ViafResponseParser implements ResponseParser {
 
 		$viafID = $viafValue->getWikiValue();
 
-		$this->viafFilteredHttpResponseParser->doParseFor( $viafID );
+		$this->viafFilteredHttpResponseParser->doFilterResponseFor( $viafID );
 
-		$this->viafFilteredHttpResponseParser->getRecord()->setTitleForPageCreation( 'VIAF:' . $viafID );
-		$this->viafFilteredHttpResponseParser->getRecord()->setSciteTransclusionHead(
+		$this->viafFilteredHttpResponseParser->getFilteredRecord()->setTitleForPageCreation( 'VIAF:' . $viafID );
+		$this->viafFilteredHttpResponseParser->getFilteredRecord()->setSciteTransclusionHead(
 			'VIAF' . $viafID
 		);
 
-		$this->viafFilteredHttpResponseParser->getRecord()->addSearchMatchSet( 'viaf', $viafID );
+		$this->viafFilteredHttpResponseParser->getFilteredRecord()->addSearchMatchSet( 'viaf', $viafID );
 	}
 
 }

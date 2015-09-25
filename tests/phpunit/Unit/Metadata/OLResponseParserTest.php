@@ -36,7 +36,7 @@ class OLResponseParserTest extends \PHPUnit_Framework_TestCase {
 		$instance = new OLResponseParser( $olFilteredHttpResponseParser );
 
 		$this->assertNull(
-			$instance->usedCache()
+			$instance->usesCache()
 		);
 
 		$this->assertNull(
@@ -44,7 +44,7 @@ class OLResponseParserTest extends \PHPUnit_Framework_TestCase {
 		);
 
 		$this->assertNull(
-			$instance->getRecord()
+			$instance->getFilteredRecord()
 		);
 
 		$this->assertNull(
@@ -66,14 +66,14 @@ class OLResponseParserTest extends \PHPUnit_Framework_TestCase {
 			->getMock();
 
 		$olFilteredHttpResponseParser->expects( $this->any() )
-			->method( 'getRecord' )
+			->method( 'getFilteredRecord' )
 			->will( $this->returnValue( $record ) );
 
 		$olFilteredHttpResponseParser->expects( $expects )
-			->method( 'doParseFor' );
+			->method( 'doFilterResponseFor' );
 
 		$instance = new OLResponseParser( $olFilteredHttpResponseParser );
-		$instance->doParseFor( $id );
+		$instance->doFilterResponseFor( $id );
 	}
 
 	public function idProvider() {

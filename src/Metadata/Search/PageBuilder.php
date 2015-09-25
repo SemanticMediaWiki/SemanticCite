@@ -100,7 +100,7 @@ class PageBuilder {
 			$text = $responseContentOutputRenderer->renderTextFor( $id );
 
 			$matches = $this->tryToFindCitationResourceMatches(
-				$responseParser->getRecord()
+				$responseParser->getFilteredRecord()
 			);
 
 			$success = $responseParser->getMessages() === array();
@@ -108,7 +108,7 @@ class PageBuilder {
 			$log = $this->prepareLog(
 				$responseParser->getMessages(),
 				$matches,
-				$responseParser->usedCache()
+				$responseParser->usesCache()
 			);
 		}
 
@@ -168,7 +168,7 @@ class PageBuilder {
 			return $html . $htmlFormRenderer->getForm();
 	}
 
-	private function prepareLog( $messages, $matches, $usedCache ) {
+	private function prepareLog( $messages, $matches, $usesCache ) {
 
 		$messageBuilder = $this->htmlFormRenderer->getMessageBuilder();
 
@@ -189,7 +189,7 @@ class PageBuilder {
 			$log[] = $messageBuilder->getMessage( 'sci-metadata-search-has-match', $matches )->text();
 		}
 
-		if ( $usedCache ) {
+		if ( $usesCache ) {
 			$log[] = $messageBuilder->getMessage( 'sci-metadata-search-cached' )->text();
 		}
 

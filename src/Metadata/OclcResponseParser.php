@@ -33,8 +33,8 @@ class OclcResponseParser implements ResponseParser {
 	 *
 	 * {@inheritDoc}
 	 */
-	public function usedCache() {
-		return $this->oclcFilteredHttpResponseParser->usedCache();
+	public function usesCache() {
+		return $this->oclcFilteredHttpResponseParser->usesCache();
 	}
 
 	/**
@@ -51,8 +51,8 @@ class OclcResponseParser implements ResponseParser {
 	 *
 	 * {@inheritDoc}
 	 */
-	public function getRecord() {
-		return $this->oclcFilteredHttpResponseParser->getRecord();
+	public function getFilteredRecord() {
+		return $this->oclcFilteredHttpResponseParser->getFilteredRecord();
 	}
 
 	/**
@@ -69,7 +69,7 @@ class OclcResponseParser implements ResponseParser {
 	 *
 	 * {@inheritDoc}
 	 */
-	public function doParseFor( $oclcID ) {
+	public function doFilterResponseFor( $oclcID ) {
 
 		$uidValueFactory = new UidValueFactory();
 
@@ -82,15 +82,15 @@ class OclcResponseParser implements ResponseParser {
 
 		$oclcID = $viafValue->getWikiValue();
 
-		$this->oclcFilteredHttpResponseParser->doParseFor( $oclcID );
+		$this->oclcFilteredHttpResponseParser->doFilterResponseFor( $oclcID );
 
-		$this->oclcFilteredHttpResponseParser->getRecord()->setTitleForPageCreation( 'OCLC:' . $oclcID );
-		$this->oclcFilteredHttpResponseParser->getRecord()->setSciteTransclusionHead(
+		$this->oclcFilteredHttpResponseParser->getFilteredRecord()->setTitleForPageCreation( 'OCLC:' . $oclcID );
+		$this->oclcFilteredHttpResponseParser->getFilteredRecord()->setSciteTransclusionHead(
 			'OCLC' . $oclcID
 		);
 
-		$this->oclcFilteredHttpResponseParser->getRecord()->addSearchMatchSet( 'oclc', $oclcID );
-		$this->oclcFilteredHttpResponseParser->getRecord()->set( 'oclc', $oclcID );
+		$this->oclcFilteredHttpResponseParser->getFilteredRecord()->addSearchMatchSet( 'oclc', $oclcID );
+		$this->oclcFilteredHttpResponseParser->getFilteredRecord()->set( 'oclc', $oclcID );
 	}
 
 }

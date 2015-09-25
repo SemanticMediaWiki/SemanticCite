@@ -33,8 +33,8 @@ class OLResponseParser implements ResponseParser {
 	 *
 	 * {@inheritDoc}
 	 */
-	public function usedCache() {
-		return $this->olFilteredHttpResponseParser->usedCache();
+	public function usesCache() {
+		return $this->olFilteredHttpResponseParser->usesCache();
 	}
 
 	/**
@@ -51,8 +51,8 @@ class OLResponseParser implements ResponseParser {
 	 *
 	 * {@inheritDoc}
 	 */
-	public function getRecord() {
-		return $this->olFilteredHttpResponseParser->getRecord();
+	public function getFilteredRecord() {
+		return $this->olFilteredHttpResponseParser->getFilteredRecord();
 	}
 
 	/**
@@ -69,33 +69,33 @@ class OLResponseParser implements ResponseParser {
 	 *
 	 * {@inheritDoc}
 	 */
-	public function doParseFor( $olID ) {
+	public function doFilterResponseFor( $olID ) {
 
-		$this->olFilteredHttpResponseParser->doParseFor( $olID );
+		$this->olFilteredHttpResponseParser->doFilterResponseFor( $olID );
 
 		// Fetch the OLID has one could search for an ISBN as well
-		if ( $this->olFilteredHttpResponseParser->getRecord()->has( 'olid' ) ) {
-			$olID = $this->olFilteredHttpResponseParser->getRecord()->get( 'olid' );
+		if ( $this->olFilteredHttpResponseParser->getFilteredRecord()->has( 'olid' ) ) {
+			$olID = $this->olFilteredHttpResponseParser->getFilteredRecord()->get( 'olid' );
 		}
 
 		if ( is_array( $olID ) ) {
 			$olID = end( $olID );
 		}
 
-		$this->olFilteredHttpResponseParser->getRecord()->setTitleForPageCreation(
+		$this->olFilteredHttpResponseParser->getFilteredRecord()->setTitleForPageCreation(
 			'OL:' . str_replace( 'OL', '', $olID )
 		);
 
-		$this->olFilteredHttpResponseParser->getRecord()->setSciteTransclusionHead(
+		$this->olFilteredHttpResponseParser->getFilteredRecord()->setSciteTransclusionHead(
 			$olID
 		);
 
-		$this->olFilteredHttpResponseParser->getRecord()->addSearchMatchSet( 'olid', $olID );
+		$this->olFilteredHttpResponseParser->getFilteredRecord()->addSearchMatchSet( 'olid', $olID );
 
-		if ( $this->olFilteredHttpResponseParser->getRecord()->has( 'lccn' ) ) {
-			$this->olFilteredHttpResponseParser->getRecord()->addSearchMatchSet(
+		if ( $this->olFilteredHttpResponseParser->getFilteredRecord()->has( 'lccn' ) ) {
+			$this->olFilteredHttpResponseParser->getFilteredRecord()->addSearchMatchSet(
 				'lccn',
-				$this->olFilteredHttpResponseParser->getRecord()->get( 'lccn' )
+				$this->olFilteredHttpResponseParser->getFilteredRecord()->get( 'lccn' )
 			);
 		}
 	}

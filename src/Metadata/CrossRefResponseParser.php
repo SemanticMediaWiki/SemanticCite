@@ -33,8 +33,8 @@ class CrossRefResponseParser implements ResponseParser {
 	 *
 	 * {@inheritDoc}
 	 */
-	public function usedCache() {
-		return $this->crossRefFilteredHttpResponseParser->usedCache();
+	public function usesCache() {
+		return $this->crossRefFilteredHttpResponseParser->usesCache();
 	}
 
 	/**
@@ -51,8 +51,8 @@ class CrossRefResponseParser implements ResponseParser {
 	 *
 	 * {@inheritDoc}
 	 */
-	public function getRecord() {
-		return $this->crossRefFilteredHttpResponseParser->getRecord();
+	public function getFilteredRecord() {
+		return $this->crossRefFilteredHttpResponseParser->getFilteredRecord();
 	}
 
 	/**
@@ -69,7 +69,7 @@ class CrossRefResponseParser implements ResponseParser {
 	 *
 	 * {@inheritDoc}
 	 */
-	public function doParseFor( $doi ) {
+	public function doFilterResponseFor( $doi ) {
 
 		$uidValueFactory = new UidValueFactory();
 
@@ -82,18 +82,18 @@ class CrossRefResponseParser implements ResponseParser {
 
 		$doi = $doiValue->getWikiValue();
 
-		$this->crossRefFilteredHttpResponseParser->doParseFor( $doi );
+		$this->crossRefFilteredHttpResponseParser->doFilterResponseFor( $doi );
 
-		$this->crossRefFilteredHttpResponseParser->getRecord()->setTitleForPageCreation( 'DOI:' . md5( $doi ) );
+		$this->crossRefFilteredHttpResponseParser->getFilteredRecord()->setTitleForPageCreation( 'DOI:' . md5( $doi ) );
 
-		$this->crossRefFilteredHttpResponseParser->getRecord()->addSearchMatchSet(
+		$this->crossRefFilteredHttpResponseParser->getFilteredRecord()->addSearchMatchSet(
 			'doi',
 			$doi
 		);
 
-		$this->crossRefFilteredHttpResponseParser->getRecord()->addSearchMatchSet(
+		$this->crossRefFilteredHttpResponseParser->getFilteredRecord()->addSearchMatchSet(
 			'reference',
-			$this->crossRefFilteredHttpResponseParser->getRecord()->get( 'reference' )
+			$this->crossRefFilteredHttpResponseParser->getFilteredRecord()->get( 'reference' )
 		);
 	}
 

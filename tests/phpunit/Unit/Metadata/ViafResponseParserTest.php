@@ -36,7 +36,7 @@ class ViafResponseParserTest extends \PHPUnit_Framework_TestCase {
 		$instance = new ViafResponseParser( $viafFilteredHttpResponseParser );
 
 		$this->assertNull(
-			$instance->usedCache()
+			$instance->usesCache()
 		);
 
 		$this->assertNull(
@@ -44,7 +44,7 @@ class ViafResponseParserTest extends \PHPUnit_Framework_TestCase {
 		);
 
 		$this->assertNull(
-			$instance->getRecord()
+			$instance->getFilteredRecord()
 		);
 
 		$this->assertNull(
@@ -55,7 +55,7 @@ class ViafResponseParserTest extends \PHPUnit_Framework_TestCase {
 	/**
 	 * @dataProvider idProvider
 	 */
-	public function testDoParseForId( $id, $expects ) {
+	public function testDoFilterResponseForId( $id, $expects ) {
 
 		$record = $this->getMockBuilder( '\SCI\Metadata\BibliographicFilteredRecord' )
 			->disableOriginalConstructor()
@@ -66,14 +66,14 @@ class ViafResponseParserTest extends \PHPUnit_Framework_TestCase {
 			->getMock();
 
 		$viafFilteredHttpResponseParser->expects( $this->any() )
-			->method( 'getRecord' )
+			->method( 'getFilteredRecord' )
 			->will( $this->returnValue( $record ) );
 
 		$viafFilteredHttpResponseParser->expects( $expects )
-			->method( 'doParseFor' );
+			->method( 'doFilterResponseFor' );
 
 		$instance = new ViafResponseParser( $viafFilteredHttpResponseParser );
-		$instance->doParseFor( $id );
+		$instance->doFilterResponseFor( $id );
 	}
 
 	public function idProvider() {

@@ -55,7 +55,7 @@ class ResponseParserOutputRendererTest extends \PHPUnit_Framework_TestCase {
 			->getMockForAbstractClass();
 
 		$responseParser->expects( $this->once() )
-			->method( 'doParseFor' )
+			->method( 'doFilterResponseFor' )
 			->with( $this->identicalTo( 42 ) );
 
 		$responseParser->expects( $this->atLeastOnce() )
@@ -63,7 +63,7 @@ class ResponseParserOutputRendererTest extends \PHPUnit_Framework_TestCase {
 			->will( $this->returnValue( array() ) );
 
 		$responseParser->expects( $this->atLeastOnce() )
-			->method( 'getRecord' )
+			->method( 'getFilteredRecord' )
 			->will( $this->returnValue( $bibliographicFilteredRecord ) );
 
 		$instance = new ResponseParserOutputRenderer(
