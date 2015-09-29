@@ -2,12 +2,15 @@
 	"@metadata": {
 		"authors": [
 			"Wladek92",
-			"Macofe"
+			"Macofe",
+			"TomT0m"
 		]
 	},
 	"sci-referencelist-header": "Références",
 	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code> ne peut pas être utilisé pour un espace de noms sur lequel Semantic MediaWiki n'a pas été activé",
 	"sci-scite-parser-no-reference": "<code>#scite</code> n'a pas déclaré de référence.",
+	"sci-metadata-search-form": "Par identifiant",
+	"sci-metadata-search-action-highlight": "Sélectionnez le texte",
 	"sci-metadata-search-action-create": "Créer",
 	"sci-metadata-search-header-log": "Journal",
 	"sci-metadata-search-header-result": "Résultat",

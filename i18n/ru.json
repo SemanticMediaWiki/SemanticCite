@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"INS Pirat"
+		]
+	},
+	"sci-datavalue-invalid-id-value": "\"$1\" - недопустимое значение для типа $2.",
+	"findmetadatabyid": "Найти метаданные"
+}
