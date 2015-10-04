@@ -65,6 +65,39 @@ class ReferenceListParserFunctionTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
+	public function testDoProcessForReferenceParameter() {
+
+		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$parserData = $this->getMockBuilder( '\SMW\ParserData' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$parserData->expects( $this->any() )
+			->method( 'getSubject' )
+			->will( $this->returnValue( new DIWikiPage( 'Foo', NS_MAIN ) ) );
+
+		$parserData->expects( $this->once() )
+			->method( 'pushSemanticDataToParserOutput' );
+
+		$parserData->expects( $this->any() )
+			->method( 'getSemanticData' )
+			->will( $this->returnValue( $semanticData ) );
+
+		$parserParameterProcessor = $this->getMockBuilder( '\SMW\ParserParameterProcessor' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$parserParameterProcessor->expects( $this->once() )
+			->method( 'toArray' )
+			->will( $this->returnValue( array( 'references' => array( 'Foo', 42 ) ) ) );
+
+		$instance = new ReferenceListParserFunction( $parserData );
+		$instance->doProcess( $parserParameterProcessor );
+	}
+
 	public function parametersDataProvider() {
 
 		$provider[] = array(

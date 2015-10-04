@@ -121,12 +121,10 @@ class ReferenceListParserFunction {
 			$this->parserData->addDataValue( $dataValue );
 		}
 
-		if ( $this->parserData->getSemanticData()->isEmpty() ) {
-			return;
+		if ( !$this->parserData->getSemanticData()->isEmpty() ) {
+			$this->parserData->getSubject()->setContextReference( 'referencelistp:' . uniqid() );
+			$this->parserData->pushSemanticDataToParserOutput();
 		}
-
-		$this->parserData->getSubject()->setContextReference( 'referencelistp:' . uniqid() );
-		$this->parserData->pushSemanticDataToParserOutput();
 
 		return json_encode( $values );
 	}

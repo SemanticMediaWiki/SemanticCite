@@ -6,6 +6,7 @@ use SCI\ReferenceBacklinksLookup;
 use SCI\PropertyRegistry;
 use SMW\DIWikiPage;
 use SMW\DIProperty;
+use SMWDIBlob as DIBlob;
 
 /**
  * @covers \SCI\ReferenceBacklinksLookup
@@ -50,6 +51,7 @@ class ReferenceBacklinksLookupTest extends \PHPUnit_Framework_TestCase {
 			->will( $this->returnValue( $semanticData ) );
 
 		$instance = new ReferenceBacklinksLookup( $store );
+		$instance->setStore( $store );
 
 		$this->assertEquals(
 			'Bar',
@@ -139,6 +141,45 @@ class ReferenceBacklinksLookupTest extends \PHPUnit_Framework_TestCase {
 
 		$instance->addReferenceBacklinksTo(
 			$semanticData
+		);
+	}
+
+	public function testGetSpecialPropertySearchFurtherLink() {
+
+		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$semanticData->expects( $this->once() )
+			->method( 'getPropertyValues' )
+			->will( $this->returnValue( array( new DIBlob( 'Bar' ) ) ) );
+
+		$store = $this->getMockBuilder( '\SMW\Store' )
+			->disableOriginalConstructor()
+			->getMockForAbstractClass();
+
+		$store->expects( $this->once() )
+			->method( 'getSemanticData' )
+			->will( $this->returnValue( $semanticData ) );
+
+		$property = new DIProperty( PropertyRegistry::SCI_CITE_REFERENCE );
+		$subject = DIWikiPage::newFromText( __METHOD__ );
+
+		$instance = new ReferenceBacklinksLookup( $store );
+
+		$result = $instance->getSpecialPropertySearchFurtherLink(
+			$property,
+			$subject,
+			$html
+		);
+
+		$this->assertFalse(
+			$result
+		);
+
+		$this->assertContains(
+			'SearchByProperty',
+			$html
 		);
 	}
 
