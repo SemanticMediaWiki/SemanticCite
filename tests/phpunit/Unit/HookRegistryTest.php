@@ -50,14 +50,15 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 			->getMockForAbstractClass();
 
 		$configuration = array(
-			'numberOfReferenceListColumns'     => 1,
-			'browseLinkToCitationResource'     => false,
-			'showTooltipForCitationReference'  => false,
-			'tooltipRequestCacheTTL'           => false,
-			'citationReferenceCaptionFormat'   => 1,
-			'referenceListType'                => 'ul',
-			'strictParserValidationEnabled'    => true,
-			'cachePrefix'                      => 'foo'
+			'numberOfReferenceListColumns'       => 1,
+			'browseLinkToCitationResource'       => false,
+			'showTooltipForCitationReference'    => false,
+			'tooltipRequestCacheTTL'             => false,
+			'citationReferenceCaptionFormat'     => 1,
+			'referenceListType'                  => 'ul',
+			'strictParserValidationEnabled'      => true,
+			'cachePrefix'                        => 'foo',
+			'enabledCitationTextChangeUpdateJob' => false
 		);
 
 		$instance = new HookRegistry(
@@ -78,6 +79,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 		$this->doTestRegisteredBeforePageDisplay( $instance );
 		$this->doTestRegisteredBrowseAfterIncomingPropertiesLookupComplete( $instance );
 		$this->doTestRegisteredBrowseBeforeIncomingPropertyValuesFurtherLinkCreate( $instance );
+		$this->doTestRegisteredSAfterDataUpdateComplete( $instance );
 	}
 
 	public function doTestRegisteredInitPropertiesHandler( $instance ) {
@@ -383,6 +385,37 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 		$this->assertThatHookIsExcutable(
 			$instance->getHandlerFor( $hook ),
 			array( $property, $subject, &$html )
+		);
+	}
+
+
+	public function doTestRegisteredSAfterDataUpdateComplete( $instance ) {
+
+		$hook = 'SMW::SQLStore::AfterDataUpdateComplete';
+
+		$this->assertTrue(
+			$instance->isRegistered( $hook )
+		);
+
+		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$semanticData->expects( $this->once() )
+			->method( 'getSubject' )
+			->will( $this->returnValue( DIWikiPage::newFromText( __METHOD__ ) ) );
+
+		$store = $this->getMockBuilder( '\SMW\SQLStore\SQLStore' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$compositePropertyTableDiffIterator = $this->getMockBuilder( '\SMW\SQLStore\CompositePropertyTableDiffIterator' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$this->assertThatHookIsExcutable(
+			$instance->getHandlerFor( $hook ),
+			array( $store, $semanticData, $compositePropertyTableDiffIterator )
 		);
 	}
 

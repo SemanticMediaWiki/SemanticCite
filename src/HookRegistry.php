@@ -263,7 +263,7 @@ class HookRegistry {
 		};
 
 		/**
-		 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ArticlePurge
+		 * @see https://www.semantic-mediawiki.org/wiki/Hooks#SMWStore::updateDataBefore
 		 */
 		$this->handlers['SMWStore::updateDataBefore'] = function ( $store, $semanticData ) use ( $cache, $cacheKeyGenerator, $citationReferencePositionJournal ) {
 
@@ -281,6 +281,30 @@ class HookRegistry {
 
 			$cache->delete(
 				$cacheKeyGenerator->getCacheKeyForReferenceList( $hash )
+			);
+
+			return true;
+		};
+
+		/**
+		 * @see https://www.semantic-mediawiki.org/wiki/Hooks#SMW::SQLStore::AfterDataUpdateComplete
+		 */
+		$this->handlers['SMW::SQLStore::AfterDataUpdateComplete'] = function ( $store, $semanticData, $compositePropertyTableDiffIterator ) use ( $referenceBacklinksLookup, $options ) {
+
+			$referenceBacklinksLookup->setStore( $store );
+
+			$citationTextChangeUpdateJobDispatcher = new CitationTextChangeUpdateJobDispatcher(
+				$store,
+				$referenceBacklinksLookup
+			);
+
+			$citationTextChangeUpdateJobDispatcher->setEnabledUpdateJobState(
+				$options->get( 'enabledCitationTextChangeUpdateJob' )
+			);
+
+			$citationTextChangeUpdateJobDispatcher->dispatchUpdateJobFor(
+				$semanticData->getSubject(),
+				$compositePropertyTableDiffIterator
 			);
 
 			return true;

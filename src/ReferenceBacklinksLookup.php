@@ -76,7 +76,7 @@ class ReferenceBacklinksLookup {
 	 */
 	public function getSpecialPropertySearchFurtherLink( DIProperty $property, DIWikiPage $subject, &$html ) {
 
-		if ( $property->getKey() !== PropertyRegistry::SCI_CITE_REFERENCE || ( $citationKey = $this->findCitationKeyFor( $subject ) ) === null ) {
+		if ( $property->getKey() !== PropertyRegistry::SCI_CITE_REFERENCE || ( $citationKey = $this->tryToFindCitationKeyFor( $subject ) ) === null ) {
 			return true;
 		}
 
@@ -104,7 +104,7 @@ class ReferenceBacklinksLookup {
 	 */
 	public function addReferenceBacklinksTo( SemanticData $semanticData ) {
 
-		$key = $this->findCitationKeyFor( $semanticData->getSubject() );
+		$key = $this->tryToFindCitationKeyFor( $semanticData->getSubject() );
 
 		$property = new DIProperty(
 			PropertyRegistry::SCI_CITE_REFERENCE
@@ -122,7 +122,7 @@ class ReferenceBacklinksLookup {
 	 *
 	 * @return DIBlob|null
 	 */
-	public function findCitationKeyFor( DIWikiPage $subject ) {
+	public function tryToFindCitationKeyFor( DIWikiPage $subject ) {
 
 		$keys = $this->store->getSemanticData( $subject )->getPropertyValues(
 			new DIProperty( PropertyRegistry::SCI_CITE_KEY )

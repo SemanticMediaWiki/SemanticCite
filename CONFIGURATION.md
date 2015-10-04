@@ -13,6 +13,8 @@
   the page is purged
 - `$GLOBALS['scigStrictParserValidationEnabled']` whether a strict validation of input data for
   the `{{#scite:}}` parser should be carried out or not
+- `$GLOBALS['scigEnabledCitationTextChangeUpdateJob']` whether an update job should be dispatched
+  for changed citation text entities or not
 
 ### Reference list
 

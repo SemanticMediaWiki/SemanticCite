@@ -163,6 +163,12 @@ call_user_func( function () {
 	 */
 	$GLOBALS['scigStrictParserValidationEnabled'] = true;
 
+	/**
+	 * Whether an update job should be dispatched for changed citation text
+	 * entities or not
+	 */
+	$GLOBALS['scigEnabledCitationTextChangeUpdateJob'] = true;
+
 	// Finalize registration process
 	$GLOBALS['wgExtensionFunctions'][] = function() {
 
@@ -171,14 +177,15 @@ call_user_func( function () {
 		$GLOBALS['scigCachePrefix'] = $GLOBALS['wgCachePrefix'] === false ? wfWikiID() : $GLOBALS['wgCachePrefix'];
 
 		$configuration = array(
-			'numberOfReferenceListColumns'     => $GLOBALS['scigNumberOfReferenceListColumns'],
-			'browseLinkToCitationResource'     => $GLOBALS['scigBrowseLinkToCitationResource'],
-			'showTooltipForCitationReference'  => $GLOBALS['scigShowTooltipForCitationReference'],
-			'tooltipRequestCacheTTL'           => $GLOBALS['scigTooltipRequestCacheTTLInSeconds'],
-			'citationReferenceCaptionFormat'   => $GLOBALS['scigCitationReferenceCaptionFormat'],
-			'referenceListType'                => $GLOBALS['scigReferenceListType'],
-			'strictParserValidationEnabled'    => $GLOBALS['scigStrictParserValidationEnabled'],
-			'cachePrefix'                      => $GLOBALS['scigCachePrefix']
+			'numberOfReferenceListColumns'       => $GLOBALS['scigNumberOfReferenceListColumns'],
+			'browseLinkToCitationResource'       => $GLOBALS['scigBrowseLinkToCitationResource'],
+			'showTooltipForCitationReference'    => $GLOBALS['scigShowTooltipForCitationReference'],
+			'tooltipRequestCacheTTL'             => $GLOBALS['scigTooltipRequestCacheTTLInSeconds'],
+			'citationReferenceCaptionFormat'     => $GLOBALS['scigCitationReferenceCaptionFormat'],
+			'referenceListType'                  => $GLOBALS['scigReferenceListType'],
+			'strictParserValidationEnabled'      => $GLOBALS['scigStrictParserValidationEnabled'],
+			'cachePrefix'                        => $GLOBALS['scigCachePrefix'],
+			'enabledCitationTextChangeUpdateJob' => $GLOBALS['scigEnabledCitationTextChangeUpdateJob']
 		);
 
 		$cacheFactory = new CacheFactory();
