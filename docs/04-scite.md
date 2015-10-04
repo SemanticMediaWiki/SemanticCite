@@ -89,6 +89,10 @@ the type is used for processing in order to return a formatted text value.
 }}
 ```
 
+If `$GLOBALS['scigEnabledCitationTextChangeUpdateJob']` is set true then a change to
+a citation text will initiate an update job for those pages that make reference to the
+related citation resource.
+
 ## Type assignment
 
 A type assignment is expected for each citation resource unless `$GLOBALS['scigStrictParserValidationEnabled']`

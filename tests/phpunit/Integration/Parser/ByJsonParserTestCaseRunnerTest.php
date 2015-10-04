@@ -33,14 +33,15 @@ class ByJsonParserTestCaseRunnerTest extends ByJsonTestCaseProvider {
 		$this->stringValidator = UtilityFactory::getInstance()->newValidatorFactory()->newStringValidator();
 
 		$configuration = array(
-			'numberOfReferenceListColumns'     => 1,
-			'browseLinkToCitationResource'     => false,
-			'showTooltipForCitationReference'  => false,
-			'tooltipRequestCacheTTL'           => false,
-			'citationReferenceCaptionFormat'   => 1,
-			'referenceListType'                => 'ol',
-			'strictParserValidationEnabled'    => true,
-			'cachePrefix'                      => 'foo'
+			'numberOfReferenceListColumns'       => 1,
+			'browseLinkToCitationResource'       => false,
+			'showTooltipForCitationReference'    => false,
+			'tooltipRequestCacheTTL'             => false,
+			'citationReferenceCaptionFormat'     => 1,
+			'referenceListType'                  => 'ol',
+			'strictParserValidationEnabled'      => true,
+			'cachePrefix'                        => 'foo',
+			'enabledCitationTextChangeUpdateJob' => false
 		);
 
 		// This is to ensure we read from the DB when a test case

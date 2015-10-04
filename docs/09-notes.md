@@ -1,6 +1,6 @@
 # Technical notes
 
-![image](https://cloud.githubusercontent.com/assets/1245473/10266416/b5c0c1c0-6a60-11e5-9796-99e2fd6f91ce.png)
+![image](https://cloud.githubusercontent.com/assets/1245473/10267125/8bfb2688-6a87-11e5-919f-944baea4fd4e.png)
 
 ## Properties
 

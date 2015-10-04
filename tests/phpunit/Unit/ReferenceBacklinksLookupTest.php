@@ -31,7 +31,7 @@ class ReferenceBacklinksLookupTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	public function testFindCitationKeyFor() {
+	public function testtryToFindCitationKeyFor() {
 
 		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()
@@ -55,7 +55,7 @@ class ReferenceBacklinksLookupTest extends \PHPUnit_Framework_TestCase {
 
 		$this->assertEquals(
 			'Bar',
-			$instance->findCitationKeyFor( DIWikiPage::newFromText( __METHOD__ ) )
+			$instance->tryToFindCitationKeyFor( DIWikiPage::newFromText( __METHOD__ ) )
 		);
 	}
 
