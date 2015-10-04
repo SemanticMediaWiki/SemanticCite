@@ -65,7 +65,8 @@
 	"settings": {
 		"wgContLang": "en",
 		"scigReferenceListType": "ol",
-		"scigCitationReferenceCaptionFormat" : 1
+		"scigCitationReferenceCaptionFormat" : 1,
+		"smwgPageSpecialProperties": [ "_MDAT" ]
 	},
 	"meta": {
 		"version": "0.1",

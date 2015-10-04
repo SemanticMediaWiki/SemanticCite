@@ -3,6 +3,7 @@
 namespace SCI\Tests;
 
 use SCI\SciteParserFunction;
+use SMW\DIWikiPage;
 
 /**
  * @covers \SCI\SciteParserFunction
@@ -26,6 +27,10 @@ class SciteParserFunctionTest extends \PHPUnit_Framework_TestCase {
 		$this->parserData = $this->getMockBuilder( '\SMW\ParserData' )
 			->disableOriginalConstructor()
 			->getMock();
+
+		$this->parserData->expects( $this->any() )
+			->method( 'getSubject' )
+			->will( $this->returnValue( DIWikiPage::newFromText( __METHOD__ ) ) );
 
 		$this->namespaceExaminer = $this->getMockBuilder( '\SMW\NamespaceExaminer' )
 			->disableOriginalConstructor()

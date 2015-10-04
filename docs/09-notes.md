@@ -1,5 +1,7 @@
 # Technical notes
 
+![image](https://cloud.githubusercontent.com/assets/1245473/10266416/b5c0c1c0-6a60-11e5-9796-99e2fd6f91ce.png)
+
 ## Properties
 
 - Property `Citation key` is a string value that identifies a citation resource
@@ -10,7 +12,7 @@
 - Property `Citation text` contains the citation output generated from a template or free text assignment
 - Pre-deployed properties are scheduled to create separate property tables that can be found under `smw_ftp_sci*`
 - Properties for external representation include `DOI`, `PMCID`, `PMID`, `VIAF`,
-  `OCLC`, and `OLID` as a `UidValue` (a string value that is transformed into an
+  `OCLC`, and `OLID` as a `ResourceIdentifierStringValue` (a string value that is transformed into an
   appropriate output URL representation when displayed)
 
 ## Citation reference

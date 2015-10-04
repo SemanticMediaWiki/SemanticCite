@@ -46,11 +46,11 @@ call_user_func( function () {
 	$GLOBALS['wgExtensionMessagesFiles']['semantic-cite-magic'] = __DIR__ . '/i18n/SemanticCite.magic.php';
 	$GLOBALS['wgExtensionMessagesFiles']['semantic-cite-alias'] = __DIR__ . '/i18n/SemanticCite.alias.php';
 
-	$GLOBALS['wgSpecialPages']['FindMetadataById'] = '\SCI\Metadata\Search\SpecialFindMetadataById';
+	$GLOBALS['wgSpecialPages']['FindCitableMetadata'] = '\SCI\Specials\SpecialFindCitableMetadata';
 
-	// Restrict access to the meta search for regstered users only
-	$GLOBALS['wgAvailableRights'][] = 'sci-metasearch';
-	$GLOBALS['wgGroupPermissions']['user']['sci-metasearch'] = true;
+	// Restrict access to the meta search for registered users only
+	$GLOBALS['wgAvailableRights'][] = 'sci-metadatasearch';
+	$GLOBALS['wgGroupPermissions']['user']['sci-metadatasearch'] = true;
 
 	// Register resource files
 	$extensionPathParts = explode( DIRECTORY_SEPARATOR . 'extensions' . DIRECTORY_SEPARATOR , __DIR__, 2 );

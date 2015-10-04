@@ -83,8 +83,12 @@ class ReferenceBacklinksLookupTest extends \PHPUnit_Framework_TestCase {
 			->method( 'getSemanticData' )
 			->will( $this->returnValue( $semanticData ) );
 
+		$requestOptions = new \stdClass;
+		$requestOptions->limit = 5;
+		$requestOptions->offset = 0;
+
 		$instance = new ReferenceBacklinksLookup( $store );
-		$instance->setLimit( 5 );
+		$instance->setRequestOptions( $requestOptions );
 
 		$instance->addReferenceBacklinksTo(
 			$semanticData

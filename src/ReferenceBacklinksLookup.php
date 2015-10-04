@@ -30,6 +30,11 @@ class ReferenceBacklinksLookup {
 	private $limit = 20;
 
 	/**
+	 * @var integer
+	 */
+	private $offset = 0;
+
+	/**
 	 * @since 1.0
 	 *
 	 * @param Store $store
@@ -41,10 +46,52 @@ class ReferenceBacklinksLookup {
 	/**
 	 * @since 1.0
 	 *
-	 * @param integer $limit
+	 * @param Store $store
 	 */
-	public function setLimit( $limit ) {
-		$this->limit = $limit;
+	public function setStore( Store $store ) {
+		$this->store = $store;
+	}
+
+	/**
+	 * @since 1.0
+	 *
+	 * @param mixed|null $requestOptions
+	 */
+	public function setRequestOptions( $requestOptions = null ) {
+
+		if ( $requestOptions === null ) {
+			return;
+		}
+
+		$this->limit = $requestOptions->limit;
+		$this->offset = $requestOptions->offset;
+	}
+
+	/**
+	 * @since 1.0
+	 *
+	 * @param DIProperty $property
+	 * @param DIWikiPage $subject
+	 * @param string &$html
+	 */
+	public function getSpecialPropertySearchFurtherLink( DIProperty $property, DIWikiPage $subject, &$html ) {
+
+		if ( $property->getKey() !== PropertyRegistry::SCI_CITE_REFERENCE || ( $citationKey = $this->findCitationKeyFor( $subject ) ) === null ) {
+			return true;
+		}
+
+		$html .= \Html::element(
+			'a',
+			array(
+				'href' => \SpecialPage::getSafeTitleFor( 'SearchByProperty' )->getLocalURL( array(
+					'property' => $property->getLabel(),
+					'value' => $citationKey->getString()
+				) )
+			),
+			wfMessage( 'smw_browse_more' )->text()
+		);
+
+		return false;
 	}
 
 	/**
@@ -116,6 +163,7 @@ class ReferenceBacklinksLookup {
 
 		$query = new Query( $someProperty );
 		$query->setLimit( $this->limit );
+		$query->setOffset( $this->offset );
 
 		return $this->store->getQueryResult( $query )->getResults();
 	}

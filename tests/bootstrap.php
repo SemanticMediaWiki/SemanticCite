@@ -25,4 +25,5 @@ $autoloader->addPsr4( 'SCI\\Tests\\', __DIR__ . '/phpunit/Unit' );
 $autoloader->addPsr4( 'SCI\\Tests\\Integration\\', __DIR__ . '/phpunit/Integration' );
 unset( $autoloader );
 
-print( "Semantic MediaWiki: " . SMW_VERSION . " ({$GLOBALS['smwgDefaultStore']}, {$GLOBALS['wgDBtype']})\n\n" );
+print( "Semantic MediaWiki: " . SMW_VERSION . " ({$GLOBALS['smwgDefaultStore']}, {$GLOBALS['wgDBtype']})\n" );
+print( "Semantic Cite: " . SCI_VERSION . "\n\n" );

@@ -46,6 +46,16 @@
           margin-bottom: -2em;
 }
 
+.scite-referencelist-columns-responsive-single {
+  -webkit-columns: 1 100%;
+     -moz-columns: 1 100%;
+          columns: 1 100%;
+  -webkit-column-gap: 1em;
+     -moz-column-gap: 1em;
+          column-gap: 1em;
+          margin-bottom: -2em;
+}
+
 .scite-referencelist .scite-citation-text {
 	font-size: 100%;
 	font-family: 'Times New Roman',stixgeneral,serif;

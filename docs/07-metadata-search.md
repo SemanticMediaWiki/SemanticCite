@@ -1,8 +1,8 @@
 # Metadata search
 
-![image](https://cloud.githubusercontent.com/assets/1245473/8892109/28bfe0d6-3346-11e5-8002-dbb642e62fc4.png)
+![image](https://cloud.githubusercontent.com/assets/1245473/10266229/1c8b9bca-6a55-11e5-9ccb-cb44bfb400f0.png)
 
-`Special:FindMetadataById` provides access to selected metadata provider to map
+`Special:FindCitableMetadata` provides access to selected metadata provider to map
 external data to the internal `#scite` format. Supported providers are:
 
 - PubMed (PMID, PMCID)
@@ -16,7 +16,7 @@ of the metadata search.
 
 ## Direct search
 
-A link `Special:FindMetadataById` + `/doi/10.1126/science.1152662` or `/pubmed/18487186`
+A link `Special:FindCitableMetadata` + `/doi/10.1126/science.1152662` or `/pubmed/18487186`
 with a type and ID parameter allows to execute a search immediately.
 
 ## Search
@@ -34,7 +34,7 @@ to this resource is provided.
 
 ### Citation resource auto creation
 
-`Special:FindMetadataById` allows to create a dedicated article containing the mapped
+`Special:FindCitableMetadata` allows to create a dedicated article containing the mapped
 `#scite` with content from the search and a page title that is generated from:
 
 - `CR:` (is the fixed identifier indicating a citation resource article)

@@ -68,8 +68,9 @@
 			"store": {
 				"semantic-data": {
 					"strict-mode-valuematch": false,
-					"propertyCount": 2,
-					"propertyKeys": [ "_MDAT", "_SKEY" ]
+					"propertyCount": 3,
+					"propertyKeys": [ "__sci_cite_reference", "_MDAT", "_SKEY" ],
+					"propertyValues": [ "Bar:abc", "Foo:abc" ]
 				}
 			},
 			"expected-output": {
@@ -84,7 +85,8 @@
 	"settings": {
 		"wgContLang": "en",
 		"scigReferenceListType": "ul",
-		"scigCitationReferenceCaptionFormat" : 2
+		"scigCitationReferenceCaptionFormat" : 2,
+		"smwgPageSpecialProperties": [ "_MDAT" ]
 	},
 	"meta": {
 		"version": "0.1",

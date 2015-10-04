@@ -5,3 +5,4 @@ This file contains the RELEASE-NOTES of the Semantic Cite (a.k.a. SCI) extension
 * Initial release
 * Added `#scite` parser function
 * Added `#referencelist` parser function
+* Added `Special:FindCitableMetadata`

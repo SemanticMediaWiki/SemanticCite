@@ -191,6 +191,7 @@ class ReferenceListOutputRenderer {
 	private function createHtmlFromJournal( array $journal ) {
 
 		$listOfFormattedReferences = array();
+		$length = 0;
 
 		foreach ( $journal['reference-pos'] as $referenceAsHash => $linkList ) {
 
@@ -202,6 +203,8 @@ class ReferenceListOutputRenderer {
 			list( $subjects, $citationText ) = $this->findCitationTextFor(
 				$reference
 			);
+
+			$length += mb_strlen( $citationText );
 
 			$flatHtmlReferenceLinks = $this->createFlatHtmlListForReferenceLinks(
 				$linkList,
@@ -237,17 +240,17 @@ class ReferenceListOutputRenderer {
 				);
 		}
 
-		return $this->doFinalizeHtmlForListOfReferences( $listOfFormattedReferences );
+		return $this->doFinalizeHtmlForListOfReferences( $listOfFormattedReferences, $length );
 	}
 
-	private function doFinalizeHtmlForListOfReferences( $listOfFormattedReferences ) {
+	private function doFinalizeHtmlForListOfReferences( $listOfFormattedReferences, $length ) {
 
 		$this->htmlColumnListRenderer->setColumnListClass( 'scite-referencelist' );
 		$this->htmlColumnListRenderer->setListType( $this->referenceListType );
 		$this->htmlColumnListRenderer->addContentsByNoIndex( $listOfFormattedReferences );
 
 		if ( $this->numberOfReferenceListColumns == 0 ) {
-			$this->htmlColumnListRenderer->setColumnClass( 'scite-referencelist-columns-responsive' );
+			$this->htmlColumnListRenderer->setColumnClass( 'scite-referencelist-columns-responsive'. ( $length > 300 ? '' : '-single' ) );
 		} else {
 			$this->htmlColumnListRenderer->setNumberOfColumns( $this->numberOfReferenceListColumns );
 			$this->htmlColumnListRenderer->setColumnClass( 'smw-column' );

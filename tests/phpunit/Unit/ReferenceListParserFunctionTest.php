@@ -3,6 +3,7 @@
 namespace SCI\Tests;
 
 use SCI\ReferenceListParserFunction;
+use SMW\DIWikiPage;
 
 /**
  * @covers \SCI\ReferenceListParserFunction
@@ -17,16 +18,36 @@ class ReferenceListParserFunctionTest extends \PHPUnit_Framework_TestCase {
 
 	public function testCanConstruct() {
 
+		$parserData = $this->getMockBuilder( '\SMW\ParserData' )
+			->disableOriginalConstructor()
+			->getMock();
+
 		$this->assertInstanceOf(
 			'\SCI\ReferenceListParserFunction',
-			new ReferenceListParserFunction()
+			new ReferenceListParserFunction( $parserData )
 		);
 	}
 
 	/**
 	 * @dataProvider parametersDataProvider
 	 */
-	public function testDoProcessForEmptyParameter( $parameters, $expected ) {
+	public function testDoProcessForParameter( $parameters, $expected ) {
+
+		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$parserData = $this->getMockBuilder( '\SMW\ParserData' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$parserData->expects( $this->any() )
+			->method( 'getSubject' )
+			->will( $this->returnValue( new DIWikiPage( 'Foo', NS_MAIN ) ) );
+
+		$parserData->expects( $this->any() )
+			->method( 'getSemanticData' )
+			->will( $this->returnValue( $semanticData ) );
 
 		$parserParameterProcessor = $this->getMockBuilder( '\SMW\ParserParameterProcessor' )
 			->disableOriginalConstructor()
@@ -36,7 +57,7 @@ class ReferenceListParserFunctionTest extends \PHPUnit_Framework_TestCase {
 			->method( 'toArray' )
 			->will( $this->returnValue( $parameters ) );
 
-		$instance = new ReferenceListParserFunction();
+		$instance = new ReferenceListParserFunction( $parserData );
 
 		$this->assertContains(
 			$expected,

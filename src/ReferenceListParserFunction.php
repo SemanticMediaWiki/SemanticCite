@@ -3,6 +3,9 @@
 namespace SCI;
 
 use SMW\ParserParameterProcessor;
+use SMW\DIProperty;
+use SMW\ParserData;
+use SMW\DataValueFactory;
 use Html;
 
 /**
@@ -12,6 +15,21 @@ use Html;
  * @author mwjames
  */
 class ReferenceListParserFunction {
+
+	/**
+	 * @var ParserData
+	 */
+	private $parserData;
+
+	/**
+	 * @since 1.0
+	 *
+	 * @param ParserData $parserData
+	 */
+	public function __construct( ParserData $parserData ) {
+		$this->parserData = $parserData;
+		$this->dataValueFactory = DataValueFactory::getInstance();
+	}
 
 	/**
 	 * {{#referencelist:
@@ -67,7 +85,7 @@ class ReferenceListParserFunction {
 		foreach ( $parameters as $key => $values ) {
 
 			if ( $key === 'references' ) {
-				$attributes['data-references'] = json_encode( $values );
+				$attributes['data-references'] = $this->doProcessReferenceValues( $values );
 				continue;
 			}
 
@@ -86,6 +104,31 @@ class ReferenceListParserFunction {
 		}
 
 		return array( $header, $headerElement, $attributes );
+	}
+
+	private function doProcessReferenceValues( array $values ) {
+
+		$subject = $this->parserData->getSubject();
+
+		foreach ( $values as $value ) {
+			$dataValue = $this->dataValueFactory->newPropertyValue(
+					new DIProperty( PropertyRegistry::SCI_CITE_REFERENCE ),
+					trim( $value ),
+					false,
+					$subject
+				);
+
+			$this->parserData->addDataValue( $dataValue );
+		}
+
+		if ( $this->parserData->getSemanticData()->isEmpty() ) {
+			return;
+		}
+
+		$this->parserData->getSubject()->setContextReference( 'referencelistp:' . uniqid() );
+		$this->parserData->pushSemanticDataToParserOutput();
+
+		return json_encode( $values );
 	}
 
 }
