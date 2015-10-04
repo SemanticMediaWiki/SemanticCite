@@ -11,7 +11,7 @@ use SMWPropertyValue as PropertyValue;
 use SMWQuery as Query;
 use SMWDIBlob as DIBlob;
 use SMW\DataValueFactory;
-use SCI\DataValues\UidValueFactory;
+use SCI\DataValues\ResourceIdentifierFactory;
 
 /**
  * @license GNU GPL v2+
@@ -82,20 +82,20 @@ class CitationResourceMatchFinder {
 	 *
 	 * @return array
 	 */
-	public function findMatchForUidTypeOf( $type, $id = null ) {
+	public function findMatchForResourceIdentifierTypeToValue( $type, $id = null ) {
 
 		if ( $id === null || $id === '' ) {
 			return array();
 		}
 
-		$uidValueFactory = new UidValueFactory();
+		$resourceIdentifierFactory = new ResourceIdentifierFactory();
 
-		$uidValue = $uidValueFactory->newUidValueForType( $type );
-		$uidValue->setUserValue( $id );
-		$id = $uidValue->getWikiValue();
+		$resourceIdentifierStringValue = $resourceIdentifierFactory->newResourceIdentifierStringValueForType( $type );
+		$resourceIdentifierStringValue->setUserValue( $id );
+		$id = $resourceIdentifierStringValue->getWikiValue();
 
 		$description = new SomeProperty(
-			$uidValue->getProperty(),
+			$resourceIdentifierStringValue->getProperty(),
 			new ValueDescription( new DIBlob( $id ) )
 		);
 

@@ -42,7 +42,8 @@
 	"settings": {
 		"wgContLang": "en",
 		"scigReferenceListType": "ul",
-		"scigCitationReferenceCaptionFormat" : 2
+		"scigCitationReferenceCaptionFormat" : 2,
+		"smwgPageSpecialProperties": [ "_MDAT" ]
 	},
 	"meta": {
 		"version": "0.1",

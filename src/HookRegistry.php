@@ -108,6 +108,8 @@ class HookRegistry {
 			$cacheKeyGenerator
 		);
 
+		$referenceBacklinksLookup = new ReferenceBacklinksLookup( $store );
+
 		/**
 		 * @see https://www.semantic-mediawiki.org/wiki/Hooks/SMW::Property::initProperties
 		 */
@@ -138,7 +140,7 @@ class HookRegistry {
 			foreach ( $types as $type ) {
 				$dataTypeRegistry->registerDatatype(
 					$type,
-					'\SCI\DataValues\UidValue',
+					'\SCI\DataValues\ResourceIdentifierStringValue',
 					DataItem::TYPE_BLOB
 				);
 			}
@@ -152,17 +154,22 @@ class HookRegistry {
 		};
 
 		/**
-		 * @see https://www.semantic-mediawiki.org/wiki/Hooks/SMW::Browse::AfterInPropertiesLookupComplete
+		 * @see https://www.semantic-mediawiki.org/wiki/Hooks/SMW::Browse::AfterIncomingPropertiesLookupComplete
 		 */
-		$this->handlers['SMW::Browse::AfterInPropertiesLookupComplete'] = function ( $store, $semanticData, $requestOptions ) {
+		$this->handlers['SMW::Browse::AfterIncomingPropertiesLookupComplete'] = function ( $store, $semanticData, $requestOptions ) use ( $referenceBacklinksLookup ) {
 
-			$referenceBacklinksLookup = new ReferenceBacklinksLookup( $store );
+			$referenceBacklinksLookup->setRequestOptions( $requestOptions );
+			$referenceBacklinksLookup->setStore( $store );
 
 			$referenceBacklinksLookup->addReferenceBacklinksTo(
 				$semanticData
 			);
 
 			return true;
+		};
+
+		$this->handlers['SMW::Browse::BeforeIncomingPropertyValuesFurtherLinkCreate'] = function ( $property, $subject, &$html ) use ( $referenceBacklinksLookup ) {
+			return $referenceBacklinksLookup->getSpecialPropertySearchFurtherLink( $property, $subject, $html );
 		};
 
 		/**

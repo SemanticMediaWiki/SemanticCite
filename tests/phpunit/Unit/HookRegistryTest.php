@@ -6,6 +6,7 @@ use SCI\HookRegistry;
 use SCI\Options;
 use SMW\DataTypeRegistry;
 use SMW\DIWikiPage;
+use SMW\DIProperty;
 
 /**
  * @covers \SCI\HookRegistry
@@ -75,7 +76,8 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 		$this->doTestRegisteredResourceLoaderGetConfigVars( $instance );
 		$this->doTestRegisteredParserFirstCallInit( $instance );
 		$this->doTestRegisteredBeforePageDisplay( $instance );
-		$this->doTestRegisteredBrowseAfterInPropertiesLookupComplete( $instance );
+		$this->doTestRegisteredBrowseAfterIncomingPropertiesLookupComplete( $instance );
+		$this->doTestRegisteredBrowseBeforeIncomingPropertyValuesFurtherLinkCreate( $instance );
 	}
 
 	public function doTestRegisteredInitPropertiesHandler( $instance ) {
@@ -117,32 +119,32 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 		);
 
 		$this->assertEquals(
-			'\SCI\DataValues\UidValue',
+			'\SCI\DataValues\ResourceIdentifierStringValue',
 			$dataTypeRegistry->getDataTypeClassById( '_sci_doi' )
 		);
 
 		$this->assertEquals(
-			'\SCI\DataValues\UidValue',
+			'\SCI\DataValues\ResourceIdentifierStringValue',
 			$dataTypeRegistry->getDataTypeClassById( '_sci_pmcid' )
 		);
 
 		$this->assertEquals(
-			'\SCI\DataValues\UidValue',
+			'\SCI\DataValues\ResourceIdentifierStringValue',
 			$dataTypeRegistry->getDataTypeClassById( '_sci_pmid' )
 		);
 
 		$this->assertEquals(
-			'\SCI\DataValues\UidValue',
+			'\SCI\DataValues\ResourceIdentifierStringValue',
 			$dataTypeRegistry->getDataTypeClassById( '_sci_viaf' )
 		);
 
 		$this->assertEquals(
-			'\SCI\DataValues\UidValue',
+			'\SCI\DataValues\ResourceIdentifierStringValue',
 			$dataTypeRegistry->getDataTypeClassById( '_sci_oclc' )
 		);
 
 		$this->assertEquals(
-			'\SCI\DataValues\UidValue',
+			'\SCI\DataValues\ResourceIdentifierStringValue',
 			$dataTypeRegistry->getDataTypeClassById( '_sci_olid' )
 		);
 	}
@@ -335,9 +337,9 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	public function doTestRegisteredBrowseAfterInPropertiesLookupComplete( $instance ) {
+	public function doTestRegisteredBrowseAfterIncomingPropertiesLookupComplete( $instance ) {
 
-		$hook = 'SMW::Browse::AfterInPropertiesLookupComplete';
+		$hook = 'SMW::Browse::AfterIncomingPropertiesLookupComplete';
 
 		$this->assertTrue(
 			$instance->isRegistered( $hook )
@@ -349,7 +351,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$semanticData->expects( $this->once() )
 			->method( 'getSubject' )
-			->will( $this->returnValue( \SMW\DIWikiPage::newFromText( __METHOD__ ) ) );
+			->will( $this->returnValue( DIWikiPage::newFromText( __METHOD__ ) ) );
 
 		$store = $this->getMockBuilder( '\SMW\Store' )
 			->disableOriginalConstructor()
@@ -362,6 +364,25 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 		$this->assertThatHookIsExcutable(
 			$instance->getHandlerFor( $hook ),
 			array( $store, $semanticData, null )
+		);
+	}
+
+	public function doTestRegisteredBrowseBeforeIncomingPropertyValuesFurtherLinkCreate( $instance ) {
+
+		$hook = 'SMW::Browse::BeforeIncomingPropertyValuesFurtherLinkCreate';
+
+		$this->assertTrue(
+			$instance->isRegistered( $hook )
+		);
+
+		$property = new DIProperty( 'Foo' );
+		$subject = DIWikiPage::newFromText( __METHOD__ );
+
+		$html = '';
+
+		$this->assertThatHookIsExcutable(
+			$instance->getHandlerFor( $hook ),
+			array( $property, $subject, &$html )
 		);
 	}
 

@@ -46,7 +46,7 @@ class CitationResourceMatchFinderTest extends \PHPUnit_Framework_TestCase {
 
 		$instance = new CitationResourceMatchFinder( $store );
 
-		$instance->findMatchForUidTypeOf(
+		$instance->findMatchForResourceIdentifierTypeToValue(
 			$key,
 			$id
 		);

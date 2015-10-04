@@ -93,7 +93,7 @@ For questions about Semantic Cite and [`Cite`][mw-cite], see the comments [secti
 
 ### Metadata search
 
-`Special:FindMetadataById` is provided as user interface to search, find, and map metadata with the
+`Special:FindCitableMetadata` is provided as user interface to search, find, and map metadata with the
 `#scite` parser to conveniently integrate authority data from sources like PubMed or CrossRef.
 
 For more information, please read the search [section][docs-search].

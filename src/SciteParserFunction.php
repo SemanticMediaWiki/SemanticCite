@@ -291,6 +291,7 @@ class SciteParserFunction {
 			$subobject->getContainer()
 		);
 
+		$this->parserData->getSubject()->setContextReference( 'scitep:' . uniqid() );
 		$this->parserData->pushSemanticDataToParserOutput();
 	}
 

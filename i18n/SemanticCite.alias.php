@@ -4,7 +4,6 @@
  *
  * @file
  * @ingroup Extensions
- * @ingroup SMWLanguage
  */
 // @codingStandardsIgnoreFile
 
@@ -12,10 +11,10 @@ $specialPageAliases = array();
 
 /** English (English) */
 $specialPageAliases['en'] = array(
-	'FindMetadataById' => array( 'FindMetadataById' )
+	'FindCitableMetadata' => array( 'FindCitableMetadata', 'FindMetadataById' )
 );
 
 /** German (Deutsch) */
 $specialPageAliases['de'] = array(
-	'FindMetadataById' => array( 'Metadatensuche_nach_Identifizierungskennung' )
+	'FindCitableMetadata' => array( 'Metadatensuche_nach_Identifizierungskennung' )
 );

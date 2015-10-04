@@ -78,7 +78,12 @@ class ParserFunctionFactory {
 
 		$referenceListParserFunctionDefinition = function( $parser ) {
 
-			$referenceListParserFunction = new ReferenceListParserFunction();
+			$parserData = ApplicationFactory::getInstance()->newParserData(
+				$parser->getTitle(),
+				$parser->getOutput()
+			);
+
+			$referenceListParserFunction = new ReferenceListParserFunction( $parserData );
 
 			return $referenceListParserFunction->doProcess(
 				ParameterProcessorFactory::newFromArray( func_get_args() )
