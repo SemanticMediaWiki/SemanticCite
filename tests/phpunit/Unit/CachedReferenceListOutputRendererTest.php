@@ -19,7 +19,7 @@ class CachedReferenceListOutputRendererTest extends \PHPUnit_Framework_TestCase 
 	private $contextInteractor;
 	private $namespaceExaminer;
 	private $cache;
-	private $cacheKeyGenerator;
+	private $cacheKeyProvider;
 
 	protected function setUp() {
 
@@ -39,7 +39,7 @@ class CachedReferenceListOutputRendererTest extends \PHPUnit_Framework_TestCase 
 			->disableOriginalConstructor()
 			->getMock();
 
-		$this->cacheKeyGenerator = $this->getMockBuilder( '\SCI\CacheKeyGenerator' )
+		$this->cacheKeyProvider = $this->getMockBuilder( '\SCI\CacheKeyProvider' )
 			->disableOriginalConstructor()
 			->getMock();
 	}
@@ -53,7 +53,7 @@ class CachedReferenceListOutputRendererTest extends \PHPUnit_Framework_TestCase 
 				$this->contextInteractor,
 				$this->namespaceExaminer,
 				$this->cache,
-				$this->cacheKeyGenerator
+				$this->cacheKeyProvider
 			)
 		);
 	}
@@ -77,7 +77,7 @@ class CachedReferenceListOutputRendererTest extends \PHPUnit_Framework_TestCase 
 			$this->contextInteractor,
 			$this->namespaceExaminer,
 			$this->cache,
-			$this->cacheKeyGenerator
+			$this->cacheKeyProvider
 		);
 
 		$text = '';
@@ -100,7 +100,7 @@ class CachedReferenceListOutputRendererTest extends \PHPUnit_Framework_TestCase 
 			$this->contextInteractor,
 			$this->namespaceExaminer,
 			$this->cache,
-			$this->cacheKeyGenerator
+			$this->cacheKeyProvider
 		);
 
 		$text = '<div id="scite-custom-referencelist"><span></span></div>';

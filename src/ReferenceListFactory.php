@@ -68,12 +68,12 @@ class ReferenceListFactory {
 	 *
 	 * @param MediaWikiContextInteractor $contextInteractor
 	 * @param Cache $cache
-	 * @param CacheKeyGenerator $cacheKeyGenerator
+	 * @param CacheKeyProvider $cacheKeyProvider
 	 * @param Options $options
 	 *
 	 * @return CachedReferenceListOutputRenderer
 	 */
-	public function newCachedReferenceListOutputRenderer( MediaWikiContextInteractor $contextInteractor, Cache $cache, CacheKeyGenerator $cacheKeyGenerator, Options $options ) {
+	public function newCachedReferenceListOutputRenderer( MediaWikiContextInteractor $contextInteractor, Cache $cache, CacheKeyProvider $cacheKeyProvider, Options $options ) {
 
 		$referenceListOutputRenderer = $this->newReferenceListOutputRenderer();
 
@@ -98,7 +98,7 @@ class ReferenceListFactory {
 			$contextInteractor,
 			$this->namespaceExaminer,
 			$cache,
-			$cacheKeyGenerator
+			$cacheKeyProvider
 		);
 
 		return $cachedReferenceListOutputRenderer;

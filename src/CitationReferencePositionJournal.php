@@ -21,9 +21,9 @@ class CitationReferencePositionJournal {
 	private $cache = null;
 
 	/**
-	 * @var CacheKeyGenerator
+	 * @var CacheKeyProvider
 	 */
-	private $cacheKeyGenerator;
+	private $cacheKeyProvider;
 
 	/**
 	 * @var array
@@ -34,11 +34,11 @@ class CitationReferencePositionJournal {
 	 * @since 1.0
 	 *
 	 * @param Cache $cache
-	 * @param CacheKeyGenerator $cacheKeyGenerator
+	 * @param CacheKeyProvider $cacheKeyProvider
 	 */
-	public function __construct( Cache $cache, CacheKeyGenerator $cacheKeyGenerator ) {
+	public function __construct( Cache $cache, CacheKeyProvider $cacheKeyProvider ) {
 		$this->cache = $cache;
-		$this->cacheKeyGenerator = $cacheKeyGenerator;
+		$this->cacheKeyProvider = $cacheKeyProvider;
 	}
 
 	/**
@@ -182,7 +182,7 @@ class CitationReferencePositionJournal {
 	 	// Safeguard against a repeated call to the hashlist for when the static
 	 	// cache is empty
 		$this->cache->save(
-			$this->cacheKeyGenerator->getCacheKeyForCitationReference( $hash ),
+			$this->cacheKeyProvider->getCacheKeyForCitationReference( $hash ),
 			self::$citationReferenceJournal
 		);
 	}
@@ -191,7 +191,7 @@ class CitationReferencePositionJournal {
 
 		if ( self::$citationReferenceJournal === array() ) {
 			self::$citationReferenceJournal = $this->cache->fetch(
-				$this->cacheKeyGenerator->getCacheKeyForCitationReference( $hash )
+				$this->cacheKeyProvider->getCacheKeyForCitationReference( $hash )
 			);
 		}
 

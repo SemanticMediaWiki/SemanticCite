@@ -16,7 +16,7 @@ use SCI\CitationReferencePositionJournal;
 class CitationReferencePositionJournalTest extends \PHPUnit_Framework_TestCase {
 
 	private $cache;
-	private $cacheKeyGenerator;
+	private $cacheKeyProvider;
 
 	protected function setUp() {
 
@@ -24,7 +24,7 @@ class CitationReferencePositionJournalTest extends \PHPUnit_Framework_TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$this->cacheKeyGenerator = $this->getMockBuilder( '\SCI\CacheKeyGenerator' )
+		$this->cacheKeyProvider = $this->getMockBuilder( '\SCI\CacheKeyProvider' )
 			->disableOriginalConstructor()
 			->getMock();
 	}
@@ -33,7 +33,7 @@ class CitationReferencePositionJournalTest extends \PHPUnit_Framework_TestCase {
 
 		$this->assertInstanceOf(
 			'\SCI\CitationReferencePositionJournal',
-			new CitationReferencePositionJournal( $this->cache, $this->cacheKeyGenerator )
+			new CitationReferencePositionJournal( $this->cache, $this->cacheKeyProvider )
 		);
 	}
 
@@ -41,7 +41,7 @@ class CitationReferencePositionJournalTest extends \PHPUnit_Framework_TestCase {
 
 		$instance = new CitationReferencePositionJournal(
 			$this->cache,
-			$this->cacheKeyGenerator
+			$this->cacheKeyProvider
 		);
 
 		$this->assertNull(
@@ -58,7 +58,7 @@ class CitationReferencePositionJournalTest extends \PHPUnit_Framework_TestCase {
 
 		$instance = new CitationReferencePositionJournal(
 			$this->cache,
-			$this->cacheKeyGenerator
+			$this->cacheKeyProvider
 		);
 
 		$this->assertNull(
@@ -70,13 +70,13 @@ class CitationReferencePositionJournalTest extends \PHPUnit_Framework_TestCase {
 
 		$subject = \SMW\DIWikiPage::newFromText( __METHOD__ );
 
-		$this->cacheKeyGenerator->expects( $this->once() )
+		$this->cacheKeyProvider->expects( $this->once() )
 			->method( 'getCacheKeyForCitationReference' )
 			->with( $this->equalTo( $subject->getHash() ) );
 
 		$instance = new CitationReferencePositionJournal(
 			$this->cache,
-			$this->cacheKeyGenerator
+			$this->cacheKeyProvider
 		);
 
 		$instance->getJournalBySubject( $subject );

@@ -50,56 +50,56 @@ class PropertyRegistry {
 				'label' => SCI_PROP_OLID,
 				'type'  => '_sci_olid',
 				'alias' => array( wfMessage( 'sci-property-alias-olid' )->text(), 'olid', 'Olid' ),
-				'visbility' => true,
-				'annotable' => true
+				'visibility' => true,
+				'annotableByUser' => true
 			),
 
 			self::SCI_VIAF => array(
 				'label' => SCI_PROP_VIAF,
 				'type'  => '_sci_viaf',
 				'alias' => array( wfMessage( 'sci-property-alias-viaf' )->text(), 'viaf', 'Viaf' ),
-				'visbility' => true,
-				'annotable' => true
+				'visibility' => true,
+				'annotableByUser' => true
 			),
 
 			self::SCI_OCLC => array(
 				'label' => SCI_PROP_OCLC,
 				'type'  => '_sci_oclc',
 				'alias' => array( wfMessage( 'sci-property-alias-oclc' )->text(), 'oclc', 'Oclc' ),
-				'visbility' => true,
-				'annotable' => true
+				'visibility' => true,
+				'annotableByUser' => true
 			),
 
 			self::SCI_DOI => array(
 				'label' => SCI_PROP_DOI,
 				'type'  => '_sci_doi',
 				'alias' => array( wfMessage( 'sci-property-alias-doi' )->text(), 'Doi', 'doi' ),
-				'visbility' => true,
-				'annotable' => true
+				'visibility' => true,
+				'annotableByUser' => true
 			),
 
 			self::SCI_PMCID => array(
 				'label' => SCI_PROP_PMCID,
 				'type'  => '_sci_pmcid',
 				'alias' => array( wfMessage( 'sci-property-alias-pmcid' )->text(), 'Pmcid', 'pmcid' ),
-				'visbility' => true,
-				'annotable' => true
+				'visibility' => true,
+				'annotableByUser' => true
 			),
 
 			self::SCI_PMID => array(
 				'label' => SCI_PROP_PMID,
 				'type'  => '_sci_pmid',
 				'alias' => array( wfMessage( 'sci-property-alias-pmid' )->text(), 'Pmid', 'pmid' ),
-				'visbility' => true,
-				'annotable' => true
+				'visibility' => true,
+				'annotableByUser' => true
 			),
 
 			self::SCI_CITE_KEY => array(
 				'label' => SCI_PROP_CITE_KEY,
 				'type'  => '_txt',
 				'alias' => array( wfMessage( 'sci-property-alias-citation-key' )->text() ),
-				'visbility' => true,
-				'annotable' => true
+				'visibility' => true,
+				'annotableByUser' => true
 			),
 
 			// Allow CiteRef to be an alias as it saves typing
@@ -108,24 +108,24 @@ class PropertyRegistry {
 				'label' => SCI_PROP_CITE_REFERENCE,
 				'type'  => '_sci_ref',
 				'alias' => array( wfMessage( 'sci-property-alias-citation-reference' )->text(), 'CiteRef' ),
-				'visbility' => true,
-				'annotable' => true
+				'visibility' => true,
+				'annotableByUser' => true
 			),
 
 			self::SCI_CITE_TEXT => array(
 				'label' => SCI_PROP_CITE_TEXT,
 				'type'  => '_txt',
 				'alias' => array( wfMessage( 'sci-property-alias-citation-text' )->text() ),
-				'visbility' => true,
-				'annotable' => true
+				'visibility' => true,
+				'annotableByUser' => true
 			),
 
 			self::SCI_CITE => array(
 				'label' => SCI_PROP_CITE,
 				'type'  => '__sob',
 				'alias' => array( wfMessage( 'sci-property-alias-citation-resource' )->text() ),
-				'visbility' => true,
-				'annotable' => false
+				'visibility' => true,
+				'annotableByUser' => false
 			)
 		);
 
@@ -142,8 +142,8 @@ class PropertyRegistry {
 			$propertyId,
 			$definition['type'],
 			$definition['label'],
-			$definition['visbility'],
-			$definition['annotable']
+			$definition['visibility'],
+			$definition['annotableByUser']
 		);
 
 		foreach ( $definition['alias'] as $alias ) {

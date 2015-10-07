@@ -35,9 +35,9 @@ class CachedReferenceListOutputRenderer {
 	private $cache;
 
 	/**
-	 * @var CacheKeyGenerator
+	 * @var CacheKeyProvider
 	 */
-	private $cacheKeyGenerator;
+	private $cacheKeyProvider;
 
 	/**
 	 * @var DIWikiPage
@@ -56,14 +56,14 @@ class CachedReferenceListOutputRenderer {
 	 * @param MediaWikiContextInteractor $contextInteractor
 	 * @param NamespaceExaminer $namespaceExaminer
 	 * @param Cache $cache
-	 * @param CacheKeyGenerator $cacheKeyGenerator
+	 * @param CacheKeyProvider $cacheKeyProvider
 	 */
-	public function __construct( ReferenceListOutputRenderer $referenceListOutputRenderer, MediaWikiContextInteractor $contextInteractor, NamespaceExaminer $namespaceExaminer, Cache $cache, CacheKeyGenerator $cacheKeyGenerator ) {
+	public function __construct( ReferenceListOutputRenderer $referenceListOutputRenderer, MediaWikiContextInteractor $contextInteractor, NamespaceExaminer $namespaceExaminer, Cache $cache, CacheKeyProvider $cacheKeyProvider ) {
 		$this->referenceListOutputRenderer = $referenceListOutputRenderer;
 		$this->contextInteractor = $contextInteractor;
 		$this->namespaceExaminer = $namespaceExaminer;
 		$this->cache = $cache;
-		$this->cacheKeyGenerator = $cacheKeyGenerator;
+		$this->cacheKeyProvider = $cacheKeyProvider;
 	}
 
 	/**
@@ -217,7 +217,7 @@ class CachedReferenceListOutputRenderer {
 
 		// Keep the root cache entry based on the subject to ensure
 		// that it can be flushed at once
-		$key = $this->cacheKeyGenerator->getCacheKeyForReferenceList(
+		$key = $this->cacheKeyProvider->getCacheKeyForReferenceList(
 			$this->getSubject()->getHash()
 		);
 

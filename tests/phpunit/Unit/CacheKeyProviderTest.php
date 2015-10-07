@@ -2,10 +2,10 @@
 
 namespace SCI\Tests;
 
-use SCI\CacheKeyGenerator;
+use SCI\CacheKeyProvider;
 
 /**
- * @covers \SCI\CacheKeyGenerator
+ * @covers \SCI\CacheKeyProvider
  * @group semantic-cite
  *
  * @license GNU GPL v2+
@@ -13,19 +13,19 @@ use SCI\CacheKeyGenerator;
  *
  * @author mwjames
  */
-class CacheKeyGeneratorTest extends \PHPUnit_Framework_TestCase {
+class CacheKeyProviderTest extends \PHPUnit_Framework_TestCase {
 
 	public function testCanConstruct() {
 
 		$this->assertInstanceOf(
-			'\SCI\CacheKeyGenerator',
-			new CacheKeyGenerator()
+			'\SCI\CacheKeyProvider',
+			new CacheKeyProvider()
 		);
 	}
 
 	public function testGetKey() {
 
-		$instance = new CacheKeyGenerator();
+		$instance = new CacheKeyProvider();
 		$instance->setCachePrefix( 'foo' );
 
 		$this->assertContains(

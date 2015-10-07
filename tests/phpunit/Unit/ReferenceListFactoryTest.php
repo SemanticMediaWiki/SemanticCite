@@ -67,7 +67,7 @@ class ReferenceListFactoryTest extends \PHPUnit_Framework_TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$cacheKeyGenerator = $this->getMockBuilder( '\SCI\CacheKeyGenerator' )
+		$cacheKeyProvider = $this->getMockBuilder( '\SCI\CacheKeyProvider' )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -86,7 +86,7 @@ class ReferenceListFactoryTest extends \PHPUnit_Framework_TestCase {
 
 		$this->assertInstanceOf(
 			'\SCI\CachedReferenceListOutputRenderer',
-			$instance->newCachedReferenceListOutputRenderer( $mediaWikiContextInteractor, $cache, $cacheKeyGenerator, $options )
+			$instance->newCachedReferenceListOutputRenderer( $mediaWikiContextInteractor, $cache, $cacheKeyProvider, $options )
 		);
 	}
 

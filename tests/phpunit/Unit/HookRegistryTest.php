@@ -267,7 +267,8 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$hook = 'SMW::SQLStore::AddCustomFixedPropertyTables';
 
-		$customFixedProperties = array();
+		// Contains an extra to ensure previous values are not nullified
+		$customFixedProperties = array( '_Foo' );
 
 		$this->assertTrue(
 			$instance->isRegistered( $hook )
@@ -276,6 +277,11 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 		$this->assertThatHookIsExcutable(
 			$instance->getHandlerFor( $hook ),
 			array( &$customFixedProperties )
+		);
+
+		$this->assertCount(
+			11,
+			$customFixedProperties
 		);
 	}
 

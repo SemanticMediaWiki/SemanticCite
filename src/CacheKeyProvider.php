@@ -8,7 +8,7 @@ namespace SCI;
  *
  * @author mwjames
  */
-class CacheKeyGenerator {
+class CacheKeyProvider {
 
 	/**
 	 * Update the version to force a recache for all items due to

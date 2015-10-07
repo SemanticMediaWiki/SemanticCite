@@ -100,12 +100,12 @@ class HookRegistry {
 		$propertyRegistry = new PropertyRegistry();
 		$namespaceExaminer = ApplicationFactory::getInstance()->getNamespaceExaminer();
 
-		$cacheKeyGenerator = new CacheKeyGenerator();
-		$cacheKeyGenerator->setCachePrefix( $options->get( 'cachePrefix' ) );
+		$cacheKeyProvider = new CacheKeyProvider();
+		$cacheKeyProvider->setCachePrefix( $options->get( 'cachePrefix' ) );
 
 		$citationReferencePositionJournal = new CitationReferencePositionJournal(
 			$cache,
-			$cacheKeyGenerator
+			$cacheKeyProvider
 		);
 
 		$referenceBacklinksLookup = new ReferenceBacklinksLookup( $store );
@@ -183,9 +183,7 @@ class HookRegistry {
 		/**
 		 * @see https://www.semantic-mediawiki.org/wiki/Hooks/SMW::SQLStore::AddCustomFixedPropertyTables
 		 */
-		$this->handlers['SMW::SQLStore::AddCustomFixedPropertyTables'] = function( &$customFixedProperties ) use( $propertyRegistry ) {
-
-			$customFixedProperties = array();
+		$this->handlers['SMW::SQLStore::AddCustomFixedPropertyTables'] = function( array &$customFixedProperties ) use( $propertyRegistry ) {
 
 			$properties = array(
 				$propertyRegistry::SCI_CITE_KEY,
@@ -242,7 +240,7 @@ class HookRegistry {
 		/**
 		 * @see https://www.mediawiki.org/wiki/Manual:Hooks/OutputPageBeforeHTML
 		 */
-		$this->handlers['OutputPageBeforeHTML'] = function( &$outputPage, &$text ) use ( $store, $namespaceExaminer, $citationReferencePositionJournal, $cache, $cacheKeyGenerator, $options ) {
+		$this->handlers['OutputPageBeforeHTML'] = function( &$outputPage, &$text ) use ( $store, $namespaceExaminer, $citationReferencePositionJournal, $cache, $cacheKeyProvider, $options ) {
 
 			$referenceListFactory = new ReferenceListFactory(
 				$store,
@@ -253,7 +251,7 @@ class HookRegistry {
 			$cachedReferenceListOutputRenderer = $referenceListFactory->newCachedReferenceListOutputRenderer(
 				new MediaWikiContextInteractor( $outputPage->getContext() ),
 				$cache,
-				$cacheKeyGenerator,
+				$cacheKeyProvider,
 				$options
 			);
 
@@ -265,7 +263,7 @@ class HookRegistry {
 		/**
 		 * @see https://www.semantic-mediawiki.org/wiki/Hooks#SMWStore::updateDataBefore
 		 */
-		$this->handlers['SMWStore::updateDataBefore'] = function ( $store, $semanticData ) use ( $cache, $cacheKeyGenerator, $citationReferencePositionJournal ) {
+		$this->handlers['SMWStore::updateDataBefore'] = function ( $store, $semanticData ) use ( $cache, $cacheKeyProvider, $citationReferencePositionJournal ) {
 
 			$hash = $semanticData->getSubject()->getHash();
 
@@ -275,12 +273,12 @@ class HookRegistry {
 			// the last entry will remain and needs to be purged at this point
 			if ( !$citationReferencePositionJournal->hasCitationReference( $semanticData ) ) {
 				$cache->delete(
-					$cacheKeyGenerator->getCacheKeyForCitationReference( $hash )
+					$cacheKeyProvider->getCacheKeyForCitationReference( $hash )
 				);
 			}
 
 			$cache->delete(
-				$cacheKeyGenerator->getCacheKeyForReferenceList( $hash )
+				$cacheKeyProvider->getCacheKeyForReferenceList( $hash )
 			);
 
 			return true;
