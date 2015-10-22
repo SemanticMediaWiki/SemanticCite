@@ -113,7 +113,7 @@ have a look at the contribution guideline.
 * Ask a question on [the mailing list](https://semantic-mediawiki.org/wiki/Mailing_list)
 * Ask a question on the #semantic-mediawiki IRC channel on Freenode.
 
-### Tests
+## Tests
 
 This extension provides unit and integration tests that are run by a [continues integration platform][travis]
 but can also be executed using `composer phpunit` from the extension base directory.
