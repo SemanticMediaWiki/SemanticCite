@@ -67,7 +67,8 @@
 				$.each( content.query.results, function( subjectName, subject ) {
 					if ( $.inArray( 'printouts', subject ) ) {
 						$.each ( subject.printouts, function( property, values ) {
-							citationText = values.toString();
+							// https://github.com/SemanticMediaWiki/SemanticMediaWiki/issues/1208
+							citationText = $.type( values ) === "array" ? values.toString() : values[0];
 						} );
 					};
 				} );
