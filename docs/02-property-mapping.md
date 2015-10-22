@@ -31,7 +31,7 @@ Semantic Cite provides several predefined properties including:
 
 - `OLID` to identify OpenLibrary records
 - `VIAF` to describe a Virtual International Authority File
-- `OCLC` as an identifier for a WoldCat catalog entity
+- `OCLC` as an identifier for a WorldCat catalog entity
 - `PMID` and `PMCID` to represent a PubMed identifier
 - `DOI` as Digital Object Identifier
 - `Citation resource`, `Citation reference`, `Citation key`, and `Citation text`

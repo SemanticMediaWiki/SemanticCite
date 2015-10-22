@@ -11,13 +11,13 @@ Semantic Cite (a.k.a. SCI) is a [Semantic Mediawiki][smw] extension that provide
 way of organizing citation resources with the help of semantic annotations.
 
 It can be used to centralize the management of citation resources and foster the
-reuse of references stored within a wiki with support for:
+reuse of references stored within a wiki. Supported features include:
 
-- Self-added and a customizable reference list
-- Individual property and text formatting rules
+- Self-added and customizable reference list
+- Individual property annotation and text formatting rules
 - In-text reference tooltip
 - Bibtex record import support
-- Metadata retrieval from selected providers
+- Metadata retrieval from selected providers (PubMed, CrossRef etc.)
 
 Several short [videos](https://www.youtube.com/playlist?list=PLIJ9eX-UsA5eI_YFdn6HeO2Dcta4CrPzX) demonstrate
 "How Semantic Cite can be used or is expected to work".
@@ -72,7 +72,7 @@ or any other wiki page each being identifiable by a citation key.
 }}
 ```
 
-Above shows an example for a citation resource to be created by the `#scite` parser, more
+Above shows an example for a citation resource to be created by the `#scite` parser. More
 information about `#scite` can be found [here][docs-scite].
 
 ### In-text citation

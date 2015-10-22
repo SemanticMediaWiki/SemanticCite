@@ -60,11 +60,10 @@ the new citation key (e.g. `Foo 2007a`).
 
 ## Citation text
 
-The property `Citation text` contains the formatted output of a citation resource
-used for the [referencelist](05-referencelist.md) display and is normally generated
-by a template output but content can also be added directly using the
-`|citation text=` parameter which adds the text value **as-is** without
-additional processing.
+The property `Citation text` contains the formatted output of a citation resource and is
+used when the [referencelist](05-referencelist.md) is generated. The text is formatted using
+assinged template or can be added directly (without further processing) in its final form
+to the `|citation text=` parameter.
 
 ```
 {{#scite:Einstein 1956
@@ -74,9 +73,9 @@ additional processing.
 ```
 
 In case the parameter `|citation text=` is not declared then `#scite` is going to try to determine
-an output processor (a template) by first looking at the `|template=` parameter and if such
-parameter is not found then the [template](03-template-mapping.md) assigned to
-the type is used for processing in order to return a formatted text value.
+an a template by first looking at the `|template=` parameter and if such parameter is not assigned
+then the [template](03-template-mapping.md) assigned to the type of the resource
+is used for processing to return a formatted text value.
 
 ```
 {{#scite:Einstein 1956
@@ -104,9 +103,9 @@ the last entry (e.g. `schema:Book`) will be selected as valid type descriptor.
 ## Bibtex record import
 
 To ease the reuse of bibtex records, `#scite` provides the `|bibtex=` parameter to
-import a bibtex formatted text to enable the creation of an annotatable record following
-the available [property](02-property-mapping.md) and [template](03-template-mapping.md)
-mapping.
+import a bibtex formatted text to create annotatable record following
+the assignments declared in the `MediaWiki:` [property](02-property-mapping.md) and
+[template](03-template-mapping.md) page.
 
 ```
 {{#scite:
@@ -146,8 +145,8 @@ annotation string is still available using the hidden `bibtex-author` parameter.
 ### Content formatting
 
 `@article` is parsed as type `article` that can be assigned to a specific [template](03-template-mapping.md)
-containing the rules of how text elements are to be positioned. Please be aware
-that no automatic clean-up is done on elements like `{...}` or new lines as in
+containing the rules of how text elements are to be formatted. Please be aware
+that no automatic clean-up is done on elements like containing `{`/`}` or new lines as in
 `in \n SUSY`. Furthermore, complex expressions (those involve macros etc.) are
 not parsed or resolved.
 
