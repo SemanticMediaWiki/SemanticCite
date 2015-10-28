@@ -1,14 +1,14 @@
 ## #referencelist parser
 
-In general a reference list is self-maintained and added to the bottom of a page if
-a citation reference is being detected but in case a list is to be placed differently,
+In general a reference list is auto-maintained and added to the bottom of a page if
+a citation reference is being detected. In case a use whishes to place a list differently,
 `#referencelist` can be used to mark the position on where the list is expected
 to appear.
 
 Citation resources that use the same key are displayed on the reference list and
-linked to each other in case `$GLOBALS['scigBrowseLinkToCitationResource']` is set
-`true`. For example, ` ↑ | ↑` is indicating that two resources use the same citation
-key with `↑` linking to each resource.
+linked to each other if `$GLOBALS['scigBrowseLinkToCitationResource']` is enabled.
+For example, ` ↑ | ↑` is indicating that two resources use the same citation
+key with `↑` linking to each of the resources.
 
 ### Options
 
@@ -25,8 +25,8 @@ of an individual list.
 ```
 ### Table of contents
 
-To display an entry in the table of contents section (which by default it is hidden)
-the parameter `|toc=yes` is required be added to a `#referencelist` call.
+To display an entry in the table of contents section (which by default is hidden)
+the parameter `|toc=yes` is required.
 
 ```
 {{#referencelist:
@@ -36,9 +36,9 @@ the parameter `|toc=yes` is required be added to a `#referencelist` call.
  |toc=yes
 }}
 ```
-### Unbound list
+### Unbound reference list
 
-To generate a unbound reference list (for notes or additional literature references)
+To generate an unbound reference list (for notes or additional literature references)
 using the `|references=` parameter is required because such list uses the information
 provided by this parameter and is not bound to any of the `Citation reference` annotations
 made on the source page.
@@ -56,7 +56,7 @@ made on the source page.
 If an unbound list is added an additional `#referencelist` is required to position the
 standard list in context of the unbound list.
 
-## Suppress the referencelist
+## Hide the reference list
 
 The magic word `__NOREFERENCELIST__` can be used to suppress a reference list from showing
 on an individual page.

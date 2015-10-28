@@ -41,7 +41,7 @@
 	"sci-metadata-search-form-submit": "Search",
 	"sci-metadata-search-has-match": "The ID has been matched to the following [$1] citation resources.",
 	"sci-metadata-search-cached": "The search response was fetched from cache.",
-	"sci-metadata-search-intro": "Please enter an identifier and select an external service (requires an active internet connection) to enable metadata to be mapped to the <code>#scite</code> format for the following services:",
+	"sci-metadata-search-intro": "Please enter an identifier and select a service provider (requires an active internet connection) to map retrievable metadata to the <code>#scite</code> format.",
 	"sci-metadata-search-intro-doi": "[[Property:DOI|DOI]] to search the CrossRef repository",
 	"sci-metadata-search-intro-pubmed": "[[Property:PMCID|PMCID]] for PubMed Central and [[Property:PMID|PMID]] for the PubMed archive",
 	"sci-metadata-search-intro-oclc": "[[Property:OCLC|OCLC]] number for the WorldCat catalog",

@@ -79,7 +79,8 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 		$this->doTestRegisteredBeforePageDisplay( $instance );
 		$this->doTestRegisteredBrowseAfterIncomingPropertiesLookupComplete( $instance );
 		$this->doTestRegisteredBrowseBeforeIncomingPropertyValuesFurtherLinkCreate( $instance );
-		$this->doTestRegisteredSAfterDataUpdateComplete( $instance );
+		$this->doTestRegisteredAfterDataUpdateComplete( $instance );
+		$this->doTestRegisteredAfterDeleteSubjectComplete( $instance );
 	}
 
 	public function doTestRegisteredInitPropertiesHandler( $instance ) {
@@ -394,8 +395,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-
-	public function doTestRegisteredSAfterDataUpdateComplete( $instance ) {
+	public function doTestRegisteredAfterDataUpdateComplete( $instance ) {
 
 		$hook = 'SMW::SQLStore::AfterDataUpdateComplete';
 
@@ -422,6 +422,24 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 		$this->assertThatHookIsExcutable(
 			$instance->getHandlerFor( $hook ),
 			array( $store, $semanticData, $compositePropertyTableDiffIterator )
+		);
+	}
+
+	public function doTestRegisteredAfterDeleteSubjectComplete( $instance ) {
+
+		$hook = 'SMW::SQLStore::AfterDeleteSubjectComplete';
+
+		$this->assertTrue(
+			$instance->isRegistered( $hook )
+		);
+
+		$store = $this->getMockBuilder( '\SMW\SQLStore\SQLStore' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$this->assertThatHookIsExcutable(
+			$instance->getHandlerFor( $hook ),
+			array( $store, \Title::newFromText( 'Foo' ) )
 		);
 	}
 

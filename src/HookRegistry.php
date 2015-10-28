@@ -5,6 +5,7 @@ namespace SCI;
 use SMW\Store;
 use Onoi\Cache\Cache;
 use SMW\ApplicationFactory;
+use SMW\DIWikiPage;
 use SMWDataItem as DataItem;
 use Hooks;
 
@@ -276,6 +277,24 @@ class HookRegistry {
 					$cacheKeyProvider->getCacheKeyForCitationReference( $hash )
 				);
 			}
+
+			$cache->delete(
+				$cacheKeyProvider->getCacheKeyForReferenceList( $hash )
+			);
+
+			return true;
+		};
+
+		/**
+		 * @see https://www.semantic-mediawiki.org/wiki/Hooks#SMW::SQLStore::AfterDeleteSubjectComplete
+		 */
+		$this->handlers['SMW::SQLStore::AfterDeleteSubjectComplete'] = function ( $store, $title ) use ( $cache, $cacheKeyProvider ) {
+
+			$hash = DIWikiPage::newFromTitle( $title )->getHash();
+
+			$cache->delete(
+				$cacheKeyProvider->getCacheKeyForCitationReference( $hash )
+			);
 
 			$cache->delete(
 				$cacheKeyProvider->getCacheKeyForReferenceList( $hash )
