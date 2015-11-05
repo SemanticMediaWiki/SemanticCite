@@ -166,7 +166,7 @@ call_user_func( function () {
 	 * Whether a strict validation on behalf of the #scite parser should be
 	 * enabled or not
 	 */
-	$GLOBALS['scigStrictParserValidationEnabled'] = true;
+	$GLOBALS['scigEnabledStrictParserValidation'] = true;
 
 	/**
 	 * Whether an update job should be dispatched for changed citation text
@@ -188,7 +188,7 @@ call_user_func( function () {
 			'tooltipRequestCacheTTL'             => $GLOBALS['scigTooltipRequestCacheTTLInSeconds'],
 			'citationReferenceCaptionFormat'     => $GLOBALS['scigCitationReferenceCaptionFormat'],
 			'referenceListType'                  => $GLOBALS['scigReferenceListType'],
-			'strictParserValidationEnabled'      => $GLOBALS['scigStrictParserValidationEnabled'],
+			'enabledstrictParserValidation'      => $GLOBALS['scigEnabledStrictParserValidation'],
 			'cachePrefix'                        => $GLOBALS['scigCachePrefix'],
 			'enabledCitationTextChangeUpdateJob' => $GLOBALS['scigEnabledCitationTextChangeUpdateJob']
 		);

@@ -122,6 +122,9 @@ but can also be executed using `composer phpunit` from the extension base direct
 
 [GNU General Public License, version 2 or later][gpl-licence].
 
+Part of the bibtex related parsing code has been reused from the http://bibliophile.sourceforge.net project
+which is released under the GPL license.
+
 [smw]: https://github.com/SemanticMediaWiki/SemanticMediaWiki
 [contributors]: https://github.com/SemanticMediaWiki/SemanticCite/graphs/contributors
 [travis]: https://travis-ci.org/SemanticMediaWiki/SemanticCite

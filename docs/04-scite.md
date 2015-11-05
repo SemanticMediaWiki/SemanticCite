@@ -55,14 +55,14 @@ a `Byrne 2008` resource the short or the explicit reference parameter form can b
 
 If it becomes necessary to rename a citation key (because a resource with key `Foo 2007`
 no longer represents a unique resource due to adding another resource with the same key)
-then the existing usage of that resource needs to be queried and changed before applying
+then it is recommended that the existing usage is queried and changed before applying
 the new citation key (e.g. `Foo 2007a`).
 
 ## Citation text
 
 The property `Citation text` contains the formatted output of a citation resource and is
-used when the [referencelist](05-referencelist.md) is generated. The text is formatted using
-assinged template or can be added directly (without further processing) in its final form
+used when the [referencelist](05-referencelist.md) is generated. The text is formatted either by
+an assigned template or can be added directly (without further processing) in its final form
 to the `|citation text=` parameter.
 
 ```
@@ -73,8 +73,8 @@ to the `|citation text=` parameter.
 ```
 
 In case the parameter `|citation text=` is not declared then `#scite` is going to try to determine
-an a template by first looking at the `|template=` parameter and if such parameter is not assigned
-then the [template](03-template-mapping.md) assigned to the type of the resource
+a template by first looking at the `|template=` parameter and if such parameter is not assigned
+then the [template](03-template-mapping.md) mapped to the type of the resource
 is used for processing to return a formatted text value.
 
 ```
@@ -88,23 +88,23 @@ is used for processing to return a formatted text value.
 }}
 ```
 
-If `$GLOBALS['scigEnabledCitationTextChangeUpdateJob']` is set true then a change to
+If `$GLOBALS['scigEnabledCitationTextChangeUpdateJob']` is set true then an alteration to
 a citation text will initiate an update job for those pages that make reference to the
-related citation resource.
+changed citation resource.
 
 ## Type assignment
 
-A type assignment is expected for each citation resource unless `$GLOBALS['scigStrictParserValidationEnabled']`
+A type assignment is required for each citation resource unless `$GLOBALS['scigEnabledStrictParserValidation']`
 is set `false`.
 
 If multiple types are assigned (e.g.`|type=bgn:Thesis;schema:Book|+sep=;`) then
-the last entry (e.g. `schema:Book`) will be selected as valid type descriptor.
+the last entry (e.g. `schema:Book`) will be used as type descriptor.
 
 ## Bibtex record import
 
 To ease the reuse of bibtex records, `#scite` provides the `|bibtex=` parameter to
-import a bibtex formatted text to create annotatable record following
-the assignments declared in the `MediaWiki:` [property](02-property-mapping.md) and
+import a bibtex formatted text to create an annotatable record that corresponds to 
+the mapping found in the [property](02-property-mapping.md) and
 [template](03-template-mapping.md) page.
 
 ```
@@ -121,7 +121,7 @@ YEAR=2000
 }}
 ```
 
-### Author list
+### Bibtex author list
 
 Authors (e.g. `Einstein, Albert and Podolsky, Boris and Rosen, Nathan`) will be split
 into an author list of natural representations (`Albert Einstein` etc.) while the original
@@ -142,12 +142,12 @@ annotation string is still available using the hidden `bibtex-author` parameter.
 }}
 ```
 
-### Content formatting
+### Bibtex content formatting
 
 `@article` is parsed as type `article` that can be assigned to a specific [template](03-template-mapping.md)
 containing the rules of how text elements are to be formatted. Please be aware
-that no automatic clean-up is done on elements like containing `{`/`}` or new lines as in
-`in \n SUSY`. Furthermore, complex expressions (those involve macros etc.) are
+that no automatic clean-up is done on elements like containing `{`/`}` or `in \n SUSY`, and
+complex expressions (those involve macros etc.) are
 not parsed or resolved.
 
 ```
