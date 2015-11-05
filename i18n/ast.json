@@ -1,0 +1,41 @@
+{
+	"@metadata": {
+		"authors": [
+			"Xuacu"
+		]
+	},
+	"sci-desc": "Xestionar los recursos de cites cola ayuda de [https://semantic-mediawiki.org Semantic MediaWiki]",
+	"sci-referencelist-header": "Referencies",
+	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code> nun puede usase nun espaciu de nomes que nun ta activáu pa Semantic MediaWiki",
+	"sci-scite-parser-no-reference": "<code>#scite</code> nun declaró una referencia.",
+	"sci-scite-parser-no-type": "<code>#scite</code> nun pudo determinar un tipu de referencia pa «$1».",
+	"sci-scite-parser-no-citation-text": "<code>#scite</code> nun pudo xenerar un testu de cita pa la referencia «$1» de tipu «$2».",
+	"sci-datavalue-empty-reference": "Espérase que la referencia de cita nun tea balera.",
+	"sci-datavalue-invalid-id-value": "«$1» ye un valor inválidu pal tipu $2.",
+	"sci-property-alias-citation-key": "Clave de la cita",
+	"sci-property-alias-citation-reference": "Referencia de la cita",
+	"sci-property-alias-citation-text": "Testu de la cita",
+	"sci-property-alias-citation-resource": "Recursu de la cita",
+	"findmetadatabyid": "Alcontrar metadatos",
+	"right-sci-metasearch": "Accesu a Metabusca",
+	"action-sci-metasearch": "la Metabusca",
+	"sci-metadata-search-form": "Por ID",
+	"sci-metadata-search-action-highlight": "Seleicionar testu",
+	"sci-metadata-search-action-create": "Crear",
+	"sci-metadata-search-header-log": "Rexistru",
+	"sci-metadata-search-header-result": "Resultáu",
+	"sci-metadata-search-form-submit": "Buscar",
+	"sci-metadata-search-has-match": "La ID casó colos siguientes [$1] recursos de cita.",
+	"sci-metadata-search-cached": "La respuesta de la busca llogróse de la caché.",
+	"sci-metadata-search-intro": "Escribi un identificador y seleiciona un servici esternuu (rique una conexón a internet activa) p'activar el mapéu de los metadatos al formatu <code>#scite</code> con identificadores pa casar:",
+	"sci-metadata-search-intro-doi": "[[Property:DOI|DOI]] a buscar nel estoyu de CrossRef",
+	"sci-metadata-search-intro-pubmed": "[[Property:PMCID|PMCID]] pa PubMed Central y [[Property:PMID|PMID]] pal archivu PubMed",
+	"sci-metadata-search-intro-oclc": "Númberu [[Property:OCLC|OCLC]] del catálogu WorldCat",
+	"sci-metadata-search-intro-ol": "[[Property:OLID|OLID]] o númberu ISBN a casar con un rexistru d'OpenLibrary",
+	"sci-metadata-search-intro-viaf": "Númberu [[Property:VIAF|VIAF]] a buscar pa un Archivu d'Autoridaes Internacional Virtual",
+	"onoi-remi-request-error": "Solicitú de REST/HTTP devuelta con «$1» pa «$2».",
+	"onoi-remi-response-empty": "La respuesta devolvióse con un resultáu baleru pa «$1».",
+	"onoi-remi-parser-no-id-match": "L'analizador nun pudo concasar «$1».",
+	"sci-tooltip-citation-lookup-failure": "Nun pudo recuperase una cita apropiada dende'l serviciu pa «$1».",
+	"sci-tooltip-citation-lookup-failure-multiple": "Nun pudo recuperase un testu de cita pa «$1» que tien múltiples coincidencies."
+}
