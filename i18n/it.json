@@ -1,9 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Macofe"
+			"Macofe",
+			"Beta16"
 		]
 	},
+	"sci-specials-header-results": "Elenco dei risultati",
+	"sci-specials-select-options": "Seleziona le opzioni",
+	"sci-specials-no-results": "Nessun risultato disponibile.",
 	"sci-metadata-search-action-create": "Crea",
 	"sci-metadata-search-header-result": "Risultato",
 	"sci-metadata-search-form-submit": "Ricerca"

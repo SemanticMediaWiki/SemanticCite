@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Elisardojm"
+			"Elisardojm",
+			"Banjo"
 		]
 	},
 	"sci-desc": "Xestionar os recursos de citas coa axuda de [https://semantic-mediawiki.org MediaWiki Semántica]",
@@ -17,8 +18,11 @@
 	"sci-property-alias-citation-text": "Texto de cita",
 	"sci-property-alias-citation-resource": "Recurso de cita",
 	"findmetadatabyid": "Buscar metadatos",
-	"right-sci-metasearch": "Acceso a Metabusca",
-	"action-sci-metasearch": "a Metabusca",
+	"right-sci-metadatasearch": "Acceso a Metabusca",
+	"action-sci-metadatasearch": "a Metabusca",
+	"sci-specials-header-results": "Lista de resultados",
+	"sci-specials-select-options": "Seleccionar as opcións",
+	"sci-specials-no-results": "Ningún resultado dispoñible.",
 	"sci-metadata-search-form": "Por identificador",
 	"sci-metadata-search-action-highlight": "Seleccionar texto",
 	"sci-metadata-search-action-create": "Crear",
