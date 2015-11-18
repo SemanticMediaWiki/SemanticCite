@@ -1,10 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Josve05a"
+			"Josve05a",
+			"WikiPhoenix"
 		]
 	},
 	"findmetadatabyid": "Hitta metadata",
+	"sci-specials-header-results": "Lista med resultat",
+	"sci-specials-select-options": "Välj alternativ",
+	"sci-specials-no-results": "Inga tillgängliga resultat.",
 	"sci-metadata-search-form": "Av ID",
 	"sci-metadata-search-action-highlight": "Markera text",
 	"sci-metadata-search-action-create": "Skapa"
