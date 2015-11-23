@@ -29,6 +29,7 @@
 	"findmetadatabyid": "This is the text of an interface message.",
 	"right-sci-metadatasearch": "{{doc-right|sci-metadatasearch}}",
 	"action-sci-metadatasearch": "{{doc-action|sci-metadatasearch}}",
+	"sci-specials-citablemetadata-helplink": "{{Optional}}\n\nThis is a link to an external help page.",
 	"sci-metadata-search-form": "This is the text of an interface message.",
 	"sci-metadata-search-action-highlight": "This is the text of an interface message.\n{{Identical|Select text}}",
 	"sci-metadata-search-action-create": "This is the text of an interface message.\n{{Identical|Create}}",
