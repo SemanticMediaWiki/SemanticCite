@@ -5,7 +5,7 @@
 			"Kghbln"
 		]
 	},
-	"sci-desc": "Manage citation resources with the help of [https://semantic-mediawiki.org Semantic MediaWiki]",
+	"sci-desc": "Manage citation resources with the help of [https://www.semantic-mediawiki.org Semantic MediaWiki]",
 	"sci-referencelist-header": "References",
 	"sci-referencelist-text": "$1",
 	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code> can not be used on a namespace that is not enabled for Semantic MediaWiki",
@@ -32,7 +32,7 @@
 	"sci-specials-select-options": "Select options",
 	"sci-specials-no-results": "No results available.",
 	"listcitationreferencebacklinks" : "Citation reference backlinks list",
-	"sci-specials-citablemetadata-helplink" : "https://semantic-mediawiki.org/wiki/Extension:Semantic Cite/Special:FindCitableMetadata",
+	"sci-specials-citablemetadata-helplink" : "https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite#Special:FindCitableMetadata",
 	"sci-metadata-search-form": "By ID",
 	"sci-metadata-search-action-highlight":"Select text",
 	"sci-metadata-search-action-create": "Create",
@@ -54,14 +54,14 @@
 	"sci-tooltip-citation-lookup-failure-multiple": "Failed to retrieve a citation text for \"$1\" which has multiple matches.",
 	"sci-property-definition": "A list of <code>#scite</code> identifiers that are mapped to user-defined properties. Please be aware that changes to existing entries require a rebuild of property assignments. \n foo-id|bar-property",
 	"sci-template-definition": "A list of citation types that are mapped to predefined templates containing citation formatting rules. \n foo-type|bar-template",
-	"smw-pa-property-predefined__sci_cite_key": "\"$1\" is a predefined property that identifies a citation resource and is provided by the [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite] extension.",
-	"smw-pa-property-predefined__sci_cite_reference": "\"$1\" is a predefined property that identifies a citation resource when used as reference (e.g. in-text reference) and is provided by the [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite] extension.",
-	"smw-pa-property-predefined__sci_cite_text": "\"$1\" is a predefined property that contains a preformatted text and is provided by the [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite] extension.",
-	"smw-pa-property-predefined__sci_cite": "\"$1\" is a predefined property provided by the [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite] extension that describes all elements of a citation and is stored as subobject.",
-	"smw-pa-property-predefined__sci_doi": "\"$1\" is a predefined property provided by the [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite] extension that represents a Digital Object Identifier.",
-	"smw-pa-property-predefined__sci_pmcid": "\"$1\" is a predefined property provided by the [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite] extension that represents a PubMed Central reference number (PMCID) and links to full-text papers in PubMed Central.",
-	"smw-pa-property-predefined__sci_pmid": "\"$1\" is a predefined property provided by the [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite] extension that represents a PubMed ID of an entity and is different from the [[Property:PMCID|PMCID]].",
-	"smw-pa-property-predefined__sci_oclc": "\"$1\" is a predefined property provided by the [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite] extension that identifies bibliographic records stored with WorldCat (OCLC).",
-	"smw-pa-property-predefined__sci_olid": "\"$1\" is a predefined property provided by the [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite] extension that identifies OpenLibrary records.",
-	"smw-pa-property-predefined__sci_viaf": "\"$1\" is a predefined property provided by the [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite] extension that identifies a Virtual International Authority File."
+	"smw-pa-property-predefined__sci_cite_key": "\"$1\" is a predefined property that identifies a citation resource and is provided by the [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] extension.",
+	"smw-pa-property-predefined__sci_cite_reference": "\"$1\" is a predefined property that identifies a citation resource when used as reference (e.g. in-text reference) and is provided by the [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] extension.",
+	"smw-pa-property-predefined__sci_cite_text": "\"$1\" is a predefined property that contains a preformatted text and is provided by the [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] extension.",
+	"smw-pa-property-predefined__sci_cite": "\"$1\" is a predefined property provided by the [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] extension that describes all elements of a citation and is stored as subobject.",
+	"smw-pa-property-predefined__sci_doi": "\"$1\" is a predefined property provided by the [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] extension that represents a Digital Object Identifier.",
+	"smw-pa-property-predefined__sci_pmcid": "\"$1\" is a predefined property provided by the [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] extension that represents a PubMed Central reference number (PMCID) and links to full-text papers in PubMed Central.",
+	"smw-pa-property-predefined__sci_pmid": "\"$1\" is a predefined property provided by the [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] extension that represents a PubMed ID of an entity and is different from the [[Property:PMCID|PMCID]].",
+	"smw-pa-property-predefined__sci_oclc": "\"$1\" is a predefined property provided by the [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] extension that identifies bibliographic records stored with WorldCat (OCLC).",
+	"smw-pa-property-predefined__sci_olid": "\"$1\" is a predefined property provided by the [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] extension that identifies OpenLibrary records.",
+	"smw-pa-property-predefined__sci_viaf": "\"$1\" is a predefined property provided by the [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] extension that identifies a Virtual International Authority File."
 }
