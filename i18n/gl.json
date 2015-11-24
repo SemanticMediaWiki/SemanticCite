@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Elisardojm"
+			"Elisardojm",
+			"Banjo"
 		]
 	},
 	"sci-desc": "Xestionar os recursos de citas coa axuda de [https://semantic-mediawiki.org MediaWiki Semántica]",
@@ -9,7 +10,7 @@
 	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code> non pode usarse nun espazo de nomes que non ten activo o MediaWiki Semántico",
 	"sci-scite-parser-no-reference": "<code>#scite</code> non declara unha referencia.",
 	"sci-scite-parser-no-type": "<code>#scite</code> non puido determinar un tipo de referencia para \"$1\".",
-	"sci-scite-parser-no-citation-text": "<code>#scite</code> non puido xenerar un texto de cita para a referencia \"$1\" co tipo \"$2\".",
+	"sci-scite-parser-no-citation-text": "<code>#scite</code> non pode xenerar un texto de cita para a referencia \"$1\" porque o tipo \"$2\" non foi asignado ó [[MediaWiki:Sci-template-definition|modelo]].",
 	"sci-datavalue-empty-reference": "Espérase que a referencia non sexa baleira.",
 	"sci-datavalue-invalid-id-value": "\"$1\" é un valor incorrecto para o tipo $2.",
 	"sci-property-alias-citation-key": "Clave de cita",
@@ -17,8 +18,13 @@
 	"sci-property-alias-citation-text": "Texto de cita",
 	"sci-property-alias-citation-resource": "Recurso de cita",
 	"findmetadatabyid": "Buscar metadatos",
-	"right-sci-metasearch": "Acceso a Metabusca",
-	"action-sci-metasearch": "a Metabusca",
+	"findcitablemetadata": "Atopar metadatos citables",
+	"right-sci-metadatasearch": "Acceso á busca de metadatos",
+	"action-sci-metadatasearch": "a busca de metadatos de Semantic Cite",
+	"sci-specials-header-results": "Lista de resultados",
+	"sci-specials-select-options": "Seleccionar as opcións",
+	"sci-specials-no-results": "Ningún resultado dispoñible.",
+	"sci-specials-citablemetadata-helplink": "https://semantic-mediawiki.org/wiki/Extension:Semantic Cite/Special:FindCitableMetadata",
 	"sci-metadata-search-form": "Por identificador",
 	"sci-metadata-search-action-highlight": "Seleccionar texto",
 	"sci-metadata-search-action-create": "Crear",
@@ -27,6 +33,7 @@
 	"sci-metadata-search-form-submit": "Procurar",
 	"sci-metadata-search-has-match": "O Identificador casouse co seguinte [$1] recurso de cita.",
 	"sci-metadata-search-cached": "A resposta da procura obtívose da caché.",
+	"sci-metadata-search-intro": "Escriba un identificador e seleccione un provedor de servizo (require unha conexión activa a Internet) para mapear metadatos recuperables para o formato <code>#scite</code>.",
 	"sci-metadata-search-intro-doi": "[[Property:DOI|DOI]] a procurar no repositorio de CrossRef",
 	"sci-metadata-search-intro-pubmed": "[[Property:PMCID|PMCID]] para PubMed Central e [[Property:PMID|PMID]] para o arquivo de PubMed",
 	"sci-metadata-search-intro-oclc": "Número de [[Property:OCLC|OCLC]] para o catálogo de WorlCat",
@@ -36,5 +43,15 @@
 	"onoi-remi-response-empty": "A respuesta devolveu un resultado baleiro para \"$1\".",
 	"onoi-remi-parser-no-id-match": "O analizador foi incapaz de atopar \"$1\".",
 	"sci-tooltip-citation-lookup-failure": "Non se puido recuperar unha cita axeitada para \"$1\" desde o servidor.",
-	"sci-tooltip-citation-lookup-failure-multiple": "Non se puido recuperar un texto de cita para \"$1\", que ten varias coincidencias."
+	"sci-tooltip-citation-lookup-failure-multiple": "Non se puido recuperar un texto de cita para \"$1\", que ten varias coincidencias.",
+	"smw-pa-property-predefined__sci_cite_key": "\"$1\" é unha propiedade predefinida que identifica un recurso de cita que é proporcionado pola extensión [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite].",
+	"smw-pa-property-predefined__sci_cite_reference": "\"$1\" é unha propiedade predefinida que identifica un recurso de cita cando se usa como referencia (p. ex. referencias en texto) e é proporcionada pola extensión [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite].",
+	"smw-pa-property-predefined__sci_cite_text": "\"$1\" é unha propiedade predefinida que contén un texto preformatado que é proporcionado pola extensión [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite].",
+	"smw-pa-property-predefined__sci_cite": "\"$1\" é unha propiedade predefinida proporcionada pola extensión [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite] que describe todos os elementos dunha cita e é almacenada como un subobxecto.",
+	"smw-pa-property-predefined__sci_doi": "\"$1\" é unha propiedade predefinida proporcionada pola extensión [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite] que representa a un Identificador Dixital de Obxecto.",
+	"smw-pa-property-predefined__sci_pmcid": "\"$1\" é unha propiedade predefinida proporcionada pola extensión [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite] que representa un número de referencia de PubMed Central (PMCID) e liga ós documentos co contido completo en PubMed Central.",
+	"smw-pa-property-predefined__sci_pmid": "\"$1\" é unha propiedade predefinida proporcionada pola extensión [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite] que representa a un identificador de PubMed dunha entidade e é diferente de [[Property:PMCID|PMCID]].",
+	"smw-pa-property-predefined__sci_oclc": "\"$1\" é unha propiedade predefinida proporcionada pola extensión [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite] que identifica rexistros bibliográficos almacenados con WorldCat (OCLC).",
+	"smw-pa-property-predefined__sci_olid": "\"$1\" é unha propiedade predefinida proporcionada pola extensión [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite] que identifica rexistros de OpenLibrary.",
+	"smw-pa-property-predefined__sci_viaf": "\"$1\" é unha propiedade predefinida proporcionada pola extensión [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite] que identifica a un Ficheiro de Autoridades Virtual Internacional."
 }
