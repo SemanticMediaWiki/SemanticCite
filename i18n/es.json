@@ -4,7 +4,7 @@
 			"Macofe"
 		]
 	},
-	"sci-desc": "Gestionar los recursos de citas con la ayuda de [https://semantic-mediawiki.org Semantic MediaWiki]",
+	"sci-desc": "Gestionar los recursos de citas con la ayuda de [https://www.semantic-mediawiki.org Semantic MediaWiki]",
 	"sci-referencelist-header": "Referencias",
 	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code> no puede usarse en un espacio de nombres que no está habilitado para Semantic MediaWiki",
 	"sci-scite-parser-no-reference": "<code>#scite</code> no declaró una referencia.",
@@ -41,14 +41,14 @@
 	"onoi-remi-parser-no-id-match": "El analizador fue incapaz de encontrar \"$1\".",
 	"sci-tooltip-citation-lookup-failure": "No se pudo recuperar una cita apropiada desde el servidor para \"$1\".",
 	"sci-tooltip-citation-lookup-failure-multiple": "No se pudo recuperar un texto de cita para \"$1\", que tiene varias coincidencias.",
-	"smw-pa-property-predefined__sci_cite_key": "\"$1\" es una propiedad predefinida que identifica un recurso de cita y que la provee la extensión [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite].",
-	"smw-pa-property-predefined__sci_cite_reference": "\"$1\" es una propiedad predefinida que identifica un recurso de cita cuando se usa como referencia (p.ej. referencia en el texto) y que la provee la extensión [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite].",
-	"smw-pa-property-predefined__sci_cite_text": "\"$1\" es una propiedad predefinida que contiene un texto preformateado y que la provee la extensión [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite]",
-	"smw-pa-property-predefined__sci_cite": "\"$1\" es una propiedad predefinida provista por la extensión [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite] que describe todos los elementos de una cita, y que se almacena como un subobjeto.",
-	"smw-pa-property-predefined__sci_doi": "\"$1\" es una propiedad predefinida provista por la extensión [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite] que representa un identificador de objeto digital.",
-	"smw-pa-property-predefined__sci_pmcid": "\"$1\" es una propiedad predefinida provista por la extensión [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite] que representa un número de referencia de PubMed Central (PMCID) y enlaza a artículos completos de PubMed Central.",
-	"smw-pa-property-predefined__sci_pmid": "\"$1\" es una propiedad predefinida provista por la extensión [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite] que representa un identificador de PubMed de una entidad, y es diferente del [[Property:PMCID|PMCID]].",
-	"smw-pa-property-predefined__sci_oclc": "\"$1\" es una propiedad predefinida provista por la extensión [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite] que identifica registros bibliográficos almacenados con WorldCat (OCLC).",
-	"smw-pa-property-predefined__sci_olid": "\"$1\" es una propiedad predefinida provista por la extensión [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite] que identifica registros de OpenLibrary.",
-	"smw-pa-property-predefined__sci_viaf": "\"$1\" es una propiedad predefinida provista por la extensión [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite] que identifica un Archivo de Autoridades Virtual Internacional."
+	"smw-pa-property-predefined__sci_cite_key": "\"$1\" es una propiedad predefinida que identifica un recurso de cita y que la provee la extensión [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite].",
+	"smw-pa-property-predefined__sci_cite_reference": "\"$1\" es una propiedad predefinida que identifica un recurso de cita cuando se usa como referencia (p.ej. referencia en el texto) y que la provee la extensión [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite].",
+	"smw-pa-property-predefined__sci_cite_text": "\"$1\" es una propiedad predefinida que contiene un texto preformateado y que la provee la extensión [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite]",
+	"smw-pa-property-predefined__sci_cite": "\"$1\" es una propiedad predefinida provista por la extensión [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] que describe todos los elementos de una cita, y que se almacena como un subobjeto.",
+	"smw-pa-property-predefined__sci_doi": "\"$1\" es una propiedad predefinida provista por la extensión [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] que representa un identificador de objeto digital.",
+	"smw-pa-property-predefined__sci_pmcid": "\"$1\" es una propiedad predefinida provista por la extensión [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] que representa un número de referencia de PubMed Central (PMCID) y enlaza a artículos completos de PubMed Central.",
+	"smw-pa-property-predefined__sci_pmid": "\"$1\" es una propiedad predefinida provista por la extensión [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] que representa un identificador de PubMed de una entidad, y es diferente del [[Property:PMCID|PMCID]].",
+	"smw-pa-property-predefined__sci_oclc": "\"$1\" es una propiedad predefinida provista por la extensión [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] que identifica registros bibliográficos almacenados con WorldCat (OCLC).",
+	"smw-pa-property-predefined__sci_olid": "\"$1\" es una propiedad predefinida provista por la extensión [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] que identifica registros de OpenLibrary.",
+	"smw-pa-property-predefined__sci_viaf": "\"$1\" es una propiedad predefinida provista por la extensión [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] que identifica un Archivo de Autoridades Virtual Internacional."
 }

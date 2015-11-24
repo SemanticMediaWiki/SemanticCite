@@ -4,7 +4,7 @@
 			"Liuxinyu970226"
 		]
 	},
-	"sci-desc": "在[https://semantic-mediawiki.org Semantic MediaWiki]的帮助下管理引用资源",
+	"sci-desc": "在[https://www.semantic-mediawiki.org Semantic MediaWiki]的帮助下管理引用资源",
 	"sci-referencelist-header": "参考文献",
 	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code>不能在不支持Semantic MediaWiki的名字空间上使用",
 	"sci-scite-parser-no-reference": "<code>#scite</code>未宣称一条参考文献。",
@@ -24,7 +24,6 @@
 	"sci-specials-select-options": "选择选项",
 	"sci-specials-no-results": "没有结果。",
 	"listcitationreferencebacklinks": "引用参考文献后链列表",
-	"sci-specials-citablemetadata-helplink": "https://semantic-mediawiki.org/wiki/Extension:Semantic Cite/Special:FindCitableMetadata",
 	"sci-metadata-search-form": "通过ID",
 	"sci-metadata-search-action-highlight": "选择文本",
 	"sci-metadata-search-action-create": "创建",
@@ -46,14 +45,14 @@
 	"sci-tooltip-citation-lookup-failure-multiple": "检索用于有多个匹配的“$1”引用文本失败。",
 	"sci-property-definition": "A list of <code>#scite</code> identifiers that are mapped to user-defined properties. Please be aware that changes to existing entries require a rebuild of property assignments. \n foo-id|bar-property",
 	"sci-template-definition": "A list of citation types that are mapped to predefined templates containing citation formatting rules. \n foo-type|bar-template",
-	"smw-pa-property-predefined__sci_cite_key": "“$1”是一个定义引用资源的预定义属性，并由[https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite]扩展提供。",
-	"smw-pa-property-predefined__sci_cite_reference": "“$1”是一个定义用于参考文献的引用资源（例如文内参考文献）的预定义属性，并由[https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite]扩展提供。",
-	"smw-pa-property-predefined__sci_cite_text": "“$1”是一个包含预先格式化文本的预定义属性，并由[https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite]扩展提供。",
-	"smw-pa-property-predefined__sci_cite": "“$1”是一个由[https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite]扩展提供的预定义属性，它描述一段引用的所有要素，并存储为子对象。",
-	"smw-pa-property-predefined__sci_doi": "“$1”是一个由[https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite]扩展提供的预定义属性，它表现一个数字对象标识符。",
-	"smw-pa-property-predefined__sci_pmcid": "“$1”是一个由[https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite]扩展提供的预定义属性，它表现一个PubMed Central参考文献号（PMCID），并链接至PubMed Central中的完整文本文件。",
-	"smw-pa-property-predefined__sci_pmid": "“$1”是一个由[https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite]扩展提供的预定义属性，它描述一个实体的PubMed ID，并不同于[[Property:PMCID|PMCID]]。",
-	"smw-pa-property-predefined__sci_oclc": "“$1”是一个由[https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite]扩展提供的预定义属性，它识别由WorldCat（OCLC）存储的书目记录。",
-	"smw-pa-property-predefined__sci_olid": "“$1”是一个由[https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite]扩展提供的预定义属性，它识别OpenLibrary记录。",
-	"smw-pa-property-predefined__sci_viaf": "“$1”是一个由[https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite]扩展提供的预定义属性，它识别一个虚拟国际规范文档"
+	"smw-pa-property-predefined__sci_cite_key": "“$1”是一个定义引用资源的预定义属性，并由[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite]扩展提供。",
+	"smw-pa-property-predefined__sci_cite_reference": "“$1”是一个定义用于参考文献的引用资源（例如文内参考文献）的预定义属性，并由[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite]扩展提供。",
+	"smw-pa-property-predefined__sci_cite_text": "“$1”是一个包含预先格式化文本的预定义属性，并由[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite]扩展提供。",
+	"smw-pa-property-predefined__sci_cite": "“$1”是一个由[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite]扩展提供的预定义属性，它描述一段引用的所有要素，并存储为子对象。",
+	"smw-pa-property-predefined__sci_doi": "“$1”是一个由[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite]扩展提供的预定义属性，它表现一个数字对象标识符。",
+	"smw-pa-property-predefined__sci_pmcid": "“$1”是一个由[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite]扩展提供的预定义属性，它表现一个PubMed Central参考文献号（PMCID），并链接至PubMed Central中的完整文本文件。",
+	"smw-pa-property-predefined__sci_pmid": "“$1”是一个由[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite]扩展提供的预定义属性，它描述一个实体的PubMed ID，并不同于[[Property:PMCID|PMCID]]。",
+	"smw-pa-property-predefined__sci_oclc": "“$1”是一个由[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite]扩展提供的预定义属性，它识别由WorldCat（OCLC）存储的书目记录。",
+	"smw-pa-property-predefined__sci_olid": "“$1”是一个由[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite]扩展提供的预定义属性，它识别OpenLibrary记录。",
+	"smw-pa-property-predefined__sci_viaf": "“$1”是一个由[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite]扩展提供的预定义属性，它识别一个虚拟国际规范文档"
 }

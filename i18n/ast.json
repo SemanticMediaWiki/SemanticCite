@@ -4,7 +4,7 @@
 			"Xuacu"
 		]
 	},
-	"sci-desc": "Xestionar los recursos de cites cola ayuda de [https://semantic-mediawiki.org Semantic MediaWiki]",
+	"sci-desc": "Xestionar los recursos de cites cola ayuda de [https://www.semantic-mediawiki.org Semantic MediaWiki]",
 	"sci-referencelist-header": "Referencies",
 	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code> nun puede usase nun espaciu de nomes que nun ta activáu pa Semantic MediaWiki",
 	"sci-scite-parser-no-reference": "<code>#scite</code> nun declaró una referencia.",
@@ -24,7 +24,6 @@
 	"sci-specials-select-options": "Seleicionar opciones",
 	"sci-specials-no-results": "Nun hai resultaos disponibles.",
 	"listcitationreferencebacklinks": "Llista d'enllaces de vuelta a referencies de cites",
-	"sci-specials-citablemetadata-helplink": "https://semantic-mediawiki.org/wiki/Extension:Semantic Cite/Special:FindCitableMetadata",
 	"sci-metadata-search-form": "Por ID",
 	"sci-metadata-search-action-highlight": "Seleicionar testu",
 	"sci-metadata-search-action-create": "Crear",
@@ -43,5 +42,10 @@
 	"onoi-remi-response-empty": "La respuesta devolvióse con un resultáu baleru pa «$1».",
 	"onoi-remi-parser-no-id-match": "L'analizador nun pudo concasar «$1».",
 	"sci-tooltip-citation-lookup-failure": "Nun pudo recuperase una cita apropiada dende'l serviciu pa «$1».",
-	"sci-tooltip-citation-lookup-failure-multiple": "Nun pudo recuperase un testu de cita pa «$1» que tien múltiples coincidencies."
+	"sci-tooltip-citation-lookup-failure-multiple": "Nun pudo recuperase un testu de cita pa «$1» que tien múltiples coincidencies.",
+	"smw-pa-property-predefined__sci_cite_key": "«$1» ye una propiedá predefinida qu'identifica un recursu de cita qu'ufre la estensión [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite].",
+	"smw-pa-property-predefined__sci_cite_reference": "«$1» ye una propiedá predefinida qu'identifica un recursu de cita cuando s'usa como referencia (p.ex. referencia nel testu) qu'ufre la estensión [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite].",
+	"smw-pa-property-predefined__sci_cite_text": "«$1» ye una propiedá predefinida que contien un testu con formatu previu y qu'ufre la estensión [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite].",
+	"smw-pa-property-predefined__sci_cite": "«$1» ye una propiedá predefinida qu'ufre la estensión [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] que describe tolos elementos d'una cita y se guarda como oxetu subordináu.",
+	"smw-pa-property-predefined__sci_doi": "«$1» ye una propiedá predefinida qu'ufre la estensión [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] que representa un Identificador Dixital d'Oxetu."
 }
