@@ -22,7 +22,7 @@ if ( defined( 'SCI_VERSION' ) ) {
 	return 1;
 }
 
-define( 'SCI_VERSION', '1.0.0-alpha' );
+define( 'SCI_VERSION', '1.0.0' );
 
 /**
  * @codeCoverageIgnore
