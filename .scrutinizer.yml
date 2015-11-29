@@ -19,5 +19,10 @@ tools:
 
 checks:
     php:
+        psr2_class_declaration: false
+        psr2_switch_declaration: false
+        sql_injection_vulnerabilities: true
+        security_vulnerabilities: true
+        no_eval: true
         code_rating: true
         duplication: true
