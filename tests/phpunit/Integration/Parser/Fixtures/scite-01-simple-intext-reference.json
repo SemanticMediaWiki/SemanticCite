@@ -24,13 +24,13 @@
 					"strict-mode-valuematch": false,
 					"propertyCount": 3,
 					"propertyKeys": [ "__sci_cite", "_MDAT", "_SKEY" ],
-					"propertyValues": [ "Citation/Resource#_SCITE-86f84b9b2cf2ae4405199e26f121b4e9" ]
+					"propertyValues": [ "Citation/Resource#_SCITE86f84b9b2cf2ae4405199e26f121b4e9" ]
 				}
 			}
 		},
 		{
 			"about": "#1 verify citation resource container",
-			"subject": "Citation/Resource#_SCITE-86f84b9b2cf2ae4405199e26f121b4e9",
+			"subject": "Citation/Resource#_SCITE86f84b9b2cf2ae4405199e26f121b4e9",
 			"store": {
 				"semantic-data": {
 					"strict-mode-valuematch": false,

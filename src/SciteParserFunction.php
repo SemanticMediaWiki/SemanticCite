@@ -244,7 +244,7 @@ class SciteParserFunction {
 	private function addPropertyValuesFor( ParserParameterProcessor $parserParameterProcessor, $reference ) {
 
 		$subobject = new Subobject( $this->parserData->getTitle() );
-		$subobject->setEmptyContainerForId( '_SCITE-' . md5( $reference ) );
+		$subobject->setEmptyContainerForId( '_SCITE' . md5( $reference ) );
 
 		$subject = $this->parserData->getSemanticData()->getSubject();
 

@@ -10,7 +10,7 @@
 	"parser-testcases": [
 		{
 			"about": "#0",
-			"subject": "Citation/Resource#_SCITE-86f84b9b2cf2ae4405199e26f121b4e9",
+			"subject": "Citation/Resource#_SCITE86f84b9b2cf2ae4405199e26f121b4e9",
 			"store": {
 				"semantic-data": {
 					"strict-mode-valuematch": false,

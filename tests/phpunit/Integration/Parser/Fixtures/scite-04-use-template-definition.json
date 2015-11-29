@@ -35,13 +35,13 @@
 					"strict-mode-valuematch": false,
 					"propertyCount": 3,
 					"propertyKeys": [ "__sci_cite", "_MDAT", "_SKEY" ],
-					"propertyValues": [ "Citation/Resource/1#_SCITE-86f84b9b2cf2ae4405199e26f121b4e9" ]
+					"propertyValues": [ "Citation/Resource/1#_SCITE86f84b9b2cf2ae4405199e26f121b4e9" ]
 				}
 			}
 		},
 		{
 			"about": "#1 citation text determined by type-template mapping",
-			"subject": "Citation/Resource/1#_SCITE-86f84b9b2cf2ae4405199e26f121b4e9",
+			"subject": "Citation/Resource/1#_SCITE86f84b9b2cf2ae4405199e26f121b4e9",
 			"store": {
 				"semantic-data": {
 					"strict-mode-valuematch": false,
@@ -59,13 +59,13 @@
 					"strict-mode-valuematch": false,
 					"propertyCount": 3,
 					"propertyKeys": [ "__sci_cite", "_MDAT", "_SKEY" ],
-					"propertyValues": [ "Citation/Resource/2#_SCITE-0c2129948fae0ce94908235dd949ea00" ]
+					"propertyValues": [ "Citation/Resource/2#_SCITE0c2129948fae0ce94908235dd949ea00" ]
 				}
 			}
 		},
 		{
 			"about": "#3 citation text determined by direct template assignment",
-			"subject": "Citation/Resource/2#_SCITE-0c2129948fae0ce94908235dd949ea00",
+			"subject": "Citation/Resource/2#_SCITE0c2129948fae0ce94908235dd949ea00",
 			"store": {
 				"semantic-data": {
 					"strict-mode-valuematch": false,

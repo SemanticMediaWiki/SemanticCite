@@ -69,13 +69,13 @@
 					"strict-mode-valuematch": false,
 					"propertyCount": 3,
 					"propertyKeys": [ "__sci_cite", "_MDAT", "_SKEY" ],
-					"propertyValues": [ "Example/12/1#_SCITE-7a0c0a939e8181da78d3ebe6cf09eeca" ]
+					"propertyValues": [ "Example/12/1#_SCITE7a0c0a939e8181da78d3ebe6cf09eeca" ]
 				}
 			}
 		},
 		{
 			"about": "#1",
-			"subject": "Example/12/1#_SCITE-7a0c0a939e8181da78d3ebe6cf09eeca",
+			"subject": "Example/12/1#_SCITE7a0c0a939e8181da78d3ebe6cf09eeca",
 			"store": {
 				"semantic-data": {
 					"strict-mode-valuematch": false,
@@ -87,7 +87,7 @@
 		},
 		{
 			"about": "#2 with separated authors",
-			"subject": "Example/12/2#_SCITE-b9a7caa631427c26f4c8e70219b2cda9",
+			"subject": "Example/12/2#_SCITEb9a7caa631427c26f4c8e70219b2cda9",
 			"store": {
 				"semantic-data": {
 					"strict-mode-valuematch": false,
@@ -99,7 +99,7 @@
 		},
 		{
 			"about": "#3 explicit reference/type precedes",
-			"subject": "Example/12/3#_SCITE-99250259e6747c8f1c3876637a69d68c",
+			"subject": "Example/12/3#_SCITE99250259e6747c8f1c3876637a69d68c",
 			"store": {
 				"semantic-data": {
 					"strict-mode-valuematch": false,
@@ -111,7 +111,7 @@
 		},
 		{
 			"about": "#4 access hidden bibtex-author, see #12",
-			"subject": "Example/12/4#_SCITE-b375bde01f73d04037215f4614f81cc1",
+			"subject": "Example/12/4#_SCITEb375bde01f73d04037215f4614f81cc1",
 			"store": {
 				"semantic-data": {
 					"strict-mode-valuematch": false,
