@@ -26,7 +26,8 @@
 
 ### Metadata search
 
-- `$GLOBALS['scigMetadataRequestCacheTTLInSeconds']` the time responses are cached from a
+- `$GLOBALS['scigMetadataResponseCacheType']` specifies the type of the cache expected to be used
+- `$GLOBALS['scigMetadataResponseCacheLifetime']` specifies the time duration responses are cached from a
    metadata service provider
 - `$GLOBALS['wgGroupPermissions']['user']['sci-metasearch'] = true;` to restricted access to users
 

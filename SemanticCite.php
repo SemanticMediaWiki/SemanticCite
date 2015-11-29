@@ -3,7 +3,6 @@
 use SCI\HookRegistry;
 use SCI\Options;
 use SMW\ApplicationFactory;
-use Onoi\Cache\CacheFactory;
 
 /**
  * @see https://github.com/SemanticMediaWiki/SemanticCite/
@@ -134,7 +133,13 @@ call_user_func( function () {
 	);
 
 	$GLOBALS['scigTooltipRequestCacheTTLInSeconds'] = 60 * 60 * 24; // false to disable the Cache
-	$GLOBALS['scigMetadataRequestCacheTTLInSeconds'] = 60 * 60 * 24;
+
+	/**
+	 * Setting to regulate the caching of response for received from a metadata
+	 * provider
+	 */
+	$GLOBALS['scigMetadataResponseCacheType'] = CACHE_ANYTHING;
+	$GLOBALS['scigMetadataResponseCacheLifetime'] = 60 * 60 * 24;
 
 	/**
 	 * Number of columns displayed for the reference list
@@ -188,16 +193,11 @@ call_user_func( function () {
 			'enabledCitationTextChangeUpdateJob' => $GLOBALS['scigEnabledCitationTextChangeUpdateJob']
 		);
 
-		$cacheFactory = new CacheFactory();
-
-		$compositeCache = $cacheFactory->newCompositeCache( array(
-			$cacheFactory->newFixedInMemoryLruCache( 500 ),
-			$cacheFactory->newMediaWikiCache( ObjectCache::getInstance( $GLOBALS['scigReferenceListCacheType'] ) )
-		) );
+		$applicationFactory = ApplicationFactory::getInstance();
 
 		$hookRegistry = new HookRegistry(
-			ApplicationFactory::getInstance()->getStore(),
-			$compositeCache,
+			$applicationFactory->getStore(),
+			$applicationFactory->newCacheFactory()->newMediaWikiCompositeCache( $GLOBALS['scigReferenceListCacheType'] ),
 			new Options( $configuration )
 		);
 

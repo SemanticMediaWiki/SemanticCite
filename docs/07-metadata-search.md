@@ -67,7 +67,7 @@ executed to ensure that annotations are reconnected to the newly assigned namesp
 ## Related settings
 
 To avoid repeated data downloads from a service provider, requests are cached that contain the
-same signature with an expiry specified by `$GLOBALS['scigMetadataRequestCacheTTLInSeconds']`.
+same signature with an expiry specified by `$GLOBALS['scigMetadataResponseCacheLifetime']`.
 
 By default, the access to the search is restricted to users with the `sci-metasearch` right.
 

@@ -11,7 +11,7 @@ use SCI\Specials\CitableMetadata\PageBuilder;
 
 /**
  * @license GNU GPL v2+
- * @since   1.1
+ * @since   1.0
  *
  * @author mwjames
  */
@@ -112,12 +112,12 @@ class SpecialFindCitableMetadata extends SpecialPage {
 		);
 
 		$httpRequestFactory = new HttpRequestFactory(
-			$applicationFactory->getCache()
+			$applicationFactory->newCacheFactory()->newMediaWikiCompositeCache( $GLOBALS['scigMetadataResponseCacheType'] )
 		);
 
 		$httpRequest = $httpRequestFactory->newCachedCurlRequest();
-		$httpRequest->setExpiryInSeconds( $GLOBALS['scigMetadataRequestCacheTTLInSeconds'] );
-		$httpRequest->setCachePrefix( $GLOBALS['scigCachePrefix'] . ':' );
+		$httpRequest->setOption( ONOI_HTTP_REQUEST_RESPONSECACHE_TTL, $GLOBALS['scigMetadataResponseCacheLifetime'] );
+		$httpRequest->setOption( ONOI_HTTP_REQUEST_RESPONSECACHE_PREFIX, $GLOBALS['scigCachePrefix'] . ':sci:meta:' );
 
 		$pageBuilder = new PageBuilder(
 			$htmlFormRenderer,
