@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Hwangjy9"
+			"Hwangjy9",
+			"고솜"
 		]
 	},
+	"sci-desc": "[https://www.semantic-mediawiki.org Semantic MediaWiki]를 사용하여 출처를 관리하세요",
 	"sci-referencelist-header": "각주",
 	"sci-metadata-search-form-submit": "검색"
 }
