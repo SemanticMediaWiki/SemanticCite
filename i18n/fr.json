@@ -8,7 +8,7 @@
 			"Orlodrim"
 		]
 	},
-	"sci-desc": "Gérer les ressources de citation à l’aide de [https://semantic-mediawiki.org MédiaWiki Sémantique]",
+	"sci-desc": "Gérer les ressources de citation à l’aide de [https://www.semantic-mediawiki.org MédiaWiki Sémantique]",
 	"sci-referencelist-header": "Références",
 	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code> ne peut pas être utilisé pour un espace de noms sur lequel Semantic MediaWiki n'a pas été activé",
 	"sci-scite-parser-no-reference": "<code>#scite</code> n'a pas déclaré de référence.",
@@ -28,7 +28,6 @@
 	"sci-specials-select-options": "Sélectionner les options",
 	"sci-specials-no-results": "Aucun résultat disponible.",
 	"listcitationreferencebacklinks": "Liste des liens arrière de référence de Citation",
-	"sci-specials-citablemetadata-helplink": "https://semantic-mediawiki.org/wiki/Extension:Semantic Cite/Special:FindCitableMetadata",
 	"sci-metadata-search-form": "Par identifiant",
 	"sci-metadata-search-action-highlight": "Sélectionnez le texte",
 	"sci-metadata-search-action-create": "Créer",
@@ -50,14 +49,14 @@
 	"sci-tooltip-citation-lookup-failure-multiple": "Impossible de récupérer un texte de citation pour « $1 » qui a plusieurs correspondances.",
 	"sci-property-definition": "Une liste d’identifiants <code>#scite</code> qui correspondent à des propriétés définies par l’utilisateur. Rappelez-vous bien que modifier des entrées existantes nécessite une reconstruction des affectations des propriétés. \n foo-id|bar-property",
 	"sci-template-definition": "Une liste de types de citation qui correspondent à des modèles prédéfinis contenant des règles de mise en forme de citation. \n foo-type|bar-template",
-	"smw-pa-property-predefined__sci_cite_key": "« $1 » est une propriété prédéfinie qui identifie une ressource de citation et est fournie par l’extension [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Sémantique Cite].",
-	"smw-pa-property-predefined__sci_cite_reference": "« $1 » est une propriété prédéfinie qui identifie une ressource de citation quand elle est utilisée comme référence (par ex. référence dans le texte) et est fournie par l’extension [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Sémantique Cite].",
-	"smw-pa-property-predefined__sci_cite_text": "« $1 » est une propriété prédéfinie qui contient un texte déjà mis en forme et est fournie par l’extension [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Sémantique Cite].",
-	"smw-pa-property-predefined__sci_cite": "« $1 » est une propriété prédéfinie fournie par l’extension [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Sémantique Cite] qui décrit tous les éléments d’une citation et est stockée comme sous-objet.",
-	"smw-pa-property-predefined__sci_doi": "« $1 » est une propriété prédéfinie fournie par l’extension  [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Sémantique Cite] qui représente un Identifiant d’Objet Numérique.",
-	"smw-pa-property-predefined__sci_pmcid": "« $1 » est une propriété prédéfinie fournie par l’extension [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Sémantique Cite] qui représente un numéro de référence de PubMed Central (PMCID) et se lie à des documents textuels dans PubMed Central.",
-	"smw-pa-property-predefined__sci_pmid": "« $1 » est une propriété prédéfinie fournie par l'extension [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Semantic Cite] qui représente l'ID PubMed d'une entité et diffère du [[Property:PMCID|PMCID]].",
-	"smw-pa-property-predefined__sci_oclc": "« $1 » est une propriété prédéfinie fournie par l’extension [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Sémantique Cite] qui identifie les enregistrements bibliographiques stockés avec WorldCat (OCLC).",
-	"smw-pa-property-predefined__sci_olid": "« $1 » est une propriété prédéfinie fournie par l’extension [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Sémantique Cite] qui identifie les enregistrements de OpenLibrary.",
-	"smw-pa-property-predefined__sci_viaf": "« $1 » est une propriété prédéfinie fournie par l’extension [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Sémantique Cite] qui identifie un Fichier d’Autorité Internationale Virtuelle."
+	"smw-pa-property-predefined__sci_cite_key": "« $1 » est une propriété prédéfinie qui identifie une ressource de citation et est fournie par l’extension [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Sémantique Cite].",
+	"smw-pa-property-predefined__sci_cite_reference": "« $1 » est une propriété prédéfinie qui identifie une ressource de citation quand elle est utilisée comme référence (par ex. référence dans le texte) et est fournie par l’extension [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Sémantique Cite].",
+	"smw-pa-property-predefined__sci_cite_text": "« $1 » est une propriété prédéfinie qui contient un texte déjà mis en forme et est fournie par l’extension [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Sémantique Cite].",
+	"smw-pa-property-predefined__sci_cite": "« $1 » est une propriété prédéfinie fournie par l’extension [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Sémantique Cite] qui décrit tous les éléments d’une citation et est stockée comme sous-objet.",
+	"smw-pa-property-predefined__sci_doi": "« $1 » est une propriété prédéfinie fournie par l’extension  [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Sémantique Cite] qui représente un Identifiant d’Objet Numérique.",
+	"smw-pa-property-predefined__sci_pmcid": "« $1 » est une propriété prédéfinie fournie par l’extension [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Sémantique Cite] qui représente un numéro de référence de PubMed Central (PMCID) et se lie à des documents textuels dans PubMed Central.",
+	"smw-pa-property-predefined__sci_pmid": "« $1 » est une propriété prédéfinie fournie par l'extension [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] qui représente l'ID PubMed d'une entité et diffère du [[Property:PMCID|PMCID]].",
+	"smw-pa-property-predefined__sci_oclc": "« $1 » est une propriété prédéfinie fournie par l’extension [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Sémantique Cite] qui identifie les enregistrements bibliographiques stockés avec WorldCat (OCLC).",
+	"smw-pa-property-predefined__sci_olid": "« $1 » est une propriété prédéfinie fournie par l’extension [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Sémantique Cite] qui identifie les enregistrements de OpenLibrary.",
+	"smw-pa-property-predefined__sci_viaf": "« $1 » est une propriété prédéfinie fournie par l’extension [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Sémantique Cite] qui identifie un Fichier d’Autorité Internationale Virtuelle."
 }

@@ -4,7 +4,7 @@
 			"Bjankuloski06"
 		]
 	},
-	"sci-desc": "Раководење со ресурси за наведување со помош на [https://semantic-mediawiki.org Семантички МедијаВики]",
+	"sci-desc": "Раководење со ресурси за наведување со помош на [https://www.semantic-mediawiki.org Семантички МедијаВики]",
 	"sci-referencelist-header": "Наводи",
 	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code> не може да се користи на именски простор каде не е овозможен Семантички Медијавики",
 	"sci-scite-parser-no-reference": "<code>#scite</code> не зададе разлика.",
@@ -24,7 +24,6 @@
 	"sci-specials-select-options": "Одбери дејства",
 	"sci-specials-no-results": "Нема исходи.",
 	"listcitationreferencebacklinks": "Список на обратни врски за наводи",
-	"sci-specials-citablemetadata-helplink": "https://semantic-mediawiki.org/wiki/Extension:Semantic Cite/Special:FindCitableMetadata",
 	"sci-metadata-search-form": "По назнака",
 	"sci-metadata-search-action-highlight": "Изберете текст",
 	"sci-metadata-search-action-create": "Создај",
@@ -46,14 +45,14 @@
 	"sci-tooltip-citation-lookup-failure-multiple": "Не успеав да го добијам текстот на наводот за „$1“, кој има повеќе совпаѓања.",
 	"sci-property-definition": "Список на ознаки <code>#scite</code> кои одговараат на кориснички-определени својства. Имајте на ум дека измените во постоечките ставки бараат пресрочување на зададените својства. \n foo-id|bar-property",
 	"sci-template-definition": "Список на видови наводи кои одговараат на предодредени шаблони кои содржат правила за форматирање на наводите.\n foo-type|bar-template",
-	"smw-pa-property-predefined__sci_cite_key": "„$1“ е предодредено својство што определува ресурс за наведување, а го доставува додатокот „[https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Семантичко наведување]“.",
-	"smw-pa-property-predefined__sci_cite_reference": "„$1“ е предодредено својство кое утврдува ресурс кога се користи како навод (на пр. во текст) и е добиено од додатокот [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Семантичко наведување].",
-	"smw-pa-property-predefined__sci_cite_text": "„$1“ е предодредено својство кое содржи претформатиран текст и е добиено од додатокот [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Семантичко наведување].",
-	"smw-pa-property-predefined__sci_cite": "„$1“ е предодредено својство добиено од додатокот [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Семантичко наведување] кое ги опишува сите елементи на еден навод и се складира како подобјект.",
-	"smw-pa-property-predefined__sci_doi": "„$1“ е предодредено својство добиено од додатокот [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Семантичко наведување] кое го претставува дигиталниот идентификатор на објекти (DOI).",
-	"smw-pa-property-predefined__sci_pmcid": "„$1“ е предодредено својство добиено од додатокот [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Семантичко наведување] кое претставува број на PubMed Central (PMCID) и води до целосни списи на PubMed Central.",
-	"smw-pa-property-predefined__sci_pmid": "„$1“ е предодредено својство добиено од додатокот [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Семантичко наведување] кое претставува назнака на PubMed за единица различна од онаа на [[Property:PMCID|PMCID]].",
-	"smw-pa-property-predefined__sci_oclc": "„$1“ е предодредено својство добиено од додатокот [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Семантичко наведување] кое утврдува библиографски записи складирани со WorldCat (OCLC).",
-	"smw-pa-property-predefined__sci_olid": "„$1“ е предодредено својство добиено од додатокот [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Семантичко наведување] кое утврдува записи на OpenLibrary.",
-	"smw-pa-property-predefined__sci_viaf": "„$1“ е предодредено својство добиено од додатокот [https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite Семантичко наведување] кое утврдува виртуелна меѓународна нормативна подадотека (VIAF)."
+	"smw-pa-property-predefined__sci_cite_key": "„$1“ е предодредено својство што определува ресурс за наведување, а го доставува додатокот „[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Семантичко наведување]“.",
+	"smw-pa-property-predefined__sci_cite_reference": "„$1“ е предодредено својство кое утврдува ресурс кога се користи како навод (на пр. во текст) и е добиено од додатокот [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Семантичко наведување].",
+	"smw-pa-property-predefined__sci_cite_text": "„$1“ е предодредено својство кое содржи претформатиран текст и е добиено од додатокот [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Семантичко наведување].",
+	"smw-pa-property-predefined__sci_cite": "„$1“ е предодредено својство добиено од додатокот [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Семантичко наведување] кое ги опишува сите елементи на еден навод и се складира како подобјект.",
+	"smw-pa-property-predefined__sci_doi": "„$1“ е предодредено својство добиено од додатокот [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Семантичко наведување] кое го претставува дигиталниот идентификатор на објекти (DOI).",
+	"smw-pa-property-predefined__sci_pmcid": "„$1“ е предодредено својство добиено од додатокот [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Семантичко наведување] кое претставува број на PubMed Central (PMCID) и води до целосни списи на PubMed Central.",
+	"smw-pa-property-predefined__sci_pmid": "„$1“ е предодредено својство добиено од додатокот [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Семантичко наведување] кое претставува назнака на PubMed за единица различна од онаа на [[Property:PMCID|PMCID]].",
+	"smw-pa-property-predefined__sci_oclc": "„$1“ е предодредено својство добиено од додатокот [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Семантичко наведување] кое утврдува библиографски записи складирани со WorldCat (OCLC).",
+	"smw-pa-property-predefined__sci_olid": "„$1“ е предодредено својство добиено од додатокот [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Семантичко наведување] кое утврдува записи на OpenLibrary.",
+	"smw-pa-property-predefined__sci_viaf": "„$1“ е предодредено својство добиено од додатокот [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Семантичко наведување] кое утврдува виртуелна меѓународна нормативна подадотека (VIAF)."
 }
