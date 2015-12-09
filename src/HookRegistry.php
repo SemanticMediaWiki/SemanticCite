@@ -129,6 +129,14 @@ class HookRegistry {
 				DataItem::TYPE_BLOB
 			);
 
+			$dataTypeRegistry->registerDatatype(
+				'_sci_rec',
+				'\SCI\DataValues\CitationFrequencyValue',
+				DataItem::TYPE_WIKIPAGE,
+				false,
+				true
+			);
+
 			$types = array(
 				'_sci_doi',
 				'_sci_pmcid',
@@ -264,7 +272,11 @@ class HookRegistry {
 		/**
 		 * @see https://www.semantic-mediawiki.org/wiki/Hooks#SMWStore::updateDataBefore
 		 */
-		$this->handlers['SMWStore::updateDataBefore'] = function ( $store, $semanticData ) use ( $cache, $cacheKeyProvider, $citationReferencePositionJournal ) {
+		$this->handlers['SMWStore::updateDataBefore'] = function ( $store, $semanticData ) use ( $cache, $cacheKeyProvider, $options, $citationReferencePositionJournal ) {
+
+			$citationMeta = new CitationMeta( $citationReferencePositionJournal );
+			$citationMeta->setEnabledState( $options->get( 'enabledCitationMetaRecord' ) );
+			$citationMeta->addMetaRecordToSemanticData( $semanticData );
 
 			$hash = $semanticData->getSubject()->getHash();
 

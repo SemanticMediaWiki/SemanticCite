@@ -103,7 +103,7 @@ the last entry (e.g. `schema:Book`) will be used as type descriptor.
 ## Bibtex record import
 
 To ease the reuse of bibtex records, `#scite` provides the `|bibtex=` parameter to
-import a bibtex formatted text to create an annotatable record that corresponds to 
+import a bibtex formatted text to create an annotatable record that corresponds to
 the mapping found in the [property](02-property-mapping.md) and
 [template](03-template-mapping.md) page.
 
@@ -170,5 +170,10 @@ not parsed or resolved.
 }
 }}
 ```
+## Citation meta record
+
+`$GLOBALS['scigEnabledCitationMetaRecord']` can be enabled to generate additional record data about the
+references used (e.g citation frequency) to help answer questions like "How often is a reference cited
+within an article?" or "How often is a reference cited within a wiki?.
 
 [smw-ns]: https://semantic-mediawiki.org/wiki/Help:$smwgNamespacesWithSemanticLinks

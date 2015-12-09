@@ -22,7 +22,7 @@ if ( defined( 'SCI_VERSION' ) ) {
 	return 1;
 }
 
-define( 'SCI_VERSION', '1.0.0' );
+define( 'SCI_VERSION', '1.1.0-alpha' );
 
 /**
  * @codeCoverageIgnore
@@ -174,6 +174,12 @@ call_user_func( function () {
 	 */
 	$GLOBALS['scigEnabledCitationTextChangeUpdateJob'] = true;
 
+	/**
+	 * Whether an article should collect meta information about citation
+	 * resources (i.e citation frequency etc.)
+	 */
+	$GLOBALS['scigEnabledCitationMetaRecord'] = false;
+
 	// Finalize registration process
 	$GLOBALS['wgExtensionFunctions'][] = function() {
 
@@ -190,7 +196,8 @@ call_user_func( function () {
 			'referenceListType'                  => $GLOBALS['scigReferenceListType'],
 			'enabledstrictParserValidation'      => $GLOBALS['scigEnabledStrictParserValidation'],
 			'cachePrefix'                        => $GLOBALS['scigCachePrefix'],
-			'enabledCitationTextChangeUpdateJob' => $GLOBALS['scigEnabledCitationTextChangeUpdateJob']
+			'enabledCitationTextChangeUpdateJob' => $GLOBALS['scigEnabledCitationTextChangeUpdateJob'],
+			'enabledCitationMetaRecord'          => $GLOBALS['scigEnabledCitationMetaRecord']
 		);
 
 		$applicationFactory = ApplicationFactory::getInstance();
