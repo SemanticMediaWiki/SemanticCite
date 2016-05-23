@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Macofe"
+			"Macofe",
+			"Lemondoge"
 		]
 	},
 	"sci-desc": "Gestionar los recursos de citas con la ayuda de [https://www.semantic-mediawiki.org Semantic MediaWiki]",
@@ -19,9 +20,11 @@
 	"findmetadatabyid": "Buscar metadatos",
 	"findcitablemetadata": "Encontrar metadatos citables",
 	"right-sci-metadatasearch": "Acceso a la búsqueda de metadatos",
+	"action-sci-metadatasearch": "la Semántica Citar búsqueda de metadatos",
 	"sci-specials-header-results": "Lista de resultados",
 	"sci-specials-select-options": "Selecciona opciones",
 	"sci-specials-no-results": "No hay resultados disponibles.",
+	"listcitationreferencebacklinks": "Cita de referencia de los vínculos de retroceso de la lista de",
 	"sci-metadata-search-form": "Por identificador",
 	"sci-metadata-search-action-highlight": "Seleccionar texto",
 	"sci-metadata-search-action-create": "Crear",
