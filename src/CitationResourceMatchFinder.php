@@ -4,6 +4,8 @@ namespace SCI;
 
 use SMW\Query\Language\SomeProperty;
 use SMW\Query\Language\ValueDescription;
+use SMW\Query\Language\Conjunction;
+use SMW\Query\Language\ThingDescription;
 use SMW\Query\PrintRequest;
 use SMW\Store;
 use SMW\DIProperty;
@@ -163,6 +165,14 @@ class CitationResourceMatchFinder {
 		$description = new SomeProperty(
 			new DIProperty( PropertyRegistry::SCI_CITE_KEY ),
 			new ValueDescription( new DIBlob( $citationReference ) )
+		);
+
+		$description = new Conjunction( array( $description ) );
+		$description->addDescription(
+			new SomeProperty(
+				new DIProperty( PropertyRegistry::SCI_CITE_TEXT ),
+				new ThingDescription()
+			)
 		);
 
 		$propertyValue = new PropertyValue( '__pro' );

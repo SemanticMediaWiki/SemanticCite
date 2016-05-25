@@ -73,7 +73,7 @@ class CitationTextChangeUpdateJobDispatcher {
 			new DIProperty( PropertyRegistry::SCI_CITE_TEXT )
 		);
 
-		$subjectIdList = $this->getSubjectListFrom(
+		$subjectIdList = $this->getSubjectIdListFromOrderedTableDiff(
 			$compositePropertyTableDiffIterator->getOrderedDiffByTable( $tableName )
 		);
 
@@ -93,16 +93,11 @@ class CitationTextChangeUpdateJobDispatcher {
 		return true;
 	}
 
-	private function getSubjectListFrom( array $orderedDiff ) {
+	private function getSubjectIdListFromOrderedTableDiff( array $orderedTableDiff ) {
 
 		$subjectIdList = array();
 
-		// Find out whether a cite text object was altered
-		foreach ( $orderedDiff as $key => $value ) {
-
-			if ( strpos( $key, 'sci_cite_text' ) === false ) {
-				continue;
-			}
+		foreach ( $orderedTableDiff as $key => $value ) {
 
 			if ( !isset( $value['delete'] ) ) {
 				$value['delete'] = array();
