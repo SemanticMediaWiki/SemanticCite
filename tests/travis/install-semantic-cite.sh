@@ -12,17 +12,17 @@ function installToMediaWikiRoot {
 
 	if [ "$PHPUNIT" != "" ]
 	then
-		composer require 'phpunit/phpunit='$PHPUNIT --prefer-source --update-with-dependencies
+		composer require 'phpunit/phpunit='$PHPUNIT --update-with-dependencies
 	else
-		composer require 'phpunit/phpunit=4.7.*' --prefer-source --update-with-dependencies
+		composer require 'phpunit/phpunit=4.7.*' --update-with-dependencies
 	fi
 
 	if [ "$SCI" != "" ]
 	then
-		composer require 'mediawiki/semantic-scite='$SCI --prefer-source --update-with-dependencies
+		composer require 'mediawiki/semantic-scite='$SCI --update-with-dependencies
 	else
 		composer init --stability dev
-		composer require mediawiki/semantic-cite "dev-master" --prefer-source --dev
+		composer require mediawiki/semantic-cite "dev-master" --dev
 
 		cd extensions
 		cd SemanticCite
