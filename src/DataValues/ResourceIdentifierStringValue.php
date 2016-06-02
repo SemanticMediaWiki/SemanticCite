@@ -72,6 +72,9 @@ class ResourceIdentifierStringValue extends StringValue {
 		);
 	}
 
+	/**
+	 * @see StringValue::getShortHTMLText
+	 */
 	public function getShortHTMLText( $linker = null ) {
 
 		if ( !$this->isValid() ) {
@@ -100,25 +103,34 @@ class ResourceIdentifierStringValue extends StringValue {
 		);
 	}
 
+	/**
+	 * @see StringValue::getLongWikiText
+	 */
 	public function getLongWikiText( $linked = null ) {
 		return $this->getShortWikiText( $linked );
 	}
 
+	/**
+	 * @see StringValue::getLongHTMLText
+	 */
 	public function getLongHTMLText( $linker = null ) {
 		return $this->getShortHTMLText( $linker );
 	}
 
-	private function getTargetLink( $target ) {
-		return $this->resourceIdentifierStringValueParser->getResourceTargetUri() . $target;
-	}
-
-	private function getPreferredCaption() {
+	/**
+	 * @see DataValue::getPreferredCaption
+	 */
+	public function getPreferredCaption() {
 
 		if ( $this->m_outformat == '-' ) {
 			return $this->m_caption;
 		}
 
 		return false;
+	}
+
+	private function getTargetLink( $target ) {
+		return $this->resourceIdentifierStringValueParser->getResourceTargetUri() . $target;
 	}
 
 }
