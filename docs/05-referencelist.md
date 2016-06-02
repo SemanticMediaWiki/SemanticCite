@@ -1,9 +1,9 @@
 ## #referencelist parser
 
-In general a reference list is auto-maintained and added to the bottom of a page if
-a citation reference is being detected. In case a use whishes to place a list differently,
-`#referencelist` can be used to mark the position on where the list is expected
-to appear.
+In general a reference list is auto-maintained (except for the NS_FILE namespace)
+and added to the bottom of a page if a citation reference is being detected. In
+case a user whishes to place a list differently, `#referencelist` can be used to
+mark the position as to where the list is expected to appear.
 
 Citation resources that use the same key are displayed on the reference list and
 linked to each other if `$GLOBALS['scigBrowseLinkToCitationResource']` is enabled.
