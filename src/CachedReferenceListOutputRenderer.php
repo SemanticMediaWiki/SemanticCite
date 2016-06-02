@@ -131,7 +131,9 @@ class CachedReferenceListOutputRenderer {
 			);
 		}
 
-		$text .= $this->getRenderedHtmlReferenceList();
+		if ( $this->contextInteractor->getTitle()->getNamespace() !== NS_FILE ) {
+			$text .= $this->getRenderedHtmlReferenceList();
+		}
 	}
 
 	private function getCustomizedRenderedHtmlReferenceList( $customOptions ) {

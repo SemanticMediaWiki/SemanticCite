@@ -111,4 +111,33 @@ class CachedReferenceListOutputRendererTest extends \PHPUnit_Framework_TestCase 
 		);
 	}
 
+	public function testNoAutoReferencelistOnFileNamespace() {
+
+		$this->contextInteractor->expects( $this->atLeastOnce() )
+			->method( 'getTitle' )
+			->will( $this->returnValue( \Title::newFromText( __METHOD__, NS_FILE ) ) );
+
+		$this->contextInteractor->expects( $this->once() )
+			->method( 'hasAction' )
+			->will( $this->returnValue( true ) );
+
+		$this->contextInteractor->expects( $this->never() )
+			->method( 'getOldId' );
+
+		$this->namespaceExaminer->expects( $this->once() )
+			->method( 'isSemanticEnabled' )
+			->will( $this->returnValue( true ) );
+
+		$instance =	new CachedReferenceListOutputRenderer(
+			$this->referenceListOutputRenderer,
+			$this->contextInteractor,
+			$this->namespaceExaminer,
+			$this->cache,
+			$this->cacheKeyProvider
+		);
+
+		$text = '';
+		$instance->addReferenceListToText( $text );
+	}
+
 }
