@@ -81,8 +81,25 @@
 	margin-left: 2px;
 }
 
-.scite-tooltip-loading {
-	padding-left: 40%;
+.scite-tooltip {
+	min-width: 250px;
+	min-height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.scite-tooltip-cache-indicator {
+	float: left;
+	margin-right:5px;
+}
+
+.scite-tooltip-cache-browser::after {
+	content:"◐"; /* &#9680; */
+}
+
+.scite-tooltip-cache-backend::after {
+	content:"◑"; /* &#9681; */
 }
 
 .scite-citeref-number:target, .scite-citeref-key:target {

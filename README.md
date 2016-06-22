@@ -38,12 +38,12 @@ The recommended way to install Semantic Cite is by using [Composer][composer] wi
 ```json
 {
 	"require": {
-		"mediawiki/semantic-cite": "~1.0"
+		"mediawiki/semantic-cite": "~1.1"
 	}
 }
 ```
 1. From your MediaWiki installation directory, execute
-   `composer require mediawiki/semantic-cite:~1.0`
+   `composer require mediawiki/semantic-cite:~1.1`
 2. Run the **maintenance [`update.php`][mw-update] script** to ensure that property tables
    are properly initialized
 3. Navigate to _Special:Version_ on your wiki and verify that the package
@@ -129,7 +129,7 @@ but can also be executed using `composer phpunit` from the extension base direct
 [composer]: https://getcomposer.org/
 [mw-cite]: https://github.com/wikimedia/mediawiki-extensions-Cite
 [mw-update]: https://www.mediawiki.org/wiki/Manual:Update.php
-[config]: https://github.com/SemanticMediaWiki/SemanticCite/blob/master/CONFIGURATION.md
+[config]: https://github.com/SemanticMediaWiki/SemanticCite/blob/master/docs/00-configurations.md
 [docs-faq]: https://github.com/SemanticMediaWiki/SemanticCite/blob/master/docs/08-faq.md
 [docs-search]: https://github.com/SemanticMediaWiki/SemanticCite/blob/master/docs/07-metadata-search.md
 [docs-scite]: https://github.com/SemanticMediaWiki/SemanticCite/blob/master/docs/04-scite.md

@@ -31,7 +31,8 @@
 		"mediawiki/semantic-media-wiki": "~2.3",
 		"onoi/cache": "~1.2",
 		"onoi/http-request": "~1.3",
-		"onoi/remi":"~0.2"
+		"onoi/remi":"~0.2",
+		"onoi/shared-resources":"~0.2"
 	},
 	"require-dev": {
 		"mediawiki/semantic-media-wiki": "@dev"
@@ -43,6 +44,7 @@
 	},
 	"autoload": {
 		"files" : [
+			"DefaultSettings.php",
 			"SemanticCite.php"
 		],
 		"psr-4": {
