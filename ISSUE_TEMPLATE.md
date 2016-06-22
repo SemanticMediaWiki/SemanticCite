@@ -1,6 +1,7 @@
 ### Setup and configuration
 
 - SMW version:
+- SCI version:
 - MW version:
 - DB (MySQL etc.):
 
