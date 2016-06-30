@@ -14,7 +14,7 @@
 		var configuration = mw.config.get( 'ext.scite.config' );
 		var blobstore = new onoi.blobstore(
 			'scite' +  ':' +
-			mw.config.get( 'wgCookiePrefix' ) + '+' +
+			mw.config.get( 'wgCookiePrefix' ) + ':' +
 			mw.config.get( 'wgUserLanguage' )
 		);
 
