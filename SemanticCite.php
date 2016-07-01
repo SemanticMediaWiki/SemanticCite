@@ -45,7 +45,7 @@ class SemanticCite {
 
 		// Register the extension
 		$GLOBALS['wgExtensionCredits']['semantic'][ ] = array(
-			'path'           => __DIR__,
+			'path'           => __FILE__,
 			'name'           => 'Semantic Cite',
 			'author'         => array( 'James Hong Kong' ),
 			'url'            => 'https://github.com/SemanticMediaWiki/SemanticCite/',
