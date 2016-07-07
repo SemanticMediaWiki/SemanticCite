@@ -2,10 +2,33 @@
 	"@metadata": {
 		"authors": [
 			"Hwangjy9",
-			"고솜"
+			"고솜",
+			"Ykhwong"
 		]
 	},
 	"sci-desc": "[https://www.semantic-mediawiki.org Semantic MediaWiki]를 사용하여 출처를 관리하세요",
 	"sci-referencelist-header": "각주",
-	"sci-metadata-search-form-submit": "검색"
+	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code>는 시맨틱 미디어위키에서 사용 중이 아닌 이름공간에서 사용할 수 없습니다",
+	"sci-scite-parser-no-reference": "<code>#scite</code>는 참조를 선언하지 않았습니다.",
+	"sci-scite-parser-no-type": "<code>#scite</code>는 \"$1\"에 대한 참조 유형을 결정하지 못했습니다.",
+	"sci-datavalue-empty-reference": "인용 참조는 비어있지 않는 것으로 예측됩니다.",
+	"sci-datavalue-invalid-id-value": "\"$1\"은 $2 유형에 대한 유효하지 않은 값입니다.",
+	"sci-property-alias-citation-key": "인용 키",
+	"sci-property-alias-citation-reference": "인용 참조",
+	"sci-property-alias-citation-text": "인용 텍스트",
+	"sci-property-alias-citation-resource": "인용 리소스",
+	"findmetadatabyid": "메타데이터 찾기",
+	"findcitablemetadata": "인용 가능한 메타데이터 찾기",
+	"right-sci-metadatasearch": "메타데이터 검색 접근",
+	"action-sci-metadatasearch": "Semantic Cite 메타데이터 검색",
+	"sci-specials-header-results": "결과 목록",
+	"sci-specials-select-options": "검색 옵션",
+	"sci-specials-no-results": "이용 가능한 결과가 없습니다.",
+	"listcitationreferencebacklinks": "인용 참조 백링크 목록",
+	"sci-metadata-search-action-highlight": "텍스트 선택",
+	"sci-metadata-search-action-create": "만들기",
+	"sci-metadata-search-header-log": "로그",
+	"sci-metadata-search-header-result": "결과",
+	"sci-metadata-search-form-submit": "검색",
+	"onoi-remi-parser-no-id-match": "파서가 \"$1\" 항목을 일치시키지 못했습니다."
 }
