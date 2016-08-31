@@ -102,7 +102,7 @@
 							if ( configuration.tooltipRequestCacheTTL == 0 || value === null ) {
 								doApiRequestFor( reference, QTip );
 							} else {
-								console.log( reference );
+								// console.log( reference );
 								QTip.set( 'content.title', '<span>' + reference + '</span><div class="scite-tooltip-cache-indicator scite-tooltip-cache-browser"></div>' );
 								QTip.set( 'content.text', value );
 							}

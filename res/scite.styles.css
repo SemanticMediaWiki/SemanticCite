@@ -4,11 +4,22 @@
  *
  * @author mwjames
  */
+
 .scite-reference {
 	vertical-align: super;
 	font-size: 100%;
 	font-weight: bold;
 	line-height: 1;
+}
+
+.scite-referencelist.responsive-list {
+	column-width: 30em;
+	-moz-column-width: 30em;
+	-webkit-column-width: 30em;
+}
+
+.scite-referencelist.responsive-list-mono {
+	margin-bottom: 1em;
 }
 
 .scite-referencelist ol .scite-backlinks {
@@ -38,22 +49,27 @@
 
 .scite-referencelist-columns-responsive {
   -webkit-columns: 3 25em;
-     -moz-columns: 3 25em;
-          columns: 3 25em;
+	 -moz-columns: 3 25em;
+		  columns: 3 25em;
   -webkit-column-gap: 1em;
-     -moz-column-gap: 1em;
-          column-gap: 1em;
-          margin-bottom: -2em;
+	 -moz-column-gap: 1em;
+		  column-gap: 1em;
+		  margin-bottom: -2em;
 }
 
-.scite-referencelist-columns-responsive-single {
+.scite-referencelist-columns-responsive-mono {
   -webkit-columns: 1 100%;
-     -moz-columns: 1 100%;
-          columns: 1 100%;
+	 -moz-columns: 1 100%;
+		  columns: 1 100%;
   -webkit-column-gap: 1em;
-     -moz-column-gap: 1em;
-          column-gap: 1em;
-          margin-bottom: -2em;
+	 -moz-column-gap: 1em;
+		  column-gap: 1em;
+		  margin-bottom: -2em;
+}
+
+.scite-referencelist-column-fixed {
+    float: left;
+    word-wrap: break-word;
 }
 
 .scite-referencelist .scite-citation-text {
@@ -61,6 +77,10 @@
 	font-family: 'Times New Roman',stixgeneral,serif;
 	font: 1.1307em/1.375 'Times New Roman', serif;
 	word-wrap: break-word;
+}
+
+.scite-referencelinks a {
+/*	text-decoration: underline; */
 }
 
 .scite-citation-resourcelink {
@@ -172,7 +192,6 @@
 .scite-textarea {
 	word-wrap: break-word;
 	padding: 1em;
-
 }
 
 .scite-metadata-search-action {
