@@ -245,15 +245,21 @@ class ReferenceListOutputRenderer {
 
 	private function doFinalizeHtmlForListOfReferences( $listOfFormattedReferences, $length ) {
 
-		$this->htmlColumnListRenderer->setColumnListClass( 'scite-referencelist' );
+		$monoClass = ( $length > 400 ? '' : '-mono' );
+
+		// #33, #32
+		$this->htmlColumnListRenderer->setColumnListClass(
+			'scite-referencelist' . ( $this->numberOfReferenceListColumns == 0 ? ' responsive-list' . $monoClass : '' )
+		);
+
 		$this->htmlColumnListRenderer->setListType( $this->referenceListType );
 		$this->htmlColumnListRenderer->addContentsByNoIndex( $listOfFormattedReferences );
 
 		if ( $this->numberOfReferenceListColumns == 0 ) {
-			$this->htmlColumnListRenderer->setColumnClass( 'scite-referencelist-columns-responsive'. ( $length > 300 ? '' : '-single' ) );
+			$this->htmlColumnListRenderer->setColumnClass( 'scite-referencelist-columns-responsive'. $monoClass );
 		} else {
 			$this->htmlColumnListRenderer->setNumberOfColumns( $this->numberOfReferenceListColumns );
-			$this->htmlColumnListRenderer->setColumnClass( 'smw-column' );
+			$this->htmlColumnListRenderer->setColumnClass( 'scite-referencelist-column-fixed' );
 		}
 
 		if ( $this->referenceListHeader === '' ) {

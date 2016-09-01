@@ -1,6 +1,5 @@
-## Table of contents
+## Manual
 
-- [00 configurations](00-configurations.md)
 - [01 introduction](01-introduction.md)
 - [02 property mapping](02-property-mapping.md)
 - [03 template mapping](03-template-mapping.md)
@@ -10,3 +9,11 @@
 - [07 metadata search](07-metadata-search.md)
 - [08 faq](08-faq.md)
 - [09 technical notes](09-notes.md)
+
+## Examples
+
+- [10 template examples](10-template-examples.md)
+
+## Configuration
+
+- [00 configurations](00-configurations.md)
