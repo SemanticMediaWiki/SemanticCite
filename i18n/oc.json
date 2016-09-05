@@ -1,0 +1,26 @@
+{
+	"@metadata": {
+		"authors": [
+			"Cedric31"
+		]
+	},
+	"sci-referencelist-header": "Referéncias",
+	"sci-property-alias-citation-key": "Clau de citacion",
+	"sci-property-alias-citation-reference": "Referéncia de la citacion",
+	"sci-property-alias-citation-text": "Tèxte de la citacion",
+	"sci-property-alias-citation-resource": "Ressorsa de la citacion",
+	"findmetadatabyid": "Trobar las metadonadas",
+	"findcitablemetadata": "Trobar las metadonadas citablas",
+	"right-sci-metadatasearch": "Accès a la recèrca de metadonadas",
+	"action-sci-metadatasearch": "la recèrca de metadonadas de Cite Semantic",
+	"sci-specials-header-results": "Lista de resultats",
+	"sci-specials-select-options": "Seleccionar las opcions",
+	"sci-specials-no-results": "Cap de resultat pas disponible.",
+	"listcitationreferencebacklinks": "Lista dels ligams arrièr de referéncia de Citacion",
+	"sci-metadata-search-form": "Per identificant",
+	"sci-metadata-search-action-highlight": "Seleccionatz lo tèxte",
+	"sci-metadata-search-action-create": "Crear",
+	"sci-metadata-search-header-log": "Jornal",
+	"sci-metadata-search-header-result": "Resultat",
+	"sci-metadata-search-form-submit": "Cercar"
+}

@@ -43,6 +43,8 @@
 	"onoi-remi-parser-no-id-match": "L'analizador nun pudo concasar «$1».",
 	"sci-tooltip-citation-lookup-failure": "Nun pudo recuperase una cita apropiada dende'l serviciu pa «$1».",
 	"sci-tooltip-citation-lookup-failure-multiple": "Nun pudo recuperase un testu de cita pa «$1» que tien múltiples coincidencies.",
+	"sci-property-definition": "Una llista d'identificadores <code>#scite</code> que correspuenden a propiedaes definíes pol usuariu. Por favor, ten en cuenta que los cambios nes entraes esistentes precisen d'una reconstrucción de les designaciones de propiedaes.\n foo-id|bar-property",
+	"sci-template-definition": "Llista de tipos de cita que se correspuenden con plantíes predefiníes que contienen regles de formatu de cites. \n foo-type|bar-template",
 	"smw-pa-property-predefined__sci_cite_key": "«$1» ye una propiedá predefinida qu'identifica un recursu de cita qu'ufre la estensión [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite].",
 	"smw-pa-property-predefined__sci_cite_reference": "«$1» ye una propiedá predefinida qu'identifica un recursu de cita cuando s'usa como referencia (p.ex. referencia nel testu) qu'ufre la estensión [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite].",
 	"smw-pa-property-predefined__sci_cite_text": "«$1» ye una propiedá predefinida que contien un testu con formatu previu y qu'ufre la estensión [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite].",
