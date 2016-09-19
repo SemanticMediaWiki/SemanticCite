@@ -11,7 +11,7 @@
 - `$GLOBALS['scigReferenceListCacheType']` to disable caching for the reference list, use setting
   [`CACHE_NONE`][mw-cachetype] otherwise the cache is being renewed an each new revision or when
   the page is purged
-- `$GLOBALS['scigStrictParserValidationEnabled']` whether a strict validation of input data for
+- `$GLOBALS['scigEnabledStrictParserValidation']` whether a strict validation of input data for
   the `{{#scite:}}` parser should be carried out or not
 - `$GLOBALS['scigEnabledCitationTextChangeUpdateJob']` whether an update job should be dispatched
   for changed citation text entities or not

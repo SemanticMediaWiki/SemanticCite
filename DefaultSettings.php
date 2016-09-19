@@ -70,7 +70,10 @@ $GLOBALS['scigReferenceListCacheType'] = CACHE_ANYTHING;
  * Whether a strict validation on behalf of the #scite parser should be
  * enabled or not
  */
-$GLOBALS['scigStrictParserValidationEnabled'] = true;
+$GLOBALS['scigEnabledStrictParserValidation'] = true;
+
+// Deprecated setting
+$GLOBALS['scigStrictParserValidationEnabled'] = $GLOBALS['scigEnabledStrictParserValidation'];
 
 /**
  * Whether an update job should be dispatched for changed citation text

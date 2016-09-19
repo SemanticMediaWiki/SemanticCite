@@ -35,7 +35,7 @@ assignments ([see also](03-template-mapping.md)).
 * [http://www.citationmachine.net/mla/cite-a-book Citation Machine: MLA format citation generator for book] [[Category:Semantic Cite]] [[Category:Citation formatter]]</noinclude><includeonly>{{#if: {{{authors|}}} |{{{authors}}}. | {{{author}}}. }} "{{{title}}}". {{#if: {{{journal|}}} | {{{journal}}} | {{{publisher}}} }} {{#if: {{{volume|}}} | {{{volume}}}.{{{number|}}} | }} ({{{year}}}){{#if: {{{pages|}}} |<nowiki>:</nowiki> {{{pages}}}. |. }} {{#if: {{{doi|}}} |doi: [http://dx.doi.org/{{{doi}}} {{{doi}}}] | }} {{#if: {{{pmcid|}}} |PMCID: [https://www.ncbi.nlm.nih.gov/pmc/{{{pmcid}}} {{{pmcid}}}] | }}</includeonly>
 ```
 
-### Template:Sci-mla-citation-formatter-book (imcomplete)
+### Template:Sci-mla-citation-formatter-book (incomplete)
 
 ```
 <noinclude>[[Category:Semantic Cite]] [[Category:Citation formatter]]</noinclude><includeonly>{{#if: {{{bibtex-author|}}} |{{{bibtex-author}}}. | {{{author}}}. }} ''{{{title}}}''. {{#if: {{{publisher|}}} |{{{publisher}}}. | }}{{#if: {{{edition|}}} |{{{edition}}} ed. | }}, {{{year|pubdate}}}.</includeonly>
@@ -52,21 +52,21 @@ assignments ([see also](03-template-mapping.md)).
 * URL (if required, or for your own personal reference; MLA does not require a URL). [[Category:Semantic Cite]] [[Category:Citation formatter]]</noinclude><includeonly>{{#if: {{{authors|}}} |{{{authors}}}. | }} "{{{title}}}". {{#if: {{{publisher|}}} | {{{publisher}}} | }} {{#if: {{{volume|}}} | {{{volume}}}.{{{number|}}} | }} {{#if: {{{year|}}} | ({{{year}}}) | }} {{#if: {{{pages|}}} |<nowiki>:</nowiki> {{{pages}}}. | }} {{#if: {{{url|}}} |<[{{{url}}} {{{url}}}]> | }} Accessed: {{{accessed}}}</includeonly>
 ```
 
-### Template:Sci-apa-citation-formatter (imcomplete)
+### Template:Sci-apa-citation-formatter (incomplete)
 
 ```
 <noinclude>[[Category:Semantic Cite]] [[Category:Citation formatter]]</noinclude><includeonly>{{{authors}}} ({{{year}}}). {{{title}}}. {{{publisher}}}{{#if: {{{volume|}}} |, {{{volume}}} | }}{{#if: {{{pages|}}} |, {{{pages}}}. |. }}</includeonly>
 
 ```
 
-### Template:Sci-apa-citation-formatter-journal (imcomplete)
+### Template:Sci-apa-citation-formatter-journal (incomplete)
 
 ```
 <noinclude>[[Category:Semantic Cite]] [[Category:Citation formatter]]</noinclude><includeonly>{{{authors}}}. ({{{year}}}) "{{{title}}}". ''{{{journal}}}'' {{#if: {{{volume|}}} | {{{volume}}}({{{number|}}}) | }} {{#if: {{{pages|}}} |<nowiki>:</nowiki> {{{pages}}}. |. }} {{#if: {{{doi|}}} |doi: [http://dx.doi.org/{{{doi}}} {{{doi}}}] | }}</includeonly>
 
 ```
 
-### Template:Sci-apa-citation-formatter-web-publication (imcomplete)
+### Template:Sci-apa-citation-formatter-web-publication (incomplete)
 
 ```
 <noinclude>[[Category:Semantic Cite]] [[Category:Citation formatter]]</noinclude><includeonly>{{{authors}}}. ({{{year}}}) "{{{title}}}". ''{{{journal}}}'' {{#if: {{{volume|}}} | {{{volume}}}({{{number|}}}) | }} {{#if: {{{pages|}}} |<nowiki>:</nowiki> {{{pages}}}. |. }} {{#if: {{{url|}}} |Retrieved from {{{url}}}. |. }}</includeonly>

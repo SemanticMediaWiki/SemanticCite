@@ -39,7 +39,7 @@ class ByJsonParserTestCaseRunnerTest extends ByJsonTestCaseProvider {
 			'tooltipRequestCacheTTL'             => false,
 			'citationReferenceCaptionFormat'     => 1,
 			'referenceListType'                  => 'ol',
-			'strictParserValidationEnabled'      => true,
+			'enabledStrictParserValidation'      => true,
 			'cachePrefix'                        => 'foo',
 			'enabledCitationTextChangeUpdateJob' => false
 		);

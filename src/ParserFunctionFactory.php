@@ -56,7 +56,7 @@ class ParserFunctionFactory {
 			);
 
 			$sciteParserFunction->setStrictParserValidationState(
-				$options->get( 'strictParserValidationEnabled' )
+				$options->get( 'enabledStrictParserValidation' )
 			);
 
 			return $sciteParserFunction->doProcess(

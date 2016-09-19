@@ -137,7 +137,7 @@ class SemanticCite {
 			'tooltipRequestCacheTTL'             => $GLOBALS['scigTooltipRequestCacheTTLInSeconds'],
 			'citationReferenceCaptionFormat'     => $GLOBALS['scigCitationReferenceCaptionFormat'],
 			'referenceListType'                  => $GLOBALS['scigReferenceListType'],
-			'strictParserValidationEnabled'      => $GLOBALS['scigStrictParserValidationEnabled'],
+			'enabledStrictParserValidation'      => $GLOBALS['scigEnabledStrictParserValidation'],
 			'cachePrefix'                        => $GLOBALS['scigCachePrefix'],
 			'enabledCitationTextChangeUpdateJob' => $GLOBALS['scigEnabledCitationTextChangeUpdateJob']
 		);
