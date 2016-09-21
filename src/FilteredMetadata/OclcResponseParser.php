@@ -83,14 +83,18 @@ class OclcResponseParser implements ResponseParser {
 		$oclcID = $oclcValue->getWikiValue();
 
 		$this->oclcFilteredHttpResponseParser->doFilterResponseFor( $oclcID );
+		$filteredRecord = $this->oclcFilteredHttpResponseParser->getFilteredRecord();
 
-		$this->oclcFilteredHttpResponseParser->getFilteredRecord()->setTitleForPageCreation( 'OCLC:' . $oclcID );
-		$this->oclcFilteredHttpResponseParser->getFilteredRecord()->setSciteTransclusionHead(
+		$filteredRecord->setTitleForPageCreation( 'OCLC:' . $oclcID );
+		$filteredRecord->setSciteTransclusionHead(
 			'OCLC' . $oclcID
 		);
 
-		$this->oclcFilteredHttpResponseParser->getFilteredRecord()->addSearchMatchSet( 'oclc', $oclcID );
-		$this->oclcFilteredHttpResponseParser->getFilteredRecord()->set( 'oclc', $oclcID );
+		$filteredRecord->addSearchMatchSet( 'oclc', $oclcID );
+		$filteredRecord->set( 'oclc', $oclcID );
+
+		$dateTimeUtc = new \DateTime( 'now', new \DateTimeZone( 'UTC' ) );
+		$filteredRecord->set( 'retrieved-on', $dateTimeUtc->format( 'Y-m-d' ) );
 	}
 
 }

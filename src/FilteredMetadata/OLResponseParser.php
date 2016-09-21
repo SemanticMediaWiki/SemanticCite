@@ -72,32 +72,36 @@ class OLResponseParser implements ResponseParser {
 	public function doFilterResponseFor( $olID ) {
 
 		$this->olFilteredHttpResponseParser->doFilterResponseFor( $olID );
+		$filteredRecord = $this->olFilteredHttpResponseParser->getFilteredRecord();
 
 		// Fetch the OLID has one could search for an ISBN as well
-		if ( $this->olFilteredHttpResponseParser->getFilteredRecord()->has( 'olid' ) ) {
-			$olID = $this->olFilteredHttpResponseParser->getFilteredRecord()->get( 'olid' );
+		if ( $filteredRecord->has( 'olid' ) ) {
+			$olID = $filteredRecord->get( 'olid' );
 		}
 
 		if ( is_array( $olID ) ) {
 			$olID = end( $olID );
 		}
 
-		$this->olFilteredHttpResponseParser->getFilteredRecord()->setTitleForPageCreation(
+		$filteredRecord->setTitleForPageCreation(
 			'OL:' . str_replace( 'OL', '', $olID )
 		);
 
-		$this->olFilteredHttpResponseParser->getFilteredRecord()->setSciteTransclusionHead(
+		$filteredRecord->setSciteTransclusionHead(
 			$olID
 		);
 
-		$this->olFilteredHttpResponseParser->getFilteredRecord()->addSearchMatchSet( 'olid', $olID );
+		$filteredRecord->addSearchMatchSet( 'olid', $olID );
 
-		if ( $this->olFilteredHttpResponseParser->getFilteredRecord()->has( 'lccn' ) ) {
-			$this->olFilteredHttpResponseParser->getFilteredRecord()->addSearchMatchSet(
+		if ( $filteredRecord->has( 'lccn' ) ) {
+			$filteredRecord->addSearchMatchSet(
 				'lccn',
-				$this->olFilteredHttpResponseParser->getFilteredRecord()->get( 'lccn' )
+				$filteredRecord->get( 'lccn' )
 			);
 		}
+
+		$dateTimeUtc = new \DateTime( 'now', new \DateTimeZone( 'UTC' ) );
+		$filteredRecord->set( 'retrieved-on', $dateTimeUtc->format( 'Y-m-d' ) );
 	}
 
 }

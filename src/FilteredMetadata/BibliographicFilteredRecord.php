@@ -42,6 +42,7 @@ class BibliographicFilteredRecord extends FilteredRecord {
 		'author'    => array(),
 		'editor'    => array(),
 		'journal'   => '',
+		'iso-abbreviation' => '',
 		'publisher' => '',
 		'pubdate'   => '',
 		'year'      => '',

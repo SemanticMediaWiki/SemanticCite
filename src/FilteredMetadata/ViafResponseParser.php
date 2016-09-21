@@ -83,13 +83,17 @@ class ViafResponseParser implements ResponseParser {
 		$viafID = $viafValue->getWikiValue();
 
 		$this->viafFilteredHttpResponseParser->doFilterResponseFor( $viafID );
+		$filteredRecord = $this->viafFilteredHttpResponseParser->getFilteredRecord();
 
-		$this->viafFilteredHttpResponseParser->getFilteredRecord()->setTitleForPageCreation( 'VIAF:' . $viafID );
-		$this->viafFilteredHttpResponseParser->getFilteredRecord()->setSciteTransclusionHead(
+		$filteredRecord->setTitleForPageCreation( 'VIAF:' . $viafID );
+		$filteredRecord->setSciteTransclusionHead(
 			'VIAF' . $viafID
 		);
 
-		$this->viafFilteredHttpResponseParser->getFilteredRecord()->addSearchMatchSet( 'viaf', $viafID );
+		$filteredRecord->addSearchMatchSet( 'viaf', $viafID );
+
+		$dateTimeUtc = new \DateTime( 'now', new \DateTimeZone( 'UTC' ) );
+		$filteredRecord->set( 'retrieved-on', $dateTimeUtc->format( 'Y-m-d' ) );
 	}
 
 }

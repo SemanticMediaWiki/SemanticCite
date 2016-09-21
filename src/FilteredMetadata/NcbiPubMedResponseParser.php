@@ -92,23 +92,27 @@ class NcbiPubMedResponseParser implements ResponseParser {
 		$prefix = $type === 'pmc' ? 'PMC' : 'PMID';
 
 		$this->ncbiPubMedFilteredHttpResponseParser->doFilterResponseFor( $id );
+		$filteredRecord = $this->ncbiPubMedFilteredHttpResponseParser->getFilteredRecord();
 
-		$this->ncbiPubMedFilteredHttpResponseParser->getFilteredRecord()->setTitleForPageCreation( $prefix . ':' . $id );
-		$this->ncbiPubMedFilteredHttpResponseParser->getFilteredRecord()->setSciteTransclusionHead(
+		$filteredRecord->setTitleForPageCreation( $prefix . ':' . $id );
+		$filteredRecord->setSciteTransclusionHead(
 			$prefix . $id
 		);
 
-		$this->ncbiPubMedFilteredHttpResponseParser->getFilteredRecord()->addSearchMatchSet(
+		$filteredRecord->addSearchMatchSet(
 			'doi',
 			$this->ncbiPubMedFilteredHttpResponseParser->getFilteredRecord()->get( 'doi' )
 		);
 
-		$this->ncbiPubMedFilteredHttpResponseParser->getFilteredRecord()->addSearchMatchSet(
+		$filteredRecord->addSearchMatchSet(
 			$type,
 			$prefix . $id
 		);
 
-		$this->ncbiPubMedFilteredHttpResponseParser->getFilteredRecord()->delete( 'ncbi-dbtype' );
+		$filteredRecord->delete( 'ncbi-dbtype' );
+
+		$dateTimeUtc = new \DateTime( 'now', new \DateTimeZone( 'UTC' ) );
+		$filteredRecord->set( 'retrieved-on', $dateTimeUtc->format( 'Y-m-d' ) );
 	}
 
 }

@@ -57,6 +57,10 @@ class SpecialFindCitableMetadata extends SpecialPage {
 			$query
 		);
 
+		if ( $type === 'pmid' ) {
+			$type = 'pubmed';
+		}
+
 		$this->callPageBuilderFor( $type, $id, $format );
 	}
 

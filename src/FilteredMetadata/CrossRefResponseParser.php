@@ -83,18 +83,22 @@ class CrossRefResponseParser implements ResponseParser {
 		$doi = $doiValue->getWikiValue();
 
 		$this->crossRefFilteredHttpResponseParser->doFilterResponseFor( $doi );
+		$filteredRecord = $this->crossRefFilteredHttpResponseParser->getFilteredRecord();
 
-		$this->crossRefFilteredHttpResponseParser->getFilteredRecord()->setTitleForPageCreation( 'DOI:' . md5( $doi ) );
+		$filteredRecord->setTitleForPageCreation( 'DOI:' . md5( $doi ) );
 
-		$this->crossRefFilteredHttpResponseParser->getFilteredRecord()->addSearchMatchSet(
+		$filteredRecord->addSearchMatchSet(
 			'doi',
 			$doi
 		);
 
-		$this->crossRefFilteredHttpResponseParser->getFilteredRecord()->addSearchMatchSet(
+		$filteredRecord->addSearchMatchSet(
 			'reference',
 			$this->crossRefFilteredHttpResponseParser->getFilteredRecord()->get( 'reference' )
 		);
+
+		$dateTimeUtc = new \DateTime( 'now', new \DateTimeZone( 'UTC' ) );
+		$filteredRecord->set( 'retrieved-on', $dateTimeUtc->format( 'Y-m-d' ) );
 	}
 
 }

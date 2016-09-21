@@ -33,6 +33,8 @@ class SciteTransclusionForCannedResponseParserTest extends \PHPUnit_Framework_Te
 		$instance = $httpResponseParserFactory->newResponseParserForType( 'doi' );
 		$instance->doFilterResponseFor( $id );
 
+		$instance->getFilteredRecord()->set( 'retrieved-on', '1970-01-01' );
+
 		$this->assertEquals(
 			$expected,
 			$instance->getFilteredRecord()->asSciteTransclusion()
@@ -56,6 +58,8 @@ class SciteTransclusionForCannedResponseParserTest extends \PHPUnit_Framework_Te
 
 		$instance = $httpResponseParserFactory->newResponseParserForType( 'ol' );
 		$instance->doFilterResponseFor( $id );
+
+		$instance->getFilteredRecord()->set( 'retrieved-on', '1970-01-01' );
 
 		$this->assertEquals(
 			$expected,
@@ -81,6 +85,8 @@ class SciteTransclusionForCannedResponseParserTest extends \PHPUnit_Framework_Te
 		$instance = $httpResponseParserFactory->newResponseParserForType( 'viaf' );
 		$instance->doFilterResponseFor( $id );
 
+		$instance->getFilteredRecord()->set( 'retrieved-on', '1970-01-01' );
+
 		$this->assertEquals(
 			$expected,
 			$instance->getFilteredRecord()->asSciteTransclusion()
@@ -104,6 +110,8 @@ class SciteTransclusionForCannedResponseParserTest extends \PHPUnit_Framework_Te
 
 		$instance = $httpResponseParserFactory->newResponseParserForType( 'oclc' );
 		$instance->doFilterResponseFor( $id );
+
+		$instance->getFilteredRecord()->set( 'retrieved-on', '1970-01-01' );
 
 		$this->assertEquals(
 			$expected,
@@ -129,6 +137,8 @@ class SciteTransclusionForCannedResponseParserTest extends \PHPUnit_Framework_Te
 
 		$instance = $httpResponseParserFactory->newResponseParserForType( $type );
 		$instance->doFilterResponseFor( $id );
+
+		$instance->getFilteredRecord()->set( 'retrieved-on', '1970-01-01' );
 
 		$this->assertEquals(
 			$expected,
