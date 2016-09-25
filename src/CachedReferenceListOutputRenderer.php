@@ -119,7 +119,7 @@ class CachedReferenceListOutputRenderer {
 		$this->defaultOptions = array(
 			'listtype' => $this->referenceListOutputRenderer->getReferenceListType(),
 			'columns'  => $this->referenceListOutputRenderer->getNumberOfReferenceListColumns(),
-			'browse'   => $this->referenceListOutputRenderer->getBrowseLinkToCitationResourceState()
+			'browse'   => $this->referenceListOutputRenderer->getBrowseLinkToCitationResourceVisibility()
 		);
 
 		// Find out whether to place the list into a custom position or not
@@ -131,6 +131,8 @@ class CachedReferenceListOutputRenderer {
 			);
 		}
 
+		// #27 auto-referencelist for the NS_FILE can not be managed accurately therefore
+		// disable such list
 		if ( $this->contextInteractor->getTitle()->getNamespace() !== NS_FILE ) {
 			$text .= $this->getRenderedHtmlReferenceList();
 		}
@@ -144,7 +146,7 @@ class CachedReferenceListOutputRenderer {
 		$this->referenceListOutputRenderer->setReferenceListHeader( '' );
 		$this->referenceListOutputRenderer->setReferenceListType( $this->defaultOptions['listtype'] );
 		$this->referenceListOutputRenderer->setNumberOfReferenceListColumns( $this->defaultOptions['columns'] );
-		$this->referenceListOutputRenderer->setBrowseLinkToCitationResourceState( $this->defaultOptions['browse'] );
+		$this->referenceListOutputRenderer->setBrowseLinkToCitationResourceVisibility( $this->defaultOptions['browse'] );
 
 		$customOptions = explode( 'data-', $customOptions[1] );
 
@@ -186,7 +188,7 @@ class CachedReferenceListOutputRenderer {
 
 		switch ( $options[0] ) {
 			case 'browselinks':
-				$this->referenceListOutputRenderer->setBrowseLinkToCitationResourceState(
+				$this->referenceListOutputRenderer->setBrowseLinkToCitationResourceVisibility(
 					filter_var( $options[1], FILTER_VALIDATE_BOOLEAN )
 				);
 				break;

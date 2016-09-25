@@ -81,11 +81,15 @@ class ReferenceListFactory {
 			$options->get( 'numberOfReferenceListColumns' )
 		);
 
+		$referenceListOutputRenderer->setResponsiveMonoColumnCharacterBoundLength(
+			$options->get( 'responsiveMonoColumnCharacterBoundLength' )
+		);
+
 		$referenceListOutputRenderer->setReferenceListType(
 			$options->get( 'referenceListType' )
 		);
 
-		$referenceListOutputRenderer->setBrowseLinkToCitationResourceState(
+		$referenceListOutputRenderer->setBrowseLinkToCitationResourceVisibility(
 			$options->get( 'browseLinkToCitationResource' )
 		);
 

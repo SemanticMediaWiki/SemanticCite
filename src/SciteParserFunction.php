@@ -179,7 +179,7 @@ class SciteParserFunction {
 			$type = end( $type );
 		}
 
-		$errorText = $this->tryToMatchCitationTextByPrecept(
+		$returnText = $this->tryToMatchCitationTextByPrecept(
 			$parserParameterProcessor,
 			$reference,
 			$type
@@ -190,7 +190,19 @@ class SciteParserFunction {
 			$reference
 		);
 
-		return $errorText; //array( '', 'noparse' => true, 'isHTML' => true );
+		// If the parser function returns an empty string then the MW Parser will
+		// add a <br> section leaving the text around a #scite call adding extra
+		// white space.
+		// In order to mitigate the issue when several {{#scite:...}} calls are
+		// placed next to each other, have the first occurrence to mark its
+		// existence explicitly by outputting an empty paragraph and so avoid a
+		// <br> element.
+		if ( $returnText === '' && $this->parserData->getOutput()->getExtensionData( 'sci-parserfunction' ) === null ) {
+			$this->parserData->getOutput()->setExtensionData( 'sci-parserfunction', true );
+			$returnText = '<p></p>';
+		}
+
+		return $returnText; //array( '', 'noparse' => true, 'isHTML' => true );
 	}
 
 	private function tryToMatchCitationTextByPrecept( ParserParameterProcessor $parserParameterProcessor, $reference, $type = '' ) {
