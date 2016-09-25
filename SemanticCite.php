@@ -139,7 +139,8 @@ class SemanticCite {
 			'referenceListType'                  => $GLOBALS['scigReferenceListType'],
 			'enabledStrictParserValidation'      => $GLOBALS['scigEnabledStrictParserValidation'],
 			'cachePrefix'                        => $GLOBALS['scigCachePrefix'],
-			'enabledCitationTextChangeUpdateJob' => $GLOBALS['scigEnabledCitationTextChangeUpdateJob']
+			'enabledCitationTextChangeUpdateJob' => $GLOBALS['scigEnabledCitationTextChangeUpdateJob'],
+			'responsiveMonoColumnCharacterBoundLength' => $GLOBALS['scigResponsiveMonoColumnCharacterBoundLength']
 		);
 
 		$applicationFactory = ApplicationFactory::getInstance();

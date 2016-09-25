@@ -51,23 +51,23 @@
   -webkit-columns: 3 25em;
 	 -moz-columns: 3 25em;
 		  columns: 3 25em;
-  -webkit-column-gap: 1em;
-	 -moz-column-gap: 1em;
-		  column-gap: 1em;
-		  margin-bottom: -2em;
+  -webkit-column-gap: 0.2em;
+	 -moz-column-gap: 0.2em;
+		  column-gap: 0.2em;
+	margin-bottom: -3em;
 }
 
 .scite-referencelist-columns-responsive-mono {
   -webkit-columns: 1 100%;
 	 -moz-columns: 1 100%;
 		  columns: 1 100%;
-  -webkit-column-gap: 1em;
-	 -moz-column-gap: 1em;
-		  column-gap: 1em;
-		  margin-bottom: -2em;
+  -webkit-column-gap: 0.2em;
+	 -moz-column-gap: 0.2em;
+		  column-gap: 0.2em;
+	margin-bottom: -1.8em;
 }
 
-.scite-referencelist-column-fixed {
+.scite-referencelist-columns-fixed {
     float: left;
     word-wrap: break-word;
 }
@@ -77,6 +77,14 @@
 	font-family: 'Times New Roman',stixgeneral,serif;
 	font: 1.1307em/1.375 'Times New Roman', serif;
 	word-wrap: break-word;
+}
+
+.scite-referencelist span:target {
+	background-color:#FFFBD0;
+}
+
+.scite-referencelist span:target a {
+	color:#CC6600;
 }
 
 .scite-referencelinks a {

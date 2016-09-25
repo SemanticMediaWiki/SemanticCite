@@ -38,7 +38,7 @@ class ReferenceListOutputRenderer {
 	/**
 	 * @var boolean
 	 */
-	private $browseLinkToCitationResourceState = true;
+	private $browseLinkToCitationResourceVisibility = true;
 
 	/**
 	 * @var string
@@ -61,6 +61,11 @@ class ReferenceListOutputRenderer {
 	private $citationReferenceCaptionFormat = SCI_CITEREF_NUM;
 
 	/**
+	 * @var integer
+	 */
+	private $responsiveMonoColumnCharacterBoundLength = 400;
+
+	/**
 	 * @since  1.0
 	 *
 	 * @param CitationResourceMatchFinder $citationResourceMatchFinder
@@ -80,6 +85,15 @@ class ReferenceListOutputRenderer {
 	 */
 	public function setCitationReferenceCaptionFormat( $citationReferenceCaptionFormat ) {
 		$this->citationReferenceCaptionFormat = (int)$citationReferenceCaptionFormat;
+	}
+
+	/**
+	 * @since 1.2
+	 *
+	 * @param integer $responsiveMonoColumnCharacterBoundLength
+	 */
+	public function setResponsiveMonoColumnCharacterBoundLength( $responsiveMonoColumnCharacterBoundLength ) {
+		$this->responsiveMonoColumnCharacterBoundLength = (int)$responsiveMonoColumnCharacterBoundLength;
 	}
 
 	/**
@@ -121,10 +135,10 @@ class ReferenceListOutputRenderer {
 	/**
 	 * @since 1.0
 	 *
-	 * @param boolean $browseLinkToCitationResourceState
+	 * @param boolean $browseLinkToCitationResourceVisibility
 	 */
-	public function setBrowseLinkToCitationResourceState( $browseLinkToCitationResourceState ) {
-		$this->browseLinkToCitationResourceState = (bool)$browseLinkToCitationResourceState;
+	public function setBrowseLinkToCitationResourceVisibility( $browseLinkToCitationResourceVisibility ) {
+		$this->browseLinkToCitationResourceVisibility = (bool)$browseLinkToCitationResourceVisibility;
 	}
 
 	/**
@@ -132,8 +146,8 @@ class ReferenceListOutputRenderer {
 	 *
 	 * @param boolean
 	 */
-	public function getBrowseLinkToCitationResourceState() {
-		return $this->browseLinkToCitationResourceState;
+	public function getBrowseLinkToCitationResourceVisibility() {
+		return $this->browseLinkToCitationResourceVisibility;
 	}
 
 	/**
@@ -211,7 +225,7 @@ class ReferenceListOutputRenderer {
 				$referenceAsHash
 			);
 
-			$browseLinks = $this->createBrowseLinkFor(
+			$browseLinks = $this->createBrowseLinksWith(
 				$subjects,
 				$reference,
 				$citationText
@@ -245,7 +259,7 @@ class ReferenceListOutputRenderer {
 
 	private function doFinalizeHtmlForListOfReferences( $listOfFormattedReferences, $length ) {
 
-		$monoClass = ( $length > 400 ? '' : '-mono' );
+		$monoClass = ( $length > $this->responsiveMonoColumnCharacterBoundLength ? '' : '-mono' );
 
 		// #33, #32
 		$this->htmlColumnListRenderer->setColumnListClass(
@@ -259,7 +273,7 @@ class ReferenceListOutputRenderer {
 			$this->htmlColumnListRenderer->setColumnClass( 'scite-referencelist-columns-responsive'. $monoClass );
 		} else {
 			$this->htmlColumnListRenderer->setNumberOfColumns( $this->numberOfReferenceListColumns );
-			$this->htmlColumnListRenderer->setColumnClass( 'scite-referencelist-column-fixed' );
+			$this->htmlColumnListRenderer->setColumnClass( 'scite-referencelist-columns-fixed' );
 		}
 
 		if ( $this->referenceListHeader === '' ) {
@@ -337,7 +351,7 @@ class ReferenceListOutputRenderer {
 		return implode( ' ', $referenceLinks );
 	}
 
-	private function createBrowseLinkFor( array $subjects, $reference, $citationText ) {
+	private function createBrowseLinksWith( array $subjects, $reference, $citationText ) {
 
 		// If no text is available at least show the reference
 		if ( $citationText === '' ) {
@@ -351,7 +365,7 @@ class ReferenceListOutputRenderer {
 		}
 
 		// No browse links means nothing will be displayed
-		if ( !$this->browseLinkToCitationResourceState ) {
+		if ( !$this->browseLinkToCitationResourceVisibility ) {
 			return '';
 		}
 

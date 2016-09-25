@@ -51,6 +51,14 @@ $GLOBALS['scigMetadataResponseCacheLifetime'] = 60 * 60 * 24;
 $GLOBALS['scigNumberOfReferenceListColumns'] = 0; // 0 = responsive columns
 
 /**
+ * Responsive columns depend on a browser to select an appropriated number of
+ * columns based on the screen width, yet it is possible to limit the responsiveness
+ * to a mono list when the character length of the produced reference list is
+ * lower than that for the given setting.
+ */
+$GLOBALS['scigResponsiveMonoColumnCharacterBoundLength'] = 600;
+
+/**
  * Specifies the reference list type of which can be either 'ol' or 'ul'
  */
 $GLOBALS['scigReferenceListType'] = 'ol';

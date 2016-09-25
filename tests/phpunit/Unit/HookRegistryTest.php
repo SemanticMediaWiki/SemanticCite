@@ -58,7 +58,8 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 			'referenceListType'                  => 'ul',
 			'enabledStrictParserValidation'      => true,
 			'cachePrefix'                        => 'foo',
-			'enabledCitationTextChangeUpdateJob' => false
+			'enabledCitationTextChangeUpdateJob' => false,
+			'responsiveMonoColumnCharacterBoundLength' => 42
 		);
 
 		$instance = new HookRegistry(

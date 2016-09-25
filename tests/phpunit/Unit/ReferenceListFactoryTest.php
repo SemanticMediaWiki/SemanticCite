@@ -81,7 +81,8 @@ class ReferenceListFactoryTest extends \PHPUnit_Framework_TestCase {
 			'numberOfReferenceListColumns' => null,
 			'referenceListType' => null,
 			'browseLinkToCitationResource' => null,
-			'citationReferenceCaptionFormat' => null
+			'citationReferenceCaptionFormat' => null,
+			'responsiveMonoColumnCharacterBoundLength' => 100
 		) );
 
 		$this->assertInstanceOf(

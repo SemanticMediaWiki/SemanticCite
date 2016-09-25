@@ -69,11 +69,11 @@ class ReferenceListOutputRendererTest extends \PHPUnit_Framework_TestCase {
 			$instance->getReferenceListType()
 		);
 
-		$instance->setBrowseLinkToCitationResourceState( true );
+		$instance->setBrowseLinkToCitationResourceVisibility( true );
 
 		$this->assertEquals(
 			true,
-			$instance->getBrowseLinkToCitationResourceState()
+			$instance->getBrowseLinkToCitationResourceVisibility()
 		);
 	}
 
@@ -96,7 +96,8 @@ class ReferenceListOutputRendererTest extends \PHPUnit_Framework_TestCase {
 		);
 
 		$instance->setNumberOfReferenceListColumns( 0 );
-		$instance->setBrowseLinkToCitationResourceState( true );
+		$instance->setResponsiveMonoColumnCharacterBoundLength( 100 );
+		$instance->setBrowseLinkToCitationResourceVisibility( true );
 
 		$this->assertInternalType(
 			'string',

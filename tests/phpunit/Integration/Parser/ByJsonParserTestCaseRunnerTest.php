@@ -41,7 +41,8 @@ class ByJsonParserTestCaseRunnerTest extends ByJsonTestCaseProvider {
 			'referenceListType'                  => 'ol',
 			'enabledStrictParserValidation'      => true,
 			'cachePrefix'                        => 'foo',
-			'enabledCitationTextChangeUpdateJob' => false
+			'enabledCitationTextChangeUpdateJob' => false,
+			'responsiveMonoColumnCharacterBoundLength' => 100
 		);
 
 		// This is to ensure we read from the DB when a test case
