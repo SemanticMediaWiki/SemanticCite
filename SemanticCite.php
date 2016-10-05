@@ -41,7 +41,7 @@ class SemanticCite {
 		// Load DefaultSettings
 		require_once __DIR__ . '/DefaultSettings.php';
 
-		define( 'SCI_VERSION', '1.1.1' );
+		define( 'SCI_VERSION', '1.2.0-alpha' );
 
 		// Register the extension
 		$GLOBALS['wgExtensionCredits']['semantic'][ ] = array(
