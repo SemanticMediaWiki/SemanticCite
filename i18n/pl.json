@@ -1,13 +1,23 @@
 {
 	"@metadata": {
 		"authors": [
-			"Chrumps"
+			"Chrumps",
+			"XnIcRaM"
 		]
 	},
+	"sci-desc": "Zarządzanie zasobami cytowania z pomocą [https://www.semantic-mediawiki.org Semantic MediaWiki]",
 	"sci-referencelist-header": "Przypisy",
+	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code> nie może być używany w przestrzeni nazw nie dostępnej dla Semantic MediaWiki",
+	"sci-property-alias-citation-key": "Klucz cytowania",
+	"sci-property-alias-citation-reference": "Osdnośnik cytowania",
+	"sci-property-alias-citation-text": "Tekst cytowania",
+	"sci-property-alias-citation-resource": "Źródło cytowania",
+	"findmetadatabyid": "Znajdź metadane",
+	"right-sci-metadatasearch": "Dostęp do wyszukiwania metadanych",
 	"sci-specials-header-results": "Lista wyników",
 	"sci-specials-select-options": "Wybierz opcje",
 	"sci-specials-no-results": "Brak dostępnych wyników.",
+	"sci-metadata-search-form": "Według ID",
 	"sci-metadata-search-action-highlight": "Zaznacz tekst",
 	"sci-metadata-search-action-create": "Utwórz",
 	"sci-metadata-search-header-log": "Rejestr",
