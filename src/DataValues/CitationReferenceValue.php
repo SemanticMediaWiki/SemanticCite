@@ -102,6 +102,10 @@ class CitationReferenceValue extends StringValue {
 	 */
 	public function getShortWikiText( $linked = null ) {
 
+		if ( $this->citationReferencePositionJournal === null ) {
+			$this->citationReferencePositionJournal = $this->getExtraneousFunctionFor( '\SCI\CitationReferencePositionJournal' );
+		}
+
 		// We want the last entry here to get the major/minor
 		// number that was internally recorded
 		$referencePosition = $this->citationReferencePositionJournal->findLastReferencePositionEntryFor(
