@@ -5,7 +5,7 @@ This file contains the RELEASE-NOTES of the Semantic Cite (a.k.a. SCI) extension
 Released on November 5, 2016.
 
 * #35 Introduced a different CSS class schema to accommodate observations from #32 and #33
-* #36 Introduced a configruation setting to control the selection of the appropriated number of columns based on the screen width
+* #36 Introduced a configuration setting to control the selection of the appropriated number of columns based on the screen width
 * Localization updates from https://translatewiki.net
 
 ### 1.1.0
