@@ -165,7 +165,7 @@ class CitationResourceMatchFinder {
 			new ValueDescription( new DIBlob( $citationReference ) )
 		);
 
-		$propertyValue = new PropertyValue( '__pro' );
+		$propertyValue = $this->dataValueFactory->newDataValueByType( '__pro' );
 		$propertyValue->setDataItem(
 			new DIProperty( PropertyRegistry::SCI_CITE_TEXT )
 		);
