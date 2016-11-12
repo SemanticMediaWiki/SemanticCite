@@ -272,14 +272,14 @@ class ResourceIdentifierStringValueTest extends \PHPUnit_Framework_TestCase {
 		$provider[] = array(
 			'_sci_doi',
 			'10.1000/123456',
-			'<span>[https://doi.org/10.1000%2F123456 10.1000/123456]</span>',
+			'<span class="plainlinks">[https://doi.org/10.1000%2F123456 10.1000/123456]</span>',
 			'<a href="https://doi.org/10.1000/123456" target="_blank">10.1000/123456</a>'
 		);
 
 		$provider[] = array(
 			'_sci_doi',
 			'http://dx.doi.org/10.1000/123456',
-			'<span>[https://doi.org/10.1000%2F123456 10.1000/123456]</span>',
+			'<span class="plainlinks">[https://doi.org/10.1000%2F123456 10.1000/123456]</span>',
 			'<a href="https://doi.org/10.1000/123456" target="_blank">10.1000/123456</a>'
 		);
 
@@ -295,7 +295,7 @@ class ResourceIdentifierStringValueTest extends \PHPUnit_Framework_TestCase {
 		$provider[] = array(
 			'_sci_pmcid',
 			'PMC123456',
-			'<span>[https://www.ncbi.nlm.nih.gov/pmc/PMC123456 PMC123456]</span>',
+			'<span class="plainlinks">[https://www.ncbi.nlm.nih.gov/pmc/PMC123456 PMC123456]</span>',
 			'<a href="https://www.ncbi.nlm.nih.gov/pmc/PMC123456" target="_blank">PMC123456</a>'
 		);
 
@@ -311,7 +311,7 @@ class ResourceIdentifierStringValueTest extends \PHPUnit_Framework_TestCase {
 		$provider[] = array(
 			'_sci_viaf',
 			'VIAF123456',
-			'<span>[https://viaf.org/viaf/123456 123456]</span>',
+			'<span class="plainlinks">[https://viaf.org/viaf/123456 123456]</span>',
 			'<a href="https://viaf.org/viaf/123456" target="_blank">123456</a>'
 		);
 
@@ -327,7 +327,7 @@ class ResourceIdentifierStringValueTest extends \PHPUnit_Framework_TestCase {
 		$provider[] = array(
 			'_sci_oclc',
 			'OCLC123456',
-			'<span>[https://www.worldcat.org/oclc/123456 123456]</span>',
+			'<span class="plainlinks">[https://www.worldcat.org/oclc/123456 123456]</span>',
 			'<a href="https://www.worldcat.org/oclc/123456" target="_blank">123456</a>'
 		);
 
@@ -343,7 +343,7 @@ class ResourceIdentifierStringValueTest extends \PHPUnit_Framework_TestCase {
 		$provider[] = array(
 			'_sci_pmid',
 			'PMID123456',
-			'<span>[https://www.ncbi.nlm.nih.gov/pubmed/123456 123456]</span>',
+			'<span class="plainlinks">[https://www.ncbi.nlm.nih.gov/pubmed/123456 123456]</span>',
 			'<a href="https://www.ncbi.nlm.nih.gov/pubmed/123456" target="_blank">123456</a>'
 		);
 
@@ -359,7 +359,7 @@ class ResourceIdentifierStringValueTest extends \PHPUnit_Framework_TestCase {
 		$provider[] = array(
 			'_sci_olid',
 			'OL123456M',
-			'<span>[https://openlibrary.org/books/OL123456M OL123456M]</span>',
+			'<span class="plainlinks">[https://openlibrary.org/books/OL123456M OL123456M]</span>',
 			'<a href="https://openlibrary.org/books/OL123456M" target="_blank">OL123456M</a>'
 		);
 

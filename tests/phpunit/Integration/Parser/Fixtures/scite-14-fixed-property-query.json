@@ -21,7 +21,7 @@
 			"subject": "Example/Query/1",
 			"expected-output": {
 				"to-contain": [
-					"<td class=\"DOI smwtype_sci_doi\"><span><a rel=\"nofollow\" class=\"external text\" href=\"https://doi.org/10.1074%2Fjbc.m114.559054\">10.1074/jbc.m114.559054</a></span></td>"
+					"<td class=\"DOI smwtype_sci_doi\"><span class=\"plainlinks\"><a rel=\"nofollow\" class=\"external text\" href=\"https://doi.org/10.1074%2Fjbc.m114.559054\">10.1074/jbc.m114.559054</a></span></td>"
 				]
 			}
 		},
