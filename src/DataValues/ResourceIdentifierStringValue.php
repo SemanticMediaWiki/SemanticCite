@@ -67,7 +67,9 @@ class ResourceIdentifierStringValue extends StringValue {
 
 		return Html::rawElement(
 			'span',
-			array(),
+			array(
+				'class' => 'plainlinks'
+			),
 			'[' . $this->getTargetLink( urlencode( $this->m_caption ) ) . ' ' . $this->m_caption .']'
 		);
 	}
