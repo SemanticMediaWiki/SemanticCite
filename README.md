@@ -24,7 +24,7 @@ Several short [videos](https://www.youtube.com/playlist?list=PLIJ9eX-UsA5eI_YFdn
 
 ## Requirements
 
-- PHP 5.3.2 or later
+- PHP 5.5 or later
 - MediaWiki 1.24 or later
 - [Semantic MediaWiki][smw] 2.3 or later
 
