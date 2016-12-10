@@ -63,6 +63,7 @@
 	"settings": {
 		"wgContLang": "en",
 		"scigReferenceListType": "ul",
+		"smwgQueryResultCacheType": false,
 		"scigCitationReferenceCaptionFormat" : 2,
 		"smwgPageSpecialProperties": [ "_MDAT" ]
 	},
