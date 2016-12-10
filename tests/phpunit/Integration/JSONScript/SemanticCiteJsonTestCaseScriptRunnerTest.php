@@ -1,18 +1,18 @@
 <?php
 
-namespace SCI\Tests\Integration\Parser;
+namespace SCI\Tests\Integration\JSONScript;
 
 use SCI\MediaWikiNsContentMapper;
 use SCI\HookRegistry;
 use SCI\Options;
 use Onoi\Cache\CacheFactory;
-use SMW\Tests\ByJsonTestCaseProvider;
+use SMW\Tests\JsonTestCaseScriptRunner;
 use SMW\Tests\JsonTestCaseFileHandler;
 use SMW\Tests\Utils\UtilityFactory;
 use SMW\DIWikiPage;
 
 /**
- * @group semantic-cite-integration
+ * @group semantic-cite
  * @group medium
  *
  * @license GNU GPL v2+
@@ -20,7 +20,7 @@ use SMW\DIWikiPage;
  *
  * @author mwjames
  */
-class ByJsonParserTestCaseRunnerTest extends ByJsonTestCaseProvider {
+class SemanticCiteJsonTestCaseScriptRunnerTest extends JsonTestCaseScriptRunner {
 
 	private $semanticDataValidator;
 	private $stringValidator;
@@ -29,8 +29,10 @@ class ByJsonParserTestCaseRunnerTest extends ByJsonTestCaseProvider {
 	protected function setUp() {
 		parent::setUp();
 
-		$this->semanticDataValidator = UtilityFactory::getInstance()->newValidatorFactory()->newSemanticDataValidator();
-		$this->stringValidator = UtilityFactory::getInstance()->newValidatorFactory()->newStringValidator();
+		$validatorFactory = $this->testEnvironment->getUtilityFactory()->newValidatorFactory();
+
+		$this->semanticDataValidator = $validatorFactory->newSemanticDataValidator();
+		$this->stringValidator = $validatorFactory->newStringValidator();
 
 		$configuration = array(
 			'numberOfReferenceListColumns'       => 1,
@@ -63,21 +65,28 @@ class ByJsonParserTestCaseRunnerTest extends ByJsonTestCaseProvider {
 	}
 
 	/**
-	 * @see ByJsonTestCaseProvider::getJsonTestCaseVersion
+	 * @see JsonTestCaseScriptRunner::getTestCaseLocation
 	 */
-	protected function getJsonTestCaseVersion() {
+	protected function getRequiredJsonTestCaseMinVersion() {
 		return '0.1';
 	}
 
 	/**
-	 * @see ByJsonTestCaseProvider::getTestCaseLocation
+	 * @see JsonTestCaseScriptRunner::getAllowedTestCaseFiles
 	 */
-	protected function getTestCaseLocation() {
-		return __DIR__ . '/Fixtures';
+	protected function getAllowedTestCaseFiles() {
+		return array();
 	}
 
 	/**
-	 * @see ByJsonTestCaseProvider::runTestCaseFile
+	 * @see JsonTestCaseScriptRunner::getTestCaseLocation
+	 */
+	protected function getTestCaseLocation() {
+		return __DIR__ . '/TestCases';
+	}
+
+	/**
+	 * @see JsonTestCaseScriptRunner::runTestCaseFile
 	 *
 	 * @param JsonTestCaseFileHandler $jsonTestCaseFileHandler
 	 */
@@ -91,7 +100,8 @@ class ByJsonParserTestCaseRunnerTest extends ByJsonTestCaseProvider {
 			'wgLanguageCode',
 			'wgContLang',
 			'wgLang',
-			'scigCitationReferenceCaptionFormat'
+			'scigCitationReferenceCaptionFormat',
+			'smwgQueryResultCacheType'
 		);
 
 		foreach ( $permittedSettings as $key ) {
