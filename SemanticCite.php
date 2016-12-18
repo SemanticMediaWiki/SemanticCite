@@ -133,6 +133,18 @@ class SemanticCite {
 				'desktop'
 			)
 		);
+
+		self::onBeforeExtensionFunction();
+	}
+
+	/**
+	 * Register hooks that require to be listed as soon as possible and preferable
+	 * before the execution of onExtensionFunction
+	 *
+	 * @since 1.3
+	 */
+	public static function onBeforeExtensionFunction() {
+		$GLOBALS['wgHooks']['SMW::Config::BeforeCompletion'][] = '\SCI\HookRegistry::onBeforeConfigCompletion';
 	}
 
 	/**
