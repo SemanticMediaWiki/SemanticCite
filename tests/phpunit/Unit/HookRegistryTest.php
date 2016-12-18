@@ -84,6 +84,26 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 		$this->doTestRegisteredAfterDeleteSubjectComplete( $instance );
 	}
 
+	public function testOnBeforeConfigCompletion() {
+
+		$config = array(
+			'smwgFulltextSearchPropertyExemptionList' => array()
+		);
+
+		$propertyExemptionList = array(
+			'__sci_cite'
+		);
+
+		HookRegistry::onBeforeConfigCompletion( $config );
+
+		$this->assertEquals(
+			array(
+				'smwgFulltextSearchPropertyExemptionList' => $propertyExemptionList,
+			),
+			$config
+		);
+	}
+
 	public function doTestRegisteredInitPropertiesHandler( $instance ) {
 
 		$hook = 'SMW::Property::initProperties';

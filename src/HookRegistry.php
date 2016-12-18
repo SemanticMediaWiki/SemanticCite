@@ -96,6 +96,24 @@ class HookRegistry {
 		}
 	}
 
+	/**
+	 * @since  1.3
+	 *
+	 * @param array &$config
+	 */
+	public static function onBeforeConfigCompletion( &$config ) {
+
+		if ( !isset( $config['smwgFulltextSearchPropertyExemptionList'] ) ) {
+			return;
+		}
+
+		// Exclude those properties from indexing
+		$config['smwgFulltextSearchPropertyExemptionList'] = array_merge(
+			$config['smwgFulltextSearchPropertyExemptionList'],
+			array( PropertyRegistry::SCI_CITE )
+		);
+	}
+
 	private function addCallbackHandlers( $store, $cache, $options ) {
 
 		$propertyRegistry = new PropertyRegistry();
