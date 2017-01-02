@@ -1,15 +1,44 @@
 {
 	"@metadata": {
 		"authors": [
-			"Cocu"
+			"Cocu",
+			"Jon Harald Søby"
 		]
 	},
 	"sci-referencelist-header": "Referanser",
+	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code> kan ikke brukes i navnerom som ikke har Semantic MediaWiki påslått",
+	"sci-scite-parser-no-reference": "<code>#scite</code> erklærte ikke noen referanse.",
 	"sci-scite-parser-no-type": "<code>#scite</code> kunne ikke fastslå referansetype for «$1».",
+	"sci-scite-parser-no-citation-text": "<code>#scite</code> kunne ikke vise en siteringstekst for referansen «$1» fordi typen «$2» ikke ble tildelt en [[MediaWiki:Sci-template-definition|mal]].",
+	"sci-datavalue-empty-reference": "Siteringsreferansen forventes å ikke være tom.",
+	"sci-datavalue-invalid-id-value": "«$1» er en ugyldig verdi for typen $2.",
+	"sci-property-alias-citation-key": "Siteringsnøkkel",
+	"sci-property-alias-citation-reference": "Siteringsreferanse",
+	"sci-property-alias-citation-text": "Siteringstekst",
+	"sci-property-alias-citation-resource": "Siteringsressurs",
 	"findmetadatabyid": "Finn metadata",
+	"findcitablemetadata": "Finn siterbare metadata",
+	"right-sci-metadatasearch": "Metadata-søketilgang",
+	"sci-specials-header-results": "Liste over resultater",
+	"sci-specials-select-options": "Velg alternativer",
+	"sci-specials-no-results": "Ingen resultater tilgjengelig.",
+	"sci-metadata-search-form": "Etter ID",
+	"sci-metadata-search-action-highlight": "Velg tekst",
 	"sci-metadata-search-action-create": "Skap",
 	"sci-metadata-search-header-log": "Logg",
 	"sci-metadata-search-header-result": "Resultat",
 	"sci-metadata-search-form-submit": "Søk",
-	"sci-metadata-search-intro-pubmed": "[[Property:PMCID|PMCID]] for PubMed Central og [[Property:PMID|PMID]] for PubMed-arkivet"
+	"sci-metadata-search-has-match": "ID-en har blitt matchet med følgende [$1] siteringsressurser.",
+	"sci-metadata-search-cached": "Søkeresponsen ble hentet fra mellomlageret.",
+	"sci-metadata-search-intro": "Skriv inn en identifikator og velg en tjenestetilbyder (krever en aktiv internettforbindelse) for å tilpasse hentbare metadata til <code>#scite</code>-formatet.",
+	"sci-metadata-search-intro-doi": "[[Property:DOI|DOI]] for å søke i CrossRef-lageret",
+	"sci-metadata-search-intro-pubmed": "[[Property:PMCID|PMCID]] for PubMed Central og [[Property:PMID|PMID]] for PubMed-arkivet",
+	"sci-metadata-search-intro-oclc": "[[Property:OCLC|OCLC]]-nummer for WorldCat-katalogen",
+	"sci-metadata-search-intro-ol": "[[Property:OLID|OLID]]- eller ISBN-nummer for å matche en OpenLibrary-oppslag",
+	"sci-metadata-search-intro-viaf": "[[Property:VIAF|VIAF]]-nummer for å søke etter en Virtual International Authority File",
+	"onoi-remi-request-error": "REST-/HTTP-forespørselen returnerte «$1» for «$2».",
+	"onoi-remi-response-empty": "Responsen returnerte et tomt resultat for «$1».",
+	"onoi-remi-parser-no-id-match": "Parseren kunne ikke matche «$1».",
+	"sci-tooltip-citation-lookup-failure": "Kunne ikke hente en passende sitering fra bakstykket for «$1».",
+	"sci-tooltip-citation-lookup-failure-multiple": "Kunne ikke hente siteringstekst for «$1» som har flere treff."
 }
