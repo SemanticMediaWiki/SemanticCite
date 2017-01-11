@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Jaideraf",
-			"Dianakc"
+			"Dianakc",
+			"Eduardo Addad de Oliveira"
 		]
 	},
 	"sci-desc": "Gerencia recursos de citação com o auxílio do [https://www.semantic-mediawiki.org Semantic MediaWiki]",
@@ -20,6 +21,9 @@
 	"findmetadatabyid": "Encontrar metadados",
 	"right-sci-metadatasearch": "Acesso à pesquisa de medatados",
 	"action-sci-metadatasearch": "a pesquisa de metadados Semantic Cite",
+	"sci-specials-header-results": "Lista de resultados",
+	"sci-specials-select-options": "Selecionar opções",
+	"sci-specials-no-results": "Nenhum resultado disponível.",
 	"sci-metadata-search-form": "Por ID",
 	"sci-metadata-search-action-highlight": "Selecionar texto",
 	"sci-metadata-search-action-create": "Criar",
