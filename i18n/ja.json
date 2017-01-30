@@ -2,10 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"mwjames",
-			"Sujiniku"
+			"Sujiniku",
+			"おはぐろ蜻蛉"
 		]
 	},
-	"sci-referencelist-header": "出典",
+	"sci-referencelist-header": "情報源",
 	"sci-scite-parser-not-enabled-namespace": "Semantic MediaWiki のために有効化されていない名前空間では、<code>#scite</code> は使用できません",
 	"sci-scite-parser-no-reference": "<code>#scite</code> は参照を宣言していません。",
 	"sci-datavalue-empty-reference": "引用の参照は、空白でないことが予想されます。",
