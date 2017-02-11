@@ -348,7 +348,7 @@ class ReferenceListOutputRenderer {
 			);
 		}
 
-		return implode( ' ', $referenceLinks );
+		return implode( '&nbsp;', $referenceLinks );
 	}
 
 	private function createBrowseLinksWith( array $subjects, $reference, $citationText ) {
