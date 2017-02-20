@@ -23,5 +23,7 @@
 	"sci-metadata-search-action-create": "Utwórz",
 	"sci-metadata-search-header-log": "Rejestr",
 	"sci-metadata-search-header-result": "Wynik",
-	"sci-metadata-search-form-submit": "Szukaj"
+	"sci-metadata-search-form-submit": "Szukaj",
+	"sci-metadata-search-intro-doi": "[[Property:DOI|DOI]] do wyszukiwania w repozytorium CrossRef",
+	"sci-metadata-search-intro-oclc": "Numer [[Property:OCLC|OCLC]] w katalogu WorldCat"
 }
