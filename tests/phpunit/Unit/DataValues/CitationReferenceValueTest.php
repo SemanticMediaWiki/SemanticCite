@@ -16,6 +16,24 @@ use SMW\DataTypeRegistry;
  */
 class CitationReferenceValueTest extends \PHPUnit_Framework_TestCase {
 
+	private $dataValueServiceFactory;
+
+	protected function setUp() {
+		parent::setUp();
+
+		$constraintValueValidator = $this->getMockBuilder( '\SMW\DataValues\ValueValidators\ConstraintValueValidator' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$this->dataValueServiceFactory = $this->getMockBuilder( '\SMW\Services\DataValueServiceFactory' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$this->dataValueServiceFactory->expects( $this->any() )
+			->method( 'getConstraintValueValidator' )
+			->will( $this->returnValue( $constraintValueValidator ) );
+	}
+
 	public function testCanConstruct() {
 
 		$this->assertInstanceOf(
@@ -24,28 +42,24 @@ class CitationReferenceValueTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	public function testExtraneousCallbackFunctionThrowsException() {
-
-		$instance = new CitationReferenceValue();
-
-		$this->setExpectedException( 'RuntimeException' );
-		$instance->getExtraneousFunctionFor( 'bar' );
-	}
-
 	public function testNoValueCreatesError() {
 
 		$citationReferencePositionJournal = $this->getMockBuilder( '\SCI\CitationReferencePositionJournal' )
 			->disableOriginalConstructor()
 			->getMock();
 
-		$instance = new CitationReferenceValue();
-
-		$instance->setExtraneousFunctions(
+		$this->dataValueServiceFactory->importExtraneousFunctions(
 			array(
 				'\SCI\CitationReferencePositionJournal' => function() use ( $citationReferencePositionJournal ) {
 					return $citationReferencePositionJournal;
 				}
 			)
+		);
+
+		$instance = new CitationReferenceValue();
+
+		$instance->setDataValueServiceFactory(
+			$this->dataValueServiceFactory
 		);
 
 		$instance->setUserValue( '' );

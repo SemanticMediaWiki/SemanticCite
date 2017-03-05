@@ -5,6 +5,7 @@ namespace SCI\DataValues;
 use RuntimeException;
 use SMW\PropertyRegistry;
 use SMW\DIProperty;
+use SMW\DataValueFactory;
 
 /**
  * @license GNU GPL v2+
@@ -50,7 +51,7 @@ class ResourceIdentifierFactory {
 			throw new RuntimeException( "{$type} is an unmatched type for ResourceIdentifierStringValue" );
 		}
 
-		$resourceIdentifierStringValue = new ResourceIdentifierStringValue( $typeId );
+		$resourceIdentifierStringValue = DataValueFactory::getInstance()->newDataValueByType( $typeId );
 		$resourceIdentifierStringValue->setProperty( new DIProperty( $property ) );
 
 		return $resourceIdentifierStringValue;
