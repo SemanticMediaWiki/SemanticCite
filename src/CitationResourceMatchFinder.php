@@ -108,6 +108,10 @@ class CitationResourceMatchFinder {
 		$query->querymode = Query::MODE_INSTANCES;
 		$query->setLimit( 10 );
 
+		if ( defined( 'SMWQuery::PROC_CONTEXT' ) ) {
+			$query->setOption( Query::PROC_CONTEXT, 'SCI.CitationResourceMatchFinder' );
+		}
+
 		return $this->store->getQueryResult( $query )->getResults();
 	}
 
@@ -182,6 +186,10 @@ class CitationResourceMatchFinder {
 
 		$query->querymode = Query::MODE_INSTANCES;
 		$query->setLimit( 10 );
+
+		if ( defined( 'SMWQuery::PROC_CONTEXT' ) ) {
+			$query->setOption( Query::PROC_CONTEXT, 'SCI.CitationResourceMatchFinder' );
+		}
 
 		return $this->store->getQueryResult( $query );
 	}

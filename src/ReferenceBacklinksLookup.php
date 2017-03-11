@@ -165,6 +165,10 @@ class ReferenceBacklinksLookup {
 		$query->setLimit( $this->limit );
 		$query->setOffset( $this->offset );
 
+		if ( defined( 'SMWQuery::PROC_CONTEXT' ) ) {
+			$query->setOption( Query::PROC_CONTEXT, 'SCI.ReferenceBacklinksLookup' );
+		}
+
 		return $this->store->getQueryResult( $query )->getResults();
 	}
 
