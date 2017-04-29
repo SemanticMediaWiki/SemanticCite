@@ -39,6 +39,7 @@
 	"sci-metadata-search-header-log": "Log",
 	"sci-metadata-search-header-result": "Result",
 	"sci-metadata-search-form-submit": "Search",
+	"sci-metadata-search-select-label": "Type:",
 	"sci-metadata-search-has-match": "The ID has been matched to the following [$1] citation resources.",
 	"sci-metadata-search-cached": "The search response was fetched from cache.",
 	"sci-metadata-search-intro": "Please enter an identifier and select a service provider (requires an active internet connection) to map retrievable metadata to the <code>#scite</code> format.",
