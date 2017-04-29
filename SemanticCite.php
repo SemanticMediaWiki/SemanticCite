@@ -55,7 +55,7 @@ class SemanticCite {
 	 */
 	public static function initExtension() {
 
-		define( 'SCI_VERSION', '1.3.0-alpha' );
+		define( 'SCI_VERSION', '1.3.0' );
 
 		// Register the extension
 		$GLOBALS['wgExtensionCredits']['semantic'][ ] = array(
@@ -65,7 +65,7 @@ class SemanticCite {
 			'url'            => 'https://github.com/SemanticMediaWiki/SemanticCite/',
 			'descriptionmsg' => 'sci-desc',
 			'version'        => SCI_VERSION,
-			'license-name'   => 'GPL-2.0+',
+			'license-name'   => 'GPL-2.0+'
 		);
 
 		// Register message files
