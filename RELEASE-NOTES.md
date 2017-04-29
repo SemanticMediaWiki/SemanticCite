@@ -1,5 +1,15 @@
 This file contains the RELEASE-NOTES of the Semantic Cite (a.k.a. SCI) extension.
 
+### 1.3.0
+
+Released on April 29, 2017.
+
+* Minimum requirement for PHP changed to version 5.5 and later
+* Minimum requirement for Semantic MediaWiki changed to version 2.4 and later
+* #42 Fixed isse with `Special:FindCitableMetadata`
+* Internal code changes
+* Localization updates from https://translatewiki.net
+
 ### 1.2.0
 
 Released on November 5, 2016.
