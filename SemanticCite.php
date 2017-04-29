@@ -55,7 +55,7 @@ class SemanticCite {
 	 */
 	public static function initExtension() {
 
-		define( 'SCI_VERSION', '1.3.0' );
+		define( 'SCI_VERSION', '1.4.0-alpha' );
 
 		// Register the extension
 		$GLOBALS['wgExtensionCredits']['semantic'][ ] = array(
