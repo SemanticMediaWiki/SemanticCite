@@ -30,5 +30,6 @@
 	"sci-metadata-search-header-log": "로그",
 	"sci-metadata-search-header-result": "결과",
 	"sci-metadata-search-form-submit": "검색",
+	"sci-metadata-search-select-label": "유형:",
 	"onoi-remi-parser-no-id-match": "파서가 \"$1\" 항목을 일치시키지 못했습니다."
 }

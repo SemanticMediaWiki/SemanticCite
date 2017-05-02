@@ -30,6 +30,7 @@
 	"sci-metadata-search-header-log": "日志",
 	"sci-metadata-search-header-result": "结果",
 	"sci-metadata-search-form-submit": "搜索",
+	"sci-metadata-search-select-label": "类型：",
 	"sci-metadata-search-has-match": "ID已被匹配至以下[$1]条引用资源。",
 	"sci-metadata-search-cached": "已从缓存中检索搜索响应。",
 	"sci-metadata-search-intro": "请输入一个标识符，并选择一个服务提供方（需要活跃的互联网连接）以映射可取回的元数据为<code>#scite</code>格式。",

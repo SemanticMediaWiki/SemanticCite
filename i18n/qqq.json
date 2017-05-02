@@ -42,7 +42,7 @@
 	"sci-metadata-search-header-log": "This is the text of a section header.\n{{Identical|Log}}",
 	"sci-metadata-search-header-result": "This is the text of a section header.\n{{Identical|Result}}",
 	"sci-metadata-search-form-submit": "This is the text of an interface message.\n{{Identical|Search}}",
-	"sci-metadata-search-select-label": "This is the text of an input field label.",
+	"sci-metadata-search-select-label": "This is the text of an input field label.\n{{Identical|Type}}",
 	"sci-metadata-search-has-match": "This is the text of an interface message as shown in the first line of the log section in the example screenshot shown.\n\n* \"$1\" is a string displaying the different citation resources found linking to the results. \n\n[[File:64a440c8-9b16-11e5-897c-b649e2e5469a.png]]",
 	"sci-metadata-search-cached": "This is the text of an interface message.",
 	"sci-metadata-search-intro": "This is the text of an interface message.",

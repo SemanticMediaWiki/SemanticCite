@@ -34,6 +34,7 @@
 	"sci-metadata-search-header-log": "Journal",
 	"sci-metadata-search-header-result": "Résultat",
 	"sci-metadata-search-form-submit": "Chercher",
+	"sci-metadata-search-select-label": "Type :",
 	"sci-metadata-search-has-match": "L’ID correspond aux [$1] ressources de citation suivantes.",
 	"sci-metadata-search-cached": "La réponse de recherche a été récupérée depuis le cache.",
 	"sci-metadata-search-intro": "Veuillez entrer un identifiant et sélectionner un fournisseur de service (nécessite une connexion internet active) pour faire correspondre les métadonnées récupérables avec le format <code>#scite</code>.",

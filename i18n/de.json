@@ -31,6 +31,7 @@
 	"sci-metadata-search-header-log": "Verlauf",
 	"sci-metadata-search-header-result": "Ergebnis",
 	"sci-metadata-search-form-submit": "Suche",
+	"sci-metadata-search-select-label": "Typ:",
 	"sci-metadata-search-has-match": "Die Kennung entspricht den folgenden [$1] Referenzierungsquellen.",
 	"sci-metadata-search-cached": "Das Ergebnis der Suche stammt aus dem Cache.",
 	"sci-metadata-search-intro": "Bitte gib ein Identifizierungsmerkmal (Kennung) an und wähle einen Dienstanbieter aus, um abrufbare Metadaten im für die Parserfunktion <code>#scite</code> erforderlichen Format zu erhalten. Hierfür ist eine aktive Internetverbindung erforderlich.",

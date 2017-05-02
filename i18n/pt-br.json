@@ -3,7 +3,8 @@
 		"authors": [
 			"Jaideraf",
 			"Dianakc",
-			"Eduardo Addad de Oliveira"
+			"Eduardo Addad de Oliveira",
+			"Felipe L. Ewald"
 		]
 	},
 	"sci-desc": "Gerencia recursos de citação com o auxílio do [https://www.semantic-mediawiki.org Semantic MediaWiki]",
@@ -32,6 +33,7 @@
 	"sci-metadata-search-header-log": "Registro",
 	"sci-metadata-search-header-result": "Resultado",
 	"sci-metadata-search-form-submit": "Pesquisar",
+	"sci-metadata-search-select-label": "Tipo:",
 	"sci-metadata-search-has-match": "O ID correspondeu aos seguintes [$1] recursos de citação.",
 	"sci-metadata-search-cached": "Os resultados de busca foram obtidos a partir do cache.",
 	"sci-metadata-search-intro": "Por favor informe um identificador e selecione um serviço externo (requer uma conexão ativa a internet) para habilitar que os metadados sejam mapeados para o formato <code>#scite</code> com os identificadores a serem correspondidos:",

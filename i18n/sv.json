@@ -22,6 +22,7 @@
 	"sci-metadata-search-header-log": "Logg",
 	"sci-metadata-search-header-result": "Resultat",
 	"sci-metadata-search-form-submit": "Sök",
+	"sci-metadata-search-select-label": "Typ:",
 	"sci-metadata-search-has-match": "ID har matchats till följande [$1] referensresurser.",
 	"sci-metadata-search-cached": "Söksvaret hämtades från cache.",
 	"sci-metadata-search-intro-oclc": "[[Property:OCLC|OCLC]]-nummer för WorldCat-katalogen",
