@@ -30,6 +30,7 @@
 	"sci-metadata-search-header-log": "Дневник",
 	"sci-metadata-search-header-result": "Исход",
 	"sci-metadata-search-form-submit": "Пребарување",
+	"sci-metadata-search-select-label": "Тип:",
 	"sci-metadata-search-has-match": "Назнаката се совпаѓа со следниве [$1] ресурси.",
 	"sci-metadata-search-cached": "Одѕивот на барањето беше преземен од меѓускладот.",
 	"sci-metadata-search-intro": "Внесете назнака и одберете надворешна служба (бара семрежна врска) за да овозможите соодветно претворање на метаподатоците во форматот <code>#scite</code> со одговарачки назнаки:",

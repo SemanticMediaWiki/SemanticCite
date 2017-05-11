@@ -1,0 +1,27 @@
+{
+	"@metadata": {
+		"authors": [
+			"Sfic",
+			"चक्रपाणी"
+		]
+	},
+	"sci-referencelist-header": "संदर्भ",
+	"sci-property-alias-citation-key": "उद्धरण चाबी",
+	"sci-property-alias-citation-reference": "उद्धरण संदर्भ",
+	"sci-property-alias-citation-text": "उद्धरण टेक्स्ट",
+	"sci-property-alias-citation-resource": "उद्धरण स्रोत",
+	"findmetadatabyid": "मेटाडाटा खोजें",
+	"findcitablemetadata": "उद्धरण योग्य मेटाडेटा खोजें",
+	"right-sci-metadatasearch": "मेटाडेटा खोज एक्सेस",
+	"sci-specials-header-results": "परिणामों की सूची",
+	"sci-specials-select-options": "विकल्प चुनें",
+	"sci-specials-no-results": "कोई परिणाम उपलब्ध नहीं।",
+	"listcitationreferencebacklinks": "उद्धरण संदर्भ बैकलिंक सूची",
+	"sci-metadata-search-form": "आईडी अनुसार",
+	"sci-metadata-search-action-highlight": "टेक्स्ट चुनें",
+	"sci-metadata-search-action-create": "बनाएं",
+	"sci-metadata-search-header-log": "लॉग",
+	"sci-metadata-search-header-result": "परिणाम",
+	"sci-metadata-search-form-submit": "खोजें",
+	"sci-metadata-search-select-label": "प्रकार:"
+}
