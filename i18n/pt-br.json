@@ -4,7 +4,8 @@
 			"Jaideraf",
 			"Dianakc",
 			"Eduardo Addad de Oliveira",
-			"Felipe L. Ewald"
+			"Felipe L. Ewald",
+			"Trigonometria87"
 		]
 	},
 	"sci-desc": "Gerencia recursos de citação com o auxílio do [https://www.semantic-mediawiki.org Semantic MediaWiki]",
@@ -12,7 +13,7 @@
 	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code> não pode ser utilizado em um namespace não habilitado ao Semantic MediaWiki",
 	"sci-scite-parser-no-reference": "<code>#scite</code> não declarou uma referência.",
 	"sci-scite-parser-no-type": "<code>#scite</code> não pôde determinar um tipo de referência para \"$1\".",
-	"sci-scite-parser-no-citation-text": "<code>#scite</code> não pôde exibir um texto de citação para a referência \"$1\" com o tipo \"$2\".",
+	"sci-scite-parser-no-citation-text": "<code>#scite</code> não pôde exibir um texto de citação para a referência \"$1\" porque o tipo \"$2\" não estava atribuído a uma [[MediaWiki:Sci-template-definition|predefinição]].",
 	"sci-datavalue-empty-reference": "A citação de referência precisa de um valor.",
 	"sci-datavalue-invalid-id-value": "\"$1\" é um valor inválido para o tipo $2.",
 	"sci-property-alias-citation-key": "Chave de citação",
@@ -36,7 +37,7 @@
 	"sci-metadata-search-select-label": "Tipo:",
 	"sci-metadata-search-has-match": "O ID correspondeu aos seguintes [$1] recursos de citação.",
 	"sci-metadata-search-cached": "Os resultados de busca foram obtidos a partir do cache.",
-	"sci-metadata-search-intro": "Por favor informe um identificador e selecione um serviço externo (requer uma conexão ativa a internet) para habilitar que os metadados sejam mapeados para o formato <code>#scite</code> com os identificadores a serem correspondidos:",
+	"sci-metadata-search-intro": "Por favor informe um identificador e selecione um provedor de serviço (requer uma conexão ativa a internet) para mapear metadados recuperáveis para o formato <code>#scite</code>.",
 	"sci-metadata-search-intro-doi": "[[Property:DOI|DOI]] para buscar no repositório de dados da CrossRef",
 	"sci-metadata-search-intro-pubmed": "[[Property:PMCID|PMCID]] para buscar na PubMed Central e [[Property:PMID|PMID]] para o arquivo da PubMed",
 	"sci-metadata-search-intro-oclc": "Número [[Property:OCLC|OCLC]] para o catálogo WorldCat",

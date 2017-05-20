@@ -30,6 +30,7 @@
 	"sci-metadata-search-header-log": "Журнал",
 	"sci-metadata-search-header-result": "Результат",
 	"sci-metadata-search-form-submit": "Пошук",
+	"sci-metadata-search-select-label": "Тип:",
 	"sci-metadata-search-has-match": "Виконано пошук збігів цього ідентифікатора з такими ресурсами цитувань: [$1].",
 	"sci-metadata-search-cached": "Результати пошуку отримано з кешу.",
 	"sci-metadata-search-intro": "Будь ласка, введіть ідентифікатор та виберіть постачальника послуг (потребує активного підключення до інтернету), аби перевести отримувані метадані у формат <code>#scite</code>.",
