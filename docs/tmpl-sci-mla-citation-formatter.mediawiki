@@ -1,0 +1,1 @@
+<noinclude>[[Category:Semantic Cite]] [[Category:Citation formatter]]</noinclude><includeonly>{{#if: {{{bibtex-author|}}} |{{{bibtex-author}}}. | {{{author}}}. }} ''{{{title}}}''. {{#if: {{{publisher|}}} |{{{publisher}}}. | }}{{#if: {{{edition|}}} |{{{edition}}} ed. | }}, {{{year|pubdate}}}.</includeonly>

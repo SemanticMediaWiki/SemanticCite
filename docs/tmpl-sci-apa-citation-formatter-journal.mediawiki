@@ -1,0 +1,1 @@
+<noinclude>[[Category:Semantic Cite]] [[Category:Citation formatter]]</noinclude><includeonly>{{{authors}}}. ({{{year}}}) "{{{title}}}". ''{{{journal}}}'' {{#if: {{{volume|}}} | {{{volume}}}({{{number|}}}) | }} {{#if: {{{pages|}}} |<nowiki>:</nowiki> {{{pages}}}. |. }} {{#if: {{{doi|}}} |doi: [http://dx.doi.org/{{{doi}}} {{{doi}}}] | }}</includeonly>

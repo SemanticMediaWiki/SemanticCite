@@ -1,0 +1,1 @@
+<noinclude>Virtual International Authority File (VIAF)[[Category:Semantic Cite]] [[Category:Citation formatter]]</noinclude><includeonly>{{{name}}} ({{{viaf}}})</includeonly>
