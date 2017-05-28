@@ -100,6 +100,7 @@ class PageBuilder {
 		$text = '';
 		$success = true;
 		$log = '';
+		$matches = '';
 
 		if ( $type !== '' && $id !== '' ) {
 
@@ -130,10 +131,10 @@ class PageBuilder {
 			);
 		}
 
-		return $this->doRenderHtml( $type, $id, $success, $text, $log );
+		return $this->doRenderHtml( $type, $id, $success, $text, $log, $matches );
 	}
 
-	private function doRenderHtml( $type, $id, $success, $text, $log ) {
+	private function doRenderHtml( $type, $id, $success, $text, $log, $matches ) {
 
 		$htmlFormRenderer = $this->htmlFormRenderer;
 		$messageBuilder = $this->htmlFormRenderer->getMessageBuilder();
@@ -146,6 +147,15 @@ class PageBuilder {
 			'viaf' => 'VIAF',
 			'ol'   => 'OLID',
 		);
+
+
+		if ( $matches !== '' ) {
+			$htmlFormRenderer->addParagraph(
+				'<div class="smw-callout smw-callout-info">' .
+				$messageBuilder->getMessage( 'sci-metadata-search-has-match', $matches )->text() .
+				'</div>'
+			);
+		}
 
 		$html = $htmlFormRenderer->setName( 'sci-metadata-search-form' )
 			->withFieldset()
@@ -201,10 +211,6 @@ class PageBuilder {
 			}
 
 			$log[]  = $m;
-		}
-
-		if ( $matches !== '' ) {
-			$log[] = $messageBuilder->getMessage( 'sci-metadata-search-has-match', $matches )->text();
 		}
 
 		if ( $usesCache ) {
