@@ -130,6 +130,8 @@ class SpecialFindCitableMetadata extends SpecialPage {
 			new HttpResponseParserFactory( $httpRequest )
 		);
 
+		$pageBuilder->isReadOnly( wfReadOnly() );
+
 		return $pageBuilder;
 	}
 

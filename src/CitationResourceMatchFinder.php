@@ -49,9 +49,12 @@ class CitationResourceMatchFinder {
 	 *
 	 * @return array
 	 */
-	public function findCitationResourceLinks( array $subjects, $linkClass = '' ) {
+	public function findCitationResourceLinks( array $subjects, $linkClass = '', $caption = '' ) {
 
 		$citationResourceLinks = array();
+
+		// ↑; $reference
+		$caption = $caption !== '' ? $caption : '&#8593;';
 
 		foreach ( $subjects as $subject ) {
 
@@ -61,7 +64,7 @@ class CitationResourceMatchFinder {
 			);
 
 			$browselink = \SMWInfolink::newBrowsingLink(
-				'&#8593;', // ↑; $reference,
+				$caption,
 				$dataValue->getWikiValue(),
 				$linkClass
 			);
@@ -107,6 +110,10 @@ class CitationResourceMatchFinder {
 
 		$query->querymode = Query::MODE_INSTANCES;
 		$query->setLimit( 10 );
+
+		if ( defined( 'SMWQuery::NO_CACHE' ) ) {
+			$query->setOption( Query::NO_CACHE, true );
+		}
 
 		if ( defined( 'SMWQuery::PROC_CONTEXT' ) ) {
 			$query->setOption( Query::PROC_CONTEXT, 'SCI.CitationResourceMatchFinder' );

@@ -1,5 +1,16 @@
 This file contains the RELEASE-NOTES of the Semantic Cite (a.k.a. SCI) extension.
 
+### 1.4.0
+
+Released on May 28, 2017.
+
+* Replace `edit` with `csrf` in `api.postWithToken` (see https://www.mediawiki.org/wiki/API:Tokens)
+* Added `PreTextFormatter` to format `#scite` output with parameter `@show`
+* Check `wfReadOnly` before making an API request to avoid a `badtoken`
+* Generated pages via `Special:FindCitableMetadata` no longer copy the `#scite`
+  as `pre` formatted text and instead use `@show` to output a human readable content
+* Localization updates from https://translatewiki.net
+
 ### 1.3.0
 
 Released on April 29, 2017.

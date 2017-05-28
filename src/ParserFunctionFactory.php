@@ -60,7 +60,8 @@ class ParserFunctionFactory {
 			);
 
 			return $sciteParserFunction->doProcess(
-				ParameterProcessorFactory::newFromArray( func_get_args() )
+				ParameterProcessorFactory::newFromArray( func_get_args() ),
+				new PreTextFormatter()
 			);
 		};
 

@@ -19,12 +19,26 @@ class HtmlResponseParserRenderer {
 	private $responseParser;
 
 	/**
+	 * @var boolean
+	 */
+	private $isReadOnly = false;
+
+	/**
 	 * @since 1.0
 	 *
 	 * @param ResponseParser $responseParser
 	 */
 	public function __construct( ResponseParser $responseParser ) {
 		$this->responseParser = $responseParser;
+	}
+
+	/**
+	 * @since 1.4
+	 *
+	 * @param boolean $isReadOnly
+	 */
+	public function isReadOnly( $isReadOnly ) {
+		$this->isReadOnly = (bool)$isReadOnly;
 	}
 
 	/**
@@ -64,6 +78,23 @@ class HtmlResponseParserRenderer {
 			return '';
 		}
 
+		$create = '';
+
+		// Only display the create button for when the DB can be actually
+		// accessed
+		if ( $this->isReadOnly === false ) {
+			$create = Html::element(
+				'a',
+				array(
+					'href' => '#',
+					'class' => 'scite-create scite-action-button',
+					'data-content-selector' => '#scite-record-content',
+					'data-title' => $this->responseParser->getFilteredRecord()->getTitleForPageCreation()
+				),
+				wfMessage( 'sci-metadata-search-action-create' )->text()
+			);
+		}
+
 		$html .= Html::rawElement(
 			'div',
 			array(
@@ -77,18 +108,11 @@ class HtmlResponseParserRenderer {
 					'data-content-selector' => '#scite-record-content'
 				),
 				wfMessage( 'sci-metadata-search-action-highlight' )->text()
-			) . '&nbsp;' .
-			Html::element(
-				'a',
-				array(
-					'href' => '#',
-					'class' => 'scite-create scite-action-button',
-					'data-content-selector' => '#scite-record-content',
-					'data-title' =>  $this->responseParser->getFilteredRecord()->getTitleForPageCreation()
-				),
-				wfMessage( 'sci-metadata-search-action-create' )->text()
-			)
+			) . '&nbsp;' . $create
 		);
+
+		// To display the #scite on the generated page
+		$this->responseParser->getFilteredRecord()->set( '@show', 'true' );
 
 		$html .= Html::rawElement(
 			'div',

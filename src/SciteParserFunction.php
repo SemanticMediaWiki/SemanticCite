@@ -143,7 +143,7 @@ class SciteParserFunction {
 	 *
 	 * @param ParserParameterProcessor $parserParameterProcessor
 	 */
-	public function doProcess( ParserParameterProcessor $parserParameterProcessor ) {
+	public function doProcess( ParserParameterProcessor $parserParameterProcessor, PreTextFormatter $preTextFormatter = null ) {
 
 		if ( !$this->namespaceExaminer->isSemanticEnabled( $this->parserData->getTitle()->getNamespace() ) ) {
 			return $this->createErrorMessageFor( 'sci-scite-parser-not-enabled-namespace' );
@@ -200,6 +200,10 @@ class SciteParserFunction {
 		if ( $returnText === '' && $this->parserData->getOutput()->getExtensionData( 'sci-parserfunction' ) === null ) {
 			$this->parserData->getOutput()->setExtensionData( 'sci-parserfunction', true );
 			$returnText = '<p></p>';
+		}
+
+		if ( $parserParameterProcessor->hasParameter( '@show' ) && $preTextFormatter !== null ) {
+			$returnText = $preTextFormatter->getFormattedSciteFuncFrom( $parserParameterProcessor->getRaw() ) . $returnText;
 		}
 
 		return $returnText; //array( '', 'noparse' => true, 'isHTML' => true );
