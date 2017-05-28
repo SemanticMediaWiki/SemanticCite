@@ -1,0 +1,6 @@
+<noinclude>[https://owl.english.purdue.edu/owl/resource/747/08/ MLA Works Cited: Electronic Sources] (Web Publications) states that:
+* Publisher information, including the publisher name and publishing date.
+* Take note of any page numbers (if available).
+* Medium of publication.
+* Date you accessed the material
+* URL (if required, or for your own personal reference; MLA does not require a URL). [[Category:Semantic Cite]] [[Category:Citation formatter]]</noinclude><includeonly>{{#if: {{{authors|}}} |{{{authors}}}. | }} "{{{title}}}". {{#if: {{{publisher|}}} | {{{publisher}}} | }} {{#if: {{{volume|}}} | {{{volume}}}.{{{number|}}} | }} {{#if: {{{year|}}} | ({{{year}}}) | }} {{#if: {{{pages|}}} |<nowiki>:</nowiki> {{{pages}}}. | }} {{#if: {{{url|}}} |<[{{{url}}} {{{url}}}]> | }} Accessed: {{{accessed}}}</includeonly>

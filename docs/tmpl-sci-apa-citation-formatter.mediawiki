@@ -1,0 +1,1 @@
+<noinclude>[[Category:Semantic Cite]] [[Category:Citation formatter]]</noinclude><includeonly>{{{authors}}} ({{{year}}}). {{{title}}}. {{{publisher}}}{{#if: {{{volume|}}} |, {{{volume}}} | }}{{#if: {{{pages|}}} |, {{{pages}}}. |. }}</includeonly>

@@ -101,7 +101,7 @@ For more information, please read the search [section][docs-search].
 ## Configuration
 
 To change default settings, or add property mapping add text formatting rules, please read the
-[configuration][config] document.
+[configuration][docs-config] document.
 
 ## Contribution and support
 
@@ -129,7 +129,7 @@ but can also be executed using `composer phpunit` from the extension base direct
 [composer]: https://getcomposer.org/
 [mw-cite]: https://github.com/wikimedia/mediawiki-extensions-Cite
 [mw-update]: https://www.mediawiki.org/wiki/Manual:Update.php
-[config]: https://github.com/SemanticMediaWiki/SemanticCite/blob/master/docs/00-configurations.md
+[docs-config]: https://github.com/SemanticMediaWiki/SemanticCite/blob/master/docs/00-configuration.md
 [docs-faq]: https://github.com/SemanticMediaWiki/SemanticCite/blob/master/docs/08-faq.md
 [docs-search]: https://github.com/SemanticMediaWiki/SemanticCite/blob/master/docs/07-metadata-search.md
 [docs-scite]: https://github.com/SemanticMediaWiki/SemanticCite/blob/master/docs/04-scite.md

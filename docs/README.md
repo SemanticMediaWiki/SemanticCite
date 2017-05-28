@@ -1,3 +1,7 @@
+## Configuration
+
+- [00 configuration](00-configuration.md)
+
 ## Manual
 
 - [01 introduction](01-introduction.md)
@@ -13,7 +17,3 @@
 ## Examples
 
 - [10 template examples](10-template-examples.md)
-
-## Configuration
-
-- [00 configurations](00-configurations.md)
