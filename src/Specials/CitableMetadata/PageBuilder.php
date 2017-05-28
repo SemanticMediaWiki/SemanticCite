@@ -38,6 +38,11 @@ class PageBuilder {
 	private $httpResponseParserFactory;
 
 	/**
+	 * @var boolean
+	 */
+	private $isReadOnly = false;
+
+	/**
 	 * @since 1.0
 	 *
 	 * @param HtmlFormRenderer $htmlFormRenderer
@@ -50,6 +55,15 @@ class PageBuilder {
 		$this->htmlColumnListRenderer = $htmlColumnListRenderer;
 		$this->citationResourceMatchFinder = $citationResourceMatchFinder;
 		$this->httpResponseParserFactory = $httpResponseParserFactory;
+	}
+
+	/**
+	 * @since 1.4
+	 *
+	 * @param boolean $isReadOnly
+	 */
+	public function isReadOnly( $isReadOnly ) {
+		$this->isReadOnly = (bool)$isReadOnly;
 	}
 
 	/**
@@ -95,6 +109,10 @@ class PageBuilder {
 
 			$htmlResponseParserRenderer = new HtmlResponseParserRenderer(
 				$responseParser
+			);
+
+			$htmlResponseParserRenderer->isReadOnly(
+				$this->isReadOnly
 			);
 
 			$text = $htmlResponseParserRenderer->renderTextFor( $id );
@@ -152,20 +170,20 @@ class PageBuilder {
 			->addCheckbox( 'Raw', 'format', 'raw' )
 			->getForm();
 
-			if ( $log !== '' ) {
-				$htmlFormRenderer
-					->setName( 'metadata-match' )
-					->addHeader( 'h2', $messageBuilder->getMessage( 'sci-metadata-search-header-log' )->text() )
-					->addParagraph( $log );
-			}
+		if ( $text !== '' && $success ) {
+			$htmlFormRenderer
+				->addHeader( 'h2', $messageBuilder->getMessage( 'sci-metadata-search-header-result' )->text() )
+				->addParagraph( $text );
+		}
 
-			if ( $text !== '' && $success ) {
-				$htmlFormRenderer
-					->addHeader( 'h2', $messageBuilder->getMessage( 'sci-metadata-search-header-result' )->text() )
-					->addParagraph( $text );
-			}
+		if ( $log !== '' ) {
+			$htmlFormRenderer
+				->setName( 'metadata-match' )
+				->addHeader( 'h2', $messageBuilder->getMessage( 'sci-metadata-search-header-log' )->text() )
+				->addParagraph( $log );
+		}
 
-			return $html . $htmlFormRenderer->getForm();
+		return $html . $htmlFormRenderer->getForm();
 	}
 
 	private function prepareLog( $messages, $matches, $usesCache ) {
@@ -191,6 +209,10 @@ class PageBuilder {
 
 		if ( $usesCache ) {
 			$log[] = $messageBuilder->getMessage( 'sci-metadata-search-cached' )->text();
+		}
+
+		if ( $this->isReadOnly ) {
+			$log[] = $messageBuilder->getMessage( 'sci-metadata-search-read-only' )->text();
 		}
 
 		if ( $log === array() ) {
@@ -220,7 +242,7 @@ class PageBuilder {
 
 	private function tryToFindCitationResourceMatches( BibliographicFilteredRecord $bibliographicFilteredRecord ) {
 
-		$html = '';
+		$html = array();
 
 		foreach ( array( 'doi', 'oclc', 'viaf', 'olid', 'pubmed', 'pmc' ) as $type ) {
 			$subjects = $this->citationResourceMatchFinder->findMatchForResourceIdentifierTypeToValue(
@@ -229,11 +251,14 @@ class PageBuilder {
 			);
 
 			if ( $subjects !== array() ) {
-				$html .= $type . ':' . implode( '|', $this->citationResourceMatchFinder->findCitationResourceLinks( $subjects ) );
+				$html = array_merge(
+					$html,
+					$this->citationResourceMatchFinder->findCitationResourceLinks( $subjects, '', strtoupper( $type ) )
+				);
 			}
 		}
 
-		return $html;
+		return $html !== array() ? '<strong>' . implode( ', ', $html ) . '</strong>' : '';
 	}
 
 }

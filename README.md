@@ -25,8 +25,8 @@ Several short [videos](https://www.youtube.com/playlist?list=PLIJ9eX-UsA5eI_YFdn
 ## Requirements
 
 - PHP 5.5 or later
-- MediaWiki 1.24 or later
-- [Semantic MediaWiki][smw] 2.3 or later
+- MediaWiki 1.27 or later
+- [Semantic MediaWiki][smw] 2.5 or later
 
 Semantic Cite **does not require** nor uses any part of [`Cite`][mw-cite] (or `<ref>`)
 as a means to declare a citation resource.
@@ -38,7 +38,7 @@ The recommended way to install Semantic Cite is by using [Composer][composer] wi
 ```json
 {
 	"require": {
-		"mediawiki/semantic-cite": "~1.1"
+		"mediawiki/semantic-cite": "~1.4"
 	}
 }
 ```

@@ -27,10 +27,7 @@
 			 */
 			create: function ( title, content ) {
 
-				// Just duplicate the content as pre tag above the actual content
-				content = '<pre>' + content + '</pre>' + "\n" + content;
-
-				this.api.postWithToken( "edit", {
+				this.api.postWithToken( "csrf", {
 					action: "edit",
 					title: title,
 					section: 0, // Existing content will be replaced
@@ -39,16 +36,29 @@
 				} ).done( function( result, jqXHR ) {
 					location.reload();
 					// $( '#scite-status' ).append( 'Added: ' + title ); // not sure we need an update not
-				} ).fail( function( code, result ) {
+				} ).fail( function( xhr, status, error ) {
 
 					var apiErrorText = '';
 
-					if ( code === "http" ) {
-						apiErrorText = "HTTP error: " + result.textStatus; // result.xhr contains the jqXHR object
-					} else if ( code === "ok-but-empty" ) {
+					if ( xhr === "http" ) {
+						apiErrorText = "HTTP error: " + status.textStatus; // status.xhr contains the jqXHR object
+					} else if ( xhr === "ok-but-empty" ) {
 						apiErrorText = "Got an empty response from the server";
 					} else {
-						apiErrorText = "API error: " + code;
+						apiErrorText = "API error: " + xhr;
+					}
+
+					if ( status.hasOwnProperty( 'xhr' ) ) {
+						apiErrorText = status.xhr.responseText.replace(/\<br \/\>/g," ");
+						var xhr = status.xhr;
+
+						if ( xhr.hasOwnProperty( 'responseText' ) ) {
+							apiErrorText = xhr.responseText.replace(/\<br \/\>/g," " );
+						};
+
+						if ( xhr.hasOwnProperty( 'statusText' ) ) {
+							apiErrorText = 'The API returned with: ' + xhr.statusText.replace(/\<br \/\>/g," " );
+						};
 					}
 
 					$( '#scite-status' ).append( apiErrorText );
