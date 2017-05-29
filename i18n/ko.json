@@ -31,5 +31,6 @@
 	"sci-metadata-search-header-result": "결과",
 	"sci-metadata-search-form-submit": "검색",
 	"sci-metadata-search-select-label": "유형:",
+	"sci-metadata-search-read-only": "데이터베이스가 읽기 전용 모드이므로 자동 문서 생성을 방해할 수 있습니다.",
 	"onoi-remi-parser-no-id-match": "파서가 \"$1\" 항목을 일치시키지 못했습니다."
 }
