@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Cocu",
-			"Jon Harald Søby"
+			"Jon Harald Søby",
+			"Danmichaelo"
 		]
 	},
 	"sci-referencelist-header": "Referanser",
@@ -28,7 +29,7 @@
 	"sci-metadata-search-header-log": "Logg",
 	"sci-metadata-search-header-result": "Resultat",
 	"sci-metadata-search-form-submit": "Søk",
-	"sci-metadata-search-has-match": "ID-en har blitt matchet med følgende [$1] siteringsressurser.",
+	"sci-metadata-search-has-match": "ID-en har blitt matchet til siteringsressurser som inneholder samme identifikator og inkluderer: $1.",
 	"sci-metadata-search-cached": "Søkeresponsen ble hentet fra mellomlageret.",
 	"sci-metadata-search-intro": "Skriv inn en identifikator og velg en tjenestetilbyder (krever en aktiv internettforbindelse) for å tilpasse hentbare metadata til <code>#scite</code>-formatet.",
 	"sci-metadata-search-intro-doi": "[[Property:DOI|DOI]] for å søke i CrossRef-lageret",
