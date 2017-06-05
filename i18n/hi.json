@@ -6,6 +6,7 @@
 		]
 	},
 	"sci-referencelist-header": "संदर्भ",
+	"sci-datavalue-invalid-id-value": "$2 प्रकार हेतु \"$1\" एक अमान्य मान है।",
 	"sci-property-alias-citation-key": "उद्धरण चाबी",
 	"sci-property-alias-citation-reference": "उद्धरण संदर्भ",
 	"sci-property-alias-citation-text": "उद्धरण टेक्स्ट",
@@ -23,5 +24,6 @@
 	"sci-metadata-search-header-log": "लॉग",
 	"sci-metadata-search-header-result": "परिणाम",
 	"sci-metadata-search-form-submit": "खोजें",
-	"sci-metadata-search-select-label": "प्रकार:"
+	"sci-metadata-search-select-label": "प्रकार:",
+	"onoi-remi-parser-no-id-match": "पर्सर \"$1\" को मिलाने में सक्षम नहीं है।"
 }

@@ -36,7 +36,7 @@
 	"sci-metadata-search-header-result": "Resultado",
 	"sci-metadata-search-form-submit": "Buscar",
 	"sci-metadata-search-select-label": "Tipo:",
-	"sci-metadata-search-read-only": "La base de datos está en modo sólo-lectura y puede dificultar la creación automática de página.",
+	"sci-metadata-search-read-only": "La base de datos está en modo de solo lectura y puede dificultar la creación automática de páginas.",
 	"sci-metadata-search-has-match": "El identificador ha coincidido con las siguientes citas [$1].",
 	"sci-metadata-search-cached": "La respuesta de la búsqueda se obtuvo de la caché.",
 	"sci-metadata-search-intro": "Escribe un identificador y selecciona un proveedor de servicio (requiere una conexión activa a Internet) para mapear metadatos obtenibles al formato <code>#scite</code> format.",
