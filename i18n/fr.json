@@ -6,7 +6,8 @@
 			"TomT0m",
 			"Gomoko",
 			"Orlodrim",
-			"Trial"
+			"Trial",
+			"Orikrin1998"
 		]
 	},
 	"sci-desc": "Gérer les ressources de citation à l’aide de [https://www.semantic-mediawiki.org MédiaWiki Sémantique]",
@@ -37,7 +38,7 @@
 	"sci-metadata-search-form-submit": "Chercher",
 	"sci-metadata-search-select-label": "Type :",
 	"sci-metadata-search-read-only": "La base de données est en lecture seule et peut empêcher la création automatique de pages.",
-	"sci-metadata-search-has-match": "L’ID correspond aux ressources de citation de même identifiant et contient: $1.",
+	"sci-metadata-search-has-match": "L’ID correspond aux ressources de citation qui contient le même identifiant et inclut : $1.",
 	"sci-metadata-search-cached": "La réponse de recherche a été récupérée depuis le cache.",
 	"sci-metadata-search-intro": "Veuillez entrer un identifiant et sélectionner un fournisseur de service (nécessite une connexion internet active) pour faire correspondre les métadonnées récupérables avec le format <code>#scite</code>.",
 	"sci-metadata-search-intro-doi": "[[Property:DOI|DOI]] pour chercher dans le dépôt CrossRef",
