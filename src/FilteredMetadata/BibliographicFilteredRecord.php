@@ -29,18 +29,18 @@ class BibliographicFilteredRecord extends FilteredRecord {
 	 *
 	 * @var array
 	 */
-	private $searchMatchSet = array();
+	private $searchMatchSet = [];
 
 	/**
 	 * @var array
 	 */
-	protected $recordFields = array(
-		'reference' => array(),
-		'type'      => array(),
+	protected $recordFields = [
+		'reference' => [],
+		'type'      => [],
 		'title'     => '',
 		'subtitle'  => '',
-		'author'    => array(),
-		'editor'    => array(),
+		'author'    => [],
+		'editor'    => [],
 		'journal'   => '',
 		'iso-abbreviation' => '',
 		'publisher' => '',
@@ -51,12 +51,12 @@ class BibliographicFilteredRecord extends FilteredRecord {
 		'pages'     => '',
 		'doi'       => '',
 		'abstract'  => '',
-		'subject'   => array(),
-		'genre'     => array(),
-		'isbn'      => array(),
+		'subject'   => [],
+		'genre'     => [],
+		'isbn'      => [],
 		'oclc'      => '',
-		'viaf'      => array()
-	);
+		'viaf'      => []
+	];
 
 	/**
 	 * @since 1.0

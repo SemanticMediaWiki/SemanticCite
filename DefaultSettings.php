@@ -31,10 +31,10 @@ $GLOBALS['scigCitationReferenceCaptionFormat'] = SCI_CITEREF_NUM;
  * To force a browser to renew the display before the cache is expired, delete
  * the "scite.cache" localStorage from the browser
  */
-$GLOBALS['scigShowTooltipForCitationReference'] = array(
+$GLOBALS['scigShowTooltipForCitationReference'] = [
 	SCI_CITEREF_NUM,
 	SCI_CITEREF_KEY
-);
+];
 
 $GLOBALS['scigTooltipRequestCacheTTLInSeconds'] = 60 * 60 * 24; // false to disable the Cache
 

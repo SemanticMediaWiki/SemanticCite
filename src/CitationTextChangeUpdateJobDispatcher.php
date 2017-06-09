@@ -77,15 +77,15 @@ class CitationTextChangeUpdateJobDispatcher {
 			$compositePropertyTableDiffIterator->getOrderedDiffByTable( $tableName )
 		);
 
-		if ( $subjectIdList === array() ) {
+		if ( $subjectIdList === [] ) {
 			return false;
 		}
 
 		$updateDispatcherJob = ApplicationFactory::getInstance()->newJobFactory()->newUpdateDispatcherJob(
 			$subject->getTitle(),
-			array(
+			[
 				'job-list' => $this->getDispatchableTargetList( $subjectIdList )
-			)
+			]
 		);
 
 		$updateDispatcherJob->insert();
@@ -95,7 +95,7 @@ class CitationTextChangeUpdateJobDispatcher {
 
 	private function getSubjectListFrom( array $orderedDiff ) {
 
-		$subjectIdList = array();
+		$subjectIdList = [];
 
 		// Find out whether a cite text object was altered
 		foreach ( $orderedDiff as $key => $value ) {
@@ -105,7 +105,7 @@ class CitationTextChangeUpdateJobDispatcher {
 			}
 
 			if ( !isset( $value['delete'] ) ) {
-				$value['delete'] = array();
+				$value['delete'] = [];
 			}
 
 			foreach ( $value['delete'] as $delete ) {
@@ -113,7 +113,7 @@ class CitationTextChangeUpdateJobDispatcher {
 			}
 
 			if ( !isset( $value['insert'] ) ) {
-				$value['insert'] = array();
+				$value['insert'] = [];
 			}
 
 			foreach ( $value['insert'] as $insert ) {
@@ -127,7 +127,7 @@ class CitationTextChangeUpdateJobDispatcher {
 	private function getDispatchableTargetList( array $subjectIdList ) {
 
 		$hashList = $this->store->getObjectIds()->getDataItemPoolHashListFor( $subjectIdList );
-		$referenceBacklinks = array();
+		$referenceBacklinks = [];
 
 		foreach ( $hashList as $hash ) {
 			$referenceBacklinks += $this->referenceBacklinksLookup->findReferenceBacklinksFor(
@@ -135,7 +135,7 @@ class CitationTextChangeUpdateJobDispatcher {
 			);
 		}
 
-		$targetBatch = array();
+		$targetBatch = [];
 
 		foreach ( $referenceBacklinks as $referenceBacklink ) {
 			$targetBatch[HashBuilder::getHashIdForDiWikiPage( $referenceBacklink )] = true;

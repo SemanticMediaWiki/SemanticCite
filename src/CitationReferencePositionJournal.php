@@ -28,7 +28,7 @@ class CitationReferencePositionJournal {
 	/**
 	 * @var array
 	 */
-	private static $citationReferenceJournal = array();
+	private static $citationReferenceJournal = [];
 
 	/**
 	 * @since 1.0
@@ -49,7 +49,7 @@ class CitationReferencePositionJournal {
 	 * @return boolean
 	 */
 	public function hasCitationReference( SemanticData $semanticData ) {
-		return $semanticData->getPropertyValues( new DIProperty( PropertyRegistry::SCI_CITE_REFERENCE ) ) !== array();
+		return $semanticData->getPropertyValues( new DIProperty( PropertyRegistry::SCI_CITE_REFERENCE ) ) !== [];
 	}
 
 	/**
@@ -76,20 +76,20 @@ class CitationReferencePositionJournal {
 	 */
 	public function buildJournalForUnboundReferenceList( array $referenceList ) {
 
-		if ( $referenceList === array() ) {
+		if ( $referenceList === [] ) {
 			return null;
 		}
 
-		$journal = array(
+		$journal = [
 			'total' => 0,
-			'reference-list' => array(),
-			'reference-pos'  => array()
-		);
+			'reference-list' => [],
+			'reference-pos'  => []
+		];
 
 		$journal['total'] = count( $referenceList );
 
 		foreach ( $referenceList as $reference ) {
-			$journal['reference-pos'][$reference] = array();
+			$journal['reference-pos'][$reference] = [];
 			$journal['reference-list'][$reference] = $reference;
 		}
 
@@ -144,12 +144,12 @@ class CitationReferencePositionJournal {
 		$uniqid = $subject->getContextReference();
 
 		if ( !$this->hasJournalForHash( $hash ) || self::$citationReferenceJournal[$hash]['uniqid'] !== $uniqid ) {
-			$journal = array(
+			$journal = [
 				'uniqid'     => $uniqid,
 				'total'      => 0,
-				'reference-list' => array(),
-				'reference-pos'  => array()
-			);
+				'reference-list' => [],
+				'reference-pos'  => []
+			];
 		} else {
 			$journal = self::$citationReferenceJournal[$hash];
 		}
@@ -160,7 +160,7 @@ class CitationReferencePositionJournal {
 
 		// New reference, increase the total of existing citations for this
 		// subject and set the position level to 'a'
-		if ( !isset( $journal['reference-pos'][$referenceHash] ) || $journal['reference-pos'][$referenceHash] === array() ) {
+		if ( !isset( $journal['reference-pos'][$referenceHash] ) || $journal['reference-pos'][$referenceHash] === [] ) {
 			$journal['total']++;
 			$journal['reference-pos'][$referenceHash][] = $journal['total'] . '-' . 'a';
 		} else {
@@ -189,7 +189,7 @@ class CitationReferencePositionJournal {
 
 	private function hasJournalForHash( $hash ) {
 
-		if ( self::$citationReferenceJournal === array() ) {
+		if ( self::$citationReferenceJournal === [] ) {
 			self::$citationReferenceJournal = $this->cache->fetch(
 				$this->cacheKeyProvider->getCacheKeyForCitationReference( $hash )
 			);

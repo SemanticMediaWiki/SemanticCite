@@ -65,7 +65,7 @@ class ParserFunctionFactory {
 			);
 		};
 
-		return array( 'scite', $sciteParserFunctionDefinition, 0 );
+		return [ 'scite', $sciteParserFunctionDefinition, 0 ];
 	}
 
 	/**
@@ -91,7 +91,7 @@ class ParserFunctionFactory {
 			);
 		};
 
-		return array( 'referencelist', $referenceListParserFunctionDefinition, 0 );
+		return [ 'referencelist', $referenceListParserFunctionDefinition, 0 ];
 	}
 
 }

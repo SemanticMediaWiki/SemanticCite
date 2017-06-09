@@ -82,12 +82,12 @@ class ReferenceBacklinksLookup {
 
 		$html .= \Html::element(
 			'a',
-			array(
-				'href' => \SpecialPage::getSafeTitleFor( 'SearchByProperty' )->getLocalURL( array(
+			[
+				'href' => \SpecialPage::getSafeTitleFor( 'SearchByProperty' )->getLocalURL( [
 					'property' => $property->getLabel(),
 					'value' => $citationKey->getString()
-				) )
-			),
+				] )
+			],
 			wfMessage( 'smw_browse_more' )->text()
 		);
 
@@ -129,7 +129,7 @@ class ReferenceBacklinksLookup {
 		);
 
 		// Not a resource that contains a citation key
-		if ( $keys === null || $keys === array() ) {
+		if ( $keys === null || $keys === [] ) {
 			return null;
 		}
 
@@ -146,7 +146,7 @@ class ReferenceBacklinksLookup {
 	public function findReferenceBacklinksFor( $key = null ) {
 
 		if ( $key === null ) {
-			return array();
+			return [];
 		}
 
 		$property = new DIProperty( PropertyRegistry::SCI_CITE_REFERENCE );

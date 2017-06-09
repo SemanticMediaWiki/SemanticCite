@@ -92,7 +92,7 @@ class ReferenceListParserFunctionTest extends \PHPUnit_Framework_TestCase {
 
 		$parserParameterProcessor->expects( $this->once() )
 			->method( 'toArray' )
-			->will( $this->returnValue( array( 'references' => array( 'Foo', 42 ) ) ) );
+			->will( $this->returnValue( [ 'references' => [ 'Foo', 42 ] ] ) );
 
 		$instance = new ReferenceListParserFunction( $parserData );
 		$instance->doProcess( $parserParameterProcessor );
@@ -100,20 +100,20 @@ class ReferenceListParserFunctionTest extends \PHPUnit_Framework_TestCase {
 
 	public function parametersDataProvider() {
 
-		$provider[] = array(
-			array(),
+		$provider[] = [
+			[],
 			'span'
-		);
+		];
 
-		$provider[] = array(
-			array( 'toc' => array( true ) ),
+		$provider[] = [
+			[ 'toc' => [ true ] ],
 			'h2'
-		);
+		];
 
-		$provider[] = array(
-			array( 'references' => array( 'Foo', 42 ) ),
+		$provider[] = [
+			[ 'references' => [ 'Foo', 42 ] ],
 			'data-references="[&quot;Foo&quot;,42]"'
-		);
+		];
 
 		return $provider;
 	}

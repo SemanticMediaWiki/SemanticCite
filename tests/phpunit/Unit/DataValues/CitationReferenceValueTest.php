@@ -49,11 +49,11 @@ class CitationReferenceValueTest extends \PHPUnit_Framework_TestCase {
 			->getMock();
 
 		$this->dataValueServiceFactory->importExtraneousFunctions(
-			array(
+			[
 				'\SCI\CitationReferencePositionJournal' => function() use ( $citationReferencePositionJournal ) {
 					return $citationReferencePositionJournal;
 				}
-			)
+			]
 		);
 
 		$instance = new CitationReferenceValue();

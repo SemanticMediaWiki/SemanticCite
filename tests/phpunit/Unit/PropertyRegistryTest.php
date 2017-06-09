@@ -46,35 +46,35 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 
 	public function propertyIdProvider() {
 
-		$provider[] = array(
+		$provider[] = [
 			PropertyRegistry::SCI_DOI,
 			'DOI'
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			PropertyRegistry::SCI_PMCID,
 			'PMCID'
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			PropertyRegistry::SCI_CITE_KEY,
 			'Citation key'
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			PropertyRegistry::SCI_CITE_REFERENCE,
 			'Citation reference'
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			PropertyRegistry::SCI_CITE_TEXT,
 			'Citation text'
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			PropertyRegistry::SCI_CITE,
 			'Citation resource'
-		);
+		];
 
 		return $provider;
 	}

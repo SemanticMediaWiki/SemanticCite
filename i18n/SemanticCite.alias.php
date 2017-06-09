@@ -7,14 +7,14 @@
  */
 // @codingStandardsIgnoreFile
 
-$specialPageAliases = array();
+$specialPageAliases = [];
 
 /** English (English) */
-$specialPageAliases['en'] = array(
-	'FindCitableMetadata' => array( 'FindCitableMetadata', 'FindMetadataById' )
-);
+$specialPageAliases['en'] = [
+	'FindCitableMetadata' => [ 'FindCitableMetadata', 'FindMetadataById' ]
+];
 
 /** German (Deutsch) */
-$specialPageAliases['de'] = array(
-	'FindCitableMetadata' => array( 'Metadatensuche_nach_Identifizierungskennung' )
-);
+$specialPageAliases['de'] = [
+	'FindCitableMetadata' => [ 'Metadatensuche_nach_Identifizierungskennung' ]
+];

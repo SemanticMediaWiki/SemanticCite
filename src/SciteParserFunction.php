@@ -63,7 +63,7 @@ class SciteParserFunction {
 	/**
 	 * @var array
 	 */
-	private $parameters = array();
+	private $parameters = [];
 
 	/**
 	 * @since 1.0
@@ -314,7 +314,7 @@ class SciteParserFunction {
 	private function createErrorMessageFor( $messageKey, $arg1 = '',  $arg2 = '' ) {
 		return \Html::rawElement(
 			'div',
-			array( 'class' => 'smw-callout smw-callout-error' ),
+			[ 'class' => 'smw-callout smw-callout-error' ],
 			wfMessage( $messageKey, $arg1, $arg2 )->inContentLanguage()->text()
 		);
 	}

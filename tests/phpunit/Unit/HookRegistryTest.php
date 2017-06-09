@@ -49,7 +49,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 			->disableOriginalConstructor()
 			->getMockForAbstractClass();
 
-		$configuration = array(
+		$configuration = [
 			'numberOfReferenceListColumns'       => 1,
 			'browseLinkToCitationResource'       => false,
 			'showTooltipForCitationReference'    => false,
@@ -60,7 +60,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 			'cachePrefix'                        => 'foo',
 			'enabledCitationTextChangeUpdateJob' => false,
 			'responsiveMonoColumnCharacterBoundLength' => 42
-		);
+		];
 
 		$instance = new HookRegistry(
 			$store,
@@ -86,20 +86,20 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 
 	public function testOnBeforeConfigCompletion() {
 
-		$config = array(
-			'smwgFulltextSearchPropertyExemptionList' => array()
-		);
+		$config = [
+			'smwgFulltextSearchPropertyExemptionList' => []
+		];
 
-		$propertyExemptionList = array(
+		$propertyExemptionList = [
 			'__sci_cite'
-		);
+		];
 
 		HookRegistry::onBeforeConfigCompletion( $config );
 
 		$this->assertEquals(
-			array(
+			[
 				'smwgFulltextSearchPropertyExemptionList' => $propertyExemptionList,
-			),
+			],
 			$config
 		);
 	}
@@ -118,7 +118,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$this->assertThatHookIsExcutable(
 			$instance->getHandlerFor( $hook ),
-			array( $propertyRegistry )
+			[ $propertyRegistry ]
 		);
 	}
 
@@ -134,7 +134,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$this->assertThatHookIsExcutable(
 			$instance->getHandlerFor( $hook ),
-			array( $dataTypeRegistry )
+			[ $dataTypeRegistry ]
 		);
 
 		$this->assertEquals(
@@ -181,11 +181,11 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 			$instance->isRegistered( $hook )
 		);
 
-		$magicWords = array();
+		$magicWords = [];
 
 		$this->assertThatHookIsExcutable(
 			$instance->getHandlerFor( $hook ),
-			array( &$magicWords )
+			[ &$magicWords ]
 		);
 	}
 
@@ -207,7 +207,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$this->assertThatHookIsExcutable(
 			$instance->getHandlerFor( $hook ),
-			array( &$outputPage, $parserOutput )
+			[ &$outputPage, $parserOutput ]
 		);
 	}
 
@@ -255,7 +255,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$this->assertThatHookIsExcutable(
 			$instance->getHandlerFor( $hook ),
-			array( &$outputPage, &$text )
+			[ &$outputPage, &$text ]
 		);
 	}
 
@@ -281,7 +281,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$this->assertThatHookIsExcutable(
 			$instance->getHandlerFor( $hook ),
-			array( $store, $semanticData )
+			[ $store, $semanticData ]
 		);
 	}
 
@@ -290,7 +290,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 		$hook = 'SMW::SQLStore::AddCustomFixedPropertyTables';
 
 		// Contains an extra to ensure previous values are not nullified
-		$customFixedProperties = array( '_Foo' );
+		$customFixedProperties = [ '_Foo' ];
 
 		$this->assertTrue(
 			$instance->isRegistered( $hook )
@@ -298,7 +298,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$this->assertThatHookIsExcutable(
 			$instance->getHandlerFor( $hook ),
-			array( &$customFixedProperties )
+			[ &$customFixedProperties ]
 		);
 
 		$this->assertCount(
@@ -315,11 +315,11 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 			$instance->isRegistered( $hook )
 		);
 
-		$vars = array();
+		$vars = [];
 
 		$this->assertThatHookIsExcutable(
 			$instance->getHandlerFor( $hook ),
-			array( &$vars )
+			[ &$vars ]
 		);
 	}
 
@@ -337,7 +337,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$this->assertThatHookIsExcutable(
 			$instance->getHandlerFor( $hook ),
-			array( &$parser )
+			[ &$parser ]
 		);
 	}
 
@@ -363,7 +363,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$this->assertThatHookIsExcutable(
 			$instance->getHandlerFor( $hook ),
-			array( &$outputPage, &$skin )
+			[ &$outputPage, &$skin ]
 		);
 	}
 
@@ -393,7 +393,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$this->assertThatHookIsExcutable(
 			$instance->getHandlerFor( $hook ),
-			array( $store, $semanticData, null )
+			[ $store, $semanticData, null ]
 		);
 	}
 
@@ -412,7 +412,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$this->assertThatHookIsExcutable(
 			$instance->getHandlerFor( $hook ),
-			array( $property, $subject, &$html )
+			[ $property, $subject, &$html ]
 		);
 	}
 
@@ -442,7 +442,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$this->assertThatHookIsExcutable(
 			$instance->getHandlerFor( $hook ),
-			array( $store, $semanticData, $compositePropertyTableDiffIterator )
+			[ $store, $semanticData, $compositePropertyTableDiffIterator ]
 		);
 	}
 
@@ -460,11 +460,11 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$this->assertThatHookIsExcutable(
 			$instance->getHandlerFor( $hook ),
-			array( $store, \Title::newFromText( 'Foo' ) )
+			[ $store, \Title::newFromText( 'Foo' ) ]
 		);
 	}
 
-	private function assertThatHookIsExcutable( \Closure $handler, $arguments = array() ) {
+	private function assertThatHookIsExcutable( \Closure $handler, $arguments = [] ) {
 		$this->assertInternalType(
 			'boolean',
 			call_user_func_array( $handler, $arguments )

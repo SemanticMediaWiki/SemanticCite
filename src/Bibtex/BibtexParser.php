@@ -29,12 +29,12 @@ class BibtexParser {
 	/**
 	 * @var array
 	 */
-	private $undefinedStrings = array();
+	private $undefinedStrings = [];
 
 	/**
 	 * @var array
 	 */
-	private $strings = array();
+	private $strings = [];
 
 	/**
 	 * @since  1.0
@@ -43,14 +43,14 @@ class BibtexParser {
 	 */
 	public function parse( $bibtex ) {
 
-		if ( ( $matches = $this->findBibtexFormatMatches( $bibtex ) ) === array() ) {
-			return array();
+		if ( ( $matches = $this->findBibtexFormatMatches( $bibtex ) ) === [] ) {
+			return [];
 		}
 
-		$head = array(
+		$head = [
 			'type'      => strtolower( trim( $matches[1] ) ),
 			'reference' => $matches[2]
-		);
+		];
 
 		return $head + $this->parseFields( $matches[3] );
 	}
@@ -61,7 +61,7 @@ class BibtexParser {
 
 		// Silently retreat from processing
 		if ( !isset( $matches[2] ) ) {
-			return array();
+			return [];
 		}
 
 		if( preg_match("/=/", $matches[2] ) ) {
@@ -72,8 +72,8 @@ class BibtexParser {
 	}
 
 	private function parseFields( $content ) {
-		$elements = array();
-		$values = array();
+		$elements = [];
+		$values = [];
 
 		$length = strlen( $content );
 
@@ -132,7 +132,7 @@ class BibtexParser {
 	//		return array( $array[0], FALSE);
 	//	}
 
-		return isset( $array[1] ) ? array( $array[0], $array[1] ) : array( $array[0], false );
+		return isset( $array[1] ) ? [ $array[0], $array[1] ] : [ $array[0], false ];
 	}
 
 	private function removeDelimiters( $string ) {

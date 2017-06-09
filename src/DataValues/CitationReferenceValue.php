@@ -135,7 +135,7 @@ class CitationReferenceValue extends StringValue {
 		if ( $shortFormCaption !== '' ) {
 			$shortFormCaption = Html::rawElement(
 				'span',
-				array( 'class' => 'scite-citeref-shortcaption' ),
+				[ 'class' => 'scite-citeref-shortcaption' ],
 				$shortFormCaption
 			);
 		}
@@ -143,11 +143,11 @@ class CitationReferenceValue extends StringValue {
 		// Build element with back and forth link anchor
 		$html = Html::rawElement(
 			'span',
-			array(
+			[
 				'id'    => 'scite-ref-'. $referenceHash . '-' . $referencePosition,
 				'class' => 'scite-citeref-' . $captionClass,
 				'data-reference' => $this->reference
-			),
+			],
 			'[[' .'#scite-' . $referenceHash . '|' . $caption . ']]'
 		) . $shortFormCaption;
 

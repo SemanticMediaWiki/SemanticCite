@@ -68,13 +68,13 @@ class HtmlResponseParserRenderer {
 
 		$html .= Html::rawElement(
 			'div',
-			array(
+			[
 				'id' => 'scite-status',
-			),
+			],
 			''
 		);
 
-		if ( $this->responseParser->getMessages() !== array() ) {
+		if ( $this->responseParser->getMessages() !== [] ) {
 			return '';
 		}
 
@@ -85,28 +85,28 @@ class HtmlResponseParserRenderer {
 		if ( $this->isReadOnly === false ) {
 			$create = Html::element(
 				'a',
-				array(
+				[
 					'href' => '#',
 					'class' => 'scite-create scite-action-button',
 					'data-content-selector' => '#scite-record-content',
 					'data-title' => $this->responseParser->getFilteredRecord()->getTitleForPageCreation()
-				),
+				],
 				wfMessage( 'sci-metadata-search-action-create' )->text()
 			);
 		}
 
 		$html .= Html::rawElement(
 			'div',
-			array(
+			[
 				'class' => 'scite-metadata-search-action'
-			),
+			],
 			Html::element(
 				'a',
-				array(
+				[
 					'href' => '#',
 					'class' => 'scite-highlight scite-action-button',
 					'data-content-selector' => '#scite-record-content'
-				),
+				],
 				wfMessage( 'sci-metadata-search-action-highlight' )->text()
 			) . '&nbsp;' . $create
 		);
@@ -116,18 +116,18 @@ class HtmlResponseParserRenderer {
 
 		$html .= Html::rawElement(
 			'div',
-			array(
+			[
 				'id' => 'scite-record-content',
 				'class' => 'scite-pre'
-			),
+			],
 			$this->responseParser->getFilteredRecord()->asSciteTransclusion()
 		);
 
 		$html .= Html::rawElement(
 			'div',
-			array(
+			[
 				'class' => 'visualClear'
-			),
+			],
 			''
 		);
 

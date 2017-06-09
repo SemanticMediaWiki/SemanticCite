@@ -46,50 +46,50 @@ class MediaWikiNsContentMapperTest extends \PHPUnit_Framework_TestCase {
 
 	public function fixedPropertyIdProvider() {
 
-		$provider[] = array(
+		$provider[] = [
 			'viaf',
 			SCI_PROP_VIAF
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			'doi',
 			SCI_PROP_DOI
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			'oclc',
 			SCI_PROP_OCLC
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			'olid',
 			SCI_PROP_OLID
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			'pmcid',
 			SCI_PROP_PMCID
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			'pmid',
 			SCI_PROP_PMID
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			'reference',
 			SCI_PROP_CITE_KEY
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			'citation text',
 			SCI_PROP_CITE_TEXT
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			'sortkey',
 			'_SKEY'
-		);
+		];
 
 		return $provider;
 	}

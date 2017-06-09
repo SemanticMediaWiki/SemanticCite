@@ -75,7 +75,7 @@ class CitationTextTemplateRenderer {
 		foreach ( $parameters as $key => $values ) {
 
 			$key = strtolower( trim( $key ) );
-			$pieces = array();
+			$pieces = [];
 
 			foreach ( $values as $value ) {
 				$pieces[] = trim( $value );

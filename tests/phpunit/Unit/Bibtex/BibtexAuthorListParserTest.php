@@ -38,117 +38,117 @@ class BibtexAuthorListParserTest extends \PHPUnit_Framework_TestCase {
 
 	public function authorListProvider() {
 
-		$provider = array();
+		$provider = [];
 
 		// http://artis.imag.fr/~Xavier.Decoret/resources/xdkbibtex/bibtex_summary.html
-		$provider[] = array(
+		$provider[] = [
 			 'AA BB',
-			array(
+			[
 				'AA BB'
-			)
-		);
+			]
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			 'AA',
-			array(
+			[
 				'AA'
-			)
-		);
+			]
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			 'AA bb',
-			array(
+			[
 				'AA bb'
-			)
-		);
+			]
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			 'AA bb CC',
-			array(
+			[
 				'AA bb CC'
-			)
-		);
+			]
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			 'AA bb CC dd EE',
-			array(
+			[
 				'AA CC bb dd EE'
-			)
-		);
+			]
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			 'AA 1B cc dd',
-			array(
+			[
 				'AA 1B cc dd'
-			)
-		);
+			]
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			 'AA {b}B cc dd',
-			array(
+			[
 				'AA b'
-			)
-		);
+			]
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			 'AA \BB{b} cc dd',
-			array(
+			[
 				'AA \BB b'
-			)
-		);
+			]
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			 'bb CC dd EE, AA',
-			array(
+			[
 				'AA bb CC dd EE'
-			)
-		);
+			]
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			 'bb CC,XX, AA',
-			array(
+			[
 				'AA bb CC XX'
-			)
-		);
+			]
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			 'Einstein, Albert and Podolsky, Boris and Rosen, Nathan',
-			array(
+			[
 				'Albert Einstein',
 				'Boris Podolsky',
 				'Nathan Rosen'
-			)
-		);
+			]
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			 'Leung, David W and Cachianes, George and Kuang, Wun-Jing and Goeddel, David V and Ferrara, Napoleone',
-			array(
+			[
 				'David W Leung',
 				'George Cachianes',
 				'Wun-Jing Kuang',
 				'David V Goeddel',
 				'Napoleone Ferrara'
-			)
-		);
+			]
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			 'S. Zhang and C. Zhu and J. K. O. Sin and P. K. T. Mok',
-			array(
+			[
 				'S Zhang',
 				'C Zhu',
 				'J K O Sin',
 				'P K T Mok'
-			)
-		);
+			]
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			 'R. M. A. Dawson and Z. Shen and D. A. Furst and
                    S. Connor and J. Hsu and M. G. Kane and R. G. Stewart and
                    A. Ipri and C. N. King and P. J. Green and R. T. Flegal
                    and S. Pearson and W. A. Barrow and E. Dickey and K. Ping
                    and C. W. Tang and S. Van. Slyke and
                    F. Chen and J. Shi and J. C. Sturm and M. H. Lu',
-			array(
+			[
 				'R M A Dawson',
 				'Z Shen',
 				'D A Furst',
@@ -170,24 +170,24 @@ class BibtexAuthorListParserTest extends \PHPUnit_Framework_TestCase {
 				'J Shi',
 				'J C Sturm',
 				'M H Lu'
-			)
-		);
+			]
+		];
 
 		// van
-		$provider[] = array(
+		$provider[] = [
 			 'van den Bout, D. E.',
-			array(
+			[
 				'D E van den Bout'
-			)
-		);
+			]
+		];
 
 		// Jr.
-		$provider[] = array(
+		$provider[] = [
 			 'Osgood, Jr., R. M.',
-			array(
+			[
 				'R M Osgood Jr.'
-			)
-		);
+			]
+		];
 
 
 		return $provider;

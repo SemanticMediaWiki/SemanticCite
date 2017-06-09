@@ -47,7 +47,7 @@ class CachedReferenceListOutputRenderer {
 	/**
 	 * @var array
 	 */
-	private $defaultOptions = array();
+	private $defaultOptions = [];
 
 	/**
 	 * @since 1.0
@@ -116,11 +116,11 @@ class CachedReferenceListOutputRenderer {
 		// Remember the default options before trying to replace all list
 		// placeholders to ensure to reset options to the default option
 		// for when a list doesn't specify an option
-		$this->defaultOptions = array(
+		$this->defaultOptions = [
 			'listtype' => $this->referenceListOutputRenderer->getReferenceListType(),
 			'columns'  => $this->referenceListOutputRenderer->getNumberOfReferenceListColumns(),
 			'browse'   => $this->referenceListOutputRenderer->getBrowseLinkToCitationResourceVisibility()
-		);
+		];
 
 		// Find out whether to place the list into a custom position or not
 		if ( strpos( $text, 'scite-custom-referencelist' ) !== false ) {
@@ -168,7 +168,7 @@ class CachedReferenceListOutputRenderer {
 
 	private function searchForReferenceListHeaderTocId( array $options ) {
 
-		$headerId = array();
+		$headerId = [];
 		$this->referenceListOutputRenderer->setReferenceListHeaderTocId( '' );
 
 		// We know where to expect the index from preg_*
@@ -176,7 +176,7 @@ class CachedReferenceListOutputRenderer {
 			preg_match("/id=\"(.*)\"/", $options[3], $headerId );
 		}
 
-		if ( $headerId !== array() ) {
+		if ( $headerId !== [] ) {
 			$this->referenceListOutputRenderer->setReferenceListHeaderTocId( $headerId[1] );
 		}
 	}
@@ -215,7 +215,7 @@ class CachedReferenceListOutputRenderer {
 
 	private function getRenderedHtmlReferenceList( $references = '', $fingerprint = ''  ) {
 
-		$container = array();
+		$container = [];
 		$oldId = $this->contextInteractor->getOldId();
 		$lang  = $this->contextInteractor->getLanguageCode();
 

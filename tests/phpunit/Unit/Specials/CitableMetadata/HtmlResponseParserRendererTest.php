@@ -60,7 +60,7 @@ class HtmlResponseParserRendererTest extends \PHPUnit_Framework_TestCase {
 
 		$responseParser->expects( $this->atLeastOnce() )
 			->method( 'getMessages' )
-			->will( $this->returnValue( array() ) );
+			->will( $this->returnValue( [] ) );
 
 		$responseParser->expects( $this->atLeastOnce() )
 			->method( 'getFilteredRecord' )

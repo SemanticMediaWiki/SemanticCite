@@ -83,41 +83,41 @@ class NcbiPubMedResponseParserTest extends \PHPUnit_Framework_TestCase {
 
 	public function idProvider() {
 
-		$provider[] = array(
+		$provider[] = [
 			'abc',
 			'pmc',
 			 $this->never()
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			'abc',
 			'pubmed',
 			 $this->never()
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			'PMID54846467',
 			'pmc',
 			 $this->never()
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			'PMC54846467',
 			'pmc',
 			 $this->once()
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			'PMID54846467',
 			'pmid',
 			 $this->once()
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			'PMID54846467',
 			'pubmed',
 			 $this->once()
-		);
+		];
 
 		return $provider;
 	}

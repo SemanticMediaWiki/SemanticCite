@@ -95,7 +95,7 @@ class PageBuilderTest extends \PHPUnit_Framework_TestCase {
 
 		$responseParser->expects( $this->any() )
 			->method( 'getMessages' )
-			->will( $this->returnValue( array() ) );
+			->will( $this->returnValue( [] ) );
 
 		$responseParser->expects( $this->atLeastOnce() )
 			->method( 'getFilteredRecord' )
@@ -115,7 +115,7 @@ class PageBuilderTest extends \PHPUnit_Framework_TestCase {
 
 		$htmlFormRenderer = $this->getMockBuilder( '\SMW\MediaWiki\Renderer\HtmlFormRenderer' )
 			->disableOriginalConstructor()
-			->setMethods( array( 'getMessageBuilder', 'getForm' ) )
+			->setMethods( [ 'getMessageBuilder', 'getForm' ] )
 			->getMock();
 
 		$htmlFormRenderer->expects( $this->atLeastOnce() )
@@ -124,7 +124,7 @@ class PageBuilderTest extends \PHPUnit_Framework_TestCase {
 
 		$this->citationResourceMatchFinder->expects( $this->atLeastOnce() )
 			->method( 'findMatchForResourceIdentifierTypeToValue' )
-			->will( $this->returnValue( array() ) );
+			->will( $this->returnValue( [] ) );
 
 		$this->httpResponseParserFactory->expects( $this->once() )
 			->method( 'newResponseParserForType' )

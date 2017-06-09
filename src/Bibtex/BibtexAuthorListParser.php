@@ -18,7 +18,7 @@ class BibtexAuthorListParser {
 	/**
 	 * @var array
 	 */
-	private $prefix = array();
+	private $prefix = [];
 
 	/**
 	 * Create writer arrays from bibtex input
@@ -36,7 +36,7 @@ class BibtexAuthorListParser {
 	 */
 	public function parse( $input ) {
 
-		$authorList = array();
+		$authorList = [];
 
 		// split on ' and '
 		$authorArray = preg_split("/\s(and|&)\s/i", trim( $input ) );
@@ -48,7 +48,7 @@ class BibtexAuthorListParser {
 			$surname = '';
 			$initials = '';
 
-			$this->prefix = array();
+			$this->prefix = [];
 
 			$author = explode( ",", preg_replace("/\s{2,}/", ' ', trim( $value ) ) );
 			$size = count( $author );
@@ -83,7 +83,7 @@ class BibtexAuthorListParser {
 
 			list( $firstname, $initials ) = $this->grabFirstnameInitials( $remainder );
 
-			if( $this->prefix !== array() ) {
+			if( $this->prefix !== [] ) {
 				$prefix = implode(' ', $this->prefix );
 			}
 
@@ -97,12 +97,12 @@ class BibtexAuthorListParser {
 
 	private function concatenate( $firstname, $initials, $surname, $prefix ) {
 
-		$author = array(
+		$author = [
 			trim( $firstname ),
 			trim( $initials ),
 			trim( $prefix ),
 			trim( $surname )
-		);
+		];
 
 		return implode( ' ', array_filter( $author ) );
 	}
@@ -117,8 +117,8 @@ class BibtexAuthorListParser {
 		$firstname = '';
 		$initials = '';
 
-		$initialsArray = array();
-		$firstnameArray = array();
+		$initialsArray = [];
+		$firstnameArray = [];
 
 		foreach( $array as $value ) {
 			$firstChar = substr($value, 0, 1);
@@ -138,7 +138,7 @@ class BibtexAuthorListParser {
 
 		$firstname = implode(" ", $firstnameArray);
 
-		return array( $firstname, $initials );
+		return [ $firstname, $initials ];
 	}
 
 	/**
@@ -150,8 +150,8 @@ class BibtexAuthorListParser {
 		$surnameArray = explode(" ", $input );
 
 		$noPrefix = false;
-		$surname = array();
-		$prefix = array();
+		$surname = [];
+		$prefix = [];
 
 		foreach( $surnameArray as $value ) {
 			$firstChar = substr($value, 0, 1);
@@ -166,10 +166,10 @@ class BibtexAuthorListParser {
 
 		$surname = implode(" ", $surname);
 
-		if( $prefix !== array() ) {
-			return array( $surname, implode(" ", $prefix ) );
+		if( $prefix !== [] ) {
+			return [ $surname, implode(" ", $prefix ) ];
 		}
 
-		return array( $surname, false );
+		return [ $surname, false ];
 	}
 }

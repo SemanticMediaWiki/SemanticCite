@@ -87,19 +87,19 @@ class MediaWikiContextInteractorTest extends \PHPUnit_Framework_TestCase {
 
 	public function oldidDirectionProvider() {
 
-		$provider = array();
+		$provider = [];
 
-		$provider[] = array(
+		$provider[] = [
 			'next'
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			'prev'
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			'cur'
-		);
+		];
 
 		return $provider;
 	}

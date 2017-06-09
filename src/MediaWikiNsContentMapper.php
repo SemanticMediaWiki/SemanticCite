@@ -20,12 +20,12 @@ class MediaWikiNsContentMapper {
 	/**
 	 * @var array
 	 */
-	private static $identifierToPropertyMap = array();
+	private static $identifierToPropertyMap = [];
 
 	/**
 	 * @var array
 	 */
-	private static $typeToTemplateMap = array();
+	private static $typeToTemplateMap = [];
 
 	/**
 	 * Only set during testing to circumvent the MessageCache
@@ -47,8 +47,8 @@ class MediaWikiNsContentMapper {
 	 * @since 1.0
 	 */
 	public static function clear() {
-		self::$typeToTemplateMap = array();
-		self::$identifierToPropertyMap = array();
+		self::$typeToTemplateMap = [];
+		self::$identifierToPropertyMap = [];
 		self::$skipMessageCache = false;
 	}
 
@@ -63,11 +63,11 @@ class MediaWikiNsContentMapper {
 
 		$id = strtolower( trim( $id ) );
 
-		if ( self::$identifierToPropertyMap === array() ) {
+		if ( self::$identifierToPropertyMap === [] ) {
 
 			// Fixed by definition due to usage of
 			// pre-defined properties
-			self::$identifierToPropertyMap = array(
+			self::$identifierToPropertyMap = [
 				'viaf'          => SCI_PROP_VIAF,
 				'doi'           => SCI_PROP_DOI,
 				'oclc'          => SCI_PROP_OCLC,
@@ -77,7 +77,7 @@ class MediaWikiNsContentMapper {
 				'reference'     => SCI_PROP_CITE_KEY,
 				'citation text' => SCI_PROP_CITE_TEXT,
 				'sortkey'       => '_SKEY'
-			) + $this->parseContentFor( "sci-property-definition" );
+			] + $this->parseContentFor( "sci-property-definition" );
 		}
 
 		return isset( self::$identifierToPropertyMap[$id] ) ? self::$identifierToPropertyMap[$id] : null;
@@ -94,7 +94,7 @@ class MediaWikiNsContentMapper {
 
 		$type = strtolower( trim( $type ) );
 
-		if ( self::$typeToTemplateMap === array() ) {
+		if ( self::$typeToTemplateMap === [] ) {
 			self::$typeToTemplateMap = $this->parseContentFor( "sci-template-definition" );
 		}
 
@@ -113,11 +113,11 @@ class MediaWikiNsContentMapper {
 		$contents = $this->mediaWikiNsContentReader->read( $name );
 
 		if ( $contents === '' ) {
-			return array();
+			return [];
 		}
 
 		$contentMap = array_map( 'trim', preg_split( "([\n][\s]?)", $contents ) );
-		$list = array();
+		$list = [];
 
 		// Check whether the first line is infact an explanation
 		if ( strpos( $contentMap[0], '|' ) === false ) {

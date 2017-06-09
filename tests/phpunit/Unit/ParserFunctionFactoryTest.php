@@ -68,7 +68,7 @@ class ParserFunctionFactoryTest extends \PHPUnit_Framework_TestCase {
 		$text = '';
 
 		$this->assertNotEmpty(
-			call_user_func_array( $definition, array( $this->parser, $text ) )
+			call_user_func_array( $definition, [ $this->parser, $text ] )
 		);
 	}
 
@@ -93,7 +93,7 @@ class ParserFunctionFactoryTest extends \PHPUnit_Framework_TestCase {
 		$text = '';
 
 		$this->assertNotEmpty(
-			call_user_func_array( $definition, array( $this->parser, $text ) )
+			call_user_func_array( $definition, [ $this->parser, $text ] )
 		);
 	}
 

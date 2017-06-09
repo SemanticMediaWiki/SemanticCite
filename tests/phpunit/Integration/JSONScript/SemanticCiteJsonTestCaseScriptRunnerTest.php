@@ -34,7 +34,7 @@ class SemanticCiteJsonTestCaseScriptRunnerTest extends JsonTestCaseScriptRunner 
 		$this->semanticDataValidator = $validatorFactory->newSemanticDataValidator();
 		$this->stringValidator = $validatorFactory->newStringValidator();
 
-		$configuration = array(
+		$configuration = [
 			'numberOfReferenceListColumns'       => 1,
 			'browseLinkToCitationResource'       => false,
 			'showTooltipForCitationReference'    => false,
@@ -45,7 +45,7 @@ class SemanticCiteJsonTestCaseScriptRunnerTest extends JsonTestCaseScriptRunner 
 			'cachePrefix'                        => 'foo',
 			'enabledCitationTextChangeUpdateJob' => false,
 			'responsiveMonoColumnCharacterBoundLength' => 100
-		);
+		];
 
 		// This is to ensure we read from the DB when a test case
 		// specifies a NS_MEDIAWIKI page
@@ -75,7 +75,7 @@ class SemanticCiteJsonTestCaseScriptRunnerTest extends JsonTestCaseScriptRunner 
 	 * @see JsonTestCaseScriptRunner::getAllowedTestCaseFiles
 	 */
 	protected function getAllowedTestCaseFiles() {
-		return array();
+		return [];
 	}
 
 	/**
@@ -94,7 +94,7 @@ class SemanticCiteJsonTestCaseScriptRunnerTest extends JsonTestCaseScriptRunner 
 
 		$this->checkEnvironmentToSkipCurrentTest( $jsonTestCaseFileHandler );
 
-		$permittedSettings = array(
+		$permittedSettings = [
 			'smwgNamespacesWithSemanticLinks',
 			'smwgPageSpecialProperties',
 			'wgLanguageCode',
@@ -102,7 +102,7 @@ class SemanticCiteJsonTestCaseScriptRunnerTest extends JsonTestCaseScriptRunner 
 			'wgLang',
 			'scigCitationReferenceCaptionFormat',
 			'smwgQueryResultCacheType'
-		);
+		];
 
 		foreach ( $permittedSettings as $key ) {
 			$this->changeGlobalSettingTo(
@@ -165,7 +165,7 @@ class SemanticCiteJsonTestCaseScriptRunnerTest extends JsonTestCaseScriptRunner 
 			print_r( $semanticData );
 		}
 
-		if ( isset( $case['errors'] ) && $case['errors'] !== array() ) {
+		if ( isset( $case['errors'] ) && $case['errors'] !== [] ) {
 			$this->assertNotEmpty(
 				$semanticData->getErrors()
 			);
@@ -185,11 +185,11 @@ class SemanticCiteJsonTestCaseScriptRunnerTest extends JsonTestCaseScriptRunner 
 		}
 
 		if ( !isset( $case['expected-output']['to-contain'] ) ) {
-			$case['expected-output']['to-contain'] = array();
+			$case['expected-output']['to-contain'] = [];
 		}
 
 		if ( !isset( $case['expected-output']['to-not-contain'] ) ) {
-			$case['expected-output']['to-not-contain'] = array();
+			$case['expected-output']['to-not-contain'] = [];
 		}
 
 		$subject = DIWikiPage::newFromText(
