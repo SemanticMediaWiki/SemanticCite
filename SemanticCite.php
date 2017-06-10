@@ -152,7 +152,7 @@ class SemanticCite {
 	 */
 	public static function doCheckRequirements() {
 
-		if ( version_compare( $GLOBALS[ 'wgVersion' ], '1.24', 'lt' ) ) {
+		if ( version_compare( $GLOBALS[ 'wgVersion' ], '1.27', 'lt' ) ) {
 			die( '<b>Error:</b> This version of <a href="https://github.com/SemanticMediaWiki/SemanticCite/">SemanticCite</a> is only compatible with MediaWiki 1.24 or above. You need to upgrade MediaWiki first.' );
 		}
 
