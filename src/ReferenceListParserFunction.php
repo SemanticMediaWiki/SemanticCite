@@ -58,7 +58,7 @@ class ReferenceListParserFunction {
 		// also takes care of any encoded title with non-Latin characters
 		$header = Html::element(
 			$headerElement,
-			array(),
+			[],
 			$header
 		);
 
@@ -78,9 +78,9 @@ class ReferenceListParserFunction {
 		// The span placeholder will hide the header from the TOC by default
 		$headerElement = 'span';
 
-		$attributes = array(
+		$attributes = [
 			'id' => 'scite-custom-referencelist'
-		);
+		];
 
 		foreach ( $parameters as $key => $values ) {
 
@@ -103,7 +103,7 @@ class ReferenceListParserFunction {
 			}
 		}
 
-		return array( $header, $headerElement, $attributes );
+		return [ $header, $headerElement, $attributes ];
 	}
 
 	private function doProcessReferenceValues( array $values ) {

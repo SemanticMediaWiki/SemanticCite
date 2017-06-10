@@ -81,13 +81,13 @@ class ReferenceListOutputRendererTest extends \PHPUnit_Framework_TestCase {
 
 		$this->citationReferencePositionJournal->expects( $this->once() )
 			->method( 'getJournalBySubject' )
-			->will( $this->returnValue( array(
-				'reference-pos'  => array( 'abc' => array() ),
-				'reference-list' => array( 'abc' => 123 ) ) ) );
+			->will( $this->returnValue( [
+				'reference-pos'  => [ 'abc' => [] ],
+				'reference-list' => [ 'abc' => 123 ] ] ) );
 
 		$this->citationResourceMatchFinder->expects( $this->once() )
 			->method( 'findCitationTextFor' )
-			->will( $this->returnValue( array( array(), '' ) ) );
+			->will( $this->returnValue( [ [], '' ] ) );
 
 		$instance =	new ReferenceListOutputRenderer(
 			$this->citationResourceMatchFinder,

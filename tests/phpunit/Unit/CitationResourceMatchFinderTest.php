@@ -54,35 +54,35 @@ class CitationResourceMatchFinderTest extends \PHPUnit_Framework_TestCase {
 
 	public function uidTypeProvider() {
 
-		$provider[] = array(
+		$provider[] = [
 			'oclc',
 			42
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			'viaf',
 			42
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			'doi',
 			42
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			'pmid',
 			42
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			'pmcid',
 			42
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			'olid',
 			42
-		);
+		];
 
 		return $provider;
 	}

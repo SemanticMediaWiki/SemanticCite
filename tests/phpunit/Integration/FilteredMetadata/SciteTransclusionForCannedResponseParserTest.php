@@ -149,13 +149,13 @@ class SciteTransclusionForCannedResponseParserTest extends \PHPUnit_Framework_Te
 	public function crossrefFileProvider() {
 
 		$path = __DIR__ . '/Fixtures/';
-		$provider = array();
+		$provider = [];
 
-		$provider[] = array(
+		$provider[] = [
 			'10.1007/978-0-387-76978-3',
 			$path . '10.1007-2F978-0-387-76978-3.json',
 			$path . '10.1007-2F978-0-387-76978-3.expected'
-		);
+		];
 
 		return $provider;
 	}
@@ -163,19 +163,19 @@ class SciteTransclusionForCannedResponseParserTest extends \PHPUnit_Framework_Te
 	public function olFileProvider() {
 
 		$path = __DIR__ . '/Fixtures/';
-		$provider = array();
+		$provider = [];
 
-		$provider[] = array(
+		$provider[] = [
 			'OL2206423M',
 			$path . 'OL2206423M.json',
 			$path . 'OL2206423M.expected'
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			'0385081308',
 			$path . 'OL2206423M.json',
 			$path . 'OL2206423M.expected'
-		);
+		];
 
 		return $provider;
 	}
@@ -183,13 +183,13 @@ class SciteTransclusionForCannedResponseParserTest extends \PHPUnit_Framework_Te
 	public function viafFileProvider() {
 
 		$path = __DIR__ . '/Fixtures/';
-		$provider = array();
+		$provider = [];
 
-		$provider[] = array(
+		$provider[] = [
 			'253484422',
 			$path . 'VIAF253484422.xml',
 			$path . 'VIAF253484422.expected'
-		);
+		];
 
 		return $provider;
 	}
@@ -197,19 +197,19 @@ class SciteTransclusionForCannedResponseParserTest extends \PHPUnit_Framework_Te
 	public function oclcFileProvider() {
 
 		$path = __DIR__ . '/Fixtures/';
-		$provider = array();
+		$provider = [];
 
-		$provider[] = array(
+		$provider[] = [
 			'74330434',
 			$path . 'OCLC74330434.json',
 			$path . 'OCLC74330434.expected'
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			'41266045',
 			$path . 'OCLC41266045.json',
 			$path . 'OCLC41266045.expected'
-		);
+		];
 
 		return $provider;
 	}
@@ -217,15 +217,15 @@ class SciteTransclusionForCannedResponseParserTest extends \PHPUnit_Framework_Te
 	public function pubMedFileProvider() {
 
 		$path = __DIR__ . '/Fixtures/';
-		$provider = array();
+		$provider = [];
 
-		$provider[] = array(
+		$provider[] = [
 			'PMC2776723',
 			'pmc',
 			$path . 'PMC2776723.json',
 			$path . 'PMC2776723.xml',
 			$path . 'PMC2776723.expected'
-		);
+		];
 
 		return $provider;
 	}
@@ -251,7 +251,7 @@ class SciteTransclusionForCannedResponseParserTest extends \PHPUnit_Framework_Te
 			->method( 'getLastError' )
 			->will( $this->returnValue( '' ) );
 
-		return array( $id, $httpRequest, $expected );
+		return [ $id, $httpRequest, $expected ];
 	}
 
 }

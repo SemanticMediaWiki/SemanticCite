@@ -78,15 +78,15 @@ class CrossRefResponseParserTest extends \PHPUnit_Framework_TestCase {
 
 	public function idProvider() {
 
-		$provider[] = array(
+		$provider[] = [
 			'abc',
 			 $this->never()
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			'10.1126/science.1152662',
 			 $this->once()
-		);
+		];
 
 		return $provider;
 	}

@@ -39,7 +39,7 @@ class BibtexProcessorTest extends \PHPUnit_Framework_TestCase {
 
 		$bibtexParser->expects( $this->once() )
 			->method( 'parse' )
-			->will( $this->returnValue( array( 'Foo' => 'Bar' ) ) );
+			->will( $this->returnValue( [ 'Foo' => 'Bar' ] ) );
 
 		$bibtexAuthorListParser = $this->getMockBuilder( '\SCI\Bibtex\BibtexAuthorListParser' )
 			->disableOriginalConstructor()
@@ -52,7 +52,7 @@ class BibtexProcessorTest extends \PHPUnit_Framework_TestCase {
 		$parserParameterProcessor->expects( $this->once() )
 			->method( 'getParameterValuesFor' )
 			->with(	$this->equalTo( 'bibtex' ) )
-			->will( $this->returnValue( array() ) );
+			->will( $this->returnValue( [] ) );
 
 		$parserParameterProcessor->expects( $this->once() )
 			->method( 'addParameter' )
@@ -75,7 +75,7 @@ class BibtexProcessorTest extends \PHPUnit_Framework_TestCase {
 
 		$bibtexParser->expects( $this->once() )
 			->method( 'parse' )
-			->will( $this->returnValue( array( 'author' => 'Foo' ) ) );
+			->will( $this->returnValue( [ 'author' => 'Foo' ] ) );
 
 		$bibtexAuthorListParser = $this->getMockBuilder( '\SCI\Bibtex\BibtexAuthorListParser' )
 			->disableOriginalConstructor()
@@ -83,7 +83,7 @@ class BibtexProcessorTest extends \PHPUnit_Framework_TestCase {
 
 		$bibtexAuthorListParser->expects( $this->once() )
 			->method( 'parse' )
-			->will( $this->returnValue( array( 'Foo' ) ) );
+			->will( $this->returnValue( [ 'Foo' ] ) );
 
 		$parserParameterProcessor = $this->getMockBuilder( '\SMW\ParserParameterProcessor' )
 			->disableOriginalConstructor()
@@ -92,13 +92,13 @@ class BibtexProcessorTest extends \PHPUnit_Framework_TestCase {
 		$parserParameterProcessor->expects( $this->once() )
 			->method( 'getParameterValuesFor' )
 			->with(	$this->equalTo( 'bibtex' ) )
-			->will( $this->returnValue( array( ) ) );
+			->will( $this->returnValue( [ ] ) );
 
 		$parserParameterProcessor->expects( $this->once() )
 			->method( 'setParameter' )
 			->with(
 				$this->equalTo( 'author' ),
-				$this->equalTo( array( 'Foo' ) ) );
+				$this->equalTo( [ 'Foo' ] ) );
 
 		$parserParameterProcessor->expects( $this->once() )
 			->method( 'addParameter' )
@@ -124,7 +124,7 @@ class BibtexProcessorTest extends \PHPUnit_Framework_TestCase {
 
 		$bibtexParser->expects( $this->once() )
 			->method( 'parse' )
-			->will( $this->returnValue( array( $parameter => 'Foo' ) ) );
+			->will( $this->returnValue( [ $parameter => 'Foo' ] ) );
 
 		$bibtexAuthorListParser = $this->getMockBuilder( '\SCI\Bibtex\BibtexAuthorListParser' )
 			->disableOriginalConstructor()
@@ -146,7 +146,7 @@ class BibtexProcessorTest extends \PHPUnit_Framework_TestCase {
 		$parserParameterProcessor->expects( $this->once() )
 			->method( 'getParameterValuesFor' )
 			->with(	$this->equalTo( 'bibtex' ) )
-			->will( $this->returnValue( array( ) ) );
+			->will( $this->returnValue( [ ] ) );
 
 		$parserParameterProcessor->expects( $this->never() )
 			->method( 'addParameter' );
@@ -160,13 +160,13 @@ class BibtexProcessorTest extends \PHPUnit_Framework_TestCase {
 
 	public function doNotProcessParameterProvider() {
 
-		$provider[] = array(
+		$provider[] = [
 			'reference'
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			'type'
-		);
+		];
 
 		return $provider;
 	}

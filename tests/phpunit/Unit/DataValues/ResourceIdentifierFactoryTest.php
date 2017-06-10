@@ -46,37 +46,37 @@ class ResourceIdentifierFactoryTest extends \PHPUnit_Framework_TestCase {
 
 	public function typeProvider() {
 
-		$provider[] = array(
+		$provider[] = [
 			'DOI'
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			'VIAF'
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			'OCLC'
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			'OLID'
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			'PMCID'
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			'PMID'
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			'pubmed'
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			'pmc'
-		);
+		];
 
 		return $provider;
 	}

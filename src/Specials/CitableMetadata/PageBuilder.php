@@ -122,7 +122,7 @@ class PageBuilder {
 				$responseParser->getFilteredRecord()
 			);
 
-			$success = $responseParser->getMessages() === array();
+			$success = $responseParser->getMessages() === [];
 
 			$log = $this->prepareLog(
 				$responseParser->getMessages(),
@@ -139,14 +139,14 @@ class PageBuilder {
 		$htmlFormRenderer = $this->htmlFormRenderer;
 		$messageBuilder = $this->htmlFormRenderer->getMessageBuilder();
 
-		$types = array(
+		$types = [
 			'pubmed' => 'PMID',
 			'pmc'  => 'PMCID',
 			'doi'  => 'DOI',
 			'oclc' => 'OCLC',
 			'viaf' => 'VIAF',
 			'ol'   => 'OLID',
-		);
+		];
 
 
 		if ( $matches !== '' ) {
@@ -200,7 +200,7 @@ class PageBuilder {
 
 		$messageBuilder = $this->htmlFormRenderer->getMessageBuilder();
 
-		$log = array();
+		$log = [];
 
 		foreach ( $messages as $m ) {
 
@@ -221,7 +221,7 @@ class PageBuilder {
 			$log[] = $messageBuilder->getMessage( 'sci-metadata-search-read-only' )->text();
 		}
 
-		if ( $log === array() ) {
+		if ( $log === [] ) {
 			return '';
 		}
 
@@ -233,9 +233,9 @@ class PageBuilder {
 
 	private function getTypeIdIntroText( $messageBuilder ) {
 
-		$explain = array();
+		$explain = [];
 
-		foreach ( array( 'doi', 'oclc', 'pubmed', 'ol', 'viaf' ) as $value ) {
+		foreach ( [ 'doi', 'oclc', 'pubmed', 'ol', 'viaf' ] as $value ) {
 			$explain[] = $messageBuilder->getMessage( 'sci-metadata-search-intro-'. $value )->parse();
 		}
 
@@ -248,15 +248,15 @@ class PageBuilder {
 
 	private function tryToFindCitationResourceMatches( BibliographicFilteredRecord $bibliographicFilteredRecord ) {
 
-		$html = array();
+		$html = [];
 
-		foreach ( array( 'doi', 'oclc', 'viaf', 'olid', 'pubmed', 'pmc' ) as $type ) {
+		foreach ( [ 'doi', 'oclc', 'viaf', 'olid', 'pubmed', 'pmc' ] as $type ) {
 			$subjects = $this->citationResourceMatchFinder->findMatchForResourceIdentifierTypeToValue(
 				$type,
 				$bibliographicFilteredRecord->getSearchMatchSetValueFor( $type )
 			);
 
-			if ( $subjects !== array() ) {
+			if ( $subjects !== [] ) {
 				$html = array_merge(
 					$html,
 					$this->citationResourceMatchFinder->findCitationResourceLinks( $subjects, '', strtoupper( $type ) )
@@ -264,7 +264,7 @@ class PageBuilder {
 			}
 		}
 
-		return $html !== array() ? '<strong>' . implode( ', ', $html ) . '</strong>' : '';
+		return $html !== [] ? '<strong>' . implode( ', ', $html ) . '</strong>' : '';
 	}
 
 }

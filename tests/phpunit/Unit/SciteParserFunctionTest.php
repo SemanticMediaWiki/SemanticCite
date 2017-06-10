@@ -151,11 +151,11 @@ class SciteParserFunctionTest extends \PHPUnit_Framework_TestCase {
 		$parserParameterProcessor->expects( $this->any() )
 			->method( 'getParameterValuesFor' )
 			->will( $this->returnCallback( function( $key ) {
-				return $key === 'reference' ? array( 'Foo' ) : null; } ) );
+				return $key === 'reference' ? [ 'Foo' ] : null; } ) );
 
 		$parserParameterProcessor->expects( $this->once() )
 			->method( 'toArray' )
-			->will( $this->returnValue( array( '_ERRP' => array( 'Foo' ) ) ) );
+			->will( $this->returnValue( [ '_ERRP' => [ 'Foo' ] ] ) );
 
 		$instance = new SciteParserFunction(
 			$this->parserData,

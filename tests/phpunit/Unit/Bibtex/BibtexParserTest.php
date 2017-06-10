@@ -38,7 +38,7 @@ class BibtexParserTest extends \PHPUnit_Framework_TestCase {
 
 	public function bibtextProvider() {
 
-		$provider[] = array(
+		$provider[] = [
 			"@article{einstein1935can,
 			  title={Can quantum-mechanical description of physical reality be considered complete?},
 			  author={Einstein, Albert and Podolsky, Boris and Rosen, Nathan},
@@ -49,7 +49,7 @@ class BibtexParserTest extends \PHPUnit_Framework_TestCase {
 			  year={1935},
 			  publisher={APS}
 			}",
-			array(
+			[
 				'type'      => 'article',
 				'reference' => 'einstein1935can',
 				'title'     => 'Can quantum-mechanical description of physical reality be considered complete?',
@@ -60,28 +60,28 @@ class BibtexParserTest extends \PHPUnit_Framework_TestCase {
 				'pages'     => '777',
 				'year'      => '1935',
 				'publisher' => 'APS'
-			)
-		);
+			]
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			"@book{marx2004capital,
 			  title={Capital (Volume 1: A Critique of Political Economy): A Critique of Political Economy},
 			  author={Marx, Karl},
 			  year={2004},
 			  publisher={Digireads. com Publishing}
 			}",
-			array(
+			[
 				'type'      => 'book',
 				'reference' => 'marx2004capital',
 				'title'     => 'Capital (Volume 1: A Critique of Political Economy): A Critique of Political Economy',
 				'author'    => 'Marx, Karl',
 				'year'      => '2004',
 				'publisher' => 'Digireads. com Publishing'
-			)
-		);
+			]
+		];
 
 		#2 No reference
-		$provider[] = array(
+		$provider[] = [
 			"@article{,
 			  title={Vascular endothelial growth factor is a secreted angiogenic mitogen},
 			  author={Leung, David W and Cachianes, George and Kuang, Wun-Jing and Goeddel, David V and Ferrara, Napoleone},
@@ -92,7 +92,7 @@ class BibtexParserTest extends \PHPUnit_Framework_TestCase {
 			  year={1989},
 			  publisher={American Association for the Advancement of Science}
 			}",
-			array(
+			[
 				'type'      => 'article',
 				'reference' => '',
 				'title'     => 'Vascular endothelial growth factor is a secreted angiogenic mitogen',
@@ -103,11 +103,11 @@ class BibtexParserTest extends \PHPUnit_Framework_TestCase {
 				'pages'     => '1306--1309',
 				'year'      => '1989',
 				'publisher' => 'American Association for the Advancement of Science'
-			)
-		);
+			]
+		];
 
 		#3 No reference
-		$provider[] = array(
+		$provider[] = [
 			"@inproceedings{clean,
 			  author = {First Author and Author, Second},
 			  title = {Pr{\"a}diktive Teilbandcodierung mit Vektorquantisierung f{\"u}r hochqualitative Audiosignale},
@@ -118,7 +118,7 @@ class BibtexParserTest extends \PHPUnit_Framework_TestCase {
 			  abstract = {Some Abstract, across
 			two lines},
 			}",
-			array(
+			[
 				'type'      => 'inproceedings',
 				'reference' => 'clean',
 				'author'    => 'First Author and Author, Second',
@@ -129,19 +129,19 @@ class BibtexParserTest extends \PHPUnit_Framework_TestCase {
 				'pages'     => '252--256',
 				'abstract'  => "Some Abstract, across
 			two lines"
-			)
-		);
+			]
+		];
 
 		#4 invalid/unprocessable content format
-		$provider[] = array(
+		$provider[] = [
 			"foo",
-			array()
-		);
+			[]
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			"@article{}",
-			array()
-		);
+			[]
+		];
 
 		return $provider;
 	}

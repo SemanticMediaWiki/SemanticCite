@@ -204,7 +204,7 @@ class ReferenceListOutputRenderer {
 	 */
 	private function createHtmlFromJournal( array $journal ) {
 
-		$listOfFormattedReferences = array();
+		$listOfFormattedReferences = [];
 		$length = 0;
 
 		foreach ( $journal['reference-pos'] as $referenceAsHash => $linkList ) {
@@ -234,21 +234,21 @@ class ReferenceListOutputRenderer {
 			$listOfFormattedReferences[] =
 				Html::rawElement(
 					'span',
-					array(
+					[
 						'id'    => 'scite-'. $referenceAsHash,
 						'class' => 'scite-referencelinks'
-					),
+					],
 					$flatHtmlReferenceLinks
 					) . ( $flatHtmlReferenceLinks !== '' ? '&nbsp;' : '' )  .
 				Html::rawElement(
 					'span',
-					array(
+					[
 						'id'    => 'scite-'. $referenceAsHash,
 						'class' => 'scite-citation'
-					),
+					],
 					( $browseLinks !== '' ? $browseLinks . '&nbsp;' : '' ) . Html::rawElement(
 						'span',
-						array( 'class' => 'scite-citation-text' ),
+						[ 'class' => 'scite-citation-text' ],
 						$citationText
 					)
 				);
@@ -286,14 +286,14 @@ class ReferenceListOutputRenderer {
 
 		return Html::rawElement(
 				'div',
-				array(
+				[
 					'class' => 'scite-content'
-				),
+				],
 				Html::element(
 				'h2',
-				array(
+				[
 					'id' => $this->referenceListHeaderTocId
-				),
+				],
 				$this->referenceListHeader
 			) . "\n" . $this->htmlColumnListRenderer->getHtml() . "\n"
 		);
@@ -307,15 +307,15 @@ class ReferenceListOutputRenderer {
 
 		// Using Message:parse as shortcut to ensure the text is appropriately
 		// parsed and escaped which saves the trouble to deal with Parser stubobject
-		return array(
+		return [
 			$subjects,
 			wfMessage( 'sci-referencelist-text', $text )->parse()
-		);
+		];
 	}
 
 	private function createFlatHtmlListForReferenceLinks( array $linkList, $referenceHash ) {
 
-		$referenceLinks = array();
+		$referenceLinks = [];
 		$class = 'scite-backlinks';
 
 		foreach ( $linkList as $value ) {
@@ -339,11 +339,11 @@ class ReferenceListOutputRenderer {
 
 			$referenceLinks[] = Html::rawElement(
 				'a',
-				array(
+				[
 					'href'  => "#scite-ref-{$referenceHash}-" . $value,
 					'class' => $class,
 					'data-citeref-format' => $this->citationReferenceCaptionFormat === SCI_CITEREF_NUM ? 'number' : 'key'
-				),
+				],
 				$minor
 			);
 		}
@@ -357,9 +357,9 @@ class ReferenceListOutputRenderer {
 		if ( $citationText === '' ) {
 			return Html::rawElement(
 				'span',
-				array(
+				[
 					'class' => 'scite-citation-key'
-				),
+				],
 				$reference
 			);
 		}

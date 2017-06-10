@@ -48,9 +48,9 @@ class SpecialFindCitableMetadata extends SpecialPage {
 		$output->addModuleStyles( 'ext.scite.styles' );
 
 		$output->addModules(
-			array(
+			[
 				'ext.scite.metadata'
-			)
+			]
 		);
 
 		list( $type, $id, $format ) = $this->getRequestParameters(
@@ -102,7 +102,7 @@ class SpecialFindCitableMetadata extends SpecialPage {
 		$type = isset( $request['type'] ) ? strtolower( $request['type'] ) : '';
 		$format = isset( $request['format'] ) ? strtolower( $request['format'] ) : '';
 
-		return array( $type, $id, $format );
+		return [ $type, $id, $format ];
 	}
 
 	private function newPageBuilder() {

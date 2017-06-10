@@ -44,90 +44,90 @@ class PropertyRegistry {
 	 */
 	public function registerTo( CorePropertyRegistry $corePropertyRegistry ) {
 
-		$propertyDefinitions = array(
+		$propertyDefinitions = [
 
-			self::SCI_OLID => array(
+			self::SCI_OLID => [
 				'label' => SCI_PROP_OLID,
 				'type'  => '_sci_olid',
-				'alias' => array( wfMessage( 'sci-property-alias-olid' )->text(), 'olid', 'Olid' ),
+				'alias' => [ wfMessage( 'sci-property-alias-olid' )->text(), 'olid', 'Olid' ],
 				'visibility' => true,
 				'annotableByUser' => true
-			),
+			],
 
-			self::SCI_VIAF => array(
+			self::SCI_VIAF => [
 				'label' => SCI_PROP_VIAF,
 				'type'  => '_sci_viaf',
-				'alias' => array( wfMessage( 'sci-property-alias-viaf' )->text(), 'viaf', 'Viaf' ),
+				'alias' => [ wfMessage( 'sci-property-alias-viaf' )->text(), 'viaf', 'Viaf' ],
 				'visibility' => true,
 				'annotableByUser' => true
-			),
+			],
 
-			self::SCI_OCLC => array(
+			self::SCI_OCLC => [
 				'label' => SCI_PROP_OCLC,
 				'type'  => '_sci_oclc',
-				'alias' => array( wfMessage( 'sci-property-alias-oclc' )->text(), 'oclc', 'Oclc' ),
+				'alias' => [ wfMessage( 'sci-property-alias-oclc' )->text(), 'oclc', 'Oclc' ],
 				'visibility' => true,
 				'annotableByUser' => true
-			),
+			],
 
-			self::SCI_DOI => array(
+			self::SCI_DOI => [
 				'label' => SCI_PROP_DOI,
 				'type'  => '_sci_doi',
-				'alias' => array( wfMessage( 'sci-property-alias-doi' )->text(), 'Doi', 'doi' ),
+				'alias' => [ wfMessage( 'sci-property-alias-doi' )->text(), 'Doi', 'doi' ],
 				'visibility' => true,
 				'annotableByUser' => true
-			),
+			],
 
-			self::SCI_PMCID => array(
+			self::SCI_PMCID => [
 				'label' => SCI_PROP_PMCID,
 				'type'  => '_sci_pmcid',
-				'alias' => array( wfMessage( 'sci-property-alias-pmcid' )->text(), 'Pmcid', 'pmcid' ),
+				'alias' => [ wfMessage( 'sci-property-alias-pmcid' )->text(), 'Pmcid', 'pmcid' ],
 				'visibility' => true,
 				'annotableByUser' => true
-			),
+			],
 
-			self::SCI_PMID => array(
+			self::SCI_PMID => [
 				'label' => SCI_PROP_PMID,
 				'type'  => '_sci_pmid',
-				'alias' => array( wfMessage( 'sci-property-alias-pmid' )->text(), 'Pmid', 'pmid' ),
+				'alias' => [ wfMessage( 'sci-property-alias-pmid' )->text(), 'Pmid', 'pmid' ],
 				'visibility' => true,
 				'annotableByUser' => true
-			),
+			],
 
-			self::SCI_CITE_KEY => array(
+			self::SCI_CITE_KEY => [
 				'label' => SCI_PROP_CITE_KEY,
 				'type'  => '_txt',
-				'alias' => array( wfMessage( 'sci-property-alias-citation-key' )->text() ),
+				'alias' => [ wfMessage( 'sci-property-alias-citation-key' )->text() ],
 				'visibility' => true,
 				'annotableByUser' => true
-			),
+			],
 
 			// Allow CiteRef to be an alias as it saves typing
 			// [[CiteRef:: ... ]] instead of [[Citation reference:: ... ]]
-			self::SCI_CITE_REFERENCE => array(
+			self::SCI_CITE_REFERENCE => [
 				'label' => SCI_PROP_CITE_REFERENCE,
 				'type'  => '_sci_ref',
-				'alias' => array( wfMessage( 'sci-property-alias-citation-reference' )->text(), 'CiteRef' ),
+				'alias' => [ wfMessage( 'sci-property-alias-citation-reference' )->text(), 'CiteRef' ],
 				'visibility' => true,
 				'annotableByUser' => true
-			),
+			],
 
-			self::SCI_CITE_TEXT => array(
+			self::SCI_CITE_TEXT => [
 				'label' => SCI_PROP_CITE_TEXT,
 				'type'  => '_txt',
-				'alias' => array( wfMessage( 'sci-property-alias-citation-text' )->text() ),
+				'alias' => [ wfMessage( 'sci-property-alias-citation-text' )->text() ],
 				'visibility' => true,
 				'annotableByUser' => true
-			),
+			],
 
-			self::SCI_CITE => array(
+			self::SCI_CITE => [
 				'label' => SCI_PROP_CITE,
 				'type'  => '__sob',
-				'alias' => array( wfMessage( 'sci-property-alias-citation-resource' )->text() ),
+				'alias' => [ wfMessage( 'sci-property-alias-citation-resource' )->text() ],
 				'visibility' => true,
 				'annotableByUser' => false
-			)
-		);
+			]
+		];
 
 		foreach ( $propertyDefinitions as $propertyId => $definition ) {
 			$this->addPropertyDefinitionFor( $corePropertyRegistry, $propertyId, $definition  );

@@ -58,15 +58,15 @@ class SemanticCite {
 		define( 'SCI_VERSION', '1.4.0-alpha' );
 
 		// Register the extension
-		$GLOBALS['wgExtensionCredits']['semantic'][ ] = array(
+		$GLOBALS['wgExtensionCredits']['semantic'][ ] = [
 			'path'           => __FILE__,
 			'name'           => 'Semantic Cite',
-			'author'         => array( 'James Hong Kong' ),
+			'author'         => [ 'James Hong Kong' ],
 			'url'            => 'https://github.com/SemanticMediaWiki/SemanticCite/',
 			'descriptionmsg' => 'sci-desc',
 			'version'        => SCI_VERSION,
 			'license-name'   => 'GPL-2.0+'
-		);
+		];
 
 		// Register message files
 		$GLOBALS['wgMessagesDirs']['SemanticCite'] = __DIR__ . '/i18n';
@@ -80,59 +80,59 @@ class SemanticCite {
 		$GLOBALS['wgGroupPermissions']['user']['sci-metadatasearch'] = true;
 
 		// Register resource files
-		$GLOBALS['wgResourceModules']['ext.scite.styles'] = array(
+		$GLOBALS['wgResourceModules']['ext.scite.styles'] = [
 			'styles'  => 'res/scite.styles.css',
 			'localBasePath' => __DIR__ ,
 			'remoteExtPath' => 'SemanticCite',
 			'position' => 'top',
 			'group'    => 'ext.smw',
-			'targets' => array(
+			'targets' => [
 				'mobile',
 				'desktop'
-			)
-		);
+			]
+		];
 
-		$GLOBALS['wgResourceModules']['ext.scite.metadata'] = array(
-			'scripts' => array(
+		$GLOBALS['wgResourceModules']['ext.scite.metadata'] = [
+			'scripts' => [
 				'res/scite.text.selector.js',
 				'res/scite.page.creator.js'
-			),
+			],
 			'localBasePath' => __DIR__ ,
 			'remoteExtPath' => 'SemanticCite',
 			'position' => 'top',
 			'group'    => 'ext.smw',
-			'dependencies'  => array(
+			'dependencies'  => [
 				'ext.scite.styles',
 				'mediawiki.api'
-			),
-			'targets' => array(
+			],
+			'targets' => [
 				'mobile',
 				'desktop'
-			)
-		);
+			]
+		];
 
-		$GLOBALS['wgResourceModules']['ext.scite.tooltip'] = array(
-			'scripts' => array(
+		$GLOBALS['wgResourceModules']['ext.scite.tooltip'] = [
+			'scripts' => [
 				'res/scite.tooltip.js'
-			),
+			],
 			'localBasePath' => __DIR__ ,
 			'remoteExtPath' => 'SemanticCite',
-			'dependencies'  => array(
+			'dependencies'  => [
 				'onoi.qtip',
 				'onoi.blobstore',
 				'onoi.util',
 				'ext.scite.styles',
 				'mediawiki.api.parse'
-			),
-			'messages' => array(
+			],
+			'messages' => [
 				'sci-tooltip-citation-lookup-failure',
 				'sci-tooltip-citation-lookup-failure-multiple'
-			),
-			'targets' => array(
+			],
+			'targets' => [
 				'mobile',
 				'desktop'
-			)
-		);
+			]
+		];
 
 		self::onBeforeExtensionFunction();
 	}
@@ -173,7 +173,7 @@ class SemanticCite {
 		// to inject dependencies
 		$GLOBALS['scigCachePrefix'] = $GLOBALS['wgCachePrefix'] === false ? wfWikiID() : $GLOBALS['wgCachePrefix'];
 
-		$configuration = array(
+		$configuration = [
 			'numberOfReferenceListColumns'       => $GLOBALS['scigNumberOfReferenceListColumns'],
 			'browseLinkToCitationResource'       => $GLOBALS['scigBrowseLinkToCitationResource'],
 			'showTooltipForCitationReference'    => $GLOBALS['scigShowTooltipForCitationReference'],
@@ -184,7 +184,7 @@ class SemanticCite {
 			'cachePrefix'                        => $GLOBALS['scigCachePrefix'],
 			'enabledCitationTextChangeUpdateJob' => $GLOBALS['scigEnabledCitationTextChangeUpdateJob'],
 			'responsiveMonoColumnCharacterBoundLength' => $GLOBALS['scigResponsiveMonoColumnCharacterBoundLength']
-		);
+		];
 
 		$applicationFactory = ApplicationFactory::getInstance();
 

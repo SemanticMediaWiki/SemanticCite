@@ -45,12 +45,12 @@ class CitationReferencePositionJournalTest extends \PHPUnit_Framework_TestCase {
 		);
 
 		$this->assertNull(
-			$instance->buildJournalForUnboundReferenceList( array() )
+			$instance->buildJournalForUnboundReferenceList( [] )
 		);
 
 		$this->assertInternalType(
 			'array',
-			$instance->buildJournalForUnboundReferenceList( array( 'foo' ) )
+			$instance->buildJournalForUnboundReferenceList( [ 'foo' ] )
 		);
 	}
 

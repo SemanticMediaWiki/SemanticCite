@@ -69,12 +69,12 @@ class CitationTextChangeUpdateJobDispatcherTest extends \PHPUnit_Framework_TestC
 
 		$idTable = $this->getMockBuilder( '\stdClass' )
 			->disableOriginalConstructor()
-			->setMethods( array( 'getDataItemPoolHashListFor' ) )
+			->setMethods( [ 'getDataItemPoolHashListFor' ] )
 			->getMock();
 
 		$idTable->expects( $this->once() )
 			->method( 'getDataItemPoolHashListFor' )
-			->will( $this->returnValue( array( 'Foo#0##' ) ) );
+			->will( $this->returnValue( [ 'Foo#0##' ] ) );
 
 		$propertyTableInfoFetcher = $this->getMockBuilder( '\SMW\SQLStore\PropertyTableInfoFetcher' )
 			->disableOriginalConstructor()
@@ -90,7 +90,7 @@ class CitationTextChangeUpdateJobDispatcherTest extends \PHPUnit_Framework_TestC
 
 		$this->referenceBacklinksLookup->expects( $this->once() )
 			->method( 'findReferenceBacklinksFor' )
-			->will( $this->returnValue( array( new DIWikiPage( 'Bar', NS_MAIN ) ) ) );
+			->will( $this->returnValue( [ new DIWikiPage( 'Bar', NS_MAIN ) ] ) );
 
 		$instance = new CitationTextChangeUpdateJobDispatcher(
 			$this->store,
@@ -114,7 +114,7 @@ class CitationTextChangeUpdateJobDispatcherTest extends \PHPUnit_Framework_TestC
 
 	public function testDispatchJobForNoValidDiff() {
 
-		$diff = array();
+		$diff = [];
 
 		$propertyTableInfoFetcher = $this->getMockBuilder( '\SMW\SQLStore\PropertyTableInfoFetcher' )
 			->disableOriginalConstructor()
@@ -146,25 +146,25 @@ class CitationTextChangeUpdateJobDispatcherTest extends \PHPUnit_Framework_TestC
 
 	public function compositePropertyTableDiffProvider() {
 
-		$diff = array(
-			'sci_cite_text' => array(
-				'delete' => array(
+		$diff = [
+			'sci_cite_text' => [
+				'delete' => [
 					's_id' => 42
-				)
-			)
-		);
+				]
+			]
+		];
 
-		$provider[] = array( $diff );
+		$provider[] = [ $diff ];
 
-		$diff = array(
-			'sci_cite_text' => array(
-				'insert' => array(
+		$diff = [
+			'sci_cite_text' => [
+				'insert' => [
 					's_id' => 42
-				)
-			)
-		);
+				]
+			]
+		];
 
-		$provider[] = array( $diff );
+		$provider[] = [ $diff ];
 
 		return $provider;
 	}

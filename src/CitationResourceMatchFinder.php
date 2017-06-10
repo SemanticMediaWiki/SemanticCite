@@ -51,7 +51,7 @@ class CitationResourceMatchFinder {
 	 */
 	public function findCitationResourceLinks( array $subjects, $linkClass = '', $caption = '' ) {
 
-		$citationResourceLinks = array();
+		$citationResourceLinks = [];
 
 		// ↑; $reference
 		$caption = $caption !== '' ? $caption : '&#8593;';
@@ -88,7 +88,7 @@ class CitationResourceMatchFinder {
 	public function findMatchForResourceIdentifierTypeToValue( $type, $id = null ) {
 
 		if ( $id === null || $id === '' ) {
-			return array();
+			return [];
 		}
 
 		$resourceIdentifierFactory = new ResourceIdentifierFactory();
@@ -132,14 +132,14 @@ class CitationResourceMatchFinder {
 	public function findCitationTextFor( $citationReference ) {
 
 		$text = '';
-		$subjects = array();
+		$subjects = [];
 
 		$queryResult = $this->findMatchForCitationReference(
 			$citationReference
 		);
 
 		if ( !$queryResult instanceof \SMWQueryResult ) {
-			return array( $subjects, $text );
+			return [ $subjects, $text ];
 		}
 
 		while ( $resultArray = $queryResult->getNext() ) {
@@ -157,7 +157,7 @@ class CitationResourceMatchFinder {
 			}
 		}
 
-		return array( $subjects, $text );
+		return [ $subjects, $text ];
 	}
 
 	/**

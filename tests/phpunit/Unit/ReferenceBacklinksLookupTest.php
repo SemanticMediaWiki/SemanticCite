@@ -40,7 +40,7 @@ class ReferenceBacklinksLookupTest extends \PHPUnit_Framework_TestCase {
 		$semanticData->expects( $this->once() )
 			->method( 'getPropertyValues' )
 			->with( $this->equalTo( new DIProperty( PropertyRegistry::SCI_CITE_KEY ) ) )
-			->will( $this->returnValue( array( 'Foo', 'Bar' ) ) );
+			->will( $this->returnValue( [ 'Foo', 'Bar' ] ) );
 
 		$store = $this->getMockBuilder( '\SMW\Store' )
 			->disableOriginalConstructor()
@@ -72,7 +72,7 @@ class ReferenceBacklinksLookupTest extends \PHPUnit_Framework_TestCase {
 		$semanticData->expects( $this->once() )
 			->method( 'getPropertyValues' )
 			->with( $this->equalTo( new DIProperty( PropertyRegistry::SCI_CITE_KEY ) ) )
-			->will( $this->returnValue( array() ) );
+			->will( $this->returnValue( [] ) );
 
 		$semanticData->expects( $this->never() )
 			->method( 'addPropertyObjectValue' );
@@ -109,7 +109,7 @@ class ReferenceBacklinksLookupTest extends \PHPUnit_Framework_TestCase {
 
 		$semanticData->expects( $this->once() )
 			->method( 'getPropertyValues' )
-			->will( $this->returnValue( array( DIWikiPage::newFromText( 'Bar' ) ) ) );
+			->will( $this->returnValue( [ DIWikiPage::newFromText( 'Bar' ) ] ) );
 
 		$semanticData->expects( $this->atLeastOnce() )
 			->method( 'addPropertyObjectValue' )
@@ -123,7 +123,7 @@ class ReferenceBacklinksLookupTest extends \PHPUnit_Framework_TestCase {
 
 		$queryResult->expects( $this->once() )
 			->method( 'getResults' )
-			->will( $this->returnValue( array( DIWikiPage::newFromText( 'Foo' ) ) ) );
+			->will( $this->returnValue( [ DIWikiPage::newFromText( 'Foo' ) ] ) );
 
 		$store = $this->getMockBuilder( '\SMW\Store' )
 			->disableOriginalConstructor()
@@ -152,7 +152,7 @@ class ReferenceBacklinksLookupTest extends \PHPUnit_Framework_TestCase {
 
 		$semanticData->expects( $this->once() )
 			->method( 'getPropertyValues' )
-			->will( $this->returnValue( array( new DIBlob( 'Bar' ) ) ) );
+			->will( $this->returnValue( [ new DIBlob( 'Bar' ) ] ) );
 
 		$store = $this->getMockBuilder( '\SMW\Store' )
 			->disableOriginalConstructor()

@@ -20,7 +20,7 @@ class HookRegistry {
 	/**
 	 * @var array
 	 */
-	private $handlers = array();
+	private $handlers = [];
 
 	/**
 	 * @var Options
@@ -110,7 +110,7 @@ class HookRegistry {
 		// Exclude those properties from indexing
 		$config['smwgFulltextSearchPropertyExemptionList'] = array_merge(
 			$config['smwgFulltextSearchPropertyExemptionList'],
-			array( PropertyRegistry::SCI_CITE )
+			[ PropertyRegistry::SCI_CITE ]
 		);
 	}
 
@@ -147,14 +147,14 @@ class HookRegistry {
 				DataItem::TYPE_BLOB
 			);
 
-			$types = array(
+			$types = [
 				'_sci_doi',
 				'_sci_pmcid',
 				'_sci_pmid',
 				'_sci_oclc',
 				'_sci_viaf',
 				'_sci_olid'
-			);
+			];
 
 			foreach ( $types as $type ) {
 				$dataTypeRegistry->registerDatatype(
@@ -195,7 +195,7 @@ class HookRegistry {
 		 * @see https://www.semantic-mediawiki.org/wiki/Hooks/SMW::Parser::BeforeMagicWordsFinder
 		 */
 		$this->handlers['SMW::Parser::BeforeMagicWordsFinder'] = function( array &$magicWords ) {
-			$magicWords = array_merge( $magicWords, array( 'SCI_NOREFERENCELIST' ) );
+			$magicWords = array_merge( $magicWords, [ 'SCI_NOREFERENCELIST' ] );
 			return true;
 		};
 
@@ -204,7 +204,7 @@ class HookRegistry {
 		 */
 		$this->handlers['SMW::SQLStore::AddCustomFixedPropertyTables'] = function( array &$customFixedProperties ) use( $propertyRegistry ) {
 
-			$properties = array(
+			$properties = [
 				$propertyRegistry::SCI_CITE_KEY,
 				$propertyRegistry::SCI_CITE_REFERENCE,
 				$propertyRegistry::SCI_CITE_TEXT,
@@ -215,7 +215,7 @@ class HookRegistry {
 				$propertyRegistry::SCI_OCLC,
 				$propertyRegistry::SCI_VIAF,
 				$propertyRegistry::SCI_OLID
-			);
+			];
 
 			foreach ( $properties as $property ) {
 				$customFixedProperties[$property] = str_replace( '__', '_', $property );
@@ -236,10 +236,10 @@ class HookRegistry {
 			$outputPage->addModuleStyles( 'ext.scite.styles' );
 
 			$outputPage->addModules(
-				array(
+				[
 					'ext.scite.styles',
 					'ext.scite.tooltip'
-				)
+				]
 			);
 
 			return true;
@@ -350,11 +350,11 @@ class HookRegistry {
 		 */
 		$this->handlers['ResourceLoaderGetConfigVars'] = function ( &$vars ) use ( $options ) {
 
-			$vars['ext.scite.config'] = array(
+			$vars['ext.scite.config'] = [
 				'showTooltipForCitationReference' => $options->get( 'showTooltipForCitationReference' ),
 				'tooltipRequestCacheTTL' => $options->get( 'tooltipRequestCacheTTL' ),
 				'cachePrefix' => $options->get( 'cachePrefix' )
-			);
+			];
 
 			return true;
 		};

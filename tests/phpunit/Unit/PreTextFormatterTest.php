@@ -66,23 +66,23 @@ class PreTextFormatterTest extends \PHPUnit_Framework_TestCase {
 
 	public function parametersProvider() {
 
-		$provider[] = array(
-			array(
+		$provider[] = [
+			[
 				'Bar',
 				'@Foobar'
-			),
+			],
 			"<pre>{{#scite:" . self::LF . " |Bar" . self::LF . "}}</pre>"
-		);
+		];
 
-		$provider[] = array(
-			array(
+		$provider[] = [
+			[
 				'Bar',
 				'+sep=,',
 				'@Foobar',
 				'Foo'
-			),
+			],
 			"<pre>{{#scite:" . self::LF . " |Bar|+sep=," . self::LF . " |Foo" . self::LF . "}}</pre>"
-		);
+		];
 
 		return $provider;
 	}

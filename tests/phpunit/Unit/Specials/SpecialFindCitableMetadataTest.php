@@ -64,14 +64,14 @@ class SpecialFindCitableMetadataTest extends \PHPUnit_Framework_TestCase {
 
 		$SpecialFindCitableMetadata = $this->getMockBuilder( '\SCI\Specials\SpecialFindCitableMetadata' )
 			->disableOriginalConstructor()
-			->setMethods( array(
+			->setMethods( [
 				'getContext',
 				'getOutput',
 				'msg',
 				'getConfig',
 				'getRequest',
 				'getUser',
-				'userCanExecute' )
+				'userCanExecute' ]
 			)
 			->getMock();
 
@@ -108,15 +108,15 @@ class SpecialFindCitableMetadataTest extends \PHPUnit_Framework_TestCase {
 
 	public function variableProvider() {
 
-		$provider[] = array(
-			array(),
+		$provider[] = [
+			[],
 			''
-		);
+		];
 
-		$provider[] = array(
-			array(),
+		$provider[] = [
+			[],
 			'DOI/10.123'
-		);
+		];
 
 		return $provider;
 	}

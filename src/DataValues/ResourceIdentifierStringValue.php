@@ -67,9 +67,9 @@ class ResourceIdentifierStringValue extends StringValue {
 
 		return Html::rawElement(
 			'span',
-			array(
+			[
 				'class' => 'plainlinks'
-			),
+			],
 			'[' . $this->getTargetLink( urlencode( $this->m_caption ) ) . ' ' . $this->m_caption .']'
 		);
 	}
@@ -97,10 +97,10 @@ class ResourceIdentifierStringValue extends StringValue {
 
 		return Html::rawElement(
 			'a',
-			array(
+			[
 				'href'   => $this->getTargetLink( $this->m_caption ),
 				'target' => '_blank'
-			),
+			],
 			$this->m_caption
 		);
 	}

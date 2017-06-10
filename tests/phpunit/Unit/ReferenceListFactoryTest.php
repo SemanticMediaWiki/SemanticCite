@@ -77,13 +77,13 @@ class ReferenceListFactoryTest extends \PHPUnit_Framework_TestCase {
 			$this->citationReferencePositionJournal
 		);
 
-		$options = new Options( array(
+		$options = new Options( [
 			'numberOfReferenceListColumns' => null,
 			'referenceListType' => null,
 			'browseLinkToCitationResource' => null,
 			'citationReferenceCaptionFormat' => null,
 			'responsiveMonoColumnCharacterBoundLength' => 100
-		) );
+		] );
 
 		$this->assertInstanceOf(
 			'\SCI\CachedReferenceListOutputRenderer',

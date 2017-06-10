@@ -46,34 +46,34 @@ class HttpResponseParserFactoryTest extends \PHPUnit_Framework_TestCase {
 
 	public function typeProvider() {
 
-		$provider[] = array(
+		$provider[] = [
 			'pubmed'
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			'pmc'
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			'doi'
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			'oclc'
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			'viaf'
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			'ol'
-		);
+		];
 
 		// Unknown = null
-		$provider[] = array(
+		$provider[] = [
 			'foo'
-		);
+		];
 
 		return $provider;
 	}

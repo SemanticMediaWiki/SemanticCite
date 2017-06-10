@@ -29,7 +29,7 @@ class PreTextFormatter {
 	 */
 	public function format( array $parameters ) {
 
-		$formatted = array();
+		$formatted = [];
 
 		foreach ( $parameters as $key => $value ) {
 

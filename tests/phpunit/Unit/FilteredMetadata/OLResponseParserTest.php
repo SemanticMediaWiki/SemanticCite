@@ -78,15 +78,15 @@ class OLResponseParserTest extends \PHPUnit_Framework_TestCase {
 
 	public function idProvider() {
 
-		$provider[] = array(
+		$provider[] = [
 			'abc',
 			 $this->once()
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			'OL54846467',
 			 $this->once()
-		);
+		];
 
 		return $provider;
 	}

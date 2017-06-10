@@ -48,7 +48,7 @@ class ResourceIdentifierStringValueParser {
 		if ( $this->typeid ===  '_sci_doi' ) {
 			$value = strtolower( $value );
 		} else {
-			$value = str_replace( array( 'VIAF', 'OCLC', 'PMID' ), '', strtoupper( $value ) );
+			$value = str_replace( [ 'VIAF', 'OCLC', 'PMID' ], '', strtoupper( $value ) );
 		}
 
 		return $this->canMatchValueToPattern( $value );

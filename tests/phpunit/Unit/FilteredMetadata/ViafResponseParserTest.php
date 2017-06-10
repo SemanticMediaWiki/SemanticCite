@@ -78,15 +78,15 @@ class ViafResponseParserTest extends \PHPUnit_Framework_TestCase {
 
 	public function idProvider() {
 
-		$provider[] = array(
+		$provider[] = [
 			'abc',
 			 $this->never()
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			'VIAF54846467',
 			 $this->once()
-		);
+		];
 
 		return $provider;
 	}
