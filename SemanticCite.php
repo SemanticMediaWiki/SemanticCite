@@ -10,7 +10,7 @@ use SMW\ApplicationFactory;
  * @defgroup SCI Semantic Citation
  */
 if ( !defined( 'MEDIAWIKI' ) ) {
-	die( 'This file is part of the SemanticCite extension, it is not a valid entry point.' );
+	die( 'This file is part of the Semantic Cite extension, it is not a valid entry point.' );
 }
 
 if ( defined( 'SCI_VERSION' ) ) {
@@ -153,11 +153,11 @@ class SemanticCite {
 	public static function doCheckRequirements() {
 
 		if ( version_compare( $GLOBALS[ 'wgVersion' ], '1.27', 'lt' ) ) {
-			die( '<b>Error:</b> This version of <a href="https://github.com/SemanticMediaWiki/SemanticCite/">SemanticCite</a> is only compatible with MediaWiki 1.24 or above. You need to upgrade MediaWiki first.' );
+			die( '<b>Error:</b> This version of <a href="https://github.com/SemanticMediaWiki/SemanticCite/">Semantic Cite</a> is only compatible with MediaWiki 1.27 or above. You need to upgrade MediaWiki first.' );
 		}
 
 		if ( !defined( 'SMW_VERSION' ) ) {
-			die( '<b>Error:</b> <a href="https://github.com/SemanticMediaWiki/SemanticCite/">Semantic Cite</a> requires the <a href="https://github.com/SemanticMediaWiki/SemanticMediaWiki/">Semantic MediaWiki</a> extension, please enable or install the extension first.' );
+			die( '<b>Error:</b> <a href="https://github.com/SemanticMediaWiki/SemanticCite/">Semantic Cite</a> requires the <a href="https://github.com/SemanticMediaWiki/SemanticMediaWiki/">Semantic MediaWiki</a> extension. Please enable or install the extension first.' );
 		}
 	}
 
