@@ -36,7 +36,7 @@
 	"sci-metadata-search-form-submit": "Pesquisar",
 	"sci-metadata-search-select-label": "Tipo:",
 	"sci-metadata-search-read-only": "A database está em modo somente-leitura e pode dificultar a criação automática de páginas.",
-	"sci-metadata-search-has-match": "O ID correspondeu aos seguintes [$1] recursos de citação.",
+	"sci-metadata-search-has-match": "O ID correspondeu aos recursos de citação que contém o mesmo identificador e inclui: $1.",
 	"sci-metadata-search-cached": "Os resultados de busca foram obtidos a partir do cache.",
 	"sci-metadata-search-intro": "Por favor informe um identificador e selecione um provedor de serviço (requer uma conexão ativa a internet) para mapear metadados recuperáveis para o formato <code>#scite</code>.",
 	"sci-metadata-search-intro-doi": "[[Property:DOI|DOI]] para buscar no repositório de dados da CrossRef",
