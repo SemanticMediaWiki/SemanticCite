@@ -2,10 +2,15 @@
 	"@metadata": {
 		"authors": [
 			"Sfic",
-			"चक्रपाणी"
+			"चक्रपाणी",
+			"संजीव कुमार"
 		]
 	},
+	"sci-desc": "[https://www.semantic-mediawiki.org सेमांटिक मीडियाविकि] की सहायता से उद्धरण संसाधनों का प्रबन्धन",
 	"sci-referencelist-header": "संदर्भ",
+	"sci-scite-parser-no-reference": "<code>#scite</code> ने कोई सन्दर्भ घोषित नहीं किया।",
+	"sci-scite-parser-no-type": "<code>#scite</code>, $1 के लिए सन्दर्भ प्रकार निर्धारित करने में अक्षम है।",
+	"sci-datavalue-empty-reference": "उद्धरण सन्दर्भ का खाली रखना अपेक्षित नहीं है।",
 	"sci-datavalue-invalid-id-value": "$2 प्रकार हेतु \"$1\" एक अमान्य मान है।",
 	"sci-property-alias-citation-key": "उद्धरण चाबी",
 	"sci-property-alias-citation-reference": "उद्धरण संदर्भ",
@@ -14,6 +19,7 @@
 	"findmetadatabyid": "मेटाडाटा खोजें",
 	"findcitablemetadata": "उद्धरण योग्य मेटाडेटा खोजें",
 	"right-sci-metadatasearch": "मेटाडेटा खोज एक्सेस",
+	"action-sci-metadatasearch": "सेमांटिक साइट मॅटा-डाटा खोज",
 	"sci-specials-header-results": "परिणामों की सूची",
 	"sci-specials-select-options": "विकल्प चुनें",
 	"sci-specials-no-results": "कोई परिणाम उपलब्ध नहीं।",
@@ -25,5 +31,7 @@
 	"sci-metadata-search-header-result": "परिणाम",
 	"sci-metadata-search-form-submit": "खोजें",
 	"sci-metadata-search-select-label": "प्रकार:",
+	"sci-metadata-search-read-only": "डेटाबेस केवल पठन-योग्य विधा में है और स्वतः-पृष्ठ निर्माण को बाधित कर सकता है।",
+	"sci-metadata-search-cached": "खोज उत्तर कैश में पाये गये।",
 	"onoi-remi-parser-no-id-match": "पर्सर \"$1\" को मिलाने में सक्षम नहीं है।"
 }

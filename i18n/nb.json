@@ -6,6 +6,7 @@
 			"Danmichaelo"
 		]
 	},
+	"sci-desc": "Behandle siteringsressurser med hjelp av [https://www.semantic-mediawiki.org Semantic MediaWiki]",
 	"sci-referencelist-header": "Referanser",
 	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code> kan ikke brukes i navnerom som ikke har Semantic MediaWiki påslått",
 	"sci-scite-parser-no-reference": "<code>#scite</code> erklærte ikke noen referanse.",
@@ -29,6 +30,8 @@
 	"sci-metadata-search-header-log": "Logg",
 	"sci-metadata-search-header-result": "Resultat",
 	"sci-metadata-search-form-submit": "Søk",
+	"sci-metadata-search-select-label": "Type:",
+	"sci-metadata-search-read-only": "Databasen er skrivebeskyttet, noe som kan hindre automatisk sideopprettelse.",
 	"sci-metadata-search-has-match": "ID-en har blitt matchet til siteringsressurser som inneholder samme identifikator og inkluderer: $1.",
 	"sci-metadata-search-cached": "Søkeresponsen ble hentet fra mellomlageret.",
 	"sci-metadata-search-intro": "Skriv inn en identifikator og velg en tjenestetilbyder (krever en aktiv internettforbindelse) for å tilpasse hentbare metadata til <code>#scite</code>-formatet.",
