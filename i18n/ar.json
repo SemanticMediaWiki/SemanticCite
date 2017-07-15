@@ -1,0 +1,35 @@
+{
+	"@metadata": {
+		"authors": [
+			"Claw eg",
+			"محمد أحمد عبد الفتاح"
+		]
+	},
+	"sci-referencelist-header": "مراجع",
+	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code> لا يمكن استخدامه على نطاق ليس متاحًا على دلالات ميدياويكي",
+	"sci-scite-parser-no-reference": "<code>#scite</code> لم يعلن عن مرجع",
+	"sci-scite-parser-no-type": "<code>#scite</code> لم يكن قادرًا على تحديد نوع مرجع \"$1\"",
+	"sci-datavalue-empty-reference": "الاستشهاد بمرجع لا يفترض أن يكون فارغًا.",
+	"sci-datavalue-invalid-id-value": "\"$1\" قيمة غير صالحة لنوع $2.",
+	"sci-property-alias-citation-key": "مفتاح استشهاد",
+	"sci-property-alias-citation-reference": "مرجع الاستشهاد",
+	"sci-property-alias-citation-text": "نص استشهاد",
+	"sci-property-alias-citation-resource": "مرجع استشهاد",
+	"findmetadatabyid": "ابحث عن بيانات وصفية",
+	"findcitablemetadata": "ابحث عن بيانات وصفية صالحة للاستشهاد",
+	"right-sci-metadatasearch": "بحث وصول بيانات وصفية",
+	"sci-specials-header-results": "قائمة النتائج",
+	"sci-specials-select-options": "تحديد الخيارات",
+	"sci-specials-no-results": "لا توجد نتائج متاحة.",
+	"listcitationreferencebacklinks": "قائمة وصلات مراجع استشهاد خلفية",
+	"sci-metadata-search-form": "بواسطة معرف",
+	"sci-metadata-search-action-highlight": "حدد نص",
+	"sci-metadata-search-action-create": "أنشئ",
+	"sci-metadata-search-header-log": "سجلات",
+	"sci-metadata-search-header-result": "النتيجة",
+	"sci-metadata-search-form-submit": "بحث",
+	"sci-metadata-search-select-label": "النوع:",
+	"sci-metadata-search-read-only": "قاعدة البيانات تعمل بوضع القراءة فقط وقد تمنع إنشاء الصفحة التلقائي.",
+	"sci-metadata-search-has-match": "المعرف يطابق مراجع الاستشهاد التي تحتوي نفس المعرف وتحتوي على: $1.",
+	"sci-metadata-search-cached": "رد البحث قد ظهر من الذاكرة المخبأة."
+}
