@@ -1,0 +1,34 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"sci-desc": "Gerer ressources de citation con le adjuta de [https://www.semantic-mediawiki.org Semantic MediaWiki]",
+	"sci-referencelist-header": "Referentias",
+	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code> non pote esser usate in un spatio de nomines pro le qual Semantic MediaWiki non ha essite activate",
+	"sci-scite-parser-no-reference": "<code>#scite</code> non ha declarate un referentia.",
+	"sci-scite-parser-no-type": "<code>#scite</code> non ha potite determinar un typo de referentia pro \"$1\".",
+	"sci-scite-parser-no-citation-text": "<code>#scite</code> non ha potite generar un texto de citation pro le referentia \"$1\" perque le typo \"$2\" non ha essite assignate a un [[MediaWiki:Sci-template-definition|patrono]].",
+	"sci-datavalue-empty-reference": "Le referentia del citation non debe esser vacue.",
+	"sci-datavalue-invalid-id-value": "\"$1\" es un valor invalide pro le typo $2.",
+	"sci-property-alias-citation-key": "Clave del citation",
+	"sci-property-alias-citation-reference": "Referentia del citation",
+	"sci-property-alias-citation-text": "Texto del citation",
+	"sci-property-alias-citation-resource": "Ressource del citation",
+	"findmetadatabyid": "Cercar metadatos",
+	"findcitablemetadata": "Cercar metadatos citabile",
+	"right-sci-metadatasearch": "Accesso al recerca de metadatos",
+	"action-sci-metadatasearch": "cercar metadatos de Semantic Cite",
+	"sci-specials-header-results": "Lista de resultatos",
+	"sci-specials-select-options": "Selige optiones",
+	"sci-specials-no-results": "Nulle resultato disponibile.",
+	"listcitationreferencebacklinks": "Lista de retroligamines a referentias de citation",
+	"sci-metadata-search-form": "Per ID",
+	"sci-metadata-search-action-highlight": "Selige texto",
+	"sci-metadata-search-action-create": "Crear",
+	"sci-metadata-search-header-log": "Registro",
+	"sci-metadata-search-header-result": "Resultato",
+	"sci-metadata-search-form-submit": "Cercar",
+	"sci-metadata-search-select-label": "Typo:"
+}
