@@ -86,15 +86,12 @@ class SemanticCiteJsonTestCaseScriptRunnerTest extends JsonTestCaseScriptRunner 
 	}
 
 	/**
-	 * @see JsonTestCaseScriptRunner::runTestCaseFile
-	 *
-	 * @param JsonTestCaseFileHandler $jsonTestCaseFileHandler
+	 * @see JsonTestCaseScriptRunner::getPermittedSettings
 	 */
-	protected function runTestCaseFile( JsonTestCaseFileHandler $jsonTestCaseFileHandler ) {
+	protected function getPermittedSettings() {
+		parent::getPermittedSettings();
 
-		$this->checkEnvironmentToSkipCurrentTest( $jsonTestCaseFileHandler );
-
-		$permittedSettings = [
+		return [
 			'smwgNamespacesWithSemanticLinks',
 			'smwgPageSpecialProperties',
 			'wgLanguageCode',
@@ -103,11 +100,21 @@ class SemanticCiteJsonTestCaseScriptRunnerTest extends JsonTestCaseScriptRunner 
 			'scigCitationReferenceCaptionFormat',
 			'smwgQueryResultCacheType'
 		];
+	}
 
-		foreach ( $permittedSettings as $key ) {
+	/**
+	 * @see JsonTestCaseScriptRunner::runTestCaseFile
+	 *
+	 * @param JsonTestCaseFileHandler $jsonTestCaseFileHandler
+	 */
+	protected function runTestCaseFile( JsonTestCaseFileHandler $jsonTestCaseFileHandler ) {
+
+		$this->checkEnvironmentToSkipCurrentTest( $jsonTestCaseFileHandler );
+
+		foreach ( $this->getPermittedSettings() as $key ) {
 			$this->changeGlobalSettingTo(
 				$key,
-				$jsonTestCaseFileHandler->getSettingsFor( $key )
+				$jsonTestCaseFileHandler->getSettingsFor( $key, $this->getConfigValueCallback( $key ) )
 			);
 		}
 
