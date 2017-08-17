@@ -2,13 +2,17 @@
 	"@metadata": {
 		"authors": [
 			"Claw eg",
-			"محمد أحمد عبد الفتاح"
+			"محمد أحمد عبد الفتاح",
+			"Meno25",
+			"ديفيد"
 		]
 	},
+	"sci-desc": "إدارة موارد الاقتباس بمساعدة من [https://www.semantic-mediawiki.org ميدياويكي الدلالي]",
 	"sci-referencelist-header": "مراجع",
 	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code> لا يمكن استخدامه على نطاق ليس متاحًا على دلالات ميدياويكي",
 	"sci-scite-parser-no-reference": "<code>#scite</code> لم يعلن عن مرجع",
 	"sci-scite-parser-no-type": "<code>#scite</code> لم يكن قادرًا على تحديد نوع مرجع \"$1\"",
+	"sci-scite-parser-no-citation-text": "<code>#scite</code> لا يمكن أن تجعل نص الاقتباس للمرجع \"$1\" لأن النوع \"$2\" لم يستند إلى [[MediaWiki:Sci-template-definition|قالب]].",
 	"sci-datavalue-empty-reference": "الاستشهاد بمرجع لا يفترض أن يكون فارغًا.",
 	"sci-datavalue-invalid-id-value": "\"$1\" قيمة غير صالحة لنوع $2.",
 	"sci-property-alias-citation-key": "مفتاح استشهاد",
@@ -31,5 +35,17 @@
 	"sci-metadata-search-select-label": "النوع:",
 	"sci-metadata-search-read-only": "قاعدة البيانات تعمل بوضع القراءة فقط وقد تمنع إنشاء الصفحة التلقائي.",
 	"sci-metadata-search-has-match": "المعرف يطابق مراجع الاستشهاد التي تحتوي نفس المعرف وتحتوي على: $1.",
-	"sci-metadata-search-cached": "رد البحث قد ظهر من الذاكرة المخبأة."
+	"sci-metadata-search-cached": "رد البحث قد ظهر من الذاكرة المخبأة.",
+	"sci-metadata-search-intro-doi": "[[Property:DOI|DOI]] للبحث في مستودع CrossRef",
+	"sci-metadata-search-intro-oclc": "عدد [[Property:OCLC|OCLC]] لكتالوج وورلد كات العالمي",
+	"sci-metadata-search-intro-ol": "[[Property:OLID|OLID]] أو رقم ISBN ليصل لسجل المكتبة المفتوحة",
+	"sci-metadata-search-intro-viaf": "عدد [[Property:VIAF|VIAF]] للبحث عن ملف استنادي دولي افتراضي",
+	"onoi-remi-request-error": "عاد طلب REST/HTTP مع \"$1\" ل\"$2\".",
+	"onoi-remi-response-empty": "عاد الرد بنتيجة فارغة ل\"$1\".",
+	"onoi-remi-parser-no-id-match": "لم يتمكن المحلل من مطابقة \"$1\".",
+	"sci-tooltip-citation-lookup-failure": "فشل في استرداد الاقتباس المناسب من الجهة الخلفية ل\"$1\".",
+	"sci-tooltip-citation-lookup-failure-multiple": "فشل في استرداد نص الاقتباس ل\"$1\" الذي لديه مطابقات متعددة.",
+	"sci-property-definition": "قائمة <code>#scite</code> المعرفات التي تم تعيينها للخصائص المعرفة من قبل المستخدم. يُرجَى أن تكون على علم بأن التغييرات على القيود القائمة تحتاج إلى إعادة بناء تعيينات الخواص.\nfoo-id|bar-property",
+	"sci-template-definition": "قائمة أنواع الاقتباس التي تم تعيينها إلى قوالب معدة مسبقا تحتوي على صيغة قواعد الاقتباس.\nfoo-type|bar-template",
+	"smw-pa-property-predefined__sci_cite_key": "\"$1\" هي خاصية معرفة مسبقا تحدد مورد الاقتباس ويتم توفيرها من قبل تمديد [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite الاستشهاد الدلالي]."
 }
