@@ -3,7 +3,8 @@
 		"authors": [
 			"Cocu",
 			"Jon Harald Søby",
-			"Danmichaelo"
+			"Danmichaelo",
+			"Event"
 		]
 	},
 	"sci-desc": "Behandle siteringsressurser med hjelp av [https://www.semantic-mediawiki.org Semantic MediaWiki]",
@@ -21,9 +22,11 @@
 	"findmetadatabyid": "Finn metadata",
 	"findcitablemetadata": "Finn siterbare metadata",
 	"right-sci-metadatasearch": "Metadata-søketilgang",
+	"action-sci-metadatasearch": "Semantic Cite metadatasøk",
 	"sci-specials-header-results": "Liste over resultater",
 	"sci-specials-select-options": "Velg alternativer",
 	"sci-specials-no-results": "Ingen resultater tilgjengelig.",
+	"listcitationreferencebacklinks": "Liste av sitatbakoverreferanser",
 	"sci-metadata-search-form": "Etter ID",
 	"sci-metadata-search-action-highlight": "Velg tekst",
 	"sci-metadata-search-action-create": "Skap",
@@ -44,5 +47,6 @@
 	"onoi-remi-response-empty": "Responsen returnerte et tomt resultat for «$1».",
 	"onoi-remi-parser-no-id-match": "Parseren kunne ikke matche «$1».",
 	"sci-tooltip-citation-lookup-failure": "Kunne ikke hente en passende sitering fra bakstykket for «$1».",
-	"sci-tooltip-citation-lookup-failure-multiple": "Kunne ikke hente siteringstekst for «$1» som har flere treff."
+	"sci-tooltip-citation-lookup-failure-multiple": "Kunne ikke hente siteringstekst for «$1» som har flere treff.",
+	"sci-property-definition": "Liste av <code>#scite</code>-identifikatorer som er mappet til brukerdefinerte egenskaper. Vær klar over at endringer av eksisterende registreringer krever en ombygging av egenskapstilordningene. \n foo-id|bar-property"
 }
