@@ -3,10 +3,12 @@
 		"authors": [
 			"Reza1615",
 			"Alirezaaa",
-			"Mahdy Saffar"
+			"Mahdy Saffar",
+			"Ommmmid"
 		]
 	},
 	"sci-referencelist-header": "صفحه‌ها",
+	"sci-datavalue-empty-reference": "منبع ذکر شده نمیتواند خالی باشد.",
 	"sci-property-alias-citation-key": "کلید مدرک",
 	"sci-property-alias-citation-reference": "منبع ارجاع",
 	"sci-property-alias-citation-text": "متن ارجاع",
@@ -26,5 +28,6 @@
 	"sci-metadata-search-header-result": "نتیجه",
 	"sci-metadata-search-form-submit": "جستجو کن",
 	"sci-metadata-search-select-label": "نوع:",
-	"sci-metadata-search-read-only": "پایگاه‌داده فقط در حالت خواندن در دسترس است و مانع از ساخت خودکار صفحه می‌شود."
+	"sci-metadata-search-read-only": "پایگاه‌داده فقط در حالت خواندن در دسترس است و مانع از ساخت خودکار صفحه می‌شود.",
+	"sci-metadata-search-cached": "نتیجه جستجو از حافظه نهان دریافت شد."
 }
