@@ -33,6 +33,7 @@
 	"sci-metadata-search-header-result": "Результат",
 	"sci-metadata-search-form-submit": "Найти",
 	"sci-metadata-search-select-label": "Тип:",
+	"sci-metadata-search-read-only": "База данных находится в режиме только для чтения, что может препятствовать созданию автоматических страниц.",
 	"sci-metadata-search-has-match": "\nВыполнен поиск совпадений этого идентификатора с такими ресурсами цитирований: [$1].",
 	"sci-metadata-search-cached": "Результаты поиска получены из кэша.",
 	"sci-metadata-search-intro": "Пожалуйста, введите код и выберите поставщика услуг (требует активного подключения к интернету), чтобы перевести получаемые метаданные в формат <code>#scite</code>.",
