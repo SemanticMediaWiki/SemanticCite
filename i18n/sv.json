@@ -3,7 +3,8 @@
 		"authors": [
 			"Josve05a",
 			"WikiPhoenix",
-			"Jopparn"
+			"Jopparn",
+			"Bengtsson96"
 		]
 	},
 	"sci-desc": "Hantera referensresurser med hjälp av [https://www.semantic-mediawiki.org Semantic MediaWiki]",
@@ -11,7 +12,12 @@
 	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code> kan inte användas på en namnrymd som inte är aktiverad för Semantic MediaWiki",
 	"sci-scite-parser-no-reference": "<code>#scite</code> deklarerade inte en referens.",
 	"sci-scite-parser-no-type": "<code>#scite</code> kunde inte fastställa en referenstyp för \"$1\".",
+	"sci-scite-parser-no-citation-text": "<code>#scite</code> kan inte visa en referenstext till referensen \"$1\" eftersom typen \"$2\" inte har tilldelats någon [[MediaWiki:Sci-template-definition|mall]].",
+	"sci-datavalue-empty-reference": "Referensen bör inte vara tom.",
 	"sci-datavalue-invalid-id-value": "\"$1\" är ett ogiltigt värde för typen $2.",
+	"sci-property-alias-citation-key": "Referensnyckel",
+	"sci-property-alias-citation-reference": "Källreferens",
+	"sci-property-alias-citation-text": "Referenstext",
 	"findmetadatabyid": "Hitta metadata",
 	"sci-specials-header-results": "Lista med resultat",
 	"sci-specials-select-options": "Välj alternativ",
@@ -27,5 +33,6 @@
 	"sci-metadata-search-cached": "Söksvaret hämtades från cache.",
 	"sci-metadata-search-intro-oclc": "[[Property:OCLC|OCLC]]-nummer för WorldCat-katalogen",
 	"onoi-remi-request-error": "REST/HTTP-begäran returnerade med \"$1\" för \"$2\".",
-	"onoi-remi-response-empty": "Svaret returnerade med ett tomt resultat för \"$1\"."
+	"onoi-remi-response-empty": "Svaret returnerade med ett tomt resultat för \"$1\".",
+	"onoi-remi-parser-no-id-match": "Parsern kunde inte hitta \"$1\"."
 }
