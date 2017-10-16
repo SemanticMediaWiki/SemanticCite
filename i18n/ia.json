@@ -30,5 +30,6 @@
 	"sci-metadata-search-header-log": "Registro",
 	"sci-metadata-search-header-result": "Resultato",
 	"sci-metadata-search-form-submit": "Cercar",
-	"sci-metadata-search-select-label": "Typo:"
+	"sci-metadata-search-select-label": "Typo:",
+	"sci-metadata-search-read-only": "Le base de datos es in modo de lectura sol e pote impedir le creation automatic de paginas."
 }
