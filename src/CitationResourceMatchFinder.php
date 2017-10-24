@@ -53,8 +53,8 @@ class CitationResourceMatchFinder {
 
 		$citationResourceLinks = [];
 
-		// ↑; $reference
-		$caption = $caption !== '' ? $caption : '&#8593;';
+		// ↘; $reference
+		$caption = $caption !== '' ? $caption : '&#8600;';
 
 		foreach ( $subjects as $subject ) {
 
