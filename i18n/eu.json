@@ -1,9 +1,29 @@
 {
 	"@metadata": {
 		"authors": [
-			"Subi"
+			"Subi",
+			"An13sa",
+			"Mikel Ibaiba",
+			"Sator"
 		]
 	},
+	"sci-referencelist-header": "Erreferentziak",
+	"sci-property-alias-citation-key": "Aipu giltza",
+	"sci-property-alias-citation-reference": "Aipu erreferentzia",
+	"sci-property-alias-citation-text": "Aipu testua",
+	"sci-property-alias-citation-resource": "Aipu baliabidea",
+	"findmetadatabyid": "Aurkitu metadatuak",
+	"findcitablemetadata": "Aurkitu metadatu aipagarriak",
+	"right-sci-metadatasearch": "Metadata bilaketara sarrera",
 	"sci-specials-header-results": "Emaitzen zerrenda",
-	"sci-specials-select-options": "Hautatu aukerak"
+	"sci-specials-select-options": "Hautatu aukerak",
+	"sci-specials-no-results": "Emaitzik ezin da eskuratu.",
+	"sci-metadata-search-form": "IDaren arabera",
+	"sci-metadata-search-action-highlight": "Testua aukeratu",
+	"sci-metadata-search-action-create": "Sortu",
+	"sci-metadata-search-header-log": "Erregistroa",
+	"sci-metadata-search-header-result": "Emaitza",
+	"sci-metadata-search-form-submit": "Bilatu",
+	"sci-metadata-search-select-label": "Mota:",
+	"sci-metadata-search-intro-viaf": "[[Property:VIAF|VIAF]] zenbakia Nazioarteko Autoritate Fitxategi Birtuala bilatzeko"
 }
