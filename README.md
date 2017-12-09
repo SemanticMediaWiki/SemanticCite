@@ -5,7 +5,6 @@
 [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/SemanticMediaWiki/SemanticCite/badges/quality-score.png?s=d9aac7e68e6554f95b0a89608cbc36985429d819)](https://scrutinizer-ci.com/g/SemanticMediaWiki/SemanticCite/)
 [![Latest Stable Version](https://poser.pugx.org/mediawiki/semantic-cite/version.png)](https://packagist.org/packages/mediawiki/semantic-cite)
 [![Packagist download count](https://poser.pugx.org/mediawiki/semantic-cite/d/total.png)](https://packagist.org/packages/mediawiki/semantic-cite)
-[![Dependency Status](https://www.versioneye.com/php/mediawiki:semantic-cite/badge.png)](https://www.versioneye.com/php/mediawiki:semantic-cite)
 
 Semantic Cite (a.k.a. SCI) is a [Semantic Mediawiki][smw] extension that provides a simple
 way of organizing citation resources with the help of semantic annotations.
@@ -110,7 +109,7 @@ have a look at the contribution guideline.
 
 * [File an issue](https://github.com/SemanticMediaWiki/SemanticCite/issues)
 * [Submit a pull request](https://github.com/SemanticMediaWiki/SemanticCite/pulls)
-* Ask a question on [the mailing list](https://semantic-mediawiki.org/wiki/Mailing_list)
+* Ask a question on [the mailing list](https://www.semantic-mediawiki.org/wiki/Mailing_list)
 * Ask a question on the #semantic-mediawiki IRC channel on Freenode.
 
 ## Tests
