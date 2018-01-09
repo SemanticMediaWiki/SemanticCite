@@ -65,7 +65,7 @@ class SemanticCite {
 			'url'            => 'https://github.com/SemanticMediaWiki/SemanticCite/',
 			'descriptionmsg' => 'sci-desc',
 			'version'        => SCI_VERSION,
-			'license-name'   => 'GPL-2.0+'
+			'license-name'   => 'GPL-2.0-or-later'
 		];
 
 		// Register message files

@@ -10,7 +10,7 @@
     		"citation"
 	],
 	"homepage": "https://semantic-mediawiki.org/wiki/Extension:SemanticCite",
-	"license": "GPL-2.0+",
+	"license": "GPL-2.0-or-later",
 	"authors": [
 		{
 			"name": "mwjames",
