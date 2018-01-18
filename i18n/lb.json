@@ -11,9 +11,11 @@
 	"sci-specials-header-results": "Lëscht vun de Resultater",
 	"sci-specials-select-options": "Optiounen auswielen",
 	"sci-specials-no-results": "Keng Resultater disponibel.",
+	"sci-metadata-search-form": "No ID",
 	"sci-metadata-search-action-highlight": "Text eraussichen",
 	"sci-metadata-search-action-create": "Uleeën",
 	"sci-metadata-search-header-log": "Logbuch",
 	"sci-metadata-search-header-result": "Resultat",
-	"sci-metadata-search-form-submit": "Sichen"
+	"sci-metadata-search-form-submit": "Sichen",
+	"sci-metadata-search-select-label": "Typ:"
 }

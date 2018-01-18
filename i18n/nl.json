@@ -1,8 +1,26 @@
 {
 	"@metadata": {
 		"authors": [
-			"Siebrand"
+			"Siebrand",
+			"Jeleniccz",
+			"Mainframe98",
+			"McDutchie"
 		]
 	},
-	"sci-metadata-search-header-log": "Logboek"
+	"sci-referencelist-header": "Referenties",
+	"sci-datavalue-invalid-id-value": "\"$1\" is een ongeldige waarde voor het $2 type.",
+	"sci-property-alias-citation-reference": "Citaat referentie",
+	"findmetadatabyid": "Metagegevens zoeken",
+	"sci-specials-header-results": "Lijst met resultaten",
+	"sci-specials-select-options": "Selecteer opties",
+	"sci-specials-no-results": "Geen resultaten beschikbaar.",
+	"sci-metadata-search-form": "Op ID",
+	"sci-metadata-search-action-highlight": "Tekst selecteren",
+	"sci-metadata-search-action-create": "Aanmaken",
+	"sci-metadata-search-header-log": "Logboek",
+	"sci-metadata-search-header-result": "Resultaat",
+	"sci-metadata-search-form-submit": "Zoeken",
+	"sci-metadata-search-select-label": "Type:",
+	"sci-metadata-search-read-only": "De database is in de alleen-lezen modus. Dit kan het automatisch aanmaken van pagina's verhinderen.",
+	"sci-metadata-search-cached": "Deze zoekresultaten zijn uit de cache opgehaald."
 }

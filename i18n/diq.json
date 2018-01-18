@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kumkumuk"
+		]
+	},
+	"sci-referencelist-header": "Çımey",
+	"sci-property-alias-citation-key": "Kılitê istasyoni",
+	"sci-property-alias-citation-reference": "Referansê istasyoni",
+	"sci-property-alias-citation-text": "Metnê istasyoni",
+	"sci-property-alias-citation-resource": "Çımey istasyoni",
+	"findmetadatabyid": "Metadata bıvin",
+	"sci-specials-header-results": "Listey neticeyan",
+	"sci-specials-select-options": "Hereketan biweçine",
+	"sci-specials-no-results": "Qet neticey nêvineyay",
+	"sci-metadata-search-form": "ID",
+	"sci-metadata-search-action-highlight": "Metin weçine",
+	"sci-metadata-search-action-create": "Vıraze",
+	"sci-metadata-search-header-log": "Qeyd",
+	"sci-metadata-search-header-result": "Netice",
+	"sci-metadata-search-form-submit": "Cı geyre"
+}

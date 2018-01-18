@@ -1,0 +1,24 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jagwar"
+		]
+	},
+	"sci-referencelist-header": "Tsiahy",
+	"sci-property-alias-citation-key": "Lakilenn'ny teny nindramina",
+	"sci-property-alias-citation-reference": "Tsiahin'ny teny nindramina",
+	"sci-property-alias-citation-text": "Votoatin'ny teny nindramina",
+	"sci-property-alias-citation-resource": "Loharanon'ny teny nindramina",
+	"findmetadatabyid": "Hikaroka metadata",
+	"findcitablemetadata": "Hikaroka metadata azo indramina",
+	"right-sci-metadatasearch": "Fijerena ny karoka anaty meta-angona",
+	"sci-specials-header-results": "Lisitry ny valiny",
+	"sci-specials-select-options": "Hisafidy",
+	"sci-specials-no-results": "Tsy misy valiny.",
+	"sci-metadata-search-form": "Araka ny mpamantatra",
+	"sci-metadata-search-action-highlight": "Hisafidy teny",
+	"sci-metadata-search-action-create": "Foronina",
+	"sci-metadata-search-header-log": "Laogy",
+	"sci-metadata-search-header-result": "Valiny",
+	"sci-metadata-search-form-submit": "Hikaroka"
+}

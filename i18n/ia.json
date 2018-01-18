@@ -31,5 +31,20 @@
 	"sci-metadata-search-header-result": "Resultato",
 	"sci-metadata-search-form-submit": "Cercar",
 	"sci-metadata-search-select-label": "Typo:",
-	"sci-metadata-search-read-only": "Le base de datos es in modo de lectura sol e pote impedir le creation automatic de paginas."
+	"sci-metadata-search-read-only": "Le base de datos es in modo de lectura sol e pote impedir le creation automatic de paginas.",
+	"sci-metadata-search-has-match": "Le ID corresponde a ressources de citation que contine le mesme identificator e include: $1.",
+	"sci-metadata-search-cached": "Le responsa del recerca ha essite recuperate del cache.",
+	"sci-metadata-search-intro": "Per favor, insere un identificator e selige un fornitor de servicio (require un connexion active a internet) pro facer corresponder le metadatos recuperabile al formato <code>#scite</code>.",
+	"sci-metadata-search-intro-doi": "[[Property:DOI|DOI]] pro cercar in le repositorio CrossRef",
+	"sci-metadata-search-intro-pubmed": "[[Property:PMCID|PMCID]] pro PubMed Central e [[Property:PMID|PMID]] pro le archivo de PubMed",
+	"sci-metadata-search-intro-oclc": "Numero [[Property:OCLC|OCLC]] pro le catalogo WorldCat",
+	"sci-metadata-search-intro-ol": "[[Property:OLID|OLID]] o numero ISBN correspondente a un registro de OpenLibrary",
+	"sci-metadata-search-intro-viaf": "Numero [[Property:VIAF|VIAF]] pro cercar un File de Autoritate International Virtual",
+	"onoi-remi-request-error": "Le requesta REST/HTTP retornava con \"$1\" pro \"$2\".",
+	"onoi-remi-response-empty": "Le responsa retornava con un resultato vacue pro \"$1\".",
+	"onoi-remi-parser-no-id-match": "Le analysator non ha potite trovar un correspondentia pro \"$1\".",
+	"sci-tooltip-citation-lookup-failure": "Non poteva recuperar un citation appropriate ab le servitor pro \"$1\".",
+	"sci-tooltip-citation-lookup-failure-multiple": "Non poteva recuperar un texto de citation pro \"$1\" que ha plure correspondentias.",
+	"sci-property-definition": "Un lista de identificatores <code>#scite</code> que corresponde a proprietates definite per le usatores. Post modificar entratas existente, non oblida de actualisar/reconstruer le assignationes de proprietates. \n foo-id|bar-property",
+	"sci-template-definition": "Un lista de typos de citation que corresponde a patronos predefinite que contine regulas de formatation de citationes. \n foo-type|bar-template"
 }

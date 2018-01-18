@@ -4,11 +4,13 @@
 			"Reza1615",
 			"Alirezaaa",
 			"Mahdy Saffar",
-			"Ommmmid"
+			"Ommmmid",
+			"Alifakoor"
 		]
 	},
 	"sci-referencelist-header": "صفحه‌ها",
 	"sci-datavalue-empty-reference": "منبع ذکر شده نمیتواند خالی باشد.",
+	"sci-datavalue-invalid-id-value": "\"$1\" برای نوع $2 مقداری نامعتبر است.",
 	"sci-property-alias-citation-key": "کلید مدرک",
 	"sci-property-alias-citation-reference": "منبع ارجاع",
 	"sci-property-alias-citation-text": "متن ارجاع",
@@ -29,5 +31,7 @@
 	"sci-metadata-search-form-submit": "جستجو کن",
 	"sci-metadata-search-select-label": "نوع:",
 	"sci-metadata-search-read-only": "پایگاه‌داده فقط در حالت خواندن در دسترس است و مانع از ساخت خودکار صفحه می‌شود.",
-	"sci-metadata-search-cached": "نتیجه جستجو از حافظه نهان دریافت شد."
+	"sci-metadata-search-has-match": "شناسه با منابعی که دارای همان شناسه و شامل $1 هستند مطابقت پیدا کرده است.",
+	"sci-metadata-search-cached": "نتیجه جستجو از حافظه نهان دریافت شد.",
+	"onoi-remi-parser-no-id-match": "پارسر نتوانست $1 را مطابقت دهد"
 }

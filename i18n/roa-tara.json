@@ -1,0 +1,24 @@
+{
+	"@metadata": {
+		"authors": [
+			"Joetaras"
+		]
+	},
+	"sci-referencelist-header": "Rifereminde",
+	"sci-property-alias-citation-key": "Chiave d'a citazione",
+	"sci-property-alias-citation-reference": "Referimende d'a citazione",
+	"sci-property-alias-citation-text": "Teste d'a citazione",
+	"sci-property-alias-citation-resource": "Resorse d'a citazione",
+	"findmetadatabyid": "Iacchie 'u metadate",
+	"sci-specials-header-results": "Elenghe de le resultate",
+	"sci-specials-select-options": "Scacchie le opziune",
+	"sci-specials-no-results": "Nisciune resultate disponibbile.",
+	"sci-metadata-search-form": "Pe ID",
+	"sci-metadata-search-action-highlight": "Scacchie 'u teste",
+	"sci-metadata-search-action-create": "Ccreje",
+	"sci-metadata-search-header-log": "Archivije",
+	"sci-metadata-search-header-result": "Resultate",
+	"sci-metadata-search-form-submit": "Cirche",
+	"sci-metadata-search-select-label": "Tipe:",
+	"sci-metadata-search-intro-doi": "[[Property:DOI|DOI]] pe cercà l'archivije CrossRef"
+}

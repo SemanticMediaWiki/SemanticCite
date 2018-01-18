@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"NoiX180"
+		]
+	},
+	"sci-property-alias-citation-key": "Kunci sitiran",
+	"sci-property-alias-citation-reference": "Rujukan sitiran",
+	"sci-property-alias-citation-text": "Tèks sitiran",
+	"findmetadatabyid": "Golèk métadata",
+	"findcitablemetadata": "Golèk métadata sing bisa disitir",
+	"sci-specials-header-results": "Pratélan kasil",
+	"sci-specials-select-options": "Pilih wikalpa",
+	"sci-specials-no-results": "Ora ana kasil.",
+	"sci-metadata-search-form": "Miturut ID",
+	"sci-metadata-search-action-highlight": "Pilih tèks",
+	"sci-metadata-search-action-create": "Gawé",
+	"sci-metadata-search-header-log": "Log",
+	"sci-metadata-search-header-result": "Kasil",
+	"sci-metadata-search-form-submit": "Golèk",
+	"sci-metadata-search-select-label": "Jinis:"
+}

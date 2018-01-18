@@ -1,0 +1,24 @@
+{
+	"@metadata": {
+		"authors": [
+			"Robin Owain"
+		]
+	},
+	"sci-referencelist-header": "Cyfeiriadau",
+	"sci-property-alias-citation-key": "Allwedd y cyfeiriad",
+	"sci-property-alias-citation-reference": "Cyfeiriad",
+	"sci-property-alias-citation-text": "Testun y cyfeiriad",
+	"sci-property-alias-citation-resource": "Adnoddau ar gyfer y gyfeiriadaeth",
+	"findmetadatabyid": "Canfod metadata",
+	"findcitablemetadata": "Canfod metadata yn gyfeiriadaeth",
+	"sci-specials-header-results": "Rhestr ganlyniadau",
+	"sci-specials-select-options": "Dewis opsiynau",
+	"sci-specials-no-results": "Dim canlyniad.",
+	"sci-metadata-search-form": "Fesul ID",
+	"sci-metadata-search-action-highlight": "Dewisiwch y testun",
+	"sci-metadata-search-action-create": "Creu",
+	"sci-metadata-search-header-log": "Log",
+	"sci-metadata-search-header-result": "Canlyniad",
+	"sci-metadata-search-form-submit": "Chwilio",
+	"sci-metadata-search-select-label": "Math:"
+}

@@ -1,9 +1,24 @@
 {
 	"@metadata": {
 		"authors": [
-			"Zygimantus"
+			"Zygimantus",
+			"Eitvys200"
 		]
 	},
 	"sci-referencelist-header": "Šaltiniai",
-	"findmetadatabyid": "Rasti metaduomenis"
+	"sci-property-alias-citation-key": "Citatos id",
+	"sci-property-alias-citation-reference": "Citatos išnaša",
+	"sci-property-alias-citation-text": "Citatos tekstas",
+	"findmetadatabyid": "Rasti metaduomenis",
+	"findcitablemetadata": "Rasti cituotinus metaduomenis",
+	"sci-specials-header-results": "Rezultatų sąrašas",
+	"sci-specials-select-options": "Pasirinkti nustatymus",
+	"sci-specials-no-results": "Nėra prieinamų rezultatų.",
+	"sci-metadata-search-form": "Pagal ID",
+	"sci-metadata-search-action-highlight": "Pasirinkti tekstą",
+	"sci-metadata-search-action-create": "Sukurti",
+	"sci-metadata-search-header-log": "Žurnalas",
+	"sci-metadata-search-header-result": "Rezultatas",
+	"sci-metadata-search-form-submit": "Paieška",
+	"sci-metadata-search-select-label": "Tipas:"
 }
