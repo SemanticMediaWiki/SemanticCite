@@ -9,6 +9,9 @@
 		]
 	},
 	"sci-referencelist-header": "صفحه‌ها",
+	"sci-scite-parser-no-reference": "<code>#scite</code> منبعی را مشخص نکرد.",
+	"sci-scite-parser-no-type": "<code>#scite</code> نتوانست منبعی از نوع \"$1\" بیابد.",
+	"sci-scite-parser-no-citation-text": "<code>#scite</code> نتوانست یک متن یادکرد برای منبع \"$1\" بسازد، چرا که به نوع \"$2\" [[MediaWiki:Sci-template-definition|الگویی]] اختصاص داده نشده است.",
 	"sci-datavalue-empty-reference": "منبع ذکر شده نمیتواند خالی باشد.",
 	"sci-datavalue-invalid-id-value": "\"$1\" برای نوع $2 مقداری نامعتبر است.",
 	"sci-property-alias-citation-key": "کلید مدرک",
@@ -33,5 +36,8 @@
 	"sci-metadata-search-read-only": "پایگاه‌داده فقط در حالت خواندن در دسترس است و مانع از ساخت خودکار صفحه می‌شود.",
 	"sci-metadata-search-has-match": "شناسه با منابعی که دارای همان شناسه و شامل $1 هستند مطابقت پیدا کرده است.",
 	"sci-metadata-search-cached": "نتیجه جستجو از حافظه نهان دریافت شد.",
+	"sci-metadata-search-intro-ol": "[[Property:OLID|OLID]] شابک جهت تطابق با یک رکورد OpenLibrary",
+	"onoi-remi-request-error": "درخواست اچ‌تی‌تی‌پی/رست ، \"$1\" را برای \"$2\" بازگرداند.",
+	"onoi-remi-response-empty": "پاسخی خالی برای \"$1\" بازگشت.",
 	"onoi-remi-parser-no-id-match": "پارسر نتوانست $1 را مطابقت دهد"
 }
