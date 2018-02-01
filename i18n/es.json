@@ -38,7 +38,7 @@
 	"sci-metadata-search-select-label": "Tipo:",
 	"sci-metadata-search-read-only": "La base de datos está en modo de solo lectura y puede dificultar la creación automática de páginas.",
 	"sci-metadata-search-has-match": "El identificador corresponde con los recursos de citas siguientes: $1.",
-	"sci-metadata-search-cached": "La respuesta de la búsqueda se obtuvo de la caché.",
+	"sci-metadata-search-cached": "Se recuperó la respuesta de la búsqueda de la antememoria.",
 	"sci-metadata-search-intro": "Escribe un identificador y selecciona un proveedor de servicio (requiere una conexión activa a Internet) para mapear metadatos obtenibles al formato <code>#scite</code> format.",
 	"sci-metadata-search-intro-doi": "[[Property:DOI|DOI]] que buscar en el repositorio de CrossRef",
 	"sci-metadata-search-intro-pubmed": "[[Property:PMCID|PMCID]] para PubMed Central y [[Property:PMID|PMID]] para el archivo de PubMed",
