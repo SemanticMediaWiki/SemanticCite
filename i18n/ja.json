@@ -3,7 +3,8 @@
 		"authors": [
 			"mwjames",
 			"Sujiniku",
-			"おはぐろ蜻蛉"
+			"おはぐろ蜻蛉",
+			"Yusuke1109"
 		]
 	},
 	"sci-referencelist-header": "情報源",
@@ -19,12 +20,15 @@
 	"findmetadatabyid": "メタデータの発見",
 	"action-sci-metadatasearch": "メタサーチ",
 	"sci-specials-header-results": "結果の一覧",
+	"sci-specials-select-options": "オプションを選択",
 	"sci-metadata-search-form": "IDで",
 	"sci-metadata-search-action-highlight": "テキストを選択",
 	"sci-metadata-search-action-create": "作成",
 	"sci-metadata-search-header-log": "ログ",
 	"sci-metadata-search-header-result": "結果",
 	"sci-metadata-search-form-submit": "検索",
+	"sci-metadata-search-select-label": "種類:",
+	"sci-metadata-search-read-only": "データベースは読み取り専用モードであり、自動ページ作成を妨げることがあります。",
 	"sci-metadata-search-intro-doi": "CrossRef レポジトリ検索のための [[Property:DOI|DOI]]",
 	"sci-metadata-search-intro-ol": "OpenLibrary record に一致する、 [[Property:OLID|OLID]] または ISBN 番号",
 	"sci-metadata-search-intro-viaf": "Virtual International Authority File ための検索のための [[Property:VIAF|VIAF]] 番号",
