@@ -1,0 +1,24 @@
+{
+	"@metadata": {
+		"authors": [
+			"Acamicamacaraca",
+			"Obsuser",
+			"Prevodim"
+		]
+	},
+	"sci-referencelist-header": "Референце",
+	"sci-property-alias-citation-key": "Кључ референце",
+	"sci-property-alias-citation-text": "Текст референце",
+	"sci-property-alias-citation-resource": "Ресурс референце",
+	"findmetadatabyid": "Пронађи метаподатке",
+	"sci-specials-header-results": "Списак резултата",
+	"sci-specials-select-options": "Одабери опцију",
+	"sci-specials-no-results": "Нема доступних резултата",
+	"sci-metadata-search-form": "По ID",
+	"sci-metadata-search-action-highlight": "Одабери текст",
+	"sci-metadata-search-action-create": "Направи",
+	"sci-metadata-search-header-log": "Дневник",
+	"sci-metadata-search-header-result": "Резултат",
+	"sci-metadata-search-form-submit": "Претражи",
+	"sci-metadata-search-select-label": "Тип:"
+}
