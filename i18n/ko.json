@@ -3,7 +3,8 @@
 		"authors": [
 			"Hwangjy9",
 			"고솜",
-			"Ykhwong"
+			"Ykhwong",
+			"Nuevo Paso"
 		]
 	},
 	"sci-desc": "[https://www.semantic-mediawiki.org Semantic MediaWiki]를 사용하여 출처를 관리하세요",
@@ -25,6 +26,7 @@
 	"sci-specials-select-options": "검색 옵션",
 	"sci-specials-no-results": "이용 가능한 결과가 없습니다.",
 	"listcitationreferencebacklinks": "인용 참조 백링크 목록",
+	"sci-metadata-search-form": "ID별",
 	"sci-metadata-search-action-highlight": "텍스트 선택",
 	"sci-metadata-search-action-create": "만들기",
 	"sci-metadata-search-header-log": "로그",
