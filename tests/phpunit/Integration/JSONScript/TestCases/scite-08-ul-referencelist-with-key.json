@@ -31,7 +31,7 @@
 				"to-contain": [
 					"<span id=\"scite-ref-4a4b33932ef3b5972e9c4bccfff6e2fc-1-a\" class=\"scite-citeref-key\" data-reference=\"Foo:abc\"><a href=\"#scite-4a4b33932ef3b5972e9c4bccfff6e2fc\">Foo:abc</a></span>",
 					"<div class=\"scite-content\">",
-					"<ul start=1><li><span id=\"scite-4a4b33932ef3b5972e9c4bccfff6e2fc\" class=\"scite-referencelinks\"><a href=\"#scite-ref-4a4b33932ef3b5972e9c4bccfff6e2fc-1-a\" class=\"scite-backlink\" data-citeref-format=\"key\">^</a></span>",
+					"<ul start=1><li id=\"scite-4a4b33932ef3b5972e9c4bccfff6e2fc\"><span class=\"scite-referencelinks\"><a href=\"#scite-ref-4a4b33932ef3b5972e9c4bccfff6e2fc-1-a\" class=\"scite-backlink\" data-citeref-format=\"key\">^</a>",
 					"<span class=\"scite-citation-text\">Citation for bar</span>"
 				]
 			}
@@ -52,7 +52,7 @@
 					"<span id=\"scite-ref-4a4b33932ef3b5972e9c4bccfff6e2fc-1-a\" class=\"scite-citeref-key\" data-reference=\"Foo:abc\"><a href=\"#scite-4a4b33932ef3b5972e9c4bccfff6e2fc\">Foo:abc</a></span>",
 					"<span id=\"scite-ref-4a4b33932ef3b5972e9c4bccfff6e2fc-1-b\" class=\"scite-citeref-key\" data-reference=\"Foo:abc\"><a href=\"#scite-4a4b33932ef3b5972e9c4bccfff6e2fc\">Foo:abc</a></span>",
 					"<div class=\"scite-content\">",
-					"<ul start=1><li>",
+					"<ul start=1><li id=\"scite-4a4b33932ef3b5972e9c4bccfff6e2fc\">",
 					"<a href=\"#scite-ref-4a4b33932ef3b5972e9c4bccfff6e2fc-1-a\" class=\"scite-backlinks\" data-citeref-format=\"key\">a</a>",
 					"<a href=\"#scite-ref-4a4b33932ef3b5972e9c4bccfff6e2fc-1-b\" class=\"scite-backlinks\" data-citeref-format=\"key\">b</a>",
 					"<span class=\"scite-citation-text\">Citation for bar</span>"

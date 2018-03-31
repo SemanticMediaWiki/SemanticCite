@@ -205,14 +205,15 @@ class ReferenceListOutputRenderer {
 	private function createHtmlFromJournal( array $journal ) {
 
 		$listOfFormattedReferences = [];
+		$targetList = [];
 		$length = 0;
 
-		foreach ( $journal['reference-pos'] as $referenceAsHash => $linkList ) {
+		foreach ( $journal['reference-pos'] as $hash => $linkList ) {
 
 			$citationText = '';
 			// Get the "human" readable citation key/reference from the hashmap
 			// intead of trying to access the DB/Store
-			$reference = $journal['reference-list'][$referenceAsHash];
+			$reference = $journal['reference-list'][$hash];
 
 			list( $subjects, $citationText ) = $this->findCitationTextFor(
 				$reference
@@ -222,7 +223,7 @@ class ReferenceListOutputRenderer {
 
 			$flatHtmlReferenceLinks = $this->createFlatHtmlListForReferenceLinks(
 				$linkList,
-				$referenceAsHash
+				$hash
 			);
 
 			$browseLinks = $this->createBrowseLinksWith(
@@ -231,33 +232,43 @@ class ReferenceListOutputRenderer {
 				$citationText
 			);
 
-			$listOfFormattedReferences[] =
-				Html::rawElement(
+			if ( method_exists( $this->htmlColumnListRenderer, 'setItemAttributes' ) ) {
+				$attribs = [
+					'class' => 'scite-referencelinks'
+				];
+			} else {
+				$attribs = [
+					'id' => 'scite-'. $hash,
+					'class' => 'scite-referencelinks'
+				];
+			}
+
+			$ref = Html::rawElement(
+				'span',
+				$attribs,
+				$flatHtmlReferenceLinks
+			) .
+			( $flatHtmlReferenceLinks !== '' ? '&nbsp;' : '' )  .
+			Html::rawElement(
+				'span',
+				[
+					'class' => 'scite-citation'
+				],
+				( $browseLinks !== '' ? $browseLinks . '&nbsp;' : '' ) . Html::rawElement(
 					'span',
-					[
-						'id'    => 'scite-'. $referenceAsHash,
-						'class' => 'scite-referencelinks'
-					],
-					$flatHtmlReferenceLinks
-					) . ( $flatHtmlReferenceLinks !== '' ? '&nbsp;' : '' )  .
-				Html::rawElement(
-					'span',
-					[
-						'id'    => 'scite-'. $referenceAsHash,
-						'class' => 'scite-citation'
-					],
-					( $browseLinks !== '' ? $browseLinks . '&nbsp;' : '' ) . Html::rawElement(
-						'span',
-						[ 'class' => 'scite-citation-text' ],
-						$citationText
-					)
-				);
+					[ 'class' => 'scite-citation-text' ],
+					$citationText
+				)
+			);
+
+			$listOfFormattedReferences[] = $ref;
+			$targetList[md5($ref)] = [ 'id' => 'scite-'. $hash ];
 		}
 
-		return $this->doFinalizeHtmlForListOfReferences( $listOfFormattedReferences, $length );
+		return $this->makeList( $listOfFormattedReferences, $targetList, $length );
 	}
 
-	private function doFinalizeHtmlForListOfReferences( $listOfFormattedReferences, $length ) {
+	private function makeList( $listOfFormattedReferences, $targetList, $length ) {
 
 		$monoClass = ( $length > $this->responsiveMonoColumnCharacterBoundLength ? '' : '-mono' );
 
@@ -268,6 +279,10 @@ class ReferenceListOutputRenderer {
 
 		$this->htmlColumnListRenderer->setListType( $this->referenceListType );
 		$this->htmlColumnListRenderer->addContentsByNoIndex( $listOfFormattedReferences );
+
+		if ( method_exists( $this->htmlColumnListRenderer, 'setItemAttributes' ) ) {
+			$this->htmlColumnListRenderer->setItemAttributes( $targetList );
+		}
 
 		if ( $this->numberOfReferenceListColumns == 0 ) {
 			$this->htmlColumnListRenderer->setColumnClass( 'scite-referencelist-columns-responsive'. $monoClass );

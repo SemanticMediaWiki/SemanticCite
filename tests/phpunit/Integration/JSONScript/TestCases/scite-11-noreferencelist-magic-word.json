@@ -22,8 +22,8 @@
 			"expected-output": {
 				"to-contain": [
 					"<div class=\"scite-content\"><h2 id=\"Notes\">Notes</h2>",
-					"<span id=\"scite-Bar:abc\" class=\"scite-citation\"><span class=\"scite-citation-text\">Citation for a loose reference</span>",
-					"<span id=\"scite-Foo:abc\" class=\"scite-citation\"><span class=\"scite-citation-text\">Citation for bar</span>"
+					"<li id=\"scite-Bar:abc\"><span class=\"scite-referencelinks\"></span><span class=\"scite-citation\"><span class=\"scite-citation-text\">Citation for a loose reference</span></span></li>",
+					"<li id=\"scite-Foo:abc\"><span class=\"scite-referencelinks\"></span><span class=\"scite-citation\"><span class=\"scite-citation-text\">Citation for bar</span></span></li>"
 				]
 			}
 		},
@@ -33,8 +33,8 @@
 			"expected-output": {
 				"to-not-contain": [
 					"<div class=\"scite-content\"><h2 id=\"Notes\">Notes</h2>",
-					"<span id=\"scite-Bar:abc\" class=\"scite-citation\"><span class=\"scite-citation-text\">Citation for a loose reference</span>",
-					"<span id=\"scite-Foo:abc\" class=\"scite-citation\"><span class=\"scite-citation-text\">Citation for bar</span>"
+					"<li id=\"scite-Bar:abc\"><span class=\"scite-referencelinks\"></span><span class=\"scite-citation\"><span class=\"scite-citation-text\">Citation for a loose reference</span></span></li>",
+					"<li id=\"scite-Foo:abc\"><span class=\"scite-referencelinks\"></span><span class=\"scite-citation\"><span class=\"scite-citation-text\">Citation for bar</span></span></li>"
 				]
 			}
 		}
