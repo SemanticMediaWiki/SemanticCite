@@ -58,12 +58,23 @@
 					return null;
 				};
 
+				// As soon as possible set a text which may not contain
+				// parsed elements
+				QTip.set(
+					'content.text',
+					citationText
+				);
+
 				// Parse the raw text to ensure that links are correctly
 				// displayed
-				api.parse( citationText )
+				api.parse( '<div class="scite-api-parse">' + citationText + '</div>' )
 				.done( function ( html ) {
-					// Remove parse processing details
-					html = $( html ).filter( "p" ).html();
+					// Find only relevant details
+					html = $( html ).find( ".scite-api-parse" ).html();
+
+					if ( html === undefined ) {
+						html = citationText;
+					};
 
 					blobstore.set(
 						reference,
