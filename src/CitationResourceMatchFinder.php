@@ -53,9 +53,6 @@ class CitationResourceMatchFinder {
 
 		$citationResourceLinks = [];
 
-		// ↑; $reference
-		$caption = $caption !== '' ? $caption : '&#8593;';
-
 		foreach ( $subjects as $subject ) {
 
 			$dataValue = $this->dataValueFactory->newDataItemValue(

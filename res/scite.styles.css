@@ -79,8 +79,8 @@
 	word-wrap: break-word;
 }
 
-.scite-referencelist span:target {
-	background-color:#FFFBD0;
+.scite-referencelist span:target, .scite-referencelist li:target {
+	background-color: rgba( 0,127,255,0.133 );
 }
 
 .scite-referencelist span:target a {
@@ -93,6 +93,10 @@
 
 .scite-citation-resourcelink {
 	font-size: 130%;
+}
+
+.scite-citation-resourcelink a:before {
+	content: "↑";
 }
 
 .scite-citation-key {
