@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"Guycn2",
+			"YaronSh",
+			"שניאור זלמן"
+		]
+	},
+	"sci-referencelist-header": "הפניות",
+	"sci-property-alias-citation-text": "ציטוט טקסט",
+	"right-sci-metadatasearch": "גישה לחיפוש במטא־נתונים",
+	"action-sci-metadatasearch": "לחפש במטא־הנתונים הסמנטי",
+	"sci-specials-header-results": "רשימת תוצאות",
+	"sci-specials-select-options": "בחירת אפשרויות",
+	"sci-specials-no-results": "אין תוצאות זמינות.",
+	"sci-metadata-search-form": "לפי מזהה (ID)",
+	"sci-metadata-search-action-highlight": "בחירת טקסט",
+	"sci-metadata-search-action-create": "יצירה",
+	"sci-metadata-search-header-log": "יומן",
+	"sci-metadata-search-header-result": "תוצאה",
+	"sci-metadata-search-form-submit": "חיפוש",
+	"sci-metadata-search-select-label": "סוג:"
+}
