@@ -4,12 +4,13 @@
 			"Siebrand",
 			"Jeleniccz",
 			"Mainframe98",
-			"McDutchie"
+			"McDutchie",
+			"Ooswesthoesbes"
 		]
 	},
 	"sci-referencelist-header": "Referenties",
 	"sci-datavalue-invalid-id-value": "\"$1\" is een ongeldige waarde voor het $2 type.",
-	"sci-property-alias-citation-reference": "Citaat referentie",
+	"sci-property-alias-citation-reference": "Citaatreferentie",
 	"findmetadatabyid": "Metagegevens zoeken",
 	"sci-specials-header-results": "Lijst met resultaten",
 	"sci-specials-select-options": "Selecteer opties",

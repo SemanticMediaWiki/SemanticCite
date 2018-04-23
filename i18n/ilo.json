@@ -1,0 +1,26 @@
+{
+	"@metadata": {
+		"authors": [
+			"Lam-ang"
+		]
+	},
+	"sci-referencelist-header": "Dagiti nagibasaran",
+	"sci-property-alias-citation-key": "Tekla ti dakamat",
+	"sci-property-alias-citation-reference": "Nagibasaran ti dakamat",
+	"sci-property-alias-citation-text": "Teksto ti dakamat",
+	"sci-property-alias-citation-resource": "Rekurso ti dakamat",
+	"findmetadatabyid": "Biruken ti metadata",
+	"findcitablemetadata": "Biruken ti madakamat a metadata",
+	"right-sci-metadatasearch": "Sumrekan ti panagbiruk iti metadata",
+	"action-sci-metadatasearch": "ti panagbiruk iti metadata a Semantic Cite",
+	"sci-specials-header-results": "Listaan dagiti resulta",
+	"sci-specials-select-options": "Agpili kadagiti pagpilian",
+	"sci-specials-no-results": "Awan dagiti magun-od a resulta.",
+	"sci-metadata-search-form": "Babaen ti ID",
+	"sci-metadata-search-action-highlight": "Pilien ti teksto",
+	"sci-metadata-search-action-create": "Agpartuat",
+	"sci-metadata-search-header-log": "Listaan",
+	"sci-metadata-search-header-result": "Resulta",
+	"sci-metadata-search-form-submit": "Agbiruk",
+	"sci-metadata-search-select-label": "Kita:"
+}
