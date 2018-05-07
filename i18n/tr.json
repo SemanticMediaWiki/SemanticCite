@@ -1,9 +1,51 @@
 {
 	"@metadata": {
 		"authors": [
-			"Sayginer"
+			"Sayginer",
+			"Bulgu",
+			"Hedda",
+			"Vito Genovese"
 		]
 	},
+	"sci-desc": "[https://www.semantic-mediawiki.org Semantic MediaWiki]'nin yardımıyla alıntı kaynaklarını yönetin",
+	"sci-referencelist-header": "Kaynakça",
+	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code>, Semantic MediaWiki için etkinleştirilmemiş bir ad alanında kullanılamaz",
+	"sci-scite-parser-no-reference": "<code>#scite</code>, bir kaynak bildirmedi.",
+	"sci-scite-parser-no-type": "<code>#scite</code>, \"$1\" için bir referans türü belirleyemedi.",
+	"sci-scite-parser-no-citation-text": "<code>#scite</code>, bir [[MediaWiki:Sci-template-definition|şablona]] \"$2\" tipi atanmamış olduğundan \"$1\" kaynağı için alıntı metni oluşturulamadı.",
+	"sci-datavalue-empty-reference": "Başvuru kaynağının boş olmaması gerekmektedir.",
+	"sci-datavalue-invalid-id-value": "\"$1\", $2 türü için geçersiz bir değerdir.",
+	"sci-property-alias-citation-key": "Alıntı anahtarı",
+	"sci-property-alias-citation-reference": "Alıntı referansı",
+	"sci-property-alias-citation-text": "Alıntı metni",
+	"sci-property-alias-citation-resource": "Alıntı kaynağı",
+	"findmetadatabyid": "Meta verileri bul",
+	"findcitablemetadata": "Düzenli meta verileri bul",
+	"right-sci-metadatasearch": "Meta veri arama erişimi",
+	"action-sci-metadatasearch": "Semantic Cite meta veri araması",
 	"sci-specials-header-results": "Sonuç listesi",
-	"sci-specials-no-results": "Herhangi bir sonuç mevcut değil."
+	"sci-specials-select-options": "Seçenekleri seç",
+	"sci-specials-no-results": "Herhangi bir sonuç mevcut değil.",
+	"listcitationreferencebacklinks": "Atıf referans geri bağlantıları listesi",
+	"sci-metadata-search-form": "ID'ye göre",
+	"sci-metadata-search-action-highlight": "Metni Seç",
+	"sci-metadata-search-action-create": "Oluştur",
+	"sci-metadata-search-header-log": "Günlük",
+	"sci-metadata-search-header-result": "Sonuç",
+	"sci-metadata-search-form-submit": "Ara",
+	"sci-metadata-search-select-label": "Tür:",
+	"sci-metadata-search-read-only": "Veritabanı salt okunur moddadır ve otomatik sayfa oluşturmayı engelleyebilir.",
+	"sci-metadata-search-has-match": "ID, aynı tanımlayıcıyı ve aşağıdakileri içeren alıntı kaynaklarıyla eşleştirilmiştir: $1",
+	"sci-metadata-search-cached": "Arama yanıtı önbellekten alındı.",
+	"sci-metadata-search-intro": "Lütfen bir tanımlayıcı girin ve <code>#scite</code> formatına erişilebilen meta verileri eşlemek için bir servis sağlayıcı seçin (etkin bir internet bağlantısı gerektirir)",
+	"sci-metadata-search-intro-doi": "CrossRef deposunu aramak için [[Property:DOI|DOI]]",
+	"sci-metadata-search-intro-pubmed": "PubMed Central için [[Property:PMCID|PMCID]] ve PubMed arşivi için [[Property:PMID|PMID]]",
+	"sci-metadata-search-intro-oclc": "WorldCat katalogu için [[Property:OCLC|OCLC]] sayısı",
+	"sci-metadata-search-intro-ol": "OpenLibrary kaydını eşleştirmek için [[Property:OLID|OLID]] veya ISBN numarası",
+	"sci-metadata-search-intro-viaf": "Sanal Uluslararası Yetki Dosyasını aramak [[Property:VIAF|VIAF]]  sayısı",
+	"onoi-remi-request-error": "\"$2\" için REST/HTTP isteği \"$1\" ile geri döndü.",
+	"onoi-remi-response-empty": "\"$1\" için yanıt boş bir sonuçla geri döndü.",
+	"onoi-remi-parser-no-id-match": "Ayrıştırıcı \"$1\" ile eşleşemedi.",
+	"sci-tooltip-citation-lookup-failure": "\"$1\" için arka uçtan uygun bir alıntı alınamadı.",
+	"sci-tooltip-citation-lookup-failure-multiple": "Birden çok eşleşme içeren \"$1\" için bir alıntı metni alınamadı."
 }
