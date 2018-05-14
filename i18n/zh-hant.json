@@ -7,11 +7,11 @@
 			"Kly"
 		]
 	},
-	"sci-desc": "在[https://www.semantic-mediawiki.org Semantic MediaWiki]的帮助下管理引用資源",
+	"sci-desc": "在 [https://www.semantic-mediawiki.org Semantic MediaWiki] 的幫助下管理引用資源",
 	"sci-referencelist-header": "參考文獻",
 	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code>不能在不支持Semantic MediaWiki的名字空間上使用",
 	"sci-scite-parser-no-reference": "<code>#scite</code>未宣稱一條參考文獻。",
-	"sci-scite-parser-no-type": "<code>#scite</code>無法决定用于“$1”的參考文獻類型。",
+	"sci-scite-parser-no-type": "<code>#scite</code> 無法判斷用於「$1」的參考文獻類型。",
 	"sci-scite-parser-no-citation-text": "<code>#scite</code>不能為參考文獻“$1”渲染一段引用文本，因為類型“$2”未被指定為一個[[MediaWiki:Sci-template-definition|模板]]。",
 	"sci-datavalue-empty-reference": "引用的參考文獻預計不會是空的。",
 	"sci-datavalue-invalid-id-value": "“$1”是無效的用于$2類型的值。",
@@ -45,7 +45,7 @@
 	"sci-metadata-search-intro-viaf": "[[Property:VIAF|VIAF]]數位以蒐索虛擬國際規範檔案",
 	"onoi-remi-request-error": "REST/HTTP請求為“$2”返回了“$1”。",
 	"onoi-remi-response-empty": "響應返回了用于“$1”的空結果。",
-	"onoi-remi-parser-no-id-match": "解析器無法匹配“$1”。",
+	"onoi-remi-parser-no-id-match": "解析器無法符合「$1」。",
 	"sci-tooltip-citation-lookup-failure": "檢索來自用于“$1”後端的適當引用失敗。",
 	"sci-tooltip-citation-lookup-failure-multiple": "檢索用于有多個匹配的“$1”引用文本失敗。",
 	"sci-property-definition": "A list of <code>#scite</code> identifiers that are mapped to user-defined properties. Please be aware that changes to existing entries require a rebuild of property assignments. \n foo-id|bar-property",
