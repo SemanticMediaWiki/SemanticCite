@@ -19,5 +19,15 @@
 	"sci-metadata-search-header-log": "יומן",
 	"sci-metadata-search-header-result": "תוצאה",
 	"sci-metadata-search-form-submit": "חיפוש",
-	"sci-metadata-search-select-label": "סוג:"
+	"sci-metadata-search-select-label": "סוג:",
+	"smw-pa-property-predefined__sci_cite_key": "\"$1\" הוא מאפיין שהוגדר מראש, והוא מציין משאב ציטוט. מאפיין זה סופק על־ידי ההרחבה [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite].",
+	"smw-pa-property-predefined__sci_cite_reference": "\"$1\" הוא מאפיין שהוגדר מראש המציין משאב ציטוט, כאשר הוא משמש כהערת שוליים בטקסט. מאפיין זה סופק על־ידי ההרחבה [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite].",
+	"smw-pa-property-predefined__sci_cite_text": "\"$1\" הוא מאפיין שהוגדר מראש המכיל טקסט מעוצב מראש. מאפיין זה סופק על־ידי ההרחבה [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite].",
+	"smw-pa-property-predefined__sci_cite": "\"$1\" הוא מאפיין שהוגדר מראש, המסופק על־ידי ההרחבה [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite]. מאפיין זה מתאר את כל האלמנטים בציטוט, והוא מאוחסן בתור תת־אובייקט.",
+	"smw-pa-property-predefined__sci_doi": "\"$1\" הוא מאפיין שהוגדר מראש, המסופק על־ידי ההרחבה [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite]. מאפיין זה מייצג מזהה של אובייקט דיגיטלי (DOI).",
+	"smw-pa-property-predefined__sci_pmcid": "\"$1\" הוא מאפיין שהוגדר מראש, המסופק על־ידי ההרחבה [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite]. מאפיין זה מייצג מספר של הערה מתוך PubMed Central‏ (PMCID) ויוצר קישור למאמר המלא.",
+	"smw-pa-property-predefined__sci_pmid": "\"$1\" הוא מאפיין שהוגדר מראש, המסופק על־ידי ההרחבה [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite]. מאפיין זה מייצג מזהה PubMed של ישות, והוא שונה מ־[[Property:PMCID|PMCID]].",
+	"smw-pa-property-predefined__sci_oclc": "\"$1\" הוא מאפיין שהוגדר מראש, המסופק על־ידי ההרחבה [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite]. מאפיין זה מציין רישומים ביבליוגרפיים המאוחסנים ב־WorldCat‏ (OCLC).",
+	"smw-pa-property-predefined__sci_olid": "\"$1\" הוא מאפיין שהוגדר מראש, המסופק על־ידי ההרחבה [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite]. מאפיין זה מציין רישומים של הספרייה הפתוחה (OpenLibrary).",
+	"smw-pa-property-predefined__sci_viaf": "\"$1\" הוא מאפיין שהוגדר מראש, המסופק על־ידי ההרחבה [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite]. מאפיין זה מציין קובץ בקרת זהויות בינלאומי וירטואלי (VIAF)."
 }

@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"Nikosgranturismogt",
+			"Veronikialexopulos"
+		]
+	},
+	"sci-referencelist-header": "Παραπομπές",
+	"sci-property-alias-citation-key": "Κλειδί παραπομπής",
+	"sci-property-alias-citation-reference": "Αναφορά παραπομπής",
+	"sci-specials-header-results": "Λίστα αποτελεσμάτων",
+	"sci-specials-select-options": "Επιλογή επιλογών",
+	"sci-specials-no-results": "Δεν υπάρχουν διαθέσιμα αποτελέσματα.",
+	"sci-metadata-search-form": "Ανά αναγνωριστικό",
+	"sci-metadata-search-action-highlight": "Επιλογή κειμένου",
+	"sci-metadata-search-action-create": "Δημιουργία",
+	"sci-metadata-search-header-log": "Μητρώο",
+	"sci-metadata-search-header-result": "Αποτέλεσμα",
+	"sci-metadata-search-form-submit": "Αναζήτηση",
+	"sci-metadata-search-select-label": "Τύπος:",
+	"smw-pa-property-predefined__sci_cite": "Η «$1» είναι προκαθορισμένη ιδιοκτησία παρωχημένη από την επέκταση [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite], η οποία περιγράφει όλα τα στοιχεία μίας  παραπομπής και είναι αποθηκευμένη ως υποαντικείμενο.",
+	"smw-pa-property-predefined__sci_olid": "Η «$1» είναι προκαθορισμένη ιδιοκτησία παρωχημένη από την προέκταση [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite], η οποία εξακριβώνει την ταυτότητα των αρχείων OpenLibrary."
+}

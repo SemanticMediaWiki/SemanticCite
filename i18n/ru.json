@@ -3,7 +3,8 @@
 		"authors": [
 			"INS Pirat",
 			"Alexandr Efremov",
-			"Okras"
+			"Okras",
+			"Movses"
 		]
 	},
 	"sci-desc": "Управление ресурсами цитирования с помощью [https://www.semantic-mediawiki.org Semantic MediaWiki]",
@@ -50,13 +51,13 @@
 	"sci-property-definition": "Список <code>#scite</code> идентификаторов, которые сопоставлены с определенными пользователем свойствами. Имейте в виду, что изменения в существующей записи требуют повторного присвоения свойства.\nfoo-id|bar-property",
 	"sci-template-definition": "Список типов цитирования, которые сопоставляются с предопределенным шаблоном, содержащем правила оформления цитирования.\nfoo-type|bar-template",
 	"smw-pa-property-predefined__sci_cite_key": "«$1» — это предварительно определенное свойство, идентифицирующее ресурс цитирования и обеспечивается расширением [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite].",
-	"smw-pa-property-predefined__sci_cite_reference": "«$1» — это предварительно определенное свойство, идентифицирующее ресурс цитирования при использовании в форме ссылки (напр., внутритекстовое примечания) и обеспечивается расширением [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite].",
-	"smw-pa-property-predefined__sci_cite_text": "«$1» — это предварительно определенное свойство, содержит предварительно отформатированный текст, и обеспечивается расширением [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite].",
-	"smw-pa-property-predefined__sci_cite": "«$1» — это предварительно определенное свойство, которое описывает все элементы цитирования и сохраняется как подобъект. Оно обеспечивается расширением [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite].",
-	"smw-pa-property-predefined__sci_doi": "«$1» — это предварительно определенное свойство, представляющей Digital Object Identifier, и обеспечивается расширением [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite].",
-	"smw-pa-property-predefined__sci_pmcid": "«$1» — это предварительно определенное свойство, представляющей номер ссылки PubMed Central (PMCID), и ведет на полнотекстовые документы в PubMed Central. Оно обеспечивается расширением [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite].",
-	"smw-pa-property-predefined__sci_pmid": "«$1» — это предварительно определенное свойство, представляющее PubMed-идентификатор сущности, и отличается от [[Property:PMCID|PMCID]]. Оно обеспечивается расширением [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite].",
-	"smw-pa-property-predefined__sci_oclc": "«$1» — это предварительно определенное свойство, идентифицирующее библиографические записи, которые хранятся в WorldCat (OCLC). Оно обеспечивается расширением [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite].",
-	"smw-pa-property-predefined__sci_olid": "«$1» — это предварительно определенное свойство, идентифицирующее записи OpenLibrary, и обеспечивается расширением [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite].",
-	"smw-pa-property-predefined__sci_viaf": "«$1» — это предварительно определенное свойство, идентифицирующее Virtual International Authority File, и обеспечивается расширением [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite]."
+	"smw-pa-property-predefined__sci_cite_reference": "«$1» — это предварительно определённое свойство, идентифицирующее ресурс цитирования при использовании в форме ссылки (напр., внутритекстовое примечание) и обеспечивается расширением [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite].",
+	"smw-pa-property-predefined__sci_cite_text": "«$1» — это предварительно определённое свойство, которое  содержит предварительно отформатированный текст, и обеспечивается расширением [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite].",
+	"smw-pa-property-predefined__sci_cite": "«$1» — это предварительно определённое свойство, которое описывает все элементы цитирования и сохраняется как подобъект. Оно обеспечивается расширением [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite].",
+	"smw-pa-property-predefined__sci_doi": "«$1» — это предварительно определённое свойство, представляющей Digital Object Identifier, и обеспечивается расширением [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite].",
+	"smw-pa-property-predefined__sci_pmcid": "«$1» — это предварительно определённое свойство, представляющей номер ссылки PubMed Central (PMCID), и ведёт на полнотекстовые документы в PubMed Central. Оно обеспечивается расширением [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite].",
+	"smw-pa-property-predefined__sci_pmid": "«$1» — это предварительно определённое свойство, представляющее PubMed-идентификатор сущности, и отличается от [[Property:PMCID|PMCID]]. Оно обеспечивается расширением [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite].",
+	"smw-pa-property-predefined__sci_oclc": "«$1» — это предварительно определённое свойство, идентифицирующее библиографические записи, которые хранятся в WorldCat (OCLC). Оно обеспечивается расширением [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite].",
+	"smw-pa-property-predefined__sci_olid": "«$1» — это предварительно определённое свойство, идентифицирующее записи OpenLibrary, и обеспечивается расширением [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite].",
+	"smw-pa-property-predefined__sci_viaf": "«$1» — это предварительно определённое свойство, идентифицирующее Virtual International Authority File, и обеспечивается расширением [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite]."
 }
