@@ -34,5 +34,14 @@
 	"sci-metadata-search-intro-oclc": "[[Property:OCLC|OCLC]]-nummer för WorldCat-katalogen",
 	"onoi-remi-request-error": "REST/HTTP-begäran returnerade med \"$1\" för \"$2\".",
 	"onoi-remi-response-empty": "Svaret returnerade med ett tomt resultat för \"$1\".",
-	"onoi-remi-parser-no-id-match": "Parsern kunde inte hitta \"$1\"."
+	"onoi-remi-parser-no-id-match": "Parsern kunde inte hitta \"$1\".",
+	"smw-pa-property-predefined__sci_cite_reference": "\"$1\" är en fördefinierad egenskap som identifierar en citeringsresurs när den används som en referens (t.ex. fotnoter) och tillhandahålls av tillägget [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] extension.",
+	"smw-pa-property-predefined__sci_cite_text": "\"$1\" är en fördefinierad egenskap som innehåller en förformaterad text och tillhandahålls av tillägget [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite].",
+	"smw-pa-property-predefined__sci_cite": "\"$1\" är en fördefinierad egenskap som tillhandahålls av tillägget [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] som beskriver alla elements i en citering som lagras som underobjekt.",
+	"smw-pa-property-predefined__sci_doi": "\"$1\" är en fördefinierad egenskap som tillhandahålls av tillägget [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] som representerar en Digital Object Identifier.",
+	"smw-pa-property-predefined__sci_pmcid": "\"$1\" är en fördefinierad egenskap som tillhandahålls av tillägget [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] som representerar ett PubMed Central-referensnummer (PMCID) och länkar till fulltextrapporter i PubMed Central.",
+	"smw-pa-property-predefined__sci_pmid": "\"$1\" är en fördefinierad egenskap som tillhandahålls av tillägget [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] som representerar ett PubMed-ID för en entitet och är annorlunda från [[Property:PMCID|PMCID]].",
+	"smw-pa-property-predefined__sci_oclc": "\"$1\" är en fördefinierad egenskap som tillhandahålls av tillägget [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] som identifierar bibliografiska poster som lagras med WorldCat (OCLC).",
+	"smw-pa-property-predefined__sci_olid": "\"$1\" är en fördefinierad egenskap som tillhandahålls av tillägget [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] som identifierar OpenLibrary-poster.",
+	"smw-pa-property-predefined__sci_viaf": "\"$1\" är en fördefinierad egenskap som tillhandahålls av tillägget [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] som identifierar en Virtual International Authority File."
 }
