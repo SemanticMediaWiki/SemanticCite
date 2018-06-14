@@ -37,5 +37,14 @@
 	"sci-metadata-search-has-match": "ID가 동일 식별자를 포함하고 다음을 포함하는 인용 자원과 일치되었습니다: $1",
 	"sci-metadata-search-cached": "검색 응답을 캐시에서 가져왔습니다.",
 	"sci-metadata-search-intro": "검색 가능한 메타데이터를 <code>#scite</code> 형식에 매핑하려면 식별자를 입력하고 서비스 제공자를 선택해 주십시오. (인터넷 연결 필요)",
-	"onoi-remi-parser-no-id-match": "파서가 \"$1\" 항목을 일치시키지 못했습니다."
+	"sci-metadata-search-intro-doi": "CrossRef 저장소를 검색하기 위한 [[Property:DOI|DOI]]",
+	"sci-metadata-search-intro-pubmed": "PubMed Central용 [[Property:PMCID|PMCID]]과 PubMed 아카이브용 [[Property:PMID|PMID]]",
+	"sci-metadata-search-intro-oclc": "월드캣 카탈로그의 [[Property:OCLC|OCLC]] 번호",
+	"sci-metadata-search-intro-ol": "오픈라이브러리 레코드에 일치시키기 위한 [[Property:OLID|OLID]] 또는 ISBN 번호",
+	"sci-metadata-search-intro-viaf": "가상 국제 전거 파일을 검색하기 위한 [[Property:VIAF|VIAF]] 번호",
+	"onoi-remi-request-error": "\"$2\"에 대해 \"$1\"(으)로 REST/HTTP 요청을 반환했습니다.",
+	"onoi-remi-response-empty": "\"$1\"에 대해 비어있는 결과로 응답을 반환했습니다.",
+	"onoi-remi-parser-no-id-match": "파서가 \"$1\" 항목을 일치시키지 못했습니다.",
+	"sci-tooltip-citation-lookup-failure": "\"$1\"의 백엔드로부터 적절한 인용을 검색하는데 실패했습니다.",
+	"sci-tooltip-citation-lookup-failure-multiple": "여러 개의 일치가 있는 \"$1\"에 대한 인용 텍스트의 검색을 실패했습니다."
 }

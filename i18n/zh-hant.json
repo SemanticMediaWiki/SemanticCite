@@ -10,7 +10,7 @@
 	"sci-desc": "在 [https://www.semantic-mediawiki.org Semantic MediaWiki] 的幫助下管理引用資源",
 	"sci-referencelist-header": "參考文獻",
 	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code> 不能在不支援 Semantic MediaWiki 的名稱空間上使用",
-	"sci-scite-parser-no-reference": "<code>#scite</code>未宣稱一條參考文獻。",
+	"sci-scite-parser-no-reference": "<code>#scite</code> 未宣稱一條參考文獻。",
 	"sci-scite-parser-no-type": "<code>#scite</code> 無法判斷用於「$1」的參考文獻類型。",
 	"sci-scite-parser-no-citation-text": "<code>#scite</code>不能為參考文獻“$1”渲染一段引用文本，因為類型“$2”未被指定為一個[[MediaWiki:Sci-template-definition|模板]]。",
 	"sci-datavalue-empty-reference": "引用的參考文獻預計不會是空的。",
