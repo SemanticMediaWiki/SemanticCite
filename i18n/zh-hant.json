@@ -4,7 +4,8 @@
 			"Liuxinyu970226",
 			"A2093064",
 			"Assoc",
-			"Kly"
+			"Kly",
+			"Deathkon"
 		]
 	},
 	"sci-desc": "在 [https://www.semantic-mediawiki.org Semantic MediaWiki] 的幫助下管理引用資源",
@@ -13,7 +14,7 @@
 	"sci-scite-parser-no-reference": "<code>#scite</code> 未宣稱一條參考文獻。",
 	"sci-scite-parser-no-type": "<code>#scite</code> 無法判斷用於「$1」的參考文獻類型。",
 	"sci-scite-parser-no-citation-text": "<code>#scite</code>不能為參考文獻“$1”渲染一段引用文本，因為類型“$2”未被指定為一個[[MediaWiki:Sci-template-definition|模板]]。",
-	"sci-datavalue-empty-reference": "引用的參考文獻預計不會是空的。",
+	"sci-datavalue-empty-reference": "預計引用參考不會為空。",
 	"sci-datavalue-invalid-id-value": "“$1”是無效的用于$2類型的值。",
 	"sci-property-alias-citation-key": "引用關鍵詞",
 	"sci-property-alias-citation-reference": "引用參考文獻",
@@ -49,5 +50,15 @@
 	"sci-tooltip-citation-lookup-failure": "檢索來自用于“$1”後端的適當引用失敗。",
 	"sci-tooltip-citation-lookup-failure-multiple": "檢索用于有多個匹配的“$1”引用文本失敗。",
 	"sci-property-definition": "A list of <code>#scite</code> identifiers that are mapped to user-defined properties. Please be aware that changes to existing entries require a rebuild of property assignments. \n foo-id|bar-property",
-	"sci-template-definition": "A list of citation types that are mapped to predefined templates containing citation formatting rules. \n foo-type|bar-template"
+	"sci-template-definition": "A list of citation types that are mapped to predefined templates containing citation formatting rules. \n foo-type|bar-template",
+	"smw-pa-property-predefined__sci_cite_key": "“$1”是一個定義引用資源的預定義屬性，並由[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite]擴展提供。",
+	"smw-pa-property-predefined__sci_cite_reference": "“$1”是一個定義用於參考文獻的引用資源（例如文內參考文獻）的預定義屬性，並由[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite]擴展提供。",
+	"smw-pa-property-predefined__sci_cite_text": "“$1”是一個包含預先格式化文本的預定義屬性，並由[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite]擴展提供。",
+	"smw-pa-property-predefined__sci_cite": "“$1”是一個由[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite]擴展提供的預定義屬性，它描述一段引用的所有要素，並存儲子對象。",
+	"smw-pa-property-predefined__sci_doi": "“$1”是一個由[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite]擴展提供的預定義屬性，它表示一個數字對象標識符。",
+	"smw-pa-property-predefined__sci_pmcid": "“$1”是一個由[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite]擴展提供的預定義屬性，它表現一個PubMed Central參考文獻號（PMCID），並鏈接至PubMed Central中的完整文本文件。",
+	"smw-pa-property-predefined__sci_pmid": "“$1”是一個由[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite]擴展提供的預定義屬性，它描述一個實體的PubMed ID，並不同於[[Property:PMCID|PMCID]]。",
+	"smw-pa-property-predefined__sci_oclc": "“$1”是一個由[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite]擴展提供的預定義屬性，它識別​​由WorldCat（OCLC）存儲的書目記錄。",
+	"smw-pa-property-predefined__sci_olid": "“$1”是一個由[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite]擴展提供的預定義屬性，它識別​​OpenLibrary記錄。",
+	"smw-pa-property-predefined__sci_viaf": "“$1”是一個由[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite]擴展提供的預定義屬性，它識別​​一個虛擬國際規範文檔。"
 }
