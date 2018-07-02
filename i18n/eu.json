@@ -4,10 +4,16 @@
 			"Subi",
 			"An13sa",
 			"Mikel Ibaiba",
-			"Sator"
+			"Sator",
+			"Amaia"
 		]
 	},
+	"sci-desc": "Bibliografiak [https://www.semantic-mediawiki.org Semantic MediaWiki]-ren laguntzaz kudeatu",
 	"sci-referencelist-header": "Erreferentziak",
+	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code> ezin da MediaWiki Semantikoan gaituta ez dagoen izen eremu batean erabili",
+	"sci-scite-parser-no-reference": "<code>#scite</code>-ek ez du erreferentziarik adierazi.",
+	"sci-datavalue-empty-reference": "Bibliografia hutsik ez ustea espero da.",
+	"sci-datavalue-invalid-id-value": "\"$1\" baliogabea da $2 motarako.",
 	"sci-property-alias-citation-key": "Aipu giltza",
 	"sci-property-alias-citation-reference": "Aipu erreferentzia",
 	"sci-property-alias-citation-text": "Aipu testua",
@@ -15,6 +21,7 @@
 	"findmetadatabyid": "Aurkitu metadatuak",
 	"findcitablemetadata": "Aurkitu metadatu aipagarriak",
 	"right-sci-metadatasearch": "Metadata bilaketara sarrera",
+	"action-sci-metadatasearch": "Semantic Cite-en metadata bilaketa",
 	"sci-specials-header-results": "Emaitzen zerrenda",
 	"sci-specials-select-options": "Hautatu aukerak",
 	"sci-specials-no-results": "Emaitzik ezin da eskuratu.",
@@ -25,5 +32,15 @@
 	"sci-metadata-search-header-result": "Emaitza",
 	"sci-metadata-search-form-submit": "Bilatu",
 	"sci-metadata-search-select-label": "Mota:",
-	"sci-metadata-search-intro-viaf": "[[Property:VIAF|VIAF]] zenbakia Nazioarteko Autoritate Fitxategi Birtuala bilatzeko"
+	"sci-metadata-search-read-only": "Datu-basea \"irakurri bakarrik\" moduan dago, orrien sortze automatikoa zaildu dezakeena.",
+	"sci-metadata-search-cached": "Bilaketaren erantzuna cache memoriatik ekarri da.",
+	"sci-metadata-search-intro": "Mesedez, sartu identifikatzaile bat eta aukeratu serbitzu hornitzaile bat (honetarako beharrezkoa da Internetera konektatuta egotea), eskuragarri diren metadatuak <code>#scite</code> format formatura mapeatzeko.",
+	"sci-metadata-search-intro-doi": "[[Property:DOI|DOI]] CrossRef-en gordailua bilatzeko",
+	"sci-metadata-search-intro-pubmed": "[[Property:PMCID|PMCID]] PubMed Central-erako eta [[Property:PMID|PMID]] PubMed fitxategirako",
+	"sci-metadata-search-intro-oclc": "[[Property:OCLC|OCLC]] zenbakia WorldCat katalogorako",
+	"sci-metadata-search-intro-ol": "[[Property:OLID|OLID]] edo OpenLibrary erregistro bateki bat datorren ISBN zenbakia",
+	"sci-metadata-search-intro-viaf": "[[Property:VIAF|VIAF]] zenbakia Nazioarteko Autoritate Fitxategi Birtuala bilatzeko",
+	"onoi-remi-request-error": "REST/HTTP eskaerak \"$1\" \"$2\"-(e)rako erantzun du.",
+	"onoi-remi-response-empty": "Erantzunak emaitza huts bat itzuli du \"$1\"-(e)rako.",
+	"onoi-remi-parser-no-id-match": "Aztertzailea ez da gai izan \"$1\" aurkitzeko."
 }
