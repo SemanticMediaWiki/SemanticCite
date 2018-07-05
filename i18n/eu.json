@@ -33,6 +33,7 @@
 	"sci-metadata-search-form-submit": "Bilatu",
 	"sci-metadata-search-select-label": "Mota:",
 	"sci-metadata-search-read-only": "Datu-basea \"irakurri bakarrik\" moduan dago, orrien sortze automatikoa zaildu dezakeena.",
+	"sci-metadata-search-has-match": "IDa bat dator identifikatzaile bera daukaten erreferentzia errekurtsoekin: $1",
 	"sci-metadata-search-cached": "Bilaketaren erantzuna cache memoriatik ekarri da.",
 	"sci-metadata-search-intro": "Mesedez, sartu identifikatzaile bat eta aukeratu serbitzu hornitzaile bat (honetarako beharrezkoa da Internetera konektatuta egotea), eskuragarri diren metadatuak <code>#scite</code> format formatura mapeatzeko.",
 	"sci-metadata-search-intro-doi": "[[Property:DOI|DOI]] CrossRef-en gordailua bilatzeko",
@@ -42,5 +43,16 @@
 	"sci-metadata-search-intro-viaf": "[[Property:VIAF|VIAF]] zenbakia Nazioarteko Autoritate Fitxategi Birtuala bilatzeko",
 	"onoi-remi-request-error": "REST/HTTP eskaerak \"$1\" \"$2\"-(e)rako erantzun du.",
 	"onoi-remi-response-empty": "Erantzunak emaitza huts bat itzuli du \"$1\"-(e)rako.",
-	"onoi-remi-parser-no-id-match": "Aztertzailea ez da gai izan \"$1\" aurkitzeko."
+	"onoi-remi-parser-no-id-match": "Aztertzailea ez da gai izan \"$1\" aurkitzeko.",
+	"sci-tooltip-citation-lookup-failure": "Ezin izan da zerbitzaritik erreferentzia egoki bat berreskuratu \"$1\"-(e)rako.",
+	"sci-tooltip-citation-lookup-failure-multiple": "Ezin izan da \"$1\"-(e)rako hainbat kointzidentzia dituen erreferentzia testu bat berreskuratu.",
+	"smw-pa-property-predefined__sci_cite_key": "\"$1\" aurretik zehaztutako propietate bat da, erreferentzia errekurtso bat identifikatzen duena, eta [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] luzapenak hornitutakoa dena.",
+	"smw-pa-property-predefined__sci_cite_reference": "\"$1\" aurretik zehaztutako propietate bat da, erreferentzia errekurtso bat identifikatzen duena, erreferentzia bezala erabiltzen denean (adib. erreferentzia tetuan) eta [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] luzapenak hornitutakoa da.",
+	"smw-pa-property-predefined__sci_cite": "\"$1\" aurredefinitutako propietate bat da [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] luzapenak hornitutakoa, aipamen baten elementu guztiak deskribatzen dituena eta azpiobjektu bezala biltegiratzen da.",
+	"smw-pa-property-predefined__sci_doi": "\"$1\" aurredefinitutako propietate bat da [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] luzapenak hornitutakoa, Objektu Digitalen Identifikatzailea adierazten duena.",
+	"smw-pa-property-predefined__sci_pmcid": "\"$1\" aurredefinitutako propietate bat da [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] luzapenak hornitutakoa, PubMed Central erreferentzia zenbakia (PMCID) adierazten duena eta PubMed Central-eko artikulu osoak lotzen dituena.",
+	"smw-pa-property-predefined__sci_pmid": "\"$1\" aurredefinitutako propietate bat da [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] luzapenak hornitutakoa, PubMed entitate baten ID-a adierazten duena eta [[Property:PMCID|PMCID]] propietatearekiko desberdina dena.",
+	"smw-pa-property-predefined__sci_oclc": "\"$1\" aurredefinitutako propietate bat da [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] luzapenak hornitutakoa, WorldCat-ekin (OCLC) biltegiratutako erregistro bibliografikoak identifikatzen dituena.",
+	"smw-pa-property-predefined__sci_olid": "\"$1\" aurredefinitutako propietate bat da [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] luzapenak hornitutakoa, OpenLibrary erregistroak identifikatzen dituena.",
+	"smw-pa-property-predefined__sci_viaf": "\"$1\" aurredefinitutako propietate bat da [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] luzapenak hornitutakoa, Autoritate Fitxategi Birtual Nazioarteko bat identifikatzen duena."
 }
