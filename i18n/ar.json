@@ -50,5 +50,14 @@
 	"sci-tooltip-citation-lookup-failure-multiple": "فشل في استرداد نص الاقتباس ل\"$1\" الذي لديه مطابقات متعددة.",
 	"sci-property-definition": "قائمة <code>#scite</code> المعرفات التي تم تعيينها للخصائص المعرفة من قبل المستخدم. يُرجَى أن تكون على علم بأن التغييرات على القيود القائمة تحتاج إلى إعادة بناء تعيينات الخواص.\nfoo-id|bar-property",
 	"sci-template-definition": "قائمة أنواع الاقتباس التي تم تعيينها إلى قوالب معدة مسبقا تحتوي على صيغة قواعد الاقتباس.\nfoo-type|bar-template",
-	"smw-pa-property-predefined__sci_cite_key": "\"$1\" هي خاصية معرفة مسبقا تحدد مورد الاقتباس ويتم توفيرها من قبل تمديد [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite الاستشهاد الدلالي]."
+	"smw-pa-property-predefined__sci_cite_key": "\"$1\" هي خاصية معرفة مسبقا تحدد مورد الاقتباس ويتم توفيرها من قبل تمديد [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite الاستشهاد الدلالي].",
+	"smw-pa-property-predefined__sci_cite_reference": "\"$1\" هي خاصية محددة مسبقا تحدد مورد استشهاد عند استخدامها كمرجع (على سبيل المثال مرجع نص) ويتم توفيرها بواسطة الامتداد [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] .",
+	"smw-pa-property-predefined__sci_cite_text": "\"$1\" هي خاصية محددة مسبقا تحتوي على نص منسق مسبقا ويتم توفيرها بواسطة الامتداد [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] .",
+	"smw-pa-property-predefined__sci_cite": "\"$1\" هي خاصية محددة مسبقا مقدمة من الامتداد [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] التي تصف جميع عناصر الاقتباس ويتم تخزينها كعنصر فرعي.",
+	"smw-pa-property-predefined__sci_doi": "\"$1\" هي خاصية محددة مسبقا مقدمة من الامتداد [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] التي تمثل معرف كائن رقمي.",
+	"smw-pa-property-predefined__sci_pmcid": "\"$1\" هي خاصية محددة مسبقا مقدمة من الامتداد [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] التي تمثل الرقم المرجعي المركزي لببميد (PMCID) والروابط إلى أوراق النص الكامل في ببميد المركزي.",
+	"smw-pa-property-predefined__sci_pmid": "\"$1\" هي خاصية محددة مسبقا مقدمة من الامتداد [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] التي تمثل معرف ببميد للكيان وتختلف عن [[Property:PMCID|PMCID]].",
+	"smw-pa-property-predefined__sci_oclc": "\"$1\" هي خاصية محددة مسبقا مقدمة من الامتداد [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] التي تحدد التسجيلات الببليوغرافية المخزنة مع وورلد كات (OCLC).",
+	"smw-pa-property-predefined__sci_olid": "\"$1\" هي خاصية محددة مسبقا مقدمة من الامتداد [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] التي تحدد سجلات المكتبة المفتوحة.",
+	"smw-pa-property-predefined__sci_viaf": "\"$1\" هي خاصية محددة مسبقا تم توفيرها بواسطة الامتداد [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] التي تحدد ملفا استناديا دوليا افتراضيا."
 }
