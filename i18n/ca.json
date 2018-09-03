@@ -1,11 +1,24 @@
 {
 	"@metadata": {
 		"authors": [
-			"Macofe"
+			"Macofe",
+			"Fitoschido",
+			"Toniher"
 		]
 	},
 	"sci-referencelist-header": "Referències",
+	"sci-datavalue-invalid-id-value": "El valor «$1» no és vàlid per al tipus $2.",
+	"findmetadatabyid": "Cerca metadades",
+	"findcitablemetadata": "Cerca metadades citables",
+	"sci-specials-header-results": "Llista de resultats",
+	"sci-specials-select-options": "Selecciona opcions",
+	"sci-specials-no-results": "No hi ha cap resultat disponible.",
+	"sci-metadata-search-form": "Per identificador",
+	"sci-metadata-search-action-highlight": "Selecciona text",
 	"sci-metadata-search-action-create": "Crea",
+	"sci-metadata-search-header-log": "Registre",
 	"sci-metadata-search-header-result": "Resultat",
-	"sci-metadata-search-form-submit": "Cerca"
+	"sci-metadata-search-form-submit": "Cerca",
+	"sci-metadata-search-select-label": "Tipus:",
+	"sci-metadata-search-cached": "S’ha recuperat la resposta de la cerca des de la memòria cau."
 }
