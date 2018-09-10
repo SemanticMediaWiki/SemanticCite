@@ -1,9 +1,25 @@
 {
 	"@metadata": {
 		"authors": [
-			"Cvanca"
+			"Cvanca",
+			"Dvorapa",
+			"Martin Urbanec"
 		]
 	},
+	"sci-referencelist-header": "Reference",
+	"sci-property-alias-citation-text": "Text reference",
+	"sci-property-alias-citation-resource": "Zdroj reference",
+	"findmetadatabyid": "Najít metadata",
+	"findcitablemetadata": "Najít citovatelná metadata",
 	"sci-specials-header-results": "Seznam výsledků",
-	"sci-specials-select-options": "Vyberte možnosti"
+	"sci-specials-select-options": "Vyberte možnosti",
+	"sci-specials-no-results": "Žádné výsledky nebyly nalezeny",
+	"sci-metadata-search-form": "Pomocí ID",
+	"sci-metadata-search-action-highlight": "Vybrat text",
+	"sci-metadata-search-action-create": "Vytvořit",
+	"sci-metadata-search-header-log": "Protokol",
+	"sci-metadata-search-header-result": "Výsledek",
+	"sci-metadata-search-form-submit": "Hledat",
+	"sci-metadata-search-select-label": "Typ:",
+	"sci-metadata-search-cached": "Výsledek vyhledávání byl získán z keše."
 }

@@ -1,0 +1,28 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bagas Chrisara",
+			"Kenrick95"
+		]
+	},
+	"sci-referencelist-header": "Referensi",
+	"sci-property-alias-citation-key": "Kunci rujukan",
+	"sci-property-alias-citation-reference": "Referensi rujukan",
+	"sci-property-alias-citation-text": "Teks rujukan",
+	"sci-property-alias-citation-resource": "Sumber rujukan",
+	"findmetadatabyid": "Temukan metadata",
+	"findcitablemetadata": "Temukan metadata yang dapat dirujuk",
+	"right-sci-metadatasearch": "Pencarian akses metadata",
+	"action-sci-metadatasearch": "pencarian metadata Semantic Cite",
+	"sci-specials-header-results": "Daftar hasil",
+	"sci-specials-select-options": "Pilih tindakan",
+	"sci-specials-no-results": "Hasil tidak tersedia",
+	"listcitationreferencebacklinks": "Daftar pranala balik referensi rujukan",
+	"sci-metadata-search-form": "Melalui ID",
+	"sci-metadata-search-action-highlight": "Pilih teks",
+	"sci-metadata-search-action-create": "Buat",
+	"sci-metadata-search-header-log": "Log",
+	"sci-metadata-search-header-result": "Hasil",
+	"sci-metadata-search-form-submit": "Cari",
+	"sci-metadata-search-select-label": "Jenis:"
+}
