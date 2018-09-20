@@ -44,8 +44,9 @@
 	"sci-metadata-search-intro-viaf": "Нумар [[Property:VIAF|VIAF]] для пошуку Virtual International Authority File",
 	"onoi-remi-request-error": "Запыт REST/HTTP даў вынік «$1» для «$2».",
 	"onoi-remi-response-empty": "Адказ даў парожні вынік для «$1».",
-	"onoi-remi-parser-no-id-match": "Сынтаксычны аналызатар ня супадае з \"$1\".",
+	"onoi-remi-parser-no-id-match": "Сынтаксычны аналізатар не супадае з «$1».",
 	"sci-tooltip-citation-lookup-failure": "Немагчыма атрымаць адпаведную цытату з сэрвэра для «$1».",
 	"sci-tooltip-citation-lookup-failure-multiple": "Немагчыма атрымаць тэкст цытаты для «$1», які мае некалькі супадзеньняў.",
-	"sci-property-definition": "Сьпіс ідэнтыфікатараў <code>#scite</code> якія маюць уласьцівасьці, прызначаныя карыстачамі. Калі ласка памятайце, што зьмены ў існуючыя запісы патрабуць перабудовы прызначэньняў. \n foo-id|bar-property"
+	"sci-property-definition": "Сьпіс ідэнтыфікатараў <code>#scite</code>, якія маюць уласьцівасьці, прызначаныя карыстальнікамі. Калі ласка, памятайце, што зьмены ў існыя запісы патрабуць перабудовы прызначэньняў. \n foo-id|bar-property",
+	"sci-template-definition": "Сьпіс тыпаў цытаваньня, якія супастаўляюцца зь перадвызначанымі шаблёнамі, якія ўтрымліваюць правілы фарматаваньня цытаваньняў.\n foo-type|bar-template"
 }
