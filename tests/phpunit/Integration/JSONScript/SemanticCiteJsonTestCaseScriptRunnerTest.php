@@ -29,6 +29,8 @@ class SemanticCiteJsonTestCaseScriptRunnerTest extends JsonTestCaseScriptRunner 
 	protected function setUp() {
 		parent::setUp();
 
+		$this->testEnvironment->tearDown();
+
 		$validatorFactory = $this->testEnvironment->getUtilityFactory()->newValidatorFactory();
 
 		$this->semanticDataValidator = $validatorFactory->newSemanticDataValidator();
