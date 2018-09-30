@@ -84,21 +84,28 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 		$this->doTestRegisteredAfterDeleteSubjectComplete( $instance );
 	}
 
-	public function testOnBeforeConfigCompletion() {
+	public function testInitExtension() {
 
-		$config = [
-			'smwgFulltextSearchPropertyExemptionList' => []
-		];
+		$vars = [];
+		HookRegistry::initExtension( $vars );
 
 		$propertyExemptionList = [
 			'__sci_cite'
 		];
 
-		HookRegistry::onBeforeConfigCompletion( $config );
+		$config = [
+			'smwgFulltextSearchPropertyExemptionList' => [],
+			'smwgQueryDependencyPropertyExemptionList' => []
+		];
+
+		foreach ( $vars['wgHooks']['SMW::Config::BeforeCompletion'] as $callback ) {
+			call_user_func_array( $callback, [ &$config ] );
+		}
 
 		$this->assertEquals(
 			[
 				'smwgFulltextSearchPropertyExemptionList' => $propertyExemptionList,
+				'smwgQueryDependencyPropertyExemptionList' => $propertyExemptionList,
 			],
 			$config
 		);

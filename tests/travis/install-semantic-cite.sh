@@ -55,6 +55,7 @@ function updateConfiguration {
 
 	# SMW#1732
 	echo 'wfLoadExtension( "SemanticMediaWiki" );' >> LocalSettings.php
+	echo 'wfLoadExtension( "SemanticCite" );' >> LocalSettings.php
 
 	php maintenance/update.php --quick
 }

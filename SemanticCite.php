@@ -9,15 +9,6 @@ use SMW\ApplicationFactory;
  *
  * @defgroup SCI Semantic Citation
  */
-if ( !defined( 'MEDIAWIKI' ) ) {
-	die( 'This file is part of the Semantic Cite extension, it is not a valid entry point.' );
-}
-
-if ( defined( 'SCI_VERSION' ) ) {
-	// Do not initialize more than once.
-	return 1;
-}
-
 SemanticCite::load();
 
 /**
@@ -40,33 +31,21 @@ class SemanticCite {
 
 		// Load DefaultSettings
 		require_once __DIR__ . '/DefaultSettings.php';
-
-		// In case extension.json is being used, the the succeeding steps are
-		// expected to be handled by the ExtensionRegistry
-		self::initExtension();
-
-		$GLOBALS['wgExtensionFunctions'][] = function() {
-			self::onExtensionFunction();
-		};
 	}
 
 	/**
 	 * @since 1.1
 	 */
-	public static function initExtension() {
+	public static function initExtension( $credits = array() ) {
 
-		define( 'SCI_VERSION', '1.4.0-alpha' );
+		// See https://phabricator.wikimedia.org/T151136
+		define( 'SCI_VERSION', isset( $credits['version'] ) ? $credits['version'] : 'UNKNOWN' );
 
-		// Register the extension
-		$GLOBALS['wgExtensionCredits']['semantic'][ ] = [
-			'path'           => __FILE__,
-			'name'           => 'Semantic Cite',
-			'author'         => [ 'James Hong Kong' ],
-			'url'            => 'https://github.com/SemanticMediaWiki/SemanticCite/',
-			'descriptionmsg' => 'sci-desc',
-			'version'        => SCI_VERSION,
-			'license-name'   => 'GPL-2.0-or-later'
-		];
+		// Extend the upgrade key provided by SMW to ensure that an DB
+		// schema is updated accordingly before using the extension
+		if ( isset( $GLOBALS['smwgUpgradeKey'] ) ) {
+		//	$GLOBALS['smwgUpgradeKey'] .= ':scite:2018-09';
+		}
 
 		// Register message files
 		$GLOBALS['wgMessagesDirs']['SemanticCite'] = __DIR__ . '/i18n';
@@ -134,31 +113,9 @@ class SemanticCite {
 			]
 		];
 
-		self::onBeforeExtensionFunction();
-	}
-
-	/**
-	 * Register hooks that require to be listed as soon as possible and preferable
-	 * before the execution of onExtensionFunction
-	 *
-	 * @since 1.3
-	 */
-	public static function onBeforeExtensionFunction() {
-		$GLOBALS['wgHooks']['SMW::Config::BeforeCompletion'][] = '\SCI\HookRegistry::onBeforeConfigCompletion';
-	}
-
-	/**
-	 * @since 1.3
-	 */
-	public static function doCheckRequirements() {
-
-		if ( version_compare( $GLOBALS[ 'wgVersion' ], '1.27', 'lt' ) ) {
-			die( '<b>Error:</b> This version of <a href="https://github.com/SemanticMediaWiki/SemanticCite/">Semantic Cite</a> is only compatible with MediaWiki 1.27 or above. You need to upgrade MediaWiki first.' );
-		}
-
-		if ( !defined( 'SMW_VERSION' ) ) {
-			die( '<b>Error:</b> <a href="https://github.com/SemanticMediaWiki/SemanticCite/">Semantic Cite</a> requires the <a href="https://github.com/SemanticMediaWiki/SemanticMediaWiki/">Semantic MediaWiki</a> extension. Please enable or install the extension first.' );
-		}
+		// Register hooks that require to be listed as soon as possible and preferable
+		// before the execution of onExtensionFunction
+		HookRegistry::initExtension( $GLOBALS );
 	}
 
 	/**
@@ -166,8 +123,13 @@ class SemanticCite {
 	 */
 	public static function onExtensionFunction() {
 
-		// Check requirements after LocalSetting.php has been processed
-		self::doCheckRequirements();
+		if ( !defined( 'SMW_VERSION' ) ) {
+			if ( PHP_SAPI === 'cli' || PHP_SAPI === 'phpdbg' ) {
+				die( "\nThe 'Semantic Cite' extension requires 'Semantic MediaWiki' to be installed and enabled.\n" );
+			} else {
+				die( '<b>Error:</b> The <a href="https://github.com/SemanticMediaWiki/SemanticCite/">Semantic Cite</a> extension requires <a href="https://www.semantic-mediawiki.org/wiki/Semantic_MediaWiki">Semantic MediaWiki</a> to be installed and enabled.<br />' );
+			}
+		}
 
 		// Require a global because MW's Special page is missing an interface
 		// to inject dependencies
@@ -203,6 +165,11 @@ class SemanticCite {
 	 * @return string|null
 	 */
 	public static function getVersion() {
+
+		if ( !defined( 'SCI_VERSION' ) ) {
+			return null;
+		}
+
 		return SCI_VERSION;
 	}
 

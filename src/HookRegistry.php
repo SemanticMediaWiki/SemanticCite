@@ -114,6 +114,42 @@ class HookRegistry {
 		);
 	}
 
+	/**
+	 * @since 2.0
+	 *
+	 * @param array &$vars
+	 */
+	public static function initExtension( &$vars ) {
+
+		$vars['wgHooks']['SMW::Config::BeforeCompletion'][] = function( &$config ) {
+
+			$exemptionlist = [
+				PropertyRegistry::SCI_CITE
+			];
+
+			// Exclude listed properties from indexing
+			if ( isset( $config['smwgFulltextSearchPropertyExemptionList'] ) ) {
+				$config['smwgFulltextSearchPropertyExemptionList'] = array_merge(
+					$config['smwgFulltextSearchPropertyExemptionList'],
+					$exemptionlist
+				);
+			}
+
+			// Exclude listed properties from dependency detection as each of the
+			// selected object would trigger an automatic change without the necessary
+			// human intervention and can therefore produce unwanted query updates
+
+			if ( isset( $config['smwgQueryDependencyPropertyExemptionList'] ) ) {
+				$config['smwgQueryDependencyPropertyExemptionList'] = array_merge(
+					$config['smwgQueryDependencyPropertyExemptionList'],
+					$exemptionlist
+				);
+			}
+
+			return true;
+		};
+	}
+
 	private function addCallbackHandlers( $store, $cache, $options ) {
 
 		$propertyRegistry = new PropertyRegistry();
