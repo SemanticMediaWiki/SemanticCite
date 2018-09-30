@@ -77,14 +77,14 @@ class CitationTextChangeUpdateJobDispatcher {
 			$compositePropertyTableDiffIterator->getOrderedDiffByTable( $tableName )
 		);
 
-		if ( $subjectIdList === [] ) {
+		if ( ( $jobList = $this->getDispatchableTargetList( $subjectIdList ) ) === [] ) {
 			return false;
 		}
 
 		$updateDispatcherJob = ApplicationFactory::getInstance()->newJobFactory()->newUpdateDispatcherJob(
 			$subject->getTitle(),
 			[
-				'job-list' => $this->getDispatchableTargetList( $subjectIdList )
+				'job-list' => $jobList
 			]
 		);
 
@@ -125,6 +125,10 @@ class CitationTextChangeUpdateJobDispatcher {
 	}
 
 	private function getDispatchableTargetList( array $subjectIdList ) {
+
+		if ( $subjectIdList === [] ) {
+			return [];
+		}
 
 		$hashList = $this->store->getObjectIds()->getDataItemPoolHashListFor( $subjectIdList );
 		$referenceBacklinks = [];
