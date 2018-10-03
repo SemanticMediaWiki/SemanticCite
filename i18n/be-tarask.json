@@ -48,5 +48,7 @@
 	"sci-tooltip-citation-lookup-failure": "Немагчыма атрымаць адпаведную цытату з сэрвэра для «$1».",
 	"sci-tooltip-citation-lookup-failure-multiple": "Немагчыма атрымаць тэкст цытаты для «$1», які мае некалькі супадзеньняў.",
 	"sci-property-definition": "Сьпіс ідэнтыфікатараў <code>#scite</code>, якія маюць уласьцівасьці, прызначаныя карыстальнікамі. Калі ласка, памятайце, што зьмены ў існыя запісы патрабуць перабудовы прызначэньняў. \n foo-id|bar-property",
-	"sci-template-definition": "Сьпіс тыпаў цытаваньня, якія супастаўляюцца зь перадвызначанымі шаблёнамі, якія ўтрымліваюць правілы фарматаваньня цытаваньняў.\n foo-type|bar-template"
+	"sci-template-definition": "Сьпіс тыпаў цытаваньня, якія супастаўляюцца зь перадвызначанымі шаблёнамі, якія ўтрымліваюць правілы фарматаваньня цытаваньняў.\n foo-type|bar-template",
+	"smw-pa-property-predefined__sci_cite_key": "«$1» — перадвызначаная ўласьцівасьць, якая ідэнтыфікуе рэсурс цытаваньня і забясьпечваецца пашырэньнем [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite].",
+	"smw-pa-property-predefined__sci_cite_reference": "«$1» — перадвызначаная ўласьцівасьць, якая ідэнтыфікуе рэсурс цытаваньня, калі ўжываецца як крыніца (напрыклад, крыніца ў тэксьце) і забясьпечваецца пашырэньнем [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite]."
 }

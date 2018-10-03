@@ -3,10 +3,13 @@
 		"authors": [
 			"Guycn2",
 			"YaronSh",
-			"שניאור זלמן"
+			"שניאור זלמן",
+			"Drorsnir"
 		]
 	},
+	"sci-desc": "ניהול מקורות לציטוט בעזרת [https://www.semantic-mediawiki.org מדיה־ויקי סמנטית]",
 	"sci-referencelist-header": "הפניות",
+	"sci-scite-parser-not-enabled-namespace": "לא ניתן להשתמש ב-<code>#scite</code> במרחב שם שמדיה־ויקי סמנטית לא מופעלת בו",
 	"sci-property-alias-citation-text": "ציטוט טקסט",
 	"right-sci-metadatasearch": "גישה לחיפוש במטא־נתונים",
 	"action-sci-metadatasearch": "לחפש במטא־הנתונים הסמנטי",

@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Elisardojm",
-			"Banjo"
+			"Banjo",
+			"Navhy"
 		]
 	},
 	"sci-desc": "Xestionar os recursos de citas coa axuda de [https://www.semantic-mediawiki.org MediaWiki Semántica]",
@@ -17,10 +18,10 @@
 	"sci-property-alias-citation-reference": "Referencia de cita",
 	"sci-property-alias-citation-text": "Texto de cita",
 	"sci-property-alias-citation-resource": "Recurso de cita",
-	"findmetadatabyid": "Buscar metadatos",
+	"findmetadatabyid": "Procurar metadatos",
 	"findcitablemetadata": "Atopar metadatos citables",
-	"right-sci-metadatasearch": "Acceso á busca de metadatos",
-	"action-sci-metadatasearch": "a busca de metadatos de Semantic Cite",
+	"right-sci-metadatasearch": "Acceso á procura de metadatos",
+	"action-sci-metadatasearch": "a procura de metadatos de Semantic Cite",
 	"sci-specials-header-results": "Lista de resultados",
 	"sci-specials-select-options": "Seleccionar as opcións",
 	"sci-specials-no-results": "Ningún resultado dispoñible.",
@@ -40,7 +41,7 @@
 	"sci-metadata-search-intro-pubmed": "[[Property:PMCID|PMCID]] para PubMed Central e [[Property:PMID|PMID]] para o arquivo de PubMed",
 	"sci-metadata-search-intro-oclc": "Número de [[Property:OCLC|OCLC]] para o catálogo de WorlCat",
 	"sci-metadata-search-intro-ol": "[[Property:OLID|OLID]] ou número ISBN para casar cun rexistro de OpenLibrary",
-	"sci-metadata-search-intro-viaf": "Número [[Property:VIAF|VIAF]] que buscar para un Arquivo de Autoridades Virtual Internacional",
+	"sci-metadata-search-intro-viaf": "Número [[Property:VIAF|VIAF]] que procurar para un Arquivo de Autoridades Virtual Internacional",
 	"onoi-remi-request-error": "A consulta REST/HTTP devolveu \"$1\" para \"$2\".",
 	"onoi-remi-response-empty": "A respuesta devolveu un resultado baleiro para \"$1\".",
 	"onoi-remi-parser-no-id-match": "O analizador foi incapaz de atopar \"$1\".",

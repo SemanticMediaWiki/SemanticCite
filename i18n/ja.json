@@ -4,7 +4,8 @@
 			"mwjames",
 			"Sujiniku",
 			"おはぐろ蜻蛉",
-			"Yusuke1109"
+			"Yusuke1109",
+			"Suyama"
 		]
 	},
 	"sci-referencelist-header": "情報源",
@@ -21,6 +22,7 @@
 	"action-sci-metadatasearch": "メタサーチ",
 	"sci-specials-header-results": "結果の一覧",
 	"sci-specials-select-options": "オプションを選択",
+	"sci-specials-no-results": "該当結果はありません。",
 	"sci-metadata-search-form": "IDで",
 	"sci-metadata-search-action-highlight": "テキストを選択",
 	"sci-metadata-search-action-create": "作成",
@@ -29,9 +31,11 @@
 	"sci-metadata-search-form-submit": "検索",
 	"sci-metadata-search-select-label": "種類:",
 	"sci-metadata-search-read-only": "データベースは読み取り専用モードであり、自動ページ作成を妨げることがあります。",
+	"sci-metadata-search-cached": "この検索結果はキャッシュから読み込まれました。",
 	"sci-metadata-search-intro-doi": "CrossRef レポジトリ検索のための [[Property:DOI|DOI]]",
 	"sci-metadata-search-intro-ol": "OpenLibrary record に一致する、 [[Property:OLID|OLID]] または ISBN 番号",
 	"sci-metadata-search-intro-viaf": "Virtual International Authority File ための検索のための [[Property:VIAF|VIAF]] 番号",
+	"onoi-remi-request-error": "REST/HTTP リクエストは  \"$2\" のため、\"$1\" エラーで終了しました。",
 	"onoi-remi-response-empty": "応答が、「$1」のための空白の結果をかえしました。",
 	"onoi-remi-parser-no-id-match": "パーサは「$1」と一致することができませんでした。",
 	"sci-tooltip-citation-lookup-failure": "「$1」のためのバックエンドからの適切な引数の取得に失敗しました。",
