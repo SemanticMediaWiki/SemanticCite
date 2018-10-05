@@ -9,11 +9,11 @@
 		"mediawiki",
     		"citation"
 	],
-	"homepage": "https://semantic-mediawiki.org/wiki/Extension:SemanticCite",
+	"homepage": "https://semantic-mediawiki.org/wiki/Extension:Semantic_Cite",
 	"license": "GPL-2.0-or-later",
 	"authors": [
 		{
-			"name": "mwjames",
+			"name": "James Hong Kong",
 			"role": "Developer"
 		}
 	],
