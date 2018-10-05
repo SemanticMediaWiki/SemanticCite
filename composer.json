@@ -9,11 +9,11 @@
 		"mediawiki",
     		"citation"
 	],
-	"homepage": "https://semantic-mediawiki.org/wiki/Extension:SemanticCite",
+	"homepage": "https://semantic-mediawiki.org/wiki/Extension:Semantic_Cite",
 	"license": "GPL-2.0-or-later",
 	"authors": [
 		{
-			"name": "mwjames",
+			"name": "James Hong Kong",
 			"role": "Developer"
 		}
 	],
@@ -26,7 +26,7 @@
 		"source": "https://github.com/SemanticMediaWiki/SemanticCite"
 	},
 	"require": {
-		"php": ">=5.5.0",
+		"php": ">=5.6.0",
 		"composer/installers": "^1.0.12",
 		"mediawiki/semantic-media-wiki": "~2.5|~3.0",
 		"onoi/cache": "~1.2",
