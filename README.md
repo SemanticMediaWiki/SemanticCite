@@ -23,7 +23,7 @@ Several short [videos](https://www.youtube.com/playlist?list=PLIJ9eX-UsA5eI_YFdn
 
 ## Requirements
 
-- PHP 5.5 or later
+- PHP 5.6 or later
 - MediaWiki 1.27 or later
 - [Semantic MediaWiki][smw] 2.5 or later
 
@@ -32,31 +32,73 @@ as a means to declare a citation resource.
 
 ## Installation
 
-The recommended way to install Semantic Cite is by using [Composer][composer] with an entry in MediaWiki's `composer.json`.
+The recommended way to install Semantic Cite is using [Composer](http://getcomposer.org) with
+[MediaWiki's built-in support for Composer](https://www.mediawiki.org/wiki/Composer).
 
-```json
+Note that the required extension Semantic MediaWiki must be installed first according to the installation
+instructions provided.
+
+### Step 1
+
+Change to the base directory of your MediaWiki installation. This is where the "LocalSettings.php"
+file is located. If you have not yet installed Composer do it now by running the following command
+in your shell:
+
+    wget https://getcomposer.org/composer.phar
+
+### Step 2
+    
+If you do not have a "composer.local.json" file yet, create one and add the following content to it:
+
+```
 {
 	"require": {
-		"mediawiki/semantic-cite": "~1.4"
+		"mediawiki/semantic-cite": "~2.0"
 	}
 }
 ```
-1. From your MediaWiki installation directory, execute
-   `composer require mediawiki/semantic-cite:~1.1`
-2. Run the **maintenance [`update.php`][mw-update] script** to ensure that property tables
-   are properly initialized
-3. Navigate to _Special:Version_ on your wiki and verify that the package
-   have been successfully installed.
+
+If you already have a "composer.local.json" file add the following line to the end of the "require"
+section in your file:
+
+    "mediawiki/semantic-cite": "~2.0"
+
+Remember to add a comma to the end of the preceding line in this section.
+
+### Step 3
+
+Run the following command in your shell:
+
+    php composer.phar update --no-dev
+
+Note if you have Git installed on your system add the `--prefer-source` flag to the above command. Also
+note that it may be necessary to run this command twice. If unsure do it twice right away.
+
+### Step 4
+
+Add the following line to the end of your "LocalSettings.php" file:
+
+    wfLoadExtension( 'SemanticCite' );
+    
+### Step 5
+
+Run the **maintenance script ["update.php"][mw-update]** to ensure that property tables are properly
+initialized.
+
+### Verify installation success
+
+As final step, you can verify SCI got installed by looking at the "Special:Version" page on your wiki and
+check that it is listed in the semantic extensions section.
 
 ## Usage
 
 ![scite-sneak](https://cloud.githubusercontent.com/assets/1245473/8370671/7d8bfeac-1bcb-11e5-9007-79a3d39f70ce.png)
 
-A citation resource collects all structured data of a citation under one unique key that
-can be accessed through out the wiki and is created and managed by the `#scite` parser.
+A citation resource collects all structured data of a citation under one unique key that can be accessed
+through out the wiki and is created and managed by the `#scite` parser function.
 
-Citation resources (those created by `#scite`) can be added to a source page
-or any other wiki page each being identifiable by a citation key.
+Citation resources (those created by `#scite`) can be added to a source page or any other wiki page each
+being identifiable by a citation key.
 
 ```
 {{#scite:Byrne 2008
@@ -71,22 +113,20 @@ or any other wiki page each being identifiable by a citation key.
 }}
 ```
 
-Above shows an example for a citation resource to be created by the `#scite` parser. More
-information about `#scite` can be found [here][docs-scite].
+Above shows an example for a citation resource to be created by the `#scite` parser. More information about
+`#scite` can be found [here][docs-scite].
 
 ### In-text citation
 
-A resource can be cited using the `Citation reference` (or its alias `CiteRef`)
-property for an in-text annotation in form of `Lorem ipsum [[CiteRef::Byrne 2008]] ...` to appear as
-`Lorem ipsum`<sup>`[1]`</sup>` ...`.
+A resource can be cited using the `Citation reference` (or its alias `CiteRef`) property for an in-text
+annotation in form of `Lorem ipsum [[CiteRef::Byrne 2008]] ...` to appear as `Lorem ipsum`<sup>`[1]`</sup>` ...`.
 
-A reference list is automatically added to the content as soon as a `Citation reference`
-annotation is added to a page. The magic word `__NOREFERENCELIST__` can be used to suppress
-a reference list from showing on an individual page while `#referencelist` can be used to position
-the list differently.
+A reference list is automatically added to the content as soon as a `Citation reference` annotation is added
+to a page. The magic word `__NOREFERENCELIST__` can be used to suppress a reference list from showing on an
+individual page while `#referencelist` can be used to position the list differently.
 
-More information about in-text citations and references can be found [here][docs-intext] together
-with a description about the usage of the [`#referencelist`][docs-referencelist] parser.
+More information about in-text citations and references can be found [here][docs-intext] together with a
+description about the usage of the [`#referencelist`][docs-referencelist] parser function.
 
 For questions about Semantic Cite and [`Cite`][mw-cite], see the comments [section][docs-faq].
 

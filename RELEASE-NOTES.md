@@ -1,5 +1,20 @@
 This file contains the RELEASE-NOTES of the Semantic Cite (a.k.a. SCI) extension.
 
+### 2.0.0
+
+Released on October 6, 2018.
+
+* Minimum requirement for PHP changed to version 5.6 and later
+* Minimum requirement for MediaWiki changed to version 1.27 and later
+* #62 Added support for extension registration via "extension.json"  
+  → Now you have to use `wfLoadExtension( 'SemanticCite' );` in the "LocalSettings.php" file to invoke the extension
+* #60 Made citation targets to be highlighted (only works with Semantic MediaWiki 3.0.0 and later)
+* #60 Made the link to resource on special page "Browse" (`Special:Browse`) adaptable via class  
+  `.scite-citation-resourcelink a:before`
+* Several internal code changes
+* Localization updates from https://translatewiki.net
+
+
 ### 1.4.0
 
 Released on May 28, 2017.
