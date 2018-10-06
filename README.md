@@ -32,8 +32,6 @@ as a means to declare a citation resource.
 
 ## Installation
 
-## Installation
-
 The recommended way to install Semantic Cite is using [Composer](http://getcomposer.org) with
 [MediaWiki's built-in support for Composer](https://www.mediawiki.org/wiki/Composer).
 
