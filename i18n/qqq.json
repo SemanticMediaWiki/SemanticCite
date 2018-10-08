@@ -10,6 +10,7 @@
 		]
 	},
 	"sci-desc": "{{desc|name=Semantic Cite|url=https://www.semantic-mediawiki.org/wiki/Extension:SemanticCite}}",
+	"sci-name": "{{notranslate}}\n\nName of the extension as it should be displayed.",
 	"sci-referencelist-header": "This is the text of a secion header.\n{{Identical|Reference}}",
 	"sci-referencelist-text": "{{notranslate}}\n\nThis message is used for internal parsing.",
 	"sci-scite-parser-not-enabled-namespace": "This is the text of an error message.",

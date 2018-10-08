@@ -6,6 +6,7 @@
 		]
 	},
 	"sci-desc": "Manage citation resources with the help of [https://www.semantic-mediawiki.org Semantic MediaWiki]",
+	"sci-name": "Semantic Cite",
 	"sci-referencelist-header": "References",
 	"sci-referencelist-text": "$1",
 	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code> can not be used on a namespace that is not enabled for Semantic MediaWiki",
