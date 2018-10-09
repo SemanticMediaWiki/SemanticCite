@@ -1,5 +1,12 @@
 This file contains the RELEASE-NOTES of the Semantic Cite (a.k.a. SCI) extension.
 
+### 2.0.1
+
+Released on October 9, 2018.
+
+* Added support for translatable extension name
+* Localization updates from https://translatewiki.net
+
 ### 2.0.0
 
 Released on October 6, 2018.
