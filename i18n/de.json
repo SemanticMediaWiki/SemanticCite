@@ -6,6 +6,7 @@
 		]
 	},
 	"sci-desc": "Ermöglicht das semantische Verwalten von Referenzierungen",
+	"sci-name": "Semantic Cite",
 	"sci-referencelist-header": "Referenzierungen",
 	"sci-scite-parser-not-enabled-namespace": "Die Parserfunktion <code>#scite</code> kann nicht in Namensräumen genutzt werden, in denen keine semantische Annotationen möglich sind.",
 	"sci-scite-parser-no-reference": "Mit der Parserfunktion <code>#scite</code> wurde keine Referenz festgelegt.",
@@ -32,8 +33,8 @@
 	"sci-metadata-search-header-result": "Ergebnis",
 	"sci-metadata-search-form-submit": "Suche",
 	"sci-metadata-search-select-label": "Typ:",
-	"sci-metadata-search-read-only": "Die Datenbank befindet sich im schreibgeschützten Modus und verhindert die automatische Seitenerstellung.",
-	"sci-metadata-search-has-match": "Die Kennung entspricht den Referenzierungsquellen, die das gleiche Identifizierungsmerkmal enthalten und schließt ein: $1.",
+	"sci-metadata-search-read-only": "Die Datenbank ist aktuell schreibgeschützt und verhindert so möglicherweise die automatische Erstellung von Seiten.",
+	"sci-metadata-search-has-match": "Die Kennung entspricht Referenzierungsquellen, die das gleiche Identifizierungsmerkmal haben und umfasst: $1.",
 	"sci-metadata-search-cached": "Das Ergebnis der Suche stammt aus dem Cache.",
 	"sci-metadata-search-intro": "Bitte gib ein Identifizierungsmerkmal (Kennung) an und wähle einen Dienstanbieter aus, um abrufbare Metadaten im für die Parserfunktion <code>#scite</code> erforderlichen Format zu erhalten. Hierfür ist eine aktive Internetverbindung erforderlich.",
 	"sci-metadata-search-intro-doi": "[[Property:DOI|DOI]] zur Suche im CrossRef-Repositorium",
