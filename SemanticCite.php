@@ -36,7 +36,7 @@ class SemanticCite {
 	/**
 	 * @since 1.1
 	 */
-	public static function initExtension( $credits = array() ) {
+	public static function initExtension( $credits = [] ) {
 
 		// See https://phabricator.wikimedia.org/T151136
 		define( 'SCI_VERSION', isset( $credits['version'] ) ? $credits['version'] : 'UNKNOWN' );
