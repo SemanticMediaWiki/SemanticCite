@@ -4,10 +4,12 @@
 			"Cocu",
 			"Jon Harald Søby",
 			"Danmichaelo",
-			"Event"
+			"Event",
+			"Orf3us"
 		]
 	},
 	"sci-desc": "Behandle siteringsressurser med hjelp av [https://www.semantic-mediawiki.org Semantic MediaWiki]",
+	"sci-name": "Semantic Cite",
 	"sci-referencelist-header": "Referanser",
 	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code> kan ikke brukes i navnerom som ikke har Semantic MediaWiki påslått",
 	"sci-scite-parser-no-reference": "<code>#scite</code> erklærte ikke noen referanse.",
@@ -52,5 +54,8 @@
 	"sci-template-definition": "Ei liste over siteringstyper som mappes mot forhåndsdefinerte maler som inneholder formateringsregler for referanser.\n foo-type|bar-mal",
 	"smw-pa-property-predefined__sci_cite_key": "«$1» er en forhåndsdefinert egenskap som identifiserer en siteringsressurs og tilbys av utvidelsen [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite].",
 	"smw-pa-property-predefined__sci_cite_reference": "«$1» er en predefinert egenskap som identifiserer en siteringsressurs når den blir brukt som referanse (f. eks. i tekster) og tilbys av [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite]-utvidelsen.",
-	"smw-pa-property-predefined__sci_cite_text": "\"$1\" eer en predefinert egenskap som inneholder en preformatert tekst, og er tilrettelagt av [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite]-utvidelsen."
+	"smw-pa-property-predefined__sci_cite_text": "\"$1\" er en predefinert egenskap som inneholder en preformatert tekst, og er tilrettelagt av [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite]-utvidelsen.",
+	"smw-pa-property-predefined__sci_cite": "\"$1\" er en predefinert egenskap fra [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite]-utvidelsen som beskriver alle elementer av et sitat, og lagres som et subobjekt.",
+	"smw-pa-property-predefined__sci_doi": "\"$1\" er en predefinert egenskap fra [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite]-utvidelsen som representerer en \"Digital Object Identifier\".",
+	"smw-pa-property-predefined__sci_pmcid": "\"$1\" er en predefinert egenskap fra [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite]-utvidelsen som representerer en \"PubMed Central reference number (PMCID)\" og lenker til fulltekst-artikler i \"PubMed Central\"."
 }
