@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"Joedalton",
+			"Saederup92"
+		]
+	},
+	"sci-referencelist-header": "Henvisninger",
+	"sci-datavalue-invalid-id-value": "\"$1\" er en ugyldig værdi for $2 typen.",
+	"sci-property-alias-citation-text": "Citeringstekst",
+	"findmetadatabyid": "Find metadata",
+	"sci-specials-header-results": "Liste over resultater",
+	"sci-specials-select-options": "Vælg indstillinger",
+	"sci-specials-no-results": "Ingen resultater tilgængelige.",
+	"sci-metadata-search-form": "Efter id",
+	"sci-metadata-search-action-highlight": "Vælg tekst",
+	"sci-metadata-search-action-create": "Opret",
+	"sci-metadata-search-header-log": "Log",
+	"sci-metadata-search-header-result": "Resultat",
+	"sci-metadata-search-form-submit": "Søg",
+	"sci-metadata-search-select-label": "Tast:"
+}
