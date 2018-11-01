@@ -8,6 +8,7 @@
 		]
 	},
 	"sci-desc": "[https://www.semantic-mediawiki.org Semantic MediaWiki]를 사용하여 출처를 관리하세요",
+	"sci-name": "Semantic Cite",
 	"sci-referencelist-header": "각주",
 	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code>는 시맨틱 미디어위키에서 사용 중이 아닌 이름공간에서 사용할 수 없습니다",
 	"sci-scite-parser-no-reference": "<code>#scite</code>는 참조를 선언하지 않았습니다.",
