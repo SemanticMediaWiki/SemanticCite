@@ -1,0 +1,19 @@
+{
+	"@metadata": [],
+	"sci-name": "Semantičko citiranje",
+	"sci-referencelist-header": "Reference",
+	"sci-property-alias-citation-key": "Ključ reference",
+	"sci-property-alias-citation-text": "Tekst reference",
+	"sci-property-alias-citation-resource": "Resurs reference",
+	"findmetadatabyid": "Pronađi metapodatke",
+	"sci-specials-header-results": "Spisak rezultata",
+	"sci-specials-select-options": "Odaberi opciju",
+	"sci-specials-no-results": "Nema dostupnih rezultata.",
+	"sci-metadata-search-form": "Po ID",
+	"sci-metadata-search-action-highlight": "Odaberi tekst",
+	"sci-metadata-search-action-create": "Napravi",
+	"sci-metadata-search-header-log": "Dnevnik",
+	"sci-metadata-search-header-result": "Rezultat",
+	"sci-metadata-search-form-submit": "Pretraži",
+	"sci-metadata-search-select-label": "Tip:"
+}
