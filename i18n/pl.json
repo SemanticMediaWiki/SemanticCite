@@ -3,7 +3,8 @@
 		"authors": [
 			"Chrumps",
 			"XnIcRaM",
-			"InternerowyGołąb"
+			"InternerowyGołąb",
+			"CiaPan"
 		]
 	},
 	"sci-desc": "Zarządzanie zasobami cytowania z pomocą [https://www.semantic-mediawiki.org Semantic MediaWiki]",
@@ -30,8 +31,10 @@
 	"sci-metadata-search-select-label": "Typ:",
 	"sci-metadata-search-read-only": "Baza danych jest w trybie tylko do odczytu i może sprawiać trudność przy automatycznym tworzeniu stron",
 	"sci-metadata-search-has-match": "ID został przypisany do cytatu źródeł które zawierają tak sam identyfikator oraz posiadają: $1.",
+	"sci-metadata-search-cached": "Wynik wyszukiwania został pobrany z pamięci podręcznej.",
 	"sci-metadata-search-intro-doi": "[[Property:DOI|DOI]] do wyszukiwania w repozytorium CrossRef",
 	"sci-metadata-search-intro-oclc": "Numer [[Property:OCLC|OCLC]] w katalogu WorldCat",
+	"onoi-remi-request-error": "Żądanie REST/HTTP zwróciło \"$1\" dla \"$2\".",
 	"onoi-remi-response-empty": "Odpowiedź została zwrócona z pustym wynikiem dla „$1”.",
 	"onoi-remi-parser-no-id-match": "Parser nie mógł dopasować „$1”."
 }
