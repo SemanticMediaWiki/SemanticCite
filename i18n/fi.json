@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"01miki10",
+			"Pyscowicz"
+		]
+	},
+	"sci-referencelist-header": "Viitteet",
+	"sci-datavalue-invalid-id-value": "\"$1\" on virheellinen arvo tyypille $2.",
+	"sci-property-alias-citation-text": "Lainausteksti",
+	"findmetadatabyid": "Etsi metatiedot",
+	"sci-specials-header-results": "Luettelo tuloksista",
+	"sci-specials-select-options": "Valitse vaihtoehto",
+	"sci-specials-no-results": "Ei tuloksia saatavilla.",
+	"sci-metadata-search-action-highlight": "Valitse teksti",
+	"sci-metadata-search-action-create": "Luo",
+	"sci-metadata-search-header-log": "Loki",
+	"sci-metadata-search-header-result": "Tulos",
+	"sci-metadata-search-form-submit": "Etsi",
+	"sci-metadata-search-select-label": "Tyyppi:",
+	"sci-metadata-search-read-only": "Tietokanta on vain luku -tilassa ja voi estää automaattisen sivujen luonnin."
+}
