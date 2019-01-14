@@ -7,6 +7,7 @@
 		]
 	},
 	"sci-desc": "Кіраваць крыніцамі спасылак з дапамогай [https://www.semantic-mediawiki.org Semantic MediaWiki]",
+	"sci-name": "Semantic Cite",
 	"sci-referencelist-header": "Спасылкі",
 	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code> ня можа быць скарыстаны ў прасторы назваў, ня ўключанай для Semantic MediaWiki",
 	"sci-scite-parser-no-reference": "<code>#scite</code> ня выявіў спасылку.",

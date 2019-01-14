@@ -4,10 +4,12 @@
 			"Chrumps",
 			"XnIcRaM",
 			"InternerowyGołąb",
-			"CiaPan"
+			"CiaPan",
+			"Railfail536"
 		]
 	},
 	"sci-desc": "Zarządzanie zasobami cytowania z pomocą [https://www.semantic-mediawiki.org Semantic MediaWiki]",
+	"sci-name": "Semantic Cite",
 	"sci-referencelist-header": "Przypisy",
 	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code> nie może być używany w przestrzeni nazw nie dostępnej dla Semantic MediaWiki",
 	"sci-datavalue-empty-reference": "Odnośnik do cytatu nie powinien być pusty.",
