@@ -7,7 +7,6 @@
 		]
 	},
 	"sci-desc": "Gerir recursos de citação com a ajuda do [https://www.semantic-mediawiki.org MediaWiki Semântico]",
-	"sci-name": "Citação semântica",
 	"sci-referencelist-header": "Referências",
 	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code> não pode ser usado num espaço nominal que não esteja ativo para o MediaWiki Semântico",
 	"sci-scite-parser-no-reference": "<code>#scite</code> não declarou uma referência.",

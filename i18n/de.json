@@ -6,7 +6,6 @@
 		]
 	},
 	"sci-desc": "Ermöglicht das semantische Verwalten von Referenzierungen",
-	"sci-name": "Semantic Cite",
 	"sci-referencelist-header": "Referenzierungen",
 	"sci-scite-parser-not-enabled-namespace": "Die Parserfunktion <code>#scite</code> kann nicht in Namensräumen genutzt werden, in denen keine semantische Annotationen möglich sind.",
 	"sci-scite-parser-no-reference": "Mit der Parserfunktion <code>#scite</code> wurde keine Referenz festgelegt.",

@@ -9,7 +9,6 @@
 		]
 	},
 	"sci-desc": "在 [https://www.semantic-mediawiki.org Semantic MediaWiki] 的幫助下管理引用資源",
-	"sci-name": "Semantic Cite",
 	"sci-referencelist-header": "參考文獻",
 	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code> 不能在不支援 Semantic MediaWiki 的名稱空間上使用",
 	"sci-scite-parser-no-reference": "<code>#scite</code> 未宣稱一條參考文獻。",

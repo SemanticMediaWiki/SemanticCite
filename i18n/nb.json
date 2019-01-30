@@ -9,7 +9,6 @@
 		]
 	},
 	"sci-desc": "Behandle siteringsressurser med hjelp av [https://www.semantic-mediawiki.org Semantic MediaWiki]",
-	"sci-name": "Semantic Cite",
 	"sci-referencelist-header": "Referanser",
 	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code> kan ikke brukes i navnerom som ikke har Semantic MediaWiki påslått",
 	"sci-scite-parser-no-reference": "<code>#scite</code> erklærte ikke noen referanse.",

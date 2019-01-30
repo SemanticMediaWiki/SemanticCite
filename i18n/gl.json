@@ -7,7 +7,6 @@
 		]
 	},
 	"sci-desc": "Xestionar os recursos de citas coa axuda de [https://www.semantic-mediawiki.org MediaWiki Semántica]",
-	"sci-name": "Cita semántica",
 	"sci-referencelist-header": "Referencias",
 	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code> non pode usarse nun espazo de nomes que non ten activo o MediaWiki Semántico",
 	"sci-scite-parser-no-reference": "<code>#scite</code> non declara unha referencia.",

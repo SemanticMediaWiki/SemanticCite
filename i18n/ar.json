@@ -8,7 +8,6 @@
 		]
 	},
 	"sci-desc": "إدارة موارد الاقتباس بمساعدة من [https://www.semantic-mediawiki.org ميدياويكي الدلالي]",
-	"sci-name": "Semantic Cite",
 	"sci-referencelist-header": "مراجع",
 	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code> لا يمكن استخدامه على نطاق ليس متاحًا على دلالات ميدياويكي",
 	"sci-scite-parser-no-reference": "<code>#scite</code> لم يعلن عن مرجع",

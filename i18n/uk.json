@@ -5,7 +5,6 @@
 		]
 	},
 	"sci-desc": "Управління ресурсами цитування за допомогою [https://www.semantic-mediawiki.org Семантичної MediaWiki]",
-	"sci-name": "Semantic Cite",
 	"sci-referencelist-header": "Посилання",
 	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code> не може використовуватись у просторі назв, не увімкненому для Семантичної MediaWiki",
 	"sci-scite-parser-no-reference": "<code>#scite</code> не оголосив посилання.",

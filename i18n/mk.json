@@ -5,7 +5,6 @@
 		]
 	},
 	"sci-desc": "Раководење со ресурси за наведување со помош на [https://www.semantic-mediawiki.org Семантички МедијаВики]",
-	"sci-name": "Семантичко наведување",
 	"sci-referencelist-header": "Наводи",
 	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code> не може да се користи на именски простор каде не е овозможен Семантички Медијавики",
 	"sci-scite-parser-no-reference": "<code>#scite</code> не зададе разлика.",
