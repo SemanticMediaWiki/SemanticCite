@@ -15,6 +15,8 @@
 	"sci-scite-parser-no-citation-text": "<code>#scite</code> لا يمكن أن تجعل نص الاقتباس للمرجع \"$1\" لأن النوع \"$2\" لم يستند إلى [[MediaWiki:Sci-template-definition|قالب]].",
 	"sci-datavalue-empty-reference": "الاستشهاد بمرجع لا يفترض أن يكون فارغًا.",
 	"sci-datavalue-invalid-id-value": "\"$1\" قيمة غير صالحة لنوع $2.",
+	"sci-property-alias-viaf": "فياف",
+	"sci-property-alias-pmid": "بمد",
 	"sci-property-alias-citation-key": "مفتاح استشهاد",
 	"sci-property-alias-citation-reference": "مرجع الاستشهاد",
 	"sci-property-alias-citation-text": "نص استشهاد",
