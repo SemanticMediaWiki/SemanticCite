@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Piramidion"
+			"Piramidion",
+			"Олександр М."
 		]
 	},
 	"sci-desc": "Управління ресурсами цитування за допомогою [https://www.semantic-mediawiki.org Семантичної MediaWiki]",
@@ -29,7 +30,7 @@
 	"sci-metadata-search-action-create": "Створити",
 	"sci-metadata-search-header-log": "Журнал",
 	"sci-metadata-search-header-result": "Результат",
-	"sci-metadata-search-form-submit": "Пошук",
+	"sci-metadata-search-form-submit": "Знайти",
 	"sci-metadata-search-select-label": "Тип:",
 	"sci-metadata-search-read-only": "База даних перебуває в режимі читання і може перешкодити автоматичному створенню сторінок.",
 	"sci-metadata-search-has-match": "Виконано пошук збігів цього ідентифікатора з ресурсами цитувань, які містять такий же ідентифікатор і включають: $1.",
