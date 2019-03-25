@@ -4,12 +4,13 @@
 			"INS Pirat",
 			"Alexandr Efremov",
 			"Okras",
-			"Movses"
+			"Movses",
+			"Diralik"
 		]
 	},
 	"sci-desc": "Управление ресурсами цитирования с помощью [https://www.semantic-mediawiki.org Semantic MediaWiki]",
 	"sci-referencelist-header": "Примечания",
-	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code> не может использоваться в пространстве имен, не включенном для Semantic MediaWiki",
+	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code> не может использоваться в пространстве имён, не включённом для Semantic MediaWiki",
 	"sci-scite-parser-no-reference": "<code>#scite</code> не объявил ссылки.",
 	"sci-scite-parser-no-type": "<code>#scite</code> не смог идентифицировать тип ссылки для «$1».",
 	"sci-scite-parser-no-citation-text": "<code>#scite</code> не смог воспроизвести текст для цитирования ссылки «$1», \nпоскольку тип «$2» не был закреплен за [[MediaWiki:Sci-template-definition|шаблоном]].",
