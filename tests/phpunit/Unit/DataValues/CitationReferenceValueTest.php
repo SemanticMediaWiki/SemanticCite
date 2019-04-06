@@ -48,15 +48,12 @@ class CitationReferenceValueTest extends \PHPUnit_Framework_TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$this->dataValueServiceFactory->importExtraneousFunctions(
-			[
-				'\SCI\CitationReferencePositionJournal' => function() use ( $citationReferencePositionJournal ) {
-					return $citationReferencePositionJournal;
-				}
-			]
-		);
+		$callback = function() use ( $citationReferencePositionJournal ) {
+			return $citationReferencePositionJournal;
+		};
 
 		$instance = new CitationReferenceValue();
+		$instance->addCallable( 'sci.citationreferencepositionjournal', $callback );
 
 		$instance->setDataValueServiceFactory(
 			$this->dataValueServiceFactory

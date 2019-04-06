@@ -28,6 +28,11 @@ class HookRegistry {
 	private $options;
 
 	/**
+	 * @var CitationReferencePositionJournal
+	 */
+	private $citationReferencePositionJournal;
+
+	/**
 	 * @since 1.0
 	 *
 	 * @param Store $store
@@ -150,6 +155,48 @@ class HookRegistry {
 		};
 	}
 
+	public function onDataTypeInit( $dataTypeRegistry ) {
+
+		$dataTypeRegistry->registerDatatype(
+			'_sci_ref',
+			'\SCI\DataValues\CitationReferenceValue',
+			DataItem::TYPE_BLOB
+		);
+
+		$types = [
+			'_sci_doi',
+			'_sci_pmcid',
+			'_sci_pmid',
+			'_sci_oclc',
+			'_sci_viaf',
+			'_sci_olid'
+		];
+
+		foreach ( $types as $type ) {
+			$dataTypeRegistry->registerDatatype(
+				$type,
+				'\SCI\DataValues\ResourceIdentifierStringValue',
+				DataItem::TYPE_BLOB
+			);
+		}
+
+		$callback = function() {
+			return $this->citationReferencePositionJournal;
+		};
+
+		// SMW 3.1+
+		if ( method_exists( $dataTypeRegistry, 'registerCallable' ) ) {
+			$dataTypeRegistry->registerCallable( '_sci_ref', 'sci.citationreferencepositionjournal', $callback );
+		} else {
+			$dataTypeRegistry->registerExtraneousFunction(
+				'\SCI\CitationReferencePositionJournal',
+				$callback
+			);
+		}
+
+		return true;
+	}
+
 	private function addCallbackHandlers( $store, $cache, $options ) {
 
 		$propertyRegistry = new PropertyRegistry();
@@ -158,7 +205,7 @@ class HookRegistry {
 		$cacheKeyProvider = new CacheKeyProvider();
 		$cacheKeyProvider->setCachePrefix( $options->get( 'cachePrefix' ) );
 
-		$citationReferencePositionJournal = new CitationReferencePositionJournal(
+		$this->citationReferencePositionJournal = new CitationReferencePositionJournal(
 			$cache,
 			$cacheKeyProvider
 		);
@@ -175,38 +222,7 @@ class HookRegistry {
 		/**
 		 * @see https://www.semantic-mediawiki.org/wiki/Hooks/SMW::DataType::initTypes
 		 */
-		$this->handlers['SMW::DataType::initTypes'] = function ( $dataTypeRegistry ) use( $citationReferencePositionJournal ) {
-
-			$dataTypeRegistry->registerDatatype(
-				'_sci_ref',
-				'\SCI\DataValues\CitationReferenceValue',
-				DataItem::TYPE_BLOB
-			);
-
-			$types = [
-				'_sci_doi',
-				'_sci_pmcid',
-				'_sci_pmid',
-				'_sci_oclc',
-				'_sci_viaf',
-				'_sci_olid'
-			];
-
-			foreach ( $types as $type ) {
-				$dataTypeRegistry->registerDatatype(
-					$type,
-					'\SCI\DataValues\ResourceIdentifierStringValue',
-					DataItem::TYPE_BLOB
-				);
-			}
-
-			$dataTypeRegistry->registerExtraneousFunction(
-				'\SCI\CitationReferencePositionJournal',
-				function() use( $citationReferencePositionJournal ) { return $citationReferencePositionJournal; }
-			);
-
-			return true;
-		};
+		$this->handlers['SMW::DataType::initTypes'] = [ $this, 'onDataTypeInit' ];
 
 		/**
 		 * @see https://www.semantic-mediawiki.org/wiki/Hooks/SMW::Browse::AfterIncomingPropertiesLookupComplete
@@ -295,12 +311,12 @@ class HookRegistry {
 		/**
 		 * @see https://www.mediawiki.org/wiki/Manual:Hooks/OutputPageBeforeHTML
 		 */
-		$this->handlers['OutputPageBeforeHTML'] = function( &$outputPage, &$text ) use ( $store, $namespaceExaminer, $citationReferencePositionJournal, $cache, $cacheKeyProvider, $options ) {
+		$this->handlers['OutputPageBeforeHTML'] = function( &$outputPage, &$text ) use ( $store, $namespaceExaminer, $cache, $cacheKeyProvider, $options ) {
 
 			$referenceListFactory = new ReferenceListFactory(
 				$store,
 				$namespaceExaminer,
-				$citationReferencePositionJournal
+				$this->citationReferencePositionJournal
 			);
 
 			$cachedReferenceListOutputRenderer = $referenceListFactory->newCachedReferenceListOutputRenderer(
@@ -318,7 +334,7 @@ class HookRegistry {
 		/**
 		 * @see https://www.semantic-mediawiki.org/wiki/Hooks#SMWStore::updateDataBefore
 		 */
-		$this->handlers['SMWStore::updateDataBefore'] = function ( $store, $semanticData ) use ( $cache, $cacheKeyProvider, $citationReferencePositionJournal ) {
+		$this->handlers['SMWStore::updateDataBefore'] = function ( $store, $semanticData ) use ( $cache, $cacheKeyProvider ) {
 
 			$hash = $semanticData->getSubject()->getHash();
 
@@ -326,7 +342,7 @@ class HookRegistry {
 			// more because as long as a CiteRef exists, CitationReferencePositionJournal
 			// is able recompute and update the entries but with no CiteRef left
 			// the last entry will remain and needs to be purged at this point
-			if ( !$citationReferencePositionJournal->hasCitationReference( $semanticData ) ) {
+			if ( !$this->citationReferencePositionJournal->hasCitationReference( $semanticData ) ) {
 				$cache->delete(
 					$cacheKeyProvider->getCacheKeyForCitationReference( $hash )
 				);
