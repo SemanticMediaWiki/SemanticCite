@@ -62,7 +62,12 @@ class CitationReferenceValue extends StringValue {
 	 */
 	protected function parseUserValue( $value ) {
 
-		$this->citationReferencePositionJournal = $this->getExtraneousFunctionFor( '\SCI\CitationReferencePositionJournal' );
+		if ( method_exists( $this, 'getCallable' ) ) {
+			$citationReferencePositionJournal = $this->getCallable( 'sci.citationreferencepositionjournal' );
+			$this->citationReferencePositionJournal = $citationReferencePositionJournal();
+		} else {
+			$this->citationReferencePositionJournal = $this->getExtraneousFunctionFor( '\SCI\CitationReferencePositionJournal' );
+		}
 
 		$value = trim( $value );
 
@@ -103,7 +108,12 @@ class CitationReferenceValue extends StringValue {
 	public function getShortWikiText( $linked = null ) {
 
 		if ( $this->citationReferencePositionJournal === null ) {
-			$this->citationReferencePositionJournal = $this->getExtraneousFunctionFor( '\SCI\CitationReferencePositionJournal' );
+			if ( method_exists( $this, 'getCallable' ) ) {
+				$citationReferencePositionJournal = $this->getCallable( 'sci.citationreferencepositionjournal' );
+				$this->citationReferencePositionJournal = $citationReferencePositionJournal();
+			} else {
+				$this->citationReferencePositionJournal = $this->getExtraneousFunctionFor( '\SCI\CitationReferencePositionJournal' );
+			}
 		}
 
 		// We want the last entry here to get the major/minor
