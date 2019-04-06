@@ -96,7 +96,7 @@
 }
 
 .scite-citation-resourcelink a:before {
-	content: "↑";
+	content: "◌";
 }
 
 .scite-citation-key {
