@@ -29,4 +29,9 @@ print sprintf( "\n%-20s%s\n", "Semantic Cite:", SCI_VERSION );
 $autoloader = require  __DIR__ . '/../../SemanticMediaWiki/tests/autoloader.php';
 $autoloader->addPsr4( 'SCI\\Tests\\', __DIR__ . '/phpunit/Unit' );
 $autoloader->addPsr4( 'SCI\\Tests\\Integration\\', __DIR__ . '/phpunit/Integration' );
+
+$autoloader->addClassMap( [
+	'SCI\Tests\PHPUnitCompat' => __DIR__ . '/phpunit/PHPUnitCompat.php',
+] );
+
 unset( $autoloader );

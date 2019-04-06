@@ -3,6 +3,7 @@
 namespace SCI\Tests\DataValues;
 
 use SCI\DataValues\ResourceIdentifierFactory;
+use SCI\Tests\PHPUnitCompat;
 
 /**
  * @covers \SCI\DataValues\ResourceIdentifierFactory
@@ -14,6 +15,8 @@ use SCI\DataValues\ResourceIdentifierFactory;
  * @author mwjames
  */
 class ResourceIdentifierFactoryTest extends \PHPUnit_Framework_TestCase {
+
+	use PHPUnitCompat;
 
 	public function testCanConstruct() {
 
