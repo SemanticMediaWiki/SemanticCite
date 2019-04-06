@@ -31,6 +31,14 @@ class SemanticCiteJsonTestCaseScriptRunnerTest extends JsonTestCaseScriptRunner 
 
 		$this->testEnvironment->tearDown();
 
+		// Make sure LocalSettings don't interfere with the default settings
+		$this->testEnvironment->withConfiguration(
+			[
+				'smwgQueryResultCacheType' => false,
+				'smwgPageSpecialProperties' => [ '_MDAT' ],
+			]
+		);
+
 		$validatorFactory = $this->testEnvironment->getUtilityFactory()->newValidatorFactory();
 
 		$this->semanticDataValidator = $validatorFactory->newSemanticDataValidator();
@@ -91,9 +99,9 @@ class SemanticCiteJsonTestCaseScriptRunnerTest extends JsonTestCaseScriptRunner 
 	 * @see JsonTestCaseScriptRunner::getPermittedSettings
 	 */
 	protected function getPermittedSettings() {
-		parent::getPermittedSettings();
+		$settings = parent::getPermittedSettings();
 
-		return [
+		return array_merge( $settings, [
 			'smwgNamespacesWithSemanticLinks',
 			'smwgPageSpecialProperties',
 			'wgLanguageCode',
@@ -101,7 +109,7 @@ class SemanticCiteJsonTestCaseScriptRunnerTest extends JsonTestCaseScriptRunner 
 			'wgLang',
 			'scigCitationReferenceCaptionFormat',
 			'smwgQueryResultCacheType'
-		];
+		] );
 	}
 
 	/**
