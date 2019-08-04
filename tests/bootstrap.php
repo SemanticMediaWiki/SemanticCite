@@ -16,8 +16,8 @@ error_reporting( E_ALL | E_STRICT );
 date_default_timezone_set( 'UTC' );
 ini_set( 'display_errors', 1 );
 
-if ( !is_readable( __DIR__ . '/../../SemanticMediaWiki/tests/autoloader.php' ) ) {
-	die( 'The Semantic MediaWiki test autoloader is required to run the tests.' );
+if ( !defined( 'SMW_PHPUNIT_AUTOLOADER_FILE' ) || !is_readable( SMW_PHPUNIT_AUTOLOADER_FILE ) ) {
+	die( "\nThe Semantic MediaWiki test autoloader is not available" );
 }
 
 if ( !class_exists( 'SemanticCite' ) || ( $version = SemanticCite::getVersion() ) === null ) {
@@ -26,7 +26,7 @@ if ( !class_exists( 'SemanticCite' ) || ( $version = SemanticCite::getVersion() 
 
 print sprintf( "\n%-20s%s\n", "Semantic Cite:", SCI_VERSION );
 
-$autoloader = require  __DIR__ . '/../../SemanticMediaWiki/tests/autoloader.php';
+$autoloader = require  SMW_PHPUNIT_AUTOLOADER_FILE;
 $autoloader->addPsr4( 'SCI\\Tests\\', __DIR__ . '/phpunit/Unit' );
 $autoloader->addPsr4( 'SCI\\Tests\\Integration\\', __DIR__ . '/phpunit/Integration' );
 

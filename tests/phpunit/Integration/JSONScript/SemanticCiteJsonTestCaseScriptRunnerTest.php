@@ -6,7 +6,7 @@ use SCI\MediaWikiNsContentMapper;
 use SCI\HookRegistry;
 use SCI\Options;
 use Onoi\Cache\CacheFactory;
-use SMW\Tests\JsonTestCaseScriptRunner;
+use SMW\Tests\LightweightJsonTestCaseScriptRunner;
 use SMW\Tests\JsonTestCaseFileHandler;
 use SMW\Tests\Utils\UtilityFactory;
 use SMW\DIWikiPage;
@@ -20,7 +20,7 @@ use SMW\DIWikiPage;
  *
  * @author mwjames
  */
-class SemanticCiteJsonTestCaseScriptRunnerTest extends JsonTestCaseScriptRunner {
+class SemanticCiteJsonTestCaseScriptRunnerTest extends LightweightJsonTestCaseScriptRunner {
 
 	private $semanticDataValidator;
 	private $stringValidator;
@@ -82,13 +82,6 @@ class SemanticCiteJsonTestCaseScriptRunnerTest extends JsonTestCaseScriptRunner 
 	}
 
 	/**
-	 * @see JsonTestCaseScriptRunner::getAllowedTestCaseFiles
-	 */
-	protected function getAllowedTestCaseFiles() {
-		return [];
-	}
-
-	/**
 	 * @see JsonTestCaseScriptRunner::getTestCaseLocation
 	 */
 	protected function getTestCaseLocation() {
@@ -118,15 +111,7 @@ class SemanticCiteJsonTestCaseScriptRunnerTest extends JsonTestCaseScriptRunner 
 	 * @param JsonTestCaseFileHandler $jsonTestCaseFileHandler
 	 */
 	protected function runTestCaseFile( JsonTestCaseFileHandler $jsonTestCaseFileHandler ) {
-
-		$this->checkEnvironmentToSkipCurrentTest( $jsonTestCaseFileHandler );
-
-		foreach ( $this->getPermittedSettings() as $key ) {
-			$this->changeGlobalSettingTo(
-				$key,
-				$jsonTestCaseFileHandler->getSettingsFor( $key, $this->getConfigValueCallback( $key ) )
-			);
-		}
+		parent::runTestCaseFile( $jsonTestCaseFileHandler );
 
 		// On SQLite we don't want DB dead locks due to parallel write access
 		$this->changeGlobalSettingTo(
