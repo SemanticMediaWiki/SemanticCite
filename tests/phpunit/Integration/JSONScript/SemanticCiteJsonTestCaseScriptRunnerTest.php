@@ -214,7 +214,8 @@ class SemanticCiteJsonTestCaseScriptRunnerTest extends JsonTestCaseScriptRunner 
 			isset( $case['namespace'] ) ? constant( $case['namespace'] ) : NS_MAIN
 		);
 
-		$parserOutput = UtilityFactory::getInstance()->newPageReader()->getEditInfo( $subject->getTitle() )->output;
+		$pageReader = UtilityFactory::getInstance()->newPageReader();
+		$parserOutput = $pageReader->getEditInfo( $subject->getTitle() )->getOutput();
 
 		// Cheating a bit here but this is to ensure the OutputPageBeforeHTML
 		// hook is run
