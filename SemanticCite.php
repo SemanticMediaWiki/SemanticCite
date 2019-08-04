@@ -7,7 +7,7 @@ use SMW\ApplicationFactory;
 /**
  * @see https://github.com/SemanticMediaWiki/SemanticCite/
  *
- * @defgroup SCI Semantic Citation
+ * @defgroup SCI Semantic Cite
  */
 SemanticCite::load();
 
