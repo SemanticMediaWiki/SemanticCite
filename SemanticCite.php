@@ -100,8 +100,7 @@ class SemanticCite {
 				'onoi.qtip',
 				'onoi.blobstore',
 				'onoi.util',
-				'ext.scite.styles',
-				'mediawiki.api.parse'
+				'ext.scite.styles'
 			],
 			'messages' => [
 				'sci-tooltip-citation-lookup-failure',
