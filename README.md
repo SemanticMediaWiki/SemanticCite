@@ -23,12 +23,12 @@ Several short [videos](https://www.youtube.com/playlist?list=PLIJ9eX-UsA5eI_YFdn
 
 ## Requirements
 
-- PHP 5.6 or later
-- MediaWiki 1.27 or later
-- [Semantic MediaWiki][smw] 2.5 or later
+- PHP 7.0 or later
+- MediaWiki 1.31 or later
+- [Semantic MediaWiki][smw] 3.0 or later
 
-Semantic Cite **does not require** nor uses any part of [`Cite`][mw-cite] (or `<ref>`)
-as a means to declare a citation resource.
+Semantic Cite **does not require** nor uses any part of [`Cite`][mw-cite] (or `<ref>`) as a means to declare
+a citation resource.
 
 ## Installation
 
@@ -40,20 +40,13 @@ instructions provided.
 
 ### Step 1
 
-Change to the base directory of your MediaWiki installation. This is where the "LocalSettings.php"
-file is located. If you have not yet installed Composer do it now by running the following command
-in your shell:
-
-    wget https://getcomposer.org/composer.phar
-
-### Step 2
-    
-If you do not have a "composer.local.json" file yet, create one and add the following content to it:
+Change to the base directory of your MediaWiki installation. If you do not have a "composer.local.json" file yet,
+create one and add the following content to it:
 
 ```
 {
 	"require": {
-		"mediawiki/semantic-cite": "~2.0"
+		"mediawiki/semantic-cite": "~2.1"
 	}
 }
 ```
@@ -61,11 +54,11 @@ If you do not have a "composer.local.json" file yet, create one and add the foll
 If you already have a "composer.local.json" file add the following line to the end of the "require"
 section in your file:
 
-    "mediawiki/semantic-cite": "~2.0"
+    "mediawiki/semantic-cite": "~2.1"
 
 Remember to add a comma to the end of the preceding line in this section.
 
-### Step 3
+### Step 2
 
 Run the following command in your shell:
 
@@ -74,21 +67,16 @@ Run the following command in your shell:
 Note if you have Git installed on your system add the `--prefer-source` flag to the above command. Also
 note that it may be necessary to run this command twice. If unsure do it twice right away.
 
-### Step 4
+### Step 3
 
 Add the following line to the end of your "LocalSettings.php" file:
 
     wfLoadExtension( 'SemanticCite' );
     
-### Step 5
+### Step 4
 
 Run the **maintenance script ["update.php"][mw-update]** to ensure that property tables are properly
 initialized.
-
-### Verify installation success
-
-As final step, you can verify SCI got installed by looking at the "Special:Version" page on your wiki and
-check that it is listed in the semantic extensions section.
 
 ## Usage
 
