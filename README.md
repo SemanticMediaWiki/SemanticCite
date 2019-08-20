@@ -137,7 +137,6 @@ have a look at the contribution guideline.
 * [File an issue](https://github.com/SemanticMediaWiki/SemanticCite/issues)
 * [Submit a pull request](https://github.com/SemanticMediaWiki/SemanticCite/pulls)
 * Ask a question on [the mailing list](https://www.semantic-mediawiki.org/wiki/Mailing_list)
-* Ask a question on the #semantic-mediawiki IRC channel on Freenode.
 
 ## Tests
 
