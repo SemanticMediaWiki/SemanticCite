@@ -27,7 +27,7 @@ Several short [videos](https://www.youtube.com/playlist?list=PLIJ9eX-UsA5eI_YFdn
 - MediaWiki 1.31 or later
 - [Semantic MediaWiki][smw] 3.0 or later
 
-Semantic Cite **does not require** nor uses any part of [`Cite`][mw-cite] (or `<ref>`) as a means to declare
+Semantic Cite **does not require** nor uses any part of extension [Cite][mw-cite] (or `<ref>` tags) as a means to declare
 a citation resource.
 
 ## Installation
@@ -64,8 +64,7 @@ Run the following command in your shell:
 
     php composer.phar update --no-dev
 
-Note if you have Git installed on your system add the `--prefer-source` flag to the above command. Also
-note that it may be necessary to run this command twice. If unsure do it twice right away.
+Note if you have Git installed on your system add the `--prefer-source` flag to the above command.
 
 ### Step 3
 
