@@ -90,18 +90,32 @@ class SemanticCite {
 			]
 		];
 
+		// #71
+		if ( version_compare( $GLOBALS['wgVersion'], '1.32', '<' ) ) {
+			$dependencies = [
+				'onoi.qtip',
+				'onoi.blobstore',
+				'onoi.util',
+				'ext.scite.styles',
+				'mediawiki.api.parse'
+			];
+		} else {
+			$dependencies = [
+				'onoi.qtip',
+				'onoi.blobstore',
+				'onoi.util',
+				'ext.scite.styles',
+				'mediawiki.api'
+			];
+		}
+
 		$GLOBALS['wgResourceModules']['ext.scite.tooltip'] = [
 			'scripts' => [
 				'res/scite.tooltip.js'
 			],
 			'localBasePath' => __DIR__ ,
 			'remoteExtPath' => 'SemanticCite',
-			'dependencies'  => [
-				'onoi.qtip',
-				'onoi.blobstore',
-				'onoi.util',
-				'ext.scite.styles'
-			],
+			'dependencies'  => $dependencies,
 			'messages' => [
 				'sci-tooltip-citation-lookup-failure',
 				'sci-tooltip-citation-lookup-failure-multiple'
