@@ -2,7 +2,7 @@
 
 - Define property and text formatting rules
 - Create a resource with `#scite`
-- Create an in-text citation using `[[Citation reference:...]]` (= `[[CiteRef:...]]`)
+- Create an in-text citation using `[[Citation reference::...]]` (= `[[CiteRef::...]]`)
 
 ## Create a citation resource
 
