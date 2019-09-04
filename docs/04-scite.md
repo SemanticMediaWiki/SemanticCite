@@ -80,7 +80,7 @@ is used for processing to return a formatted text value.
 ```
 {{#scite:Einstein 1956
  |type=book
- |authoru=Albert Einstein
+ |author=Albert Einstein
  |title=Investigations on the Theory of the Brownian Movement
  |publisher=Courier Corporation
  |year=1956
