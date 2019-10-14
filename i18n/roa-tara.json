@@ -5,6 +5,7 @@
 		]
 	},
 	"sci-referencelist-header": "Rifereminde",
+	"sci-scite-parser-no-reference": "<code>#scite</code> non ge dichiare 'nu referimende.",
 	"sci-property-alias-citation-key": "Chiave d'a citazione",
 	"sci-property-alias-citation-reference": "Referimende d'a citazione",
 	"sci-property-alias-citation-text": "Teste d'a citazione",
