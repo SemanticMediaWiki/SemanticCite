@@ -6,7 +6,8 @@
 			"Assoc",
 			"Kly",
 			"Deathkon",
-			"Xiplus"
+			"Xiplus",
+			"Winston Sung"
 		]
 	},
 	"sci-desc": "在 [https://www.semantic-mediawiki.org Semantic MediaWiki] 的幫助下管理引用資源",
@@ -32,7 +33,7 @@
 	"sci-metadata-search-form": "通過ID",
 	"sci-metadata-search-action-highlight": "選擇文字",
 	"sci-metadata-search-action-create": "建立",
-	"sci-metadata-search-header-log": "日誌",
+	"sci-metadata-search-header-log": "紀錄",
 	"sci-metadata-search-header-result": "結果",
 	"sci-metadata-search-form-submit": "搜尋",
 	"sci-metadata-search-select-label": "類型：",
