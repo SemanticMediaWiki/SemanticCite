@@ -2,11 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Chrumps",
-			"XnIcRaM",
-			"InternerowyGołąb",
 			"CiaPan",
+			"InternerowyGołąb",
+			"Rail",
 			"Railfail536",
-			"Rail"
+			"XnIcRaM"
 		]
 	},
 	"sci-desc": "Zarządzanie zasobami cytowania z pomocą [https://www.semantic-mediawiki.org Semantic MediaWiki]",

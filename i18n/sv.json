@@ -1,12 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Josve05a",
-			"WikiPhoenix",
-			"Jopparn",
 			"Bengtsson96",
+			"Jopparn",
+			"Josve05a",
+			"Mjälten",
 			"Psl85",
-			"Mjälten"
+			"WikiPhoenix"
 		]
 	},
 	"sci-desc": "Hantera referensresurser med hjälp av [https://www.semantic-mediawiki.org Semantic MediaWiki]",

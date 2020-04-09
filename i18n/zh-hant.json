@@ -1,13 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Liuxinyu970226",
 			"A2093064",
 			"Assoc",
-			"Kly",
 			"Deathkon",
-			"Xiplus",
-			"Winston Sung"
+			"Kly",
+			"Liuxinyu970226",
+			"Winston Sung",
+			"Xiplus"
 		]
 	},
 	"sci-desc": "在 [https://www.semantic-mediawiki.org Semantic MediaWiki] 的幫助下管理引用資源",

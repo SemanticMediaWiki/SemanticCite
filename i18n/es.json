@@ -1,13 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Macofe",
-			"Lemondoge",
-			"Dgstranz",
 			"Amglez",
+			"Ciencia Al Poder",
+			"Dgstranz",
 			"Fitoschido",
 			"Javiersanp",
-			"Ciencia Al Poder"
+			"Lemondoge",
+			"Macofe"
 		]
 	},
 	"sci-desc": "Gestionar bibliografías con la ayuda de [https://www.semantic-mediawiki.org Semantic MediaWiki]",

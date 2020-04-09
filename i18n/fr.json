@@ -1,14 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Wladek92",
-			"Macofe",
-			"TomT0m",
 			"Gomoko",
-			"Orlodrim",
-			"Trial",
+			"Macofe",
 			"Orikrin1998",
-			"Thibaut120094"
+			"Orlodrim",
+			"Thibaut120094",
+			"TomT0m",
+			"Trial",
+			"Wladek92"
 		]
 	},
 	"sci-desc": "Gérer les ressources de citation à l’aide de [https://www.semantic-mediawiki.org MediaWiki Sémantique]",

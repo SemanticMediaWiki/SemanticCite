@@ -1,11 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"INS Pirat",
 			"Alexandr Efremov",
-			"Okras",
+			"Diralik",
+			"INS Pirat",
 			"Movses",
-			"Diralik"
+			"Okras"
 		]
 	},
 	"sci-desc": "Управление ресурсами цитирования с помощью [https://www.semantic-mediawiki.org Semantic MediaWiki]",
