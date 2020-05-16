@@ -1,5 +1,12 @@
 This file contains the RELEASE-NOTES of the **Semantic Cite** (a.k.a. SCI) extension.
 
+## 2.1.1
+
+Released on May 16, 2020.
+
+* #71 Fixed support for MediaWiki 1.31.x
+* Localization updates from https://translatewiki.net
+
 ## 2.1.0
 
 Released on August 18, 2019.
