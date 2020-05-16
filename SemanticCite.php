@@ -172,18 +172,4 @@ class SemanticCite {
 		$hookRegistry->register();
 	}
 
-	/**
-	 * @since 1.1
-	 *
-	 * @return string|null
-	 */
-	public static function getVersion() {
-
-		if ( !defined( 'SCI_VERSION' ) ) {
-			return null;
-		}
-
-		return SCI_VERSION;
-	}
-
 }

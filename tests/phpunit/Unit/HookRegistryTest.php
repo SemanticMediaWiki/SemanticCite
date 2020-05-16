@@ -7,6 +7,7 @@ use SCI\Options;
 use SMW\DataTypeRegistry;
 use SMW\DIWikiPage;
 use SMW\DIProperty;
+use SMW\Tests\PHPUnitCompat;
 
 /**
  * @covers \SCI\HookRegistry
@@ -18,6 +19,8 @@ use SMW\DIProperty;
  * @author mwjames
  */
 class HookRegistryTest extends \PHPUnit_Framework_TestCase {
+
+	use PHPUnitCompat;
 
 	public function testCanConstruct() {
 

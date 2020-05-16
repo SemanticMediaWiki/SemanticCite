@@ -4,6 +4,7 @@ namespace SCI\Tests;
 
 use SCI\SciteParserFunction;
 use SMW\DIWikiPage;
+use SMW\Tests\PHPUnitCompat;
 
 /**
  * @covers \SCI\SciteParserFunction
@@ -16,13 +17,15 @@ use SMW\DIWikiPage;
  */
 class SciteParserFunctionTest extends \PHPUnit_Framework_TestCase {
 
+	use PHPUnitCompat;
+
 	private $parserData;
 	private $namespaceExaminer;
 	private $citationTextTemplateRenderer;
 	private $mediaWikiNsContentMapper;
 	private $bibtexProcessor;
 
-	protected function setUp() {
+	protected function setUp() : void {
 
 		$this->parserData = $this->getMockBuilder( '\SMW\ParserData' )
 			->disableOriginalConstructor()

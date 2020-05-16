@@ -4,6 +4,7 @@ namespace SCI\Tests;
 
 use SCI\ReferenceListParserFunction;
 use SMW\DIWikiPage;
+use SMW\Tests\PHPUnitCompat;
 
 /**
  * @covers \SCI\ReferenceListParserFunction
@@ -15,6 +16,8 @@ use SMW\DIWikiPage;
  * @author mwjames
  */
 class ReferenceListParserFunctionTest extends \PHPUnit_Framework_TestCase {
+
+	use PHPUnitCompat;
 
 	public function testCanConstruct() {
 

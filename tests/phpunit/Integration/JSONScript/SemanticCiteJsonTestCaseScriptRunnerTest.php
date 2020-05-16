@@ -26,7 +26,7 @@ class SemanticCiteJsonTestCaseScriptRunnerTest extends LightweightJsonTestCaseSc
 	private $stringValidator;
 	private $hookRegistry;
 
-	protected function setUp() {
+	protected function setUp() : void {
 		parent::setUp();
 
 		$this->testEnvironment->tearDown();

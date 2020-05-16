@@ -20,7 +20,7 @@ class PageBuilderTest extends \PHPUnit_Framework_TestCase {
 	private $citationResourceMatchFinder;
 	private $httpResponseParserFactory;
 
-	protected function setUp() {
+	protected function setUp() : void {
 
 		$this->htmlFormRenderer = $this->getMockBuilder( '\SMW\MediaWiki\Renderer\HtmlFormRenderer' )
 			->disableOriginalConstructor()

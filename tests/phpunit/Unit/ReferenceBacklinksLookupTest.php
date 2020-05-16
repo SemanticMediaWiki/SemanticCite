@@ -7,6 +7,7 @@ use SCI\PropertyRegistry;
 use SMW\DIWikiPage;
 use SMW\DIProperty;
 use SMWDIBlob as DIBlob;
+use SMW\Tests\PHPUnitCompat;
 
 /**
  * @covers \SCI\ReferenceBacklinksLookup
@@ -18,6 +19,8 @@ use SMWDIBlob as DIBlob;
  * @author mwjames
  */
 class ReferenceBacklinksLookupTest extends \PHPUnit_Framework_TestCase {
+
+	use PHPUnitCompat;
 
 	public function testCanConstruct() {
 

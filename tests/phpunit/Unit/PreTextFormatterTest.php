@@ -6,6 +6,7 @@ use SCI\PreTextFormatter;
 use Title;
 use Parser;
 use ParserOptions;
+use SMW\Tests\PHPUnitCompat;
 
 /**
  * @covers \SCI\PreTextFormatter
@@ -18,11 +19,13 @@ use ParserOptions;
  */
 class PreTextFormatterTest extends \PHPUnit_Framework_TestCase {
 
+	use PHPUnitCompat;
+
 	const LF = "\n";
 
 	private $parser;
 
-	protected function setUp() {
+	protected function setUp() : void {
 		parent::setUp();
 
 		$this->parser = new Parser();

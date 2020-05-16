@@ -21,7 +21,7 @@ class CachedReferenceListOutputRendererTest extends \PHPUnit_Framework_TestCase 
 	private $cache;
 	private $cacheKeyProvider;
 
-	protected function setUp() {
+	protected function setUp() : void {
 
 		$this->referenceListOutputRenderer = $this->getMockBuilder( '\SCI\ReferenceListOutputRenderer' )
 			->disableOriginalConstructor()

@@ -19,6 +19,9 @@
         <testsuite name="semantic-cite-integration">
             <directory>tests/phpunit/Integration</directory>
         </testsuite>
+        <testsuite name="semantic-cite-structure">
+            <directory>tests/phpunit/Structure</directory>
+        </testsuite>
     </testsuites>
     <filter>
         <whitelist addUncoveredFilesFromWhitelist="true">

@@ -1,8 +1,9 @@
 <?php
 
-namespace SCI\Tests\Integration;
+namespace SCI\Tests\Structure;
 
 use SMW\Tests\Utils\UtilityFactory;
+use SMW\Tests\PHPUnitCompat;
 
 /**
  * @group semantic-cite
@@ -14,6 +15,8 @@ use SMW\Tests\Utils\UtilityFactory;
  * @author mwjames
  */
 class I18nJsonFileIntegrityTest extends \PHPUnit_Framework_TestCase {
+
+	use PHPUnitCompat;
 
 	/**
 	 * @dataProvider i18nFileProvider
