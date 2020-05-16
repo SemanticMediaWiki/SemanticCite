@@ -23,16 +23,6 @@ class PreTextFormatterTest extends \PHPUnit_Framework_TestCase {
 
 	const LF = "\n";
 
-	private $parser;
-
-	protected function setUp() : void {
-		parent::setUp();
-
-		$this->parser = new Parser();
-		$this->parser->Options( new ParserOptions() );
-		$this->parser->clearState();
-	}
-
 	public function testCanConstruct() {
 
 		$this->assertInstanceOf(
