@@ -3,7 +3,6 @@
 namespace SCI\Tests\DataValues;
 
 use SCI\DataValues\ResourceIdentifierFactory;
-use SCI\Tests\PHPUnitCompat;
 
 /**
  * @covers \SCI\DataValues\ResourceIdentifierFactory
@@ -15,8 +14,6 @@ use SCI\Tests\PHPUnitCompat;
  * @author mwjames
  */
 class ResourceIdentifierFactoryTest extends \PHPUnit_Framework_TestCase {
-
-	use PHPUnitCompat;
 
 	public function testCanConstruct() {
 
@@ -30,7 +27,7 @@ class ResourceIdentifierFactoryTest extends \PHPUnit_Framework_TestCase {
 
 		$instance = new ResourceIdentifierFactory();
 
-		$this->setExpectedException( 'RuntimeException' );
+		$this->expectException( 'RuntimeException' );
 		$instance->newResourceIdentifierStringValueForType( 'foo' );
 	}
 

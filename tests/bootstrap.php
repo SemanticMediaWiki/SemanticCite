@@ -30,8 +30,4 @@ $autoloader = require  SMW_PHPUNIT_AUTOLOADER_FILE;
 $autoloader->addPsr4( 'SCI\\Tests\\', __DIR__ . '/phpunit/Unit' );
 $autoloader->addPsr4( 'SCI\\Tests\\Integration\\', __DIR__ . '/phpunit/Integration' );
 
-$autoloader->addClassMap( [
-	'SCI\Tests\PHPUnitCompat' => __DIR__ . '/phpunit/PHPUnitCompat.php',
-] );
-
 unset( $autoloader );
