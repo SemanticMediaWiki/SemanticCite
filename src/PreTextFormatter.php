@@ -33,11 +33,11 @@ class PreTextFormatter {
 
 		foreach ( $parameters as $key => $value ) {
 
-			if ( $value === '' || $value{0} === '@' ) {
+			if ( $value === '' || $value[0] === '@' ) {
 				continue;
 			}
 
-			if ( $value{0} === '+' ) {
+			if ( $value[0] === '+' ) {
 				$formatted[$key-1] = $formatted[$key-1] . '|' . $value;
 				continue;
 			}

@@ -19,7 +19,7 @@ class CitationTextChangeUpdateJobDispatcherTest extends \PHPUnit_Framework_TestC
 	private $store;
 	private $referenceBacklinksLookup;
 
-	protected function setUp() {
+	protected function setUp() : void {
 
 		$this->store = $this->getMockBuilder( '\SMW\SQLStore\SQLStore' )
 			->disableOriginalConstructor()
@@ -149,7 +149,7 @@ class CitationTextChangeUpdateJobDispatcherTest extends \PHPUnit_Framework_TestC
 		$diff = [
 			'sci_cite_text' => [
 				'delete' => [
-					's_id' => 42
+					[ 's_id' => 42 ]
 				]
 			]
 		];
@@ -159,7 +159,7 @@ class CitationTextChangeUpdateJobDispatcherTest extends \PHPUnit_Framework_TestC
 		$diff = [
 			'sci_cite_text' => [
 				'insert' => [
-					's_id' => 42
+					[ 's_id' => 42 ]
 				]
 			]
 		];

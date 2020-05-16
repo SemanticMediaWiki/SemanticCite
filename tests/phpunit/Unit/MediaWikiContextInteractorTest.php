@@ -3,6 +3,7 @@
 namespace SCI\Tests;
 
 use SCI\MediaWikiContextInteractor;
+use SMW\Tests\PHPUnitCompat;
 
 /**
  * @covers \SCI\MediaWikiContextInteractor
@@ -14,6 +15,8 @@ use SCI\MediaWikiContextInteractor;
  * @author mwjames
  */
 class MediaWikiContextInteractorTest extends \PHPUnit_Framework_TestCase {
+
+	use PHPUnitCompat;
 
 	public function testCanConstruct() {
 

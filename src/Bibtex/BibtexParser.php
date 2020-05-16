@@ -96,7 +96,7 @@ class BibtexParser {
 
 		$rev = strrev( trim( $content ) );
 
-		if( $rev{0} != ',') {
+		if( $rev[0] != ',') {
 			 $content .= ',';
 		}
 
@@ -108,7 +108,7 @@ class BibtexParser {
 			$rev = strrev( $value );
 
 			// remove any dangling ',' left on final field of entry
-			if($rev{0} == ',') {
+			if( $rev[0] == ',') {
 				$value = rtrim($value, ",");
 			}
 
@@ -137,10 +137,10 @@ class BibtexParser {
 
 	private function removeDelimiters( $string ) {
 
-		if( $string  && ( $string{0} == "\"") ) {
+		if( $string  && ( $string[0] == "\"") ) {
 			$string = substr($string, 1);
 			$string = substr($string, 0, -1);
-		} else if ( $string && ($string{0} == "{") ) {
+		} else if ( $string && ( $string[0] == "{") ) {
 			if( strlen( $string ) > 0 && $string[strlen($string)-1] == "}" ) {
 				$string = substr($string, 1);
 				$string = substr($string, 0, -1);

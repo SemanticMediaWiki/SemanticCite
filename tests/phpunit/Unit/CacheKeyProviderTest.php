@@ -3,6 +3,7 @@
 namespace SCI\Tests;
 
 use SCI\CacheKeyProvider;
+use SMW\Tests\PHPUnitCompat;
 
 /**
  * @covers \SCI\CacheKeyProvider
@@ -14,6 +15,8 @@ use SCI\CacheKeyProvider;
  * @author mwjames
  */
 class CacheKeyProviderTest extends \PHPUnit_Framework_TestCase {
+
+	use PHPUnitCompat;
 
 	public function testCanConstruct() {
 

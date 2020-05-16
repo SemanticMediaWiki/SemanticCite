@@ -4,6 +4,7 @@ namespace SCI\Tests;
 
 use SCI\ReferenceListOutputRenderer;
 use SMW\DIWikiPage;
+use SMW\Tests\PHPUnitCompat;
 
 /**
  * @covers \SCI\ReferenceListOutputRenderer
@@ -16,11 +17,13 @@ use SMW\DIWikiPage;
  */
 class ReferenceListOutputRendererTest extends \PHPUnit_Framework_TestCase {
 
+	use PHPUnitCompat;
+
 	private $citationResourceMatchFinder;
 	private $citationReferencePositionJournal;
 	private $htmlColumnListRenderer;
 
-	protected function setUp() {
+	protected function setUp() : void {
 
 		$this->citationResourceMatchFinder = $this->getMockBuilder( '\SCI\CitationResourceMatchFinder' )
 			->disableOriginalConstructor()

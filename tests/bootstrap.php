@@ -20,7 +20,7 @@ if ( !defined( 'SMW_PHPUNIT_AUTOLOADER_FILE' ) || !is_readable( SMW_PHPUNIT_AUTO
 	die( "\nThe Semantic MediaWiki test autoloader is not available" );
 }
 
-if ( !class_exists( 'SemanticCite' ) || ( $version = SemanticCite::getVersion() ) === null ) {
+if ( !defined( 'SCI_VERSION' ) ) {
 	die( "\nSemantic Cite is not available, please check your Composer or LocalSettings.\n" );
 }
 

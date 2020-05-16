@@ -22,7 +22,7 @@ class SpecialFindCitableMetadataTest extends \PHPUnit_Framework_TestCase {
 	private $outputPage;
 	private $context;
 
-	protected function setUp() {
+	protected function setUp() : void {
 
 		$this->request = $this->getMockBuilder( '\WebRequest' )
 			->disableOriginalConstructor()
