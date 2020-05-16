@@ -76,8 +76,19 @@ class HookRegistry {
 	 * @since  1.0
 	 */
 	public function clear() {
+
+		if ( !defined( 'MW_PHPUNIT_TEST' ) ) {
+			return;
+		}
+
 		foreach ( $this->handlers as $name => $callback ) {
-			Hooks::clear( $name );
+			if (
+				!class_exists( '\MediaWiki\MediaWikiServices' ) ||
+				!method_exists( \MediaWiki\MediaWikiServices::getInstance(), 'getHookContainer' ) ) {
+				\Hooks::clear( $name );
+			} else {
+				\MediaWiki\MediaWikiServices::getInstance()->getHookContainer()->clear( $name );
+			}
 		}
 	}
 
@@ -96,8 +107,19 @@ class HookRegistry {
 	 * @since  1.0
 	 */
 	public function register() {
+
+		if ( !defined( 'MW_PHPUNIT_TEST' ) ) {
+			return;
+		}
+
 		foreach ( $this->handlers as $name => $callback ) {
-			Hooks::register( $name, $callback );
+			if (
+				!class_exists( '\MediaWiki\MediaWikiServices' ) ||
+				!method_exists( \MediaWiki\MediaWikiServices::getInstance(), 'getHookContainer' ) ) {
+				\Hooks::register( $name, $callback );
+			} else {
+				\MediaWiki\MediaWikiServices::getInstance()->getHookContainer()->register( $name, $callback );
+			}
 		}
 	}
 
