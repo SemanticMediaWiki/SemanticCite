@@ -23,9 +23,29 @@ class ParserFunctionFactoryTest extends \PHPUnit_Framework_TestCase {
 	protected function setUp() : void {
 		parent::setUp();
 
-		$this->parser = new Parser();
-		$this->parser->Options( new ParserOptions() );
-		$this->parser->clearState();
+		$title = $this->getMockBuilder( '\Title' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$title->expects( $this->any() )
+			->method( 'getNamespace' )
+			->will( $this->returnValue( NS_MAIN ) );
+
+		$parserOutput = $this->getMockBuilder( '\ParserOutput' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$this->parser = $this->getMockBuilder( '\Parser' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$this->parser->expects( $this->any() )
+			->method( 'getTitle' )
+			->will( $this->returnValue( $title ) );
+
+		$this->parser->expects( $this->any() )
+			->method( 'getOutput' )
+			->will( $this->returnValue( $parserOutput ) );
 	}
 
 	public function testCanConstruct() {
