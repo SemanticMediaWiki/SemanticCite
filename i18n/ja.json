@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Shirayuki",
 			"Sujiniku",
 			"Suyama",
 			"Yusuke1109",
@@ -19,7 +20,7 @@
 	"sci-property-alias-citation-text": "引用書目",
 	"sci-property-alias-citation-resource": "引用リソース",
 	"findmetadatabyid": "メタデータの発見",
-	"action-sci-metadatasearch": "メタサーチ",
+	"action-sci-metadatasearch": "Semantic Cite メタデータ検索",
 	"sci-specials-header-results": "結果の一覧",
 	"sci-specials-select-options": "オプションを選択",
 	"sci-specials-no-results": "該当結果はありません。",
