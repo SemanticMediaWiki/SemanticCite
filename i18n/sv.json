@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Ainali",
 			"Bengtsson96",
 			"Jopparn",
 			"Josve05a",
@@ -38,7 +39,7 @@
 	"sci-metadata-search-select-label": "Typ:",
 	"sci-metadata-search-read-only": "Databasen är låst, något som kan hindra automatisk sidskapande.",
 	"sci-metadata-search-has-match": "ID har matchats till följande [$1] referensresurser.",
-	"sci-metadata-search-cached": "Söksvaret hämtades från mellanlager.",
+	"sci-metadata-search-cached": "Söksvaret hämtades från cache.",
 	"sci-metadata-search-intro-oclc": "[[Property:OCLC|OCLC]]-nummer för WorldCat-katalogen",
 	"onoi-remi-request-error": "REST/HTTP-begäran returnerade med \"$1\" för \"$2\".",
 	"onoi-remi-response-empty": "Svaret returnerade med ett tomt resultat för \"$1\".",
