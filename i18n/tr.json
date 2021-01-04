@@ -4,6 +4,7 @@
 			"BaRaN6161 TURK",
 			"Bulgu",
 			"Hedda",
+			"MuratTheTurkish",
 			"Sayginer",
 			"Vito Genovese"
 		]
@@ -56,7 +57,7 @@
 	"smw-pa-property-predefined__sci_cite_text": "\"$1\" önceden biçimlendirilmiş bir metin içeren önceden tanımlanmış bir özelliktir ve [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] uzantısı tarafından sağlanır.",
 	"smw-pa-property-predefined__sci_cite": "\"$1\", alıntıların tüm öğelerini tanımlayan ve alt nesne olarak depolanan [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] uzantısı tarafından sağlanan önceden tanımlanmış bir özelliktir.",
 	"smw-pa-property-predefined__sci_doi": "\"$1\", Dijital Nesne Tanımlayıcısını temsil eden [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] uzantısı tarafından sağlanan önceden tanımlanmış bir özelliktir.",
-	"smw-pa-property-predefined__sci_pmcid": "\"$1\", bir PubMed Central referans numarasını (PMCID) temsil eden ve tam metinli makalelere bağlantılar içeren [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] uzantısı PubMed Merkez tarafından sağlanan önceden tanımlanmış bir özelliktir.",
+	"smw-pa-property-predefined__sci_pmcid": "\"$1\", [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite/tr Semantic Cite] uzantısı tarafından sağlanan ve PubMed Central kaynak numarasını (PMCID) temsil eden ve PubMed Central'daki tam metin maddelere bağlanan önceden tanımlanmış bir özelliktir.",
 	"smw-pa-property-predefined__sci_pmid": "\"$1\", bir işletmenin PubMed kimliğini temsil eden ve [[Property:PMCID|PMCID]]'den farklı olan [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] uzantısı tarafından sağlanan önceden tanımlanmış bir özelliktir.",
 	"smw-pa-property-predefined__sci_oclc": "\"$1\", WorldCat (OCLC) ile depolanan kaynakça kayıtlarını tanımlayan [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] uzantısı tarafından sağlanan önceden tanımlanmış bir özelliktir.",
 	"smw-pa-property-predefined__sci_olid": "\"$1\", OpenLibrary kayıtlarını tanımlayan [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] uzantısı tarafından sağlanan önceden tanımlanmış bir özelliktir.",
