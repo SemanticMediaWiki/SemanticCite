@@ -24,6 +24,10 @@ jobs:
   allow_failures:
     - env: DB=sqlite; MW=master; PHPUNIT=8.5.*
 
+before_install:
+  # MW is not yet compatible with Composer 2.x, see https://phabricator.wikimedia.org/T266417
+  - composer self-update --1
+
 install:
   - bash ./tests/travis/install-mediawiki.sh
   - bash ./tests/travis/install-semantic-cite.sh
