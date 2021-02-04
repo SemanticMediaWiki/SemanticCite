@@ -1,10 +1,18 @@
 {
 	"@metadata": {
 		"authors": [
-			"Aftabuzzaman"
+			"Aftabuzzaman",
+			"আফতাবুজ্জামান"
 		]
 	},
 	"sci-referencelist-header": "তথ্যসূত্র",
+	"sci-specials-header-results": "ফলাফলের তালিকা",
+	"sci-specials-select-options": "বিকল্প নির্বাচন করুন",
+	"sci-specials-no-results": "কোন ফলাফল উপলব্ধ নয়।",
+	"sci-metadata-search-action-highlight": "লেখা নির্বাচন করুন",
+	"sci-metadata-search-action-create": "তৈরি করুন",
+	"sci-metadata-search-header-log": "লগ",
 	"sci-metadata-search-header-result": "ফলাফল",
-	"sci-metadata-search-form-submit": "অনুসন্ধান"
+	"sci-metadata-search-form-submit": "অনুসন্ধান",
+	"sci-metadata-search-select-label": "ধরন:"
 }

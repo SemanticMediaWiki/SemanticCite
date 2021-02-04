@@ -1,8 +1,19 @@
 {
 	"@metadata": {
 		"authors": [
+			"Dishual",
+			"Fulup",
 			"Y-M D"
 		]
 	},
-	"sci-specials-header-results": "Roll an disoc'hoù"
+	"sci-referencelist-header": "Daveennoù",
+	"sci-specials-header-results": "Roll an disoc'hoù",
+	"sci-specials-no-results": "Disoc'h ebet",
+	"sci-metadata-search-form": "Dre god anaout",
+	"sci-metadata-search-action-highlight": "Diuzañ an destenn",
+	"sci-metadata-search-action-create": "Krouiñ",
+	"sci-metadata-search-header-log": "Marilh",
+	"sci-metadata-search-header-result": "Disoc'h",
+	"sci-metadata-search-form-submit": "Klask",
+	"sci-metadata-search-select-label": "Seurt :"
 }

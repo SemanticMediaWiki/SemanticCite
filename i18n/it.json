@@ -1,14 +1,22 @@
 {
 	"@metadata": {
 		"authors": [
+			"Beta16",
 			"Macofe",
-			"Beta16"
+			"Selven",
+			"Urielejh"
 		]
 	},
+	"sci-referencelist-header": "Riferimenti",
+	"sci-property-alias-citation-text": "Testo della citazione",
 	"sci-specials-header-results": "Elenco dei risultati",
 	"sci-specials-select-options": "Seleziona le opzioni",
 	"sci-specials-no-results": "Nessun risultato disponibile.",
+	"sci-metadata-search-form": "Per ID",
+	"sci-metadata-search-action-highlight": "Seleziona testo",
 	"sci-metadata-search-action-create": "Crea",
+	"sci-metadata-search-header-log": "Registro",
 	"sci-metadata-search-header-result": "Risultato",
-	"sci-metadata-search-form-submit": "Ricerca"
+	"sci-metadata-search-form-submit": "Ricerca",
+	"sci-metadata-search-select-label": "Tipo:"
 }

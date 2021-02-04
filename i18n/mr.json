@@ -4,7 +4,13 @@
 			"V.narsikar"
 		]
 	},
+	"sci-referencelist-header": "संदर्भ",
 	"sci-specials-header-results": "निकालांची यादी",
 	"sci-specials-select-options": "पर्याय निवडा",
-	"sci-specials-no-results": "काहीच निकाल उपलब्ध नाहीत."
+	"sci-specials-no-results": "काहीच निकाल उपलब्ध नाहीत.",
+	"sci-metadata-search-action-highlight": "मजकूर निवडा",
+	"sci-metadata-search-action-create": "निर्मित करा",
+	"sci-metadata-search-header-log": "नोंदी",
+	"sci-metadata-search-header-result": "निकाल",
+	"sci-metadata-search-form-submit": "शोधा"
 }
