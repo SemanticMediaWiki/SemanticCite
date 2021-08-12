@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"DDPAT",
 			"Piramidion",
 			"Олександр М."
 		]
@@ -13,6 +14,12 @@
 	"sci-scite-parser-no-citation-text": "<code>#scite</code> не зміг відтворити текст цитування для посилання «$1», оскільки тип «$2» не було закріплено за [[MediaWiki:Sci-template-definition|шаблоном]].",
 	"sci-datavalue-empty-reference": "Посилання на цитування не повинно бути порожнім.",
 	"sci-datavalue-invalid-id-value": "«$1» — неприпустиме значення для типу $2.",
+	"sci-property-alias-doi": "DOI",
+	"sci-property-alias-viaf": "VIAF",
+	"sci-property-alias-oclc": "OCLC",
+	"sci-property-alias-olid": "OLID",
+	"sci-property-alias-pmcid": "PMCID",
+	"sci-property-alias-pmid": "PMID",
 	"sci-property-alias-citation-key": "Ключ цитування",
 	"sci-property-alias-citation-reference": "Посилання на цитування",
 	"sci-property-alias-citation-text": "Текст цитування",
