@@ -1,12 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Liuxinyu970226"
+			"Liuxinyu970226",
+			"Xiplus"
 		]
 	},
 	"sci-desc": "在[https://www.semantic-mediawiki.org Semantic MediaWiki]的帮助下管理引用资源",
 	"sci-referencelist-header": "参考文献",
-	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code>不能在不支持Semantic MediaWiki的名字空间上使用",
+	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code>不能在不支持Semantic MediaWiki的命名空间上使用",
 	"sci-scite-parser-no-reference": "<code>#scite</code>未宣称一条参考文献。",
 	"sci-scite-parser-no-type": "<code>#scite</code>无法决定用于“$1”的参考文献类型。",
 	"sci-scite-parser-no-citation-text": "<code>#scite</code>不能为参考文献“$1”渲染一段引用文本，因为类型“$2”未被指定为一个[[MediaWiki:Sci-template-definition|模板]]。",
