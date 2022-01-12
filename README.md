@@ -24,7 +24,7 @@ Several short [videos](https://www.youtube.com/playlist?list=PLIJ9eX-UsA5eI_YFdn
 ## Requirements
 
 - PHP 7.0 or later
-- MediaWiki 1.31 or later
+- MediaWiki 1.35 or later
 - [Semantic MediaWiki][smw] 3.0 or later
 
 Semantic Cite **does not require** nor uses any part of extension [Cite][mw-cite] (or `<ref>` tags) as a means to declare
