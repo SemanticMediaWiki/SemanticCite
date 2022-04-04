@@ -3,6 +3,7 @@
 		"authors": [
 			"Alifakoor",
 			"Alirezaaa",
+			"Beginneruser",
 			"Mahdy Saffar",
 			"Ommmmid",
 			"Reza1615"
@@ -35,7 +36,7 @@
 	"sci-metadata-search-select-label": "نوع:",
 	"sci-metadata-search-read-only": "پایگاه‌داده فقط در حالت خواندن در دسترس است و مانع از ساخت خودکار صفحه می‌شود.",
 	"sci-metadata-search-has-match": "شناسه با منابعی که دارای همان شناسه و شامل $1 هستند مطابقت پیدا کرده است.",
-	"sci-metadata-search-cached": "نتیجه جستجو از حافظه نهان دریافت شد.",
+	"sci-metadata-search-cached": "پاسخ جستجو از حافظۀ نهان واکشی شد.",
 	"sci-metadata-search-intro-ol": "[[Property:OLID|OLID]] شابک جهت تطابق با یک رکورد OpenLibrary",
 	"onoi-remi-request-error": "درخواست اچ‌تی‌تی‌پی/رست ، \"$1\" را برای \"$2\" بازگرداند.",
 	"onoi-remi-response-empty": "پاسخی خالی برای \"$1\" بازگشت.",
