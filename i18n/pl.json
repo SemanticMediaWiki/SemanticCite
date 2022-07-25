@@ -6,12 +6,14 @@
 			"InternerowyGołąb",
 			"Rail",
 			"Railfail536",
+			"SemanticPioneer",
 			"XnIcRaM"
 		]
 	},
 	"sci-desc": "Zarządzanie zasobami cytowania z pomocą [https://www.semantic-mediawiki.org Semantic MediaWiki]",
 	"sci-referencelist-header": "Przypisy",
 	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code> nie może być używany w przestrzeni nazw nie dostępnej dla Semantic MediaWiki",
+	"sci-scite-parser-no-reference": "<code>#scite</code> nie zadeklarował odniesienia.",
 	"sci-datavalue-empty-reference": "Odnośnik do cytatu nie powinien być pusty.",
 	"sci-datavalue-invalid-id-value": "„$1” jest nieprawidłową wartością dla typu $2.",
 	"sci-property-alias-citation-key": "Klucz cytowania",
