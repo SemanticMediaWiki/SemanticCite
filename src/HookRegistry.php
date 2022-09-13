@@ -108,9 +108,9 @@ class HookRegistry {
 	 */
 	public function register() {
 
-		if ( !defined( 'MW_PHPUNIT_TEST' ) ) {
-			return;
-		}
+		//if ( !defined( 'MW_PHPUNIT_TEST' ) ) {
+		//	return;
+		//}
 
 		foreach ( $this->handlers as $name => $callback ) {
 			if (
