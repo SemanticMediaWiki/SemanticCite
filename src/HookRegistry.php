@@ -107,7 +107,7 @@ class HookRegistry {
 	 * @since  1.0
 	 */
 	public function register() {
-
+		// *** not clear why this has been added
 		//if ( !defined( 'MW_PHPUNIT_TEST' ) ) {
 		//	return;
 		//}
