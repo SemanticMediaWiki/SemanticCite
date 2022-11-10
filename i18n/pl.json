@@ -17,7 +17,7 @@
 	"sci-datavalue-empty-reference": "Odnośnik do cytatu nie powinien być pusty.",
 	"sci-datavalue-invalid-id-value": "„$1” jest nieprawidłową wartością dla typu $2.",
 	"sci-property-alias-citation-key": "Klucz cytowania",
-	"sci-property-alias-citation-reference": "Osdnośnik cytowania",
+	"sci-property-alias-citation-reference": "Odnośnik cytowania",
 	"sci-property-alias-citation-text": "Tekst cytowania",
 	"sci-property-alias-citation-resource": "Źródło cytowania",
 	"findmetadatabyid": "Znajdź metadane",
