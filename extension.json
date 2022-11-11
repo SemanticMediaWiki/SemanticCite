@@ -15,6 +15,12 @@
 			"SemanticMediaWiki": ">= 3.0"
 		}
 	},
+	"AutoloadNamespaces": {
+		"SCI\\": "src"
+	},
+	"AutoloadClasses": {
+		"SemanticCite": "SemanticCite.php"
+	},
 	"MessagesDirs": {
 		"SemanticCite": [
 			"i18n"
