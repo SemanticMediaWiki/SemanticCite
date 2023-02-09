@@ -49,8 +49,6 @@
 	"onoi-remi-parser-no-id-match": "Парсер не смог найти совпадение для «$1».",
 	"sci-tooltip-citation-lookup-failure": "Не удалось получить соответствующее цитирование с back-end для «$1».",
 	"sci-tooltip-citation-lookup-failure-multiple": "Не удалось получить текст для цитирования «$1», который имеет несколько совпадений.",
-	"sci-property-definition": "Список <code>#scite</code> идентификаторов, которые сопоставлены с определенными пользователем свойствами. Имейте в виду, что изменения в существующей записи требуют повторного присвоения свойства.\nfoo-id|bar-property",
-	"sci-template-definition": "Список типов цитирования, которые сопоставляются с предопределенным шаблоном, содержащем правила оформления цитирования.\nfoo-type|bar-template",
 	"smw-pa-property-predefined__sci_cite_key": "«$1» — это предварительно определенное свойство, идентифицирующее ресурс цитирования и обеспечивается расширением [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite].",
 	"smw-pa-property-predefined__sci_cite_reference": "«$1» — это предварительно определённое свойство, идентифицирующее ресурс цитирования при использовании в форме ссылки (напр., внутритекстовое примечание) и обеспечивается расширением [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite].",
 	"smw-pa-property-predefined__sci_cite_text": "«$1» — это предварительно определённое свойство, которое  содержит предварительно отформатированный текст, и обеспечивается расширением [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite].",

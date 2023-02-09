@@ -49,8 +49,6 @@
 	"onoi-remi-parser-no-id-match": "Parseren kunne ikke matche «$1».",
 	"sci-tooltip-citation-lookup-failure": "Kunne ikke hente en passende sitering fra bakstykket for «$1».",
 	"sci-tooltip-citation-lookup-failure-multiple": "Kunne ikke hente siteringstekst for «$1» som har flere treff.",
-	"sci-property-definition": "Liste av <code>#scite</code>-identifikatorer som er mappet til brukerdefinerte egenskaper. Vær klar over at endringer av eksisterende registreringer krever en ombygging av egenskapstilordningene. \n foo-id|bar-property",
-	"sci-template-definition": "Ei liste over siteringstyper som mappes mot forhåndsdefinerte maler som inneholder formateringsregler for referanser.\n foo-type|bar-mal",
 	"smw-pa-property-predefined__sci_cite_key": "«$1» er en forhåndsdefinert egenskap som identifiserer en siteringsressurs og tilbys av utvidelsen [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite].",
 	"smw-pa-property-predefined__sci_cite_reference": "«$1» er en predefinert egenskap som identifiserer en siteringsressurs når den blir brukt som referanse (f. eks. i tekster) og tilbys av [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite]-utvidelsen.",
 	"smw-pa-property-predefined__sci_cite_text": "\"$1\" er en predefinert egenskap som inneholder en preformatert tekst, og er tilrettelagt av [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite]-utvidelsen.",

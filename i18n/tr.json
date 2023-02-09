@@ -50,8 +50,6 @@
 	"onoi-remi-parser-no-id-match": "Ayrıştırıcı \"$1\" ile eşleşemedi.",
 	"sci-tooltip-citation-lookup-failure": "\"$1\" için arka uçtan uygun bir alıntı alınamadı.",
 	"sci-tooltip-citation-lookup-failure-multiple": "Birden çok eşleşme içeren \"$1\" için bir alıntı metni alınamadı.",
-	"sci-property-definition": "Kullanıcı tanımlı özelliklerle eşlenen <code>#scite</code> tanımlayıcılarının listesi. Lütfen mevcut girişlerde yapılan değişikliklerin özelliklerin yeniden yapılandırılmasını gerektirdiğini unutmayın.\n  örnek-kimlik|bar-mülk",
-	"sci-template-definition": "Alıntı biçimlendirme kuralları içeren önceden tanımlanmış şablonlarla eşlenen alıntı türlerinin listesi.\n  örnek-tür|bar-şablon",
 	"smw-pa-property-predefined__sci_cite_key": "\"$1\", bir alıntı kaynağını tanımlayan ve [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] uzantısı tarafından sağlanan önceden tanımlanmış bir özelliktir.",
 	"smw-pa-property-predefined__sci_cite_reference": "\"$1\", referans olarak kullanıldığında bir alıntı kaynağını tanımlayan (örn. Metin içi referans) ve [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] uzantısı tarafından sağlanan önceden tanımlanmış bir özelliktir.",
 	"smw-pa-property-predefined__sci_cite_text": "\"$1\" önceden biçimlendirilmiş bir metin içeren önceden tanımlanmış bir özelliktir ve [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] uzantısı tarafından sağlanır.",

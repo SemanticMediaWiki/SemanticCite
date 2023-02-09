@@ -51,8 +51,6 @@
 	"onoi-remi-parser-no-id-match": "El analizador fue incapaz de encontrar \"$1\".",
 	"sci-tooltip-citation-lookup-failure": "No se pudo recuperar una cita apropiada desde el servidor para \"$1\".",
 	"sci-tooltip-citation-lookup-failure-multiple": "No se pudo recuperar un texto de cita para \"$1\", que tiene varias coincidencias.",
-	"sci-property-definition": "Una lista de identificadores <code>#scite</code> que se asignan a las propiedades definidas por el usuario. Por favor, ten en cuenta que los cambios a las entradas existentes requieren una reconstrucción de las asignaciones de propiedades. \n identificador-tal|propiedad-cual",
-	"sci-template-definition": "Una lista de tipos de cita que se asignan a plantillas predefinidas que contienen reglas de formato de cita.\n tipo-tal|plantilla-cual",
 	"smw-pa-property-predefined__sci_cite_key": "\"$1\" es una propiedad predefinida que identifica un recurso de cita y que la provee la extensión [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite].",
 	"smw-pa-property-predefined__sci_cite_reference": "\"$1\" es una propiedad predefinida que identifica un recurso de cita cuando se usa como referencia (p.ej. referencia en el texto) y que la provee la extensión [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite].",
 	"smw-pa-property-predefined__sci_cite_text": "\"$1\" es una propiedad predefinida que contiene un texto preformateado y que la provee la extensión [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite]",

@@ -51,8 +51,6 @@
 	"onoi-remi-parser-no-id-match": "解析器無法符合「$1」。",
 	"sci-tooltip-citation-lookup-failure": "檢索來自用于“$1”後端的適當引用失敗。",
 	"sci-tooltip-citation-lookup-failure-multiple": "檢索用于有多個匹配的“$1”引用文本失敗。",
-	"sci-property-definition": "A list of <code>#scite</code> identifiers that are mapped to user-defined properties. Please be aware that changes to existing entries require a rebuild of property assignments. \n foo-id|bar-property",
-	"sci-template-definition": "A list of citation types that are mapped to predefined templates containing citation formatting rules. \n foo-type|bar-template",
 	"smw-pa-property-predefined__sci_cite_key": "“$1”是一個定義引用資源的預定義屬性，並由[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite]擴展提供。",
 	"smw-pa-property-predefined__sci_cite_reference": "“$1”是一個定義用於參考文獻的引用資源（例如文內參考文獻）的預定義屬性，並由[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite]擴展提供。",
 	"smw-pa-property-predefined__sci_cite_text": "“$1”是一個包含預先格式化文本的預定義屬性，並由[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite]擴展提供。",

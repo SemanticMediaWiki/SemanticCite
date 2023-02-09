@@ -48,8 +48,6 @@
 	"onoi-remi-parser-no-id-match": "Syntaktický analyzátor nedokázal najít shodu pro \"$1\".",
 	"sci-tooltip-citation-lookup-failure": "Selhalo načtení odpovídající citace z back-endu pro \"$1\".",
 	"sci-tooltip-citation-lookup-failure-multiple": "Selhalo načtení text citace pro \"$1\", protože má více shod.",
-	"sci-property-definition": "Seznam identifikátorů <code>#scite</code>, které jsou mapovány na uživatelsky definované vlastnosti. V případě změn stávajících položek budete muset znovu sestavit přiřazení vlastností.\n foo-id|bar-property",
-	"sci-template-definition": "Seznam typů citací, které jsou mapovány na předem definované šablony obsahující pravidla formátování citace. \n foo-type|bar-template",
 	"smw-pa-property-predefined__sci_cite_key": "\"$1\" je předem definovaná vlastnost, která identifikuje zdroj citace. Je součástí rozšíření [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Sémantická citace].",
 	"smw-pa-property-predefined__sci_cite_reference": "\"$1\" je předem definovaná vlastnost, která identifikuje zdroj citace při použití ve funkci reference (například v textové referenci). Je součástí rozšíření [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Sémantická citace].",
 	"smw-pa-property-predefined__sci_cite_text": "\"$1\" je předem definovaná vlastnost, která obsahuje předem formátovaný text. Je součástí rozšíření [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Sémantická citace].",

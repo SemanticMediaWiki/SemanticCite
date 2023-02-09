@@ -44,7 +44,5 @@
 	"onoi-remi-response-empty": "De reactie koom trök mit e laeg rizzeltaot veur \"$1\".",
 	"onoi-remi-parser-no-id-match": "De parser kós \"$1\" neet pare mit get anges.",
 	"sci-tooltip-citation-lookup-failure": "Kós de passende citering neet ophaole vanoet de back-end veur \"$1\".",
-	"sci-tooltip-citation-lookup-failure-multiple": "Kós de citeringsteks veur \"$1\" neet ophaole, went 't geuf mieder euvereinkumste.",
-	"sci-property-definition": "A list of <code>#scite</code> identifiers that are mapped to user-defined properties. Please be aware that changes to existing entries require a rebuild of property assignments. \n foo-id|bar-property",
-	"sci-template-definition": "A list of citation types that are mapped to predefined templates containing citation formatting rules. \n foo-type|bar-template"
+	"sci-tooltip-citation-lookup-failure-multiple": "Kós de citeringsteks veur \"$1\" neet ophaole, went 't geuf mieder euvereinkumste."
 }
