@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bencemac",
+			"Urbalazs",
+			"Wolf Rex"
+		]
+	},
+	"sci-referencelist-header": "Források",
+	"sci-scite-parser-not-enabled-namespace": "A(z) <code>#scite</code> nem használható azon névterekben, melyek nincsenek engedélyezve a Sematic MediaWiki számára",
+	"sci-datavalue-invalid-id-value": "A(z) „$1” érvénytelen érték a(z) $2 típushoz",
+	"sci-property-alias-citation-reference": "Idézet forrása",
+	"sci-property-alias-citation-text": "Idézet szövege",
+	"findmetadatabyid": "Metaadat keresése",
+	"sci-specials-header-results": "Találatok listája",
+	"sci-metadata-search-form": "Azonosító szerint",
+	"sci-metadata-search-action-create": "Létrehozás",
+	"sci-metadata-search-header-log": "Napló",
+	"sci-metadata-search-header-result": "Eredmény",
+	"sci-metadata-search-form-submit": "Keresés",
+	"sci-metadata-search-select-label": "Típus:"
+}
