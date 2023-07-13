@@ -3,6 +3,7 @@
 		"authors": [
 			"Kghbln",
 			"Liuxinyu970226",
+			"Narazeni",
 			"Nike",
 			"Raymond",
 			"Robby",
@@ -34,7 +35,7 @@
 	"right-sci-metadatasearch": "{{doc-right|sci-metadatasearch}}",
 	"action-sci-metadatasearch": "{{doc-action|sci-metadatasearch}}",
 	"sci-specials-header-results": "This is an interface message.",
-	"sci-specials-select-options": "This is an interface message.",
+	"sci-specials-select-options": "პარამეტრიშ გიშაგორუა",
 	"sci-specials-no-results": "This is an informatory message.",
 	"listcitationreferencebacklinks": "This is the text of a header.",
 	"sci-specials-citablemetadata-helplink": "{{Optional}}\n\nThis is a link to an external help page.",
