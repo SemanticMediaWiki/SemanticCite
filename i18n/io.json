@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"Joao Xavier"
+		]
+	},
+	"sci-referencelist-header": "Referi",
+	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code> Ne povis uzesar che ''namespace'' qua ne esas permisata segun MediaWiki-semantiko",
+	"sci-property-alias-citation-text": "Citajo",
+	"sci-property-alias-citation-resource": "Fonto di la citajo",
+	"findmetadatabyid": "Renkontrar 'metadata'",
+	"sci-specials-header-results": "Listo di rezulti",
+	"sci-metadata-search-form": "Segun ID",
+	"sci-metadata-search-action-highlight": "Selektez texto",
+	"sci-metadata-search-action-create": "Krear",
+	"sci-metadata-search-header-log": "Log (sendar selektita texto al JavaScript-fenestro)",
+	"sci-metadata-search-header-result": "Rezulto",
+	"sci-metadata-search-form-submit": "Serchez",
+	"sci-metadata-search-select-label": "Tipo:"
+}
