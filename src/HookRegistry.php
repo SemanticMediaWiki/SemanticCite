@@ -5,6 +5,7 @@ namespace SCI;
 use SMW\Store;
 use Onoi\Cache\Cache;
 use SMW\ApplicationFactory;
+use SMW\DataTypeRegistry;
 use SMW\DIWikiPage;
 use SMWDataItem as DataItem;
 use Hooks;
@@ -143,12 +144,10 @@ class HookRegistry {
 
 	/**
 	 * @since 2.0
-	 *
-	 * @param array &$vars
 	 */
-	public static function initExtension( &$vars ) {
+	public static function initExtension() {
 
-		$vars['wgHooks']['SMW::Config::BeforeCompletion'][] = function( &$config ) {
+		$GLOBALS['wgHooks']['SMW::Config::BeforeCompletion'][] = function( &$config ) {
 
 			$exemptionlist = [
 				PropertyRegistry::SCI_CITE
@@ -177,7 +176,8 @@ class HookRegistry {
 		};
 	}
 
-	public function onDataTypeInit( $dataTypeRegistry ) {
+	public function onDataTypeInit() {
+		$dataTypeRegistry = DataTypeRegistry::getInstance();
 
 		$dataTypeRegistry->registerDatatype(
 			'_sci_ref',
