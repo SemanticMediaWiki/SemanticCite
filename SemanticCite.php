@@ -128,7 +128,7 @@ class SemanticCite {
 
 		// Register hooks that require to be listed as soon as possible and preferable
 		// before the execution of onExtensionFunction
-		HookRegistry::initExtension( $GLOBALS );
+		HookRegistry::initExtension();
 	}
 
 	/**
