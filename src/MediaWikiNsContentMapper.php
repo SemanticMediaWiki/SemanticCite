@@ -110,7 +110,7 @@ class MediaWikiNsContentMapper {
 			$this->mediaWikiNsContentReader->skipMessageCache();
 		}
 
-		$contents = $this->mediaWikiNsContentReader->read( $name );
+		$contents = (string)$this->mediaWikiNsContentReader->read( $name );
 
 		if ( $contents === '' ) {
 			return [];
