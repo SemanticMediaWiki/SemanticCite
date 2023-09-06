@@ -89,9 +89,6 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 
 	public function testInitExtension() {
 
-		$vars = [];
-		HookRegistry::initExtension( $vars );
-
 		$propertyExemptionList = [
 			'__sci_cite'
 		];
@@ -101,7 +98,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 			'smwgQueryDependencyPropertyExemptionList' => []
 		];
 
-		foreach ( $vars['wgHooks']['SMW::Config::BeforeCompletion'] as $callback ) {
+		foreach ( $GLOBALS['wgHooks']['SMW::Config::BeforeCompletion'] as $callback ) {
 			call_user_func_array( $callback, [ &$config ] );
 		}
 
