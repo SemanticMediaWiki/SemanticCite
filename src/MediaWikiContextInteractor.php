@@ -3,6 +3,7 @@
 namespace SCI;
 
 use IContextSource;
+use MediaWiki\MediaWikiServices;
 
 /**
  * Helper class to avoid making objects depend on the IContextSource and instead
@@ -12,6 +13,7 @@ use IContextSource;
  * @since 1.0
  *
  * @author mwjames
+ * @reviewer thomas-topway-it
  */
 class MediaWikiContextInteractor {
 
@@ -19,6 +21,11 @@ class MediaWikiContextInteractor {
 	 * @var IContextSource
 	 */
 	private $context;
+	
+	/**
+	 * @var revisionLookup
+	 */
+	private $revisionLookup;
 
 	/**
 	 * @since 1.0
@@ -27,6 +34,7 @@ class MediaWikiContextInteractor {
 	 */
 	public function __construct( IContextSource $context ) {
 		$this->context = $context;
+		$this->revisionLookup = MediaWikiServices::getInstance()->getRevisionLookup();
 	}
 
 	/**
@@ -37,7 +45,6 @@ class MediaWikiContextInteractor {
 	 * @return int
 	 */
 	public function getOldId() {
-
 		$oldid = $this->context->getRequest()->getInt( 'oldid' );
 		$title = $this->context->getTitle();
 
@@ -46,17 +53,28 @@ class MediaWikiContextInteractor {
 				# output next revision, or nothing if there isn't one
 				$nextid = 0;
 				if ( $oldid ) {
-					$nextid = $title->getNextRevisionID( $oldid );
+					$revision = $this->revisionLookup->getRevisionById( $oldid );
+					$nextRevision = $this->revisionLookup->getNextRevision( $revision );
+					if ( $nextRevision ) {
+						$nextid = $nextRevision->getId();
+					}
 				}
 				$oldid = $nextid ?: -1;
 				break;
 			case 'prev':
 				# output previous revision, or nothing if there isn't one
+				$previd = 0;
 				if ( !$oldid ) {
 					# get the current revision so we can get the penultimate one
 					$oldid = $title->getLatestRevID();
 				}
-				$previd = $title->getPreviousRevisionID( $oldid );
+				if ( $oldid ) {
+					$revision = $this->revisionLookup->getRevisionById( $oldid );
+					$previousRevision = $this->revisionLookup->getPreviousRevision( $revision );
+					if ( $previousRevision ) {
+						$previd = $title->getPreviousRevisionID( $oldid );
+					}
+				}
 				$oldid = $previd ?: -1;
 				break;
 			case 'cur':
