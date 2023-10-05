@@ -146,7 +146,7 @@ class SemanticCite {
 
 		// Require a global because MW's Special page is missing an interface
 		// to inject dependencies
-		$GLOBALS['scigCachePrefix'] = $GLOBALS['wgCachePrefix'] === false ? wfWikiID() : $GLOBALS['wgCachePrefix'];
+		$GLOBALS['scigCachePrefix'] = $GLOBALS['wgCachePrefix'] === false ? WikiMap::getCurrentWikiId() : $GLOBALS['wgCachePrefix'];
 
 		$configuration = [
 			'numberOfReferenceListColumns'       => $GLOBALS['scigNumberOfReferenceListColumns'],
