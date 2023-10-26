@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Xuacu"
+			"Xuacu",
+			"YoaR"
 		]
 	},
 	"sci-desc": "Xestionar los recursos de cites cola ayuda de [https://www.semantic-mediawiki.org Semantic MediaWiki]",
@@ -47,7 +48,7 @@
 	"sci-tooltip-citation-lookup-failure-multiple": "Nun pudo recuperase un testu de cita pa «$1» que tien múltiples coincidencies.",
 	"smw-pa-property-predefined__sci_cite_key": "«$1» ye una propiedá predefinida qu'identifica un recursu de cita qu'ufre la estensión [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite].",
 	"smw-pa-property-predefined__sci_cite_reference": "«$1» ye una propiedá predefinida qu'identifica un recursu de cita cuando s'usa como referencia (p.ex. referencia nel testu) qu'ufre la estensión [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite].",
-	"smw-pa-property-predefined__sci_cite_text": "«$1» ye una propiedá predefinida que contien un testu con formatu previu y qu'ufre la estensión [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite].",
+	"smw-pa-property-predefined__sci_cite_text": "«$1» ye una propiedá predefinida que contién un testu con formatu previu y qu'ufre la estensión [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite].",
 	"smw-pa-property-predefined__sci_cite": "«$1» ye una propiedá predefinida qu'ufre la estensión [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] que describe tolos elementos d'una cita y se guarda como oxetu subordináu.",
 	"smw-pa-property-predefined__sci_doi": "«$1» ye una propiedá predefinida qu'ufre la estensión [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] que representa un Identificador Dixital d'Oxetu.",
 	"smw-pa-property-predefined__sci_pmcid": "\"$1\" ye una propiedá predefinida qu'ufre la estensión [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] que representa un númberu de referencia de PubMed Central (PMCID) y enllaza al testu completu de publicaciones en PubMed Central.",
