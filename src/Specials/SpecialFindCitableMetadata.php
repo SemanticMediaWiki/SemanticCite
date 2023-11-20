@@ -2,6 +2,7 @@
 
 namespace SCI\Specials;
 
+use MediaWiki\MediaWikiServices;
 use SpecialPage;
 use SMW\ApplicationFactory;
 use Onoi\HttpRequest\HttpRequestFactory;
@@ -130,7 +131,7 @@ class SpecialFindCitableMetadata extends SpecialPage {
 			new HttpResponseParserFactory( $httpRequest )
 		);
 
-		$pageBuilder->isReadOnly( wfReadOnly() );
+		$pageBuilder->isReadOnly( MediaWikiServices::getInstance()->getReadOnlyMode()->isReadOnly() );
 
 		return $pageBuilder;
 	}

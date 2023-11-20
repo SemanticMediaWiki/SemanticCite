@@ -154,7 +154,7 @@ class SciteParserFunction {
 			$this->bibtexProcessor->doProcess( $parserParameterProcessor );
 		}
 
-		$reference = str_replace( '_', ' ', $parserParameterProcessor->getFirstParameter() );
+		$reference = str_replace( '_', ' ', (string)$parserParameterProcessor->getFirstParameter() );
 		$type = '';
 
 		// Explicit reference precedes

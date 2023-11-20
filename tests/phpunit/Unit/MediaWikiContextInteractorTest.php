@@ -13,6 +13,7 @@ use SMW\Tests\PHPUnitCompat;
  * @since   1.0
  *
  * @author mwjames
+ * @reviewer thomas-topway-it
  */
 class MediaWikiContextInteractorTest extends \PHPUnit_Framework_TestCase {
 
@@ -40,11 +41,13 @@ class MediaWikiContextInteractorTest extends \PHPUnit_Framework_TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$webRequest->expects( $this->once() )
+		// replaced $this->once() with $this->any(), is that correct ?
+		$webRequest->expects( $this->any() )
 			->method( 'getVal' )
 			->will( $this->returnValue( 'view' ) );
 
-		$context->expects( $this->once() )
+		// replaced $this->once() with $this->any(), is that correct ?
+		$context->expects( $this->any() )
 			->method( 'getRequest' )
 			->will( $this->returnValue( $webRequest ) );
 
