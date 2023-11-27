@@ -37,11 +37,6 @@
 	"require-dev": {
 		"mediawiki/semantic-media-wiki": "@dev"
 	},
-	"extra": {
-		"branch-alias": {
-			"dev-master": "2.x-dev"
-		}
-	},
 	"autoload": {
 		"files" : [
 			"SemanticCite.php"
