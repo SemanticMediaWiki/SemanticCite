@@ -26,7 +26,7 @@
 		"source": "https://github.com/SemanticMediaWiki/SemanticCite"
 	},
 	"require": {
-		"php": ">=7.0",
+		"php": ">=7.4",
 		"composer/installers": "^1.0.12",
 		"mediawiki/semantic-media-wiki": "~3.0|~4.0",
 		"onoi/cache": "~1.2",
