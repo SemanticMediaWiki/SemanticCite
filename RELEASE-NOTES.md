@@ -1,6 +1,6 @@
 This file contains the RELEASE-NOTES of the **Semantic Cite** (a.k.a. SCI) extension.
 
-## 2.2.0
+## 3.0.0
 Released on November 28, 2023.
 
 * Minimum requirement for
