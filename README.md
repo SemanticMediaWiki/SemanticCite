@@ -23,8 +23,8 @@ Several short [videos](https://www.youtube.com/playlist?list=PLIJ9eX-UsA5eI_YFdn
 
 ## Requirements
 
-- PHP 7.0 or later
-- MediaWiki 1.31 or later
+- PHP 7.4 or later
+- MediaWiki 1.35 or later
 - [Semantic MediaWiki][smw] 3.0 or later
 
 Semantic Cite **does not require** nor uses any part of extension [Cite][mw-cite] (or `<ref>` tags) as a means to declare
@@ -46,7 +46,7 @@ create one and add the following content to it:
 ```
 {
 	"require": {
-		"mediawiki/semantic-cite": "~2.1"
+		"mediawiki/semantic-cite": "~3.0"
 	}
 }
 ```
@@ -54,7 +54,7 @@ create one and add the following content to it:
 If you already have a "composer.local.json" file add the following line to the end of the "require"
 section in your file:
 
-    "mediawiki/semantic-cite": "~2.1"
+    "mediawiki/semantic-cite": "~3.0"
 
 Remember to add a comma to the end of the preceding line in this section.
 
