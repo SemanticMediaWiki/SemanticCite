@@ -13,8 +13,16 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 }
 
 // In-text citation reference format options
-define( 'SCI_CITEREF_NUM', 1 );
-define( 'SCI_CITEREF_KEY', 2 );
+const SCI_CITEREF_NUM = 1;
+const SCI_CITEREF_KEY = 2;
+
+// Cache type
+const CACHE_ANYTHING = -1; // Use anything, as long as it works
+const CACHE_NONE = 0; // Do not cache
+const CACHE_DB = 1; // Store cache objects in the DB
+const CACHE_MEMCACHED = 'memcached-php'; // Backwards-compatability alias for Memcached
+const CACHE_ACCEL = 3; // APC or WinCache
+const CACHE_HASH = 'hash'; // A HashBagOStuff, mostly useful for testing. Not configurable
 
 /**
  * Specifies the caption format of the citation reference, either as a number
