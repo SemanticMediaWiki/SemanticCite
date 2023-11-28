@@ -30,6 +30,61 @@
 	"ExtensionFunctions": [
 		"SemanticCite::onExtensionFunction"
 	],
+	"config_prefix": "scig",
+	"config": {
+		"CitationReferenceCaptionFormat": {
+			"value": 1,
+			"description": "Specifies the caption format of the citation reference, either as a number or as the annotated key."
+		},
+		"ShowTooltipForCitationReference": {
+			"value": [ 1, 2 ],
+			"description": "Enables a tooltip for a specific citation reference format.\nThe requestCacheTTL specifies the expiry for a citation text that is locally cached in a browser before a new ajax-request is made.\nTo force a browser to renew the display before the cache is expired, delete the 'scite.cache' localStorage from the browser."
+		},
+		"TooltipRequestCacheTTLInSeconds": {
+			"value": "60 * 60 * 24",
+			"description": "Specifies the time-to-live (TTL) in seconds for caching tooltip content.\nSet to false to disable the cache.\nThe default is 86400 seconds or 24 hours."
+		},
+		"MetadataResponseCacheType": {
+			"value": -1,
+			"description": "Setting to regulate the caching of response that is received from a metadata."
+		},
+		"MetadataResponseCacheLifetime": {
+			"value": "60 * 60 * 24",
+			"description": "Specifies the time-to-live (TTL) in seconds for caching of response that is received from a metadata.\nThe default is 86400 seconds or 24 hours."
+		},
+		"NumberOfReferenceListColumns": {
+			"value": 0,
+			"description": "Number of columns displayed for the reference list."
+		},
+		"ResponsiveMonoColumnCharacterBoundLength": {
+			"value": 600,
+			"description": "Responsive columns depend on a browser to select an appropriated number of columns based on the screen width, yet it is possible to limit the responsiveness to a mono list when the character length of the produced reference list is lower than that for the given setting."
+		},
+		"ReferenceListType": {
+			"value": "ol",
+			"description": "Specifies the reference list type of which can be either 'ol' or 'ul'."
+		},
+		"BrowseLinkToCitationResource": {
+			"value": true,
+			"Whether to generate a 'Browse' link to a citation resource or not."
+		},
+		"ReferenceListCacheType": {
+			"value": -1,
+			"description": "Specify which cache type to be used, if no cache should be used at all, use CACHE_NONE."
+		},
+		"EnabledStrictParserValidation": {
+			"value": true,
+			"description": "Whether a strict validation on behalf of the #scite parser should be enabled or not."
+		},
+		"StrictParserValidationEnabled": {
+			"value": true,
+			"description": "Deprecated setting, use EnabledStrictParserValidation instead."
+		},
+		"EnabledCitationTextChangeUpdateJob": {
+			"value": true,
+			"description": "Whether an update job should be dispatched for changed citation text or not."
+		}
+	},
 	"load_composer_autoloader": true,
 	"manifest_version": 2
 }
