@@ -18,8 +18,6 @@
 			mw.config.get( 'wgUserLanguage' )
 		);
 
-		var util = new onoi.util();
-
 		/**
 		 * API instance
 		 *
@@ -113,7 +111,9 @@
 						} );
 
 						// Show a loading image while waiting on the request result
-						return util.getLoadingImg( 'scite-tooltip', 'dots' );
+						return $( '<div>' )
+							.addClass( 'scite-tooltip' )
+							.append( $( '<span>' ).addClass( 'scite-tooltip-loading' ).prop( 'alt', 'Loading...' ) );
 					}
 				},
 				position: {

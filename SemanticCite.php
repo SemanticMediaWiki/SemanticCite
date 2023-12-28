@@ -95,7 +95,6 @@ class SemanticCite {
 			$dependencies = [
 				'onoi.qtip',
 				'onoi.blobstore',
-				'onoi.util',
 				'ext.scite.styles',
 				'mediawiki.api.parse'
 			];
@@ -103,7 +102,6 @@ class SemanticCite {
 			$dependencies = [
 				'onoi.qtip',
 				'onoi.blobstore',
-				'onoi.util',
 				'ext.scite.styles',
 				'mediawiki.api'
 			];
