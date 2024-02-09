@@ -45,7 +45,7 @@ $GLOBALS['scigTooltipRequestCacheTTLInSeconds'] = 60 * 60 * 24; // false to disa
  * Setting to regulate the caching of response for received from a metadata
  * provider
  */
-$GLOBALS['scigMetadataResponseCacheType'] = CACHE_ANYTHING;
+$GLOBALS['scigMetadataResponseCacheType'] = -1; // CACHE_ANYTHING
 $GLOBALS['scigMetadataResponseCacheLifetime'] = 60 * 60 * 24;
 
 /**
@@ -75,7 +75,7 @@ $GLOBALS['scigBrowseLinkToCitationResource'] = true;
  * Specify which cache type to be used, if no cache should be used at all,
  * use CACHE_NONE
  */
-$GLOBALS['scigReferenceListCacheType'] = CACHE_ANYTHING;
+$GLOBALS['scigReferenceListCacheType'] = -1; // CACHE_ANYTHING
 
 /**
  * Whether a strict validation on behalf of the #scite parser should be
