@@ -12,6 +12,9 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	die( 'This file is part of the SemanticCite extension, it is not a valid entry point.' );
 }
 
+// Caching types
+define( 'CACHE_ANYTHING', -1 );
+
 // In-text citation reference format options
 define( 'SCI_CITEREF_NUM', 1 );
 define( 'SCI_CITEREF_KEY', 2 );
