@@ -31,8 +31,7 @@
 		"mediawiki/semantic-media-wiki": "~3.0|~4.0",
 		"onoi/cache": "~1.2",
 		"mediawiki/http-request": "~2.0|~1.1",
-		"onoi/remi":"~0.2",
-		"onoi/shared-resources":"~0.2"
+		"onoi/remi":"~0.2"
 	},
 	"require-dev": {
 		"mediawiki/semantic-media-wiki": "@dev"
