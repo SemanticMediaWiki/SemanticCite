@@ -1,7 +1,7 @@
 This file contains the RELEASE-NOTES of the **Semantic Cite** (a.k.a. SCI) extension.
 
 ## 3.0.0
-Released on November 28, 2023.
+Released on February 23, 2024.
 
 * Minimum requirement for
   * PHP changed to version 7.4 and later
