@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"Умар"
+		]
+	},
+	"sci-referencelist-header": "Билгалдахарш",
+	"sci-property-alias-citation-key": "Цитатин догӀа",
+	"sci-property-alias-citation-reference": "Цитатин тӀе хьажорг",
+	"sci-property-alias-citation-text": "Цитатин текст",
+	"sci-property-alias-citation-resource": "Цитатин ресурс",
+	"findmetadatabyid": "Метахаамаш лаха",
+	"sci-specials-select-options": "Харжа опцеш",
+	"sci-specials-no-results": "Цхьа а жамӀ дац.",
+	"sci-metadata-search-form": "ID-ца",
+	"sci-metadata-search-action-highlight": "Текст схьахаржа",
+	"sci-metadata-search-action-create": "Кхолла",
+	"sci-metadata-search-header-log": "Журнал",
+	"sci-metadata-search-header-result": "Хилам",
+	"sci-metadata-search-form-submit": "Лахар",
+	"sci-metadata-search-select-label": "Тайпа:"
+}
