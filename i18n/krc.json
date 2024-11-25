@@ -43,5 +43,9 @@
 	"onoi-remi-request-error": "\"$2\" ючюн REST/HTTP излеми \"$1\" бла кери къайтды.",
 	"onoi-remi-response-empty": "\"$1\" ючюн джууаб бош эсеб бла кери къайтды.",
 	"onoi-remi-parser-no-id-match": "Парсер \"$1\" бла келишмеди.",
-	"sci-tooltip-citation-lookup-failure": "\"$1\" ючюн аркъа учдан келишген цитата алыналмады."
+	"sci-tooltip-citation-lookup-failure": "\"$1\" ючюн аркъа учдан келишген цитата алыналмады.",
+	"sci-tooltip-citation-lookup-failure-multiple": "Талай келишиую болгъан \"$1\" ючюн цитата текст алыналмады.",
+	"smw-pa-property-predefined__sci_cite_key": "\"$1\", цитата къайнакъны танытхан эмда [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] кенгериу джанындан баджарылгъан аллындан танылгъан энчиликди.",
+	"smw-pa-property-predefined__sci_cite_reference": "\"$1\", белги болуб хайырландырылгъанында, цитата къайнакъны танытхан (с.ю. статья ючюн белги) эмда [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] кенгериу джанындан баджарылгъан аллындан танылгъан энчиликди.",
+	"smw-pa-property-predefined__sci_cite_text": "\"$1\" аллындан форматланнган статьясы болгъан, аллындан танытхан бир энчиликди эмда [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] кенгериу джанындан баджарылады."
 }
