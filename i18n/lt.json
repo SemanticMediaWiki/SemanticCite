@@ -7,11 +7,18 @@
 		]
 	},
 	"sci-referencelist-header": "Šaltiniai",
+	"sci-scite-parser-no-reference": "<code>#scite</code> nepateikė nuorodos.",
+	"sci-scite-parser-no-type": "<code>#scite</code> nepavyko nustatyti „$1“ nuorodos tipo.",
+	"sci-datavalue-empty-reference": "Tikimasi, kad citatos nuoroda nebus tuščia.",
+	"sci-datavalue-invalid-id-value": "„$1“ yra neteisinga $2 tipo vertė.",
 	"sci-property-alias-citation-key": "Citatos id",
 	"sci-property-alias-citation-reference": "Citatos išnaša",
 	"sci-property-alias-citation-text": "Citatos tekstas",
+	"sci-property-alias-citation-resource": "Citacijos išteklius",
 	"findmetadatabyid": "Rasti metaduomenis",
 	"findcitablemetadata": "Rasti cituotinus metaduomenis",
+	"right-sci-metadatasearch": "Prieiga prie metaduomenų paieškos",
+	"action-sci-metadatasearch": "Semantic Cite metaduomenų paieška",
 	"sci-specials-header-results": "Rezultatų sąrašas",
 	"sci-specials-select-options": "Pasirinkti nustatymus",
 	"sci-specials-no-results": "Nėra prieinamų rezultatų.",
@@ -21,5 +28,6 @@
 	"sci-metadata-search-header-log": "Žurnalas",
 	"sci-metadata-search-header-result": "Rezultatas",
 	"sci-metadata-search-form-submit": "Paieška",
-	"sci-metadata-search-select-label": "Tipas:"
+	"sci-metadata-search-select-label": "Tipas:",
+	"sci-metadata-search-read-only": "Duomenų bazė veikia tik skaitymo režimu ir gali trukdyti automatiškai sukurti puslapį."
 }
