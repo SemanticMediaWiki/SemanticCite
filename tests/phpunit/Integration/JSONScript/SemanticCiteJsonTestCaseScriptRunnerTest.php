@@ -141,6 +141,10 @@ class SemanticCiteJsonTestCaseScriptRunnerTest extends LightweightJsonTestCaseSc
 
 		foreach ( $jsonTestCaseFileHandler->findTestCasesFor( 'parser-testcases' ) as $case ) {
 
+			if ( $jsonTestCaseFileHandler->requiredToSkipFor( $case, $this->connectorId ) ) {
+				continue;
+			}
+
 			if ( !isset( $case['subject'] ) ) {
 				break;
 			}
