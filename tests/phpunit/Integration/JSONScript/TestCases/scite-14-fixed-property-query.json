@@ -31,6 +31,9 @@
 		{
 			"about": "#1 display formatted query output",
 			"subject": "Example/Query/2",
+			"skip-on": {
+				"mediawiki": [ ">1.38.x", "Check for MW 1.39+" ]
+			},
 			"expected-output": {
 				"to-contain": [
 					"<td class=\"DOI smwtype_sci_doi\">10.1074/jbc.m114.559054</td>"
