@@ -14,7 +14,7 @@ use SMW\Tests\PHPUnitCompat;
  *
  * @author mwjames
  */
-class CacheKeyProviderTest extends \PHPUnit_Framework_TestCase {
+class CacheKeyProviderTest extends \PHPUnit\Framework\TestCase {
 
 	use PHPUnitCompat;
 

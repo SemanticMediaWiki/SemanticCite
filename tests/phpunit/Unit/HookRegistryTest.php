@@ -18,7 +18,7 @@ use SMW\Tests\PHPUnitCompat;
  *
  * @author mwjames
  */
-class HookRegistryTest extends \PHPUnit_Framework_TestCase {
+class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 
 	use PHPUnitCompat;
 

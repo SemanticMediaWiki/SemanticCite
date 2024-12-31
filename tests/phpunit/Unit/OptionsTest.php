@@ -13,7 +13,7 @@ use SCI\Options;
  *
  * @author mwjames
  */
-class OptionsTest extends \PHPUnit_Framework_TestCase {
+class OptionsTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
 

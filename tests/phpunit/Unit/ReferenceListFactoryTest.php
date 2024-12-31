@@ -14,7 +14,7 @@ use SCI\Options;
  *
  * @author mwjames
  */
-class ReferenceListFactoryTest extends \PHPUnit_Framework_TestCase {
+class ReferenceListFactoryTest extends \PHPUnit\Framework\TestCase {
 
 	private $store;
 	private $namespaceExaminer;

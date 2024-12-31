@@ -13,7 +13,7 @@ use SCI\FilteredMetadata\HttpResponseParserFactory;
  *
  * @author mwjames
  */
-class HttpResponseParserFactoryTest extends \PHPUnit_Framework_TestCase {
+class HttpResponseParserFactoryTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
 

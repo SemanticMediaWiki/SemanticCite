@@ -13,7 +13,7 @@ use SCI\Bibtex\BibtexParser;
  *
  * @author mwjames
  */
-class BibtexParserTest extends \PHPUnit_Framework_TestCase {
+class BibtexParserTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
 

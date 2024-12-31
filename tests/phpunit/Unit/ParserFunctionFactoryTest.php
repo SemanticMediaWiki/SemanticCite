@@ -16,7 +16,7 @@ use ParserOptions;
  *
  * @author mwjames
  */
-class ParserFunctionFactoryTest extends \PHPUnit_Framework_TestCase {
+class ParserFunctionFactoryTest extends \PHPUnit\Framework\TestCase {
 
 	private $parser;
 

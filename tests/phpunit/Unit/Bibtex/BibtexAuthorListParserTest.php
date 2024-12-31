@@ -13,7 +13,7 @@ use SCI\Bibtex\BibtexAuthorListParser;
  *
  * @author mwjames
  */
-class BibtexAuthorListParserTest extends \PHPUnit_Framework_TestCase {
+class BibtexAuthorListParserTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
 

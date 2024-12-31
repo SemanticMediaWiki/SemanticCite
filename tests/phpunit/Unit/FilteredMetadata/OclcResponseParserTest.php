@@ -13,7 +13,7 @@ use SCI\FilteredMetadata\OclcResponseParser;
  *
  * @author mwjames
  */
-class OclcResponseParserTest extends \PHPUnit_Framework_TestCase {
+class OclcResponseParserTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
 

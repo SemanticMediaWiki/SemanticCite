@@ -14,7 +14,7 @@ use SMW\DataTypeRegistry;
  *
  * @author mwjames
  */
-class CitationReferenceValueTest extends \PHPUnit_Framework_TestCase {
+class CitationReferenceValueTest extends \PHPUnit\Framework\TestCase {
 
 	private $dataValueServiceFactory;
 

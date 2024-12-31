@@ -13,7 +13,7 @@ use SCI\FilteredMetadata\BibliographicFilteredRecord;
  *
  * @author mwjames
  */
-class SciteTransclusionForCannedResponseParserTest extends \PHPUnit_Framework_TestCase {
+class SciteTransclusionForCannedResponseParserTest extends \PHPUnit\Framework\TestCase {
 
 	/**
 	 * @dataProvider crossrefFileProvider

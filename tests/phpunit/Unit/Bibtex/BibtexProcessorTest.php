@@ -13,7 +13,7 @@ use SCI\Bibtex\BibtexProcessor;
  *
  * @author mwjames
  */
-class BibtexProcessorTest extends \PHPUnit_Framework_TestCase {
+class BibtexProcessorTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
 

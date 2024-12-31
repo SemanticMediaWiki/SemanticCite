@@ -13,7 +13,7 @@ use SCI\FilteredMetadata\BibliographicFilteredRecord;
  *
  * @author mwjames
  */
-class BibliographicFilteredRecordTest extends \PHPUnit_Framework_TestCase {
+class BibliographicFilteredRecordTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
 

@@ -15,7 +15,7 @@ use SMW\Tests\PHPUnitCompat;
  * @author mwjames
  * @reviewer thomas-topway-it
  */
-class MediaWikiContextInteractorTest extends \PHPUnit_Framework_TestCase {
+class MediaWikiContextInteractorTest extends \PHPUnit\Framework\TestCase {
 
 	use PHPUnitCompat;
 
