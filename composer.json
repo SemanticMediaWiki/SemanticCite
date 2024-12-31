@@ -27,13 +27,10 @@
 	},
 	"require": {
 		"php": ">=7.4",
-		"composer/installers": "^1.0.12",
+		"composer/installers": ">=1.0.1",
 		"onoi/cache": "~1.2",
 		"mediawiki/http-request": "~2.0|~1.1",
 		"onoi/remi":"~0.2"
-	},
-	"require-dev": {
-		"mediawiki/semantic-media-wiki": "@dev"
 	},
 	"autoload": {
 		"files" : [
@@ -44,10 +41,21 @@
 		}
 	},
 	"config": {
-		"process-timeout": 0
+		"process-timeout": 0,
+		"allow-plugins": {
+			"composer/installers": true
+		}
 	},
 	"scripts":{
+		"test-coverage": [
+			"@phpunit-coverage"
+		],
 		"phpunit": "php ../../tests/phpunit/phpunit.php -c phpunit.xml.dist",
+		"phpunit-coverage": "php ${MW_INSTALL_PATH:-../..}/tests/phpunit/phpunit.php -c phpunit.xml.dist --testdox --coverage-text --coverage-html coverage/php --coverage-clover coverage/php/coverage.xml",
+		"post-test-coverage": [
+			"sed -i 's|/var/www/html/extensions/SemanticCite/||g' coverage/php/coverage.xml",
+			"find coverage/php -type f -name '*.html' -exec sed -i 's|/var/www/html/extensions/||g' {} +"
+		],
 		"test": "php ../../tests/phpunit/phpunit.php -c phpunit.xml.dist"
 	}
 }

@@ -10,16 +10,20 @@
 	"license-name": "GPL-2.0-or-later",
 	"type": "semantic",
 	"requires": {
-		"MediaWiki": ">= 1.35",
+		"MediaWiki": ">= 1.39",
 		"extensions": {
-			"SemanticMediaWiki": ">= 3.0"
+			"SemanticMediaWiki": ">= 4.0"
 		}
 	},
 	"AutoloadNamespaces": {
-		"SCI\\": "src"
+		"SCI\\": "src/"
 	},
 	"AutoloadClasses": {
 		"SemanticCite": "SemanticCite.php"
+	},
+	"TestAutoloadNamespaces": {
+		"SCI\\Tests\\": "tests/phpunit/Unit/",
+		"SCI\\Tests\\Integration\\": "tests/phpunit/Integration/"
 	},
 	"MessagesDirs": {
 		"SemanticCite": [
