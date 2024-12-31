@@ -16,7 +16,7 @@
 		}
 	},
 	"AutoloadNamespaces": {
-		"SCI\\": "src"
+		"SCI\\": "src/"
 	},
 	"AutoloadClasses": {
 		"SemanticCite": "SemanticCite.php"
