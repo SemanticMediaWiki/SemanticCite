@@ -8,7 +8,6 @@ use SMW\ApplicationFactory;
 use SMW\DataTypeRegistry;
 use SMW\DIWikiPage;
 use SMWDataItem as DataItem;
-use Hooks;
 
 /**
  * @license GNU GPL v2+
@@ -70,7 +69,7 @@ class HookRegistry {
 	 * @return boolean
 	 */
 	public function isRegistered( $name ) {
-		return Hooks::isRegistered( $name );
+		return \MediaWiki\MediaWikiServices::getInstance()->getHookContainer()->isRegistered( $name );
 	}
 
 	/**
@@ -83,13 +82,7 @@ class HookRegistry {
 		}
 
 		foreach ( $this->handlers as $name => $callback ) {
-			if (
-				!class_exists( '\MediaWiki\MediaWikiServices' ) ||
-				!method_exists( \MediaWiki\MediaWikiServices::getInstance(), 'getHookContainer' ) ) {
-				\Hooks::clear( $name );
-			} else {
-				\MediaWiki\MediaWikiServices::getInstance()->getHookContainer()->clear( $name );
-			}
+			\MediaWiki\MediaWikiServices::getInstance()->getHookContainer()->clear( $name );
 		}
 	}
 
@@ -114,13 +107,7 @@ class HookRegistry {
 		//}
 
 		foreach ( $this->handlers as $name => $callback ) {
-			if (
-				!class_exists( '\MediaWiki\MediaWikiServices' ) ||
-				!method_exists( \MediaWiki\MediaWikiServices::getInstance(), 'getHookContainer' ) ) {
-				\Hooks::register( $name, $callback );
-			} else {
-				\MediaWiki\MediaWikiServices::getInstance()->getHookContainer()->register( $name, $callback );
-			}
+			\MediaWiki\MediaWikiServices::getInstance()->getHookContainer()->register( $name, $callback );
 		}
 	}
 

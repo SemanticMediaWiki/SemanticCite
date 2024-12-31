@@ -13,7 +13,7 @@ use SCI\CitationTextTemplateRenderer;
  *
  * @author mwjames
  */
-class CitationTextTemplateRendererTest extends \PHPUnit_Framework_TestCase {
+class CitationTextTemplateRendererTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
 

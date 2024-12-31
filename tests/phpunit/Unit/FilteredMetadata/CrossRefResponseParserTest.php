@@ -13,7 +13,7 @@ use SCI\FilteredMetadata\CrossRefResponseParser;
  *
  * @author mwjames
  */
-class CrossRefResponseParserTest extends \PHPUnit_Framework_TestCase {
+class CrossRefResponseParserTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
 

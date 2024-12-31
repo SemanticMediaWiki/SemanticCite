@@ -13,7 +13,7 @@ use SCI\Specials\SpecialFindCitableMetadata;
  *
  * @author mwjames
  */
-class SpecialFindCitableMetadataTest extends \PHPUnit_Framework_TestCase {
+class SpecialFindCitableMetadataTest extends \PHPUnit\Framework\TestCase {
 
 	private $request;
 	private $config;

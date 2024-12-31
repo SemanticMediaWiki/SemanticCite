@@ -14,7 +14,7 @@ use SMW\PropertyRegistry as CorePropertyRegistry;
  *
  * @author mwjames
  */
-class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
+class PropertyRegistryTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
 

@@ -13,7 +13,7 @@ use SCI\FilteredMetadata\OLResponseParser;
  *
  * @author mwjames
  */
-class OLResponseParserTest extends \PHPUnit_Framework_TestCase {
+class OLResponseParserTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
 

@@ -13,7 +13,7 @@ use SCI\FilteredMetadata\NcbiPubMedResponseParser;
  *
  * @author mwjames
  */
-class NcbiPubMedResponseParserTest extends \PHPUnit_Framework_TestCase {
+class NcbiPubMedResponseParserTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
 

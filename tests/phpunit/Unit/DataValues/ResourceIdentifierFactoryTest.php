@@ -13,7 +13,7 @@ use SCI\DataValues\ResourceIdentifierFactory;
  *
  * @author mwjames
  */
-class ResourceIdentifierFactoryTest extends \PHPUnit_Framework_TestCase {
+class ResourceIdentifierFactoryTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
 

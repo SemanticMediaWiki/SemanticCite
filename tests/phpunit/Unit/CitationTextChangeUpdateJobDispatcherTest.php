@@ -14,7 +14,7 @@ use SMW\DIWikiPage;
  *
  * @author mwjames
  */
-class CitationTextChangeUpdateJobDispatcherTest extends \PHPUnit_Framework_TestCase {
+class CitationTextChangeUpdateJobDispatcherTest extends \PHPUnit\Framework\TestCase {
 
 	private $store;
 	private $referenceBacklinksLookup;

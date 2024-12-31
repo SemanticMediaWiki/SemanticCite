@@ -13,7 +13,7 @@ use SCI\DataValues\ResourceIdentifierStringValue;
  *
  * @author mwjames
  */
-class ResourceIdentifierStringValueTest extends \PHPUnit_Framework_TestCase {
+class ResourceIdentifierStringValueTest extends \PHPUnit\Framework\TestCase {
 
 	/**
 	 * @dataProvider typeProvider

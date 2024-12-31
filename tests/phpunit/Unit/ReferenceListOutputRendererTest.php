@@ -15,7 +15,7 @@ use SMW\Tests\PHPUnitCompat;
  *
  * @author mwjames
  */
-class ReferenceListOutputRendererTest extends \PHPUnit_Framework_TestCase {
+class ReferenceListOutputRendererTest extends \PHPUnit\Framework\TestCase {
 
 	use PHPUnitCompat;
 

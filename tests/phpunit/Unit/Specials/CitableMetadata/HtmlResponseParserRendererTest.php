@@ -13,7 +13,7 @@ use SCI\Specials\CitableMetadata\HtmlResponseParserRenderer;
  *
  * @author mwjames
  */
-class HtmlResponseParserRendererTest extends \PHPUnit_Framework_TestCase {
+class HtmlResponseParserRendererTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
 

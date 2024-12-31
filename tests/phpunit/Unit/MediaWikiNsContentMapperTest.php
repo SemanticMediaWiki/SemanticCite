@@ -13,7 +13,7 @@ use SCI\MediaWikiNsContentMapper;
  *
  * @author mwjames
  */
-class MediaWikiNsContentMapperTest extends \PHPUnit_Framework_TestCase {
+class MediaWikiNsContentMapperTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
 

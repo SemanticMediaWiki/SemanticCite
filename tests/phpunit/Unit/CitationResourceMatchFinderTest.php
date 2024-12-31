@@ -13,7 +13,7 @@ use SCI\CitationResourceMatchFinder;
  *
  * @author mwjames
  */
-class CitationResourceMatchFinderTest extends \PHPUnit_Framework_TestCase {
+class CitationResourceMatchFinderTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
 

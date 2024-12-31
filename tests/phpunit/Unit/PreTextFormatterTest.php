@@ -17,7 +17,7 @@ use SMW\Tests\PHPUnitCompat;
  *
  * @author mwjames
  */
-class PreTextFormatterTest extends \PHPUnit_Framework_TestCase {
+class PreTextFormatterTest extends \PHPUnit\Framework\TestCase {
 
 	use PHPUnitCompat;
 

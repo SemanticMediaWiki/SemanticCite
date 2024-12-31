@@ -14,7 +14,7 @@ use SMW\Tests\PHPUnitCompat;
  *
  * @author mwjames
  */
-class CitationReferencePositionJournalTest extends \PHPUnit_Framework_TestCase {
+class CitationReferencePositionJournalTest extends \PHPUnit\Framework\TestCase {
 
 	use PHPUnitCompat;
 

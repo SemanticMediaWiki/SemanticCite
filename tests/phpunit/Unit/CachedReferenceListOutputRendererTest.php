@@ -13,7 +13,7 @@ use SCI\CachedReferenceListOutputRenderer;
  *
  * @author mwjames
  */
-class CachedReferenceListOutputRendererTest extends \PHPUnit_Framework_TestCase {
+class CachedReferenceListOutputRendererTest extends \PHPUnit\Framework\TestCase {
 
 	private $referenceListOutputRenderer;
 	private $contextInteractor;

@@ -13,7 +13,7 @@ use SCI\FilteredMetadata\ViafResponseParser;
  *
  * @author mwjames
  */
-class ViafResponseParserTest extends \PHPUnit_Framework_TestCase {
+class ViafResponseParserTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
 
