@@ -6,21 +6,22 @@ use SCI\MediaWikiNsContentMapper;
 use SCI\HookRegistry;
 use SCI\Options;
 use Onoi\Cache\CacheFactory;
-use SMW\Tests\LightweightJsonTestCaseScriptRunner;
-use SMW\Tests\JsonTestCaseFileHandler;
+use SMW\Tests\JSONScriptServicesTestCaseRunner;
+use SMW\Tests\Utils\JSONScript\JsonTestCaseFileHandler;
 use SMW\Tests\Utils\UtilityFactory;
 use SMW\DIWikiPage;
 
 /**
  * @group semantic-cite
  * @group medium
+ * @group Database
  *
  * @license GNU GPL v2+
  * @since 1.0
  *
  * @author mwjames
  */
-class SemanticCiteJsonTestCaseScriptRunnerTest extends LightweightJsonTestCaseScriptRunner {
+class SemanticCiteJsonTestCaseScriptRunnerTest extends JSONScriptServicesTestCaseRunner {
 
 	private $semanticDataValidator;
 	private $stringValidator;

@@ -27,14 +27,10 @@
 	},
 	"require": {
 		"php": ">=7.4",
-		"composer/installers": "^1.0.12",
-		"mediawiki/semantic-media-wiki": "~4.0|~5.0",
+		"composer/installers": ">=1.0.1",
 		"onoi/cache": "~1.2",
 		"mediawiki/http-request": "~2.0|~1.1",
 		"onoi/remi":"~0.2"
-	},
-	"require-dev": {
-		"mediawiki/semantic-media-wiki": "@dev"
 	},
 	"autoload": {
 		"files" : [
@@ -45,7 +41,10 @@
 		}
 	},
 	"config": {
-		"process-timeout": 0
+		"process-timeout": 0,
+		"allow-plugins": {
+			"composer/installers": true
+		}
 	},
 	"scripts":{
 		"test-coverage": [

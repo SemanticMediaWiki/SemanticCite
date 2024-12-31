@@ -37,19 +37,9 @@ class MediaWikiContextInteractorTest extends \PHPUnit_Framework_TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$webRequest = $this->getMockBuilder( '\WebRequest' )
-			->disableOriginalConstructor()
-			->getMock();
-
-		// replaced $this->once() with $this->any(), is that correct ?
-		$webRequest->expects( $this->any() )
-			->method( 'getVal' )
-			->will( $this->returnValue( 'view' ) );
-
-		// replaced $this->once() with $this->any(), is that correct ?
 		$context->expects( $this->any() )
-			->method( 'getRequest' )
-			->will( $this->returnValue( $webRequest ) );
+			->method( 'getActionName' )
+			->willReturn( 'view');
 
 		$instance = new MediaWikiContextInteractor( $context );
 
