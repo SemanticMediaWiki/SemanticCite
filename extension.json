@@ -21,6 +21,10 @@
 	"AutoloadClasses": {
 		"SemanticCite": "SemanticCite.php"
 	},
+	"TestAutoloadNamespaces": {
+		"SCI\\Tests\\": "tests/phpunit/Unit/",
+		"SCI\\Tests\\Integration\\": "tests/phpunit/Integration/"
+	},
 	"MessagesDirs": {
 		"SemanticCite": [
 			"i18n"
