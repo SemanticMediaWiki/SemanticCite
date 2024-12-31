@@ -8,7 +8,6 @@ use SMW\ApplicationFactory;
 use SMW\DataTypeRegistry;
 use SMW\DIWikiPage;
 use SMWDataItem as DataItem;
-use Hooks;
 
 /**
  * @license GNU GPL v2+
