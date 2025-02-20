@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"01miki10",
-			"Pyscowicz"
+			"Pyscowicz",
+			"Samoasambia"
 		]
 	},
 	"sci-referencelist-header": "Viitteet",
@@ -16,7 +17,7 @@
 	"sci-metadata-search-action-create": "Luo",
 	"sci-metadata-search-header-log": "Loki",
 	"sci-metadata-search-header-result": "Tulos",
-	"sci-metadata-search-form-submit": "Etsi",
+	"sci-metadata-search-form-submit": "Hae",
 	"sci-metadata-search-select-label": "Tyyppi:",
 	"sci-metadata-search-read-only": "Tietokanta on vain luku -tilassa ja voi estää automaattisen sivujen luonnin."
 }
