@@ -2,7 +2,7 @@
 
 use SCI\HookRegistry;
 use SCI\Options;
-use SMW\ApplicationFactory;
+use SMW\Services\ServicesFactory as ApplicationFactory;
 
 /**
  * @see https://github.com/SemanticMediaWiki/SemanticCite/
