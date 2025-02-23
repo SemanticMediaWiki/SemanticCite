@@ -447,13 +447,13 @@ class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$compositePropertyTableDiffIterator = $this->getMockBuilder( '\SMW\SQLStore\CompositePropertyTableDiffIterator' )
+		$changeOp = $this->getMockBuilder( '\SMW\SQLStore\ChangeOp\ChangeOp' )
 			->disableOriginalConstructor()
 			->getMock();
 
 		$this->assertThatHookIsExcutable(
 			$instance->getHandlerFor( $hook ),
-			[ $store, $semanticData, $compositePropertyTableDiffIterator ]
+			[ $store, $semanticData, $changeOp ]
 		);
 	}
 

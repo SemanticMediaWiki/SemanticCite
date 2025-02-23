@@ -50,16 +50,16 @@ class CitationTextChangeUpdateJobDispatcherTest extends \PHPUnit\Framework\TestC
 
 		$instance->setEnabledUpdateJobState( false );
 
-		$compositePropertyTableDiffIterator = $this->getMockBuilder( '\SMW\SQLStore\CompositePropertyTableDiffIterator' )
+		$changeOp = $this->getMockBuilder( '\SMW\SQLStore\ChangeOp\ChangeOp' )
 			->disableOriginalConstructor()
 			->getMock();
 
-		$compositePropertyTableDiffIterator->expects( $this->never() )
+		$changeOp->expects( $this->never() )
 			->method( 'getOrderedDiffByTable' );
 
 		$subject = DIWikiPage::newFromText( __METHOD__ );
 
-		$instance->dispatchUpdateJobFor( $subject, $compositePropertyTableDiffIterator );
+		$instance->dispatchUpdateJobFor( $subject, $changeOp );
 	}
 
 	/**
@@ -97,18 +97,18 @@ class CitationTextChangeUpdateJobDispatcherTest extends \PHPUnit\Framework\TestC
 			$this->referenceBacklinksLookup
 		);
 
-		$compositePropertyTableDiffIterator = $this->getMockBuilder( '\SMW\SQLStore\CompositePropertyTableDiffIterator' )
+		$changeOp = $this->getMockBuilder( '\SMW\SQLStore\ChangeOp\ChangeOp' )
 			->disableOriginalConstructor()
 			->getMock();
 
-		$compositePropertyTableDiffIterator->expects( $this->once() )
+		$changeOp->expects( $this->once() )
 			->method( 'getOrderedDiffByTable' )
 			->will( $this->returnValue( $diff ) );
 
 		$subject = DIWikiPage::newFromText( __METHOD__ );
 
 		$this->assertTrue(
-			$instance->dispatchUpdateJobFor( $subject, $compositePropertyTableDiffIterator )
+			$instance->dispatchUpdateJobFor( $subject, $changeOp )
 		);
 	}
 
@@ -129,18 +129,18 @@ class CitationTextChangeUpdateJobDispatcherTest extends \PHPUnit\Framework\TestC
 			$this->referenceBacklinksLookup
 		);
 
-		$compositePropertyTableDiffIterator = $this->getMockBuilder( '\SMW\SQLStore\CompositePropertyTableDiffIterator' )
+		$changeOp = $this->getMockBuilder( '\SMW\SQLStore\ChangeOp\ChangeOp' )
 			->disableOriginalConstructor()
 			->getMock();
 
-		$compositePropertyTableDiffIterator->expects( $this->once() )
+		$changeOp->expects( $this->once() )
 			->method( 'getOrderedDiffByTable' )
 			->will( $this->returnValue( $diff ) );
 
 		$subject = DIWikiPage::newFromText( __METHOD__ );
 
 		$this->assertFalse(
-			$instance->dispatchUpdateJobFor( $subject, $compositePropertyTableDiffIterator )
+			$instance->dispatchUpdateJobFor( $subject, $changeOp )
 		);
 	}
 

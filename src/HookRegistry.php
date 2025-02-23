@@ -4,7 +4,7 @@ namespace SCI;
 
 use SMW\Store;
 use Onoi\Cache\Cache;
-use SMW\ApplicationFactory;
+use SMW\Services\ServicesFactory as ApplicationFactory;
 use SMW\DataTypeRegistry;
 use SMW\DIWikiPage;
 use SMWDataItem as DataItem;
