@@ -2,7 +2,7 @@
 
 namespace SCI\DataValues;
 
-use SMWStringValue as StringValue;
+use SMW\DataValues\StringValue;
 use SMWDIBlob as DIBlob;
 use Html;
 

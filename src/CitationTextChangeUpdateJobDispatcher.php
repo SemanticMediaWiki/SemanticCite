@@ -5,9 +5,9 @@ namespace SCI;
 use SMW\Store;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
-use SMW\ApplicationFactory;
+use SMW\Services\ServicesFactory as ApplicationFactory;
 use SMW\HashBuilder;
-use SMW\SQLStore\CompositePropertyTableDiffIterator;
+use SMW\SQLStore\ChangeOp\ChangeOp;
 
 /**
  * If a citation text was altered then lookup related references on pages used
@@ -59,11 +59,11 @@ class CitationTextChangeUpdateJobDispatcher {
 	 * @since  1.0
 	 *
 	 * @param DIWikiPage $subject
-	 * @param CompositePropertyTableDiffIterator $compositePropertyTableDiffIterator
+	 * @param ChangeOp $changeOp
 	 *
 	 * @return boolean
 	 */
-	public function dispatchUpdateJobFor( DIWikiPage $subject, CompositePropertyTableDiffIterator $compositePropertyTableDiffIterator ) {
+	public function dispatchUpdateJobFor( DIWikiPage $subject, ChangeOp $changeOp ) {
 
 		if ( !$this->enabledUpdateJobState ) {
 			return false;
@@ -74,7 +74,7 @@ class CitationTextChangeUpdateJobDispatcher {
 		);
 
 		$subjectIdList = $this->getSubjectListFrom(
-			$compositePropertyTableDiffIterator->getOrderedDiffByTable( $tableName )
+			$changeOp->getOrderedDiffByTable( $tableName )
 		);
 
 		if ( ( $jobList = $this->getDispatchableTargetList( $subjectIdList ) ) === [] ) {

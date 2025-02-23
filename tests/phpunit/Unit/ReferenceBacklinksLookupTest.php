@@ -120,7 +120,7 @@ class ReferenceBacklinksLookupTest extends \PHPUnit\Framework\TestCase {
 					$this->equalTo( new DIProperty( PropertyRegistry::SCI_CITE_REFERENCE ) ),
 					$this->anything() );
 
-		$queryResult = $this->getMockBuilder( '\SMWQueryResult' )
+		$queryResult = $this->getMockBuilder( '\SMW\Query\QueryResult' )
 			->disableOriginalConstructor()
 			->getMock();
 

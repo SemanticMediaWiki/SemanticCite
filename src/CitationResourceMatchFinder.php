@@ -7,10 +7,12 @@ use SMW\Query\Language\ValueDescription;
 use SMW\Query\PrintRequest;
 use SMW\Store;
 use SMW\DIProperty;
-use SMWPropertyValue as PropertyValue;
+use SMW\DataValues\PropertyValue;
 use SMWQuery as Query;
 use SMWDIBlob as DIBlob;
 use SMW\DataValueFactory;
+use SMW\Query\QueryResult;
+use SMWInfolink;
 use SCI\DataValues\ResourceIdentifierFactory;
 
 /**
@@ -60,7 +62,7 @@ class CitationResourceMatchFinder {
 				null
 			);
 
-			$browselink = \SMWInfolink::newBrowsingLink(
+			$browselink = SMWInfolink::newBrowsingLink(
 				$caption,
 				$dataValue->getWikiValue(),
 				$linkClass
@@ -135,7 +137,7 @@ class CitationResourceMatchFinder {
 			$citationReference
 		);
 
-		if ( !$queryResult instanceof \SMWQueryResult ) {
+		if ( !$queryResult instanceof QueryResult ) {
 			return [ $subjects, $text ];
 		}
 

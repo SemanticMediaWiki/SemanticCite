@@ -4,7 +4,7 @@ namespace SCI\Specials;
 
 use MediaWiki\MediaWikiServices;
 use SpecialPage;
-use SMW\ApplicationFactory;
+use SMW\Services\ServicesFactory as ApplicationFactory;
 use Onoi\HttpRequest\HttpRequestFactory;
 use SCI\FilteredMetadata\HttpResponseParserFactory;
 use SCI\CitationResourceMatchFinder;

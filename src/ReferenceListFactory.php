@@ -4,7 +4,7 @@ namespace SCI;
 
 use SMW\Store;
 use SMW\NamespaceExaminer;
-use SMW\ApplicationFactory;
+use SMW\Services\ServicesFactory as ApplicationFactory;
 use Onoi\Cache\Cache;
 use Parser;
 

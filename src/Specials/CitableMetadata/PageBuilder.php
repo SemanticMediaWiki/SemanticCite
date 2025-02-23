@@ -2,7 +2,7 @@
 
 namespace SCI\Specials\CitableMetadata;
 
-use SMW\ApplicationFactory;
+use SMW\Services\ServicesFactory as ApplicationFactory;
 use SCI\CitationResourceMatchFinder;
 use SMW\MediaWiki\Renderer\HtmlFormRenderer;
 use SMW\MediaWiki\Renderer\HtmlColumnListRenderer;

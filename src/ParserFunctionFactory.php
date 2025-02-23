@@ -2,7 +2,7 @@
 
 namespace SCI;
 
-use SMW\ApplicationFactory;
+use SMW\Services\ServicesFactory as ApplicationFactory;
 use SMW\NamespaceExaminer;
 use SMW\ParameterProcessorFactory;
 use SCI\Bibtex\BibtexProcessor;
