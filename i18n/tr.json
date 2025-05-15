@@ -3,6 +3,7 @@
 		"authors": [
 			"BaRaN6161 TURK",
 			"Bulgu",
+			"Cobija",
 			"Hedda",
 			"MuratTheTurkish",
 			"Sayginer",
@@ -23,8 +24,8 @@
 	"sci-property-alias-citation-resource": "Alıntı kaynağı",
 	"findmetadatabyid": "Meta verileri bul",
 	"findcitablemetadata": "Düzenli meta verileri bul",
-	"right-sci-metadatasearch": "Meta veri arama erişimi",
-	"action-sci-metadatasearch": "Semantic Cite meta veri araması",
+	"right-sci-metadatasearch": "Üstveri arama erişimi",
+	"action-sci-metadatasearch": "Semantic Cite üstveri araması",
 	"sci-specials-header-results": "Sonuç listesi",
 	"sci-specials-select-options": "Seçenekleri seç",
 	"sci-specials-no-results": "Herhangi bir sonuç mevcut değil.",
