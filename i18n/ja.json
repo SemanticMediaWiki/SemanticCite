@@ -36,7 +36,7 @@
 	"sci-metadata-search-intro-viaf": "Virtual International Authority File ための検索のための [[Property:VIAF|VIAF]] 番号",
 	"onoi-remi-request-error": "REST/HTTP リクエストは  \"$2\" のため、\"$1\" エラーで終了しました。",
 	"onoi-remi-response-empty": "応答が、「$1」のための空白の結果をかえしました。",
-	"onoi-remi-parser-no-id-match": "パーサは「$1」と一致することができませんでした。",
+	"onoi-remi-parser-no-id-match": "パーサーは「$1」と一致させられませんでした。",
 	"sci-tooltip-citation-lookup-failure": "「$1」のためのバックエンドからの適切な引数の取得に失敗しました。",
 	"sci-tooltip-citation-lookup-failure-multiple": "複数の一致を持っている「$1」のための引用テキストの取得に失敗しました。"
 }
