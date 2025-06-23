@@ -31,7 +31,7 @@
 	"sci-metadata-search-select-label": "種類:",
 	"sci-metadata-search-read-only": "データベースは読み取り専用モードであり、自動ページ作成を妨げることがあります。",
 	"sci-metadata-search-cached": "この検索結果はキャッシュから読み込まれました。",
-	"sci-metadata-search-intro-doi": "CrossRef レポジトリ検索のための [[Property:DOI|DOI]]",
+	"sci-metadata-search-intro-doi": "CrossRef リポジトリを検索するための [[Property:DOI|DOI]]",
 	"sci-metadata-search-intro-ol": "OpenLibrary record に一致する、 [[Property:OLID|OLID]] または ISBN 番号",
 	"sci-metadata-search-intro-viaf": "Virtual International Authority File ための検索のための [[Property:VIAF|VIAF]] 番号",
 	"onoi-remi-request-error": "REST/HTTP リクエストは  \"$2\" のため、\"$1\" エラーで終了しました。",
