@@ -3,7 +3,8 @@
 		"authors": [
 			"Banjo",
 			"Elisardojm",
-			"Iváns"
+			"Iváns",
+			"Toliño"
 		]
 	},
 	"sci-desc": "Xestionar os recursos de citas coa axuda de [https://www.semantic-mediawiki.org MediaWiki Semántica]",
@@ -33,7 +34,7 @@
 	"sci-metadata-search-header-result": "Resultado",
 	"sci-metadata-search-form-submit": "Procurar",
 	"sci-metadata-search-select-label": "Tipo:",
-	"sci-metadata-search-read-only": "A base de datos está en modo só-lectura e pode dificultar a creación automática de páxinas.",
+	"sci-metadata-search-read-only": "A base de datos está en modo lectura só e pode dificultar a creación automática de páxinas.",
 	"sci-metadata-search-has-match": "O identificador corresponde a recursos de cita que teñen o mesmo identificador e conteñen: $1.",
 	"sci-metadata-search-cached": "A resposta da procura obtívose da caché.",
 	"sci-metadata-search-intro": "Escriba un identificador e seleccione un provedor de servizo (require unha conexión activa a Internet) para mapear metadatos recuperables para o formato <code>#scite</code>.",
