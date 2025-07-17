@@ -22,5 +22,6 @@
 	"sci-metadata-search-header-log": "Журнал",
 	"sci-metadata-search-header-result": "Хилам",
 	"sci-metadata-search-form-submit": "Лахар",
-	"sci-metadata-search-select-label": "Тайпа:"
+	"sci-metadata-search-select-label": "Тайпа:",
+	"sci-tooltip-citation-lookup-failure-multiple": "«$1» хьахош текст схьаэца аьтто бац, масех цхьаьнадар  долуш."
 }
