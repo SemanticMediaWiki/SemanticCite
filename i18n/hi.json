@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Saurmandal",
 			"Sfic",
 			"चक्रपाणी",
 			"संजीव कुमार"
@@ -18,8 +19,8 @@
 	"sci-property-alias-citation-resource": "उद्धरण स्रोत",
 	"findmetadatabyid": "मेटाडाटा खोजें",
 	"findcitablemetadata": "उद्धरण योग्य मेटाडेटा खोजें",
-	"right-sci-metadatasearch": "मेटाडेटा खोज एक्सेस",
-	"action-sci-metadatasearch": "सेमांटिक साइट मॅटा-डाटा खोज",
+	"right-sci-metadatasearch": "मेटाडेटा खोज की पहुँच",
+	"action-sci-metadatasearch": "सिमेंटिक उद्धरण मेटाडेटा खोज",
 	"sci-specials-header-results": "परिणामों की सूची",
 	"sci-specials-select-options": "विकल्प चुनें",
 	"sci-specials-no-results": "कोई परिणाम उपलब्ध नहीं।",
