@@ -18,14 +18,14 @@ jobs:
       matrix:
         include:
           - mediawiki_version: '1.39'
-            smw_version: dev-master
+            smw_version: 5.1.0
             php_version: 8.1
             database_type: mysql
             database_image: "mariadb:11.2"
             coverage: false
             experimental: false
           - mediawiki_version: '1.39'
-            smw_version: dev-master
+            smw_version: 5.1.0
             php_version: 8.1
             database_type: mysql
             database_image: "mariadb:11.2"
@@ -91,5 +91,6 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: coverage/php/coverage.xml
         if: matrix.coverage == true
+
 
 
