@@ -35,7 +35,7 @@
 	"sci-metadata-search-read-only": "Die Datenbank ist aktuell schreibgeschützt und verhindert so möglicherweise die automatische Erstellung von Seiten.",
 	"sci-metadata-search-has-match": "Die Kennung entspricht Referenzierungsquellen, die das gleiche Identifizierungsmerkmal haben und umfasst: $1.",
 	"sci-metadata-search-cached": "Das Ergebnis der Suche stammt aus dem Cache.",
-	"sci-metadata-search-intro": "Bitte gib ein Identifizierungsmerkmal (Kennung) an und wähle einen Dienstanbieter aus, um abrufbare Metadaten im für die Parserfunktion <code>#scite</code> erforderlichen Format zu erhalten. Hierfür ist eine aktive Internetverbindung erforderlich.",
+	"sci-metadata-search-intro": "Bitte {{#FORMAL:gib|geben Sie}} ein Identifizierungsmerkmal (Kennung) an und {{#FORMAL:wähle|wählen Sie}} einen Dienstanbieter aus, um abrufbare Metadaten im für die Parserfunktion <code>#scite</code> erforderlichen Format zu erhalten. Hierfür ist eine aktive Internetverbindung erforderlich.",
 	"sci-metadata-search-intro-doi": "[[Property:DOI|DOI]] zur Suche im CrossRef-Repositorium",
 	"sci-metadata-search-intro-pubmed": "[[Property:PMCID|PMC-Kennung (PMCID)]] zur Suche bei PubMed Central sowie [[Property:PMID|PM-Kennung (PMID)]] zur Suche im PubMed-Archiv",
 	"sci-metadata-search-intro-oclc": "[[Property:OCLC|OCLC-Nummer]] zur Suche im WorlCat-Katalog",
