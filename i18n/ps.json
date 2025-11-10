@@ -3,10 +3,17 @@
 		"authors": [
 			"Af420",
 			"Ahmed-Najib-Biabani-Ibrahimkhel",
-			"Amjad Khan"
+			"Amjad Khan",
+			"شاه زمان پټان"
 		]
 	},
 	"sci-specials-header-results": "د پايلو لړليک",
 	"sci-specials-select-options": "خوښنې ټاکل",
-	"sci-metadata-search-action-create": "جوړول"
+	"sci-metadata-search-form": "د پېژند له مخې",
+	"sci-metadata-search-action-highlight": "ليک غوره‌کول",
+	"sci-metadata-search-action-create": "جوړول",
+	"sci-metadata-search-header-log": "يادښت",
+	"sci-metadata-search-header-result": "پايله",
+	"sci-metadata-search-form-submit": "پلټل",
+	"sci-metadata-search-select-label": "ډول:"
 }
