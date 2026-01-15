@@ -7,6 +7,7 @@
 			"Josve05a",
 			"Mjälten",
 			"Psl85",
+			"Stefan2255",
 			"WikiPhoenix"
 		]
 	},
@@ -38,7 +39,7 @@
 	"sci-metadata-search-form-submit": "Sök",
 	"sci-metadata-search-select-label": "Typ:",
 	"sci-metadata-search-read-only": "Databasen är låst, något som kan hindra automatisk sidskapande.",
-	"sci-metadata-search-has-match": "ID har matchats till följande [$1] referensresurser.",
+	"sci-metadata-search-has-match": "ID:t har matchats med citeringsresurser som innehåller samma identifierare och inkluderar: $1.",
 	"sci-metadata-search-cached": "Söksvaret hämtades från cache.",
 	"sci-metadata-search-intro-oclc": "[[Property:OCLC|OCLC]]-nummer för WorldCat-katalogen",
 	"onoi-remi-request-error": "REST/HTTP-begäran returnerade med \"$1\" för \"$2\".",
