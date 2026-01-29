@@ -3,7 +3,8 @@
 		"authors": [
 			"Nerogaf",
 			"Red Winged Duck",
-			"Renessaince"
+			"Renessaince",
+			"Ucukor"
 		]
 	},
 	"sci-desc": "Кіраваць крыніцамі спасылак з дапамогай [https://www.semantic-mediawiki.org Semantic MediaWiki]",
@@ -46,7 +47,7 @@
 	"onoi-remi-response-empty": "Адказ даў парожні вынік для «$1».",
 	"onoi-remi-parser-no-id-match": "Сынтаксычны аналізатар не супадае з «$1».",
 	"sci-tooltip-citation-lookup-failure": "Немагчыма атрымаць адпаведную цытату з сэрвэра для «$1».",
-	"sci-tooltip-citation-lookup-failure-multiple": "Немагчыма атрымаць тэкст цытаты для «$1», які мае некалькі супадзеньняў.",
+	"sci-tooltip-citation-lookup-failure-multiple": "Немагчыма атрымаць тэкст цытаты для «$1», які мае мноства супадзеньняў.",
 	"smw-pa-property-predefined__sci_cite_key": "«$1» — перадвызначаная ўласьцівасьць, якая ідэнтыфікуе рэсурс цытаваньня і забясьпечваецца пашырэньнем [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite].",
 	"smw-pa-property-predefined__sci_cite_reference": "«$1» — перадвызначаная ўласьцівасьць, якая ідэнтыфікуе рэсурс цытаваньня, калі ўжываецца як крыніца (напрыклад, крыніца ў тэксьце) і забясьпечваецца пашырэньнем [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite].",
 	"smw-pa-property-predefined__sci_cite_text": "«$1» — гэта прадвызначаная ўласьцівасьць, якая зьмяшчае адфарматаваны тэкст і забясьпечваецца пашырэньнем [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Сэмантычны сайт].",
