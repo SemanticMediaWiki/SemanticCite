@@ -3,7 +3,7 @@
 namespace SCI;
 
 use Parser;
-use Html;
+use MediaWiki\Html\Html;
 use SMW\MediaWiki\Renderer\HtmlColumnListRenderer;
 use SMW\DIWikiPage;
 

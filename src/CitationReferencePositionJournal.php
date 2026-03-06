@@ -190,9 +190,10 @@ class CitationReferencePositionJournal {
 	private function hasJournalForHash( $hash ) {
 
 		if ( self::$citationReferenceJournal === [] ) {
-			self::$citationReferenceJournal = $this->cache->fetch(
+			$cached = $this->cache->fetch(
 				$this->cacheKeyProvider->getCacheKeyForCitationReference( $hash )
 			);
+			self::$citationReferenceJournal = is_array( $cached ) ? $cached : [];
 		}
 
 		return isset( self::$citationReferenceJournal[$hash] );

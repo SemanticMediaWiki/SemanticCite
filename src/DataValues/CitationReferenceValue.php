@@ -5,7 +5,7 @@ namespace SCI\DataValues;
 use SCI\CitationReferencePositionJournal;
 use SMW\DataValues\StringValue;
 use SMWDIBlob as DIBlob;
-use Html;
+use MediaWiki\Html\Html;
 
 /**
  * @license GNU GPL v2+

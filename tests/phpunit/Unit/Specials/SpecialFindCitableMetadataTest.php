@@ -60,7 +60,7 @@ class SpecialFindCitableMetadataTest extends \PHPUnit\Framework\TestCase {
 
 		$this->context->expects( $this->any() )
 			->method( 'getTitle' )
-			->will( $this->returnValue( \Title::newFromText( __METHOD__ ) ) );
+			->will( $this->returnValue( \MediaWiki\Title\Title::newFromText( __METHOD__ ) ) );
 
 		$SpecialFindCitableMetadata = $this->getMockBuilder( '\SCI\Specials\SpecialFindCitableMetadata' )
 			->disableOriginalConstructor()

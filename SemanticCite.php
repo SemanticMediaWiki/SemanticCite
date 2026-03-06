@@ -90,22 +90,12 @@ class SemanticCite {
 			]
 		];
 
-		// #71
-		if ( version_compare( $GLOBALS['wgVersion'], '1.32', '<' ) ) {
-			$dependencies = [
-				'onoi.qtip',
-				'onoi.blobstore',
-				'ext.scite.styles',
-				'mediawiki.api.parse'
-			];
-		} else {
-			$dependencies = [
-				'onoi.qtip',
-				'onoi.blobstore',
-				'ext.scite.styles',
-				'mediawiki.api'
-			];
-		}
+		$dependencies = [
+			'ext.smw.tooltip',
+			'mediawiki.storage',
+			'ext.scite.styles',
+			'mediawiki.api'
+		];
 
 		$GLOBALS['wgResourceModules']['ext.scite.tooltip'] = [
 			'scripts' => [
@@ -144,7 +134,7 @@ class SemanticCite {
 
 		// Require a global because MW's Special page is missing an interface
 		// to inject dependencies
-		$GLOBALS['scigCachePrefix'] = $GLOBALS['wgCachePrefix'] === false ? WikiMap::getCurrentWikiId() : $GLOBALS['wgCachePrefix'];
+		$GLOBALS['scigCachePrefix'] = $GLOBALS['wgCachePrefix'] === false ? \MediaWiki\WikiMap\WikiMap::getCurrentWikiId() : $GLOBALS['wgCachePrefix'];
 
 		$configuration = [
 			'numberOfReferenceListColumns'       => $GLOBALS['scigNumberOfReferenceListColumns'],
