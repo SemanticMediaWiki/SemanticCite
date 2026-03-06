@@ -1,6 +1,6 @@
 {
 	"name": "SemanticCite",
-	"version": "3.0.0",
+	"version": "4.0.0",
 	"author": [
         	"James Hong Kong"
 	],
@@ -10,7 +10,7 @@
 	"license-name": "GPL-2.0-or-later",
 	"type": "semantic",
 	"requires": {
-		"MediaWiki": ">= 1.39",
+		"MediaWiki": ">= 1.43",
 		"extensions": {
 			"SemanticMediaWiki": ">= 4.0"
 		}

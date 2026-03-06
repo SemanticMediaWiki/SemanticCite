@@ -6,7 +6,7 @@ use SMW\ParserParameterProcessor;
 use SMW\DIProperty;
 use SMW\ParserData;
 use SMW\DataValueFactory;
-use Html;
+use MediaWiki\Html\Html;
 
 /**
  * @license GNU GPL v2+
@@ -20,6 +20,11 @@ class ReferenceListParserFunction {
 	 * @var ParserData
 	 */
 	private $parserData;
+
+	/**
+	 * @var DataValueFactory
+	 */
+	private $dataValueFactory;
 
 	/**
 	 * @since 1.0

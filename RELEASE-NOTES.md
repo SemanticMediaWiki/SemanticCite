@@ -1,5 +1,21 @@
 This file contains the RELEASE-NOTES of the **Semantic Cite** (a.k.a. SCI) extension.
 
+## 4.0.0
+Released on March 6, 2026.
+
+* Minimum requirement for
+  * PHP changed to version 8.1 and later
+  * MediaWiki changed to version 1.43 (LTS) and later
+* Added compatibility with MediaWiki 1.45.x and Semantic MediaWiki 6.0.x
+* Migrated `Html` class usage to `MediaWiki\Html\Html` namespace (MW 1.44+)
+* Migrated `WikiMap` class usage to `MediaWiki\WikiMap\WikiMap` namespace (MW 1.44+)
+* Replaced deprecated `onoi.qtip` / `onoi.blobstore` JS modules with `ext.smw.tooltip` / `mediawiki.storage`
+* Rewrote tooltip handler to use tippy.js with a jQuery hover fallback
+* Tooltip now fetches citation text directly via ASK API without `action=parse` dependency
+* Moved `ext.scite.config` delivery from `ResourceLoaderGetConfigVars` to `BeforePageDisplay` hook
+* Fixed `CitationReferencePositionJournal` cache fetch returning `false` instead of array
+* Added explicit `$dataValueFactory` property declaration in `ReferenceListParserFunction`
+
 ## 3.0.0
 Released on February 23, 2024.
 

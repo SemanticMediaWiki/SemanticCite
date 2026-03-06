@@ -288,7 +288,7 @@ class HookRegistry {
 		/**
 		 * @see https://www.mediawiki.org/wiki/Manual:Hooks/BeforePageDisplay
 		 */
-		$this->handlers['BeforePageDisplay'] = function ( &$outputPage, &$skin ) use( $namespaceExaminer ) {
+		$this->handlers['BeforePageDisplay'] = function ( &$outputPage, &$skin ) use( $namespaceExaminer, $options ) {
 
 			if ( !$namespaceExaminer->isSemanticEnabled( $outputPage->getTitle()->getNamespace() ) ) {
 				return true;
@@ -302,6 +302,12 @@ class HookRegistry {
 					'ext.scite.tooltip'
 				]
 			);
+
+			$outputPage->addJsConfigVars( 'ext.scite.config', [
+				'showTooltipForCitationReference' => $options->get( 'showTooltipForCitationReference' ),
+				'tooltipRequestCacheTTL' => $options->get( 'tooltipRequestCacheTTL' ),
+				'cachePrefix' => $options->get( 'cachePrefix' )
+			] );
 
 			return true;
 		};
@@ -402,20 +408,6 @@ class HookRegistry {
 				$semanticData->getSubject(),
 				$compositePropertyTableDiffIterator
 			);
-
-			return true;
-		};
-
-		/**
-		 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ResourceLoaderGetConfigVars
-		 */
-		$this->handlers['ResourceLoaderGetConfigVars'] = function ( &$vars ) use ( $options ) {
-
-			$vars['ext.scite.config'] = [
-				'showTooltipForCitationReference' => $options->get( 'showTooltipForCitationReference' ),
-				'tooltipRequestCacheTTL' => $options->get( 'tooltipRequestCacheTTL' ),
-				'cachePrefix' => $options->get( 'cachePrefix' )
-			];
 
 			return true;
 		};

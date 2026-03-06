@@ -78,7 +78,8 @@ class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 		$this->doTestRegisteredOutputPageBeforeHTML( $instance );
 		$this->doTestRegisteredUpdateDataBefore( $instance );
 		$this->doTestRegisteredAddCustomFixedPropertyTables( $instance );
-		$this->doTestRegisteredResourceLoaderGetConfigVars( $instance );
+		// ResourceLoaderGetConfigVars removed in 4.0; config is now
+		// delivered via BeforePageDisplay using addJsConfigVars
 		$this->doTestRegisteredParserFirstCallInit( $instance );
 		$this->doTestRegisteredBeforePageDisplay( $instance );
 		$this->doTestRegisteredBrowseAfterIncomingPropertiesLookupComplete( $instance );

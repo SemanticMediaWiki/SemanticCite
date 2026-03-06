@@ -9,7 +9,7 @@ use SMW\DataValueFactory;
 use SMW\DIProperty;
 use SMW\ParserData;
 use SMW\Subobject;
-use Html;
+use MediaWiki\Html\Html;
 
 /**
  * #scite: is used the create a citation resource with a reference to be
@@ -312,7 +312,7 @@ class SciteParserFunction {
 	}
 
 	private function createErrorMessageFor( $messageKey, $arg1 = '',  $arg2 = '' ) {
-		return \Html::rawElement(
+		return Html::rawElement(
 			'div',
 			[ 'class' => 'smw-callout smw-callout-error' ],
 			wfMessage( $messageKey, $arg1, $arg2 )->inContentLanguage()->text()
