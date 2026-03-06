@@ -23,19 +23,16 @@ class ParserFunctionFactoryTest extends \PHPUnit\Framework\TestCase {
 	protected function setUp() : void {
 		parent::setUp();
 
-		$title = $this->getMockBuilder( '\Title' )
+		$title = $this->getMockBuilder( Title::class )
+			->disableOriginalConstructor()
+			->onlyMethods( [] )
+			->getMock();
+
+		$parserOutput = $this->getMockBuilder( \MediaWiki\Parser\ParserOutput::class )
 			->disableOriginalConstructor()
 			->getMock();
 
-		$title->expects( $this->any() )
-			->method( 'getNamespace' )
-			->will( $this->returnValue( NS_MAIN ) );
-
-		$parserOutput = $this->getMockBuilder( '\ParserOutput' )
-			->disableOriginalConstructor()
-			->getMock();
-
-		$this->parser = $this->getMockBuilder( '\Parser' )
+		$this->parser = $this->getMockBuilder( Parser::class )
 			->disableOriginalConstructor()
 			->getMock();
 
