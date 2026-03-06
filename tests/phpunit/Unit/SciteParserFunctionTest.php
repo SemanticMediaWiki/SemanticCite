@@ -72,7 +72,7 @@ class SciteParserFunctionTest extends \PHPUnit\Framework\TestCase {
 
 		$this->parserData->expects( $this->once() )
 			->method( 'getTitle' )
-			->will( $this->returnValue( \Title::newFromText( __METHOD__ ) ) );
+			->will( $this->returnValue( \MediaWiki\Title\Title::newFromText( __METHOD__ ) ) );
 
 		$this->namespaceExaminer->expects( $this->once() )
 			->method( 'isSemanticEnabled' )
@@ -100,7 +100,7 @@ class SciteParserFunctionTest extends \PHPUnit\Framework\TestCase {
 
 		$this->parserData->expects( $this->once() )
 			->method( 'getTitle' )
-			->will( $this->returnValue( \Title::newFromText( __METHOD__ ) ) );
+			->will( $this->returnValue( \MediaWiki\Title\Title::newFromText( __METHOD__ ) ) );
 
 		$this->namespaceExaminer->expects( $this->once() )
 			->method( 'isSemanticEnabled' )
@@ -132,7 +132,7 @@ class SciteParserFunctionTest extends \PHPUnit\Framework\TestCase {
 
 		$this->parserData->expects( $this->any() )
 			->method( 'getTitle' )
-			->will( $this->returnValue( \Title::newFromText( __METHOD__ ) ) );
+			->will( $this->returnValue( \MediaWiki\Title\Title::newFromText( __METHOD__ ) ) );
 
 		$this->parserData->expects( $this->any() )
 			->method( 'getSemanticData' )

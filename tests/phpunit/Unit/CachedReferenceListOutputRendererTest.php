@@ -62,7 +62,7 @@ class CachedReferenceListOutputRendererTest extends \PHPUnit\Framework\TestCase 
 
 		$this->contextInteractor->expects( $this->once() )
 			->method( 'getTitle' )
-			->will( $this->returnValue( \Title::newFromText( __METHOD__ ) ) );
+			->will( $this->returnValue( \MediaWiki\Title\Title::newFromText( __METHOD__ ) ) );
 
 		$this->contextInteractor->expects( $this->once() )
 			->method( 'hasAction' )
@@ -115,7 +115,7 @@ class CachedReferenceListOutputRendererTest extends \PHPUnit\Framework\TestCase 
 
 		$this->contextInteractor->expects( $this->atLeastOnce() )
 			->method( 'getTitle' )
-			->will( $this->returnValue( \Title::newFromText( __METHOD__, NS_FILE ) ) );
+			->will( $this->returnValue( \MediaWiki\Title\Title::newFromText( __METHOD__, NS_FILE ) ) );
 
 		$this->contextInteractor->expects( $this->once() )
 			->method( 'hasAction' )

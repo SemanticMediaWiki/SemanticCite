@@ -3,9 +3,9 @@
 namespace SCI\Tests;
 
 use SCI\PreTextFormatter;
-use Title;
-use Parser;
-use ParserOptions;
+use MediaWiki\Title\Title;
+use MediaWiki\Parser\Parser;
+use MediaWiki\Parser\ParserOptions;
 use SMW\Tests\PHPUnitCompat;
 
 /**

@@ -80,10 +80,10 @@ class ReferenceBacklinksLookup {
 			return true;
 		}
 
-		$html .= \Html::element(
+		$html .= \MediaWiki\Html\Html::element(
 			'a',
 			[
-				'href' => \SpecialPage::getSafeTitleFor( 'SearchByProperty' )->getLocalURL( [
+				'href' => \MediaWiki\SpecialPage\SpecialPage::getSafeTitleFor( 'SearchByProperty' )->getLocalURL( [
 					'property' => $property->getLabel(),
 					'value' => $citationKey->getString()
 				] )

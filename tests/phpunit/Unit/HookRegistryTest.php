@@ -253,7 +253,7 @@ class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 
 		$requestContext->expects( $this->any() )
 			->method( 'getTitle' )
-			->will( $this->returnValue( \Title::newFromText( 'Foo' ) ) );
+			->will( $this->returnValue( \MediaWiki\Title\Title::newFromText( 'Foo' ) ) );
 
 		$outputPage = $this->getMockBuilder( '\OutputPage' )
 			->disableOriginalConstructor()
@@ -367,7 +367,7 @@ class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 
 		$outputPage->expects( $this->once() )
 			->method( 'getTitle' )
-			->will( $this->returnValue( \Title::newFromText( 'Foo' ) ) );
+			->will( $this->returnValue( \MediaWiki\Title\Title::newFromText( 'Foo' ) ) );
 
 		$skin = $this->getMockBuilder( '\Skin' )
 			->disableOriginalConstructor()
@@ -472,7 +472,7 @@ class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 
 		$this->assertThatHookIsExcutable(
 			$instance->getHandlerFor( $hook ),
-			[ $store, \Title::newFromText( 'Foo' ) ]
+			[ $store, \MediaWiki\Title\Title::newFromText( 'Foo' ) ]
 		);
 	}
 
