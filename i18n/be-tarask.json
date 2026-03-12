@@ -12,7 +12,7 @@
 	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code> ня можа быць скарыстаны ў прасторы назваў, ня ўключанай для Semantic MediaWiki",
 	"sci-scite-parser-no-reference": "<code>#scite</code> ня выявіў спасылку.",
 	"sci-scite-parser-no-type": "<code>#scite</code> ня змог вызначыць тып спасылкі для «$1».",
-	"sci-scite-parser-no-citation-text": "<code>#scite</code> ня змог адлюстраваць тэкст цытаваньня для спасылкі «$1», таму што тып «$2» ня быў прызначаны для [[MediaWiki:Sci-template-definition|шаблёну]].",
+	"sci-scite-parser-no-citation-text": "<code>#scite</code> ня змог вывесьці тэкст цытаваньня для спасылкі «$1», таму што тып «$2» ня быў прызначаны для [[MediaWiki:Sci-template-definition|шаблёну]].",
 	"sci-datavalue-empty-reference": "Спасылка на цытаваньне не павінна быць парожняй.",
 	"sci-datavalue-invalid-id-value": "«$1» зьяўляецца недапушчальным значэньнем для тыпу $2.",
 	"sci-property-alias-citation-key": "Ключ цытаваньня",
