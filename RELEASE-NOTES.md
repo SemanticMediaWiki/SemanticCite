@@ -1,12 +1,15 @@
 This file contains the RELEASE-NOTES of the **Semantic Cite** (a.k.a. SCI) extension.
 
 ## 4.0.0
-Released on March 6, 2026.
+Released on March 13, 2026.
 
 * Minimum requirement for
   * PHP changed to version 8.1 and later
   * MediaWiki changed to version 1.43 (LTS) and later
-* Added compatibility with MediaWiki 1.45.x and Semantic MediaWiki 6.0.x
+* Added compatibility with
+  * MediaWiki 1.45.x
+  * Semantic MediaWiki 6.0.x
+* Localisation updates from https://translatewiki.net
 * Migrated `Html` class usage to `MediaWiki\Html\Html` namespace (MW 1.44+)
 * Migrated `WikiMap` class usage to `MediaWiki\WikiMap\WikiMap` namespace (MW 1.44+)
 * Replaced deprecated `onoi.qtip` / `onoi.blobstore` JS modules with `ext.smw.tooltip` / `mediawiki.storage`
