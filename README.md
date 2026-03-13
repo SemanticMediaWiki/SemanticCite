@@ -1,6 +1,6 @@
 # Semantic Cite
 
-[![Build Status](https://secure.travis-ci.org/SemanticMediaWiki/SemanticCite.svg?branch=master)](http://travis-ci.org/SemanticMediaWiki/SemanticCite)
+[![CI](https://github.com/SemanticMediaWiki/SemanticCite/actions/workflows/ci.yml/badge.svg)](https://github.com/SemanticMediaWiki/SemanticCite/actions/workflows/ci.yml)
 [![Code Coverage](https://scrutinizer-ci.com/g/SemanticMediaWiki/SemanticCite/badges/coverage.png?s=f3501ede0bcc98824aa51501eb3647ecf71218c0)](https://scrutinizer-ci.com/g/SemanticMediaWiki/SemanticCite/)
 [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/SemanticMediaWiki/SemanticCite/badges/quality-score.png?s=d9aac7e68e6554f95b0a89608cbc36985429d819)](https://scrutinizer-ci.com/g/SemanticMediaWiki/SemanticCite/)
 [![Latest Stable Version](https://poser.pugx.org/mediawiki/semantic-cite/version.png)](https://packagist.org/packages/mediawiki/semantic-cite)
@@ -23,8 +23,8 @@ Several short [videos](https://www.youtube.com/playlist?list=PLIJ9eX-UsA5eI_YFdn
 
 ## Requirements
 
-- PHP 7.4 or later
-- MediaWiki 1.39 or later
+- PHP 8.1 or later
+- MediaWiki 1.43 or later
 - [Semantic MediaWiki][smw] 4.0 or later
 
 Semantic Cite **does not require** nor uses any part of extension [Cite][mw-cite] (or `<ref>` tags) as a means to declare
@@ -46,7 +46,7 @@ create one and add the following content to it:
 ```
 {
 	"require": {
-		"mediawiki/semantic-cite": "~3.0"
+		"mediawiki/semantic-cite": "~4.0"
 	}
 }
 ```
@@ -54,7 +54,7 @@ create one and add the following content to it:
 If you already have a "composer.local.json" file add the following line to the end of the "require"
 section in your file:
 
-    "mediawiki/semantic-cite": "~3.0"
+    "mediawiki/semantic-cite": "~4.0"
 
 Remember to add a comma to the end of the preceding line in this section.
 
@@ -64,7 +64,7 @@ Run the following command in your shell:
 
     php composer.phar update --no-dev
 
-Note if you have Git installed on your system add the `--prefer-source` flag to the above command.
+Note: if you have Git installed on your system, add the `--prefer-source` flag to the above command.
 
 ### Step 3
 
@@ -82,9 +82,9 @@ initialized.
 ![scite-sneak](https://cloud.githubusercontent.com/assets/1245473/8370671/7d8bfeac-1bcb-11e5-9007-79a3d39f70ce.png)
 
 A citation resource collects all structured data of a citation under one unique key that can be accessed
-through out the wiki and is created and managed by the `#scite` parser function.
+throughout the wiki and is created and managed by the `#scite` parser function.
 
-Citation resources (those created by `#scite`) can be added to a source page or any other wiki page each
+Citation resources (those created by `#scite`) can be added to a source page or any other wiki page ,each
 being identifiable by a citation key.
 
 ```
@@ -100,7 +100,7 @@ being identifiable by a citation key.
 }}
 ```
 
-Above shows an example for a citation resource to be created by the `#scite` parser. More information about
+The above shows an example for a citation resource to be created by the `#scite` parser. More information about
 `#scite` can be found [here][docs-scite].
 
 ### In-text citation
@@ -110,7 +110,7 @@ annotation in form of `Lorem ipsum [[CiteRef::Byrne 2008]] ...` to appear as `Lo
 
 A reference list is automatically added to the content as soon as a `Citation reference` annotation is added
 to a page. The magic word `__NOREFERENCELIST__` can be used to suppress a reference list from showing on an
-individual page while `#referencelist` can be used to position the list differently.
+individual page, while `#referencelist` can be used to position the list differently.
 
 More information about in-text citations and references can be found [here][docs-intext] together with a
 description about the usage of the [`#referencelist`][docs-referencelist] parser function.
@@ -119,19 +119,19 @@ For questions about Semantic Cite and [`Cite`][mw-cite], see the comments [secti
 
 ### Metadata search
 
-`Special:FindCitableMetadata` is provided as user interface to search, find, and map metadata with the
+`Special:FindCitableMetadata` is provided as a user interface to search, find, and map metadata with the
 `#scite` parser to conveniently integrate authority data from sources like PubMed or CrossRef.
 
 For more information, please read the search [section][docs-search].
 
 ## Configuration
 
-To change default settings, or add property mapping add text formatting rules, please read the
+To change default settings, or add property mapping, add text formatting rules, please read the
 [configuration][docs-config] document.
 
 ## Contribution and support
 
-If you want to contribute work to the project please subscribe to the developers mailing list and
+If you want to contribute work to the project, please subscribe to the developers' mailing list and
 have a look at the contribution guideline.
 
 * [File an issue](https://github.com/SemanticMediaWiki/SemanticCite/issues)
@@ -140,7 +140,7 @@ have a look at the contribution guideline.
 
 ## Tests
 
-This extension provides unit and integration tests that are run by a [continues integration platform][travis]
+This extension provides unit and integration tests that are run by a [continuous integration platform][travis]
 but can also be executed using `composer phpunit` from the extension base directory.
 
 ## License
