@@ -146,12 +146,19 @@
 	background-color: rgba( 0,127,255,0.133 );
 }
 
-.scite-citeref-number a::after {
+.scite-citeref-number > a::after {
 	content:"]";
 }
 
-.scite-citeref-number a::before {
+.scite-citeref-number > a::before {
 	content:"[";
+}
+
+.tippy-content a::before,
+.tippy-content a::after,
+.scite-simple-tooltip a::before,
+.scite-simple-tooltip a::after {
+	content: none;
 }
 
 .scite-citeref-key a::after {

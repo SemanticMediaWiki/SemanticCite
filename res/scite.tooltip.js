@@ -93,7 +93,7 @@
 				api.parse( '<div class="scite-api-parse">' + citationText + '</div>' )
 					.done( function ( parsed ) {
 						var html = $( parsed ).find( '.scite-api-parse' ).html();
-						cacheAndReturn( html || citationText );
+						cacheAndReturn( html || wikitextToHtml( citationText ) );
 					} )
 					.fail( function () {
 						cacheAndReturn( wikitextToHtml( citationText ) );
