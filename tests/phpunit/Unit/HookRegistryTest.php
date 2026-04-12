@@ -19,8 +19,6 @@ use SMW\DIProperty;
  */
 class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 
-	use PHPUnitCompat;
-
 	public function testCanConstruct() {
 
 		$store = $this->getMockBuilder( '\SMW\Store' )
