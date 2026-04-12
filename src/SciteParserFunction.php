@@ -287,7 +287,7 @@ class SciteParserFunction {
 
 			foreach ( $values as $value ) {
 
-				$dataValue = $this->dataValueFactory->newPropertyValue(
+				$dataValue = $this->dataValueFactory->newDataValueByText(
 						$property,
 						trim( $value ),
 						false,
