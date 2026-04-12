@@ -4,7 +4,6 @@ namespace SCI\Tests;
 
 use SCI\ReferenceListParserFunction;
 use SMW\DIWikiPage;
-use SMW\Tests\PHPUnitCompat;
 
 /**
  * @covers \SCI\ReferenceListParserFunction
@@ -16,8 +15,6 @@ use SMW\Tests\PHPUnitCompat;
  * @author mwjames
  */
 class ReferenceListParserFunctionTest extends \PHPUnit\Framework\TestCase {
-
-	use PHPUnitCompat;
 
 	public function testCanConstruct() {
 
@@ -62,7 +59,7 @@ class ReferenceListParserFunctionTest extends \PHPUnit\Framework\TestCase {
 
 		$instance = new ReferenceListParserFunction( $parserData );
 
-		$this->assertContains(
+		$this->assertStringContainsString(
 			$expected,
 			$instance->doProcess( $parserParameterProcessor )
 		);
