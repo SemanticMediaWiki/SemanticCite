@@ -116,7 +116,7 @@ class ReferenceListParserFunction {
 		$subject = $this->parserData->getSubject();
 
 		foreach ( $values as $value ) {
-			$dataValue = $this->dataValueFactory->newPropertyValue(
+			$dataValue = $this->dataValueFactory->newDataValueByText(
 					new DIProperty( PropertyRegistry::SCI_CITE_REFERENCE ),
 					trim( $value ),
 					false,
