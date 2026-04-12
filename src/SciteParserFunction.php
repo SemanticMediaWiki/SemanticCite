@@ -159,7 +159,7 @@ class SciteParserFunction {
 
 		// Explicit reference precedes
 		if ( $parserParameterProcessor->hasParameter( 'reference' ) ) {
-			$reference = $parserParameterProcessor->getParameterValuesFor( 'reference' );
+			$reference = $parserParameterProcessor->getParameterValuesByKey( 'reference' );
 			$reference = end( $reference );
 		}
 
@@ -174,7 +174,7 @@ class SciteParserFunction {
 		);
 
 		if ( $parserParameterProcessor->hasParameter( 'type' ) ) {
-			$type = $parserParameterProcessor->getParameterValuesFor( 'type' );
+			$type = $parserParameterProcessor->getParameterValuesByKey( 'type' );
 			sort( $type );
 			$type = end( $type );
 		}
@@ -230,7 +230,7 @@ class SciteParserFunction {
 
 		// An explicit template precedes the assignment found for the type
 		if ( $parserParameterProcessor->hasParameter( 'template' ) ) {
-			$template = $parserParameterProcessor->getParameterValuesFor( 'template' );
+			$template = $parserParameterProcessor->getParameterValuesByKey( 'template' );
 			$template = trim( end( $template ) );
 		} elseif ( $this->mediaWikiNsContentMapper->findTemplateForType( $type ) !== null ) {
 			$template = $this->mediaWikiNsContentMapper->findTemplateForType( $type );
