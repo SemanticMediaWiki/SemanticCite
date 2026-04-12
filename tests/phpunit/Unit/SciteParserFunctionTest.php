@@ -147,7 +147,7 @@ class SciteParserFunctionTest extends \PHPUnit\Framework\TestCase {
 				return $key === 'reference' ? true : false; } ) );
 
 		$parserParameterProcessor->expects( $this->any() )
-			->method( 'getParameterValuesFor' )
+			->method( 'getParameterValuesByKey' )
 			->will( $this->returnCallback( function( $key ) {
 				return $key === 'reference' ? [ 'Foo' ] : null; } ) );
 
