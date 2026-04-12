@@ -130,12 +130,12 @@ class SemanticCiteJsonTestCaseScriptRunnerTest extends JSONScriptServicesTestCas
 			$jsonTestCaseFileHandler->getSettingsFor( 'scigReferenceListType' )
 		);
 
-		$this->createPagesFor(
+		$this->createPagesFrom(
 			$jsonTestCaseFileHandler->getListOfProperties(),
 			SMW_NS_PROPERTY
 		);
 
-		$this->createPagesFor(
+		$this->createPagesFrom(
 			$jsonTestCaseFileHandler->getListOfSubjects(),
 			NS_MAIN
 		);
