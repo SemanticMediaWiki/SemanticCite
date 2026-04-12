@@ -60,7 +60,7 @@ class CitationReferenceValue extends StringValue {
 	/**
 	 * @see StringValue::parseUserValue
 	 */
-	protected function parseUserValue( $value ) {
+	protected function parseUserValue( $value ): void {
 
 		if ( method_exists( $this, 'getCallable' ) ) {
 			$citationReferencePositionJournal = $this->getCallable( 'sci.citationreferencepositionjournal' );
