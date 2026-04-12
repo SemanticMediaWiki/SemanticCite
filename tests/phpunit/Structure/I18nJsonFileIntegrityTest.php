@@ -3,7 +3,6 @@
 namespace SCI\Tests\Structure;
 
 use SMW\Tests\Utils\UtilityFactory;
-use SMW\Tests\PHPUnitCompat;
 
 /**
  * @group semantic-cite
@@ -16,8 +15,6 @@ use SMW\Tests\PHPUnitCompat;
  */
 class I18nJsonFileIntegrityTest extends \PHPUnit\Framework\TestCase {
 
-	use PHPUnitCompat;
-
 	/**
 	 * @dataProvider i18nFileProvider
 	 */
@@ -25,13 +22,11 @@ class I18nJsonFileIntegrityTest extends \PHPUnit\Framework\TestCase {
 
 		$jsonFileReader = UtilityFactory::getInstance()->newJsonFileReader( $file );
 
-		$this->assertInternalType(
-			'integer',
+		$this->assertIsInt(
 			$jsonFileReader->getModificationTime()
 		);
 
-		$this->assertInternalType(
-			'array',
+		$this->assertIsArray(
 			$jsonFileReader->read()
 		);
 	}
