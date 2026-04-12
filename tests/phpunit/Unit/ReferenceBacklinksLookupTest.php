@@ -180,7 +180,7 @@ class ReferenceBacklinksLookupTest extends \PHPUnit\Framework\TestCase {
 			$result
 		);
 
-		$this->assertContains(
+		$this->assertStringContainsString(
 			'SearchByProperty',
 			$html
 		);
