@@ -30,7 +30,7 @@ class ResourceIdentifierStringValue extends StringValue {
 	/**
 	 * @see StringValue::parseUserValue
 	 */
-	protected function parseUserValue( $value ) {
+	protected function parseUserValue( $value ): void {
 
 		$inputValue = $value;
 	//	$this->m_caption = $value;
