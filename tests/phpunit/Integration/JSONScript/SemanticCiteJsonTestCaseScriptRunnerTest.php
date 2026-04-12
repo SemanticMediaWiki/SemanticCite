@@ -78,21 +78,21 @@ class SemanticCiteJsonTestCaseScriptRunnerTest extends JSONScriptServicesTestCas
 	/**
 	 * @see JsonTestCaseScriptRunner::getTestCaseLocation
 	 */
-	protected function getRequiredJsonTestCaseMinVersion() {
+	protected function getRequiredJsonTestCaseMinVersion(): string {
 		return '0.1';
 	}
 
 	/**
 	 * @see JsonTestCaseScriptRunner::getTestCaseLocation
 	 */
-	protected function getTestCaseLocation() {
+	protected function getTestCaseLocation(): string {
 		return __DIR__ . '/TestCases';
 	}
 
 	/**
 	 * @see JsonTestCaseScriptRunner::getPermittedSettings
 	 */
-	protected function getPermittedSettings() {
+	protected function getPermittedSettings(): array {
 		$settings = parent::getPermittedSettings();
 
 		return array_merge( $settings, [
@@ -111,7 +111,7 @@ class SemanticCiteJsonTestCaseScriptRunnerTest extends JSONScriptServicesTestCas
 	 *
 	 * @param JsonTestCaseFileHandler $jsonTestCaseFileHandler
 	 */
-	protected function runTestCaseFile( JsonTestCaseFileHandler $jsonTestCaseFileHandler ) {
+	protected function runTestCaseFile( JsonTestCaseFileHandler $jsonTestCaseFileHandler ): void {
 		parent::runTestCaseFile( $jsonTestCaseFileHandler );
 
 		// On SQLite we don't want DB dead locks due to parallel write access
