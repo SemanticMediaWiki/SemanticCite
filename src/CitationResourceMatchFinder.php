@@ -57,7 +57,7 @@ class CitationResourceMatchFinder {
 
 		foreach ( $subjects as $subject ) {
 
-			$dataValue = $this->dataValueFactory->newDataItemValue(
+			$dataValue = $this->dataValueFactory->newDataValueByItem(
 				$subject,
 				null
 			);
