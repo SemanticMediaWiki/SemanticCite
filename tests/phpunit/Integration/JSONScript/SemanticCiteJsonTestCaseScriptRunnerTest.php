@@ -212,7 +212,7 @@ class SemanticCiteJsonTestCaseScriptRunnerTest extends JSONScriptServicesTestCas
 		// hook is run
 		$context = new \RequestContext();
 		$context->setTitle( $subject->getTitle() );
-		if ( version_compare( MW_VERSION, '1.44', '>=' ) {
+		if ( version_compare( MW_VERSION, '1.44', '>=' ) ) {
 			$parserOptions = MediaWikiServices::getInstance()
 				->getParserFactory()
 			    ->createParser()
