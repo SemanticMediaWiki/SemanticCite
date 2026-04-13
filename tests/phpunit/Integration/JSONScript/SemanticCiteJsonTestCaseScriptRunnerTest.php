@@ -2,7 +2,7 @@
 
 namespace SCI\Tests\Integration\JSONScript;
 
-use MediaWiki\MediaWikiServices;
+use ParserOptions;
 use SCI\MediaWikiNsContentMapper;
 use SCI\HookRegistry;
 use SCI\Options;
@@ -213,10 +213,7 @@ class SemanticCiteJsonTestCaseScriptRunnerTest extends JSONScriptServicesTestCas
 		$context = new \RequestContext();
 		$context->setTitle( $subject->getTitle() );
 		if ( version_compare( MW_VERSION, '1.44', '>=' ) ) {
-			$parserOptions = MediaWikiServices::getInstance()
-				->getParserFactory()
-			    ->createParser()
-			    ->getOptions();
+			$parserOptions = ParserOptions::newFromAnon();
 			$context->getOutput()->addParserOutput( $parserOutput, $parserOptions );
 		} else {
 			$context->getOutput()->addParserOutput( $parserOutput );
