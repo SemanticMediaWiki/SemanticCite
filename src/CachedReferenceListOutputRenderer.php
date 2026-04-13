@@ -125,7 +125,7 @@ class CachedReferenceListOutputRenderer {
 		// Find out whether to place the list into a custom position or not
 		if ( strpos( $text, 'scite-custom-referencelist' ) !== false ) {
 			return $text = preg_replace_callback(
-				"/<div id=\"scite-custom-referencelist\"[^>]*>.*?(<h2>|<span>).*?<\/div>/ms",
+				'/<div id="scite-custom-referencelist"[^>]*>.*?<\/div>\s*<\/div>/s',
 				'self::getCustomizedRenderedHtmlReferenceList',
 				$text
 			);
