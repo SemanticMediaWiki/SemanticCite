@@ -2,6 +2,7 @@
 
 namespace SCI\Tests\Integration\JSONScript;
 
+use MediaWiki\MediaWikiServices;
 use SCI\MediaWikiNsContentMapper;
 use SCI\HookRegistry;
 use SCI\Options;
@@ -211,7 +212,15 @@ class SemanticCiteJsonTestCaseScriptRunnerTest extends JSONScriptServicesTestCas
 		// hook is run
 		$context = new \RequestContext();
 		$context->setTitle( $subject->getTitle() );
-		$context->getOutput()->addParserOutput( $parserOutput );
+		if ( version_compare( MW_VERSION, '1.44', '>=' ) {
+			$parserOptions = MediaWikiServices::getInstance()
+				->getParserFactory()
+			    ->createParser()
+			    ->getOptions();
+			$context->getOutput()->addParserOutput( $parserOutput, $parserOptions );
+		} else {
+			$context->getOutput()->addParserOutput( $parserOutput );
+		}
 
 		$this->stringValidator->assertThatStringContains(
 			$case['expected-output']['to-contain'],
