@@ -126,7 +126,7 @@ class CachedReferenceListOutputRenderer {
 		if ( strpos( $text, 'scite-custom-referencelist' ) !== false ) {
 			return $text = preg_replace_callback(
 				"/<div id=\"scite-custom-referencelist\"([^>]*)>(?:\\s*<div[^>]*>\\s*)?(<h2|<span)([^>]*>.*?)(?:<\\/div>\\s*)?<\\/div>/s",
-				'self::getCustomizedRenderedHtmlReferenceList',
+				[ CachedReferenceListOutputRenderer::class, 'getCustomizedRenderedHtmlReferenceList' ],
 				$text
 			);
 		}
