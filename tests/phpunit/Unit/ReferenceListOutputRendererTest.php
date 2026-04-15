@@ -4,7 +4,6 @@ namespace SCI\Tests;
 
 use SCI\ReferenceListOutputRenderer;
 use SMW\DIWikiPage;
-use SMW\Tests\PHPUnitCompat;
 
 /**
  * @covers \SCI\ReferenceListOutputRenderer
@@ -16,8 +15,6 @@ use SMW\Tests\PHPUnitCompat;
  * @author mwjames
  */
 class ReferenceListOutputRendererTest extends \PHPUnit\Framework\TestCase {
-
-	use PHPUnitCompat;
 
 	private $citationResourceMatchFinder;
 	private $citationReferencePositionJournal;
@@ -102,8 +99,7 @@ class ReferenceListOutputRendererTest extends \PHPUnit\Framework\TestCase {
 		$instance->setResponsiveMonoColumnCharacterBoundLength( 100 );
 		$instance->setBrowseLinkToCitationResourceVisibility( true );
 
-		$this->assertInternalType(
-			'string',
+		$this->assertIsString(
 			$instance->doRenderReferenceListFor( DIWikiPage::newFromText( 'Foo' ) )
 		);
 	}

@@ -6,7 +6,6 @@ use SCI\PreTextFormatter;
 use MediaWiki\Title\Title;
 use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\ParserOptions;
-use SMW\Tests\PHPUnitCompat;
 
 /**
  * @covers \SCI\PreTextFormatter
@@ -18,8 +17,6 @@ use SMW\Tests\PHPUnitCompat;
  * @author mwjames
  */
 class PreTextFormatterTest extends \PHPUnit\Framework\TestCase {
-
-	use PHPUnitCompat;
 
 	const LF = "\n";
 
@@ -38,8 +35,7 @@ class PreTextFormatterTest extends \PHPUnit\Framework\TestCase {
 
 		$instance = new PreTextFormatter();
 
-		$this->assertInternalType(
-			'array',
+		$this->assertIsArray(
 			$instance->format( $params )
 		);
 	}

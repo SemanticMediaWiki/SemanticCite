@@ -2,6 +2,7 @@
 
 namespace SCI\Tests\Integration\JSONScript;
 
+use ParserOptions;
 use SCI\MediaWikiNsContentMapper;
 use SCI\HookRegistry;
 use SCI\Options;
@@ -78,21 +79,21 @@ class SemanticCiteJsonTestCaseScriptRunnerTest extends JSONScriptServicesTestCas
 	/**
 	 * @see JsonTestCaseScriptRunner::getTestCaseLocation
 	 */
-	protected function getRequiredJsonTestCaseMinVersion() {
+	protected function getRequiredJsonTestCaseMinVersion(): string {
 		return '0.1';
 	}
 
 	/**
 	 * @see JsonTestCaseScriptRunner::getTestCaseLocation
 	 */
-	protected function getTestCaseLocation() {
+	protected function getTestCaseLocation(): string {
 		return __DIR__ . '/TestCases';
 	}
 
 	/**
 	 * @see JsonTestCaseScriptRunner::getPermittedSettings
 	 */
-	protected function getPermittedSettings() {
+	protected function getPermittedSettings(): array {
 		$settings = parent::getPermittedSettings();
 
 		return array_merge( $settings, [
@@ -111,7 +112,7 @@ class SemanticCiteJsonTestCaseScriptRunnerTest extends JSONScriptServicesTestCas
 	 *
 	 * @param JsonTestCaseFileHandler $jsonTestCaseFileHandler
 	 */
-	protected function runTestCaseFile( JsonTestCaseFileHandler $jsonTestCaseFileHandler ) {
+	protected function runTestCaseFile( JsonTestCaseFileHandler $jsonTestCaseFileHandler ): void {
 		parent::runTestCaseFile( $jsonTestCaseFileHandler );
 
 		// On SQLite we don't want DB dead locks due to parallel write access
@@ -130,12 +131,12 @@ class SemanticCiteJsonTestCaseScriptRunnerTest extends JSONScriptServicesTestCas
 			$jsonTestCaseFileHandler->getSettingsFor( 'scigReferenceListType' )
 		);
 
-		$this->createPagesFor(
+		$this->createPagesFrom(
 			$jsonTestCaseFileHandler->getListOfProperties(),
 			SMW_NS_PROPERTY
 		);
 
-		$this->createPagesFor(
+		$this->createPagesFrom(
 			$jsonTestCaseFileHandler->getListOfSubjects(),
 			NS_MAIN
 		);
@@ -211,7 +212,12 @@ class SemanticCiteJsonTestCaseScriptRunnerTest extends JSONScriptServicesTestCas
 		// hook is run
 		$context = new \RequestContext();
 		$context->setTitle( $subject->getTitle() );
-		$context->getOutput()->addParserOutput( $parserOutput );
+		if ( version_compare( MW_VERSION, '1.44', '>=' ) ) {
+			$parserOptions = ParserOptions::newFromAnon();
+			$context->getOutput()->addParserOutput( $parserOutput, $parserOptions );
+		} else {
+			$context->getOutput()->addParserOutput( $parserOutput );
+		}
 
 		$this->stringValidator->assertThatStringContains(
 			$case['expected-output']['to-contain'],

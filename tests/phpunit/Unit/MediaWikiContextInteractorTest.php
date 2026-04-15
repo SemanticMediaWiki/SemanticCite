@@ -2,8 +2,8 @@
 
 namespace SCI\Tests;
 
+use MediaWiki\Title\Title;
 use SCI\MediaWikiContextInteractor;
-use SMW\Tests\PHPUnitCompat;
 
 /**
  * @covers \SCI\MediaWikiContextInteractor
@@ -16,8 +16,6 @@ use SMW\Tests\PHPUnitCompat;
  * @reviewer thomas-topway-it
  */
 class MediaWikiContextInteractorTest extends \PHPUnit\Framework\TestCase {
-
-	use PHPUnitCompat;
 
 	public function testCanConstruct() {
 
@@ -71,12 +69,11 @@ class MediaWikiContextInteractorTest extends \PHPUnit\Framework\TestCase {
 
 		$context->expects( $this->any() )
 			->method( 'getTitle' )
-			->will( $this->returnValue( \MediaWiki\Title\Title::newFromText( __METHOD__ ) ) );
+			->will( $this->returnValue( Title::newFromText( __METHOD__ ) ) );
 
 		$instance = new MediaWikiContextInteractor( $context );
 
-		$this->assertInternalType(
-			'integer',
+		$this->assertIsInt(
 			$instance->getOldId()
 		);
 	}

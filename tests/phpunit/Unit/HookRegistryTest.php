@@ -7,7 +7,6 @@ use SCI\Options;
 use SMW\DataTypeRegistry;
 use SMW\DIWikiPage;
 use SMW\DIProperty;
-use SMW\Tests\PHPUnitCompat;
 
 /**
  * @covers \SCI\HookRegistry
@@ -19,8 +18,6 @@ use SMW\Tests\PHPUnitCompat;
  * @author mwjames
  */
 class HookRegistryTest extends \PHPUnit\Framework\TestCase {
-
-	use PHPUnitCompat;
 
 	public function testCanConstruct() {
 
@@ -477,8 +474,7 @@ class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	private function assertThatHookIsExcutable( callable $handler, $arguments = [] ) {
-		$this->assertInternalType(
-			'boolean',
+		$this->assertIsBool(
 			call_user_func_array( $handler, $arguments )
 		);
 	}

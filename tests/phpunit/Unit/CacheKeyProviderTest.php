@@ -3,7 +3,6 @@
 namespace SCI\Tests;
 
 use SCI\CacheKeyProvider;
-use SMW\Tests\PHPUnitCompat;
 
 /**
  * @covers \SCI\CacheKeyProvider
@@ -15,8 +14,6 @@ use SMW\Tests\PHPUnitCompat;
  * @author mwjames
  */
 class CacheKeyProviderTest extends \PHPUnit\Framework\TestCase {
-
-	use PHPUnitCompat;
 
 	public function testCanConstruct() {
 
@@ -31,22 +28,22 @@ class CacheKeyProviderTest extends \PHPUnit\Framework\TestCase {
 		$instance = new CacheKeyProvider();
 		$instance->setCachePrefix( 'foo' );
 
-		$this->assertContains(
+		$this->assertStringContainsString(
 			'foo',
 			$instance->getCacheKeyForCitationReference( 'abc' )
 		);
 
-		$this->assertContains(
+		$this->assertStringContainsString(
 			':ref:',
 			$instance->getCacheKeyForCitationReference( 123 )
 		);
 
-		$this->assertContains(
+		$this->assertStringContainsString(
 			'foo',
 			$instance->getCacheKeyForReferenceList( 'def' )
 		);
 
-		$this->assertContains(
+		$this->assertStringContainsString(
 			':reflist:',
 			$instance->getCacheKeyForReferenceList( 456 )
 		);

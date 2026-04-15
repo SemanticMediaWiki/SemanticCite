@@ -39,7 +39,7 @@ class BibtexProcessor {
 	public function doProcess( ParserParameterProcessor $parserParameterProcessor ) {
 
 		$bibtex = $this->doPreprocess(
-			$parserParameterProcessor->getParameterValuesFor( 'bibtex' )
+			$parserParameterProcessor->getParameterValuesByKey( 'bibtex' )
 		);
 
 		$parameters = $this->bibtexParser->parse( $bibtex );

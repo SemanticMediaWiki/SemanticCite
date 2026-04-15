@@ -4,6 +4,7 @@ namespace SCI;
 
 use IContextSource;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Title\Title;
 
 /**
  * Helper class to avoid making objects depend on the IContextSource and instead

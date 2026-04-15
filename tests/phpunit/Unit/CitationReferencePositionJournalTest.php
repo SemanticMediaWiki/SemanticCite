@@ -3,7 +3,6 @@
 namespace SCI\Tests;
 
 use SCI\CitationReferencePositionJournal;
-use SMW\Tests\PHPUnitCompat;
 
 /**
  * @covers \SCI\CitationReferencePositionJournal
@@ -15,8 +14,6 @@ use SMW\Tests\PHPUnitCompat;
  * @author mwjames
  */
 class CitationReferencePositionJournalTest extends \PHPUnit\Framework\TestCase {
-
-	use PHPUnitCompat;
 
 	private $cache;
 	private $cacheKeyProvider;
@@ -51,8 +48,7 @@ class CitationReferencePositionJournalTest extends \PHPUnit\Framework\TestCase {
 			$instance->buildJournalForUnboundReferenceList( [] )
 		);
 
-		$this->assertInternalType(
-			'array',
+		$this->assertIsArray(
 			$instance->buildJournalForUnboundReferenceList( [ 'foo' ] )
 		);
 	}

@@ -4,7 +4,6 @@ namespace SCI\Tests;
 
 use SCI\SciteParserFunction;
 use SMW\DIWikiPage;
-use SMW\Tests\PHPUnitCompat;
 
 /**
  * @covers \SCI\SciteParserFunction
@@ -16,8 +15,6 @@ use SMW\Tests\PHPUnitCompat;
  * @author mwjames
  */
 class SciteParserFunctionTest extends \PHPUnit\Framework\TestCase {
-
-	use PHPUnitCompat;
 
 	private $parserData;
 	private $namespaceExaminer;
@@ -90,8 +87,7 @@ class SciteParserFunctionTest extends \PHPUnit\Framework\TestCase {
 			$this->bibtexProcessor
 		);
 
-		$this->assertInternalType(
-			'string',
+		$this->assertIsString(
 			$instance->doProcess( $parserParameterProcessor )
 		);
 	}
@@ -118,8 +114,7 @@ class SciteParserFunctionTest extends \PHPUnit\Framework\TestCase {
 			$this->bibtexProcessor
 		);
 
-		$this->assertInternalType(
-			'string',
+		$this->assertIsString(
 			$instance->doProcess( $parserParameterProcessor )
 		);
 	}
@@ -152,7 +147,7 @@ class SciteParserFunctionTest extends \PHPUnit\Framework\TestCase {
 				return $key === 'reference' ? true : false; } ) );
 
 		$parserParameterProcessor->expects( $this->any() )
-			->method( 'getParameterValuesFor' )
+			->method( 'getParameterValuesByKey' )
 			->will( $this->returnCallback( function( $key ) {
 				return $key === 'reference' ? [ 'Foo' ] : null; } ) );
 
@@ -170,8 +165,7 @@ class SciteParserFunctionTest extends \PHPUnit\Framework\TestCase {
 
 		$instance->setStrictParserValidationState( true );
 
-		$this->assertInternalType(
-			'string',
+		$this->assertIsString(
 			$instance->doProcess( $parserParameterProcessor )
 		);
 	}

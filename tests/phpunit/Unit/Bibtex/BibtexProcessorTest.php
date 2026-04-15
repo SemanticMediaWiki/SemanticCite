@@ -50,7 +50,7 @@ class BibtexProcessorTest extends \PHPUnit\Framework\TestCase {
 			->getMock();
 
 		$parserParameterProcessor->expects( $this->once() )
-			->method( 'getParameterValuesFor' )
+			->method( 'getParameterValuesByKey' )
 			->with(	$this->equalTo( 'bibtex' ) )
 			->will( $this->returnValue( [] ) );
 
@@ -90,7 +90,7 @@ class BibtexProcessorTest extends \PHPUnit\Framework\TestCase {
 			->getMock();
 
 		$parserParameterProcessor->expects( $this->once() )
-			->method( 'getParameterValuesFor' )
+			->method( 'getParameterValuesByKey' )
 			->with(	$this->equalTo( 'bibtex' ) )
 			->will( $this->returnValue( [ ] ) );
 
@@ -144,7 +144,7 @@ class BibtexProcessorTest extends \PHPUnit\Framework\TestCase {
 			->will( $this->returnValue( true ) );
 
 		$parserParameterProcessor->expects( $this->once() )
-			->method( 'getParameterValuesFor' )
+			->method( 'getParameterValuesByKey' )
 			->with(	$this->equalTo( 'bibtex' ) )
 			->will( $this->returnValue( [ ] ) );
 
