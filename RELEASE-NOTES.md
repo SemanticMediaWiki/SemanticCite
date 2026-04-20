@@ -1,5 +1,12 @@
 This file contains the RELEASE-NOTES of the **Semantic Cite** (a.k.a. SCI) extension.
 
+## 4.0.1
+Released on March 24, 2026.
+
+* Fixed tooltip displaying raw wikitext (`[[...]]`) instead of rendered links for citation text containing wikilinks
+* Fixed `api.parse` fallback in tooltip to use `wikitextToHtml()` instead of raw citation text when jQuery extraction fails
+* Scoped CSS bracket pseudo-elements (`[`, `]`) to direct child links to prevent them from bleeding into tooltip popups
+
 ## 4.0.0
 Released on March 13, 2026.
 
