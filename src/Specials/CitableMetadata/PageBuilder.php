@@ -161,7 +161,7 @@ class PageBuilder {
 			->withFieldset()
 			->setMethod( 'get' )
 			->addParagraph( $messageBuilder->getMessage( 'sci-metadata-search-intro' )->parse() ?? '' )
-			->addParagraph( $this->getTypeIdIntroText( $messageBuilder ) )
+			->addParagraph( $this->getTypeIdIntroText( $messageBuilder ) ?? '' )
 			->addHorizontalRule()
 			->addOptionSelectList(
 				$messageBuilder->getMessage( 'sci-metadata-search-select-label' )->text(),
