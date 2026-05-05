@@ -160,7 +160,7 @@ class PageBuilder {
 		$html = $htmlFormRenderer->setName( 'sci-metadata-search-form' )
 			->withFieldset()
 			->setMethod( 'get' )
-			->addParagraph( $messageBuilder->getMessage( 'sci-metadata-search-intro' )->parse() )
+			->addParagraph( $messageBuilder->getMessage( 'sci-metadata-search-intro' )->parse() ?? '' )
 			->addParagraph( $this->getTypeIdIntroText( $messageBuilder ) )
 			->addHorizontalRule()
 			->addOptionSelectList(
