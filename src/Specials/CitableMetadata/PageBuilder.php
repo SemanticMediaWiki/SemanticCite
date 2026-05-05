@@ -164,7 +164,7 @@ class PageBuilder {
 			->addParagraph( $this->getTypeIdIntroText( $messageBuilder ) ?? '' )
 			->addHorizontalRule()
 			->addOptionSelectList(
-				$messageBuilder->getMessage( 'sci-metadata-search-select-label' )->text(),
+				$messageBuilder->getMessage( 'sci-metadata-search-select-label' )->text() ?? '',
 				'type',
 				$type,
 				$types )
