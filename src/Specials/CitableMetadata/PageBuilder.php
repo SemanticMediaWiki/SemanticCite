@@ -182,14 +182,14 @@ class PageBuilder {
 
 		if ( $text !== '' && $success ) {
 			$htmlFormRenderer
-				->addHeader( 'h2', $messageBuilder->getMessage( 'sci-metadata-search-header-result' )->text() )
+				->addHeader( 'h2', $messageBuilder->getMessage( 'sci-metadata-search-header-result' )->text() ?? '' )
 				->addParagraph( $text );
 		}
 
 		if ( $log !== '' ) {
 			$htmlFormRenderer
 				->setName( 'metadata-match' )
-				->addHeader( 'h2', $messageBuilder->getMessage( 'sci-metadata-search-header-log' )->text() )
+				->addHeader( 'h2', $messageBuilder->getMessage( 'sci-metadata-search-header-log' )->text() ?? '' )
 				->addParagraph( $log );
 		}
 
