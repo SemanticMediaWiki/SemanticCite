@@ -160,11 +160,11 @@ class PageBuilder {
 		$html = $htmlFormRenderer->setName( 'sci-metadata-search-form' )
 			->withFieldset()
 			->setMethod( 'get' )
-			->addParagraph( $messageBuilder->getMessage( 'sci-metadata-search-intro' )->parse() )
-			->addParagraph( $this->getTypeIdIntroText( $messageBuilder ) )
+			->addParagraph( $messageBuilder->getMessage( 'sci-metadata-search-intro' )->parse() ?? '' )
+			->addParagraph( $this->getTypeIdIntroText( $messageBuilder ) ?? '' )
 			->addHorizontalRule()
 			->addOptionSelectList(
-				$messageBuilder->getMessage( 'sci-metadata-search-select-label' )->text(),
+				$messageBuilder->getMessage( 'sci-metadata-search-select-label' )->text() ?? '',
 				'type',
 				$type,
 				$types )
@@ -182,14 +182,14 @@ class PageBuilder {
 
 		if ( $text !== '' && $success ) {
 			$htmlFormRenderer
-				->addHeader( 'h2', $messageBuilder->getMessage( 'sci-metadata-search-header-result' )->text() )
+				->addHeader( 'h2', $messageBuilder->getMessage( 'sci-metadata-search-header-result' )->text() ?? '' )
 				->addParagraph( $text );
 		}
 
 		if ( $log !== '' ) {
 			$htmlFormRenderer
 				->setName( 'metadata-match' )
-				->addHeader( 'h2', $messageBuilder->getMessage( 'sci-metadata-search-header-log' )->text() )
+				->addHeader( 'h2', $messageBuilder->getMessage( 'sci-metadata-search-header-log' )->text() ?? '' )
 				->addParagraph( $log );
 		}
 
