@@ -25,7 +25,29 @@
 		var cache = {};
 
 		/**
-		 * Fetch citation text via the SMW Ask API.
+		 * Basic client-side wikitext to HTML conversion for when
+		 * api.parse is unavailable.
+		 */
+		var wikitextToHtml = function( text ) {
+			return text
+				.replace( /'''([^']+)'''/g, '<b>$1</b>' )
+				.replace( /''([^']+)''/g, '<i>$1</i>' )
+				.replace( /\[\[([^\]|]+)\|([^\]]+)\]\]/g, function( m, page, label ) {
+					return '<a href="' + mw.util.getUrl( page ) + '">' + label + '</a>';
+				} )
+				.replace( /\[\[([^\]|]+)\]\]/g, function( m, page ) {
+					return '<a href="' + mw.util.getUrl( page ) + '">' + page + '</a>';
+				} )
+				.replace( /\[(\bhttps?:\/\/[^\s\]]+)\s+([^\]]+)\]/g, '<a href="$1" rel="nofollow">$2</a>' )
+				.replace( /\[(\bhttps?:\/\/[^\s\]]+)\]/g, '<a href="$1" rel="nofollow">$1</a>' )
+				.replace( /(^|[^"'>])(https?:\/\/[^\s<]+)/g, '$1<a href="$2" rel="nofollow">$2</a>' );
+		};
+
+		/**
+		 * Fetch citation text via the SMW Ask API, then attempt to
+		 * render it with api.parse. Falls back to client-side wikitext
+		 * conversion if api.parse fails (e.g. on MW 1.45+ with SMW
+		 * SchemaContentHandler incompatibility).
 		 *
 		 * @since 4.0
 		 */
@@ -56,18 +78,27 @@
 					return;
 				}
 
-				var html = citationText
-					.replace( /'''([^']+)'''/g, '<b>$1</b>' )
-					.replace( /''([^']+)''/g, '<i>$1</i>' );
+				var cacheAndReturn = function( html ) {
+					if ( configuration.tooltipRequestCacheTTL > 0 ) {
+						cache[ reference ] = {
+							html: html,
+							time: Date.now()
+						};
+					}
+					callback( html );
+				};
 
-				if ( configuration.tooltipRequestCacheTTL > 0 ) {
-					cache[ reference ] = {
-						html: html,
-						time: Date.now()
-					};
-				}
+				// Try api.parse for full wikitext rendering (links, templates etc.)
+				// Falls back to client-side conversion if parse fails
+				api.parse( '<div class="scite-api-parse">' + citationText + '</div>' )
+					.done( function ( parsed ) {
+						var html = $( parsed ).find( '.scite-api-parse' ).html();
+						cacheAndReturn( html || wikitextToHtml( citationText ) );
+					} )
+					.fail( function () {
+						cacheAndReturn( wikitextToHtml( citationText ) );
+					} );
 
-				callback( html );
 			} ).fail( function( xhr, status, error ) {
 				callback( status + ': ' + error );
 			} );
