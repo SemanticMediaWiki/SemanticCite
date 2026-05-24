@@ -128,7 +128,7 @@ class ReferenceListParserFunction {
 
 		if ( !$this->parserData->getSemanticData()->isEmpty() ) {
 			$this->parserData->getSubject()->setContextReference( 'referencelistp:' . uniqid() );
-			$this->parserData->pushSemanticDataToParserOutput();
+			$this->parserData->copyToParserOutput();
 		}
 
 		return json_encode( $values );
