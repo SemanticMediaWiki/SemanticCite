@@ -45,7 +45,7 @@ class ResourceIdentifierFactory {
 				break;
 		}
 
-		$typeId = $propertyRegistry->getPropertyTypeId( $property );
+		$typeId = $propertyRegistry->getPropertyValueTypeById( $property );
 
 		if ( $typeId === null || $typeId === '' ) {
 			throw new RuntimeException( "{$type} is an unmatched type for ResourceIdentifierStringValue" );
