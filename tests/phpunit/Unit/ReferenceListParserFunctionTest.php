@@ -80,7 +80,7 @@ class ReferenceListParserFunctionTest extends \PHPUnit\Framework\TestCase {
 			->will( $this->returnValue( new DIWikiPage( 'Foo', NS_MAIN ) ) );
 
 		$parserData->expects( $this->once() )
-			->method( 'pushSemanticDataToParserOutput' );
+			->method( 'copyToParserOutput' );
 
 		$parserData->expects( $this->any() )
 			->method( 'getSemanticData' )
