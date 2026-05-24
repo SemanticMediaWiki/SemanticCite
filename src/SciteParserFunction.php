@@ -308,7 +308,7 @@ class SciteParserFunction {
 		);
 
 		$this->parserData->getSubject()->setContextReference( 'scitep:' . uniqid() );
-		$this->parserData->pushSemanticDataToParserOutput();
+		$this->parserData->copyToParserOutput();
 	}
 
 	private function createErrorMessageFor( $messageKey, $arg1 = '',  $arg2 = '' ) {
