@@ -57,6 +57,6 @@
 	"smw-pa-property-predefined__sci_pmcid": "\"$1\"은 [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] 확장 기능에서 제공하는 미리 정의된 속성으로, PubMed Central 참조 번호 (PMCID)와 PubMed Central에 있는 논문 전문으로의 링크를 나타냅니다.",
 	"smw-pa-property-predefined__sci_pmid": "\"$1\"은 [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] 확장 기능에서 제공하는 미리 정의된 속성으로, 개체의 PubMed ID ([[Property:PMCID|PMCID]]와는 다른 것임)를 나타냅니다.",
 	"smw-pa-property-predefined__sci_oclc": "\"$1\"은 [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] 확장 기능에서 제공하는 미리 정의된 속성으로, WorldCat (OCLC)에 저장된 문헌 레코드를 식별합니다.",
-	"smw-pa-property-predefined__sci_olid": "\"$1\"은 [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] 확장 기능에서 제공하는 미리 정의된 속성으로, OpenLibrary 레코드를 식별합니다.",
+	"smw-pa-property-predefined__sci_olid": "\"$1\"은 [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] 확장 기능에서 제공하는 미리 정의된 속성으로, 오픈라이브러리 레코드를 식별합니다.",
 	"smw-pa-property-predefined__sci_viaf": "\"$1\"은 [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] 확장 기능에서 제공하는 미리 정의된 속성으로, Virtual International Authority File을 식별합니다."
 }
