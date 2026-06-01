@@ -6,6 +6,7 @@
 			"Deathkon",
 			"Kly",
 			"Liuxinyu970226",
+			"LowensteinYang",
 			"Winston Sung",
 			"Xiplus"
 		]
@@ -18,6 +19,12 @@
 	"sci-scite-parser-no-citation-text": "<code>#scite</code>不能為參考文獻“$1”渲染一段引用文本，因為類型“$2”未被指定為一個[[MediaWiki:Sci-template-definition|模板]]。",
 	"sci-datavalue-empty-reference": "預計引用參考不會為空。",
 	"sci-datavalue-invalid-id-value": "“$1”是無效的用于$2類型的值。",
+	"sci-property-alias-doi": "數位物件識別碼",
+	"sci-property-alias-viaf": "虛擬國際權威檔案",
+	"sci-property-alias-oclc": "連線電腦圖書館中心",
+	"sci-property-alias-olid": "開放圖書館ID",
+	"sci-property-alias-pmcid": "公共醫學ID",
+	"sci-property-alias-pmid": "美國公共醫學中心ID",
 	"sci-property-alias-citation-key": "引用關鍵詞",
 	"sci-property-alias-citation-reference": "引用參考文獻",
 	"sci-property-alias-citation-text": "引用文字",
