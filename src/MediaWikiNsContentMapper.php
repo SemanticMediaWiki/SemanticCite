@@ -5,7 +5,7 @@ namespace SCI;
 use SMW\MediaWiki\MediaWikiNsContentReader;
 
 /**
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -30,7 +30,7 @@ class MediaWikiNsContentMapper {
 	/**
 	 * Only set during testing to circumvent the MessageCache
 	 *
-	 * @var boolean
+	 * @var bool
 	 */
 	public static $skipMessageCache = false;
 
@@ -60,7 +60,6 @@ class MediaWikiNsContentMapper {
 	 * @return string
 	 */
 	public function findPropertyForId( $id ) {
-
 		$id = strtolower( trim( $id ) );
 
 		if ( self::$identifierToPropertyMap === [] ) {
@@ -91,7 +90,6 @@ class MediaWikiNsContentMapper {
 	 * @return string
 	 */
 	public function findTemplateForType( $type ) {
-
 		$type = strtolower( trim( $type ) );
 
 		if ( self::$typeToTemplateMap === [] ) {
@@ -105,7 +103,6 @@ class MediaWikiNsContentMapper {
 	 * @param string $name
 	 */
 	private function parseContentFor( $name ) {
-
 		if ( self::$skipMessageCache ) {
 			$this->mediaWikiNsContentReader->skipMessageCache();
 		}
@@ -130,7 +127,7 @@ class MediaWikiNsContentMapper {
 				continue;
 			}
 
-			list( $id, $value ) = explode( '|', $map, 2 );
+			[ $id, $value ] = explode( '|', $map, 2 );
 			$list[str_replace( '_', ' ', strtolower( trim( $id ) ) )] = $value;
 		}
 

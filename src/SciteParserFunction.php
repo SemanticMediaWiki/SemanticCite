@@ -2,14 +2,14 @@
 
 namespace SCI;
 
-use SCI\Bibtex\BibtexProcessor;
-use SMW\NamespaceExaminer;
-use SMW\ParserParameterProcessor;
-use SMW\DataValueFactory;
-use SMW\DIProperty;
-use SMW\ParserData;
-use SMW\Subobject;
 use MediaWiki\Html\Html;
+use SCI\Bibtex\BibtexProcessor;
+use SMW\DataItems\Property;
+use SMW\DataModel\Subobject;
+use SMW\DataValueFactory;
+use SMW\NamespaceExaminer;
+use SMW\ParserData;
+use SMW\ParserParameterProcessor;
 
 /**
  * #scite: is used the create a citation resource with a reference to be
@@ -18,7 +18,7 @@ use MediaWiki\Html\Html;
  * [[CiteRef: ... ]] | [[Citation reference:: ...]] is used to create an in-text
  * reference link to a citation resource.
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -56,7 +56,7 @@ class SciteParserFunction {
 	private $dataValueFactory;
 
 	/**
-	 * @var boolean
+	 * @var bool
 	 */
 	private $strictParserValidationState = true;
 
@@ -86,9 +86,9 @@ class SciteParserFunction {
 	/**
 	 * @since 1.0
 	 *
-	 * @param boolean $strictParserValidationState
+	 * @param bool $strictParserValidationState
 	 */
-	public function setStrictParserValidationState ( $strictParserValidationState ) {
+	public function setStrictParserValidationState( $strictParserValidationState ) {
 		$this->strictParserValidationState = (bool)$strictParserValidationState;
 	}
 
@@ -144,7 +144,6 @@ class SciteParserFunction {
 	 * @param ParserParameterProcessor $parserParameterProcessor
 	 */
 	public function doProcess( ParserParameterProcessor $parserParameterProcessor, PreTextFormatter $preTextFormatter = null ) {
-
 		if ( !$this->namespaceExaminer->isSemanticEnabled( $this->parserData->getTitle()->getNamespace() ) ) {
 			return $this->createErrorMessageFor( 'sci-scite-parser-not-enabled-namespace' );
 		}
@@ -206,17 +205,16 @@ class SciteParserFunction {
 			$returnText = $preTextFormatter->getFormattedSciteFuncFrom( $parserParameterProcessor->getRaw() ) . $returnText;
 		}
 
-		return $returnText; //array( '', 'noparse' => true, 'isHTML' => true );
+		return $returnText; // array( '', 'noparse' => true, 'isHTML' => true );
 	}
 
 	private function tryToMatchCitationTextByPrecept( ParserParameterProcessor $parserParameterProcessor, $reference, $type = '' ) {
-
 		$template = '';
 
 		if ( $this->strictParserValidationState && $type === '' ) {
 
 			$parserParameterProcessor->addParameter(
-				DIProperty::TYPE_ERROR,
+				Property::TYPE_ERROR,
 				PropertyRegistry::SCI_CITE
 			);
 
@@ -247,7 +245,7 @@ class SciteParserFunction {
 		} elseif ( $this->strictParserValidationState ) {
 
 			$parserParameterProcessor->addParameter(
-				DIProperty::TYPE_ERROR,
+				Property::TYPE_ERROR,
 				PropertyRegistry::SCI_CITE_TEXT
 			);
 
@@ -258,7 +256,6 @@ class SciteParserFunction {
 	}
 
 	private function addPropertyValuesFor( ParserParameterProcessor $parserParameterProcessor, $reference ) {
-
 		$subobject = new Subobject( $this->parserData->getTitle() );
 		$subobject->setEmptyContainerForId( '_SCITE' . md5( $reference ) );
 
@@ -266,12 +263,12 @@ class SciteParserFunction {
 
 		foreach ( $parserParameterProcessor->toArray() as $key => $values ) {
 
-			if ( $key === DIProperty::TYPE_ERROR ) {
+			if ( $key === Property::TYPE_ERROR ) {
 
-				$value = new DIProperty( end( $values ) );
+				$value = new Property( end( $values ) );
 
 				$subobject->getSemanticData()->addPropertyObjectValue(
-					new DIProperty( DIProperty::TYPE_ERROR ),
+					new Property( Property::TYPE_ERROR ),
 					$value->getDiWikiPage()
 				);
 
@@ -303,7 +300,7 @@ class SciteParserFunction {
 		}
 
 		$this->parserData->getSemanticData()->addPropertyObjectValue(
-			new DIProperty( PropertyRegistry::SCI_CITE ),
+			new Property( PropertyRegistry::SCI_CITE ),
 			$subobject->getContainer()
 		);
 
@@ -311,7 +308,7 @@ class SciteParserFunction {
 		$this->parserData->copyToParserOutput();
 	}
 
-	private function createErrorMessageFor( $messageKey, $arg1 = '',  $arg2 = '' ) {
+	private function createErrorMessageFor( $messageKey, $arg1 = '', $arg2 = '' ) {
 		return Html::rawElement(
 			'div',
 			[ 'class' => 'smw-callout smw-callout-error' ],

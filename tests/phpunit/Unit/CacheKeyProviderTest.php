@@ -8,7 +8,7 @@ use SCI\CacheKeyProvider;
  * @covers \SCI\CacheKeyProvider
  * @group semantic-cite
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since   1.0
  *
  * @author mwjames
@@ -16,7 +16,6 @@ use SCI\CacheKeyProvider;
 class CacheKeyProviderTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			'\SCI\CacheKeyProvider',
 			new CacheKeyProvider()
@@ -24,7 +23,6 @@ class CacheKeyProviderTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testGetKey() {
-
 		$instance = new CacheKeyProvider();
 		$instance->setCachePrefix( 'foo' );
 

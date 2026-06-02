@@ -2,16 +2,15 @@
 
 namespace SCI\Tests;
 
-use SCI\ParserFunctionFactory;
-use MediaWiki\Title\Title;
 use MediaWiki\Parser\Parser;
-use MediaWiki\Parser\ParserOptions;
+use MediaWiki\Title\Title;
+use SCI\ParserFunctionFactory;
 
 /**
  * @covers \SCI\ParserFunctionFactory
  * @group semantic-cite
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -20,7 +19,7 @@ class ParserFunctionFactoryTest extends \PHPUnit\Framework\TestCase {
 
 	private $parser;
 
-	protected function setUp() : void {
+	protected function setUp(): void {
 		parent::setUp();
 
 		$title = $this->getMockBuilder( Title::class )
@@ -38,15 +37,14 @@ class ParserFunctionFactoryTest extends \PHPUnit\Framework\TestCase {
 
 		$this->parser->expects( $this->any() )
 			->method( 'getTitle' )
-			->will( $this->returnValue( $title ) );
+			->willReturn( $title );
 
 		$this->parser->expects( $this->any() )
 			->method( 'getOutput' )
-			->will( $this->returnValue( $parserOutput ) );
+			->willReturn( $parserOutput );
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			'\SCI\ParserFunctionFactory',
 			new ParserFunctionFactory()
@@ -54,7 +52,6 @@ class ParserFunctionFactoryTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testNewSciteParserFunctionDefinition() {
-
 		$this->parser->setTitle( Title::newFromText( __METHOD__ ) );
 
 		$instance = new ParserFunctionFactory();
@@ -67,7 +64,7 @@ class ParserFunctionFactoryTest extends \PHPUnit\Framework\TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		list( $name, $definition, $flag ) = $instance->newSciteParserFunctionDefinition(
+		[ $name, $definition, $flag ] = $instance->newSciteParserFunctionDefinition(
 			$namespaceExaminer,
 			$options
 		);
@@ -90,12 +87,11 @@ class ParserFunctionFactoryTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function textNewReferenceListParserFunctionDefinition() {
-
 		$this->parser->setTitle( Title::newFromText( __METHOD__ ) );
 
 		$instance = new ParserFunctionFactory();
 
-		list( $name, $definition, $flag ) = $instance->newReferenceListParserFunctionDefinition();
+		[ $name, $definition, $flag ] = $instance->newReferenceListParserFunctionDefinition();
 
 		$this->assertEquals(
 			'referencelist',

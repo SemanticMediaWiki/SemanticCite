@@ -3,13 +3,14 @@
 namespace SCI\Tests;
 
 use SCI\SciteParserFunction;
-use SMW\DIWikiPage;
+use SMW\DataItems\WikiPage;
+use SMW\DataModel\SemanticData;
 
 /**
  * @covers \SCI\SciteParserFunction
  * @group semantic-cite
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since   1.0
  *
  * @author mwjames
@@ -22,15 +23,14 @@ class SciteParserFunctionTest extends \PHPUnit\Framework\TestCase {
 	private $mediaWikiNsContentMapper;
 	private $bibtexProcessor;
 
-	protected function setUp() : void {
-
+	protected function setUp(): void {
 		$this->parserData = $this->getMockBuilder( '\SMW\ParserData' )
 			->disableOriginalConstructor()
 			->getMock();
 
 		$this->parserData->expects( $this->any() )
 			->method( 'getSubject' )
-			->will( $this->returnValue( DIWikiPage::newFromText( __METHOD__ ) ) );
+			->willReturn( WikiPage::newFromText( __METHOD__ ) );
 
 		$this->namespaceExaminer = $this->getMockBuilder( '\SMW\NamespaceExaminer' )
 			->disableOriginalConstructor()
@@ -50,7 +50,6 @@ class SciteParserFunctionTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testCanConstruct() {
-
 		$instance = new SciteParserFunction(
 			$this->parserData,
 			$this->namespaceExaminer,
@@ -66,14 +65,13 @@ class SciteParserFunctionTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testErrorForNotEnabledNamespace() {
-
 		$this->parserData->expects( $this->once() )
 			->method( 'getTitle' )
-			->will( $this->returnValue( \MediaWiki\Title\Title::newFromText( __METHOD__ ) ) );
+			->willReturn( \MediaWiki\Title\Title::newFromText( __METHOD__ ) );
 
 		$this->namespaceExaminer->expects( $this->once() )
 			->method( 'isSemanticEnabled' )
-			->will( $this->returnValue( false ) );
+			->willReturn( false );
 
 		$parserParameterProcessor = $this->getMockBuilder( '\SMW\ParserParameterProcessor' )
 			->disableOriginalConstructor()
@@ -93,14 +91,13 @@ class SciteParserFunctionTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testErrorForEnabledNamespaceButMissingReference() {
-
 		$this->parserData->expects( $this->once() )
 			->method( 'getTitle' )
-			->will( $this->returnValue( \MediaWiki\Title\Title::newFromText( __METHOD__ ) ) );
+			->willReturn( \MediaWiki\Title\Title::newFromText( __METHOD__ ) );
 
 		$this->namespaceExaminer->expects( $this->once() )
 			->method( 'isSemanticEnabled' )
-			->will( $this->returnValue( true ) );
+			->willReturn( true );
 
 		$parserParameterProcessor = $this->getMockBuilder( '\SMW\ParserParameterProcessor' )
 			->disableOriginalConstructor()
@@ -120,22 +117,21 @@ class SciteParserFunctionTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testErrorForEnabledNamespaceButMissingType() {
-
-		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+		$semanticData = $this->getMockBuilder( SemanticData::class )
 			->disableOriginalConstructor()
 			->getMock();
 
 		$this->parserData->expects( $this->any() )
 			->method( 'getTitle' )
-			->will( $this->returnValue( \MediaWiki\Title\Title::newFromText( __METHOD__ ) ) );
+			->willReturn( \MediaWiki\Title\Title::newFromText( __METHOD__ ) );
 
 		$this->parserData->expects( $this->any() )
 			->method( 'getSemanticData' )
-			->will( $this->returnValue( $semanticData ) );
+			->willReturn( $semanticData );
 
 		$this->namespaceExaminer->expects( $this->once() )
 			->method( 'isSemanticEnabled' )
-			->will( $this->returnValue( true ) );
+			->willReturn( true );
 
 		$parserParameterProcessor = $this->getMockBuilder( '\SMW\ParserParameterProcessor' )
 			->disableOriginalConstructor()
@@ -143,17 +139,19 @@ class SciteParserFunctionTest extends \PHPUnit\Framework\TestCase {
 
 		$parserParameterProcessor->expects( $this->any() )
 			->method( 'hasParameter' )
-			->will( $this->returnCallback( function( $key ) {
-				return $key === 'reference' ? true : false; } ) );
+			->willReturnCallback( static function ( $key ) {
+				return $key === 'reference' ? true : false;
+			} );
 
 		$parserParameterProcessor->expects( $this->any() )
 			->method( 'getParameterValuesByKey' )
-			->will( $this->returnCallback( function( $key ) {
-				return $key === 'reference' ? [ 'Foo' ] : null; } ) );
+			->willReturnCallback( static function ( $key ) {
+				return $key === 'reference' ? [ 'Foo' ] : null;
+			} );
 
 		$parserParameterProcessor->expects( $this->once() )
 			->method( 'toArray' )
-			->will( $this->returnValue( [ '_ERRP' => [ 'Foo' ] ] ) );
+			->willReturn( [ '_ERRP' => [ 'Foo' ] ] );
 
 		$instance = new SciteParserFunction(
 			$this->parserData,

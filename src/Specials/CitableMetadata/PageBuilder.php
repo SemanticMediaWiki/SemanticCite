@@ -2,15 +2,15 @@
 
 namespace SCI\Specials\CitableMetadata;
 
-use SMW\Services\ServicesFactory as ApplicationFactory;
+use MediaWiki\Message\Message;
 use SCI\CitationResourceMatchFinder;
-use SMW\MediaWiki\Renderer\HtmlFormRenderer;
-use SMW\MediaWiki\Renderer\HtmlColumnListRenderer;
-use SCI\FilteredMetadata\HttpResponseParserFactory;
 use SCI\FilteredMetadata\BibliographicFilteredRecord;
+use SCI\FilteredMetadata\HttpResponseParserFactory;
+use SMW\MediaWiki\Renderer\HtmlColumnListRenderer;
+use SMW\MediaWiki\Renderer\HtmlFormRenderer;
 
 /**
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -38,7 +38,7 @@ class PageBuilder {
 	private $httpResponseParserFactory;
 
 	/**
-	 * @var boolean
+	 * @var bool
 	 */
 	private $isReadOnly = false;
 
@@ -60,7 +60,7 @@ class PageBuilder {
 	/**
 	 * @since 1.4
 	 *
-	 * @param boolean $isReadOnly
+	 * @param bool $isReadOnly
 	 */
 	public function isReadOnly( $isReadOnly ) {
 		$this->isReadOnly = (bool)$isReadOnly;
@@ -75,7 +75,6 @@ class PageBuilder {
 	 * @return string
 	 */
 	public function getRawResponseFor( $type, $id ) {
-
 		$responseParser = $this->httpResponseParserFactory->newResponseParserForType(
 			$type
 		);
@@ -96,7 +95,6 @@ class PageBuilder {
 	 * @return string
 	 */
 	public function getHtmlFor( $type, $id ) {
-
 		$text = '';
 		$success = true;
 		$log = '';
@@ -134,10 +132,17 @@ class PageBuilder {
 		return $this->doRenderHtml( $type, $id, $success, $text, $log, $matches );
 	}
 
-	private function doRenderHtml( $type, $id, $success, $text, $log, $matches ) {
+	/**
+	 * Build a message in the renderer's language so the form labels match the
+	 * surrounding form's language rather than defaulting to the user language.
+	 */
+	private function msg( string $key, ...$params ): Message {
+		return wfMessage( $key, ...$params )
+			->inLanguage( $this->htmlFormRenderer->getLanguage() );
+	}
 
+	private function doRenderHtml( $type, $id, $success, $text, $log, $matches ) {
 		$htmlFormRenderer = $this->htmlFormRenderer;
-		$messageBuilder = $this->htmlFormRenderer->getMessageBuilder();
 
 		$types = [
 			'pubmed' => 'PMID',
@@ -148,11 +153,10 @@ class PageBuilder {
 			'ol'   => 'OLID',
 		];
 
-
 		if ( $matches !== '' ) {
 			$htmlFormRenderer->addParagraph(
 				'<div class="smw-callout smw-callout-info">' .
-				$messageBuilder->getMessage( 'sci-metadata-search-has-match', $matches )->text() .
+				$this->msg( 'sci-metadata-search-has-match', $matches )->text() .
 				'</div>'
 			);
 		}
@@ -160,11 +164,11 @@ class PageBuilder {
 		$html = $htmlFormRenderer->setName( 'sci-metadata-search-form' )
 			->withFieldset()
 			->setMethod( 'get' )
-			->addParagraph( $messageBuilder->getMessage( 'sci-metadata-search-intro' )->parse() ?? '' )
-			->addParagraph( $this->getTypeIdIntroText( $messageBuilder ) ?? '' )
+			->addParagraph( $this->msg( 'sci-metadata-search-intro' )->parse() ?? '' )
+			->addParagraph( $this->getTypeIdIntroText() ?? '' )
 			->addHorizontalRule()
 			->addOptionSelectList(
-				$messageBuilder->getMessage( 'sci-metadata-search-select-label' )->text() ?? '',
+				$this->msg( 'sci-metadata-search-select-label' )->text() ?? '',
 				'type',
 				$type,
 				$types )
@@ -175,21 +179,21 @@ class PageBuilder {
 				'id',
 				40 )
 			->addNonBreakingSpace()
-			->addSubmitButton( $messageBuilder->getMessage( 'sci-metadata-search-form-submit' )->text() )
+			->addSubmitButton( $this->msg( 'sci-metadata-search-form-submit' )->text() )
 			->addNonBreakingSpace()
 			->addCheckbox( 'Raw', 'format', 'raw' )
 			->getForm();
 
 		if ( $text !== '' && $success ) {
 			$htmlFormRenderer
-				->addHeader( 'h2', $messageBuilder->getMessage( 'sci-metadata-search-header-result' )->text() ?? '' )
+				->addHeader( 'h2', $this->msg( 'sci-metadata-search-header-result' )->text() ?? '' )
 				->addParagraph( $text );
 		}
 
 		if ( $log !== '' ) {
 			$htmlFormRenderer
 				->setName( 'metadata-match' )
-				->addHeader( 'h2', $messageBuilder->getMessage( 'sci-metadata-search-header-log' )->text() ?? '' )
+				->addHeader( 'h2', $this->msg( 'sci-metadata-search-header-log' )->text() ?? '' )
 				->addParagraph( $log );
 		}
 
@@ -197,9 +201,6 @@ class PageBuilder {
 	}
 
 	private function prepareLog( $messages, $matches, $usesCache ) {
-
-		$messageBuilder = $this->htmlFormRenderer->getMessageBuilder();
-
 		$log = [];
 
 		foreach ( $messages as $m ) {
@@ -210,15 +211,15 @@ class PageBuilder {
 				$m = current( $m );
 			}
 
-			$log[]  = $m;
+			$log[] = $m;
 		}
 
 		if ( $usesCache ) {
-			$log[] = $messageBuilder->getMessage( 'sci-metadata-search-cached' )->text();
+			$log[] = $this->msg( 'sci-metadata-search-cached' )->text();
 		}
 
 		if ( $this->isReadOnly ) {
-			$log[] = $messageBuilder->getMessage( 'sci-metadata-search-read-only' )->text();
+			$log[] = $this->msg( 'sci-metadata-search-read-only' )->text();
 		}
 
 		if ( $log === [] ) {
@@ -231,12 +232,11 @@ class PageBuilder {
 		return $this->htmlColumnListRenderer->getHtml();
 	}
 
-	private function getTypeIdIntroText( $messageBuilder ) {
-
+	private function getTypeIdIntroText() {
 		$explain = [];
 
 		foreach ( [ 'doi', 'oclc', 'pubmed', 'ol', 'viaf' ] as $value ) {
-			$explain[] = $messageBuilder->getMessage( 'sci-metadata-search-intro-'. $value )->parse();
+			$explain[] = $this->msg( 'sci-metadata-search-intro-' . $value )->parse();
 		}
 
 		$this->htmlColumnListRenderer->setColumnListClass( 'scite-metadata-search-types' );
@@ -247,7 +247,6 @@ class PageBuilder {
 	}
 
 	private function tryToFindCitationResourceMatches( BibliographicFilteredRecord $bibliographicFilteredRecord ) {
-
 		$html = [];
 
 		foreach ( [ 'doi', 'oclc', 'viaf', 'olid', 'pubmed', 'pmc' ] as $type ) {

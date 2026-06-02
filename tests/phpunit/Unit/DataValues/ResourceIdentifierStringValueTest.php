@@ -8,7 +8,7 @@ use SCI\DataValues\ResourceIdentifierStringValue;
  * @covers \SCI\DataValues\ResourceIdentifierStringValue
  * @group semantic-cite
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -19,7 +19,6 @@ class ResourceIdentifierStringValueTest extends \PHPUnit\Framework\TestCase {
 	 * @dataProvider typeProvider
 	 */
 	public function testCanConstruct( $type ) {
-
 		$this->assertInstanceOf(
 			'\SCI\DataValues\ResourceIdentifierStringValue',
 			new ResourceIdentifierStringValue()
@@ -30,7 +29,6 @@ class ResourceIdentifierStringValueTest extends \PHPUnit\Framework\TestCase {
 	 * @dataProvider doiNonLinkedTextProvider
 	 */
 	public function testNonLinkedText( $type, $value, $expectedWikiText, $expectedHtmlText ) {
-
 		$instance = new ResourceIdentifierStringValue( $type );
 		$instance->setUserValue( $value );
 
@@ -59,7 +57,6 @@ class ResourceIdentifierStringValueTest extends \PHPUnit\Framework\TestCase {
 	 * @dataProvider doiLinkedTextProvider
 	 */
 	public function testLinkedText( $type, $value, $expectedWikiText, $expectedHtmlText ) {
-
 		$instance = new ResourceIdentifierStringValue( $type );
 		$instance->setUserValue( $value );
 
@@ -88,7 +85,6 @@ class ResourceIdentifierStringValueTest extends \PHPUnit\Framework\TestCase {
 	 * @dataProvider outputFormattedTextProvider
 	 */
 	public function testOutputFormattedText( $type, $value, $format, $expectedWikiText, $expectedHtmlText ) {
-
 		$instance = new ResourceIdentifierStringValue( $type );
 		$instance->setUserValue( $value );
 		$instance->setOutputFormat( $value );
@@ -115,7 +111,6 @@ class ResourceIdentifierStringValueTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function typeProvider() {
-
 		$provider[] = [
 			'_sci_doi',
 		];
@@ -144,7 +139,6 @@ class ResourceIdentifierStringValueTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function doiNonLinkedTextProvider() {
-
 		// DOI
 
 		$provider[] = [
@@ -259,7 +253,6 @@ class ResourceIdentifierStringValueTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function doiLinkedTextProvider() {
-
 		// DOI
 
 		$provider[] = [
@@ -367,7 +360,6 @@ class ResourceIdentifierStringValueTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function outputFormattedTextProvider() {
-
 		// DOI
 
 		$provider[] = [
@@ -386,7 +378,7 @@ class ResourceIdentifierStringValueTest extends \PHPUnit\Framework\TestCase {
 			'10.1000/123456'
 		];
 
-		return$provider;
+		return $provider;
 	}
 
 }

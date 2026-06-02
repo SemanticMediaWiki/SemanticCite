@@ -3,12 +3,11 @@
 namespace SCI\Tests\Integration\FilteredMetadata;
 
 use SCI\FilteredMetadata\HttpResponseParserFactory;
-use SCI\FilteredMetadata\BibliographicFilteredRecord;
 
 /**
  * @group semantic-cite
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -19,8 +18,7 @@ class SciteTransclusionForCannedResponseParserTest extends \PHPUnit\Framework\Te
 	 * @dataProvider crossrefFileProvider
 	 */
 	public function testCrossRefResponseParser( $id, $inputFile, $expectedResultFile ) {
-
-		list( $id, $httpRequest, $expected ) = $this->prepareFileContents(
+		[ $id, $httpRequest, $expected ] = $this->prepareFileContents(
 			$id,
 			$inputFile,
 			$expectedResultFile
@@ -45,8 +43,7 @@ class SciteTransclusionForCannedResponseParserTest extends \PHPUnit\Framework\Te
 	 * @dataProvider olFileProvider
 	 */
 	public function testOLResponseParser( $id, $inputFile, $expectedResultFile ) {
-
-		list( $id, $httpRequest, $expected ) = $this->prepareFileContents(
+		[ $id, $httpRequest, $expected ] = $this->prepareFileContents(
 			$id,
 			$inputFile,
 			$expectedResultFile
@@ -71,8 +68,7 @@ class SciteTransclusionForCannedResponseParserTest extends \PHPUnit\Framework\Te
 	 * @dataProvider viafFileProvider
 	 */
 	public function testViafResponseParser( $id, $inputFile, $expectedResultFile ) {
-
-		list( $id, $httpRequest, $expected ) = $this->prepareFileContents(
+		[ $id, $httpRequest, $expected ] = $this->prepareFileContents(
 			$id,
 			$inputFile,
 			$expectedResultFile
@@ -97,8 +93,7 @@ class SciteTransclusionForCannedResponseParserTest extends \PHPUnit\Framework\Te
 	 * @dataProvider oclcFileProvider
 	 */
 	public function testOclcResponseParser( $id, $inputFile, $expectedResultFile ) {
-
-		list( $id, $httpRequest, $expected ) = $this->prepareFileContents(
+		[ $id, $httpRequest, $expected ] = $this->prepareFileContents(
 			$id,
 			$inputFile,
 			$expectedResultFile
@@ -123,8 +118,7 @@ class SciteTransclusionForCannedResponseParserTest extends \PHPUnit\Framework\Te
 	 * @dataProvider pubMedFileProvider
 	 */
 	public function testPubMedResponseParser( $id, $type, $jsonInputFile, $xmlInputFile, $expectedResultFile ) {
-
-		list( $id, $httpRequest, $expected ) = $this->prepareFileContents(
+		[ $id, $httpRequest, $expected ] = $this->prepareFileContents(
 			$id,
 			$jsonInputFile,
 			$expectedResultFile,
@@ -147,7 +141,6 @@ class SciteTransclusionForCannedResponseParserTest extends \PHPUnit\Framework\Te
 	}
 
 	public function crossrefFileProvider() {
-
 		$path = __DIR__ . '/Fixtures/';
 		$provider = [];
 
@@ -161,7 +154,6 @@ class SciteTransclusionForCannedResponseParserTest extends \PHPUnit\Framework\Te
 	}
 
 	public function olFileProvider() {
-
 		$path = __DIR__ . '/Fixtures/';
 		$provider = [];
 
@@ -181,7 +173,6 @@ class SciteTransclusionForCannedResponseParserTest extends \PHPUnit\Framework\Te
 	}
 
 	public function viafFileProvider() {
-
 		$path = __DIR__ . '/Fixtures/';
 		$provider = [];
 
@@ -195,7 +186,6 @@ class SciteTransclusionForCannedResponseParserTest extends \PHPUnit\Framework\Te
 	}
 
 	public function oclcFileProvider() {
-
 		$path = __DIR__ . '/Fixtures/';
 		$provider = [];
 
@@ -215,7 +205,6 @@ class SciteTransclusionForCannedResponseParserTest extends \PHPUnit\Framework\Te
 	}
 
 	public function pubMedFileProvider() {
-
 		$path = __DIR__ . '/Fixtures/';
 		$provider = [];
 
@@ -230,9 +219,7 @@ class SciteTransclusionForCannedResponseParserTest extends \PHPUnit\Framework\Te
 		return $provider;
 	}
 
-
 	private function prepareFileContents( $id, $inputFileA, $expectedResultFile, $inputFileB = false ) {
-
 		$inputFileAContents = file_get_contents( $inputFileA );
 		$inputFileBContents = $inputFileB ? file_get_contents( $inputFileB ) : '';
 
@@ -244,12 +231,12 @@ class SciteTransclusionForCannedResponseParserTest extends \PHPUnit\Framework\Te
 
 		$httpRequest->expects( $this->any() )
 			->method( 'execute' )
-			->will( $this->onConsecutiveCalls(
-				$inputFileAContents, $inputFileBContents ) );
+			->willReturnOnConsecutiveCalls(
+				$inputFileAContents, $inputFileBContents );
 
 		$httpRequest->expects( $this->any() )
 			->method( 'getLastError' )
-			->will( $this->returnValue( '' ) );
+			->willReturn( '' );
 
 		return [ $id, $httpRequest, $expected ];
 	}

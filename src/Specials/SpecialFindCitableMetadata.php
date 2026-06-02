@@ -3,15 +3,15 @@
 namespace SCI\Specials;
 
 use MediaWiki\MediaWikiServices;
-use SpecialPage;
-use SMW\Services\ServicesFactory as ApplicationFactory;
+use MediaWiki\SpecialPage\SpecialPage;
 use Onoi\HttpRequest\HttpRequestFactory;
-use SCI\FilteredMetadata\HttpResponseParserFactory;
 use SCI\CitationResourceMatchFinder;
+use SCI\FilteredMetadata\HttpResponseParserFactory;
 use SCI\Specials\CitableMetadata\PageBuilder;
+use SMW\Services\ServicesFactory as ApplicationFactory;
 
 /**
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since   1.0
  *
  * @author mwjames
@@ -36,7 +36,6 @@ class SpecialFindCitableMetadata extends SpecialPage {
 	 * @see SpecialPage::execute
 	 */
 	public function execute( $query ) {
-
 		if ( !$this->userCanExecute( $this->getUser() ) ) {
 			$this->displayRestrictionError();
 			return;
@@ -54,7 +53,7 @@ class SpecialFindCitableMetadata extends SpecialPage {
 			]
 		);
 
-		list( $type, $id, $format ) = $this->getRequestParameters(
+		[ $type, $id, $format ] = $this->getRequestParameters(
 			$query
 		);
 
@@ -66,7 +65,6 @@ class SpecialFindCitableMetadata extends SpecialPage {
 	}
 
 	private function callPageBuilderFor( $type, $id, $format ) {
-
 		$pageBuilder = $this->newPageBuilder();
 
 		if ( $format === 'raw' ) {
@@ -90,11 +88,10 @@ class SpecialFindCitableMetadata extends SpecialPage {
 	}
 
 	private function getRequestParameters( $query ) {
-
 		$request = $this->getRequest()->getValues();
 
 		if ( strpos( $query, '/' ) !== false ) {
-			list( $type, $id ) = explode( '/', $query, 2 );
+			[ $type, $id ] = explode( '/', $query, 2 );
 			$request['type'] = $type;
 			$request['id'] = $id;
 		}
@@ -107,7 +104,6 @@ class SpecialFindCitableMetadata extends SpecialPage {
 	}
 
 	private function newPageBuilder() {
-
 		$applicationFactory = ApplicationFactory::getInstance();
 		$mwCollaboratorFactory = $applicationFactory->newMwCollaboratorFactory();
 
@@ -117,7 +113,7 @@ class SpecialFindCitableMetadata extends SpecialPage {
 		);
 
 		$httpRequestFactory = new HttpRequestFactory(
-			$applicationFactory->newCacheFactory()->newMediaWikiCompositeCache( $GLOBALS['scigMetadataResponseCacheType'] )
+			\SemanticCite::newCompositeCache( $GLOBALS['scigMetadataResponseCacheType'] )
 		);
 
 		$httpRequest = $httpRequestFactory->newCachedCurlRequest();
@@ -140,7 +136,6 @@ class SpecialFindCitableMetadata extends SpecialPage {
 	 * FIXME MW 1.25
 	 */
 	private function addExternalHelpLinkFor( $key ) {
-
 		if ( !method_exists( $this, 'addHelpLink' ) ) {
 			return null;
 		}

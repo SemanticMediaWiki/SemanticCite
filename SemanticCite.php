@@ -1,5 +1,8 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+use Onoi\Cache\Cache;
+use Onoi\Cache\CacheFactory as OnoiCacheFactory;
 use SCI\HookRegistry;
 use SCI\Options;
 use SMW\Services\ServicesFactory as ApplicationFactory;
@@ -24,27 +27,29 @@ class SemanticCite {
 	 * the extension is activated.
 	 */
 	public static function load() {
-
 		if ( is_readable( __DIR__ . '/vendor/autoload.php' ) ) {
 			include_once __DIR__ . '/vendor/autoload.php';
 		}
 
-		// Load DefaultSettings
-		require_once __DIR__ . '/DefaultSettings.php';
+		// Load DefaultSettings only inside MediaWiki; the file bails out when
+		// accessed directly (e.g. when Composer loads this entry point as part
+		// of `autoload.files` while running its scripts outside MediaWiki).
+		if ( defined( 'MEDIAWIKI' ) ) {
+			require_once __DIR__ . '/DefaultSettings.php';
+		}
 	}
 
 	/**
 	 * @since 1.1
 	 */
 	public static function initExtension( $credits = [] ) {
-
 		// See https://phabricator.wikimedia.org/T151136
 		define( 'SCI_VERSION', isset( $credits['version'] ) ? $credits['version'] : 'UNKNOWN' );
 
 		// Extend the upgrade key provided by SMW to ensure that an DB
 		// schema is updated accordingly before using the extension
 		if ( isset( $GLOBALS['smwgUpgradeKey'] ) ) {
-		//	$GLOBALS['smwgUpgradeKey'] .= ':scite:2018-09';
+		// $GLOBALS['smwgUpgradeKey'] .= ':scite:2018-09';
 		}
 
 		// Register message files
@@ -123,7 +128,6 @@ class SemanticCite {
 	 * @since 1.1
 	 */
 	public static function onExtensionFunction() {
-
 		if ( !defined( 'SMW_VERSION' ) ) {
 			if ( PHP_SAPI === 'cli' || PHP_SAPI === 'phpdbg' ) {
 				die( "\nThe 'Semantic Cite' extension requires 'Semantic MediaWiki' to be installed and enabled.\n" );
@@ -153,11 +157,36 @@ class SemanticCite {
 
 		$hookRegistry = new HookRegistry(
 			$applicationFactory->getStore(),
-			$applicationFactory->newCacheFactory()->newMediaWikiCompositeCache( $GLOBALS['scigReferenceListCacheType'] ),
+			self::newCompositeCache( $GLOBALS['scigReferenceListCacheType'] ),
 			new Options( $configuration )
 		);
 
 		$hookRegistry->register();
+	}
+
+	/**
+	 * Builds a composite cache (a fixed in-memory layer over a MediaWiki
+	 * object cache) using the `onoi/cache` library directly.
+	 *
+	 * Semantic MediaWiki 7.0 removed `CacheFactory::newMediaWikiCompositeCache()`
+	 * along with its bundled copy of `onoi/cache`; Semantic Cite still depends on
+	 * `onoi/cache` directly, so the composite cache is assembled here.
+	 *
+	 * @since 7.0
+	 *
+	 * @param int|string $cacheType
+	 */
+	public static function newCompositeCache( $cacheType ): Cache {
+		$cacheFactory = new OnoiCacheFactory();
+
+		$bagOStuff = MediaWikiServices::getInstance()->getObjectCacheFactory()->getInstance(
+			$cacheType
+		);
+
+		return $cacheFactory->newCompositeCache( [
+			$cacheFactory->newFixedInMemoryLruCache( 500 ),
+			$cacheFactory->newMediaWikiCache( $bagOStuff )
+		] );
 	}
 
 }

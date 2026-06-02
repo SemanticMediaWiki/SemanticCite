@@ -4,15 +4,16 @@ namespace SCI\Tests;
 
 use SCI\HookRegistry;
 use SCI\Options;
+use SMW\DataItems\Property;
+use SMW\DataItems\WikiPage;
+use SMW\DataModel\SemanticData;
 use SMW\DataTypeRegistry;
-use SMW\DIWikiPage;
-use SMW\DIProperty;
 
 /**
  * @covers \SCI\HookRegistry
  * @group semantic-cite
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -20,7 +21,6 @@ use SMW\DIProperty;
 class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
-
 		$store = $this->getMockBuilder( '\SMW\Store' )
 			->disableOriginalConstructor()
 			->getMockForAbstractClass();
@@ -40,7 +40,6 @@ class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testRegister() {
-
 		$store = $this->getMockBuilder( '\SMW\Store' )
 			->disableOriginalConstructor()
 			->getMockForAbstractClass();
@@ -86,7 +85,6 @@ class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testInitExtension() {
-
 		$propertyExemptionList = [
 			'__sci_cite'
 		];
@@ -110,7 +108,6 @@ class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function doTestRegisteredInitPropertiesHandler( $instance ) {
-
 		$hook = 'SMW::Property::initProperties';
 
 		$propertyRegistry = $this->getMockBuilder( '\SMW\PropertyRegistry' )
@@ -128,7 +125,6 @@ class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function doTestRegisteredInitDataTypesHandler( $instance ) {
-
 		$hook = 'SMW::DataType::initTypes';
 
 		$this->assertTrue(
@@ -183,7 +179,6 @@ class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function doTestRegisteredBeforeMagicWordsFinderHandler( $instance ) {
-
 		$hook = 'SMW::Parser::BeforeMagicWordsFinder';
 
 		$this->assertTrue(
@@ -199,7 +194,6 @@ class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function doTestRegisteredOutputPageParserOutput( $instance ) {
-
 		$hook = 'OutputPageParserOutput';
 
 		$this->assertTrue(
@@ -221,7 +215,6 @@ class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function doTestRegisteredOutputPageBeforeHTML( $instance ) {
-
 		$hook = 'OutputPageBeforeHTML';
 
 		$this->assertTrue(
@@ -242,15 +235,15 @@ class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 
 		$requestContext->expects( $this->any() )
 			->method( 'getRequest' )
-			->will( $this->returnValue( $webRequest ) );
+			->willReturn( $webRequest );
 
 		$requestContext->expects( $this->any() )
 			->method( 'getLanguage' )
-			->will( $this->returnValue( $language ) );
+			->willReturn( $language );
 
 		$requestContext->expects( $this->any() )
 			->method( 'getTitle' )
-			->will( $this->returnValue( \MediaWiki\Title\Title::newFromText( 'Foo' ) ) );
+			->willReturn( \MediaWiki\Title\Title::newFromText( 'Foo' ) );
 
 		$outputPage = $this->getMockBuilder( '\OutputPage' )
 			->disableOriginalConstructor()
@@ -258,7 +251,7 @@ class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 
 		$outputPage->expects( $this->any() )
 			->method( 'getContext' )
-			->will( $this->returnValue( $requestContext ) );
+			->willReturn( $requestContext );
 
 		$text = '';
 
@@ -269,20 +262,19 @@ class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function doTestRegisteredUpdateDataBefore( $instance ) {
-
-		$hook = 'SMWStore::updateDataBefore';
+		$hook = 'SMW::Store::BeforeDataUpdateComplete';
 
 		$store = $this->getMockBuilder( '\SMW\Store' )
 			->disableOriginalConstructor()
 			->getMockForAbstractClass();
 
-		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+		$semanticData = $this->getMockBuilder( SemanticData::class )
 			->disableOriginalConstructor()
 			->getMock();
 
 		$semanticData->expects( $this->any() )
 			->method( 'getSubject' )
-			->will( $this->returnValue( new DIWikiPage( 'Foo', NS_MAIN ) ) );
+			->willReturn( new WikiPage( 'Foo', NS_MAIN ) );
 
 		$this->assertTrue(
 			$instance->isRegistered( $hook )
@@ -295,7 +287,6 @@ class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function doTestRegisteredAddCustomFixedPropertyTables( $instance ) {
-
 		$hook = 'SMW::SQLStore::AddCustomFixedPropertyTables';
 
 		// Contains an extra to ensure previous values are not nullified
@@ -317,7 +308,6 @@ class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function doTestRegisteredResourceLoaderGetConfigVars( $instance ) {
-
 		$hook = 'ResourceLoaderGetConfigVars';
 
 		$this->assertTrue(
@@ -333,7 +323,6 @@ class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function doTestRegisteredParserFirstCallInit( $instance ) {
-
 		$hook = 'ParserFirstCallInit';
 
 		$this->assertTrue(
@@ -351,7 +340,6 @@ class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function doTestRegisteredBeforePageDisplay( $instance ) {
-
 		$hook = 'BeforePageDisplay';
 
 		$this->assertTrue(
@@ -364,7 +352,7 @@ class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 
 		$outputPage->expects( $this->once() )
 			->method( 'getTitle' )
-			->will( $this->returnValue( \MediaWiki\Title\Title::newFromText( 'Foo' ) ) );
+			->willReturn( \MediaWiki\Title\Title::newFromText( 'Foo' ) );
 
 		$skin = $this->getMockBuilder( '\Skin' )
 			->disableOriginalConstructor()
@@ -377,20 +365,19 @@ class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function doTestRegisteredBrowseAfterIncomingPropertiesLookupComplete( $instance ) {
-
 		$hook = 'SMW::Browse::AfterIncomingPropertiesLookupComplete';
 
 		$this->assertTrue(
 			$instance->isRegistered( $hook )
 		);
 
-		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+		$semanticData = $this->getMockBuilder( SemanticData::class )
 			->disableOriginalConstructor()
 			->getMock();
 
 		$semanticData->expects( $this->once() )
 			->method( 'getSubject' )
-			->will( $this->returnValue( DIWikiPage::newFromText( __METHOD__ ) ) );
+			->willReturn( WikiPage::newFromText( __METHOD__ ) );
 
 		$store = $this->getMockBuilder( '\SMW\Store' )
 			->disableOriginalConstructor()
@@ -398,7 +385,7 @@ class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 
 		$store->expects( $this->once() )
 			->method( 'getSemanticData' )
-			->will( $this->returnValue( $semanticData ) );
+			->willReturn( $semanticData );
 
 		$this->assertThatHookIsExcutable(
 			$instance->getHandlerFor( $hook ),
@@ -407,15 +394,14 @@ class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function doTestRegisteredBrowseBeforeIncomingPropertyValuesFurtherLinkCreate( $instance ) {
-
 		$hook = 'SMW::Browse::BeforeIncomingPropertyValuesFurtherLinkCreate';
 
 		$this->assertTrue(
 			$instance->isRegistered( $hook )
 		);
 
-		$property = new DIProperty( 'Foo' );
-		$subject = DIWikiPage::newFromText( __METHOD__ );
+		$property = new Property( 'Foo' );
+		$subject = WikiPage::newFromText( __METHOD__ );
 
 		$html = '';
 
@@ -426,20 +412,19 @@ class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function doTestRegisteredAfterDataUpdateComplete( $instance ) {
-
 		$hook = 'SMW::SQLStore::AfterDataUpdateComplete';
 
 		$this->assertTrue(
 			$instance->isRegistered( $hook )
 		);
 
-		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+		$semanticData = $this->getMockBuilder( SemanticData::class )
 			->disableOriginalConstructor()
 			->getMock();
 
 		$semanticData->expects( $this->once() )
 			->method( 'getSubject' )
-			->will( $this->returnValue( DIWikiPage::newFromText( __METHOD__ ) ) );
+			->willReturn( WikiPage::newFromText( __METHOD__ ) );
 
 		$store = $this->getMockBuilder( '\SMW\SQLStore\SQLStore' )
 			->disableOriginalConstructor()
@@ -456,7 +441,6 @@ class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function doTestRegisteredAfterDeleteSubjectComplete( $instance ) {
-
 		$hook = 'SMW::SQLStore::AfterDeleteSubjectComplete';
 
 		$this->assertTrue(

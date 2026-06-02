@@ -4,10 +4,9 @@ namespace SCI\FilteredMetadata;
 
 use Onoi\Remi\OpenLibrary\OLFilteredHttpResponseParser;
 use Onoi\Remi\ResponseParser;
-use SCI\DataValues\ResourceIdentifierFactory;
 
 /**
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -70,7 +69,6 @@ class OLResponseParser implements ResponseParser {
 	 * {@inheritDoc}
 	 */
 	public function doFilterResponseFor( $olID ) {
-
 		$this->olFilteredHttpResponseParser->doFilterResponseFor( $olID );
 		$filteredRecord = $this->olFilteredHttpResponseParser->getFilteredRecord();
 

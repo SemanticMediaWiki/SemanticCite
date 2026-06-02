@@ -3,13 +3,12 @@
 namespace SCI\Tests\DataValues;
 
 use SCI\DataValues\CitationReferenceValue;
-use SMW\DataTypeRegistry;
 
 /**
  * @covers \SCI\DataValues\CitationReferenceValue
  * @group semantic-cite
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -18,7 +17,7 @@ class CitationReferenceValueTest extends \PHPUnit\Framework\TestCase {
 
 	private $dataValueServiceFactory;
 
-	protected function setUp() : void {
+	protected function setUp(): void {
 		parent::setUp();
 
 		$constraintValueValidator = $this->getMockBuilder( '\SMW\DataValues\ValueValidators\ConstraintValueValidator' )
@@ -31,11 +30,10 @@ class CitationReferenceValueTest extends \PHPUnit\Framework\TestCase {
 
 		$this->dataValueServiceFactory->expects( $this->any() )
 			->method( 'getConstraintValueValidator' )
-			->will( $this->returnValue( $constraintValueValidator ) );
+			->willReturn( $constraintValueValidator );
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			'\SCI\DataValues\CitationReferenceValue',
 			new CitationReferenceValue()
@@ -43,12 +41,11 @@ class CitationReferenceValueTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testNoValueCreatesError() {
-
 		$citationReferencePositionJournal = $this->getMockBuilder( '\SCI\CitationReferencePositionJournal' )
 			->disableOriginalConstructor()
 			->getMock();
 
-		$callback = function() use ( $citationReferencePositionJournal ) {
+		$callback = static function () use ( $citationReferencePositionJournal ) {
 			return $citationReferencePositionJournal;
 		};
 

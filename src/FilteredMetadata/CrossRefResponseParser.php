@@ -7,7 +7,7 @@ use Onoi\Remi\ResponseParser;
 use SCI\DataValues\ResourceIdentifierFactory;
 
 /**
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -70,7 +70,6 @@ class CrossRefResponseParser implements ResponseParser {
 	 * {@inheritDoc}
 	 */
 	public function doFilterResponseFor( $doi ) {
-
 		$resourceIdentifierFactory = new ResourceIdentifierFactory();
 
 		$doiValue = $resourceIdentifierFactory->newResourceIdentifierStringValueForType( 'doi' );

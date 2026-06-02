@@ -2,14 +2,13 @@
 
 namespace SCI;
 
-use SMW\Store;
+use Onoi\Cache\Cache;
 use SMW\NamespaceExaminer;
 use SMW\Services\ServicesFactory as ApplicationFactory;
-use Onoi\Cache\Cache;
-use Parser;
+use SMW\Store;
 
 /**
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -50,7 +49,6 @@ class ReferenceListFactory {
 	 * @return ReferenceListOutputRenderer
 	 */
 	public function newReferenceListOutputRenderer() {
-
 		$mwCollaboratorFactory = ApplicationFactory::getInstance()->newMwCollaboratorFactory();
 		$htmlColumnListRenderer = $mwCollaboratorFactory->newHtmlColumnListRenderer();
 
@@ -74,7 +72,6 @@ class ReferenceListFactory {
 	 * @return CachedReferenceListOutputRenderer
 	 */
 	public function newCachedReferenceListOutputRenderer( MediaWikiContextInteractor $contextInteractor, Cache $cache, CacheKeyProvider $cacheKeyProvider, Options $options ) {
-
 		$referenceListOutputRenderer = $this->newReferenceListOutputRenderer();
 
 		$referenceListOutputRenderer->setNumberOfReferenceListColumns(

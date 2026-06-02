@@ -3,12 +3,13 @@
 namespace SCI\Tests;
 
 use SCI\CitationReferencePositionJournal;
+use SMW\DataItems\WikiPage;
 
 /**
  * @covers \SCI\CitationReferencePositionJournal
  * @group semantic-cite
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since   1.0
  *
  * @author mwjames
@@ -18,8 +19,7 @@ class CitationReferencePositionJournalTest extends \PHPUnit\Framework\TestCase {
 	private $cache;
 	private $cacheKeyProvider;
 
-	protected function setUp() : void {
-
+	protected function setUp(): void {
 		$this->cache = $this->getMockBuilder( '\Onoi\Cache\Cache' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -30,7 +30,6 @@ class CitationReferencePositionJournalTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			'\SCI\CitationReferencePositionJournal',
 			new CitationReferencePositionJournal( $this->cache, $this->cacheKeyProvider )
@@ -38,7 +37,6 @@ class CitationReferencePositionJournalTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testUnboundReferenceList() {
-
 		$instance = new CitationReferencePositionJournal(
 			$this->cache,
 			$this->cacheKeyProvider
@@ -54,7 +52,6 @@ class CitationReferencePositionJournalTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testTryToAddJournalEntryForNullSubject() {
-
 		$instance = new CitationReferencePositionJournal(
 			$this->cache,
 			$this->cacheKeyProvider
@@ -66,12 +63,11 @@ class CitationReferencePositionJournalTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testTryToGetJournalBySubject() {
-
-		$subject = \SMW\DIWikiPage::newFromText( __METHOD__ );
+		$subject = WikiPage::newFromText( __METHOD__ );
 
 		$this->cacheKeyProvider->expects( $this->once() )
 			->method( 'getCacheKeyForCitationReference' )
-			->with( $this->equalTo( $subject->getHash() ) );
+			->with( $subject->getHash() );
 
 		$instance = new CitationReferencePositionJournal(
 			$this->cache,

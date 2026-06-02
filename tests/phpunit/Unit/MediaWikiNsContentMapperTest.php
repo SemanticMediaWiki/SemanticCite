@@ -8,7 +8,7 @@ use SCI\MediaWikiNsContentMapper;
  * @covers \SCI\MediaWikiNsContentMapper
  * @group semantic-cite
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since   1.0
  *
  * @author mwjames
@@ -16,7 +16,6 @@ use SCI\MediaWikiNsContentMapper;
 class MediaWikiNsContentMapperTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
-
 		$mediaWikiNsContentReader = $this->getMockBuilder( '\SMW\MediaWiki\MediaWikiNsContentReader' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -31,7 +30,6 @@ class MediaWikiNsContentMapperTest extends \PHPUnit\Framework\TestCase {
 	 * @dataProvider fixedPropertyIdProvider
 	 */
 	public function testFindPropertyForId( $id, $expected ) {
-
 		$mediaWikiNsContentReader = $this->getMockBuilder( '\SMW\MediaWiki\MediaWikiNsContentReader' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -40,12 +38,11 @@ class MediaWikiNsContentMapperTest extends \PHPUnit\Framework\TestCase {
 
 		$this->assertEquals(
 			$expected,
-			$instance->findPropertyForId(  $id )
+			$instance->findPropertyForId( $id )
 		);
 	}
 
 	public function fixedPropertyIdProvider() {
-
 		$provider[] = [
 			'viaf',
 			SCI_PROP_VIAF

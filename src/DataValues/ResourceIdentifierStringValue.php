@@ -2,12 +2,12 @@
 
 namespace SCI\DataValues;
 
-use SMW\DataValues\StringValue;
-use SMWDIBlob as DIBlob;
 use MediaWiki\Html\Html;
+use SMW\DataItems\Blob;
+use SMW\DataValues\StringValue;
 
 /**
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -31,13 +31,12 @@ class ResourceIdentifierStringValue extends StringValue {
 	 * @see StringValue::parseUserValue
 	 */
 	protected function parseUserValue( $value ): void {
-
 		$inputValue = $value;
-	//	$this->m_caption = $value;
+	// $this->m_caption = $value;
 
 		if ( !$this->resourceIdentifierStringValueParser->parse( $value ) ) {
 			$this->addError( wfMessage( 'sci-datavalue-invalid-id-value', $inputValue, $this->resourceIdentifierStringValueParser->getCanonicalName() )->inContentLanguage()->escaped() );
-			$this->m_dataitem = new DIBlob( 'ERROR' );
+			$this->m_dataitem = new Blob( 'ERROR' );
 			return;
 		}
 
@@ -48,7 +47,6 @@ class ResourceIdentifierStringValue extends StringValue {
 	 * @see StringValue::getShortWikiText
 	 */
 	public function getShortWikiText( $linker = null ) {
-
 		if ( !$this->isValid() ) {
 			return '';
 		}
@@ -70,7 +68,7 @@ class ResourceIdentifierStringValue extends StringValue {
 			[
 				'class' => 'plainlinks'
 			],
-			'[' . $this->getTargetLink( urlencode( $this->m_caption ) ) . ' ' . $this->m_caption .']'
+			'[' . $this->getTargetLink( urlencode( $this->m_caption ) ) . ' ' . $this->m_caption . ']'
 		);
 	}
 
@@ -78,7 +76,6 @@ class ResourceIdentifierStringValue extends StringValue {
 	 * @see StringValue::getShortHTMLText
 	 */
 	public function getShortHTMLText( $linker = null ) {
-
 		if ( !$this->isValid() ) {
 			return '';
 		}
@@ -123,7 +120,6 @@ class ResourceIdentifierStringValue extends StringValue {
 	 * @see DataValue::getPreferredCaption
 	 */
 	public function getPreferredCaption() {
-
 		if ( $this->m_outformat == '-' ) {
 			return $this->m_caption;
 		}

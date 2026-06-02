@@ -8,7 +8,7 @@ use SCI\CitationResourceMatchFinder;
  * @covers \SCI\CitationResourceMatchFinder
  * @group semantic-cite
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since   1.0
  *
  * @author mwjames
@@ -16,7 +16,6 @@ use SCI\CitationResourceMatchFinder;
 class CitationResourceMatchFinderTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
-
 		$store = $this->getMockBuilder( '\SMW\Store' )
 			->disableOriginalConstructor()
 			->getMockForAbstractClass();
@@ -31,7 +30,6 @@ class CitationResourceMatchFinderTest extends \PHPUnit\Framework\TestCase {
 	 * @dataProvider uidTypeProvider
 	 */
 	public function testFindMatchForUidTypeOf( $key, $id ) {
-
 		$queryResult = $this->getMockBuilder( '\SMW\Query\QueryResult' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -42,7 +40,7 @@ class CitationResourceMatchFinderTest extends \PHPUnit\Framework\TestCase {
 
 		$store->expects( $this->once() )
 			->method( 'getQueryResult' )
-			->will( $this->returnValue( $queryResult ) );
+			->willReturn( $queryResult );
 
 		$instance = new CitationResourceMatchFinder( $store );
 
@@ -53,7 +51,6 @@ class CitationResourceMatchFinderTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function uidTypeProvider() {
-
 		$provider[] = [
 			'oclc',
 			42
