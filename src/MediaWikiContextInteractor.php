@@ -2,7 +2,7 @@
 
 namespace SCI;
 
-use IContextSource;
+use MediaWiki\Context\IContextSource;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 
@@ -10,7 +10,7 @@ use MediaWiki\Title\Title;
  * Helper class to avoid making objects depend on the IContextSource and instead
  * provide dedicated methods to access a specific aspect of the context.
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -22,7 +22,7 @@ class MediaWikiContextInteractor {
 	 * @var IContextSource
 	 */
 	private $context;
-	
+
 	/**
 	 * @var revisionLookup
 	 */
@@ -91,10 +91,9 @@ class MediaWikiContextInteractor {
 	 *
 	 * @param string $magicword
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function hasMagicWord( $magicword ) {
-
 		$outputPage = $this->context->getOutput();
 
 		if ( isset( $outputPage->smwmagicwords ) && in_array( $magicword, $outputPage->smwmagicwords ) ) {
@@ -109,7 +108,7 @@ class MediaWikiContextInteractor {
 	 *
 	 * @param string $action
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function hasAction( $action ) {
 		return \Action::getActionName( $this->context ) === $action;

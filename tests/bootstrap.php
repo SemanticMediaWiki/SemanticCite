@@ -4,7 +4,7 @@
  * PHPUnit test bootstrap and test class registry for the Semantic Cite
  * extension
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @author mwjames
  */
 
@@ -26,7 +26,7 @@ if ( !defined( 'SCI_VERSION' ) ) {
 
 print sprintf( "\n%-20s%s\n", "Semantic Cite:", SCI_VERSION );
 
-$autoloader = require  SMW_PHPUNIT_AUTOLOADER_FILE;
+$autoloader = require SMW_PHPUNIT_AUTOLOADER_FILE;
 $autoloader->addPsr4( 'SCI\\Tests\\', __DIR__ . '/phpunit/Unit' );
 $autoloader->addPsr4( 'SCI\\Tests\\Integration\\', __DIR__ . '/phpunit/Integration' );
 

@@ -8,7 +8,7 @@ use SCI\FilteredMetadata\OLResponseParser;
  * @covers \SCI\FilteredMetadata\OLResponseParser
  * @group semantic-cite
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since   1.0
  *
  * @author mwjames
@@ -16,7 +16,6 @@ use SCI\FilteredMetadata\OLResponseParser;
 class OLResponseParserTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
-
 		$olFilteredHttpResponseParser = $this->getMockBuilder( '\Onoi\Remi\OpenLibrary\OLFilteredHttpResponseParser' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -28,7 +27,6 @@ class OLResponseParserTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testInterfaceMethods() {
-
 		$olFilteredHttpResponseParser = $this->getMockBuilder( '\Onoi\Remi\OpenLibrary\OLFilteredHttpResponseParser' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -56,7 +54,6 @@ class OLResponseParserTest extends \PHPUnit\Framework\TestCase {
 	 * @dataProvider idProvider
 	 */
 	public function testDoParseForId( $id, $expects ) {
-
 		$record = $this->getMockBuilder( '\SCI\FilteredMetadata\BibliographicFilteredRecord' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -67,7 +64,7 @@ class OLResponseParserTest extends \PHPUnit\Framework\TestCase {
 
 		$olFilteredHttpResponseParser->expects( $this->any() )
 			->method( 'getFilteredRecord' )
-			->will( $this->returnValue( $record ) );
+			->willReturn( $record );
 
 		$olFilteredHttpResponseParser->expects( $expects )
 			->method( 'doFilterResponseFor' );
@@ -77,7 +74,6 @@ class OLResponseParserTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function idProvider() {
-
 		$provider[] = [
 			'abc',
 			 $this->once()

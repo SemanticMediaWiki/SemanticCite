@@ -5,7 +5,7 @@ namespace SCI;
 use InvalidArgumentException;
 
 /**
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -39,7 +39,7 @@ class Options {
 	 *
 	 * @param string $key
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function has( $key ) {
 		return isset( $this->options[$key] ) || array_key_exists( $key, $this->options );
@@ -54,7 +54,6 @@ class Options {
 	 * @throws InvalidArgumentException
 	 */
 	public function get( $key ) {
-
 		if ( $this->has( $key ) ) {
 			return $this->options[$key];
 		}

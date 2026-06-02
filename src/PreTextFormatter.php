@@ -2,11 +2,8 @@
 
 namespace SCI;
 
-use SMW\MediaWiki\Renderer\WikitextTemplateRenderer;
-use Parser;
-
 /**
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -19,7 +16,7 @@ class PreTextFormatter {
 	 * @return string
 	 */
 	public function getFormattedSciteFuncFrom( array $parameters ) {
-		return "<pre>{{#scite:\n" . implode( "\n", $this->format( $parameters ) ) ."\n}}</pre>";
+		return "<pre>{{#scite:\n" . implode( "\n", $this->format( $parameters ) ) . "\n}}</pre>";
 	}
 
 	/**
@@ -28,7 +25,6 @@ class PreTextFormatter {
 	 * @return array
 	 */
 	public function format( array $parameters ) {
-
 		$formatted = [];
 
 		foreach ( $parameters as $key => $value ) {
@@ -38,7 +34,7 @@ class PreTextFormatter {
 			}
 
 			if ( $value[0] === '+' ) {
-				$formatted[$key-1] = $formatted[$key-1] . '|' . $value;
+				$formatted[$key - 1] = $formatted[$key - 1] . '|' . $value;
 				continue;
 			}
 

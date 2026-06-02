@@ -9,7 +9,7 @@ use SCI\MediaWikiContextInteractor;
  * @covers \SCI\MediaWikiContextInteractor
  * @group semantic-cite
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since   1.0
  *
  * @author mwjames
@@ -18,7 +18,6 @@ use SCI\MediaWikiContextInteractor;
 class MediaWikiContextInteractorTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
-
 		$context = $this->getMockBuilder( '\IContextSource' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -30,14 +29,13 @@ class MediaWikiContextInteractorTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testHasAction() {
-
 		$context = $this->getMockBuilder( '\IContextSource' )
 			->disableOriginalConstructor()
 			->getMock();
 
 		$context->expects( $this->any() )
 			->method( 'getActionName' )
-			->willReturn( 'view');
+			->willReturn( 'view' );
 
 		$instance = new MediaWikiContextInteractor( $context );
 
@@ -50,7 +48,6 @@ class MediaWikiContextInteractorTest extends \PHPUnit\Framework\TestCase {
 	 * @dataProvider oldidDirectionProvider
 	 */
 	public function testGetOldId( $direction ) {
-
 		$context = $this->getMockBuilder( '\IContextSource' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -61,15 +58,15 @@ class MediaWikiContextInteractorTest extends \PHPUnit\Framework\TestCase {
 
 		$webRequest->expects( $this->any() )
 			->method( 'getText' )
-			->will( $this->returnValue( $direction ) );
+			->willReturn( $direction );
 
 		$context->expects( $this->any() )
 			->method( 'getRequest' )
-			->will( $this->returnValue( $webRequest ) );
+			->willReturn( $webRequest );
 
 		$context->expects( $this->any() )
 			->method( 'getTitle' )
-			->will( $this->returnValue( Title::newFromText( __METHOD__ ) ) );
+			->willReturn( Title::newFromText( __METHOD__ ) );
 
 		$instance = new MediaWikiContextInteractor( $context );
 
@@ -79,7 +76,6 @@ class MediaWikiContextInteractorTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function oldidDirectionProvider() {
-
 		$provider = [];
 
 		$provider[] = [

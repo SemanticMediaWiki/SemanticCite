@@ -8,7 +8,7 @@ use SCI\Bibtex\BibtexParser;
  * @covers \SCI\Bibtex\BibtexParser
  * @group semantic-cite
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -16,7 +16,6 @@ use SCI\Bibtex\BibtexParser;
 class BibtexParserTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			'\SCI\Bibtex\BibtexParser',
 			new BibtexParser()
@@ -27,7 +26,6 @@ class BibtexParserTest extends \PHPUnit\Framework\TestCase {
 	 * @dataProvider bibtextProvider
 	 */
 	public function testParse( $bibtex, $expected ) {
-
 		$instance = new BibtexParser();
 
 		$this->assertEquals(
@@ -37,7 +35,6 @@ class BibtexParserTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function bibtextProvider() {
-
 		$provider[] = [
 			"@article{einstein1935can,
 			  title={Can quantum-mechanical description of physical reality be considered complete?},
@@ -80,7 +77,7 @@ class BibtexParserTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 
-		#2 No reference
+		# 2 No reference
 		$provider[] = [
 			"@article{,
 			  title={Vascular endothelial growth factor is a secreted angiogenic mitogen},
@@ -106,7 +103,7 @@ class BibtexParserTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 
-		#3 No reference
+		# 3 No reference
 		$provider[] = [
 			"@inproceedings{clean,
 			  author = {First Author and Author, Second},
@@ -132,7 +129,7 @@ class BibtexParserTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 
-		#4 invalid/unprocessable content format
+		# 4 invalid/unprocessable content format
 		$provider[] = [
 			"foo",
 			[]

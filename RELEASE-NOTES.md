@@ -1,5 +1,19 @@
 This file contains the RELEASE-NOTES of the **Semantic Cite** (a.k.a. SCI) extension.
 
+## 7.0.0
+
+Note: the version was bumped from 4.0.0 directly to 7.0.0 to track the Semantic
+MediaWiki major release it supports; versions 5.x and 6.x were skipped.
+
+* Minimum requirement for Semantic MediaWiki changed to version 7.0 and later
+* Added compatibility with Semantic MediaWiki 7.0.x
+* Replaced the removed `CacheFactory::newMediaWikiCompositeCache()` call with a
+  composite cache assembled directly from the `onoi/cache` library
+* Replaced the removed `EntityIdManager::getDataItemPoolHashListFor()` call with
+  `getDataItemsFromList()`
+* Replaced the removed `HtmlFormRenderer::getMessageBuilder()` usage with
+  language-scoped `wfMessage()` calls
+
 ## 4.0.0
 Released on March 13, 2026.
 

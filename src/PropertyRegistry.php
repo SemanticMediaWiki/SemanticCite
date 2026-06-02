@@ -17,7 +17,7 @@ define( 'SCI_PROP_VIAF', 'VIAF' );
 define( 'SCI_PROP_OLID', 'OLID' );
 
 /**
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -40,10 +40,9 @@ class PropertyRegistry {
 	 *
 	 * @param CorePropertyRegistry $corePropertyRegistry
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function registerTo( CorePropertyRegistry $corePropertyRegistry ) {
-
 		$propertyDefinitions = [
 
 			self::SCI_OLID => [
@@ -130,14 +129,13 @@ class PropertyRegistry {
 		];
 
 		foreach ( $propertyDefinitions as $propertyId => $definition ) {
-			$this->addPropertyDefinitionFor( $corePropertyRegistry, $propertyId, $definition  );
+			$this->addPropertyDefinitionFor( $corePropertyRegistry, $propertyId, $definition );
 		}
 
 		return true;
 	}
 
 	private function addPropertyDefinitionFor( $corePropertyRegistry, $propertyId, $definition ) {
-
 		$corePropertyRegistry->registerProperty(
 			$propertyId,
 			$definition['type'],

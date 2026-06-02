@@ -5,7 +5,7 @@ namespace SCI\Bibtex;
 use SMW\ParserParameterProcessor;
 
 /**
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  */
 class BibtexProcessor {
@@ -37,7 +37,6 @@ class BibtexProcessor {
 	 * @param ParserParameterProcessor $parserParameterProcessor
 	 */
 	public function doProcess( ParserParameterProcessor $parserParameterProcessor ) {
-
 		$bibtex = $this->doPreprocess(
 			$parserParameterProcessor->getParameterValuesByKey( 'bibtex' )
 		);
@@ -75,7 +74,6 @@ class BibtexProcessor {
 	}
 
 	private function doPreprocess( array $bibtex ) {
-
 		$bibtex = end( $bibtex );
 
 		// Avoid things like {{Stable theories}}" which are not supported in MW

@@ -2,22 +2,23 @@
 
 namespace SCI\Tests\Integration\JSONScript;
 
-use ParserOptions;
-use SCI\MediaWikiNsContentMapper;
-use SCI\HookRegistry;
-use SCI\Options;
+use MediaWiki\Context\RequestContext;
+use MediaWiki\Parser\ParserOptions;
 use Onoi\Cache\CacheFactory;
+use SCI\HookRegistry;
+use SCI\MediaWikiNsContentMapper;
+use SCI\Options;
+use SMW\DataItems\WikiPage;
 use SMW\Tests\JSONScriptServicesTestCaseRunner;
 use SMW\Tests\Utils\JSONScript\JsonTestCaseFileHandler;
 use SMW\Tests\Utils\UtilityFactory;
-use SMW\DIWikiPage;
 
 /**
  * @group semantic-cite
  * @group medium
  * @group Database
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -28,7 +29,7 @@ class SemanticCiteJsonTestCaseScriptRunnerTest extends JSONScriptServicesTestCas
 	private $stringValidator;
 	private $hookRegistry;
 
-	protected function setUp() : void {
+	protected function setUp(): void {
 		parent::setUp();
 
 		$this->testEnvironment->tearDown();
@@ -157,12 +158,11 @@ class SemanticCiteJsonTestCaseScriptRunnerTest extends JSONScriptServicesTestCas
 	}
 
 	private function assertSemanticDataForCase( $case, $debug ) {
-
 		if ( !isset( $case['store'] ) || !isset( $case['store']['semantic-data'] ) ) {
 			return;
 		}
 
-		$subject = DIWikiPage::newFromText(
+		$subject = WikiPage::newFromText(
 			$case['subject'],
 			isset( $case['namespace'] ) ? constant( $case['namespace'] ) : NS_MAIN
 		);
@@ -187,7 +187,6 @@ class SemanticCiteJsonTestCaseScriptRunnerTest extends JSONScriptServicesTestCas
 	}
 
 	private function assertParserOutputForCase( $case ) {
-
 		if ( !isset( $case['expected-output'] ) ) {
 			return;
 		}
@@ -200,7 +199,7 @@ class SemanticCiteJsonTestCaseScriptRunnerTest extends JSONScriptServicesTestCas
 			$case['expected-output']['to-not-contain'] = [];
 		}
 
-		$subject = DIWikiPage::newFromText(
+		$subject = WikiPage::newFromText(
 			$case['subject'],
 			isset( $case['namespace'] ) ? constant( $case['namespace'] ) : NS_MAIN
 		);
@@ -210,7 +209,7 @@ class SemanticCiteJsonTestCaseScriptRunnerTest extends JSONScriptServicesTestCas
 
 		// Cheating a bit here but this is to ensure the OutputPageBeforeHTML
 		// hook is run
-		$context = new \RequestContext();
+		$context = new RequestContext();
 		$context->setTitle( $subject->getTitle() );
 		if ( version_compare( MW_VERSION, '1.44', '>=' ) ) {
 			$parserOptions = ParserOptions::newFromAnon();

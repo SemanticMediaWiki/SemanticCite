@@ -2,13 +2,13 @@
 
 namespace SCI\DataValues;
 
-use SCI\CitationReferencePositionJournal;
-use SMW\DataValues\StringValue;
-use SMWDIBlob as DIBlob;
 use MediaWiki\Html\Html;
+use SCI\CitationReferencePositionJournal;
+use SMW\DataItems\Blob;
+use SMW\DataValues\StringValue;
 
 /**
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -16,7 +16,7 @@ use MediaWiki\Html\Html;
 class CitationReferenceValue extends StringValue {
 
 	/**
-	 * @var integer
+	 * @var int
 	 */
 	private $captionFormat;
 
@@ -34,7 +34,7 @@ class CitationReferenceValue extends StringValue {
 	 * To display something like [[CiteRef::Foo, 1970|:50-52]] as [1]:50-52 for
 	 * SCI_CITEREF_NUM
 	 *
-	 * @var boolean
+	 * @var bool
 	 */
 	private $usesShortFormCaption = false;
 
@@ -51,7 +51,7 @@ class CitationReferenceValue extends StringValue {
 	/**
 	 * @since 1.0
 	 *
-	 * @param  integer $captionFormat
+	 * @param int $captionFormat
 	 */
 	public function setCaptionFormat( $captionFormat ) {
 		$this->captionFormat = $captionFormat;
@@ -61,7 +61,6 @@ class CitationReferenceValue extends StringValue {
 	 * @see StringValue::parseUserValue
 	 */
 	protected function parseUserValue( $value ): void {
-
 		if ( method_exists( $this, 'getCallable' ) ) {
 			$citationReferencePositionJournal = $this->getCallable( 'sci.citationreferencepositionjournal' );
 			$this->citationReferencePositionJournal = $citationReferencePositionJournal();
@@ -73,7 +72,7 @@ class CitationReferenceValue extends StringValue {
 
 		if ( $value === '' ) {
 			$this->addError( wfMessage( 'sci-datavalue-empty-reference' )->inContentLanguage()->text() );
-			$this->m_dataitem = new DIBlob( 'ERROR' );
+			$this->m_dataitem = new Blob( 'ERROR' );
 			return;
 		}
 
@@ -106,7 +105,6 @@ class CitationReferenceValue extends StringValue {
 	 * @see StringValue::parseUserValue
 	 */
 	public function getShortWikiText( $linked = null ) {
-
 		if ( $this->citationReferencePositionJournal === null ) {
 			if ( method_exists( $this, 'getCallable' ) ) {
 				$citationReferencePositionJournal = $this->getCallable( 'sci.citationreferencepositionjournal' );
@@ -130,7 +128,7 @@ class CitationReferenceValue extends StringValue {
 		$referenceHash = md5( $this->reference );
 
 		if ( $this->captionFormat === SCI_CITEREF_NUM ) {
-			list( $major, $minor ) = explode( '-', $referencePosition );
+			[ $major, $minor ] = explode( '-', $referencePosition );
 			$caption = $major;
 			$captionClass = 'number';
 
@@ -154,11 +152,11 @@ class CitationReferenceValue extends StringValue {
 		$html = Html::rawElement(
 			'span',
 			[
-				'id'    => 'scite-ref-'. $referenceHash . '-' . $referencePosition,
+				'id'    => 'scite-ref-' . $referenceHash . '-' . $referencePosition,
 				'class' => 'scite-citeref-' . $captionClass,
 				'data-reference' => $this->reference
 			],
-			'[[' .'#scite-' . $referenceHash . '|' . $caption . ']]'
+			'[[' . '#scite-' . $referenceHash . '|' . $caption . ']]'
 		) . $shortFormCaption;
 
 		return $html;

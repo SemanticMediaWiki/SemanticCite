@@ -8,7 +8,7 @@ use SCI\Options;
  * @covers \SCI\Options
  * @group semantic-cite
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since   1.0
  *
  * @author mwjames
@@ -16,7 +16,6 @@ use SCI\Options;
 class OptionsTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			'\SCI\Options',
 			new Options()
@@ -24,7 +23,6 @@ class OptionsTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testAddOption() {
-
 		$instance = new Options();
 
 		$this->assertFalse(
@@ -40,7 +38,6 @@ class OptionsTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testUnregisteredKeyThrowsException() {
-
 		$instance = new Options();
 
 		$this->expectException( 'InvalidArgumentException' );

@@ -8,7 +8,7 @@ use SCI\DataValues\ResourceIdentifierFactory;
  * @covers \SCI\DataValues\ResourceIdentifierFactory
  * @group semantic-cite
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -16,7 +16,6 @@ use SCI\DataValues\ResourceIdentifierFactory;
 class ResourceIdentifierFactoryTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			'\SCI\DataValues\ResourceIdentifierFactory',
 			new ResourceIdentifierFactory()
@@ -24,7 +23,6 @@ class ResourceIdentifierFactoryTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testUnknownTypeMatchThrowsException() {
-
 		$instance = new ResourceIdentifierFactory();
 
 		$this->expectException( 'RuntimeException' );
@@ -35,7 +33,6 @@ class ResourceIdentifierFactoryTest extends \PHPUnit\Framework\TestCase {
 	 * @dataProvider typeProvider
 	 */
 	public function testUidValueForType( $type ) {
-
 		$instance = new ResourceIdentifierFactory();
 
 		$this->assertInstanceOf(
@@ -45,7 +42,6 @@ class ResourceIdentifierFactoryTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function typeProvider() {
-
 		$provider[] = [
 			'DOI'
 		];

@@ -3,15 +3,12 @@
 namespace SCI\Tests;
 
 use SCI\PreTextFormatter;
-use MediaWiki\Title\Title;
-use MediaWiki\Parser\Parser;
-use MediaWiki\Parser\ParserOptions;
 
 /**
  * @covers \SCI\PreTextFormatter
  * @group semantic-cite
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.4
  *
  * @author mwjames
@@ -21,7 +18,6 @@ class PreTextFormatterTest extends \PHPUnit\Framework\TestCase {
 	const LF = "\n";
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			'\SCI\PreTextFormatter',
 			new PreTextFormatter()
@@ -32,7 +28,6 @@ class PreTextFormatterTest extends \PHPUnit\Framework\TestCase {
 	 * @dataProvider parametersProvider
 	 */
 	public function testFormat( $params ) {
-
 		$instance = new PreTextFormatter();
 
 		$this->assertIsArray(
@@ -44,7 +39,6 @@ class PreTextFormatterTest extends \PHPUnit\Framework\TestCase {
 	 * @dataProvider parametersProvider
 	 */
 	public function testGetFormattedSciteFuncFrom( $params, $expected ) {
-
 		$instance = new PreTextFormatter();
 
 		$this->assertSame(
@@ -54,7 +48,6 @@ class PreTextFormatterTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function parametersProvider() {
-
 		$provider[] = [
 			[
 				'Bar',

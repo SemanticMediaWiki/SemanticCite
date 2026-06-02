@@ -3,13 +3,13 @@
 namespace SCI\Tests;
 
 use SCI\CitationTextChangeUpdateJobDispatcher;
-use SMW\DIWikiPage;
+use SMW\DataItems\WikiPage;
 
 /**
  * @covers \SCI\CitationTextChangeUpdateJobDispatcher
  * @group semantic-cite
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -19,8 +19,7 @@ class CitationTextChangeUpdateJobDispatcherTest extends \PHPUnit\Framework\TestC
 	private $store;
 	private $referenceBacklinksLookup;
 
-	protected function setUp() : void {
-
+	protected function setUp(): void {
 		$this->store = $this->getMockBuilder( '\SMW\SQLStore\SQLStore' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -31,7 +30,6 @@ class CitationTextChangeUpdateJobDispatcherTest extends \PHPUnit\Framework\TestC
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			'\SCI\CitationTextChangeUpdateJobDispatcher',
 			new CitationTextChangeUpdateJobDispatcher(
@@ -42,7 +40,6 @@ class CitationTextChangeUpdateJobDispatcherTest extends \PHPUnit\Framework\TestC
 	}
 
 	public function testDisabledDispatchJob() {
-
 		$instance = new CitationTextChangeUpdateJobDispatcher(
 			$this->store,
 			$this->referenceBacklinksLookup
@@ -57,7 +54,7 @@ class CitationTextChangeUpdateJobDispatcherTest extends \PHPUnit\Framework\TestC
 		$changeOp->expects( $this->never() )
 			->method( 'getOrderedDiffByTable' );
 
-		$subject = DIWikiPage::newFromText( __METHOD__ );
+		$subject = WikiPage::newFromText( __METHOD__ );
 
 		$instance->dispatchUpdateJobFor( $subject, $changeOp );
 	}
@@ -66,15 +63,14 @@ class CitationTextChangeUpdateJobDispatcherTest extends \PHPUnit\Framework\TestC
 	 * @dataProvider compositePropertyTableDiffProvider
 	 */
 	public function testDispatchJobForDiffableChange( $diff ) {
-
-		$idTable = $this->getMockBuilder( '\stdClass' )
+		$idTable = $this->getMockBuilder( '\SMW\SQLStore\EntityStore\EntityIdManager' )
 			->disableOriginalConstructor()
-			->setMethods( [ 'getDataItemPoolHashListFor' ] )
+			->onlyMethods( [ 'getDataItemsFromList' ] )
 			->getMock();
 
 		$idTable->expects( $this->once() )
-			->method( 'getDataItemPoolHashListFor' )
-			->will( $this->returnValue( [ 'Foo#0##' ] ) );
+			->method( 'getDataItemsFromList' )
+			->willReturn( [ new WikiPage( 'Foo', NS_MAIN ) ] );
 
 		$propertyTableInfoFetcher = $this->getMockBuilder( '\SMW\SQLStore\PropertyTableInfoFetcher' )
 			->disableOriginalConstructor()
@@ -82,15 +78,15 @@ class CitationTextChangeUpdateJobDispatcherTest extends \PHPUnit\Framework\TestC
 
 		$this->store->expects( $this->once() )
 			->method( 'getPropertyTableInfoFetcher' )
-			->will( $this->returnValue( $propertyTableInfoFetcher ) );
+			->willReturn( $propertyTableInfoFetcher );
 
 		$this->store->expects( $this->once() )
 			->method( 'getObjectIds' )
-			->will( $this->returnValue( $idTable ) );
+			->willReturn( $idTable );
 
 		$this->referenceBacklinksLookup->expects( $this->once() )
 			->method( 'findReferenceBacklinksFor' )
-			->will( $this->returnValue( [ new DIWikiPage( 'Bar', NS_MAIN ) ] ) );
+			->willReturn( [ new WikiPage( 'Bar', NS_MAIN ) ] );
 
 		$instance = new CitationTextChangeUpdateJobDispatcher(
 			$this->store,
@@ -103,9 +99,9 @@ class CitationTextChangeUpdateJobDispatcherTest extends \PHPUnit\Framework\TestC
 
 		$changeOp->expects( $this->once() )
 			->method( 'getOrderedDiffByTable' )
-			->will( $this->returnValue( $diff ) );
+			->willReturn( $diff );
 
-		$subject = DIWikiPage::newFromText( __METHOD__ );
+		$subject = WikiPage::newFromText( __METHOD__ );
 
 		$this->assertTrue(
 			$instance->dispatchUpdateJobFor( $subject, $changeOp )
@@ -113,7 +109,6 @@ class CitationTextChangeUpdateJobDispatcherTest extends \PHPUnit\Framework\TestC
 	}
 
 	public function testDispatchJobForNoValidDiff() {
-
 		$diff = [];
 
 		$propertyTableInfoFetcher = $this->getMockBuilder( '\SMW\SQLStore\PropertyTableInfoFetcher' )
@@ -122,7 +117,7 @@ class CitationTextChangeUpdateJobDispatcherTest extends \PHPUnit\Framework\TestC
 
 		$this->store->expects( $this->once() )
 			->method( 'getPropertyTableInfoFetcher' )
-			->will( $this->returnValue( $propertyTableInfoFetcher ) );
+			->willReturn( $propertyTableInfoFetcher );
 
 		$instance = new CitationTextChangeUpdateJobDispatcher(
 			$this->store,
@@ -135,9 +130,9 @@ class CitationTextChangeUpdateJobDispatcherTest extends \PHPUnit\Framework\TestC
 
 		$changeOp->expects( $this->once() )
 			->method( 'getOrderedDiffByTable' )
-			->will( $this->returnValue( $diff ) );
+			->willReturn( $diff );
 
-		$subject = DIWikiPage::newFromText( __METHOD__ );
+		$subject = WikiPage::newFromText( __METHOD__ );
 
 		$this->assertFalse(
 			$instance->dispatchUpdateJobFor( $subject, $changeOp )
@@ -145,7 +140,6 @@ class CitationTextChangeUpdateJobDispatcherTest extends \PHPUnit\Framework\TestC
 	}
 
 	public function compositePropertyTableDiffProvider() {
-
 		$diff = [
 			'sci_cite_text' => [
 				'delete' => [

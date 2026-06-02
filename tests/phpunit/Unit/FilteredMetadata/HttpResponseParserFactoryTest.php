@@ -8,7 +8,7 @@ use SCI\FilteredMetadata\HttpResponseParserFactory;
  * @covers \SCI\FilteredMetadata\HttpResponseParserFactory
  * @group semantic-cite
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since   1.0
  *
  * @author mwjames
@@ -16,7 +16,6 @@ use SCI\FilteredMetadata\HttpResponseParserFactory;
 class HttpResponseParserFactoryTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
-
 		$httpRequest = $this->getMockBuilder( '\Onoi\HttpRequest\HttpRequest' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -31,7 +30,6 @@ class HttpResponseParserFactoryTest extends \PHPUnit\Framework\TestCase {
 	 * @dataProvider typeProvider
 	 */
 	public function testHttpResponseContentParserForType( $type ) {
-
 		$httpRequest = $this->getMockBuilder( '\Onoi\HttpRequest\HttpRequest' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -45,7 +43,6 @@ class HttpResponseParserFactoryTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function typeProvider() {
-
 		$provider[] = [
 			'pubmed'
 		];

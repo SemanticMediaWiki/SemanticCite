@@ -9,7 +9,7 @@ use SMW\PropertyRegistry as CorePropertyRegistry;
  * @covers \SCI\PropertyRegistry
  * @group semantic-cite
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -17,7 +17,6 @@ use SMW\PropertyRegistry as CorePropertyRegistry;
 class PropertyRegistryTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			'\SCI\PropertyRegistry',
 			new PropertyRegistry()
@@ -28,24 +27,22 @@ class PropertyRegistryTest extends \PHPUnit\Framework\TestCase {
 	 * @dataProvider propertyIdProvider
 	 */
 	public function testRegisterTo( $id, $label ) {
-
 		$corePropertyRegistry = CorePropertyRegistry::getInstance();
 
 		$instance = new PropertyRegistry();
 		$instance->registerTo( $corePropertyRegistry );
 
 		$this->assertNotEmpty(
-			$corePropertyRegistry->findPropertyLabelById ( $id )
+			$corePropertyRegistry->findPropertyLabelById( $id )
 		);
 
 		$this->assertSame(
 			$label,
-			$corePropertyRegistry->findPropertyLabelById ( $id )
+			$corePropertyRegistry->findPropertyLabelById( $id )
 		);
 	}
 
 	public function propertyIdProvider() {
-
 		$provider[] = [
 			PropertyRegistry::SCI_DOI,
 			'DOI'

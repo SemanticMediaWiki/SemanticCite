@@ -3,12 +3,12 @@
 namespace SCI;
 
 use Onoi\Cache\Cache;
-use SMW\DIWikiPage;
-use SMW\DIProperty;
-use SMW\SemanticData;
+use SMW\DataItems\Property;
+use SMW\DataItems\WikiPage;
+use SMW\DataModel\SemanticData;
 
 /**
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -44,22 +44,22 @@ class CitationReferencePositionJournal {
 	/**
 	 * @since 1.0
 	 *
-	 * @param DIWikiPage $subject
+	 * @param WikiPage $subject
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function hasCitationReference( SemanticData $semanticData ) {
-		return $semanticData->getPropertyValues( new DIProperty( PropertyRegistry::SCI_CITE_REFERENCE ) ) !== [];
+		return $semanticData->getPropertyValues( new Property( PropertyRegistry::SCI_CITE_REFERENCE ) ) !== [];
 	}
 
 	/**
 	 * @since 1.0
 	 *
-	 * @param  DIWikiPage $subject
+	 * @param WikiPage $subject
 	 *
 	 * @return array|null
 	 */
-	public function getJournalBySubject( DIWikiPage $subject ) {
+	public function getJournalBySubject( WikiPage $subject ) {
 		return $this->hasJournalForHash( $subject->getHash() ) ? self::$citationReferenceJournal[$subject->getHash()] : null;
 	}
 
@@ -70,12 +70,11 @@ class CitationReferencePositionJournal {
 	 *
 	 * @since 1.0
 	 *
-	 * @param  array $referenceList
+	 * @param array $referenceList
 	 *
 	 * @return array|null
 	 */
 	public function buildJournalForUnboundReferenceList( array $referenceList ) {
-
 		if ( $referenceList === [] ) {
 			return null;
 		}
@@ -99,13 +98,12 @@ class CitationReferencePositionJournal {
 	/**
 	 * @since 1.0
 	 *
-	 * @param DIWikiPage|null $subject
+	 * @param WikiPage|null $subject
 	 * @param string $reference
 	 *
 	 * @return string|null
 	 */
-	public function findLastReferencePositionEntryFor( DIWikiPage $subject = null, $reference ) {
-
+	public function findLastReferencePositionEntryFor( WikiPage $subject = null, $reference ) {
 		if ( $subject === null ) {
 			return;
 		}
@@ -128,11 +126,10 @@ class CitationReferencePositionJournal {
 	/**
 	 * @since 1.0
 	 *
-	 * @param DIWikiPage|null $subject
+	 * @param WikiPage|null $subject
 	 * @param string $reference
 	 */
-	public function addJournalEntryFor( DIWikiPage $subject = null, $reference ) {
-
+	public function addJournalEntryFor( WikiPage $subject = null, $reference ) {
 		if ( $subject === null ) {
 			return;
 		}
@@ -173,14 +170,14 @@ class CitationReferencePositionJournal {
 			// The exact position is specified by something like
 			// like 57d0dc056f9e5d5c6cfc77fc27091f60-1-a and to be used within
 			// html as link anchor
-			list( $major, $minor ) = explode( '-', end( $journal['reference-pos'][$referenceHash] ) );
+			[ $major, $minor ] = explode( '-', end( $journal['reference-pos'][$referenceHash] ) );
 			$journal['reference-pos'][$referenceHash][] = $major . '-' . ++$minor;
 		}
 
-	 	self::$citationReferenceJournal[$hash] = $journal;
+		self::$citationReferenceJournal[$hash] = $journal;
 
-	 	// Safeguard against a repeated call to the hashlist for when the static
-	 	// cache is empty
+		// Safeguard against a repeated call to the hashlist for when the static
+		// cache is empty
 		$this->cache->save(
 			$this->cacheKeyProvider->getCacheKeyForCitationReference( $hash ),
 			self::$citationReferenceJournal
@@ -188,7 +185,6 @@ class CitationReferencePositionJournal {
 	}
 
 	private function hasJournalForHash( $hash ) {
-
 		if ( self::$citationReferenceJournal === [] ) {
 			$cached = $this->cache->fetch(
 				$this->cacheKeyProvider->getCacheKeyForCitationReference( $hash )

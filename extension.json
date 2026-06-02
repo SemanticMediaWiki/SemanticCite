@@ -1,6 +1,6 @@
 {
 	"name": "SemanticCite",
-	"version": "4.0.0",
+	"version": "7.0.0-alpha",
 	"author": [
         	"James Hong Kong"
 	],
@@ -12,7 +12,7 @@
 	"requires": {
 		"MediaWiki": ">= 1.43",
 		"extensions": {
-			"SemanticMediaWiki": ">= 4.0"
+			"SemanticMediaWiki": ">= 7.0"
 		}
 	},
 	"AutoloadNamespaces": {

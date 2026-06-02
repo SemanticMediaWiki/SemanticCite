@@ -2,17 +2,18 @@
 
 namespace SCI;
 
-use SMW\Store;
-use SMW\SemanticData;
-use SMW\DIProperty;
-use SMW\DIWikiPage;
+use MediaWiki\Html\Html;
+use MediaWiki\SpecialPage\SpecialPage;
+use SMW\DataItems\Property;
+use SMW\DataItems\WikiPage;
+use SMW\DataModel\SemanticData;
 use SMW\Query\Language\SomeProperty;
-use SMW\Query\Language\ThingDescription;
 use SMW\Query\Language\ValueDescription;
-use SMWQuery as Query;
+use SMW\Query\Query;
+use SMW\Store;
 
 /**
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -25,12 +26,12 @@ class ReferenceBacklinksLookup {
 	private $store;
 
 	/**
-	 * @var integer
+	 * @var int
 	 */
 	private $limit = 20;
 
 	/**
-	 * @var integer
+	 * @var int
 	 */
 	private $offset = 0;
 
@@ -58,7 +59,6 @@ class ReferenceBacklinksLookup {
 	 * @param mixed|null $requestOptions
 	 */
 	public function setRequestOptions( $requestOptions = null ) {
-
 		if ( $requestOptions === null ) {
 			return;
 		}
@@ -70,20 +70,19 @@ class ReferenceBacklinksLookup {
 	/**
 	 * @since 1.0
 	 *
-	 * @param DIProperty $property
-	 * @param DIWikiPage $subject
+	 * @param Property $property
+	 * @param WikiPage $subject
 	 * @param string &$html
 	 */
-	public function getSpecialPropertySearchFurtherLink( DIProperty $property, DIWikiPage $subject, &$html ) {
-
+	public function getSpecialPropertySearchFurtherLink( Property $property, WikiPage $subject, &$html ) {
 		if ( $property->getKey() !== PropertyRegistry::SCI_CITE_REFERENCE || ( $citationKey = $this->tryToFindCitationKeyFor( $subject ) ) === null ) {
 			return true;
 		}
 
-		$html .= \MediaWiki\Html\Html::element(
+		$html .= Html::element(
 			'a',
 			[
-				'href' => \MediaWiki\SpecialPage\SpecialPage::getSafeTitleFor( 'SearchByProperty' )->getLocalURL( [
+				'href' => SpecialPage::getSafeTitleFor( 'SearchByProperty' )->getLocalURL( [
 					'property' => $property->getLabel(),
 					'value' => $citationKey->getString()
 				] )
@@ -103,10 +102,9 @@ class ReferenceBacklinksLookup {
 	 * @param SemanticData $semanticData
 	 */
 	public function addReferenceBacklinksTo( SemanticData $semanticData ) {
-
 		$key = $this->tryToFindCitationKeyFor( $semanticData->getSubject() );
 
-		$property = new DIProperty(
+		$property = new Property(
 			PropertyRegistry::SCI_CITE_REFERENCE
 		);
 
@@ -118,14 +116,13 @@ class ReferenceBacklinksLookup {
 	/**
 	 * @since 1.0
 	 *
-	 * @param DIWikiPage $subject
+	 * @param WikiPage $subject
 	 *
-	 * @return DIBlob|null
+	 * @return Blob|null
 	 */
-	public function tryToFindCitationKeyFor( DIWikiPage $subject ) {
-
+	public function tryToFindCitationKeyFor( WikiPage $subject ) {
 		$keys = $this->store->getSemanticData( $subject )->getPropertyValues(
-			new DIProperty( PropertyRegistry::SCI_CITE_KEY )
+			new Property( PropertyRegistry::SCI_CITE_KEY )
 		);
 
 		// Not a resource that contains a citation key
@@ -139,17 +136,16 @@ class ReferenceBacklinksLookup {
 	/**
 	 * @since 1.0
 	 *
-	 * @param DIBlob|null
+	 * @param Blob|null
 	 *
-	 * @return DIWikiPage[]
+	 * @return WikiPage[]
 	 */
 	public function findReferenceBacklinksFor( $key = null ) {
-
 		if ( $key === null ) {
 			return [];
 		}
 
-		$property = new DIProperty( PropertyRegistry::SCI_CITE_REFERENCE );
+		$property = new Property( PropertyRegistry::SCI_CITE_REFERENCE );
 
 		$description = new ValueDescription(
 			$key,
@@ -165,7 +161,7 @@ class ReferenceBacklinksLookup {
 		$query->setLimit( $this->limit );
 		$query->setOffset( $this->offset );
 
-		if ( defined( 'SMWQuery::PROC_CONTEXT' ) ) {
+		if ( defined( Query::class . '::PROC_CONTEXT' ) ) {
 			$query->setOption( Query::PROC_CONTEXT, 'SCI.ReferenceBacklinksLookup' );
 		}
 

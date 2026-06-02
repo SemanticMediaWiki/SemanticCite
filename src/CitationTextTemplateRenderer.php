@@ -2,11 +2,11 @@
 
 namespace SCI;
 
+use MediaWiki\Parser\Parser;
 use SMW\MediaWiki\Renderer\WikitextTemplateRenderer;
-use Parser;
 
 /**
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -56,7 +56,6 @@ class CitationTextTemplateRenderer {
 	 * @return string
 	 */
 	public function renderFor( array $parameters ) {
-
 		$wikiText = $this->doFormat( $parameters );
 
 		if ( $wikiText === '' ) {
@@ -67,7 +66,6 @@ class CitationTextTemplateRenderer {
 	}
 
 	private function doFormat( array $parameters ) {
-
 		if ( $this->templateName === '' ) {
 			return '';
 		}
