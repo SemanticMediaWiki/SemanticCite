@@ -20,11 +20,9 @@ if ( !defined( 'SMW_PHPUNIT_AUTOLOADER_FILE' ) || !is_readable( SMW_PHPUNIT_AUTO
 	die( "\nThe Semantic MediaWiki test autoloader is not available" );
 }
 
-if ( !defined( 'SCI_VERSION' ) ) {
-	die( "\nSemantic Cite is not available, please check your Composer or LocalSettings.\n" );
-}
+$extensionInfo = json_decode( file_get_contents( __DIR__ . '/../extension.json' ), true );
 
-print sprintf( "\n%-20s%s\n", "Semantic Cite:", SCI_VERSION );
+print sprintf( "\n%-20s%s\n", "Semantic Cite:", $extensionInfo['version'] ?? 'UNKNOWN' );
 
 $autoloader = require SMW_PHPUNIT_AUTOLOADER_FILE;
 $autoloader->addPsr4( 'SCI\\Tests\\', __DIR__ . '/phpunit/Unit' );

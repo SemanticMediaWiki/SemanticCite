@@ -111,52 +111,38 @@ class HookRegistry {
 	}
 
 	/**
+	 * @see https://www.semantic-mediawiki.org/wiki/Hooks/SMW::Config::BeforeCompletion
+	 *
 	 * @since  1.3
 	 *
 	 * @param array &$config
+	 *
+	 * @return bool
 	 */
 	public static function onBeforeConfigCompletion( &$config ) {
-		if ( !isset( $config['smwgFulltextSearchPropertyExemptionList'] ) ) {
-			return;
+		$exemptionlist = [
+			PropertyRegistry::SCI_CITE
+		];
+
+		// Exclude listed properties from indexing
+		if ( isset( $config['smwgFulltextSearchPropertyExemptionList'] ) ) {
+			$config['smwgFulltextSearchPropertyExemptionList'] = array_merge(
+				$config['smwgFulltextSearchPropertyExemptionList'],
+				$exemptionlist
+			);
 		}
 
-		// Exclude those properties from indexing
-		$config['smwgFulltextSearchPropertyExemptionList'] = array_merge(
-			$config['smwgFulltextSearchPropertyExemptionList'],
-			[ PropertyRegistry::SCI_CITE ]
-		);
-	}
+		// Exclude listed properties from dependency detection as each of the
+		// selected object would trigger an automatic change without the necessary
+		// human intervention and can therefore produce unwanted query updates
+		if ( isset( $config['smwgQueryDependencyPropertyExemptionList'] ) ) {
+			$config['smwgQueryDependencyPropertyExemptionList'] = array_merge(
+				$config['smwgQueryDependencyPropertyExemptionList'],
+				$exemptionlist
+			);
+		}
 
-	/**
-	 * @since 2.0
-	 */
-	public static function initExtension() {
-		$GLOBALS['wgHooks']['SMW::Config::BeforeCompletion'][] = static function ( &$config ) {
-			$exemptionlist = [
-				PropertyRegistry::SCI_CITE
-			];
-
-			// Exclude listed properties from indexing
-			if ( isset( $config['smwgFulltextSearchPropertyExemptionList'] ) ) {
-				$config['smwgFulltextSearchPropertyExemptionList'] = array_merge(
-					$config['smwgFulltextSearchPropertyExemptionList'],
-					$exemptionlist
-				);
-			}
-
-			// Exclude listed properties from dependency detection as each of the
-			// selected object would trigger an automatic change without the necessary
-			// human intervention and can therefore produce unwanted query updates
-
-			if ( isset( $config['smwgQueryDependencyPropertyExemptionList'] ) ) {
-				$config['smwgQueryDependencyPropertyExemptionList'] = array_merge(
-					$config['smwgQueryDependencyPropertyExemptionList'],
-					$exemptionlist
-				);
-			}
-
-			return true;
-		};
+		return true;
 	}
 
 	public function onDataTypeInit() {

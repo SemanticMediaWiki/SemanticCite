@@ -21,6 +21,15 @@ MediaWiki major release it supports; versions 5.x and 6.x were skipped.
   `getDataItemsFromList()`
 * Replaced the removed `HtmlFormRenderer::getMessageBuilder()` usage with
   language-scoped `wfMessage()` calls
+* Migrated registration to native `extension.json` declarations: settings (via the
+  `config` section instead of `DefaultSettings.php`), the special page, rights,
+  resource modules, message files and the `SMW::Config::BeforeCompletion` hook. The
+  `SemanticCite.php` entry point is removed; its extension function and cache
+  factory now live in `SCI\Setup`
+* Removed the `SCI_VERSION` constant; the version is available from `extension.json`
+  (for example on Special:Version)
+* Removed the unused `scigStrictParserValidationEnabled` setting alias (use
+  `scigEnabledStrictParserValidation`)
 * Fixed citation tooltips rendering wiki links and other markup as raw wikitext (e.g. `[[...]]`) instead of parsed, clickable links
 * Fixed stray `[` and `]` brackets leaking into citation tooltip popups
 
