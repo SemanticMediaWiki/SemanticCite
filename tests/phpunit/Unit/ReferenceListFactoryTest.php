@@ -59,7 +59,7 @@ class ReferenceListFactoryTest extends \PHPUnit\Framework\TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$cache = $this->getMockBuilder( '\Onoi\Cache\Cache' )
+		$cache = $this->getMockBuilder( '\Wikimedia\ObjectCache\BagOStuff' )
 			->disableOriginalConstructor()
 			->getMock();
 

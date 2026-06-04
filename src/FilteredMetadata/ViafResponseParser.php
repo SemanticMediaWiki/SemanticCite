@@ -2,9 +2,8 @@
 
 namespace SCI\FilteredMetadata;
 
-use Onoi\Remi\ResponseParser;
-use Onoi\Remi\Viaf\ViafFilteredHttpResponseParser;
 use SCI\DataValues\ResourceIdentifierFactory;
+use SCI\FilteredMetadata\Viaf\ViafFilteredHttpResponseParser;
 
 /**
  * @license GPL-2.0-or-later

@@ -2,9 +2,9 @@
 
 namespace SCI;
 
-use Onoi\Cache\Cache;
 use SMW\DataItems\WikiPage;
 use SMW\NamespaceExaminer;
+use Wikimedia\ObjectCache\BagOStuff;
 
 /**
  * @license GPL-2.0-or-later
@@ -30,7 +30,7 @@ class CachedReferenceListOutputRenderer {
 	private $namespaceExaminer;
 
 	/**
-	 * @var Cache
+	 * @var BagOStuff
 	 */
 	private $cache;
 
@@ -55,10 +55,10 @@ class CachedReferenceListOutputRenderer {
 	 * @param ReferenceListOutputRenderer $referenceListOutputRenderer
 	 * @param MediaWikiContextInteractor $contextInteractor
 	 * @param NamespaceExaminer $namespaceExaminer
-	 * @param Cache $cache
+	 * @param BagOStuff $cache
 	 * @param CacheKeyProvider $cacheKeyProvider
 	 */
-	public function __construct( ReferenceListOutputRenderer $referenceListOutputRenderer, MediaWikiContextInteractor $contextInteractor, NamespaceExaminer $namespaceExaminer, Cache $cache, CacheKeyProvider $cacheKeyProvider ) {
+	public function __construct( ReferenceListOutputRenderer $referenceListOutputRenderer, MediaWikiContextInteractor $contextInteractor, NamespaceExaminer $namespaceExaminer, BagOStuff $cache, CacheKeyProvider $cacheKeyProvider ) {
 		$this->referenceListOutputRenderer = $referenceListOutputRenderer;
 		$this->contextInteractor = $contextInteractor;
 		$this->namespaceExaminer = $namespaceExaminer;
@@ -222,15 +222,17 @@ class CachedReferenceListOutputRenderer {
 		// Create an individual hash for when loose references are used
 		$renderedReferenceListHash = md5( $this->getSubject()->getHash() . $references . $fingerprint );
 
-		if ( $this->cache->contains( $key ) ) {
-			$container = $this->cache->fetch( $key );
+		$container = $this->cache->get( $key );
 
+		if ( is_array( $container ) ) {
 			// Match against revision, languageCode, and hash
 			if ( isset( $container['revId'] ) &&
 				$container['revId'] == $revId &&
 				isset( $container['text'][$lang][$renderedReferenceListHash] ) ) {
 				return $container['text'][$lang][$renderedReferenceListHash];
 			}
+		} else {
+			$container = [];
 		}
 
 		$renderedReferenceList = $this->referenceListOutputRenderer->doRenderReferenceListFor(
@@ -246,7 +248,7 @@ class CachedReferenceListOutputRenderer {
 		$container['revId'] = $revId;
 		$container['text'][$lang][$renderedReferenceListHash] = $renderedReferenceList;
 
-		$this->cache->save(
+		$this->cache->set(
 			$key,
 			$container
 		);

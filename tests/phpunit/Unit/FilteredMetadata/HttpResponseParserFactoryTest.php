@@ -16,7 +16,7 @@ use SCI\FilteredMetadata\HttpResponseParserFactory;
 class HttpResponseParserFactoryTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
-		$httpRequest = $this->getMockBuilder( '\Onoi\HttpRequest\HttpRequest' )
+		$httpRequest = $this->getMockBuilder( '\SCI\FilteredMetadata\HttpRequest' )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -30,14 +30,14 @@ class HttpResponseParserFactoryTest extends \PHPUnit\Framework\TestCase {
 	 * @dataProvider typeProvider
 	 */
 	public function testHttpResponseContentParserForType( $type ) {
-		$httpRequest = $this->getMockBuilder( '\Onoi\HttpRequest\HttpRequest' )
+		$httpRequest = $this->getMockBuilder( '\SCI\FilteredMetadata\HttpRequest' )
 			->disableOriginalConstructor()
 			->getMock();
 
 		$instance = new HttpResponseParserFactory( $httpRequest );
 
 		$this->assertInstanceOf(
-			'\Onoi\Remi\ResponseParser',
+			'\SCI\FilteredMetadata\ResponseParser',
 			$instance->newResponseParserForType( $type )
 		);
 	}

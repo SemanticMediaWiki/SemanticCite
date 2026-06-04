@@ -16,18 +16,18 @@ use SCI\FilteredMetadata\OLResponseParser;
 class OLResponseParserTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
-		$olFilteredHttpResponseParser = $this->getMockBuilder( '\Onoi\Remi\OpenLibrary\OLFilteredHttpResponseParser' )
+		$olFilteredHttpResponseParser = $this->getMockBuilder( '\SCI\FilteredMetadata\OpenLibrary\OLFilteredHttpResponseParser' )
 			->disableOriginalConstructor()
 			->getMock();
 
 		$this->assertInstanceOf(
-			'\Onoi\Remi\ResponseParser',
+			'\SCI\FilteredMetadata\ResponseParser',
 			new OLResponseParser( $olFilteredHttpResponseParser )
 		);
 	}
 
 	public function testInterfaceMethods() {
-		$olFilteredHttpResponseParser = $this->getMockBuilder( '\Onoi\Remi\OpenLibrary\OLFilteredHttpResponseParser' )
+		$olFilteredHttpResponseParser = $this->getMockBuilder( '\SCI\FilteredMetadata\OpenLibrary\OLFilteredHttpResponseParser' )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -58,7 +58,7 @@ class OLResponseParserTest extends \PHPUnit\Framework\TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$olFilteredHttpResponseParser = $this->getMockBuilder( '\Onoi\Remi\OpenLibrary\OLFilteredHttpResponseParser' )
+		$olFilteredHttpResponseParser = $this->getMockBuilder( '\SCI\FilteredMetadata\OpenLibrary\OLFilteredHttpResponseParser' )
 			->disableOriginalConstructor()
 			->getMock();
 

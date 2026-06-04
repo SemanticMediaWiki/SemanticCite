@@ -225,7 +225,7 @@ class SciteTransclusionForCannedResponseParserTest extends \PHPUnit\Framework\Te
 
 		$expected = str_replace( "\r\n", "\n", file_get_contents( $expectedResultFile ) );
 
-		$httpRequest = $this->getMockBuilder( '\Onoi\HttpRequest\HttpRequest' )
+		$httpRequest = $this->getMockBuilder( '\SCI\FilteredMetadata\HttpRequest' )
 			->disableOriginalConstructor()
 			->getMock();
 

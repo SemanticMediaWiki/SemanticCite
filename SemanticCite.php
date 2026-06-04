@@ -1,11 +1,11 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
-use Onoi\Cache\Cache;
-use Onoi\Cache\CacheFactory as OnoiCacheFactory;
 use SCI\HookRegistry;
 use SCI\Options;
 use SMW\Services\ServicesFactory as ApplicationFactory;
+use Wikimedia\ObjectCache\BagOStuff;
+use Wikimedia\ObjectCache\CachedBagOStuff;
 
 /**
  * @see https://github.com/SemanticMediaWiki/SemanticCite/
@@ -165,28 +165,26 @@ class SemanticCite {
 	}
 
 	/**
-	 * Builds a composite cache (a fixed in-memory layer over a MediaWiki
-	 * object cache) using the `onoi/cache` library directly.
+	 * Builds an object cache that wraps a MediaWiki backend object cache with an
+	 * in-process layer (a fixed-size hash cache) so that repeated lookups within
+	 * the same request avoid hitting the backend.
 	 *
-	 * Semantic MediaWiki 7.0 removed `CacheFactory::newMediaWikiCompositeCache()`
-	 * along with its bundled copy of `onoi/cache`; Semantic Cite still depends on
-	 * `onoi/cache` directly, so the composite cache is assembled here.
+	 * This replaces the former `onoi/cache` composite cache; `CachedBagOStuff`
+	 * provides the equivalent in-memory-over-persistent behaviour using only
+	 * MediaWiki built-ins.
 	 *
 	 * @since 7.0
 	 *
 	 * @param int|string $cacheType
+	 *
+	 * @return BagOStuff
 	 */
-	public static function newCompositeCache( $cacheType ): Cache {
-		$cacheFactory = new OnoiCacheFactory();
-
+	public static function newCompositeCache( $cacheType ): BagOStuff {
 		$bagOStuff = MediaWikiServices::getInstance()->getObjectCacheFactory()->getInstance(
 			$cacheType
 		);
 
-		return $cacheFactory->newCompositeCache( [
-			$cacheFactory->newFixedInMemoryLruCache( 500 ),
-			$cacheFactory->newMediaWikiCache( $bagOStuff )
-		] );
+		return new CachedBagOStuff( $bagOStuff, [ 'maxKeys' => 500 ] );
 	}
 
 }

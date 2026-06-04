@@ -16,18 +16,18 @@ use SCI\FilteredMetadata\OclcResponseParser;
 class OclcResponseParserTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
-		$oclcNumFilteredHttpResponseParser = $this->getMockBuilder( '\Onoi\Remi\Oclc\OclcFilteredHttpResponseParser' )
+		$oclcNumFilteredHttpResponseParser = $this->getMockBuilder( '\SCI\FilteredMetadata\Oclc\OclcFilteredHttpResponseParser' )
 			->disableOriginalConstructor()
 			->getMock();
 
 		$this->assertInstanceOf(
-			'\Onoi\Remi\ResponseParser',
+			'\SCI\FilteredMetadata\ResponseParser',
 			new OclcResponseParser( $oclcNumFilteredHttpResponseParser )
 		);
 	}
 
 	public function testInterfaceMethods() {
-		$oclcFilteredHttpResponseParser = $this->getMockBuilder( '\Onoi\Remi\Oclc\OclcFilteredHttpResponseParser' )
+		$oclcFilteredHttpResponseParser = $this->getMockBuilder( '\SCI\FilteredMetadata\Oclc\OclcFilteredHttpResponseParser' )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -58,7 +58,7 @@ class OclcResponseParserTest extends \PHPUnit\Framework\TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$oclcFilteredHttpResponseParser = $this->getMockBuilder( '\Onoi\Remi\Oclc\OclcFilteredHttpResponseParser' )
+		$oclcFilteredHttpResponseParser = $this->getMockBuilder( '\SCI\FilteredMetadata\Oclc\OclcFilteredHttpResponseParser' )
 			->disableOriginalConstructor()
 			->getMock();
 

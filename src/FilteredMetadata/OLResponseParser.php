@@ -2,8 +2,7 @@
 
 namespace SCI\FilteredMetadata;
 
-use Onoi\Remi\OpenLibrary\OLFilteredHttpResponseParser;
-use Onoi\Remi\ResponseParser;
+use SCI\FilteredMetadata\OpenLibrary\OLFilteredHttpResponseParser;
 
 /**
  * @license GPL-2.0-or-later

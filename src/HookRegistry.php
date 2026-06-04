@@ -2,12 +2,12 @@
 
 namespace SCI;
 
-use Onoi\Cache\Cache;
 use SMW\DataItems\DataItem;
 use SMW\DataItems\WikiPage;
 use SMW\DataTypeRegistry;
 use SMW\Services\ServicesFactory as ApplicationFactory;
 use SMW\Store;
+use Wikimedia\ObjectCache\BagOStuff;
 
 /**
  * @license GPL-2.0-or-later
@@ -36,10 +36,10 @@ class HookRegistry {
 	 * @since 1.0
 	 *
 	 * @param Store $store
-	 * @param Cache $cache
+	 * @param BagOStuff $cache
 	 * @param Options $options
 	 */
-	public function __construct( Store $store, Cache $cache, Options $options ) {
+	public function __construct( Store $store, BagOStuff $cache, Options $options ) {
 		$this->options = $options;
 
 		$this->addCallbackHandlers(
