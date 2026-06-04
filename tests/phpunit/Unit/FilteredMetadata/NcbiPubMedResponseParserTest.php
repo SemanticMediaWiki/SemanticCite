@@ -16,18 +16,18 @@ use SCI\FilteredMetadata\NcbiPubMedResponseParser;
 class NcbiPubMedResponseParserTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
-		$ncbiPubMedFilteredHttpResponseParser = $this->getMockBuilder( '\Onoi\Remi\Ncbi\NcbiPubMedFilteredHttpResponseParser' )
+		$ncbiPubMedFilteredHttpResponseParser = $this->getMockBuilder( '\SCI\FilteredMetadata\Ncbi\NcbiPubMedFilteredHttpResponseParser' )
 			->disableOriginalConstructor()
 			->getMock();
 
 		$this->assertInstanceOf(
-			'\Onoi\Remi\ResponseParser',
+			'\SCI\FilteredMetadata\ResponseParser',
 			new NcbiPubMedResponseParser( $ncbiPubMedFilteredHttpResponseParser )
 		);
 	}
 
 	public function testInterfaceMethods() {
-		$ncbiPubMedFilteredHttpResponseParser = $this->getMockBuilder( '\Onoi\Remi\Ncbi\NcbiPubMedFilteredHttpResponseParser' )
+		$ncbiPubMedFilteredHttpResponseParser = $this->getMockBuilder( '\SCI\FilteredMetadata\Ncbi\NcbiPubMedFilteredHttpResponseParser' )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -63,7 +63,7 @@ class NcbiPubMedResponseParserTest extends \PHPUnit\Framework\TestCase {
 			->with( $this->stringContains( 'ncbi-dbtype' ) )
 			->willReturn( $type );
 
-		$ncbiPubMedFilteredHttpResponseParser = $this->getMockBuilder( '\Onoi\Remi\Ncbi\NcbiPubMedFilteredHttpResponseParser' )
+		$ncbiPubMedFilteredHttpResponseParser = $this->getMockBuilder( '\SCI\FilteredMetadata\Ncbi\NcbiPubMedFilteredHttpResponseParser' )
 			->disableOriginalConstructor()
 			->getMock();
 

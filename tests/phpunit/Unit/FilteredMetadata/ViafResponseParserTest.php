@@ -16,18 +16,18 @@ use SCI\FilteredMetadata\ViafResponseParser;
 class ViafResponseParserTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
-		$viafFilteredHttpResponseParser = $this->getMockBuilder( '\Onoi\Remi\Viaf\ViafFilteredHttpResponseParser' )
+		$viafFilteredHttpResponseParser = $this->getMockBuilder( '\SCI\FilteredMetadata\Viaf\ViafFilteredHttpResponseParser' )
 			->disableOriginalConstructor()
 			->getMock();
 
 		$this->assertInstanceOf(
-			'\Onoi\Remi\ResponseParser',
+			'\SCI\FilteredMetadata\ResponseParser',
 			new ViafResponseParser( $viafFilteredHttpResponseParser )
 		);
 	}
 
 	public function testInterfaceMethods() {
-		$viafFilteredHttpResponseParser = $this->getMockBuilder( '\Onoi\Remi\Viaf\ViafFilteredHttpResponseParser' )
+		$viafFilteredHttpResponseParser = $this->getMockBuilder( '\SCI\FilteredMetadata\Viaf\ViafFilteredHttpResponseParser' )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -58,7 +58,7 @@ class ViafResponseParserTest extends \PHPUnit\Framework\TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$viafFilteredHttpResponseParser = $this->getMockBuilder( '\Onoi\Remi\Viaf\ViafFilteredHttpResponseParser' )
+		$viafFilteredHttpResponseParser = $this->getMockBuilder( '\SCI\FilteredMetadata\Viaf\ViafFilteredHttpResponseParser' )
 			->disableOriginalConstructor()
 			->getMock();
 

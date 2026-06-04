@@ -20,7 +20,7 @@ class CitationReferencePositionJournalTest extends \PHPUnit\Framework\TestCase {
 	private $cacheKeyProvider;
 
 	protected function setUp(): void {
-		$this->cache = $this->getMockBuilder( '\Onoi\Cache\Cache' )
+		$this->cache = $this->getMockBuilder( '\Wikimedia\ObjectCache\BagOStuff' )
 			->disableOriginalConstructor()
 			->getMock();
 

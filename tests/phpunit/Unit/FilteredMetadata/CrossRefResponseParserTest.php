@@ -16,18 +16,18 @@ use SCI\FilteredMetadata\CrossRefResponseParser;
 class CrossRefResponseParserTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
-		$crossRefFilteredHttpResponseParser = $this->getMockBuilder( '\Onoi\Remi\CrossRef\CrossRefFilteredHttpResponseParser' )
+		$crossRefFilteredHttpResponseParser = $this->getMockBuilder( '\SCI\FilteredMetadata\CrossRef\CrossRefFilteredHttpResponseParser' )
 			->disableOriginalConstructor()
 			->getMock();
 
 		$this->assertInstanceOf(
-			'\Onoi\Remi\ResponseParser',
+			'\SCI\FilteredMetadata\ResponseParser',
 			new CrossRefResponseParser( $crossRefFilteredHttpResponseParser )
 		);
 	}
 
 	public function testInterfaceMethods() {
-		$crossRefFilteredHttpResponseParser = $this->getMockBuilder( '\Onoi\Remi\CrossRef\CrossRefFilteredHttpResponseParser' )
+		$crossRefFilteredHttpResponseParser = $this->getMockBuilder( '\SCI\FilteredMetadata\CrossRef\CrossRefFilteredHttpResponseParser' )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -58,7 +58,7 @@ class CrossRefResponseParserTest extends \PHPUnit\Framework\TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$crossRefFilteredHttpResponseParser = $this->getMockBuilder( '\Onoi\Remi\CrossRef\CrossRefFilteredHttpResponseParser' )
+		$crossRefFilteredHttpResponseParser = $this->getMockBuilder( '\SCI\FilteredMetadata\CrossRef\CrossRefFilteredHttpResponseParser' )
 			->disableOriginalConstructor()
 			->getMock();
 

@@ -2,9 +2,8 @@
 
 namespace SCI\FilteredMetadata;
 
-use Onoi\Remi\Ncbi\NcbiPubMedFilteredHttpResponseParser;
-use Onoi\Remi\ResponseParser;
 use SCI\DataValues\ResourceIdentifierFactory;
+use SCI\FilteredMetadata\Ncbi\NcbiPubMedFilteredHttpResponseParser;
 
 /**
  * @license GPL-2.0-or-later

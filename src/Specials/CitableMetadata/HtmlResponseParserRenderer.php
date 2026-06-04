@@ -3,7 +3,7 @@
 namespace SCI\Specials\CitableMetadata;
 
 use MediaWiki\Html\Html;
-use Onoi\Remi\ResponseParser;
+use SCI\FilteredMetadata\ResponseParser;
 
 /**
  * @license GPL-2.0-or-later

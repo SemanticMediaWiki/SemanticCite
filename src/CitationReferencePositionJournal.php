@@ -2,10 +2,10 @@
 
 namespace SCI;
 
-use Onoi\Cache\Cache;
 use SMW\DataItems\Property;
 use SMW\DataItems\WikiPage;
 use SMW\DataModel\SemanticData;
+use Wikimedia\ObjectCache\BagOStuff;
 
 /**
  * @license GPL-2.0-or-later
@@ -16,7 +16,7 @@ use SMW\DataModel\SemanticData;
 class CitationReferencePositionJournal {
 
 	/**
-	 * @var Cache
+	 * @var BagOStuff
 	 */
 	private $cache = null;
 
@@ -33,10 +33,10 @@ class CitationReferencePositionJournal {
 	/**
 	 * @since 1.0
 	 *
-	 * @param Cache $cache
+	 * @param BagOStuff $cache
 	 * @param CacheKeyProvider $cacheKeyProvider
 	 */
-	public function __construct( Cache $cache, CacheKeyProvider $cacheKeyProvider ) {
+	public function __construct( BagOStuff $cache, CacheKeyProvider $cacheKeyProvider ) {
 		$this->cache = $cache;
 		$this->cacheKeyProvider = $cacheKeyProvider;
 	}
@@ -178,7 +178,7 @@ class CitationReferencePositionJournal {
 
 		// Safeguard against a repeated call to the hashlist for when the static
 		// cache is empty
-		$this->cache->save(
+		$this->cache->set(
 			$this->cacheKeyProvider->getCacheKeyForCitationReference( $hash ),
 			self::$citationReferenceJournal
 		);
@@ -186,7 +186,7 @@ class CitationReferencePositionJournal {
 
 	private function hasJournalForHash( $hash ) {
 		if ( self::$citationReferenceJournal === [] ) {
-			$cached = $this->cache->fetch(
+			$cached = $this->cache->get(
 				$this->cacheKeyProvider->getCacheKeyForCitationReference( $hash )
 			);
 			self::$citationReferenceJournal = is_array( $cached ) ? $cached : [];

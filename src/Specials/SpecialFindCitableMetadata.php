@@ -4,9 +4,9 @@ namespace SCI\Specials;
 
 use MediaWiki\MediaWikiServices;
 use MediaWiki\SpecialPage\SpecialPage;
-use Onoi\HttpRequest\HttpRequestFactory;
 use SCI\CitationResourceMatchFinder;
 use SCI\FilteredMetadata\HttpResponseParserFactory;
+use SCI\FilteredMetadata\MediaWikiHttpRequest;
 use SCI\Specials\CitableMetadata\PageBuilder;
 use SMW\Services\ServicesFactory as ApplicationFactory;
 
@@ -112,13 +112,13 @@ class SpecialFindCitableMetadata extends SpecialPage {
 			$this->getLanguage()
 		);
 
-		$httpRequestFactory = new HttpRequestFactory(
+		$httpRequest = new MediaWikiHttpRequest(
+			MediaWikiServices::getInstance()->getHttpRequestFactory(),
 			\SemanticCite::newCompositeCache( $GLOBALS['scigMetadataResponseCacheType'] )
 		);
 
-		$httpRequest = $httpRequestFactory->newCachedCurlRequest();
-		$httpRequest->setOption( ONOI_HTTP_REQUEST_RESPONSECACHE_TTL, $GLOBALS['scigMetadataResponseCacheLifetime'] );
-		$httpRequest->setOption( ONOI_HTTP_REQUEST_RESPONSECACHE_PREFIX, $GLOBALS['scigCachePrefix'] . ':sci:meta:' );
+		$httpRequest->setOption( MediaWikiHttpRequest::RESPONSE_CACHE_TTL, $GLOBALS['scigMetadataResponseCacheLifetime'] );
+		$httpRequest->setOption( MediaWikiHttpRequest::RESPONSE_CACHE_PREFIX, $GLOBALS['scigCachePrefix'] . ':sci:meta:' );
 
 		$pageBuilder = new PageBuilder(
 			$htmlFormRenderer,

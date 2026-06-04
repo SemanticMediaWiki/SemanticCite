@@ -2,8 +2,6 @@
 
 namespace SCI\FilteredMetadata;
 
-use Onoi\Remi\FilteredRecord;
-
 /**
  * @license GPL-2.0-or-later
  * @since 1.0

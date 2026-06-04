@@ -4,7 +4,6 @@ namespace SCI\Tests\Integration\JSONScript;
 
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Parser\ParserOptions;
-use Onoi\Cache\CacheFactory;
 use SCI\HookRegistry;
 use SCI\MediaWikiNsContentMapper;
 use SCI\Options;
@@ -12,6 +11,7 @@ use SMW\DataItems\WikiPage;
 use SMW\Tests\JSONScriptServicesTestCaseRunner;
 use SMW\Tests\Utils\JSONScript\JsonTestCaseFileHandler;
 use SMW\Tests\Utils\UtilityFactory;
+use Wikimedia\ObjectCache\HashBagOStuff;
 
 /**
  * @group semantic-cite
@@ -65,11 +65,9 @@ class SemanticCiteJsonTestCaseScriptRunnerTest extends JSONScriptServicesTestCas
 		MediaWikiNsContentMapper::clear();
 		MediaWikiNsContentMapper::$skipMessageCache = true;
 
-		$cacheFactory = new CacheFactory();
-
 		$this->hookRegistry = new HookRegistry(
 			$this->getStore(),
-			$cacheFactory->newFixedInMemoryLruCache(),
+			new HashBagOStuff(),
 			new Options( $configuration )
 		);
 

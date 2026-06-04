@@ -25,7 +25,7 @@ class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 			->disableOriginalConstructor()
 			->getMockForAbstractClass();
 
-		$cache = $this->getMockBuilder( '\Onoi\Cache\Cache' )
+		$cache = $this->getMockBuilder( '\Wikimedia\ObjectCache\BagOStuff' )
 			->disableOriginalConstructor()
 			->getMockForAbstractClass();
 
@@ -44,7 +44,7 @@ class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 			->disableOriginalConstructor()
 			->getMockForAbstractClass();
 
-		$cache = $this->getMockBuilder( '\Onoi\Cache\Cache' )
+		$cache = $this->getMockBuilder( '\Wikimedia\ObjectCache\BagOStuff' )
 			->disableOriginalConstructor()
 			->getMockForAbstractClass();
 

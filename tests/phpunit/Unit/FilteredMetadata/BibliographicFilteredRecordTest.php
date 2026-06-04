@@ -17,7 +17,7 @@ class BibliographicFilteredRecordTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
 		$this->assertInstanceOf(
-			'\Onoi\Remi\FilteredRecord',
+			'\SCI\FilteredMetadata\FilteredRecord',
 			new BibliographicFilteredRecord()
 		);
 	}

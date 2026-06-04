@@ -7,8 +7,16 @@ MediaWiki major release it supports; versions 5.x and 6.x were skipped.
 
 * Minimum requirement for Semantic MediaWiki changed to version 7.0 and later
 * Added compatibility with Semantic MediaWiki 7.0.x
-* Replaced the removed `CacheFactory::newMediaWikiCompositeCache()` call with a
-  composite cache assembled directly from the `onoi/cache` library
+* Replaced the removed `CacheFactory::newMediaWikiCompositeCache()` call with
+  MediaWiki's `CachedBagOStuff`
+* Removed the `onoi/cache`, `onoi/remi` and `mediawiki/http-request`
+  dependencies in favour of MediaWiki built-ins; caching now uses
+  `BagOStuff`/`CachedBagOStuff` and metadata requests use `HttpRequestFactory`.
+  The bibliographic metadata parsers previously provided by `onoi/remi` are now
+  bundled under `SCI\FilteredMetadata`
+* Metadata-provider HTTP requests now verify TLS certificates; the bundled
+  parsers no longer skip peer verification (the former `onoi/remi` parsers
+  disabled it for some providers)
 * Replaced the removed `EntityIdManager::getDataItemPoolHashListFor()` call with
   `getDataItemsFromList()`
 * Replaced the removed `HtmlFormRenderer::getMessageBuilder()` usage with

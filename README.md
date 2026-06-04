@@ -160,4 +160,3 @@ but can also be executed using `composer phpunit` from the extension base direct
 [docs-scite]: https://github.com/SemanticMediaWiki/SemanticCite/blob/master/docs/04-scite.md
 [docs-intext]: https://github.com/SemanticMediaWiki/SemanticCite/blob/master/docs/06-references.md
 [docs-referencelist]: https://github.com/SemanticMediaWiki/SemanticCite/blob/master/docs/05-referencelist.md
-[remi]: https://github.com/onoi/remi

@@ -16,7 +16,7 @@ use SCI\Specials\CitableMetadata\HtmlResponseParserRenderer;
 class HtmlResponseParserRendererTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
-		$responseParser = $this->getMockBuilder( '\Onoi\Remi\ResponseParser' )
+		$responseParser = $this->getMockBuilder( '\SCI\FilteredMetadata\ResponseParser' )
 			->disableOriginalConstructor()
 			->getMockForAbstractClass();
 
@@ -27,7 +27,7 @@ class HtmlResponseParserRendererTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testGetRawResponse() {
-		$responseParser = $this->getMockBuilder( '\Onoi\Remi\ResponseParser' )
+		$responseParser = $this->getMockBuilder( '\SCI\FilteredMetadata\ResponseParser' )
 			->disableOriginalConstructor()
 			->getMockForAbstractClass();
 
@@ -47,7 +47,7 @@ class HtmlResponseParserRendererTest extends \PHPUnit\Framework\TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$responseParser = $this->getMockBuilder( '\Onoi\Remi\ResponseParser' )
+		$responseParser = $this->getMockBuilder( '\SCI\FilteredMetadata\ResponseParser' )
 			->disableOriginalConstructor()
 			->getMockForAbstractClass();
 

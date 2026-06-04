@@ -34,7 +34,7 @@ class CachedReferenceListOutputRendererTest extends \PHPUnit\Framework\TestCase 
 			->disableOriginalConstructor()
 			->getMock();
 
-		$this->cache = $this->getMockBuilder( '\Onoi\Cache\Cache' )
+		$this->cache = $this->getMockBuilder( '\Wikimedia\ObjectCache\BagOStuff' )
 			->disableOriginalConstructor()
 			->getMock();
 
