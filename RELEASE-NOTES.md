@@ -1,9 +1,6 @@
 This file contains the RELEASE-NOTES of the **Semantic Cite** (a.k.a. SCI) extension.
 
-## 7.0.0
-
-Note: the version was bumped from 4.0.0 directly to 7.0.0 to track the Semantic
-MediaWiki major release it supports; versions 5.x and 6.x were skipped.
+## 5.0.0
 
 * Minimum requirement for Semantic MediaWiki changed to version 7.0 and later
 * Added compatibility with Semantic MediaWiki 7.0.x
