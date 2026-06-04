@@ -18,9 +18,6 @@
 	"AutoloadNamespaces": {
 		"SCI\\": "src/"
 	},
-	"AutoloadClasses": {
-		"SemanticCite": "SemanticCite.php"
-	},
 	"TestAutoloadNamespaces": {
 		"SCI\\Tests\\": "tests/phpunit/Unit/",
 		"SCI\\Tests\\Integration\\": "tests/phpunit/Integration/"
@@ -30,10 +27,113 @@
 			"i18n"
 		]
 	},
-	"callback": "SemanticCite::initExtension",
-	"ExtensionFunctions": [
-		"SemanticCite::onExtensionFunction"
+	"ExtensionMessagesFiles": {
+		"SemanticCiteMagic": "i18n/SemanticCite.magic.php",
+		"SemanticCiteAlias": "i18n/SemanticCite.alias.php"
+	},
+	"SpecialPages": {
+		"FindCitableMetadata": "SCI\\Specials\\SpecialFindCitableMetadata"
+	},
+	"AvailableRights": [
+		"sci-metadatasearch"
 	],
+	"GroupPermissions": {
+		"user": {
+			"sci-metadatasearch": true
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "res",
+		"remoteExtPath": "SemanticCite/res"
+	},
+	"ResourceModules": {
+		"ext.scite.styles": {
+			"styles": "scite.styles.css",
+			"group": "ext.smw"
+		},
+		"ext.scite.metadata": {
+			"scripts": [
+				"scite.text.selector.js",
+				"scite.page.creator.js"
+			],
+			"dependencies": [
+				"ext.scite.styles",
+				"mediawiki.api"
+			]
+		},
+		"ext.scite.tooltip": {
+			"scripts": [
+				"scite.tooltip.js"
+			],
+			"dependencies": [
+				"ext.smw.tooltip",
+				"mediawiki.storage",
+				"ext.scite.styles",
+				"mediawiki.api"
+			],
+			"messages": [
+				"sci-tooltip-citation-lookup-failure",
+				"sci-tooltip-citation-lookup-failure-multiple"
+			]
+		}
+	},
+	"Hooks": {
+		"SMW::Config::BeforeCompletion": "SCI\\HookRegistry::onBeforeConfigCompletion"
+	},
+	"ExtensionFunctions": [
+		"SCI\\Setup::onExtensionFunction"
+	],
+	"config_prefix": "scig",
+	"config": {
+		"CitationReferenceCaptionFormat": {
+			"value": 1,
+			"description": "Caption format of the citation reference, either as a number (SCI_CITEREF_NUM) or the annotated key (SCI_CITEREF_KEY)."
+		},
+		"ShowTooltipForCitationReference": {
+			"value": [ 1, 2 ],
+			"description": "Citation reference formats (SCI_CITEREF_NUM, SCI_CITEREF_KEY) for which a tooltip is enabled."
+		},
+		"TooltipRequestCacheTTLInSeconds": {
+			"value": 86400,
+			"description": "Expiry for a citation text that is locally cached in a browser before a new ajax-request is made; false to disable the cache."
+		},
+		"MetadataResponseCacheType": {
+			"value": -1,
+			"description": "Cache type used to cache responses received from a metadata provider (-1 is CACHE_ANYTHING)."
+		},
+		"MetadataResponseCacheLifetime": {
+			"value": 86400,
+			"description": "Lifetime in seconds of a cached metadata provider response."
+		},
+		"NumberOfReferenceListColumns": {
+			"value": 0,
+			"description": "Number of columns displayed for the reference list (0 enables responsive columns)."
+		},
+		"ResponsiveMonoColumnCharacterBoundLength": {
+			"value": 600,
+			"description": "Limits responsive columns to a mono list when the character length of the produced reference list is lower than this value."
+		},
+		"ReferenceListType": {
+			"value": "ol",
+			"description": "Reference list type, either 'ol' or 'ul'."
+		},
+		"BrowseLinkToCitationResource": {
+			"value": true,
+			"description": "Whether to generate a \"Browse\" link to a citation resource."
+		},
+		"ReferenceListCacheType": {
+			"value": -1,
+			"description": "Cache type used for the reference list (-1 is CACHE_ANYTHING, CACHE_NONE disables caching)."
+		},
+		"EnabledStrictParserValidation": {
+			"value": true,
+			"description": "Whether a strict validation on behalf of the #scite parser is enabled."
+		},
+		"EnabledCitationTextChangeUpdateJob": {
+			"value": true,
+			"description": "Whether an update job is dispatched for changed citation text entities."
+		}
+	},
 	"load_composer_autoloader": true,
 	"manifest_version": 2
 }
