@@ -30,6 +30,8 @@ MediaWiki major release it supports; versions 5.x and 6.x were skipped.
   (for example on Special:Version)
 * Removed the unused `scigStrictParserValidationEnabled` setting alias (use
   `scigEnabledStrictParserValidation`)
+* Fixed citation tooltips rendering wiki links and other markup as raw wikitext (e.g. `[[...]]`) instead of parsed, clickable links
+* Fixed stray `[` and `]` brackets leaking into citation tooltip popups
 
 ## 4.0.0
 Released on March 13, 2026.

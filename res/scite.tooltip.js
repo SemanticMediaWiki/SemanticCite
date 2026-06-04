@@ -25,7 +25,33 @@
 		var cache = {};
 
 		/**
-		 * Fetch citation text via the SMW Ask API.
+		 * Extract the rendered citation HTML from an api.parse result.
+		 *
+		 * The parsed output is placed inside a container element before
+		 * searching so that the `.scite-api-parse` marker is found whether
+		 * api.parse returns it nested in `mw-parser-output` or as a
+		 * top-level node. jQuery's find() only matches descendants, so
+		 * searching `$( parsed )` directly misses a top-level marker.
+		 *
+		 * A native element with innerHTML is used (rather than
+		 * `$( '<div>' ).html( parsed )`) because jQuery's .html() executes
+		 * any <script> in the input via its append() fallback, whereas
+		 * innerHTML never executes scripts.
+		 *
+		 * Returns the inner HTML string, or undefined when not found.
+		 */
+		var extractParsedHtml = function( parsed ) {
+			var container = document.createElement( 'div' );
+			container.innerHTML = parsed;
+			var marker = container.querySelector( '.scite-api-parse' );
+			return marker ? marker.innerHTML : undefined;
+		};
+
+		/**
+		 * Fetch citation text via the SMW Ask API, then render it with
+		 * api.parse so wiki markup (links, templates) displays correctly.
+		 * If api.parse returns no usable output, fall back to the citation
+		 * text rendered as escaped plain text.
 		 *
 		 * @since 4.0
 		 */
@@ -52,22 +78,35 @@
 					var msgKey = content.hasOwnProperty( 'query-continue-offset' ) ?
 						'sci-tooltip-citation-lookup-failure-multiple' :
 						'sci-tooltip-citation-lookup-failure';
-					callback( mw.msg( msgKey, reference ) );
+					// mw.msg substitutes $1 without escaping and the result is
+					// inserted as HTML by the callback, so escape the reference.
+					callback( mw.msg( msgKey, mw.html.escape( reference ) ) );
 					return;
 				}
 
-				var html = citationText
-					.replace( /'''([^']+)'''/g, '<b>$1</b>' )
-					.replace( /''([^']+)''/g, '<i>$1</i>' );
+				var cacheAndReturn = function( html ) {
+					if ( configuration.tooltipRequestCacheTTL > 0 ) {
+						cache[ reference ] = {
+							html: html,
+							time: Date.now()
+						};
+					}
+					callback( html );
+				};
 
-				if ( configuration.tooltipRequestCacheTTL > 0 ) {
-					cache[ reference ] = {
-						html: html,
-						time: Date.now()
-					};
-				}
+				// Render via api.parse for full wikitext rendering (links,
+				// templates etc.). If parsing yields nothing usable, show the
+				// citation text as escaped plain text rather than raw wikitext
+				// or unescaped, attacker-influenced HTML.
+				api.parse( '<div class="scite-api-parse">' + citationText + '</div>' )
+					.done( function ( parsed ) {
+						var html = extractParsedHtml( parsed );
+						cacheAndReturn( html || mw.html.escape( citationText ) );
+					} )
+					.fail( function () {
+						cacheAndReturn( mw.html.escape( citationText ) );
+					} );
 
-				callback( html );
 			} ).fail( function( xhr, status, error ) {
 				callback( status + ': ' + error );
 			} );
@@ -100,10 +139,22 @@
 				return;
 			}
 
+			// jQuery's .data() coerces numeric- or boolean-looking attribute
+			// values (e.g. a citation key of "2024") to a number/boolean. Force
+			// a string so mw.html.escape() — which calls String.prototype.replace
+			// and throws on a non-string — and the cache key and Ask query below
+			// all behave correctly.
+			reference = String( reference );
+
 			var $link = $el.find( 'a' );
 			if ( $link.length === 0 ) {
 				return;
 			}
+
+			// reference round-trips through a data attribute that jQuery
+			// HTML-decodes, so escape it before injecting into tooltip markup.
+			// The raw string is still used for the cache key and Ask query.
+			var safeReference = mw.html.escape( reference );
 
 			if ( typeof tippy === 'function' ) {
 				tippy( $link[0], {
@@ -118,17 +169,17 @@
 						var cached = getCached( reference );
 						if ( cached ) {
 							instance.setContent(
-								'<div class="scite-tooltip-title">' + reference + '</div>' +
+								'<div class="scite-tooltip-title">' + safeReference + '</div>' +
 								'<div class="scite-tooltip-content">' + cached + '</div>'
 							);
 						} else {
 							instance.setContent(
-								'<div class="scite-tooltip-title">' + reference + '</div>' +
+								'<div class="scite-tooltip-title">' + safeReference + '</div>' +
 								'<div class="scite-tooltip-content"><span class="scite-tooltip-loading"></span> Loading...</div>'
 							);
 							doApiRequestFor( reference, function( html ) {
 								instance.setContent(
-									'<div class="scite-tooltip-title">' + reference + '</div>' +
+									'<div class="scite-tooltip-title">' + safeReference + '</div>' +
 									'<div class="scite-tooltip-content">' + html + '</div>'
 								);
 							} );
@@ -142,12 +193,12 @@
 
 					if ( cached ) {
 						$tip.html(
-							'<strong>' + reference + '</strong><br>' + cached
+							'<strong>' + safeReference + '</strong><br>' + cached
 						);
 					} else {
-						$tip.html( '<strong>' + reference + '</strong><br>Loading...' );
+						$tip.html( '<strong>' + safeReference + '</strong><br>Loading...' );
 						doApiRequestFor( reference, function( html ) {
-							$tip.html( '<strong>' + reference + '</strong><br>' + html );
+							$tip.html( '<strong>' + safeReference + '</strong><br>' + html );
 						} );
 					}
 
