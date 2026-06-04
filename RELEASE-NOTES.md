@@ -21,9 +21,8 @@ MediaWiki major release it supports; versions 5.x and 6.x were skipped.
   `getDataItemsFromList()`
 * Replaced the removed `HtmlFormRenderer::getMessageBuilder()` usage with
   language-scoped `wfMessage()` calls
-* Fixed tooltip displaying raw wikitext (`[[...]]`) instead of rendered links for citation text containing wikilinks
-* Fixed `api.parse` fallback in tooltip to use `wikitextToHtml()` instead of raw citation text when jQuery extraction fails
-* Scoped CSS bracket pseudo-elements (`[`, `]`) to direct child links to prevent them from bleeding into tooltip popups
+* Fixed citation tooltips rendering wiki links and other markup as raw wikitext (e.g. `[[...]]`) instead of parsed, clickable links
+* Fixed stray `[` and `]` brackets leaking into citation tooltip popups
 
 ## 4.0.0
 Released on March 13, 2026.
