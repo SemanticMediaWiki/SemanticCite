@@ -8,7 +8,7 @@ use SCI\Bibtex\BibtexAuthorListParser;
  * @covers \SCI\Bibtex\BibtexAuthorListParser
  * @group semantic-cite
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -16,7 +16,6 @@ use SCI\Bibtex\BibtexAuthorListParser;
 class BibtexAuthorListParserTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			'\SCI\Bibtex\BibtexAuthorListParser',
 			new BibtexAuthorListParser()
@@ -27,7 +26,6 @@ class BibtexAuthorListParserTest extends \PHPUnit\Framework\TestCase {
 	 * @dataProvider authorListProvider
 	 */
 	public function testParse( $authorList, $expected ) {
-
 		$instance = new BibtexAuthorListParser();
 
 		$this->assertEquals(
@@ -37,7 +35,6 @@ class BibtexAuthorListParserTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function authorListProvider() {
-
 		$provider = [];
 
 		// http://artis.imag.fr/~Xavier.Decoret/resources/xdkbibtex/bibtex_summary.html
@@ -45,70 +42,70 @@ class BibtexAuthorListParserTest extends \PHPUnit\Framework\TestCase {
 			 'AA BB',
 			[
 				'AA BB'
-			]
+			 ]
 		];
 
 		$provider[] = [
 			 'AA',
 			[
 				'AA'
-			]
+			 ]
 		];
 
 		$provider[] = [
 			 'AA bb',
 			[
 				'AA bb'
-			]
+			 ]
 		];
 
 		$provider[] = [
 			 'AA bb CC',
 			[
 				'AA bb CC'
-			]
+			 ]
 		];
 
 		$provider[] = [
 			 'AA bb CC dd EE',
 			[
 				'AA CC bb dd EE'
-			]
+			 ]
 		];
 
 		$provider[] = [
 			 'AA 1B cc dd',
 			[
 				'AA 1B cc dd'
-			]
+			 ]
 		];
 
 		$provider[] = [
 			 'AA {b}B cc dd',
 			[
 				'AA b'
-			]
+			 ]
 		];
 
 		$provider[] = [
 			 'AA \BB{b} cc dd',
 			[
 				'AA \BB b'
-			]
+			 ]
 		];
 
 		$provider[] = [
 			 'bb CC dd EE, AA',
 			[
 				'AA bb CC dd EE'
-			]
+			 ]
 		];
 
 		$provider[] = [
 			 'bb CC,XX, AA',
 			[
 				'AA bb CC XX'
-			]
+			 ]
 		];
 
 		$provider[] = [
@@ -117,7 +114,7 @@ class BibtexAuthorListParserTest extends \PHPUnit\Framework\TestCase {
 				'Albert Einstein',
 				'Boris Podolsky',
 				'Nathan Rosen'
-			]
+			 ]
 		];
 
 		$provider[] = [
@@ -128,7 +125,7 @@ class BibtexAuthorListParserTest extends \PHPUnit\Framework\TestCase {
 				'Wun-Jing Kuang',
 				'David V Goeddel',
 				'Napoleone Ferrara'
-			]
+			 ]
 		];
 
 		$provider[] = [
@@ -138,7 +135,7 @@ class BibtexAuthorListParserTest extends \PHPUnit\Framework\TestCase {
 				'C Zhu',
 				'J K O Sin',
 				'P K T Mok'
-			]
+			 ]
 		];
 
 		$provider[] = [
@@ -170,7 +167,7 @@ class BibtexAuthorListParserTest extends \PHPUnit\Framework\TestCase {
 				'J Shi',
 				'J C Sturm',
 				'M H Lu'
-			]
+			 ]
 		];
 
 		// van
@@ -178,7 +175,7 @@ class BibtexAuthorListParserTest extends \PHPUnit\Framework\TestCase {
 			 'van den Bout, D. E.',
 			[
 				'D E van den Bout'
-			]
+			 ]
 		];
 
 		// Jr.
@@ -186,9 +183,8 @@ class BibtexAuthorListParserTest extends \PHPUnit\Framework\TestCase {
 			 'Osgood, Jr., R. M.',
 			[
 				'R M Osgood Jr.'
-			]
+			 ]
 		];
-
 
 		return $provider;
 	}

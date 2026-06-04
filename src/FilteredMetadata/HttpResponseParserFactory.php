@@ -2,11 +2,8 @@
 
 namespace SCI\FilteredMetadata;
 
-use Onoi\HttpRequest\HttpRequest;
-use Onoi\Remi\FilteredHttpResponseParserFactory;
-
 /**
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -35,7 +32,6 @@ class HttpResponseParserFactory {
 	 * @return ResponseParser
 	 */
 	public function newResponseParserForType( $type ) {
-
 		$bibliographicFilteredRecord = new BibliographicFilteredRecord();
 
 		$filteredHttpResponseParserFactory = new FilteredHttpResponseParserFactory(

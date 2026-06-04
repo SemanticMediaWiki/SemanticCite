@@ -8,7 +8,7 @@ use SCI\FilteredMetadata\OclcResponseParser;
  * @covers \SCI\FilteredMetadata\OclcResponseParser
  * @group semantic-cite
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since   1.0
  *
  * @author mwjames
@@ -16,20 +16,18 @@ use SCI\FilteredMetadata\OclcResponseParser;
 class OclcResponseParserTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
-
-		$oclcNumFilteredHttpResponseParser = $this->getMockBuilder( '\Onoi\Remi\Oclc\OclcFilteredHttpResponseParser' )
+		$oclcNumFilteredHttpResponseParser = $this->getMockBuilder( '\SCI\FilteredMetadata\Oclc\OclcFilteredHttpResponseParser' )
 			->disableOriginalConstructor()
 			->getMock();
 
 		$this->assertInstanceOf(
-			'\Onoi\Remi\ResponseParser',
+			'\SCI\FilteredMetadata\ResponseParser',
 			new OclcResponseParser( $oclcNumFilteredHttpResponseParser )
 		);
 	}
 
 	public function testInterfaceMethods() {
-
-		$oclcFilteredHttpResponseParser = $this->getMockBuilder( '\Onoi\Remi\Oclc\OclcFilteredHttpResponseParser' )
+		$oclcFilteredHttpResponseParser = $this->getMockBuilder( '\SCI\FilteredMetadata\Oclc\OclcFilteredHttpResponseParser' )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -56,18 +54,17 @@ class OclcResponseParserTest extends \PHPUnit\Framework\TestCase {
 	 * @dataProvider idProvider
 	 */
 	public function testDoParseForId( $id, $expects ) {
-
 		$record = $this->getMockBuilder( '\SCI\FilteredMetadata\BibliographicFilteredRecord' )
 			->disableOriginalConstructor()
 			->getMock();
 
-		$oclcFilteredHttpResponseParser = $this->getMockBuilder( '\Onoi\Remi\Oclc\OclcFilteredHttpResponseParser' )
+		$oclcFilteredHttpResponseParser = $this->getMockBuilder( '\SCI\FilteredMetadata\Oclc\OclcFilteredHttpResponseParser' )
 			->disableOriginalConstructor()
 			->getMock();
 
 		$oclcFilteredHttpResponseParser->expects( $this->any() )
 			->method( 'getFilteredRecord' )
-			->will( $this->returnValue( $record ) );
+			->willReturn( $record );
 
 		$oclcFilteredHttpResponseParser->expects( $expects )
 			->method( 'doFilterResponseFor' );
@@ -77,7 +74,6 @@ class OclcResponseParserTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function idProvider() {
-
 		$provider[] = [
 			'abc',
 			 $this->never()

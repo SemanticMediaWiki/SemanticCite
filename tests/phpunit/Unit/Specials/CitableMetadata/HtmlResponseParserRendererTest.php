@@ -8,7 +8,7 @@ use SCI\Specials\CitableMetadata\HtmlResponseParserRenderer;
  * @covers \SCI\Specials\CitableMetadata\HtmlResponseParserRenderer
  * @group semantic-cite
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -16,8 +16,7 @@ use SCI\Specials\CitableMetadata\HtmlResponseParserRenderer;
 class HtmlResponseParserRendererTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
-
-		$responseParser = $this->getMockBuilder( '\Onoi\Remi\ResponseParser' )
+		$responseParser = $this->getMockBuilder( '\SCI\FilteredMetadata\ResponseParser' )
 			->disableOriginalConstructor()
 			->getMockForAbstractClass();
 
@@ -28,8 +27,7 @@ class HtmlResponseParserRendererTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testGetRawResponse() {
-
-		$responseParser = $this->getMockBuilder( '\Onoi\Remi\ResponseParser' )
+		$responseParser = $this->getMockBuilder( '\SCI\FilteredMetadata\ResponseParser' )
 			->disableOriginalConstructor()
 			->getMockForAbstractClass();
 
@@ -45,12 +43,11 @@ class HtmlResponseParserRendererTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testRenderText() {
-
 		$bibliographicFilteredRecord = $this->getMockBuilder( '\SCI\FilteredMetadata\BibliographicFilteredRecord' )
 			->disableOriginalConstructor()
 			->getMock();
 
-		$responseParser = $this->getMockBuilder( '\Onoi\Remi\ResponseParser' )
+		$responseParser = $this->getMockBuilder( '\SCI\FilteredMetadata\ResponseParser' )
 			->disableOriginalConstructor()
 			->getMockForAbstractClass();
 
@@ -60,11 +57,11 @@ class HtmlResponseParserRendererTest extends \PHPUnit\Framework\TestCase {
 
 		$responseParser->expects( $this->atLeastOnce() )
 			->method( 'getMessages' )
-			->will( $this->returnValue( [] ) );
+			->willReturn( [] );
 
 		$responseParser->expects( $this->atLeastOnce() )
 			->method( 'getFilteredRecord' )
-			->will( $this->returnValue( $bibliographicFilteredRecord ) );
+			->willReturn( $bibliographicFilteredRecord );
 
 		$instance = new HtmlResponseParserRenderer(
 			$responseParser

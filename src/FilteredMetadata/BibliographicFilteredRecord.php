@@ -2,11 +2,8 @@
 
 namespace SCI\FilteredMetadata;
 
-use Onoi\Remi\FilteredRecord;
-use InvalidArgumentException;
-
 /**
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -66,9 +63,8 @@ class BibliographicFilteredRecord extends FilteredRecord {
 	 * @return string|null
 	 */
 	public function getSearchMatchSetValueFor( $key ) {
-
 		if ( isset( $this->searchMatchSet[$key] ) ) {
-			return  $this->searchMatchSet[$key];
+			return $this->searchMatchSet[$key];
 		}
 
 		return null;
@@ -117,7 +113,6 @@ class BibliographicFilteredRecord extends FilteredRecord {
 	 * @return string
 	 */
 	public function __toString() {
-
 		$text = '';
 
 		foreach ( $this->recordFields as $key => $value ) {
@@ -142,7 +137,7 @@ class BibliographicFilteredRecord extends FilteredRecord {
 	 * @return string
 	 */
 	public function asSciteTransclusion() {
-		return '{{#scite:' . $this->sciteTransclusionHead ."\n" . $this .  "}}";;
+		return '{{#scite:' . $this->sciteTransclusionHead . "\n" . $this . "}}";
 	}
 
 }

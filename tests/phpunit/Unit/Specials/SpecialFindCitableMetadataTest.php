@@ -2,13 +2,11 @@
 
 namespace SCI\Tests\Specials;
 
-use SCI\Specials\SpecialFindCitableMetadata;
-
 /**
  * @covers \SCI\Specials\SpecialFindCitableMetadata
  * @group semantic-cite
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -22,8 +20,7 @@ class SpecialFindCitableMetadataTest extends \PHPUnit\Framework\TestCase {
 	private $outputPage;
 	private $context;
 
-	protected function setUp() : void {
-
+	protected function setUp(): void {
 		$this->request = $this->getMockBuilder( '\WebRequest' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -53,18 +50,17 @@ class SpecialFindCitableMetadataTest extends \PHPUnit\Framework\TestCase {
 	 * @dataProvider variableProvider
 	 */
 	public function testCanExecute( $requestValues, $queryString ) {
-
 		$this->request->expects( $this->once() )
 			->method( 'getValues' )
-			->will( $this->returnValue( $requestValues ) );
+			->willReturn( $requestValues );
 
 		$this->context->expects( $this->any() )
 			->method( 'getTitle' )
-			->will( $this->returnValue( \MediaWiki\Title\Title::newFromText( __METHOD__ ) ) );
+			->willReturn( \MediaWiki\Title\Title::newFromText( __METHOD__ ) );
 
 		$SpecialFindCitableMetadata = $this->getMockBuilder( '\SCI\Specials\SpecialFindCitableMetadata' )
 			->disableOriginalConstructor()
-			->setMethods( [
+			->onlyMethods( [
 				'getContext',
 				'getOutput',
 				'msg',
@@ -77,37 +73,36 @@ class SpecialFindCitableMetadataTest extends \PHPUnit\Framework\TestCase {
 
 		$SpecialFindCitableMetadata->expects( $this->any() )
 			->method( 'getContext' )
-			->will( $this->returnValue( $this->context ) );
+			->willReturn( $this->context );
 
 		$SpecialFindCitableMetadata->expects( $this->any() )
 			->method( 'getOutput' )
-			->will( $this->returnValue( $this->outputPage ) );
+			->willReturn( $this->outputPage );
 
 		$SpecialFindCitableMetadata->expects( $this->any() )
 			->method( 'getUser' )
-			->will( $this->returnValue( $this->user ) );
+			->willReturn( $this->user );
 
 		$SpecialFindCitableMetadata->expects( $this->any() )
 			->method( 'msg' )
-			->will( $this->returnValue( $this->message ) );
+			->willReturn( $this->message );
 
 		$SpecialFindCitableMetadata->expects( $this->any() )
 			->method( 'getConfig' )
-			->will( $this->returnValue( $this->config ) );
+			->willReturn( $this->config );
 
 		$SpecialFindCitableMetadata->expects( $this->any() )
 			->method( 'getRequest' )
-			->will( $this->returnValue( $this->request ) );
+			->willReturn( $this->request );
 
 		$SpecialFindCitableMetadata->expects( $this->once() )
 			->method( 'userCanExecute' )
-			->will( $this->returnValue( true ) );
+			->willReturn( true );
 
 		$SpecialFindCitableMetadata->execute( $queryString );
 	}
 
 	public function variableProvider() {
-
 		$provider[] = [
 			[],
 			''

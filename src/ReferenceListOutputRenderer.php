@@ -2,13 +2,12 @@
 
 namespace SCI;
 
-use Parser;
 use MediaWiki\Html\Html;
+use SMW\DataItems\WikiPage;
 use SMW\MediaWiki\Renderer\HtmlColumnListRenderer;
-use SMW\DIWikiPage;
 
 /**
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -31,12 +30,12 @@ class ReferenceListOutputRenderer {
 	private $htmlColumnListRenderer;
 
 	/**
-	 * @var integer
+	 * @var int
 	 */
 	private $numberOfReferenceListColumns = 0;
 
 	/**
-	 * @var boolean
+	 * @var bool
 	 */
 	private $browseLinkToCitationResourceVisibility = true;
 
@@ -56,12 +55,12 @@ class ReferenceListOutputRenderer {
 	private $referenceListHeaderTocId = '';
 
 	/**
-	 * @var integer
+	 * @var int
 	 */
 	private $citationReferenceCaptionFormat = SCI_CITEREF_NUM;
 
 	/**
-	 * @var integer
+	 * @var int
 	 */
 	private $responsiveMonoColumnCharacterBoundLength = 400;
 
@@ -81,7 +80,7 @@ class ReferenceListOutputRenderer {
 	/**
 	 * @since 1.0
 	 *
-	 * @param integer $citationReferenceCaptionFormat
+	 * @param int $citationReferenceCaptionFormat
 	 */
 	public function setCitationReferenceCaptionFormat( $citationReferenceCaptionFormat ) {
 		$this->citationReferenceCaptionFormat = (int)$citationReferenceCaptionFormat;
@@ -90,7 +89,7 @@ class ReferenceListOutputRenderer {
 	/**
 	 * @since 1.2
 	 *
-	 * @param integer $responsiveMonoColumnCharacterBoundLength
+	 * @param int $responsiveMonoColumnCharacterBoundLength
 	 */
 	public function setResponsiveMonoColumnCharacterBoundLength( $responsiveMonoColumnCharacterBoundLength ) {
 		$this->responsiveMonoColumnCharacterBoundLength = (int)$responsiveMonoColumnCharacterBoundLength;
@@ -99,7 +98,7 @@ class ReferenceListOutputRenderer {
 	/**
 	 * @since 1.0
 	 *
-	 * @param integer $numberOfReferenceListColumns
+	 * @param int $numberOfReferenceListColumns
 	 */
 	public function setNumberOfReferenceListColumns( $numberOfReferenceListColumns ) {
 		$this->numberOfReferenceListColumns = (int)$numberOfReferenceListColumns;
@@ -135,7 +134,7 @@ class ReferenceListOutputRenderer {
 	/**
 	 * @since 1.0
 	 *
-	 * @param boolean $browseLinkToCitationResourceVisibility
+	 * @param bool $browseLinkToCitationResourceVisibility
 	 */
 	public function setBrowseLinkToCitationResourceVisibility( $browseLinkToCitationResourceVisibility ) {
 		$this->browseLinkToCitationResourceVisibility = (bool)$browseLinkToCitationResourceVisibility;
@@ -171,13 +170,12 @@ class ReferenceListOutputRenderer {
 	/**
 	 * @since 1.0
 	 *
-	 * @param DIWikiPage $subject
+	 * @param WikiPage $subject
 	 * @param array|null $referenceList
 	 *
 	 * @return string
 	 */
-	public function doRenderReferenceListFor( DIWikiPage $subject, array $referenceList = null ) {
-
+	public function doRenderReferenceListFor( WikiPage $subject, array $referenceList = null ) {
 		if ( $referenceList !== null ) {
 			$journal = $this->citationReferencePositionJournal->buildJournalForUnboundReferenceList(
 				$referenceList
@@ -203,7 +201,6 @@ class ReferenceListOutputRenderer {
 	 * 'reference-pos'  => individual reference links (1-a, 1-b) assigned to a hash
 	 */
 	private function createHtmlFromJournal( array $journal ) {
-
 		$listOfFormattedReferences = [];
 		$targetList = [];
 		$length = 0;
@@ -215,7 +212,7 @@ class ReferenceListOutputRenderer {
 			// intead of trying to access the DB/Store
 			$reference = $journal['reference-list'][$hash];
 
-			list( $subjects, $citationText ) = $this->findCitationTextFor(
+			[ $subjects, $citationText ] = $this->findCitationTextFor(
 				$reference
 			);
 
@@ -238,7 +235,7 @@ class ReferenceListOutputRenderer {
 				];
 			} else {
 				$attribs = [
-					'id' => 'scite-'. $hash,
+					'id' => 'scite-' . $hash,
 					'class' => 'scite-referencelinks'
 				];
 			}
@@ -248,7 +245,7 @@ class ReferenceListOutputRenderer {
 				$attribs,
 				$flatHtmlReferenceLinks
 			) .
-			( $flatHtmlReferenceLinks !== '' ? '&nbsp;' : '' )  .
+			( $flatHtmlReferenceLinks !== '' ? '&nbsp;' : '' ) .
 			Html::rawElement(
 				'span',
 				[
@@ -262,14 +259,13 @@ class ReferenceListOutputRenderer {
 			);
 
 			$listOfFormattedReferences[] = $ref;
-			$targetList[md5($ref)] = [ 'id' => 'scite-'. $hash ];
+			$targetList[md5( $ref )] = [ 'id' => 'scite-' . $hash ];
 		}
 
 		return $this->makeList( $listOfFormattedReferences, $targetList, $length );
 	}
 
 	private function makeList( $listOfFormattedReferences, $targetList, $length ) {
-
 		$monoClass = ( $length > $this->responsiveMonoColumnCharacterBoundLength ? '' : '-mono' );
 
 		// #33, #32
@@ -285,7 +281,7 @@ class ReferenceListOutputRenderer {
 		}
 
 		if ( $this->numberOfReferenceListColumns == 0 ) {
-			$this->htmlColumnListRenderer->setColumnClass( 'scite-referencelist-columns-responsive'. $monoClass );
+			$this->htmlColumnListRenderer->setColumnClass( 'scite-referencelist-columns-responsive' . $monoClass );
 		} else {
 			$this->htmlColumnListRenderer->setNumberOfColumns( $this->numberOfReferenceListColumns );
 			$this->htmlColumnListRenderer->setColumnClass( 'scite-referencelist-columns-fixed' );
@@ -315,8 +311,7 @@ class ReferenceListOutputRenderer {
 	}
 
 	private function findCitationTextFor( $reference ) {
-
-		list( $subjects, $text ) = $this->citationResourceMatchFinder->findCitationTextFor(
+		[ $subjects, $text ] = $this->citationResourceMatchFinder->findCitationTextFor(
 			$reference
 		);
 
@@ -329,7 +324,6 @@ class ReferenceListOutputRenderer {
 	}
 
 	private function createFlatHtmlListForReferenceLinks( array $linkList, $referenceHash ) {
-
 		$referenceLinks = [];
 		$class = 'scite-backlinks';
 
@@ -338,7 +332,7 @@ class ReferenceListOutputRenderer {
 			$isOneLinkElement = count( $linkList ) == 1;
 
 			// Split a value of 1-a, 1-b, 2-a into its parts
-			list( $major, $minor ) = explode( '-', $value );
+			[ $major, $minor ] = explode( '-', $value );
 
 			// Show a simple link similar to what is done on en.wp
 			// for a one-link-reference
@@ -367,7 +361,6 @@ class ReferenceListOutputRenderer {
 	}
 
 	private function createBrowseLinksWith( array $subjects, $reference, $citationText ) {
-
 		// If no text is available at least show the reference
 		if ( $citationText === '' ) {
 			return Html::rawElement(

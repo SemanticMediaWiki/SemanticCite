@@ -40,4 +40,8 @@ placeholder is later replaced by `CachedReferenceListOutputRenderer::addReferenc
 
 ## Metadata search / provider
 
-Metadata selection and REST response parsing are provided by the `onoi/remi` library.
+Metadata selection and REST response parsing are handled by the bibliographic
+response parsers under `SCI\FilteredMetadata` (originally derived from the
+`onoi/remi` library and now bundled with the extension). HTTP requests are issued
+through MediaWiki's `HttpRequestFactory`, with successful responses cached in a
+MediaWiki object cache.

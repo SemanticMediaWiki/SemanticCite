@@ -8,7 +8,7 @@ use SCI\CitationTextTemplateRenderer;
  * @covers \SCI\CitationTextTemplateRenderer
  * @group semantic-cite
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since   1.0
  *
  * @author mwjames
@@ -16,7 +16,6 @@ use SCI\CitationTextTemplateRenderer;
 class CitationTextTemplateRendererTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
-
 		$wikitextTemplateRenderer = $this->getMockBuilder( '\SMW\MediaWiki\Renderer\WikitextTemplateRenderer' )
 			->disableOriginalConstructor()
 			->getMock();

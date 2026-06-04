@@ -1,19 +1,40 @@
 This file contains the RELEASE-NOTES of the **Semantic Cite** (a.k.a. SCI) extension.
 
-## 4.0.1
-Released on March 24, 2026.
+## 7.0.0
 
+Note: the version was bumped from 4.0.0 directly to 7.0.0 to track the Semantic
+MediaWiki major release it supports; versions 5.x and 6.x were skipped.
+
+* Minimum requirement for Semantic MediaWiki changed to version 7.0 and later
+* Added compatibility with Semantic MediaWiki 7.0.x
+* Replaced the removed `CacheFactory::newMediaWikiCompositeCache()` call with
+  MediaWiki's `CachedBagOStuff`
+* Removed the `onoi/cache`, `onoi/remi` and `mediawiki/http-request`
+  dependencies in favour of MediaWiki built-ins; caching now uses
+  `BagOStuff`/`CachedBagOStuff` and metadata requests use `HttpRequestFactory`.
+  The bibliographic metadata parsers previously provided by `onoi/remi` are now
+  bundled under `SCI\FilteredMetadata`
+* Metadata-provider HTTP requests now verify TLS certificates; the bundled
+  parsers no longer skip peer verification (the former `onoi/remi` parsers
+  disabled it for some providers)
+* Replaced the removed `EntityIdManager::getDataItemPoolHashListFor()` call with
+  `getDataItemsFromList()`
+* Replaced the removed `HtmlFormRenderer::getMessageBuilder()` usage with
+  language-scoped `wfMessage()` calls
 * Fixed tooltip displaying raw wikitext (`[[...]]`) instead of rendered links for citation text containing wikilinks
 * Fixed `api.parse` fallback in tooltip to use `wikitextToHtml()` instead of raw citation text when jQuery extraction fails
 * Scoped CSS bracket pseudo-elements (`[`, `]`) to direct child links to prevent them from bleeding into tooltip popups
 
 ## 4.0.0
-Released on March 6, 2026.
+Released on March 13, 2026.
 
 * Minimum requirement for
   * PHP changed to version 8.1 and later
   * MediaWiki changed to version 1.43 (LTS) and later
-* Added compatibility with MediaWiki 1.45.x and Semantic MediaWiki 6.0.x
+* Added compatibility with
+  * MediaWiki 1.45.x
+  * Semantic MediaWiki 6.0.x
+* Localisation updates from https://translatewiki.net
 * Migrated `Html` class usage to `MediaWiki\Html\Html` namespace (MW 1.44+)
 * Migrated `WikiMap` class usage to `MediaWiki\WikiMap\WikiMap` namespace (MW 1.44+)
 * Replaced deprecated `onoi.qtip` / `onoi.blobstore` JS modules with `ext.smw.tooltip` / `mediawiki.storage`

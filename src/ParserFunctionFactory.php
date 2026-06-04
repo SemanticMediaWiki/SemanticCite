@@ -2,15 +2,15 @@
 
 namespace SCI;
 
-use SMW\Services\ServicesFactory as ApplicationFactory;
+use SCI\Bibtex\BibtexAuthorListParser;
+use SCI\Bibtex\BibtexParser;
+use SCI\Bibtex\BibtexProcessor;
 use SMW\NamespaceExaminer;
 use SMW\ParameterProcessorFactory;
-use SCI\Bibtex\BibtexProcessor;
-use SCI\Bibtex\BibtexParser;
-use SCI\Bibtex\BibtexAuthorListParser;
+use SMW\Services\ServicesFactory as ApplicationFactory;
 
 /**
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -28,9 +28,7 @@ class ParserFunctionFactory {
 	 * @return array
 	 */
 	public function newSciteParserFunctionDefinition( NamespaceExaminer $namespaceExaminer, Options $options ) {
-
-		$sciteParserFunctionDefinition = function( $parser ) use( $namespaceExaminer, $options ) {
-
+		$sciteParserFunctionDefinition = static function ( $parser ) use( $namespaceExaminer, $options ) {
 			$parserData = ApplicationFactory::getInstance()->newParserData(
 				$parser->getTitle(),
 				$parser->getOutput()
@@ -76,9 +74,7 @@ class ParserFunctionFactory {
 	 * @return array
 	 */
 	public function newReferenceListParserFunctionDefinition() {
-
-		$referenceListParserFunctionDefinition = function( $parser ) {
-
+		$referenceListParserFunctionDefinition = static function ( $parser ) {
 			$parserData = ApplicationFactory::getInstance()->newParserData(
 				$parser->getTitle(),
 				$parser->getOutput()

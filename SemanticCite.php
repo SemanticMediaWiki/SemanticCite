@@ -1,8 +1,11 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
 use SCI\HookRegistry;
 use SCI\Options;
 use SMW\Services\ServicesFactory as ApplicationFactory;
+use Wikimedia\ObjectCache\BagOStuff;
+use Wikimedia\ObjectCache\CachedBagOStuff;
 
 /**
  * @see https://github.com/SemanticMediaWiki/SemanticCite/
@@ -24,27 +27,29 @@ class SemanticCite {
 	 * the extension is activated.
 	 */
 	public static function load() {
-
 		if ( is_readable( __DIR__ . '/vendor/autoload.php' ) ) {
 			include_once __DIR__ . '/vendor/autoload.php';
 		}
 
-		// Load DefaultSettings
-		require_once __DIR__ . '/DefaultSettings.php';
+		// Load DefaultSettings only inside MediaWiki; the file bails out when
+		// accessed directly (e.g. when Composer loads this entry point as part
+		// of `autoload.files` while running its scripts outside MediaWiki).
+		if ( defined( 'MEDIAWIKI' ) ) {
+			require_once __DIR__ . '/DefaultSettings.php';
+		}
 	}
 
 	/**
 	 * @since 1.1
 	 */
 	public static function initExtension( $credits = [] ) {
-
 		// See https://phabricator.wikimedia.org/T151136
 		define( 'SCI_VERSION', isset( $credits['version'] ) ? $credits['version'] : 'UNKNOWN' );
 
 		// Extend the upgrade key provided by SMW to ensure that an DB
 		// schema is updated accordingly before using the extension
 		if ( isset( $GLOBALS['smwgUpgradeKey'] ) ) {
-		//	$GLOBALS['smwgUpgradeKey'] .= ':scite:2018-09';
+		// $GLOBALS['smwgUpgradeKey'] .= ':scite:2018-09';
 		}
 
 		// Register message files
@@ -123,7 +128,6 @@ class SemanticCite {
 	 * @since 1.1
 	 */
 	public static function onExtensionFunction() {
-
 		if ( !defined( 'SMW_VERSION' ) ) {
 			if ( PHP_SAPI === 'cli' || PHP_SAPI === 'phpdbg' ) {
 				die( "\nThe 'Semantic Cite' extension requires 'Semantic MediaWiki' to be installed and enabled.\n" );
@@ -153,11 +157,34 @@ class SemanticCite {
 
 		$hookRegistry = new HookRegistry(
 			$applicationFactory->getStore(),
-			$applicationFactory->newCacheFactory()->newMediaWikiCompositeCache( $GLOBALS['scigReferenceListCacheType'] ),
+			self::newCompositeCache( $GLOBALS['scigReferenceListCacheType'] ),
 			new Options( $configuration )
 		);
 
 		$hookRegistry->register();
+	}
+
+	/**
+	 * Builds an object cache that wraps a MediaWiki backend object cache with an
+	 * in-process layer (a fixed-size hash cache) so that repeated lookups within
+	 * the same request avoid hitting the backend.
+	 *
+	 * This replaces the former `onoi/cache` composite cache; `CachedBagOStuff`
+	 * provides the equivalent in-memory-over-persistent behaviour using only
+	 * MediaWiki built-ins.
+	 *
+	 * @since 7.0
+	 *
+	 * @param int|string $cacheType
+	 *
+	 * @return BagOStuff
+	 */
+	public static function newCompositeCache( $cacheType ): BagOStuff {
+		$bagOStuff = MediaWikiServices::getInstance()->getObjectCacheFactory()->getInstance(
+			$cacheType
+		);
+
+		return new CachedBagOStuff( $bagOStuff, [ 'maxKeys' => 500 ] );
 	}
 
 }

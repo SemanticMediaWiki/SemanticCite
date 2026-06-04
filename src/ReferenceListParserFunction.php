@@ -2,14 +2,14 @@
 
 namespace SCI;
 
-use SMW\ParserParameterProcessor;
-use SMW\DIProperty;
-use SMW\ParserData;
-use SMW\DataValueFactory;
 use MediaWiki\Html\Html;
+use SMW\DataItems\Property;
+use SMW\DataValueFactory;
+use SMW\ParserData;
+use SMW\ParserParameterProcessor;
 
 /**
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -48,8 +48,7 @@ class ReferenceListParserFunction {
 	 * @param ParserParameterProcessor $parserParameterProcessor
 	 */
 	public function doProcess( ParserParameterProcessor $parserParameterProcessor ) {
-
-		list( $header, $headerElement, $attributes ) = $this->getElementsForHtml(
+		[ $header, $headerElement, $attributes ] = $this->getElementsForHtml(
 			$parserParameterProcessor->toArray()
 		);
 
@@ -77,7 +76,6 @@ class ReferenceListParserFunction {
 	}
 
 	private function getElementsForHtml( $parameters ) {
-
 		$header = wfMessage( 'sci-referencelist-header' )->text();
 
 		// The span placeholder will hide the header from the TOC by default
@@ -104,7 +102,7 @@ class ReferenceListParserFunction {
 					$headerElement = 'h2';
 				}
 
-				$attributes['data-'. $key] = $value;
+				$attributes['data-' . $key] = $value;
 			}
 		}
 
@@ -112,12 +110,11 @@ class ReferenceListParserFunction {
 	}
 
 	private function doProcessReferenceValues( array $values ) {
-
 		$subject = $this->parserData->getSubject();
 
 		foreach ( $values as $value ) {
-			$dataValue = $this->dataValueFactory->newPropertyValue(
-					new DIProperty( PropertyRegistry::SCI_CITE_REFERENCE ),
+			$dataValue = $this->dataValueFactory->newDataValueByText(
+					new Property( PropertyRegistry::SCI_CITE_REFERENCE ),
 					trim( $value ),
 					false,
 					$subject
@@ -128,7 +125,7 @@ class ReferenceListParserFunction {
 
 		if ( !$this->parserData->getSemanticData()->isEmpty() ) {
 			$this->parserData->getSubject()->setContextReference( 'referencelistp:' . uniqid() );
-			$this->parserData->pushSemanticDataToParserOutput();
+			$this->parserData->copyToParserOutput();
 		}
 
 		return json_encode( $values );

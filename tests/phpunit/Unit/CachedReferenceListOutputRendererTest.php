@@ -8,7 +8,7 @@ use SCI\CachedReferenceListOutputRenderer;
  * @covers \SCI\CachedReferenceListOutputRenderer
  * @group semantic-cite
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -21,8 +21,7 @@ class CachedReferenceListOutputRendererTest extends \PHPUnit\Framework\TestCase 
 	private $cache;
 	private $cacheKeyProvider;
 
-	protected function setUp() : void {
-
+	protected function setUp(): void {
 		$this->referenceListOutputRenderer = $this->getMockBuilder( '\SCI\ReferenceListOutputRenderer' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -35,7 +34,7 @@ class CachedReferenceListOutputRendererTest extends \PHPUnit\Framework\TestCase 
 			->disableOriginalConstructor()
 			->getMock();
 
-		$this->cache = $this->getMockBuilder( '\Onoi\Cache\Cache' )
+		$this->cache = $this->getMockBuilder( '\Wikimedia\ObjectCache\BagOStuff' )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -45,7 +44,6 @@ class CachedReferenceListOutputRendererTest extends \PHPUnit\Framework\TestCase 
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			'\SCI\CachedReferenceListOutputRenderer',
 			new CachedReferenceListOutputRenderer(
@@ -59,18 +57,17 @@ class CachedReferenceListOutputRendererTest extends \PHPUnit\Framework\TestCase 
 	}
 
 	public function testUnmodifiedTextForNotEnabledSemanticNamespace() {
-
 		$this->contextInteractor->expects( $this->once() )
 			->method( 'getTitle' )
-			->will( $this->returnValue( \MediaWiki\Title\Title::newFromText( __METHOD__ ) ) );
+			->willReturn( \MediaWiki\Title\Title::newFromText( __METHOD__ ) );
 
 		$this->contextInteractor->expects( $this->once() )
 			->method( 'hasAction' )
-			->will( $this->returnValue( true ) );
+			->willReturn( true );
 
 		$this->namespaceExaminer->expects( $this->once() )
 			->method( 'isSemanticEnabled' )
-			->will( $this->returnValue( false ) );
+			->willReturn( false );
 
 		$instance =	new CachedReferenceListOutputRenderer(
 			$this->referenceListOutputRenderer,
@@ -89,11 +86,10 @@ class CachedReferenceListOutputRendererTest extends \PHPUnit\Framework\TestCase 
 	}
 
 	public function testRemovalOfPlaceholderForDisabledReferencelist() {
-
 		$this->contextInteractor->expects( $this->once() )
 			->method( 'hasMagicWord' )
-			->with( $this->equalTo( 'SCI_NOREFERENCELIST' ) )
-			->will( $this->returnValue( true ) );
+			->with( 'SCI_NOREFERENCELIST' )
+			->willReturn( true );
 
 		$instance =	new CachedReferenceListOutputRenderer(
 			$this->referenceListOutputRenderer,
@@ -112,21 +108,20 @@ class CachedReferenceListOutputRendererTest extends \PHPUnit\Framework\TestCase 
 	}
 
 	public function testNoAutoReferencelistOnFileNamespace() {
-
 		$this->contextInteractor->expects( $this->atLeastOnce() )
 			->method( 'getTitle' )
-			->will( $this->returnValue( \MediaWiki\Title\Title::newFromText( __METHOD__, NS_FILE ) ) );
+			->willReturn( \MediaWiki\Title\Title::newFromText( __METHOD__, NS_FILE ) );
 
 		$this->contextInteractor->expects( $this->once() )
 			->method( 'hasAction' )
-			->will( $this->returnValue( true ) );
+			->willReturn( true );
 
 		$this->contextInteractor->expects( $this->never() )
 			->method( 'getOldId' );
 
 		$this->namespaceExaminer->expects( $this->once() )
 			->method( 'isSemanticEnabled' )
-			->will( $this->returnValue( true ) );
+			->willReturn( true );
 
 		$instance =	new CachedReferenceListOutputRenderer(
 			$this->referenceListOutputRenderer,

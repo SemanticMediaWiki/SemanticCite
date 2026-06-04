@@ -2,18 +2,18 @@
 
 namespace SCI;
 
-use SMW\Store;
-use SMW\DIProperty;
-use SMW\DIWikiPage;
-use SMW\Services\ServicesFactory as ApplicationFactory;
+use SMW\DataItems\Property;
+use SMW\DataItems\WikiPage;
 use SMW\HashBuilder;
+use SMW\Services\ServicesFactory as ApplicationFactory;
 use SMW\SQLStore\ChangeOp\ChangeOp;
+use SMW\Store;
 
 /**
  * If a citation text was altered then lookup related references on pages used
  * and schedule a dispatch update job.
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -31,7 +31,7 @@ class CitationTextChangeUpdateJobDispatcher {
 	private $referenceBacklinksLookup;
 
 	/**
-	 * @var boolean
+	 * @var bool
 	 */
 	private $enabledUpdateJobState = true;
 
@@ -49,7 +49,7 @@ class CitationTextChangeUpdateJobDispatcher {
 	/**
 	 * @since  1.0
 	 *
-	 * @param boolean $enabledUpdateJobState
+	 * @param bool $enabledUpdateJobState
 	 */
 	public function setEnabledUpdateJobState( $enabledUpdateJobState ) {
 		$this->enabledUpdateJobState = $enabledUpdateJobState;
@@ -58,19 +58,18 @@ class CitationTextChangeUpdateJobDispatcher {
 	/**
 	 * @since  1.0
 	 *
-	 * @param DIWikiPage $subject
+	 * @param WikiPage $subject
 	 * @param ChangeOp $changeOp
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
-	public function dispatchUpdateJobFor( DIWikiPage $subject, ChangeOp $changeOp ) {
-
+	public function dispatchUpdateJobFor( WikiPage $subject, ChangeOp $changeOp ) {
 		if ( !$this->enabledUpdateJobState ) {
 			return false;
 		}
 
 		$tableName = $this->store->getPropertyTableInfoFetcher()->findTableIdForProperty(
-			new DIProperty( PropertyRegistry::SCI_CITE_TEXT )
+			new Property( PropertyRegistry::SCI_CITE_TEXT )
 		);
 
 		$subjectIdList = $this->getSubjectListFrom(
@@ -94,7 +93,6 @@ class CitationTextChangeUpdateJobDispatcher {
 	}
 
 	private function getSubjectListFrom( array $orderedDiff ) {
-
 		$subjectIdList = [];
 
 		// Find out whether a cite text object was altered
@@ -125,17 +123,16 @@ class CitationTextChangeUpdateJobDispatcher {
 	}
 
 	private function getDispatchableTargetList( array $subjectIdList ) {
-
 		if ( $subjectIdList === [] ) {
 			return [];
 		}
 
-		$hashList = $this->store->getObjectIds()->getDataItemPoolHashListFor( $subjectIdList );
+		$dataItems = $this->store->getObjectIds()->getDataItemsFromList( $subjectIdList );
 		$referenceBacklinks = [];
 
-		foreach ( $hashList as $hash ) {
+		foreach ( $dataItems as $dataItem ) {
 			$referenceBacklinks += $this->referenceBacklinksLookup->findReferenceBacklinksFor(
-				$this->referenceBacklinksLookup->tryToFindCitationKeyFor( DIWikiPage::doUnserialize( $hash ) )
+				$this->referenceBacklinksLookup->tryToFindCitationKeyFor( $dataItem )
 			);
 		}
 

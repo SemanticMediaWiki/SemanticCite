@@ -2,11 +2,11 @@
 
 namespace SCI\Specials\CitableMetadata;
 
-use Onoi\Remi\ResponseParser;
 use MediaWiki\Html\Html;
+use SCI\FilteredMetadata\ResponseParser;
 
 /**
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -19,7 +19,7 @@ class HtmlResponseParserRenderer {
 	private $responseParser;
 
 	/**
-	 * @var boolean
+	 * @var bool
 	 */
 	private $isReadOnly = false;
 
@@ -35,7 +35,7 @@ class HtmlResponseParserRenderer {
 	/**
 	 * @since 1.4
 	 *
-	 * @param boolean $isReadOnly
+	 * @param bool $isReadOnly
 	 */
 	public function isReadOnly( $isReadOnly ) {
 		$this->isReadOnly = (bool)$isReadOnly;
@@ -47,7 +47,6 @@ class HtmlResponseParserRenderer {
 	 * @return string
 	 */
 	public function getRawResponse( $id ) {
-
 		if ( $id === '' ) {
 			return '';
 		}
@@ -61,7 +60,6 @@ class HtmlResponseParserRenderer {
 	 * @return string
 	 */
 	public function renderTextFor( $id ) {
-
 		$html = '';
 
 		$this->responseParser->doFilterResponseFor( $id );

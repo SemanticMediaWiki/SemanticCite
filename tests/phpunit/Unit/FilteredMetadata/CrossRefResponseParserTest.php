@@ -8,7 +8,7 @@ use SCI\FilteredMetadata\CrossRefResponseParser;
  * @covers \SCI\FilteredMetadata\CrossRefResponseParser
  * @group semantic-cite
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since   1.0
  *
  * @author mwjames
@@ -16,20 +16,18 @@ use SCI\FilteredMetadata\CrossRefResponseParser;
 class CrossRefResponseParserTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
-
-		$crossRefFilteredHttpResponseParser = $this->getMockBuilder( '\Onoi\Remi\CrossRef\CrossRefFilteredHttpResponseParser' )
+		$crossRefFilteredHttpResponseParser = $this->getMockBuilder( '\SCI\FilteredMetadata\CrossRef\CrossRefFilteredHttpResponseParser' )
 			->disableOriginalConstructor()
 			->getMock();
 
 		$this->assertInstanceOf(
-			'\Onoi\Remi\ResponseParser',
+			'\SCI\FilteredMetadata\ResponseParser',
 			new CrossRefResponseParser( $crossRefFilteredHttpResponseParser )
 		);
 	}
 
 	public function testInterfaceMethods() {
-
-		$crossRefFilteredHttpResponseParser = $this->getMockBuilder( '\Onoi\Remi\CrossRef\CrossRefFilteredHttpResponseParser' )
+		$crossRefFilteredHttpResponseParser = $this->getMockBuilder( '\SCI\FilteredMetadata\CrossRef\CrossRefFilteredHttpResponseParser' )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -56,18 +54,17 @@ class CrossRefResponseParserTest extends \PHPUnit\Framework\TestCase {
 	 * @dataProvider idProvider
 	 */
 	public function testDoParseForId( $id, $expects ) {
-
 		$record = $this->getMockBuilder( '\SCI\FilteredMetadata\BibliographicFilteredRecord' )
 			->disableOriginalConstructor()
 			->getMock();
 
-		$crossRefFilteredHttpResponseParser = $this->getMockBuilder( '\Onoi\Remi\CrossRef\CrossRefFilteredHttpResponseParser' )
+		$crossRefFilteredHttpResponseParser = $this->getMockBuilder( '\SCI\FilteredMetadata\CrossRef\CrossRefFilteredHttpResponseParser' )
 			->disableOriginalConstructor()
 			->getMock();
 
 		$crossRefFilteredHttpResponseParser->expects( $this->any() )
 			->method( 'getFilteredRecord' )
-			->will( $this->returnValue( $record ) );
+			->willReturn( $record );
 
 		$crossRefFilteredHttpResponseParser->expects( $expects )
 			->method( 'doFilterResponseFor' );
@@ -77,7 +74,6 @@ class CrossRefResponseParserTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function idProvider() {
-
 		$provider[] = [
 			'abc',
 			 $this->never()

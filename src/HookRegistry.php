@@ -2,15 +2,15 @@
 
 namespace SCI;
 
-use SMW\Store;
-use Onoi\Cache\Cache;
-use SMW\Services\ServicesFactory as ApplicationFactory;
+use SMW\DataItems\DataItem;
+use SMW\DataItems\WikiPage;
 use SMW\DataTypeRegistry;
-use SMW\DIWikiPage;
-use SMWDataItem as DataItem;
+use SMW\Services\ServicesFactory as ApplicationFactory;
+use SMW\Store;
+use Wikimedia\ObjectCache\BagOStuff;
 
 /**
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -36,10 +36,10 @@ class HookRegistry {
 	 * @since 1.0
 	 *
 	 * @param Store $store
-	 * @param Cache $cache
+	 * @param BagOStuff $cache
 	 * @param Options $options
 	 */
-	public function __construct( Store $store, Cache $cache, Options $options ) {
+	public function __construct( Store $store, BagOStuff $cache, Options $options ) {
 		$this->options = $options;
 
 		$this->addCallbackHandlers(
@@ -66,7 +66,7 @@ class HookRegistry {
 	 *
 	 * @param string $name
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function isRegistered( $name ) {
 		return \MediaWiki\MediaWikiServices::getInstance()->getHookContainer()->isRegistered( $name );
@@ -76,7 +76,6 @@ class HookRegistry {
 	 * @since  1.0
 	 */
 	public function clear() {
-
 		if ( !defined( 'MW_PHPUNIT_TEST' ) ) {
 			return;
 		}
@@ -91,7 +90,7 @@ class HookRegistry {
 	 *
 	 * @param string $name
 	 *
-	 * @return Callable|false
+	 * @return callable|false
 	 */
 	public function getHandlerFor( $name ) {
 		return isset( $this->handlers[$name] ) ? $this->handlers[$name] : false;
@@ -117,7 +116,6 @@ class HookRegistry {
 	 * @param array &$config
 	 */
 	public static function onBeforeConfigCompletion( &$config ) {
-
 		if ( !isset( $config['smwgFulltextSearchPropertyExemptionList'] ) ) {
 			return;
 		}
@@ -133,9 +131,7 @@ class HookRegistry {
 	 * @since 2.0
 	 */
 	public static function initExtension() {
-
-		$GLOBALS['wgHooks']['SMW::Config::BeforeCompletion'][] = function( &$config ) {
-
+		$GLOBALS['wgHooks']['SMW::Config::BeforeCompletion'][] = static function ( &$config ) {
 			$exemptionlist = [
 				PropertyRegistry::SCI_CITE
 			];
@@ -189,7 +185,7 @@ class HookRegistry {
 			);
 		}
 
-		$callback = function() {
+		$callback = function () {
 			return $this->citationReferencePositionJournal;
 		};
 
@@ -207,7 +203,6 @@ class HookRegistry {
 	}
 
 	private function addCallbackHandlers( $store, $cache, $options ) {
-
 		$propertyRegistry = new PropertyRegistry();
 		$namespaceExaminer = ApplicationFactory::getInstance()->getNamespaceExaminer();
 
@@ -224,7 +219,7 @@ class HookRegistry {
 		/**
 		 * @see https://www.semantic-mediawiki.org/wiki/Hooks/SMW::Property::initProperties
 		 */
-		$this->handlers['SMW::Property::initProperties'] = function ( $corePropertyRegistry ) use ( $propertyRegistry ) {
+		$this->handlers['SMW::Property::initProperties'] = static function ( $corePropertyRegistry ) use ( $propertyRegistry ) {
 			return $propertyRegistry->registerTo( $corePropertyRegistry );
 		};
 
@@ -236,8 +231,7 @@ class HookRegistry {
 		/**
 		 * @see https://www.semantic-mediawiki.org/wiki/Hooks/SMW::Browse::AfterIncomingPropertiesLookupComplete
 		 */
-		$this->handlers['SMW::Browse::AfterIncomingPropertiesLookupComplete'] = function ( $store, $semanticData, $requestOptions ) use ( $referenceBacklinksLookup ) {
-
+		$this->handlers['SMW::Browse::AfterIncomingPropertiesLookupComplete'] = static function ( $store, $semanticData, $requestOptions ) use ( $referenceBacklinksLookup ) {
 			$referenceBacklinksLookup->setRequestOptions( $requestOptions );
 			$referenceBacklinksLookup->setStore( $store );
 
@@ -248,14 +242,14 @@ class HookRegistry {
 			return true;
 		};
 
-		$this->handlers['SMW::Browse::BeforeIncomingPropertyValuesFurtherLinkCreate'] = function ( $property, $subject, &$html ) use ( $referenceBacklinksLookup ) {
+		$this->handlers['SMW::Browse::BeforeIncomingPropertyValuesFurtherLinkCreate'] = static function ( $property, $subject, &$html ) use ( $referenceBacklinksLookup ) {
 			return $referenceBacklinksLookup->getSpecialPropertySearchFurtherLink( $property, $subject, $html );
 		};
 
 		/**
 		 * @see https://www.semantic-mediawiki.org/wiki/Hooks/SMW::Parser::BeforeMagicWordsFinder
 		 */
-		$this->handlers['SMW::Parser::BeforeMagicWordsFinder'] = function( array &$magicWords ) {
+		$this->handlers['SMW::Parser::BeforeMagicWordsFinder'] = static function ( array &$magicWords ) {
 			$magicWords = array_merge( $magicWords, [ 'SCI_NOREFERENCELIST' ] );
 			return true;
 		};
@@ -263,8 +257,7 @@ class HookRegistry {
 		/**
 		 * @see https://www.semantic-mediawiki.org/wiki/Hooks/SMW::SQLStore::AddCustomFixedPropertyTables
 		 */
-		$this->handlers['SMW::SQLStore::AddCustomFixedPropertyTables'] = function( array &$customFixedProperties ) use( $propertyRegistry ) {
-
+		$this->handlers['SMW::SQLStore::AddCustomFixedPropertyTables'] = static function ( array &$customFixedProperties ) use( $propertyRegistry ) {
 			$properties = [
 				$propertyRegistry::SCI_CITE_KEY,
 				$propertyRegistry::SCI_CITE_REFERENCE,
@@ -288,8 +281,7 @@ class HookRegistry {
 		/**
 		 * @see https://www.mediawiki.org/wiki/Manual:Hooks/BeforePageDisplay
 		 */
-		$this->handlers['BeforePageDisplay'] = function ( &$outputPage, &$skin ) use( $namespaceExaminer, $options ) {
-
+		$this->handlers['BeforePageDisplay'] = static function ( &$outputPage, &$skin ) use( $namespaceExaminer, $options ) {
 			if ( !$namespaceExaminer->isSemanticEnabled( $outputPage->getTitle()->getNamespace() ) ) {
 				return true;
 			}
@@ -318,7 +310,7 @@ class HookRegistry {
 		 *
 		 * @see https://www.mediawiki.org/wiki/Manual:Hooks/OutputPageParserOutput
 		 */
-		$this->handlers['OutputPageParserOutput'] = function( &$outputPage, $parserOutput ) {
+		$this->handlers['OutputPageParserOutput'] = static function ( &$outputPage, $parserOutput ) {
 			$outputPage->smwmagicwords = $parserOutput->getExtensionData( 'smwmagicwords' );
 			return true;
 		};
@@ -326,8 +318,7 @@ class HookRegistry {
 		/**
 		 * @see https://www.mediawiki.org/wiki/Manual:Hooks/OutputPageBeforeHTML
 		 */
-		$this->handlers['OutputPageBeforeHTML'] = function( &$outputPage, &$text ) use ( $store, $namespaceExaminer, $cache, $cacheKeyProvider, $options ) {
-
+		$this->handlers['OutputPageBeforeHTML'] = function ( &$outputPage, &$text ) use ( $store, $namespaceExaminer, $cache, $cacheKeyProvider, $options ) {
 			$referenceListFactory = new ReferenceListFactory(
 				$store,
 				$namespaceExaminer,
@@ -347,10 +338,9 @@ class HookRegistry {
 		};
 
 		/**
-		 * @see https://www.semantic-mediawiki.org/wiki/Hooks#SMWStore::updateDataBefore
+		 * @see https://www.semantic-mediawiki.org/wiki/Hooks#SMW::Store::BeforeDataUpdateComplete
 		 */
-		$this->handlers['SMWStore::updateDataBefore'] = function ( $store, $semanticData ) use ( $cache, $cacheKeyProvider ) {
-
+		$this->handlers['SMW::Store::BeforeDataUpdateComplete'] = function ( $store, $semanticData ) use ( $cache, $cacheKeyProvider ) {
 			$hash = $semanticData->getSubject()->getHash();
 
 			// No remaining reference means it is time to purge the cache once
@@ -373,9 +363,8 @@ class HookRegistry {
 		/**
 		 * @see https://www.semantic-mediawiki.org/wiki/Hooks#SMW::SQLStore::AfterDeleteSubjectComplete
 		 */
-		$this->handlers['SMW::SQLStore::AfterDeleteSubjectComplete'] = function ( $store, $title ) use ( $cache, $cacheKeyProvider ) {
-
-			$hash = DIWikiPage::newFromTitle( $title )->getHash();
+		$this->handlers['SMW::SQLStore::AfterDeleteSubjectComplete'] = static function ( $store, $title ) use ( $cache, $cacheKeyProvider ) {
+			$hash = WikiPage::newFromTitle( $title )->getHash();
 
 			$cache->delete(
 				$cacheKeyProvider->getCacheKeyForCitationReference( $hash )
@@ -391,8 +380,7 @@ class HookRegistry {
 		/**
 		 * @see https://www.semantic-mediawiki.org/wiki/Hooks#SMW::SQLStore::AfterDataUpdateComplete
 		 */
-		$this->handlers['SMW::SQLStore::AfterDataUpdateComplete'] = function ( $store, $semanticData, $compositePropertyTableDiffIterator ) use ( $referenceBacklinksLookup, $options ) {
-
+		$this->handlers['SMW::SQLStore::AfterDataUpdateComplete'] = static function ( $store, $semanticData, $compositePropertyTableDiffIterator ) use ( $referenceBacklinksLookup, $options ) {
 			$referenceBacklinksLookup->setStore( $store );
 
 			$citationTextChangeUpdateJobDispatcher = new CitationTextChangeUpdateJobDispatcher(
@@ -415,18 +403,17 @@ class HookRegistry {
 		/**
 		 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ParserFirstCallInit
 		 */
-		$this->handlers['ParserFirstCallInit'] = function ( &$parser ) use ( $namespaceExaminer, $options ) {
-
+		$this->handlers['ParserFirstCallInit'] = static function ( &$parser ) use ( $namespaceExaminer, $options ) {
 			$parserFunctionFactory = new ParserFunctionFactory();
 
-			list( $name, $definition, $flag ) = $parserFunctionFactory->newSciteParserFunctionDefinition(
+			[ $name, $definition, $flag ] = $parserFunctionFactory->newSciteParserFunctionDefinition(
 				$namespaceExaminer,
 				$options
 			);
 
 			$parser->setFunctionHook( $name, $definition, $flag );
 
-			list( $name, $definition, $flag ) = $parserFunctionFactory->newReferenceListParserFunctionDefinition();
+			[ $name, $definition, $flag ] = $parserFunctionFactory->newReferenceListParserFunctionDefinition();
 
 			$parser->setFunctionHook( $name, $definition, $flag );
 

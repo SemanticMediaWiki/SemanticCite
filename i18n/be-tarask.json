@@ -12,7 +12,7 @@
 	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code> ня можа быць скарыстаны ў прасторы назваў, ня ўключанай для Semantic MediaWiki",
 	"sci-scite-parser-no-reference": "<code>#scite</code> ня выявіў спасылку.",
 	"sci-scite-parser-no-type": "<code>#scite</code> ня змог вызначыць тып спасылкі для «$1».",
-	"sci-scite-parser-no-citation-text": "<code>#scite</code> ня змог адлюстраваць тэкст цытаваньня для спасылкі «$1», таму што тып «$2» ня быў прызначаны для [[MediaWiki:Sci-template-definition|шаблёну]].",
+	"sci-scite-parser-no-citation-text": "<code>#scite</code> ня змог вывесьці тэкст цытаваньня для спасылкі «$1», таму што тып «$2» ня быў прызначаны для [[MediaWiki:Sci-template-definition|шаблёну]].",
 	"sci-datavalue-empty-reference": "Спасылка на цытаваньне не павінна быць парожняй.",
 	"sci-datavalue-invalid-id-value": "«$1» зьяўляецца недапушчальным значэньнем для тыпу $2.",
 	"sci-property-alias-citation-key": "Ключ цытаваньня",
@@ -54,7 +54,7 @@
 	"smw-pa-property-predefined__sci_cite": "«$1» — гэта прадвызначаная ўласьцівасьць, якая забясьпечваецца пашырэньнем [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Сэмантычны сайт]. Яна апісвае ўсе элемэнты цытаваньня і захоўвацца як падаб’ект.",
 	"smw-pa-property-predefined__sci_doi": "«$1» — гэта прадвызначаная ўласьцівасьць, якая забясьпечваецца пашырэньнем [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Сэмантычны сайт]. Яна прадстаўляе Ідэнтыфікатар лічбавага аб’екту.",
 	"smw-pa-property-predefined__sci_pmcid": "«$1» — гэта прадвызначаная ўласьцівасьць, якая забясьпечваецца пашырэньнем [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Сэмантычны сайт]. Яна прадстаўляе спасылачны нумар PubMed Central (PMCID) і спасылаецца на поўнатэкставыя дакумэнты ў PubMed Central.",
-	"smw-pa-property-predefined__sci_pmid": "«$1» — гэта прадвызначаная ўласьцівасьць, якая забясьпечваецца пашырэньнем [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Сэмантычны сайт]. Яна прадстаўляе ідэнтыфікатар PubMed сутнасьці і адрозьніваецца ад [[Property:PMCID|PMCID]].",
+	"smw-pa-property-predefined__sci_pmid": "«$1» — гэта перадвызначаная ўласьцівасьць, якая забясьпечваецца пашырэньнем [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Сэмантычны сайт]. Яна прадстаўляе ідэнтыфікатар PubMed існасьці й адрозьніваецца ад [[Property:PMCID|PMCID]].",
 	"smw-pa-property-predefined__sci_oclc": "«$1» — гэта прадвызначаная ўласьцівасьць, якая забясьпечваецца пашырэньнем [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Сэмантычны сайт]. Яна ідэнтыфікуе бібліяграфічныя запісы, якія захоўваюцца ў WorldCat (OCLC).",
 	"smw-pa-property-predefined__sci_olid": "«$1» — гэта прадвызначаная ўласьцівасьць, якая забясьпечваецца пашырэньнем [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Сэмантычны сайт]. Яна ідэнтыфікуе запісы OpenLibrary.",
 	"smw-pa-property-predefined__sci_viaf": "«$1» — гэта прадвызначаная ўласьцівасьць, якая забясьпечваецца пашырэньнем [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Сэмантычны сайт]. Яна ідэнтыфікуе Віртуальны міжнародны аўтарытэтны файл."

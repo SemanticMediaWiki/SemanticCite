@@ -2,14 +2,14 @@
 
 namespace SCI\Tests;
 
+use MediaWiki\Title\Title;
 use SCI\MediaWikiContextInteractor;
-use SMW\Tests\PHPUnitCompat;
 
 /**
  * @covers \SCI\MediaWikiContextInteractor
  * @group semantic-cite
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since   1.0
  *
  * @author mwjames
@@ -17,10 +17,7 @@ use SMW\Tests\PHPUnitCompat;
  */
 class MediaWikiContextInteractorTest extends \PHPUnit\Framework\TestCase {
 
-	use PHPUnitCompat;
-
 	public function testCanConstruct() {
-
 		$context = $this->getMockBuilder( '\IContextSource' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -32,14 +29,13 @@ class MediaWikiContextInteractorTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testHasAction() {
-
 		$context = $this->getMockBuilder( '\IContextSource' )
 			->disableOriginalConstructor()
 			->getMock();
 
 		$context->expects( $this->any() )
 			->method( 'getActionName' )
-			->willReturn( 'view');
+			->willReturn( 'view' );
 
 		$instance = new MediaWikiContextInteractor( $context );
 
@@ -52,7 +48,6 @@ class MediaWikiContextInteractorTest extends \PHPUnit\Framework\TestCase {
 	 * @dataProvider oldidDirectionProvider
 	 */
 	public function testGetOldId( $direction ) {
-
 		$context = $this->getMockBuilder( '\IContextSource' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -63,26 +58,24 @@ class MediaWikiContextInteractorTest extends \PHPUnit\Framework\TestCase {
 
 		$webRequest->expects( $this->any() )
 			->method( 'getText' )
-			->will( $this->returnValue( $direction ) );
+			->willReturn( $direction );
 
 		$context->expects( $this->any() )
 			->method( 'getRequest' )
-			->will( $this->returnValue( $webRequest ) );
+			->willReturn( $webRequest );
 
 		$context->expects( $this->any() )
 			->method( 'getTitle' )
-			->will( $this->returnValue( \MediaWiki\Title\Title::newFromText( __METHOD__ ) ) );
+			->willReturn( Title::newFromText( __METHOD__ ) );
 
 		$instance = new MediaWikiContextInteractor( $context );
 
-		$this->assertInternalType(
-			'integer',
+		$this->assertIsInt(
 			$instance->getOldId()
 		);
 	}
 
 	public function oldidDirectionProvider() {
-
 		$provider = [];
 
 		$provider[] = [

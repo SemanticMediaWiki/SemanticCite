@@ -2,14 +2,14 @@
 
 namespace SCI\Tests;
 
-use SCI\ReferenceListFactory;
 use SCI\Options;
+use SCI\ReferenceListFactory;
 
 /**
  * @covers \SCI\ReferenceListFactory
  * @group semantic-cite
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since   1.0
  *
  * @author mwjames
@@ -20,8 +20,7 @@ class ReferenceListFactoryTest extends \PHPUnit\Framework\TestCase {
 	private $namespaceExaminer;
 	private $citationReferencePositionJournal;
 
-	protected function setUp() : void {
-
+	protected function setUp(): void {
 		$this->store = $this->getMockBuilder( '\SMW\Store' )
 			->disableOriginalConstructor()
 			->getMockForAbstractClass();
@@ -36,7 +35,6 @@ class ReferenceListFactoryTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			'\SCI\ReferenceListFactory',
 			new ReferenceListFactory( $this->store, $this->namespaceExaminer, $this->citationReferencePositionJournal )
@@ -44,7 +42,6 @@ class ReferenceListFactoryTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testCanConstructReferenceListOutputRenderer() {
-
 		$instance = new ReferenceListFactory(
 			$this->store,
 			$this->namespaceExaminer,
@@ -58,12 +55,11 @@ class ReferenceListFactoryTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testCanConstructCachedReferenceListOutputRenderer() {
-
 		$mediaWikiContextInteractor = $this->getMockBuilder( '\SCI\MediaWikiContextInteractor' )
 			->disableOriginalConstructor()
 			->getMock();
 
-		$cache = $this->getMockBuilder( '\Onoi\Cache\Cache' )
+		$cache = $this->getMockBuilder( '\Wikimedia\ObjectCache\BagOStuff' )
 			->disableOriginalConstructor()
 			->getMock();
 

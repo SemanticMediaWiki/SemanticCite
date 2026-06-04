@@ -8,7 +8,7 @@ use SCI\FilteredMetadata\OLResponseParser;
  * @covers \SCI\FilteredMetadata\OLResponseParser
  * @group semantic-cite
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since   1.0
  *
  * @author mwjames
@@ -16,20 +16,18 @@ use SCI\FilteredMetadata\OLResponseParser;
 class OLResponseParserTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
-
-		$olFilteredHttpResponseParser = $this->getMockBuilder( '\Onoi\Remi\OpenLibrary\OLFilteredHttpResponseParser' )
+		$olFilteredHttpResponseParser = $this->getMockBuilder( '\SCI\FilteredMetadata\OpenLibrary\OLFilteredHttpResponseParser' )
 			->disableOriginalConstructor()
 			->getMock();
 
 		$this->assertInstanceOf(
-			'\Onoi\Remi\ResponseParser',
+			'\SCI\FilteredMetadata\ResponseParser',
 			new OLResponseParser( $olFilteredHttpResponseParser )
 		);
 	}
 
 	public function testInterfaceMethods() {
-
-		$olFilteredHttpResponseParser = $this->getMockBuilder( '\Onoi\Remi\OpenLibrary\OLFilteredHttpResponseParser' )
+		$olFilteredHttpResponseParser = $this->getMockBuilder( '\SCI\FilteredMetadata\OpenLibrary\OLFilteredHttpResponseParser' )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -56,18 +54,17 @@ class OLResponseParserTest extends \PHPUnit\Framework\TestCase {
 	 * @dataProvider idProvider
 	 */
 	public function testDoParseForId( $id, $expects ) {
-
 		$record = $this->getMockBuilder( '\SCI\FilteredMetadata\BibliographicFilteredRecord' )
 			->disableOriginalConstructor()
 			->getMock();
 
-		$olFilteredHttpResponseParser = $this->getMockBuilder( '\Onoi\Remi\OpenLibrary\OLFilteredHttpResponseParser' )
+		$olFilteredHttpResponseParser = $this->getMockBuilder( '\SCI\FilteredMetadata\OpenLibrary\OLFilteredHttpResponseParser' )
 			->disableOriginalConstructor()
 			->getMock();
 
 		$olFilteredHttpResponseParser->expects( $this->any() )
 			->method( 'getFilteredRecord' )
-			->will( $this->returnValue( $record ) );
+			->willReturn( $record );
 
 		$olFilteredHttpResponseParser->expects( $expects )
 			->method( 'doFilterResponseFor' );
@@ -77,7 +74,6 @@ class OLResponseParserTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function idProvider() {
-
 		$provider[] = [
 			'abc',
 			 $this->once()

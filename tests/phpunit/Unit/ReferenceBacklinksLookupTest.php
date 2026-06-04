@@ -2,28 +2,25 @@
 
 namespace SCI\Tests;
 
-use SCI\ReferenceBacklinksLookup;
 use SCI\PropertyRegistry;
-use SMW\DIWikiPage;
-use SMW\DIProperty;
-use SMWDIBlob as DIBlob;
-use SMW\Tests\PHPUnitCompat;
+use SCI\ReferenceBacklinksLookup;
+use SMW\DataItems\Blob;
+use SMW\DataItems\Property;
+use SMW\DataItems\WikiPage;
+use SMW\DataModel\SemanticData;
 
 /**
  * @covers \SCI\ReferenceBacklinksLookup
  * @group semantic-cite
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since   1.0
  *
  * @author mwjames
  */
 class ReferenceBacklinksLookupTest extends \PHPUnit\Framework\TestCase {
 
-	use PHPUnitCompat;
-
 	public function testCanConstruct() {
-
 		$store = $this->getMockBuilder( '\SMW\Store' )
 			->disableOriginalConstructor()
 			->getMockForAbstractClass();
@@ -35,15 +32,14 @@ class ReferenceBacklinksLookupTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testtryToFindCitationKeyFor() {
-
-		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+		$semanticData = $this->getMockBuilder( SemanticData::class )
 			->disableOriginalConstructor()
 			->getMock();
 
 		$semanticData->expects( $this->once() )
 			->method( 'getPropertyValues' )
-			->with( $this->equalTo( new DIProperty( PropertyRegistry::SCI_CITE_KEY ) ) )
-			->will( $this->returnValue( [ 'Foo', 'Bar' ] ) );
+			->with( new Property( PropertyRegistry::SCI_CITE_KEY ) )
+			->willReturn( [ 'Foo', 'Bar' ] );
 
 		$store = $this->getMockBuilder( '\SMW\Store' )
 			->disableOriginalConstructor()
@@ -51,31 +47,30 @@ class ReferenceBacklinksLookupTest extends \PHPUnit\Framework\TestCase {
 
 		$store->expects( $this->once() )
 			->method( 'getSemanticData' )
-			->will( $this->returnValue( $semanticData ) );
+			->willReturn( $semanticData );
 
 		$instance = new ReferenceBacklinksLookup( $store );
 		$instance->setStore( $store );
 
 		$this->assertEquals(
 			'Bar',
-			$instance->tryToFindCitationKeyFor( DIWikiPage::newFromText( __METHOD__ ) )
+			$instance->tryToFindCitationKeyFor( WikiPage::newFromText( __METHOD__ ) )
 		);
 	}
 
 	public function testTryToAddReferenceBacklinksForNoKeys() {
-
-		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+		$semanticData = $this->getMockBuilder( SemanticData::class )
 			->disableOriginalConstructor()
 			->getMock();
 
 		$semanticData->expects( $this->once() )
 			->method( 'getSubject' )
-			->will( $this->returnValue( DIWikiPage::newFromText( __METHOD__ ) ) );
+			->willReturn( WikiPage::newFromText( __METHOD__ ) );
 
 		$semanticData->expects( $this->once() )
 			->method( 'getPropertyValues' )
-			->with( $this->equalTo( new DIProperty( PropertyRegistry::SCI_CITE_KEY ) ) )
-			->will( $this->returnValue( [] ) );
+			->with( new Property( PropertyRegistry::SCI_CITE_KEY ) )
+			->willReturn( [] );
 
 		$semanticData->expects( $this->never() )
 			->method( 'addPropertyObjectValue' );
@@ -86,7 +81,7 @@ class ReferenceBacklinksLookupTest extends \PHPUnit\Framework\TestCase {
 
 		$store->expects( $this->once() )
 			->method( 'getSemanticData' )
-			->will( $this->returnValue( $semanticData ) );
+			->willReturn( $semanticData );
 
 		$requestOptions = new \stdClass;
 		$requestOptions->limit = 5;
@@ -101,23 +96,22 @@ class ReferenceBacklinksLookupTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testAddReferenceBacklinks() {
-
-		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+		$semanticData = $this->getMockBuilder( SemanticData::class )
 			->disableOriginalConstructor()
 			->getMock();
 
 		$semanticData->expects( $this->once() )
 			->method( 'getSubject' )
-			->will( $this->returnValue( DIWikiPage::newFromText( __METHOD__ ) ) );
+			->willReturn( WikiPage::newFromText( __METHOD__ ) );
 
 		$semanticData->expects( $this->once() )
 			->method( 'getPropertyValues' )
-			->will( $this->returnValue( [ DIWikiPage::newFromText( 'Bar' ) ] ) );
+			->willReturn( [ WikiPage::newFromText( 'Bar' ) ] );
 
 		$semanticData->expects( $this->atLeastOnce() )
 			->method( 'addPropertyObjectValue' )
 			->with(
-					$this->equalTo( new DIProperty( PropertyRegistry::SCI_CITE_REFERENCE ) ),
+					new Property( PropertyRegistry::SCI_CITE_REFERENCE ),
 					$this->anything() );
 
 		$queryResult = $this->getMockBuilder( '\SMW\Query\QueryResult' )
@@ -126,7 +120,7 @@ class ReferenceBacklinksLookupTest extends \PHPUnit\Framework\TestCase {
 
 		$queryResult->expects( $this->once() )
 			->method( 'getResults' )
-			->will( $this->returnValue( [ DIWikiPage::newFromText( 'Foo' ) ] ) );
+			->willReturn( [ WikiPage::newFromText( 'Foo' ) ] );
 
 		$store = $this->getMockBuilder( '\SMW\Store' )
 			->disableOriginalConstructor()
@@ -134,11 +128,11 @@ class ReferenceBacklinksLookupTest extends \PHPUnit\Framework\TestCase {
 
 		$store->expects( $this->once() )
 			->method( 'getQueryResult' )
-			->will( $this->returnValue( $queryResult ) );
+			->willReturn( $queryResult );
 
 		$store->expects( $this->once() )
 			->method( 'getSemanticData' )
-			->will( $this->returnValue( $semanticData ) );
+			->willReturn( $semanticData );
 
 		$instance = new ReferenceBacklinksLookup( $store );
 
@@ -148,14 +142,13 @@ class ReferenceBacklinksLookupTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testGetSpecialPropertySearchFurtherLink() {
-
-		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+		$semanticData = $this->getMockBuilder( SemanticData::class )
 			->disableOriginalConstructor()
 			->getMock();
 
 		$semanticData->expects( $this->once() )
 			->method( 'getPropertyValues' )
-			->will( $this->returnValue( [ new DIBlob( 'Bar' ) ] ) );
+			->willReturn( [ new Blob( 'Bar' ) ] );
 
 		$store = $this->getMockBuilder( '\SMW\Store' )
 			->disableOriginalConstructor()
@@ -163,10 +156,10 @@ class ReferenceBacklinksLookupTest extends \PHPUnit\Framework\TestCase {
 
 		$store->expects( $this->once() )
 			->method( 'getSemanticData' )
-			->will( $this->returnValue( $semanticData ) );
+			->willReturn( $semanticData );
 
-		$property = new DIProperty( PropertyRegistry::SCI_CITE_REFERENCE );
-		$subject = DIWikiPage::newFromText( __METHOD__ );
+		$property = new Property( PropertyRegistry::SCI_CITE_REFERENCE );
+		$subject = WikiPage::newFromText( __METHOD__ );
 
 		$instance = new ReferenceBacklinksLookup( $store );
 
@@ -180,7 +173,7 @@ class ReferenceBacklinksLookupTest extends \PHPUnit\Framework\TestCase {
 			$result
 		);
 
-		$this->assertContains(
+		$this->assertStringContainsString(
 			'SearchByProperty',
 			$html
 		);

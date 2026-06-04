@@ -2,21 +2,20 @@
 
 namespace SCI;
 
+use SCI\DataValues\ResourceIdentifierFactory;
+use SMW\DataItems\Blob;
+use SMW\DataItems\Property;
+use SMW\DataValueFactory;
+use SMW\Formatters\Infolink;
 use SMW\Query\Language\SomeProperty;
 use SMW\Query\Language\ValueDescription;
 use SMW\Query\PrintRequest;
-use SMW\Store;
-use SMW\DIProperty;
-use SMW\DataValues\PropertyValue;
-use SMWQuery as Query;
-use SMWDIBlob as DIBlob;
-use SMW\DataValueFactory;
+use SMW\Query\Query;
 use SMW\Query\QueryResult;
-use SMWInfolink;
-use SCI\DataValues\ResourceIdentifierFactory;
+use SMW\Store;
 
 /**
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 2.2
  *
  * @author mwjames
@@ -52,17 +51,16 @@ class CitationResourceMatchFinder {
 	 * @return array
 	 */
 	public function findCitationResourceLinks( array $subjects, $linkClass = '', $caption = '' ) {
-
 		$citationResourceLinks = [];
 
 		foreach ( $subjects as $subject ) {
 
-			$dataValue = $this->dataValueFactory->newDataItemValue(
+			$dataValue = $this->dataValueFactory->newDataValueByItem(
 				$subject,
 				null
 			);
 
-			$browselink = SMWInfolink::newBrowsingLink(
+			$browselink = Infolink::newBrowsingLink(
 				$caption,
 				$dataValue->getWikiValue(),
 				$linkClass
@@ -85,7 +83,6 @@ class CitationResourceMatchFinder {
 	 * @return array
 	 */
 	public function findMatchForResourceIdentifierTypeToValue( $type, $id = null ) {
-
 		if ( $id === null || $id === '' ) {
 			return [];
 		}
@@ -98,7 +95,7 @@ class CitationResourceMatchFinder {
 
 		$description = new SomeProperty(
 			$resourceIdentifierStringValue->getProperty(),
-			new ValueDescription( new DIBlob( $id ) )
+			new ValueDescription( new Blob( $id ) )
 		);
 
 		$query = new Query(
@@ -110,11 +107,11 @@ class CitationResourceMatchFinder {
 		$query->querymode = Query::MODE_INSTANCES;
 		$query->setLimit( 10 );
 
-		if ( defined( 'SMWQuery::NO_CACHE' ) ) {
+		if ( defined( Query::class . '::NO_CACHE' ) ) {
 			$query->setOption( Query::NO_CACHE, true );
 		}
 
-		if ( defined( 'SMWQuery::PROC_CONTEXT' ) ) {
+		if ( defined( Query::class . '::PROC_CONTEXT' ) ) {
 			$query->setOption( Query::PROC_CONTEXT, 'SCI.CitationResourceMatchFinder' );
 		}
 
@@ -129,7 +126,6 @@ class CitationResourceMatchFinder {
 	 * @return array
 	 */
 	public function findCitationTextFor( $citationReference ) {
-
 		$text = '';
 		$subjects = [];
 
@@ -169,15 +165,14 @@ class CitationResourceMatchFinder {
 	 * @return QueryResult
 	 */
 	public function findMatchForCitationReference( $citationReference ) {
-
 		$description = new SomeProperty(
-			new DIProperty( PropertyRegistry::SCI_CITE_KEY ),
-			new ValueDescription( new DIBlob( $citationReference ) )
+			new Property( PropertyRegistry::SCI_CITE_KEY ),
+			new ValueDescription( new Blob( $citationReference ) )
 		);
 
 		$propertyValue = $this->dataValueFactory->newDataValueByType( '__pro' );
 		$propertyValue->setDataItem(
-			new DIProperty( PropertyRegistry::SCI_CITE_TEXT )
+			new Property( PropertyRegistry::SCI_CITE_TEXT )
 		);
 
 		$description->addPrintRequest(
@@ -193,7 +188,7 @@ class CitationResourceMatchFinder {
 		$query->querymode = Query::MODE_INSTANCES;
 		$query->setLimit( 10 );
 
-		if ( defined( 'SMWQuery::PROC_CONTEXT' ) ) {
+		if ( defined( Query::class . '::PROC_CONTEXT' ) ) {
 			$query->setOption( Query::PROC_CONTEXT, 'SCI.CitationResourceMatchFinder' );
 		}
 

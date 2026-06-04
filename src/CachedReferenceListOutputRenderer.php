@@ -2,12 +2,12 @@
 
 namespace SCI;
 
-use Onoi\Cache\Cache;
+use SMW\DataItems\WikiPage;
 use SMW\NamespaceExaminer;
-use SMW\DIWikiPage;
+use Wikimedia\ObjectCache\BagOStuff;
 
 /**
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -30,7 +30,7 @@ class CachedReferenceListOutputRenderer {
 	private $namespaceExaminer;
 
 	/**
-	 * @var Cache
+	 * @var BagOStuff
 	 */
 	private $cache;
 
@@ -40,7 +40,7 @@ class CachedReferenceListOutputRenderer {
 	private $cacheKeyProvider;
 
 	/**
-	 * @var DIWikiPage
+	 * @var WikiPage
 	 */
 	private $subject;
 
@@ -55,10 +55,10 @@ class CachedReferenceListOutputRenderer {
 	 * @param ReferenceListOutputRenderer $referenceListOutputRenderer
 	 * @param MediaWikiContextInteractor $contextInteractor
 	 * @param NamespaceExaminer $namespaceExaminer
-	 * @param Cache $cache
+	 * @param BagOStuff $cache
 	 * @param CacheKeyProvider $cacheKeyProvider
 	 */
-	public function __construct( ReferenceListOutputRenderer $referenceListOutputRenderer, MediaWikiContextInteractor $contextInteractor, NamespaceExaminer $namespaceExaminer, Cache $cache, CacheKeyProvider $cacheKeyProvider ) {
+	public function __construct( ReferenceListOutputRenderer $referenceListOutputRenderer, MediaWikiContextInteractor $contextInteractor, NamespaceExaminer $namespaceExaminer, BagOStuff $cache, CacheKeyProvider $cacheKeyProvider ) {
 		$this->referenceListOutputRenderer = $referenceListOutputRenderer;
 		$this->contextInteractor = $contextInteractor;
 		$this->namespaceExaminer = $namespaceExaminer;
@@ -69,12 +69,11 @@ class CachedReferenceListOutputRenderer {
 	/**
 	 * @since 1.0
 	 *
-	 * @return DIWikiPage
+	 * @return WikiPage
 	 */
 	public function getSubject() {
-
-		if (  $this->subject === null ) {
-			$this->subject = DIWikiPage::newFromTitle( $this->contextInteractor->getTitle() );
+		if ( $this->subject === null ) {
+			$this->subject = WikiPage::newFromTitle( $this->contextInteractor->getTitle() );
 		}
 
 		return $this->subject;
@@ -86,7 +85,6 @@ class CachedReferenceListOutputRenderer {
 	 * @param string &$text
 	 */
 	public function addReferenceListToText( &$text ) {
-
 		if ( $this->contextInteractor->hasMagicWord( 'SCI_NOREFERENCELIST' ) || !$this->contextInteractor->hasAction( 'view' ) ) {
 			return $this->removeReferenceListPlaceholder( $text );
 		}
@@ -99,20 +97,18 @@ class CachedReferenceListOutputRenderer {
 	}
 
 	private function removeReferenceListPlaceholder( &$text ) {
-
 		if ( strpos( $text, 'scite-custom-referencelist' ) === false ) {
 			return null;
 		}
 
 		return $text = preg_replace(
-			"/" . "<div id=\"scite-custom-referencelist\"(.*)?>(<h2>|<span>)(.*)?<\/div>" . "/m",
+			"/<div id=\"scite-custom-referencelist\"([^>]*)>(?:\\s*<div[^>]*>\\s*)?(<h2|<span)([^>]*>.*?)(?:<\\/div>\\s*)?<\\/div>/s",
 			'',
 			$text
 		);
 	}
 
 	private function addReferenceListToCorrectTextPosition( &$text ) {
-
 		// Remember the default options before trying to replace all list
 		// placeholders to ensure to reset options to the default option
 		// for when a list doesn't specify an option
@@ -125,8 +121,8 @@ class CachedReferenceListOutputRenderer {
 		// Find out whether to place the list into a custom position or not
 		if ( strpos( $text, 'scite-custom-referencelist' ) !== false ) {
 			return $text = preg_replace_callback(
-				"/" . "<div id=\"scite-custom-referencelist\"(.*)?>(<h2>|<span>)(.*)?<\/div>" . "/m",
-				'self::getCustomizedRenderedHtmlReferenceList',
+				"/<div id=\"scite-custom-referencelist\"([^>]*)>(?:\\s*<div[^>]*>\\s*)?(<h2|<span)([^>]*>.*?)(?:<\\/div>\\s*)?<\\/div>/s",
+				[ $this, 'getCustomizedRenderedHtmlReferenceList' ],
 				$text
 			);
 		}
@@ -139,7 +135,6 @@ class CachedReferenceListOutputRenderer {
 	}
 
 	private function getCustomizedRenderedHtmlReferenceList( $customOptions ) {
-
 		$this->searchForReferenceListHeaderTocId( $customOptions );
 
 		// Reset options
@@ -167,13 +162,12 @@ class CachedReferenceListOutputRenderer {
 	}
 
 	private function searchForReferenceListHeaderTocId( array $options ) {
-
 		$headerId = [];
 		$this->referenceListOutputRenderer->setReferenceListHeaderTocId( '' );
 
 		// We know where to expect the index from preg_*
 		if ( isset( $options[3] ) ) {
-			preg_match("/id=\"(.*)\"/", $options[3], $headerId );
+			preg_match( "/id=\"(.*)\"/", $options[3], $headerId );
 		}
 
 		if ( $headerId !== [] ) {
@@ -182,7 +176,6 @@ class CachedReferenceListOutputRenderer {
 	}
 
 	private function doFilterValidOption( $options, &$references, &$fingerprint ) {
-
 		$columns = '';
 		$header = '';
 
@@ -213,8 +206,7 @@ class CachedReferenceListOutputRenderer {
 		$fingerprint = $header . $columns;
 	}
 
-	private function getRenderedHtmlReferenceList( $references = '', $fingerprint = ''  ) {
-
+	private function getRenderedHtmlReferenceList( $references = '', $fingerprint = '' ) {
 		$container = [];
 		$oldId = $this->contextInteractor->getOldId();
 		$lang  = $this->contextInteractor->getLanguageCode();
@@ -230,15 +222,17 @@ class CachedReferenceListOutputRenderer {
 		// Create an individual hash for when loose references are used
 		$renderedReferenceListHash = md5( $this->getSubject()->getHash() . $references . $fingerprint );
 
-		if ( $this->cache->contains( $key ) ) {
-			$container = $this->cache->fetch( $key );
+		$container = $this->cache->get( $key );
 
+		if ( is_array( $container ) ) {
 			// Match against revision, languageCode, and hash
 			if ( isset( $container['revId'] ) &&
 				$container['revId'] == $revId &&
 				isset( $container['text'][$lang][$renderedReferenceListHash] ) ) {
 				return $container['text'][$lang][$renderedReferenceListHash];
 			}
+		} else {
+			$container = [];
 		}
 
 		$renderedReferenceList = $this->referenceListOutputRenderer->doRenderReferenceListFor(
@@ -254,7 +248,7 @@ class CachedReferenceListOutputRenderer {
 		$container['revId'] = $revId;
 		$container['text'][$lang][$renderedReferenceListHash] = $renderedReferenceList;
 
-		$this->cache->save(
+		$this->cache->set(
 			$key,
 			$container
 		);

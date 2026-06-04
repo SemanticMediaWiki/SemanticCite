@@ -2,12 +2,11 @@
 
 namespace SCI\FilteredMetadata;
 
-use Onoi\Remi\Viaf\ViafFilteredHttpResponseParser;
-use Onoi\Remi\ResponseParser;
 use SCI\DataValues\ResourceIdentifierFactory;
+use SCI\FilteredMetadata\Viaf\ViafFilteredHttpResponseParser;
 
 /**
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -70,7 +69,6 @@ class ViafResponseParser implements ResponseParser {
 	 * {@inheritDoc}
 	 */
 	public function doFilterResponseFor( $viafID ) {
-
 		$resourceIdentifierFactory = new ResourceIdentifierFactory();
 
 		$viafValue = $resourceIdentifierFactory->newResourceIdentifierStringValueForType( 'viaf' );

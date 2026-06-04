@@ -8,7 +8,7 @@ use SCI\FilteredMetadata\BibliographicFilteredRecord;
  * @covers \SCI\FilteredMetadata\BibliographicFilteredRecord
  * @group semantic-cite
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since   1.0
  *
  * @author mwjames
@@ -16,15 +16,13 @@ use SCI\FilteredMetadata\BibliographicFilteredRecord;
 class BibliographicFilteredRecordTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
-			'\Onoi\Remi\FilteredRecord',
+			'\SCI\FilteredMetadata\FilteredRecord',
 			new BibliographicFilteredRecord()
 		);
 	}
 
 	public function testSearchMatchSet() {
-
 		$instance = new BibliographicFilteredRecord();
 
 		$instance->addSearchMatchSet( 'foo', 42 );
@@ -36,7 +34,6 @@ class BibliographicFilteredRecordTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testTitleForPageCreation() {
-
 		$instance = new BibliographicFilteredRecord();
 
 		$instance->setTitleForPageCreation( 'foo' );
@@ -48,7 +45,6 @@ class BibliographicFilteredRecordTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testSciteTransclusion() {
-
 		$instance = new BibliographicFilteredRecord();
 
 		$instance->setSciteTransclusionHead( 'foo' );

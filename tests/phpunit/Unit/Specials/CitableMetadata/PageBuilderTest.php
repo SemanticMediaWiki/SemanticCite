@@ -8,7 +8,7 @@ use SCI\Specials\CitableMetadata\PageBuilder;
  * @covers \SCI\Specials\CitableMetadata\PageBuilder
  * @group semantic-cite
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -20,8 +20,7 @@ class PageBuilderTest extends \PHPUnit\Framework\TestCase {
 	private $citationResourceMatchFinder;
 	private $httpResponseParserFactory;
 
-	protected function setUp() : void {
-
+	protected function setUp(): void {
 		$this->htmlFormRenderer = $this->getMockBuilder( '\SMW\MediaWiki\Renderer\HtmlFormRenderer' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -40,7 +39,6 @@ class PageBuilderTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testCanConstruct() {
-
 		$instance = new PageBuilder(
 			$this->htmlFormRenderer,
 			$this->hmlColumnListRenderer,
@@ -55,8 +53,7 @@ class PageBuilderTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testGetRawResponse() {
-
-		$responseParser = $this->getMockBuilder( '\Onoi\Remi\ResponseParser' )
+		$responseParser = $this->getMockBuilder( '\SCI\FilteredMetadata\ResponseParser' )
 			->disableOriginalConstructor()
 			->getMockForAbstractClass();
 
@@ -66,8 +63,8 @@ class PageBuilderTest extends \PHPUnit\Framework\TestCase {
 
 		$this->httpResponseParserFactory->expects( $this->once() )
 			->method( 'newResponseParserForType' )
-			->with( $this->stringContains( 'foo') )
-			->will( $this->returnValue( $responseParser ) );
+			->with( $this->stringContains( 'foo' ) )
+			->willReturn( $responseParser );
 
 		$instance = new PageBuilder(
 			$this->htmlFormRenderer,
@@ -80,12 +77,11 @@ class PageBuilderTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testGetHtml() {
-
 		$bibliographicFilteredRecord = $this->getMockBuilder( '\SCI\FilteredMetadata\BibliographicFilteredRecord' )
 			->disableOriginalConstructor()
 			->getMock();
 
-		$responseParser = $this->getMockBuilder( '\Onoi\Remi\ResponseParser' )
+		$responseParser = $this->getMockBuilder( '\SCI\FilteredMetadata\ResponseParser' )
 			->disableOriginalConstructor()
 			->getMockForAbstractClass();
 
@@ -95,41 +91,37 @@ class PageBuilderTest extends \PHPUnit\Framework\TestCase {
 
 		$responseParser->expects( $this->any() )
 			->method( 'getMessages' )
-			->will( $this->returnValue( [] ) );
+			->willReturn( [] );
 
 		$responseParser->expects( $this->atLeastOnce() )
 			->method( 'getFilteredRecord' )
-			->will( $this->returnValue( $bibliographicFilteredRecord ) );
+			->willReturn( $bibliographicFilteredRecord );
 
-		$message = $this->getMockBuilder( '\Message' )
+		$language = $this->getMockBuilder( '\MediaWiki\Language\Language' )
 			->disableOriginalConstructor()
 			->getMock();
 
-		$messageBuilder = $this->getMockBuilder( '\SMW\MediaWiki\MessageBuilder' )
-			->disableOriginalConstructor()
-			->getMock();
-
-		$messageBuilder->expects( $this->any() )
-			->method( 'getMessage' )
-			->will( $this->returnValue( $message ) );
+		$language->expects( $this->any() )
+			->method( 'getCode' )
+			->willReturn( 'en' );
 
 		$htmlFormRenderer = $this->getMockBuilder( '\SMW\MediaWiki\Renderer\HtmlFormRenderer' )
 			->disableOriginalConstructor()
-			->setMethods( [ 'getMessageBuilder', 'getForm' ] )
+			->onlyMethods( [ 'getLanguage', 'getForm' ] )
 			->getMock();
 
 		$htmlFormRenderer->expects( $this->atLeastOnce() )
-			->method( 'getMessageBuilder' )
-			->will( $this->returnValue( $messageBuilder ) );
+			->method( 'getLanguage' )
+			->willReturn( $language );
 
 		$this->citationResourceMatchFinder->expects( $this->atLeastOnce() )
 			->method( 'findMatchForResourceIdentifierTypeToValue' )
-			->will( $this->returnValue( [] ) );
+			->willReturn( [] );
 
 		$this->httpResponseParserFactory->expects( $this->once() )
 			->method( 'newResponseParserForType' )
-			->with( $this->stringContains( 'foo') )
-			->will( $this->returnValue( $responseParser ) );
+			->with( $this->stringContains( 'foo' ) )
+			->willReturn( $responseParser );
 
 		$instance =	new PageBuilder(
 			$htmlFormRenderer,

@@ -8,7 +8,7 @@ use SCI\FilteredMetadata\NcbiPubMedResponseParser;
  * @covers \SCI\FilteredMetadata\NcbiPubMedResponseParser
  * @group semantic-cite
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since   1.0
  *
  * @author mwjames
@@ -16,20 +16,18 @@ use SCI\FilteredMetadata\NcbiPubMedResponseParser;
 class NcbiPubMedResponseParserTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
-
-		$ncbiPubMedFilteredHttpResponseParser = $this->getMockBuilder( '\Onoi\Remi\Ncbi\NcbiPubMedFilteredHttpResponseParser' )
+		$ncbiPubMedFilteredHttpResponseParser = $this->getMockBuilder( '\SCI\FilteredMetadata\Ncbi\NcbiPubMedFilteredHttpResponseParser' )
 			->disableOriginalConstructor()
 			->getMock();
 
 		$this->assertInstanceOf(
-			'\Onoi\Remi\ResponseParser',
+			'\SCI\FilteredMetadata\ResponseParser',
 			new NcbiPubMedResponseParser( $ncbiPubMedFilteredHttpResponseParser )
 		);
 	}
 
 	public function testInterfaceMethods() {
-
-		$ncbiPubMedFilteredHttpResponseParser = $this->getMockBuilder( '\Onoi\Remi\Ncbi\NcbiPubMedFilteredHttpResponseParser' )
+		$ncbiPubMedFilteredHttpResponseParser = $this->getMockBuilder( '\SCI\FilteredMetadata\Ncbi\NcbiPubMedFilteredHttpResponseParser' )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -56,7 +54,6 @@ class NcbiPubMedResponseParserTest extends \PHPUnit\Framework\TestCase {
 	 * @dataProvider idProvider
 	 */
 	public function testDoParseForId( $id, $type, $expects ) {
-
 		$record = $this->getMockBuilder( '\SCI\FilteredMetadata\BibliographicFilteredRecord' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -64,15 +61,15 @@ class NcbiPubMedResponseParserTest extends \PHPUnit\Framework\TestCase {
 		$record->expects( $this->at( 0 ) )
 			->method( 'get' )
 			->with( $this->stringContains( 'ncbi-dbtype' ) )
-			->will( $this->returnValue( $type ) );
+			->willReturn( $type );
 
-		$ncbiPubMedFilteredHttpResponseParser = $this->getMockBuilder( '\Onoi\Remi\Ncbi\NcbiPubMedFilteredHttpResponseParser' )
+		$ncbiPubMedFilteredHttpResponseParser = $this->getMockBuilder( '\SCI\FilteredMetadata\Ncbi\NcbiPubMedFilteredHttpResponseParser' )
 			->disableOriginalConstructor()
 			->getMock();
 
 		$ncbiPubMedFilteredHttpResponseParser->expects( $this->any() )
 			->method( 'getFilteredRecord' )
-			->will( $this->returnValue( $record ) );
+			->willReturn( $record );
 
 		$ncbiPubMedFilteredHttpResponseParser->expects( $expects )
 			->method( 'doFilterResponseFor' );
@@ -82,7 +79,6 @@ class NcbiPubMedResponseParserTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function idProvider() {
-
 		$provider[] = [
 			'abc',
 			'pmc',

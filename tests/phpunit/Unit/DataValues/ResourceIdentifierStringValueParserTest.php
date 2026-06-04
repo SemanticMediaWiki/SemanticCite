@@ -8,7 +8,7 @@ use SCI\DataValues\ResourceIdentifierStringValueParser;
  * @covers \SCI\DataValues\ResourceIdentifierStringValueParser
  * @group semantic-cite
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -19,7 +19,6 @@ class ResourceIdentifierStringValueParserTest extends \PHPUnit\Framework\TestCas
 	 * @dataProvider typeProvider
 	 */
 	public function testCanConstruct( $type ) {
-
 		$this->assertInstanceOf(
 			'\SCI\DataValues\ResourceIdentifierStringValueParser',
 			new ResourceIdentifierStringValueParser( $type )
@@ -30,7 +29,6 @@ class ResourceIdentifierStringValueParserTest extends \PHPUnit\Framework\TestCas
 	 * @dataProvider typeToValueProvider
 	 */
 	public function testSetUserValue( $type, $value, $expected ) {
-
 		$instance = new ResourceIdentifierStringValueParser( $type );
 
 		$this->assertEquals(
@@ -43,7 +41,6 @@ class ResourceIdentifierStringValueParserTest extends \PHPUnit\Framework\TestCas
 	 * @dataProvider typeToUriProvider
 	 */
 	public function testGetResourceTargetUri( $type, $expected ) {
-
 		$instance = new ResourceIdentifierStringValueParser( $type );
 
 		$this->assertEquals(
@@ -53,7 +50,6 @@ class ResourceIdentifierStringValueParserTest extends \PHPUnit\Framework\TestCas
 	}
 
 	public function typeProvider() {
-
 		$provider[] = [
 			'_sci_doi',
 			'DOI'
@@ -88,7 +84,6 @@ class ResourceIdentifierStringValueParserTest extends \PHPUnit\Framework\TestCas
 	}
 
 	public function typeToValueProvider() {
-
 		// DOI
 
 		$provider[] = [
@@ -303,7 +298,6 @@ class ResourceIdentifierStringValueParserTest extends \PHPUnit\Framework\TestCas
 	}
 
 	public function typeToUriProvider() {
-
 		$provider[] = [
 			'_sci_doi',
 			'https://doi.org/'

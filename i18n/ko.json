@@ -3,15 +3,17 @@
 		"authors": [
 			"Hwangjy9",
 			"Nuevo Paso",
+			"Tensama0415",
 			"Ykhwong",
 			"고솜"
 		]
 	},
-	"sci-desc": "[https://www.semantic-mediawiki.org Semantic MediaWiki]를 사용하여 출처를 관리하세요",
+	"sci-desc": "[https://www.semantic-mediawiki.org 시맨틱 미디어위키]를 사용하여 출처를 관리하세요",
 	"sci-referencelist-header": "각주",
 	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code>는 시맨틱 미디어위키에서 사용 중이 아닌 이름공간에서 사용할 수 없습니다",
 	"sci-scite-parser-no-reference": "<code>#scite</code>는 참조를 선언하지 않았습니다.",
 	"sci-scite-parser-no-type": "<code>#scite</code>는 \"$1\"에 대한 참조 유형을 결정하지 못했습니다.",
+	"sci-scite-parser-no-citation-text": "<code>#scite</code>는 참조 \"$1\"에 대한 인용 텍스트를 렌더링하지 못했습니다. 이는 유형 \"$2\"이(가) [[MediaWiki:Sci-template-definition|틀]]에 할당되지 않았기 때문입니다.",
 	"sci-datavalue-empty-reference": "인용 참조는 비어있지 않는 것으로 예측됩니다.",
 	"sci-datavalue-invalid-id-value": "\"$1\"은 $2 유형에 대한 유효하지 않은 값입니다.",
 	"sci-property-alias-citation-key": "인용 키",
@@ -46,5 +48,15 @@
 	"onoi-remi-response-empty": "\"$1\"에 대해 비어있는 결과로 응답을 반환했습니다.",
 	"onoi-remi-parser-no-id-match": "파서가 \"$1\" 항목을 일치시키지 못했습니다.",
 	"sci-tooltip-citation-lookup-failure": "\"$1\"의 백엔드로부터 적절한 인용을 검색하는데 실패했습니다.",
-	"sci-tooltip-citation-lookup-failure-multiple": "여러 개의 일치가 있는 \"$1\"에 대한 인용 텍스트의 검색을 실패했습니다."
+	"sci-tooltip-citation-lookup-failure-multiple": "여러 개의 일치가 있는 \"$1\"에 대한 인용 텍스트의 검색을 실패했습니다.",
+	"smw-pa-property-predefined__sci_cite_key": "\"$1\"은 [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] 확장 기능에서 제공하는 미리 정의된 속성으로, 인용 자료를 식별합니다.",
+	"smw-pa-property-predefined__sci_cite_reference": "\"$1\"은 [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] 확장 기능에서 제공하는 미리 정의된 속성으로, 각주 (예: 본문 내 각주) 로써 사용될 때의 인용 자료를 식별합니다.",
+	"smw-pa-property-predefined__sci_cite_text": "\"$1\"은 [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] 확장 기능에서 제공하는 미리 서식이 지정된 텍스트를 포함하는 미리 정의된 속성입니다.",
+	"smw-pa-property-predefined__sci_cite": "\"$1\"은 [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] 확장 기능에서 제공하는 미리 정의된 속성으로, 인용과 하위 객체로써 저장된 모든 요소를 서술합니다.",
+	"smw-pa-property-predefined__sci_doi": "\"$1\"은 [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] 확장 기능에서 제공하는 미리 정의된 속성으로, Digital Object Identifier를 나타냅니다.",
+	"smw-pa-property-predefined__sci_pmcid": "\"$1\"은 [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] 확장 기능에서 제공하는 미리 정의된 속성으로, PubMed Central 참조 번호 (PMCID)와 PubMed Central에 있는 논문 전문으로의 링크를 나타냅니다.",
+	"smw-pa-property-predefined__sci_pmid": "\"$1\"은 [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] 확장 기능에서 제공하는 미리 정의된 속성으로, 개체의 PubMed ID ([[Property:PMCID|PMCID]]와는 다른 것임)를 나타냅니다.",
+	"smw-pa-property-predefined__sci_oclc": "\"$1\"은 [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] 확장 기능에서 제공하는 미리 정의된 속성으로, WorldCat (OCLC)에 저장된 문헌 레코드를 식별합니다.",
+	"smw-pa-property-predefined__sci_olid": "\"$1\"은 [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] 확장 기능에서 제공하는 미리 정의된 속성으로, 오픈라이브러리 레코드를 식별합니다.",
+	"smw-pa-property-predefined__sci_viaf": "\"$1\"은 [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Semantic Cite] 확장 기능에서 제공하는 미리 정의된 속성으로, Virtual International Authority File을 식별합니다."
 }

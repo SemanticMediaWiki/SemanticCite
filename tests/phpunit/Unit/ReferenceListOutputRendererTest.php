@@ -3,28 +3,24 @@
 namespace SCI\Tests;
 
 use SCI\ReferenceListOutputRenderer;
-use SMW\DIWikiPage;
-use SMW\Tests\PHPUnitCompat;
+use SMW\DataItems\WikiPage;
 
 /**
  * @covers \SCI\ReferenceListOutputRenderer
  * @group semantic-cite
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
  */
 class ReferenceListOutputRendererTest extends \PHPUnit\Framework\TestCase {
 
-	use PHPUnitCompat;
-
 	private $citationResourceMatchFinder;
 	private $citationReferencePositionJournal;
 	private $htmlColumnListRenderer;
 
-	protected function setUp() : void {
-
+	protected function setUp(): void {
 		$this->citationResourceMatchFinder = $this->getMockBuilder( '\SCI\CitationResourceMatchFinder' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -39,7 +35,6 @@ class ReferenceListOutputRendererTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			'\SCI\ReferenceListOutputRenderer',
 			new ReferenceListOutputRenderer(
@@ -51,7 +46,6 @@ class ReferenceListOutputRendererTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testSetterGetterForExternalUse() {
-
 		$instance =	new ReferenceListOutputRenderer(
 			$this->citationResourceMatchFinder,
 			$this->citationReferencePositionJournal,
@@ -74,23 +68,21 @@ class ReferenceListOutputRendererTest extends \PHPUnit\Framework\TestCase {
 
 		$instance->setBrowseLinkToCitationResourceVisibility( true );
 
-		$this->assertEquals(
-			true,
-			$instance->getBrowseLinkToCitationResourceVisibility()
+		$this->assertTrue(
+						$instance->getBrowseLinkToCitationResourceVisibility()
 		);
 	}
 
 	public function testRenderReferenceListForIncompleteJournal() {
-
 		$this->citationReferencePositionJournal->expects( $this->once() )
 			->method( 'getJournalBySubject' )
-			->will( $this->returnValue( [
+			->willReturn( [
 				'reference-pos'  => [ 'abc' => [] ],
-				'reference-list' => [ 'abc' => 123 ] ] ) );
+				'reference-list' => [ 'abc' => 123 ] ] );
 
 		$this->citationResourceMatchFinder->expects( $this->once() )
 			->method( 'findCitationTextFor' )
-			->will( $this->returnValue( [ [], '' ] ) );
+			->willReturn( [ [], '' ] );
 
 		$instance =	new ReferenceListOutputRenderer(
 			$this->citationResourceMatchFinder,
@@ -102,9 +94,8 @@ class ReferenceListOutputRendererTest extends \PHPUnit\Framework\TestCase {
 		$instance->setResponsiveMonoColumnCharacterBoundLength( 100 );
 		$instance->setBrowseLinkToCitationResourceVisibility( true );
 
-		$this->assertInternalType(
-			'string',
-			$instance->doRenderReferenceListFor( DIWikiPage::newFromText( 'Foo' ) )
+		$this->assertIsString(
+			$instance->doRenderReferenceListFor( WikiPage::newFromText( 'Foo' ) )
 		);
 	}
 

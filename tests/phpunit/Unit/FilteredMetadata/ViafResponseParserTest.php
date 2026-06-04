@@ -8,7 +8,7 @@ use SCI\FilteredMetadata\ViafResponseParser;
  * @covers \SCI\FilteredMetadata\ViafResponseParser
  * @group semantic-cite
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since   1.0
  *
  * @author mwjames
@@ -16,20 +16,18 @@ use SCI\FilteredMetadata\ViafResponseParser;
 class ViafResponseParserTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
-
-		$viafFilteredHttpResponseParser = $this->getMockBuilder( '\Onoi\Remi\Viaf\ViafFilteredHttpResponseParser' )
+		$viafFilteredHttpResponseParser = $this->getMockBuilder( '\SCI\FilteredMetadata\Viaf\ViafFilteredHttpResponseParser' )
 			->disableOriginalConstructor()
 			->getMock();
 
 		$this->assertInstanceOf(
-			'\Onoi\Remi\ResponseParser',
+			'\SCI\FilteredMetadata\ResponseParser',
 			new ViafResponseParser( $viafFilteredHttpResponseParser )
 		);
 	}
 
 	public function testInterfaceMethods() {
-
-		$viafFilteredHttpResponseParser = $this->getMockBuilder( '\Onoi\Remi\Viaf\ViafFilteredHttpResponseParser' )
+		$viafFilteredHttpResponseParser = $this->getMockBuilder( '\SCI\FilteredMetadata\Viaf\ViafFilteredHttpResponseParser' )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -56,18 +54,17 @@ class ViafResponseParserTest extends \PHPUnit\Framework\TestCase {
 	 * @dataProvider idProvider
 	 */
 	public function testDoFilterResponseForId( $id, $expects ) {
-
 		$record = $this->getMockBuilder( '\SCI\FilteredMetadata\BibliographicFilteredRecord' )
 			->disableOriginalConstructor()
 			->getMock();
 
-		$viafFilteredHttpResponseParser = $this->getMockBuilder( '\Onoi\Remi\Viaf\ViafFilteredHttpResponseParser' )
+		$viafFilteredHttpResponseParser = $this->getMockBuilder( '\SCI\FilteredMetadata\Viaf\ViafFilteredHttpResponseParser' )
 			->disableOriginalConstructor()
 			->getMock();
 
 		$viafFilteredHttpResponseParser->expects( $this->any() )
 			->method( 'getFilteredRecord' )
-			->will( $this->returnValue( $record ) );
+			->willReturn( $record );
 
 		$viafFilteredHttpResponseParser->expects( $expects )
 			->method( 'doFilterResponseFor' );
@@ -77,7 +74,6 @@ class ViafResponseParserTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function idProvider() {
-
 		$provider[] = [
 			'abc',
 			 $this->never()

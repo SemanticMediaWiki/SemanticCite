@@ -2,14 +2,13 @@
 
 namespace SCI;
 
-use SMW\Store;
 use SMW\NamespaceExaminer;
 use SMW\Services\ServicesFactory as ApplicationFactory;
-use Onoi\Cache\Cache;
-use Parser;
+use SMW\Store;
+use Wikimedia\ObjectCache\BagOStuff;
 
 /**
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -50,7 +49,6 @@ class ReferenceListFactory {
 	 * @return ReferenceListOutputRenderer
 	 */
 	public function newReferenceListOutputRenderer() {
-
 		$mwCollaboratorFactory = ApplicationFactory::getInstance()->newMwCollaboratorFactory();
 		$htmlColumnListRenderer = $mwCollaboratorFactory->newHtmlColumnListRenderer();
 
@@ -67,14 +65,13 @@ class ReferenceListFactory {
 	 * @since  1.0
 	 *
 	 * @param MediaWikiContextInteractor $contextInteractor
-	 * @param Cache $cache
+	 * @param BagOStuff $cache
 	 * @param CacheKeyProvider $cacheKeyProvider
 	 * @param Options $options
 	 *
 	 * @return CachedReferenceListOutputRenderer
 	 */
-	public function newCachedReferenceListOutputRenderer( MediaWikiContextInteractor $contextInteractor, Cache $cache, CacheKeyProvider $cacheKeyProvider, Options $options ) {
-
+	public function newCachedReferenceListOutputRenderer( MediaWikiContextInteractor $contextInteractor, BagOStuff $cache, CacheKeyProvider $cacheKeyProvider, Options $options ) {
 		$referenceListOutputRenderer = $this->newReferenceListOutputRenderer();
 
 		$referenceListOutputRenderer->setNumberOfReferenceListColumns(
