@@ -41,12 +41,9 @@
 		}
 	},
 	"autoload": {
-		"files" : [
-			"SemanticCite.php"
-		],
-		"psr-4": {
-			"SCI\\": "src/"
-		}
+		"files": [
+			"Defines.php"
+		]
 	},
 	"config": {
 		"process-timeout": 0,

@@ -7,6 +7,7 @@ use MediaWiki\SpecialPage\SpecialPage;
 use SCI\CitationResourceMatchFinder;
 use SCI\FilteredMetadata\HttpResponseParserFactory;
 use SCI\FilteredMetadata\MediaWikiHttpRequest;
+use SCI\Setup;
 use SCI\Specials\CitableMetadata\PageBuilder;
 use SMW\Services\ServicesFactory as ApplicationFactory;
 
@@ -114,7 +115,7 @@ class SpecialFindCitableMetadata extends SpecialPage {
 
 		$httpRequest = new MediaWikiHttpRequest(
 			MediaWikiServices::getInstance()->getHttpRequestFactory(),
-			\SemanticCite::newCompositeCache( $GLOBALS['scigMetadataResponseCacheType'] )
+			Setup::newCompositeCache( $GLOBALS['scigMetadataResponseCacheType'] )
 		);
 
 		$httpRequest->setOption( MediaWikiHttpRequest::RESPONSE_CACHE_TTL, $GLOBALS['scigMetadataResponseCacheLifetime'] );
