@@ -25,7 +25,7 @@ Several short [videos](https://www.youtube.com/playlist?list=PLIJ9eX-UsA5eI_YFdn
 
 - PHP 8.1 or later
 - MediaWiki 1.43 or later
-- [Semantic MediaWiki][smw] 4.0 or later
+- [Semantic MediaWiki][smw] 7.0 or later
 
 Semantic Cite **does not require** nor uses any part of extension [Cite][mw-cite] (or `<ref>` tags) as a means to declare
 a citation resource.
@@ -46,7 +46,7 @@ create one and add the following content to it:
 ```
 {
 	"require": {
-		"mediawiki/semantic-cite": "~4.0"
+		"mediawiki/semantic-cite": "~5.0"
 	}
 }
 ```
@@ -54,7 +54,7 @@ create one and add the following content to it:
 If you already have a "composer.local.json" file add the following line to the end of the "require"
 section in your file:
 
-    "mediawiki/semantic-cite": "~4.0"
+    "mediawiki/semantic-cite": "~5.0"
 
 Remember to add a comma to the end of the preceding line in this section.
 
@@ -140,7 +140,7 @@ have a look at the contribution guideline.
 
 ## Tests
 
-This extension provides unit and integration tests that are run by a [continuous integration platform][travis]
+This extension provides unit and integration tests that are run by a [continues integration platform][GitHub Actions]
 but can also be executed using `composer phpunit` from the extension base directory.
 
 ## License
@@ -149,7 +149,7 @@ but can also be executed using `composer phpunit` from the extension base direct
 
 [smw]: https://github.com/SemanticMediaWiki/SemanticMediaWiki
 [contributors]: https://github.com/SemanticMediaWiki/SemanticCite/graphs/contributors
-[travis]: https://travis-ci.org/SemanticMediaWiki/SemanticCite
+[GitHub Actions]: https://docs.github.com/en/actions
 [gpl-licence]: https://www.gnu.org/copyleft/gpl.html
 [composer]: https://getcomposer.org/
 [mw-cite]: https://github.com/wikimedia/mediawiki-extensions-Cite
