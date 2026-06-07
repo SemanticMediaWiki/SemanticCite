@@ -3,6 +3,7 @@ This file contains the RELEASE-NOTES of the **Semantic Cite** (a.k.a. SCI) exten
 ## 5.0.0
 
 * Added compatibility with Semantic MediaWiki 7.0.x
+* Raised the minimum requirement for Semantic MediaWiki to version 7.0
 * Replaced the removed `CacheFactory::newMediaWikiCompositeCache()` call with
   MediaWiki's `CachedBagOStuff`
 * Removed the `onoi/cache`, `onoi/remi` and `mediawiki/http-request`
