@@ -2,6 +2,9 @@ This file contains the RELEASE-NOTES of the **Semantic Cite** (a.k.a. SCI) exten
 
 ## 5.0.0
 
+Released on June 8, 2026.
+
+
 * Minimum requirement for Semantic MediaWiki changed to version 7.0 and later
 * Added compatibility with Semantic MediaWiki 7.0.x
 * Replaced the removed `CacheFactory::newMediaWikiCompositeCache()` call with
