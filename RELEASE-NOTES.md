@@ -32,6 +32,7 @@ Released on June 8, 2026.
   `scigEnabledStrictParserValidation`)
 * Fixed citation tooltips rendering wiki links and other markup as raw wikitext (e.g. `[[...]]`) instead of parsed, clickable links
 * Fixed stray `[` and `]` brackets leaking into citation tooltip popups
+* Localization updates from https://translatewiki.net
 
 ## 4.0.0
 Released on March 13, 2026.
