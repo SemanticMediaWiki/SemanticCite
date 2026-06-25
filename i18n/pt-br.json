@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Dianakc",
+			"EGobi",
 			"Eduardo Addad de Oliveira",
 			"Eduardoaddad",
 			"Felipe L. Ewald",
@@ -11,7 +12,7 @@
 	},
 	"sci-desc": "Gerencia recursos de citação com o auxílio do [https://www.semantic-mediawiki.org Semantic MediaWiki]",
 	"sci-referencelist-header": "Referências",
-	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code> não pode ser utilizado em um namespace não habilitado ao Semantic MediaWiki",
+	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code> não pode ser utilizado em um espaço nominal não habilitado para o Semantic MediaWiki",
 	"sci-scite-parser-no-reference": "<code>#scite</code> não declarou uma referência.",
 	"sci-scite-parser-no-type": "<code>#scite</code> não pôde determinar um tipo de referência para \"$1\".",
 	"sci-scite-parser-no-citation-text": "<code>#scite</code> não pôde exibir um texto de citação para a referência \"$1\" porque o tipo \"$2\" não estava atribuído a uma [[MediaWiki:Sci-template-definition|predefinição]].",
