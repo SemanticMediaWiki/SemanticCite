@@ -7,8 +7,15 @@
 			"شاه زمان پټان"
 		]
 	},
+	"sci-referencelist-header": "سرچينې",
+	"sci-property-alias-citation-key": "اخځ کونجي",
+	"sci-property-alias-citation-reference": "اخځ سرچينه",
+	"sci-property-alias-citation-text": "اخځ ليک",
+	"sci-property-alias-citation-resource": "د اخځ سرچينه",
+	"findmetadatabyid": "گڼ‌اومتوک موندل",
 	"sci-specials-header-results": "د پايلو لړليک",
 	"sci-specials-select-options": "خوښنې ټاکل",
+	"sci-specials-no-results": "هېڅ پايلې شتون نه‌لري.",
 	"sci-metadata-search-form": "د پېژند له مخې",
 	"sci-metadata-search-action-highlight": "ليک غوره‌کول",
 	"sci-metadata-search-action-create": "جوړول",
