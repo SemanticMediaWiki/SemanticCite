@@ -1,10 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Robby"
+			"Robby",
+			"Volvox"
 		]
 	},
 	"sci-referencelist-header": "Referenzen",
+	"sci-datavalue-invalid-id-value": "„$1“ ass en ongültege Wäert fir den Typ „$2“.",
 	"sci-property-alias-citation-reference": "Referenzéierung",
 	"sci-property-alias-citation-text": "Text vum Zitat",
 	"findmetadatabyid": "Metadate fannen",
