@@ -6,6 +6,7 @@
 	},
 	"sci-referencelist-header": "Referi",
 	"sci-scite-parser-not-enabled-namespace": "<code>#scite</code> Ne povis uzesar che ''namespace'' qua ne esas permisata segun MediaWiki-semantiko",
+	"sci-scite-parser-no-citation-text": "<code>#scite</code> ne povis krear citajo por referar \"$1\", nam tipo \"$2\" ne asociesis a [[MediaWiki:Sci-template-definition|shablono]].",
 	"sci-property-alias-citation-text": "Citajo",
 	"sci-property-alias-citation-resource": "Fonto di la citajo",
 	"findmetadatabyid": "Renkontrar 'metadata'",
