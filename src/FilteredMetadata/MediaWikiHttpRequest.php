@@ -2,7 +2,10 @@
 
 namespace SCI\FilteredMetadata;
 
+use GuzzleHttp\Psr7\Uri;
+use GuzzleHttp\Psr7\UriResolver;
 use MediaWiki\Http\HttpRequestFactory;
+use MWHttpRequest;
 use Wikimedia\ObjectCache\BagOStuff;
 
 /**
@@ -22,6 +25,8 @@ class MediaWikiHttpRequest implements HttpRequest {
 	 * Fixed cache key segment
 	 */
 	private const CACHE_PREFIX = 'sci:http:';
+
+	private const MAX_REDIRECTS = 5;
 
 	/**
 	 * @var HttpRequestFactory
@@ -149,30 +154,27 @@ class MediaWikiHttpRequest implements HttpRequest {
 	 */
 	private function doRequest() {
 		$url = (string)( $this->options[self::URL] ?? '' );
-		$requestOptions = [];
-
-		if ( !empty( $this->options[self::FOLLOW_LOCATION] ) ) {
-			$requestOptions['followRedirects'] = true;
-		}
-
-		if ( !empty( $this->options[self::POST] ) ) {
-			$requestOptions['method'] = 'POST';
-			$requestOptions['postData'] = (string)( $this->options[self::POST_FIELDS] ?? '' );
-		}
+		$followRedirects = !empty( $this->options[self::FOLLOW_LOCATION] );
 
 		try {
-			$request = $this->httpRequestFactory->create( $url, $requestOptions, __METHOD__ );
+			$request = $this->newRequest( $url );
+			$status = $request->execute();
 
-			foreach ( (array)( $this->options[self::HEADERS] ?? [] ) as $header ) {
-				if ( strpos( (string)$header, ':' ) === false ) {
-					continue;
+			// Not left to core's followRedirects option, which prepends the body of
+			// every redirect response to the content of the final one.
+			for ( $redirects = 0; $followRedirects && $this->isFollowableRedirect( $request ); $redirects++ ) {
+				if ( $redirects === self::MAX_REDIRECTS ) {
+					$this->lastError = 'too-many-redirects';
+					return '';
 				}
 
-				[ $name, $value ] = explode( ':', $header, 2 );
-				$request->setHeader( trim( $name ), trim( $value ) );
+				$url = (string)UriResolver::resolve(
+					new Uri( $url ),
+					new Uri( $request->getResponseHeader( 'location' ) )
+				);
+				$request = $this->newRequest( $url );
+				$status = $request->execute();
 			}
-
-			$status = $request->execute();
 		} catch ( \Throwable $e ) {
 			$this->lastError = $e->getMessage();
 			return '';
@@ -188,6 +190,34 @@ class MediaWikiHttpRequest implements HttpRequest {
 		}
 
 		return (string)$request->getContent();
+	}
+
+	private function newRequest( string $url ): MWHttpRequest {
+		$requestOptions = [];
+
+		if ( !empty( $this->options[self::POST] ) ) {
+			$requestOptions['method'] = 'POST';
+			$requestOptions['postData'] = (string)( $this->options[self::POST_FIELDS] ?? '' );
+		}
+
+		$request = $this->httpRequestFactory->create( $url, $requestOptions, __METHOD__ );
+
+		foreach ( (array)( $this->options[self::HEADERS] ?? [] ) as $header ) {
+			if ( strpos( (string)$header, ':' ) === false ) {
+				continue;
+			}
+
+			[ $name, $value ] = explode( ':', $header, 2 );
+			$request->setHeader( trim( $name ), trim( $value ) );
+		}
+
+		return $request;
+	}
+
+	private function isFollowableRedirect( MWHttpRequest $request ): bool {
+		$status = $request->getStatus();
+
+		return $status >= 300 && $status < 400 && $request->getResponseHeader( 'location' ) !== null;
 	}
 
 	/**
