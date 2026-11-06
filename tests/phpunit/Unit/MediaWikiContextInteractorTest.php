@@ -2,6 +2,9 @@
 
 namespace SCI\Tests;
 
+use MediaWiki\Context\IContextSource;
+use MediaWiki\Output\OutputPage;
+use MediaWiki\Parser\ParserOutput;
 use MediaWiki\Title\Title;
 use SCI\MediaWikiContextInteractor;
 
@@ -91,6 +94,49 @@ class MediaWikiContextInteractorTest extends \PHPUnit\Framework\TestCase {
 		];
 
 		return $provider;
+	}
+
+	public function testHasMagicWordFromOutputPageMetadata() {
+		$instance = new MediaWikiContextInteractor(
+			$this->newContextWithMagicWords( [ 'FOO', 'SCI_NOREFERENCELIST', 'BAR' ] )
+		);
+
+		$this->assertTrue(
+			$instance->hasMagicWord( 'SCI_NOREFERENCELIST' )
+		);
+	}
+
+	public function testHasNoMagicWordMissingFromOutputPageMetadata() {
+		$instance = new MediaWikiContextInteractor(
+			$this->newContextWithMagicWords( [ 'FOO', 'BAR' ] )
+		);
+
+		$this->assertFalse(
+			$instance->hasMagicWord( 'SCI_NOREFERENCELIST' )
+		);
+	}
+
+	public function testHasNoMagicWordOnPageWithoutMagicWords() {
+		$instance = new MediaWikiContextInteractor(
+			$this->newContextWithMagicWords( null )
+		);
+
+		$this->assertFalse(
+			$instance->hasMagicWord( 'SCI_NOREFERENCELIST' )
+		);
+	}
+
+	private function newContextWithMagicWords( ?array $magicWords ): IContextSource {
+		$metadata = new ParserOutput();
+		$metadata->setExtensionData( 'smwmagicwords', $magicWords );
+
+		$outputPage = $this->createStub( OutputPage::class );
+		$outputPage->method( 'getMetadata' )->willReturn( $metadata );
+
+		$context = $this->createStub( IContextSource::class );
+		$context->method( 'getOutput' )->willReturn( $outputPage );
+
+		return $context;
 	}
 
 }

@@ -1,5 +1,12 @@
 This file contains the RELEASE-NOTES of the **Semantic Cite** (a.k.a. SCI) extension.
 
+## 5.0.1
+
+Not yet released.
+
+* Fixed the "Creation of dynamic property MediaWiki\Output\OutputPage::$smwmagicwords is deprecated"
+  warning by carrying the magic words over on the OutputPage's metadata instead of a dynamic property
+
 ## 5.0.0
 
 Released on June 8, 2026.
