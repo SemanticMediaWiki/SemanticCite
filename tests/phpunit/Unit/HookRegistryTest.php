@@ -2,6 +2,7 @@
 
 namespace SCI\Tests;
 
+use MediaWiki\Parser\ParserOutput;
 use SCI\HookRegistry;
 use SCI\Options;
 use SMW\DataItems\Property;
@@ -202,13 +203,21 @@ class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$parserOutput = $this->getMockBuilder( '\ParserOutput' )
-			->disableOriginalConstructor()
-			->getMock();
+		$outputPage->expects( $this->any() )
+			->method( 'getMetadata' )
+			->willReturn( new ParserOutput() );
+
+		$parserOutput = new ParserOutput();
+		$parserOutput->setExtensionData( 'smwmagicwords', [ 'SCI_NOREFERENCELIST' ] );
 
 		$this->assertThatHookIsExcutable(
 			$instance->getHandlerFor( $hook ),
 			[ &$outputPage, $parserOutput ]
+		);
+
+		$this->assertSame(
+			[ 'SCI_NOREFERENCELIST' ],
+			$outputPage->getMetadata()->getExtensionData( 'smwmagicwords' )
 		);
 	}
 
@@ -250,6 +259,10 @@ class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 		$outputPage->expects( $this->any() )
 			->method( 'getContext' )
 			->willReturn( $requestContext );
+
+		$requestContext->expects( $this->any() )
+			->method( 'getOutput' )
+			->willReturn( $outputPage );
 
 		$text = '';
 

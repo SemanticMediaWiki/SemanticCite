@@ -94,13 +94,9 @@ class MediaWikiContextInteractor {
 	 * @return bool
 	 */
 	public function hasMagicWord( $magicword ) {
-		$outputPage = $this->context->getOutput();
+		$magicWords = $this->context->getOutput()->getMetadata()->getExtensionData( 'smwmagicwords' ) ?? [];
 
-		if ( isset( $outputPage->smwmagicwords ) && in_array( $magicword, $outputPage->smwmagicwords ) ) {
-			return true;
-		}
-
-		return false;
+		return in_array( $magicword, $magicWords );
 	}
 
 	/**
