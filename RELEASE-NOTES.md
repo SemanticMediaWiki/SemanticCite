@@ -6,6 +6,8 @@ Not yet released.
 
 * Fixed the "Creation of dynamic property MediaWiki\Output\OutputPage::$smwmagicwords is deprecated"
   warning by carrying the magic words over on the OutputPage's metadata instead of a dynamic property
+* Fixed DOI searches on `Special:FindCitableMetadata` failing with "The response returned with an empty result":
+  responses from providers that redirect no longer start with the body of the redirect
 
 ## 5.0.0
 
