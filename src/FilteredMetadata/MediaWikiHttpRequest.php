@@ -6,6 +6,8 @@ use GuzzleHttp\Psr7\Uri;
 use GuzzleHttp\Psr7\UriResolver;
 use MediaWiki\Http\HttpRequestFactory;
 use MWHttpRequest;
+use Wikimedia\AtEase\AtEase;
+use Wikimedia\IPUtils;
 use Wikimedia\ObjectCache\BagOStuff;
 
 /**
@@ -71,14 +73,21 @@ class MediaWikiHttpRequest implements HttpRequest {
 	private $isFromCache = false;
 
 	/**
+	 * @var callable(string):string[]
+	 */
+	private $resolveHost;
+
+	/**
 	 * @since 7.0
 	 *
 	 * @param HttpRequestFactory $httpRequestFactory
 	 * @param BagOStuff $cache
+	 * @param callable(string):string[] $resolveHost Resolves a hostname to its IP addresses
 	 */
-	public function __construct( HttpRequestFactory $httpRequestFactory, BagOStuff $cache ) {
+	public function __construct( HttpRequestFactory $httpRequestFactory, BagOStuff $cache, callable $resolveHost ) {
 		$this->httpRequestFactory = $httpRequestFactory;
 		$this->cache = $cache;
+		$this->resolveHost = $resolveHost;
 	}
 
 	/**
@@ -168,10 +177,21 @@ class MediaWikiHttpRequest implements HttpRequest {
 					return '';
 				}
 
-				$url = (string)UriResolver::resolve(
+				$target = UriResolver::resolve(
 					new Uri( $url ),
 					new Uri( $request->getResponseHeader( 'location' ) )
 				);
+				$url = (string)$target;
+
+				// A provider that redirects to a private, loopback or link-local
+				// address would otherwise turn these lookups into an SSRF vector.
+				// The host is taken from the same resolved URI the request is
+				// built from, so the guard and the request read the same host.
+				if ( !$this->hostIsPublic( $target->getHost() ) ) {
+					$this->lastError = 'blocked-private-redirect';
+					return '';
+				}
+
 				$request = $this->newRequest( $url );
 				$status = $request->execute();
 			}
@@ -218,6 +238,50 @@ class MediaWikiHttpRequest implements HttpRequest {
 		$status = $request->getStatus();
 
 		return $status >= 300 && $status < 400 && $request->getResponseHeader( 'location' ) !== null;
+	}
+
+	private function hostIsPublic( string $host ): bool {
+		if ( $host === '' ) {
+			return false;
+		}
+
+		$host = trim( $host, '[]' );
+		$addresses = IPUtils::isIPAddress( $host ) ? [ $host ] : ( $this->resolveHost )( $host );
+
+		// Fail closed: a host that resolves to nothing cannot be reached anyway.
+		if ( $addresses === [] ) {
+			return false;
+		}
+
+		foreach ( $addresses as $address ) {
+			// Canonicalize first so an IPv4-mapped IPv6 address such as
+			// ::ffff:127.0.0.1 is judged by the IPv4 it dials, not by its
+			// public-looking IPv6 form.
+			$address = IPUtils::canonicalize( $address );
+
+			if ( $address === null || !IPUtils::isPublic( $address ) ) {
+				return false;
+			}
+		}
+
+		return true;
+	}
+
+	/**
+	 * @since 7.0
+	 *
+	 * @return string[]
+	 */
+	public static function resolveHostAddresses( string $host ): array {
+		$addresses = AtEase::quietCall( 'gethostbynamel', $host ) ?: [];
+
+		foreach ( AtEase::quietCall( 'dns_get_record', $host, DNS_AAAA ) ?: [] as $record ) {
+			if ( isset( $record['ipv6'] ) ) {
+				$addresses[] = $record['ipv6'];
+			}
+		}
+
+		return $addresses;
 	}
 
 	/**

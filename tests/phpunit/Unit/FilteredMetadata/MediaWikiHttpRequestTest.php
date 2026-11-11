@@ -50,7 +50,7 @@ class MediaWikiHttpRequestTest extends \PHPUnit\Framework\TestCase {
 	public function testCanConstruct() {
 		$this->assertInstanceOf(
 			MediaWikiHttpRequest::class,
-			new MediaWikiHttpRequest( $this->newHttpRequestFactory(), new HashBagOStuff() )
+			new MediaWikiHttpRequest( $this->newHttpRequestFactory(), new HashBagOStuff(), self::publicResolver() )
 		);
 	}
 
@@ -65,7 +65,7 @@ class MediaWikiHttpRequestTest extends \PHPUnit\Framework\TestCase {
 			->method( 'create' )
 			->willReturn( $mwRequest );
 
-		$instance = new MediaWikiHttpRequest( $httpRequestFactory, new HashBagOStuff() );
+		$instance = new MediaWikiHttpRequest( $httpRequestFactory, new HashBagOStuff(), self::publicResolver() );
 
 		$instance->setOption( HttpRequest::URL, 'https://example.org/x' );
 		$this->assertSame( '{"ok":1}', $instance->execute() );
@@ -88,7 +88,7 @@ class MediaWikiHttpRequestTest extends \PHPUnit\Framework\TestCase {
 			->method( 'create' )
 			->willReturn( $mwRequest );
 
-		$instance = new MediaWikiHttpRequest( $httpRequestFactory, new HashBagOStuff() );
+		$instance = new MediaWikiHttpRequest( $httpRequestFactory, new HashBagOStuff(), self::publicResolver() );
 
 		$instance->setOption( HttpRequest::URL, 'https://example.org/missing' );
 		$instance->execute();
@@ -117,7 +117,7 @@ class MediaWikiHttpRequestTest extends \PHPUnit\Framework\TestCase {
 			)
 			->willReturn( $mwRequest );
 
-		$instance = new MediaWikiHttpRequest( $httpRequestFactory, new HashBagOStuff() );
+		$instance = new MediaWikiHttpRequest( $httpRequestFactory, new HashBagOStuff(), self::publicResolver() );
 
 		$instance->setOption( HttpRequest::URL, 'https://eutils.example.org/' );
 		$instance->setOption( HttpRequest::POST, true );
@@ -142,7 +142,7 @@ class MediaWikiHttpRequestTest extends \PHPUnit\Framework\TestCase {
 		$httpRequestFactory = $this->newHttpRequestFactory();
 		$httpRequestFactory->method( 'create' )->willReturn( $mwRequest );
 
-		$instance = new MediaWikiHttpRequest( $httpRequestFactory, new HashBagOStuff() );
+		$instance = new MediaWikiHttpRequest( $httpRequestFactory, new HashBagOStuff(), self::publicResolver() );
 
 		$instance->setOption( HttpRequest::URL, 'https://example.org/x' );
 		$instance->setOption( HttpRequest::HEADERS, [
@@ -184,7 +184,7 @@ class MediaWikiHttpRequestTest extends \PHPUnit\Framework\TestCase {
 	 * Uses MediaWiki core's request class, so that core's redirect and body
 	 * handling is part of what is tested; the handler stands in for the network.
 	 */
-	private function newInstanceServedBy( MockHandler $server ): MediaWikiHttpRequest {
+	private function newInstanceServedBy( MockHandler $server, ?callable $resolveHost = null ): MediaWikiHttpRequest {
 		$httpRequestFactory = $this->createStub( HttpRequestFactory::class );
 		$httpRequestFactory->method( 'create' )->willReturnCallback(
 			static fn ( string $url, array $options ) => new GuzzleHttpRequest(
@@ -193,7 +193,11 @@ class MediaWikiHttpRequestTest extends \PHPUnit\Framework\TestCase {
 			)
 		);
 
-		return new MediaWikiHttpRequest( $httpRequestFactory, new HashBagOStuff() );
+		return new MediaWikiHttpRequest( $httpRequestFactory, new HashBagOStuff(), $resolveHost ?? self::publicResolver() );
+	}
+
+	private static function publicResolver(): callable {
+		return static fn ( string $host ): array => [ '93.184.216.34' ];
 	}
 
 	/**
@@ -272,6 +276,68 @@ class MediaWikiHttpRequestTest extends \PHPUnit\Framework\TestCase {
 
 		$this->assertNotSame( '', $instance->getLastError() );
 		$this->assertGreaterThan( 0, $server->count(), 'The server was still redirecting when the client gave up' );
+	}
+
+	public function testRedirectToAPrivateAddressIsNotFollowed() {
+		$server = new MockHandler( [
+			new Response( 302, [ 'Location' => 'http://127.0.0.1:9901/internal' ], 'moved' ),
+			new Response( 200, [], 'INTERNAL-ONLY' ),
+		] );
+		$instance = $this->newInstanceServedBy( $server );
+
+		$instance->setOption( HttpRequest::URL, 'https://doi.example.org/10.1/x' );
+		$instance->setOption( HttpRequest::FOLLOW_LOCATION, true );
+
+		$this->assertSame( '', $instance->execute() );
+		$this->assertNotSame( '', $instance->getLastError() );
+	}
+
+	public function testRedirectToAnIpv4MappedIpv6LoopbackIsNotFollowed() {
+		$server = new MockHandler( [
+			new Response( 302, [ 'Location' => 'http://[::ffff:7f00:1]/internal' ], 'moved' ),
+			new Response( 200, [], 'INTERNAL-ONLY' ),
+		] );
+		$instance = $this->newInstanceServedBy( $server );
+
+		$instance->setOption( HttpRequest::URL, 'https://doi.example.org/10.1/x' );
+		$instance->setOption( HttpRequest::FOLLOW_LOCATION, true );
+
+		$this->assertSame( '', $instance->execute() );
+		$this->assertNotSame( '', $instance->getLastError() );
+	}
+
+	public function testRedirectToAHostResolvingToAPrivateAddressIsNotFollowed() {
+		$server = new MockHandler( [
+			new Response( 302, [ 'Location' => 'https://metadata.example.test/' ], 'moved' ),
+			new Response( 200, [], 'INTERNAL-ONLY' ),
+		] );
+		$instance = $this->newInstanceServedBy(
+			$server,
+			static fn ( string $host ): array => [ '169.254.169.254' ]
+		);
+
+		$instance->setOption( HttpRequest::URL, 'https://doi.example.org/10.1/x' );
+		$instance->setOption( HttpRequest::FOLLOW_LOCATION, true );
+
+		$this->assertSame( '', $instance->execute() );
+		$this->assertNotSame( '', $instance->getLastError() );
+	}
+
+	public function testRedirectToAHostResolvingToAnIpv4MappedLoopbackIsNotFollowed() {
+		$server = new MockHandler( [
+			new Response( 302, [ 'Location' => 'https://metadata.example.test/' ], 'moved' ),
+			new Response( 200, [], 'INTERNAL-ONLY' ),
+		] );
+		$instance = $this->newInstanceServedBy(
+			$server,
+			static fn ( string $host ): array => [ '::ffff:7f00:1' ]
+		);
+
+		$instance->setOption( HttpRequest::URL, 'https://doi.example.org/10.1/x' );
+		$instance->setOption( HttpRequest::FOLLOW_LOCATION, true );
+
+		$this->assertSame( '', $instance->execute() );
+		$this->assertNotSame( '', $instance->getLastError() );
 	}
 
 }

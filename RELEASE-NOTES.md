@@ -8,6 +8,9 @@ Not yet released.
   warning by carrying the magic words over on the OutputPage's metadata instead of a dynamic property
 * Fixed DOI searches on `Special:FindCitableMetadata` failing with "The response returned with an empty result":
   responses from providers that redirect no longer start with the body of the redirect
+* Fixed a server-side request forgery on `Special:FindCitableMetadata`: metadata lookups no longer follow a
+  provider's redirect to a private, loopback or link-local address
+  ([GHSA-f6m7-6wqf-mfvj](https://github.com/SemanticMediaWiki/SemanticCite/security/advisories/GHSA-f6m7-6wqf-mfvj))
 
 ## 5.0.0
 

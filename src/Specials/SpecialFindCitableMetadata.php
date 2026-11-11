@@ -115,7 +115,8 @@ class SpecialFindCitableMetadata extends SpecialPage {
 
 		$httpRequest = new MediaWikiHttpRequest(
 			MediaWikiServices::getInstance()->getHttpRequestFactory(),
-			Setup::newCompositeCache( $GLOBALS['scigMetadataResponseCacheType'] )
+			Setup::newCompositeCache( $GLOBALS['scigMetadataResponseCacheType'] ),
+			MediaWikiHttpRequest::resolveHostAddresses( ... )
 		);
 
 		$httpRequest->setOption( MediaWikiHttpRequest::RESPONSE_CACHE_TTL, $GLOBALS['scigMetadataResponseCacheLifetime'] );
