@@ -4,7 +4,8 @@ This file contains the RELEASE-NOTES of the **Semantic Cite** (a.k.a. SCI) exten
 
 Not yet released.
 
-* Fixed `Special:FindCitableMetadata` failing to load on MediaWiki 1.47 and emitting a deprecation warning on 1.46
+* Fixed `Special:FindCitableMetadata` and `Special:SpecialPages` failing to load on MediaWiki 1.47, and the
+  deprecation warning on 1.46
 
 ## 5.0.1
 
