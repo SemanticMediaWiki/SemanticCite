@@ -1,5 +1,11 @@
 This file contains the RELEASE-NOTES of the **Semantic Cite** (a.k.a. SCI) extension.
 
+## 5.0.2
+
+Not yet released.
+
+* Fixed `Special:FindCitableMetadata` failing to load on MediaWiki 1.47 and emitting a deprecation warning on 1.46
+
 ## 5.0.1
 
 Released on November 10, 2026.

@@ -19,11 +19,17 @@ use SMW\Services\ServicesFactory as ApplicationFactory;
  */
 class SpecialFindCitableMetadata extends SpecialPage {
 
-	/**
-	 * @codeCoverageIgnore
-	 */
 	public function __construct() {
-		parent::__construct( 'FindCitableMetadata', 'sci-metadatasearch' );
+		if ( version_compare( MW_VERSION, '1.46', '<' ) ) {
+			// Before 1.46, MediaWiki checks the restriction given here, not getRestriction()
+			parent::__construct( 'FindCitableMetadata', 'sci-metadatasearch' );
+		} else {
+			parent::__construct( 'FindCitableMetadata' );
+		}
+	}
+
+	public function getRestriction(): string {
+		return 'sci-metadatasearch';
 	}
 
 	/**
