@@ -30,7 +30,7 @@ class FindCitableMetadataAccessTest extends SpecialPageTestBase {
 	}
 
 	public function testRefusesAUserWithoutTheMetadataSearchRight(): void {
-		$user = $this->userWithRights( [] );
+		$user = $this->userWithRights( [ 'read' ] );
 
 		$this->expectException( PermissionsError::class );
 		$this->executeSpecialPage( '', null, null, $user );
